@@ -1,0 +1,817 @@
+% Essay C: Causation, Agency, and Existence
+% Structural Constraints and Interpretive Bridges
+% COMPLETE VERSION
+
+\documentclass[11pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{hyperref}
+\usepackage{geometry}
+\usepackage{titlesec}
+\usepackage{tcolorbox}
+\usepackage{cite}
+\usepackage{newunicodechar}
+\geometry{margin=1in}
+
+% Handle Devanagari characters (fallback rendering)
+\newunicodechar{आ}{\textit{aa}}
+\newunicodechar{ल}{\textit{la}}
+\newunicodechar{य}{\textit{ya}}
+\newunicodechar{व}{\textit{va}}
+\newunicodechar{ि}{\textit{i}}
+\newunicodechar{ज}{\textit{ja}}
+\newunicodechar{ञ}{\textit{~na}}
+\newunicodechar{न}{\textit{na}}
+\newunicodechar{श}{\textit{sha}}
+\newunicodechar{ू}{\textit{uu}}
+\newunicodechar{ण}{\textit{.na}}
+\newunicodechar{त}{\textit{ta}}
+\newunicodechar{ा}{\textit{aa}}
+\newunicodechar{स}{\textit{sa}}
+\newunicodechar{भ}{\textit{bha}}
+\newunicodechar{ृ}{\textit{.r}}
+\newunicodechar{ह}{\textit{ha}}
+\newunicodechar{्}{}  % virama (vowel suppressor)
+
+% Theorem environments
+\newtheorem{definition}{Definition}[section]
+\newtheorem{remark}[definition]{Remark}
+
+% Title & Authors
+\title{Causation, Agency, and Existence:\\
+Structural Constraints and Interpretive Bridges}
+
+\author{
+  Sidong Liu, PhD \\
+  iBioStratix Ltd \\
+  \texttt{sidongliu@hotmail.com}
+}
+
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+This essay examines the structural conditions under which agency, causation, and existence can be coherently discussed in the absence of foundational subsystem decompositions. Building on recent work in quantum information theory and algebraic approaches to quantum mechanics, Parts I--III develop a framework in which causal relations, agent boundaries, and existential claims emerge from stability properties of accessible observable algebras rather than from intrinsic substance or preferred factorizations.
+
+Part I argues that causation can be understood as stable asymmetry within coarse-grained structures without requiring fundamental temporal ordering. Part II analyzes agency as boundary-stabilization—a non-scrambling subspace that propagates constraints without presupposing a metaphysically autonomous agent. Part III recasts existence in terms of relational form rather than intrinsic being, developing a notion of ``emptiness'' as absence of substance compatible with objectivity.
+
+Part IV explores whether these structural features find formal parallels in Buddhist philosophical frameworks, particularly Yog\=ac\=ara and M\=adhyamaka traditions. The analysis emphasizes interpretive humility: parallels are offered as invitations to dialogue, not demonstrations of equivalence. The essay's contribution is methodological—clarifying structural constraints on emergence—rather than doctrinal.
+
+\medskip
+
+\noindent\textbf{Keywords}: agency, emergence, structural realism, coarse-graining, accessible algebras, Buddhist philosophy, emptiness, comparative philosophy
+\end{abstract}
+
+\tableofcontents
+
+\section{Introduction}
+\label{sec:intro}
+
+Contemporary philosophy of physics faces a structural puzzle. When quantum systems lack canonical subsystem decompositions, how should we understand causation, agency, and existence? If there is no preferred way to carve reality into parts, what becomes of the conceptual apparatus built on the assumption of well-defined relata?
+
+This essay develops a framework in which these notions emerge from \emph{stability properties of accessible algebras} rather than from intrinsic substance or preferred factorizations. The analysis proceeds in four parts.
+
+\paragraph{Roadmap.}
+Part I examines causation without temporal foundations, arguing that causal relations can be understood as stable asymmetries in coarse-grained structure. Part II analyzes agency as boundary-stabilization—the capacity of certain subsystems to maintain non-scrambling coherence while propagating constraints. Part III recasts existence in terms of relational patterns rather than intrinsic being, developing a technical sense of ``emptiness'' compatible with structural realism.
+
+Part IV explores whether these structural features find formal parallels in Buddhist philosophical traditions, particularly Yog\=ac\=ara and M\=adhyamaka. The analysis emphasizes interpretive humility: we identify structural similarities without claiming ontological identity, historical influence, or doctrinal convergence.
+
+\paragraph{Methodological stance.}
+This is a structural investigation, not a metaphysical proposal. We do not claim that consciousness creates reality, that Buddhist texts anticipated quantum mechanics, or that comparative philosophy resolves foundational problems. Rather, we clarify how certain structural constraints—particularly the absence of canonical factorization—reshape discussions of emergence, agency, and existence across different conceptual traditions.
+
+The essay's contribution is methodological: it demonstrates how attention to algebraic structure can discipline interpretive claims and reveal unexpected points of contact between seemingly disparate frameworks.
+
+\paragraph{Relation to prior work.}
+This essay builds on technical results developed in companion papers \cite{Liu2026PaperA,Liu2026PaperB}, which establish that inequivalent coarse-graining structures induce inequivalent effective geometries from the same global quantum state. Here, we explore philosophical consequences of this structural dependence for traditional metaphysical categories.
+
+\section{Part I: Causation Without Foundations}
+\label{sec:causation}
+
+\subsection{The Standard Picture and Its Assumptions}
+\label{sec:I.1}
+
+Causal relations are typically understood as relations between events ordered by time. Event $A$ causes event $B$ if: (i) $A$ temporally precedes $B$, (ii) $A$ and $B$ are spatially connectible, and (iii) interventions on $A$ counterfactually affect $B$ \cite{Pearl2009}.
+
+This picture presupposes several structural features:
+\begin{itemize}
+\item A well-defined notion of temporal ordering
+\item Spatially localized events with clear boundaries
+\item Stable subsystem decompositions supporting counterfactual reasoning
+\end{itemize}
+
+In quantum contexts without canonical factorization, none of these features is guaranteed. Time may be emergent rather than fundamental \cite{PageWootters1983}. Spatial locality depends on choice of coarse-graining \cite{Liu2026PaperA}. Subsystem boundaries are algebra-dependent rather than intrinsic.
+
+\subsection{Causation as Stable Asymmetry}
+\label{sec:I.2}
+
+We propose that causation can be understood as \emph{stable asymmetry in accessible structure}, without requiring fundamental temporal ordering.
+
+\begin{definition}[Causal Structure as Asymmetric Accessibility]
+\label{def:causal-asymmetry}
+Let $\mathcal{A}_{\mathbf{c}}$ be an accessible algebra determined by coarse-graining structure $\mathbf{c}$. A \textbf{causal relation} between subsystems $A$ and $B$ exists if there is a stable asymmetry in their correlation structure:
+\begin{equation}
+I(A_{\text{past}}:B_{\text{future}}) > I(B_{\text{past}}:A_{\text{future}}),
+\end{equation}
+where mutual information is computed relative to $\mathcal{A}_{\mathbf{c}}$, and ``past/future'' refer to coarse-graining-dependent orderings that admit thermodynamic interpretation.
+\end{definition}
+
+This definition makes no reference to fundamental time. Instead, it identifies causation with robust directional structure in how information propagates through accessible degrees of freedom.
+
+\paragraph{Multiple causal arrows and thermodynamic consistency.}
+An important subtlety: different coarse-graining structures may induce distinct—and potentially conflicting—causal arrows from the same global state. Since the ``past/future'' labels in Definition \ref{def:causal-asymmetry} are grounded in thermodynamic gradients, and thermodynamics itself is coarse-graining-dependent \cite{Wallace2012Time}, multiple inequivalent causal structures may coexist.
+
+This is not a defect but a structural feature: just as different accessible algebras induce different effective geometries \cite{Liu2026PaperA}, they may induce different effective causal orderings. Consistency requires only that causal arrows align with entropy increase within each coarse-graining context. Conflicts between causal arrows derived from inequivalent coarse-grainings reflect genuine structural inequivalence, not mere coordinate choice.
+
+In physical systems, thermodynamic consistency conditions typically select compatible coarse-grainings—those yielding aligned causal arrows at macroscopic scales. But in principle, the framework admits context-dependent causal structure, with no unique ``fundamental'' arrow privileged independently of accessibility constraints.
+
+\subsection{Thermodynamic Grounding}
+\label{sec:I.3}
+
+The asymmetry in Definition \ref{def:causal-asymmetry} can be grounded in thermodynamic considerations. Systems approaching equilibrium exhibit increasing entropy, inducing a preferred temporal direction even when microscopic dynamics are time-symmetric \cite{Wallace2012Time}.
+
+Crucially, this thermodynamic arrow is \emph{context-dependent}: it depends on which macrostates are accessible, which in turn depends on coarse-graining structure. Different accessible algebras may induce different thermodynamic gradients, hence different effective causal structures.
+
+\subsection{Counterfactuals Without Intrinsic Relata}
+\label{sec:I.4}
+
+Interventionist accounts of causation rely on counterfactual reasoning: $A$ causes $B$ if intervening on $A$ would change $B$ \cite{Woodward2003}. This appears to require well-defined intervention targets—subsystems $A$ and $B$ with stable identities.
+
+However, counterfactuals can be reformulated in algebraic terms. An intervention on $A$ corresponds to applying a CPTP map $\Phi_{\text{int}}$ to observables in subalgebra $\mathcal{A}_A$. The counterfactual dependence of $B$ on $A$ is then measured by how sensitive observables in $\mathcal{A}_B$ are to perturbations of $\mathcal{A}_A$.
+
+This reformulation makes no reference to intrinsic subsystem boundaries. Intervention targets are defined by accessible algebras, which are themselves context-dependent.
+
+\subsection{Memory as Informational Constraint}
+\label{sec:I.5}
+
+Causal relations leave traces—memory records that constrain future accessible states. In quantum systems, memory can be understood as constraint propagation through entanglement structure \cite{Hayden2007}.
+
+A subsystem $M$ acts as a memory of event $A$ if observables in $\mathcal{A}_M$ remain correlated with past observables in $\mathcal{A}_A$ despite environmental decoherence:
+\begin{equation}
+I(A_{\text{past}}:M_{\text{present}}) \gg I(A_{\text{past}}:E_{\text{present}}),
+\end{equation}
+where $E$ represents generic environmental degrees of freedom.
+
+Memory, on this account, is not storage of intrinsic properties but maintenance of relational structure across time—a pattern of correlations that persists under dynamical evolution.
+
+\subsection{Worked Example: Two-Qubit Causal Asymmetry}
+\label{sec:I.5example}
+
+To clarify Definition \ref{def:causal-asymmetry}, we present a minimal worked example using a two-qubit system.
+
+\paragraph{Setup.}
+Consider a composite system of two qubits, $A$ and $B$, initially in a maximally entangled Bell state:
+\begin{equation}
+|\Psi_{\text{AB}}\rangle = \frac{1}{\sqrt{2}}\left(|00\rangle + |11\rangle\right).
+\end{equation}
+
+We introduce asymmetric environmental coupling: qubit $A$ couples strongly to a thermal bath $E_A$, while $B$ remains weakly coupled to $E_B$. The total Hamiltonian includes:
+\begin{equation}
+\hat{H} = \hat{H}_A + \hat{H}_B + \lambda_A \hat{\sigma}_A^z \otimes \hat{B}_{E_A} + \lambda_B \hat{\sigma}_B^z \otimes \hat{B}_{E_B},
+\end{equation}
+where $\lambda_A \gg \lambda_B$, and $\hat{B}_{E_i}$ are bath operators.
+
+\paragraph{Coarse-graining.}
+We trace over environmental degrees of freedom, defining accessible algebra $\mathcal{A}_{\mathbf{c}} = \text{span}\{\hat{\sigma}_A^x, \hat{\sigma}_A^z, \hat{\sigma}_B^x, \hat{\sigma}_B^z\}$ (Pauli observables).
+
+\paragraph{Dynamical evolution.}
+Due to asymmetric decoherence, the reduced density matrix evolves as:
+\begin{align}
+\rho_{AB}(0) &= |\Psi_{\text{AB}}\rangle\langle\Psi_{\text{AB}}|, \\
+\rho_{AB}(t) &\approx \frac{1}{2}\left(|00\rangle\langle 00| + e^{-\Gamma_A t}|01\rangle\langle 10| + e^{-\Gamma_A t}|10\rangle\langle 01| + |11\rangle\langle 11|\right),
+\end{align}
+where $\Gamma_A \propto \lambda_A^2$ is the decoherence rate for qubit $A$.
+
+\paragraph{Causal asymmetry.}
+We compute mutual information at different times:
+\begin{align}
+I(A_{\text{early}}:B_{\text{late}}) &= S(A_{\text{early}}) + S(B_{\text{late}}) - S(AB), \\
+I(B_{\text{early}}:A_{\text{late}}) &= S(B_{\text{early}}) + S(A_{\text{late}}) - S(AB).
+\end{align}
+
+At $t = 0$, mutual information is symmetric: $I(A:B) = 2 \log 2$ (maximal entanglement).
+
+At $t \gg \Gamma_A^{-1}$, qubit $A$ has fully decohered while $B$ retains coherence longer. Measuring $A$ early provides information about $B$ late, but not vice versa:
+\begin{equation}
+I(A_{\text{early}}:B_{\text{late}}) > I(B_{\text{early}}:A_{\text{late}}).
+\end{equation}
+
+\paragraph{Interpretation.}
+The asymmetry arises from differential coupling to environments—a thermodynamic gradient inducing directional information flow. Qubit $A$ acts as a ``past'' influence on $B$ (causal), while $B$ does not significantly constrain $A$'s future (non-causal in reverse direction).
+
+This exemplifies Definition \ref{def:causal-asymmetry}: causal structure emerges from stable asymmetry in coarse-grained correlations, grounded in thermodynamic irreversibility, without presupposing fundamental temporal ordering.
+
+\paragraph{Context-dependence.}
+Crucially, if we had chosen a different coarse-graining—say, tracing over qubit degrees of freedom and retaining environmental observables—the causal arrow could reverse or disappear. The asymmetry is \emph{real} (measurable within $\mathcal{A}_{\mathbf{c}}$) but \emph{context-dependent} (algebra-relative).
+
+\subsection{From Causation to Agency}
+\label{sec:I.6}
+
+The transition from causation to agency requires an additional structural feature: \emph{stable subsystem boundaries that support constraint propagation}.
+
+An agent is not merely a locus of causal influence, but a subsystem capable of maintaining coherent constraint propagation despite environmental coupling. This suggests analyzing agency in terms of \emph{non-scrambling subspaces}—degrees of freedom that resist rapid information delocalization \cite{Hayden2007}.
+
+Part II develops this connection, arguing that agency emerges from boundary-stabilization rather than metaphysical autonomy.
+
+\paragraph{Summary.} Causation can be understood as stable asymmetry in coarse-grained accessible structure. This account makes no reference to fundamental time, intrinsic relata, or metaphysically basic events. Causal structure is context-dependent but objective—determined by physical interaction patterns rather than observer beliefs.
+
+\section{Part II: Agency as Emergent Constraint Structure}
+\label{sec:agency}
+
+\subsection{The Problem of Autonomous Agents}
+\label{sec:II.1}
+
+Traditional accounts treat agents as metaphysically autonomous entities—unified subjects possessing intrinsic intentionality and causal efficacy. This picture faces two challenges in quantum contexts without canonical factorization.
+
+First, if subsystem boundaries are algebra-dependent, what distinguishes an ``agent'' from an arbitrary collection of degrees of freedom? Second, if quantum dynamics are unitary and deterministic at the global level, how can agents possess genuine causal autonomy?
+
+We argue that both challenges dissolve once agency is recast as a structural feature—boundary-stabilization under constraint propagation—rather than a metaphysical primitive.
+
+\paragraph{Physical grounding of algebra selection.}
+Before explicating the structural role of accessible algebras, we briefly address the dynamical origin of their selection. As established in our companion analysis regarding stability conditions \cite{Liu2026PaperB}, the specific observable algebra $\mathcal{A}_{\mathbf{c}}$ is not determined by arbitrary subjective choice or metaphysical agency. Rather, it is physically selected by the system's interaction structure—specifically, by the requirement that the algebra remains robust under environmental decoherence (quantum Darwinism) and stable over relevant timescales. The ``filter'' is thus instantiated by the objective Hamiltonian couplings of the underlying field, ensuring that the emergence of effective geometry is grounded in physical dynamics rather than intentionality. We take this stability-selected structure as the starting point for the following structural analysis.
+
+\subsection{Agency as Boundary-Stabilization}
+\label{sec:II.2}
+
+An \emph{agent}, in the structural sense, is a subsystem whose boundaries remain stable under dynamical evolution and whose internal degrees of freedom exhibit coordinated constraint propagation.
+
+\begin{definition}[Agent-Like Subsystem]
+\label{def:agent-subsystem}
+A subsystem $\mathcal{A}_{\text{agent}}$ exhibits \textbf{agent-like behavior} if:
+\begin{enumerate}
+\item \textbf{Boundary stability}: The subalgebra $\mathcal{A}_{\text{agent}}$ is approximately preserved under physically relevant dynamical maps:
+\begin{equation}
+\|\mathcal{E}_t(\mathcal{A}_{\text{agent}}) - \mathcal{A}_{\text{agent}}\| < \epsilon
+\end{equation}
+for timescales relevant to constraint propagation.
+
+\item \textbf{Non-scrambling coherence}: Observables in $\mathcal{A}_{\text{agent}}$ exhibit slow out-of-time-order correlator (OTOC) growth:
+\begin{equation}
+\langle [\hat{O}_{\text{agent}}(t), \hat{V}(0)]^2 \rangle \ll 1 \quad \text{for } t \ll \tau_{\text{scrambling}}.
+\end{equation}
+
+\item \textbf{Constraint propagation}: Internal correlations support directed information flow toward system boundaries, enabling intervention on environmental degrees of freedom.
+\end{enumerate}
+\end{definition}
+
+\begin{remark}[Operational Threshold for Meaningful Agency]
+\label{rem:agency-threshold}
+Definition \ref{def:agent-subsystem} characterizes agent-like behavior structurally, but does not specify when such behavior constitutes \emph{meaningful} or \emph{significant} agency. In highly entangled quantum systems, transient non-scrambling may occur at very short timescales without supporting sustained constraint propagation.
+
+We suggest an operational threshold: a subsystem exhibits \textbf{operationally significant agency} if:
+\begin{equation}
+\tau_{\text{coherence}} \gg \tau_{\text{env}},
+\end{equation}
+where $\tau_{\text{coherence}}$ is the timescale over which $\mathcal{A}_{\text{agent}}$ maintains boundary stability and non-scrambling coherence, and $\tau_{\text{env}}$ is the characteristic environmental decoherence time.
+
+More precisely, we require:
+\begin{equation}
+\frac{\tau_{\text{coherence}}}{\tau_{\text{env}}} > \kappa,
+\end{equation}
+where $\kappa \sim 10^2$--$10^3$ is an empirically determined threshold below which constraint propagation becomes operationally inaccessible.
+
+For biological agents, $\tau_{\text{coherence}}$ spans seconds to hours (for cognitive processes) or years (for identity persistence), while $\tau_{\text{env}} \sim 10^{-13}$--$10^{-3}$ seconds (molecular to neural timescales). For quantum systems at room temperature, $\tau_{\text{env}} \sim 10^{-15}$--$10^{-12}$ seconds, making sustained agency extraordinarily rare without active error correction or topological protection.
+
+This threshold distinguishes:
+\begin{itemize}
+\item \textbf{Transient non-scrambling}: Fluctuations in highly entangled systems (no operational agency)
+\item \textbf{Sustained boundary-stabilization}: Persistent subsystems supporting intervention (operational agency)
+\end{itemize}
+
+The threshold is not sharp—agency admits degrees—but provides a quantitative criterion for when agent-like structure becomes empirically significant.
+\end{remark}
+
+This definition makes no reference to consciousness, phenomenology, or intrinsic intentionality. Agency is characterized purely in terms of stability properties and information-theoretic structure.
+
+\subsection{Will as Constraint Propagation}
+\label{sec:II.3}
+
+What, then, becomes of ``will'' or ``intention'' in this framework?
+
+We suggest that will can be understood as \emph{constraint propagation structure}—patterns of internal correlation that bias future accessible states toward specific outcomes. An agent ``wills'' action $A$ if its internal state $\rho_{\text{agent}}$ is such that future measurements will register correlation with $A$ with high probability.
+
+\paragraph{Analogy: Thermostat control.}
+Consider a thermostat coupled to a heating system. The thermostat's internal state (temperature reading) constrains future system behavior (heater activation), despite having no phenomenological experience. This is constraint propagation without metaphysical agency.
+
+The analogy is limited: biological agents exhibit far richer constraint structure. But it clarifies the conceptual move—replacing metaphysical autonomy with structural analysis of how internal states bias future trajectories.
+
+\subsection{The Phenomenology-Structure Gap}
+\label{sec:II.4}
+
+An immediate objection: this account leaves no room for phenomenology—the felt quality of agency, the subjective sense of ``I am acting.''
+
+We acknowledge this gap. The framework developed here is \emph{structural}, concerned with information-theoretic organization. It does not address the \emph{explanatory gap} between structure and experience \cite{Levine1983,Chalmers1996}.
+
+\begin{tcolorbox}[colback=gray!5!white,colframe=black!75!black,title=\textbf{Speculative Connection: Neural Constraint Propagation}]
+\textbf{Caveat}: The following connects structural features to neuroscience, but remains speculative. We note these as suggestive parallels, not established mechanisms.
+
+Recent work in computational neuroscience suggests that neural ``will'' may correspond to hierarchical constraint propagation through cortical-basal ganglia loops \cite{Graybiel2008}. Habitual behavior emerges when constraint patterns stabilize, while ``voluntary'' action involves flexible reconfiguration of these patterns \cite{Yin2006}.
+
+If agency is boundary-stabilization, then the phenomenology of ``willing'' may correspond to proprioceptive monitoring of constraint reconfiguration—the felt sense of internal degrees of freedom reorganizing in preparation for action \cite{Haggard2005}.
+
+This remains highly speculative and does not bridge the explanatory gap. We raise it only to illustrate how structural analysis might interface with empirical research programs.
+\end{tcolorbox}
+
+\subsection{Degrees of Agency}
+\label{sec:II.5}
+
+The framework suggests that agency is not all-or-nothing, but admits degrees. Systems exhibit more or less agent-like behavior depending on:
+\begin{itemize}
+\item \textbf{Boundary stability duration}: How long does $\mathcal{A}_{\text{agent}}$ remain well-defined?
+\item \textbf{Scrambling timescale}: How quickly do internal correlations delocalize?
+\item \textbf{Constraint propagation fidelity}: How reliably do internal states bias future trajectories?
+\end{itemize}
+
+Simple thermostats exhibit minimal agency (short timescales, limited constraint structure). Biological organisms exhibit far richer agency (extended coherence, complex constraint networks). But both are comprehensible within the same structural framework.
+
+\subsection{Relation to Free Will Debates}
+\label{sec:II.6}
+
+Traditional free will debates ask: are agents causally autonomous, or are their actions determined by prior states and laws? This presupposes well-defined agent boundaries and unambiguous causal histories—precisely what the framework questions.
+
+On the structural account, the relevant question is not ``Are agents free?'' but ``Under what conditions do subsystems exhibit stable constraint-propagation structure?'' This reformulation may dissolve certain traditional impasses while opening new empirical questions about stability conditions and scrambling timescales.
+
+We do not claim to resolve free will debates—only to clarify how they depend on assumptions about subsystem structure that are themselves context-dependent.
+
+\paragraph{Summary.} Agency can be understood as boundary-stabilization supporting constraint propagation, rather than metaphysical autonomy. This account is eliminativist about intrinsic intentionality but realist about structural patterns of constraint. It leaves the phenomenology-structure gap unresolved but clarifies the information-theoretic conditions under which agent-like subsystems emerge.
+
+\section{Part III: Existence Without Substance}
+\label{sec:existence}
+
+\subsection{The Realism Problem}
+\label{sec:III.1}
+
+Parts I--II analyzed causation and agency as context-dependent but objective—dependent on coarse-graining structure but not on observer beliefs. This raises an existential question: if fundamental structures (subsystems, geometries, agents) are context-dependent, what ontological status do they possess?
+
+Two extremes must be avoided:
+\begin{enumerate}
+\item \textbf{Naive realism}: Treating emergent structures as metaphysically fundamental, ignoring their context-dependence.
+\item \textbf{Anti-realism}: Denying objective reality to context-dependent structures, collapsing into subjectivism.
+\end{enumerate}
+
+We propose a middle path: \emph{structural realism about relational patterns}. Existence is understood not as possession of intrinsic properties, but as participation in stable relational structures.
+
+\subsection{Form Without Substance}
+\label{sec:III.2}
+
+Consider the temperature of a gas. Temperature is \emph{context-dependent}: it depends on which degrees of freedom are macroscopically accessible. Different coarse-grainings may yield different effective temperatures for the same microstate.
+
+Yet temperature is not merely subjective. Given a coarse-graining, temperature is an objective, measurable quantity with predictive power. It is \emph{relationally real}—real within a specified context, but lacking intrinsic existence independent of that context.
+
+\begin{definition}[Relational Existence]
+\label{def:relational-existence}
+An entity $X$ possesses \textbf{relational existence} relative to structure $\mathcal{S}$ if:
+\begin{enumerate}
+\item $X$ is well-defined and stable within $\mathcal{S}$
+\item $X$ participates in objective relational patterns (correlations, symmetries, invariants)
+\item $X$ may be absent or differently constituted under alternative structures $\mathcal{S}'$
+\end{enumerate}
+\end{definition}
+
+This notion captures \emph{form without substance}: patterns that are objectively real without possessing intrinsic being.
+
+\subsection{Emptiness as Technical Concept}
+\label{sec:III.3}
+
+We introduce \emph{emptiness} as a technical term denoting absence of intrinsic existence compatible with relational reality.
+
+\begin{definition}[Emptiness (Technical Sense)]
+\label{def:emptiness-technical}
+An entity $X$ is \textbf{empty} (in the technical sense) if:
+\begin{enumerate}
+\item $X$ lacks intrinsic being independent of relational context
+\item $X$ exhibits stable patterns within specified contexts
+\item The absence of intrinsic being does not entail non-existence or illusoriness
+\end{enumerate}
+\end{definition}
+
+This usage is stipulative and should not be confused with colloquial meanings (``containing nothing'') or metaphysical nihilism (``nothing really exists''). Emptiness, in this technical sense, is compatible with robust realism about relational structures.
+
+\subsection{Examples of Relational Existence}
+\label{sec:III.4}
+
+\paragraph{Temperature.}
+As discussed in \S\ref{sec:III.2}, temperature is context-dependent but objective. Different coarse-grainings yield different effective temperatures, yet temperature remains a genuine physical quantity within each context.
+
+\paragraph{Quasiparticles in condensed matter.}
+Phonons, magnons, and other quasiparticles are collective excitations—emergent entities with no counterpart in the microscopic Hamiltonian. They are empty of intrinsic being (there are no ``phonon particles'' in fundamental theory) yet fully real within effective descriptions \cite{Ladyman2007}.
+
+\emph{Operationally}, quasiparticles are defined by stable relational patterns in measurable observables:
+\begin{itemize}
+\item \textbf{Spectral weight}: Well-defined peaks in momentum-resolved spectroscopy ($A(\mathbf{k},\omega)$)
+\item \textbf{Dispersion relations}: Stable functional dependence $\omega(\mathbf{k})$ across parameter ranges
+\item \textbf{Finite lifetimes}: Decay rates $\Gamma(\mathbf{k})$ obeying systematic scaling laws
+\item \textbf{Scattering cross-sections}: Reproducible interaction amplitudes in transport experiments
+\end{itemize}
+
+These observables are context-dependent—they depend on temperature, pressure, doping, and measurement resolution—yet objectively real within specified experimental contexts. This exemplifies relational existence: patterns that are measurable, predictive, and stable, despite lacking intrinsic being independent of effective theory.
+
+\paragraph{Subsystems in quantum mechanics.}
+As established in prior work \cite{Liu2026PaperA}, subsystem decompositions are coarse-graining-dependent. A quantum state may admit infinitely many inequivalent factorizations, none privileged. Yet within any given factorization, subsystems exhibit objective entanglement structure and support meaningful predictions.
+
+These examples illustrate a common pattern: entities that are \emph{empty} (lacking intrinsic being) yet \emph{existent} (participating in stable relational structures).
+
+\subsection{Structural Invariants and Objectivity}
+\label{sec:III.5}
+
+A potential objection: if everything is context-dependent, what grounds objectivity?
+
+The answer lies in \emph{structural invariants}—features preserved across context transformations. While subsystem decompositions are coarse-graining-dependent, certain global properties (total entropy, symmetry groups, topological invariants) remain well-defined independently of factorization.
+
+Objectivity does not require context-independence. It requires only that relational patterns exhibit stability and predictive power within specified contexts, and that transformations between contexts preserve identifiable structural features.
+
+This perspective aligns with \emph{structural realism} in philosophy of science: what is objectively real is relational structure, not intrinsic substance \cite{Ladyman2007,French2014}.
+
+\subsection{Existence and Non-Existence}
+\label{sec:III.6}
+
+The framework suggests a taxonomy of existential claims:
+
+\begin{table}[h]
+\centering
+\begin{tabular}{|l|l|l|}
+\hline
+\textbf{Type} & \textbf{Characterization} & \textbf{Example} \\
+\hline
+Intrinsic existence & Context-independent being & Classical particles (if fundamental) \\
+Relational existence & Context-dependent but objective & Temperature, subsystems \\
+Conventional existence & Context-dependent and agent-relative & Money, legal rights \\
+Non-existence & Absent from all relevant contexts & Phlogiston, luminiferous ether \\
+\hline
+\end{tabular}
+\caption{Taxonomy of existential claims. The framework developed here concerns relational existence—entities that are context-dependent but objective. These correspondences are analytical distinctions, not ontological commitments.}
+\label{tab:existence-taxonomy}
+\end{table}
+
+Emergent structures discussed in Parts I--II (causal relations, agent boundaries, geometric features) belong to the second category: relationally existent. They are empty of intrinsic being yet objectively real within specified coarse-graining contexts.
+
+\paragraph{Summary.} Existence can be understood in terms of relational patterns rather than intrinsic substance. ``Emptiness,'' in the technical sense developed here, denotes absence of intrinsic being compatible with objectivity. This perspective avoids both naive realism and anti-realist eliminativism, offering a middle path grounded in structural invariance.
+
+\section{Part IV: Interpretive Bridges to Buddhist Philosophy}
+\label{sec:bridges}
+
+\subsection{Methodological Preface}
+\label{sec:IV.1}
+
+The structural features developed in Parts I--III—causation as asymmetry, agency as boundary-stabilization, existence as relational form—were derived independently of any particular metaphysical tradition. We now explore whether these features find formal parallels in Buddhist philosophical frameworks.
+
+Several caveats are essential:
+
+\begin{tcolorbox}[colback=gray!5!white,colframe=black!75!black,title=\textbf{Methodological Caveats}]
+\begin{enumerate}
+\item \textbf{No historical causation}: We do not claim that Buddhist texts influenced quantum mechanics, or vice versa. Any parallels are structural convergences, not genealogical connections.
+
+\item \textbf{No doctrinal advocacy}: Identifying formal similarities does not constitute endorsement of Buddhist metaphysics, soteriology, or religious practices.
+
+\item \textbf{No cultural essentialism}: Buddhism comprises diverse traditions spanning two millennia. References here focus on specific textual traditions (primarily Yog\=ac\=ara and M\=adhyamaka), not ``Buddhism'' as a monolithic whole.
+
+\item \textbf{No mystical reduction}: We reject interpretations conflating quantum mechanics with consciousness studies, New Age thought, or perennialist philosophy. Our analysis is structural and comparative, not mystical.
+
+\item \textbf{Interpretive humility}: Parallels are offered as invitations to dialogue, not demonstrations of equivalence. The comparative exercise is exploratory, not conclusive.
+\end{enumerate}
+\end{tcolorbox}
+
+With these caveats in place, we proceed to examine possible structural correspondences.
+
+\subsection{Yog\=ac\=ara and Accessible Algebras}
+\label{sec:IV.2}
+
+Yog\=ac\=ara (``Yoga practice'') is a Mah\=ay\=ana Buddhist philosophical school emphasizing the role of consciousness (\emph{vijñ\=ana}) in constituting experienced reality. Central to Yog\=ac\=ara is the concept of \textbf{\=alaya-vijñ\=ana} (Skt. आलयविज्ञान, ``storehouse consciousness''), a foundational stratum of mind that stores karmic seeds (\emph{b\={\i}ja}) conditioning future experience \cite{Asanga_Mahayana,Vasubandhu_Trimsika}.
+
+A structural parallel may be noted: \=alaya-vijñ\=ana functions as a holistic substrate from which individuated mental states emerge, analogous to how subsystem structures emerge from coarse-graining a global quantum state \cite{Lusthaus2002,Waldron2003}.
+
+\begin{table}[h]
+\centering
+\begin{tabular}{|l|l|}
+\hline
+\textbf{Yog\=ac\=ara Concept} & \textbf{HAFF Analog} \\
+\hline
+\=Alaya-vijñ\=ana (storehouse consciousness) & Global quantum state $|\Psi_U\rangle$ \\
+B\={\i}ja (karmic seeds) & Eigenmodes of accessible algebras \\
+Prav\d{r}tti-vijñ\=ana (active consciousness) & Effective subsystem $\rho_{\text{eff}}$ \\
+\=Asraya-par\=av\d{r}tti (basis-transformation) & Coarse-graining map $\Phi_{\mathbf{c}}$ \\
+\hline
+\end{tabular}
+\caption{Possible formal parallels between Yog\=ac\=ara concepts and HAFF structures. \textbf{Disclaimer}: These correspondences are formal analogies highlighting structural similarities, not claims of ontological identity or historical influence. Yog\=ac\=ara is a soteriological framework concerned with liberation from suffering; HAFF is a structural analysis of quantum emergence. The table illustrates conceptual resonances, not equivalences.}
+\label{tab:yogacara-parallel}
+\end{table}
+
+\begin{tcolorbox}[colback=gray!5!white,colframe=black!75!black,title=\textbf{Critical Clarification: Against Panpsychism}]
+The structural parallel between \=alaya-vijñ\=ana and the global quantum state $|\Psi_U\rangle$ does \textbf{not} imply:
+\begin{itemize}
+\item That quantum states possess consciousness or phenomenological properties
+\item That the universe is fundamentally mental or experiential (idealism)
+\item That matter is constituted by or reducible to mind (panpsychism)
+\item That information or quantum information is intrinsically conscious
+\end{itemize}
+
+The analogy is \emph{purely structural}: both frameworks describe how individuated entities emerge from holistic substrates via coarse-graining or cognitive filtering. Yog\=ac\=ara's substrate is explicitly mental (\emph{vijñ\=ana}, consciousness); HAFF's substrate is explicitly physical (quantum state in Hilbert space).
+
+Any appearance of convergence concerns \emph{formal pattern}—the structure of emergence—not ontological content. We emphatically reject interpretations that would construe this parallel as supporting quantum consciousness theories, New Age mysticism, or perennialist claims about universal mind.
+
+The comparison is offered in the spirit of \emph{structural analogy}, not metaphysical synthesis.
+\end{tcolorbox}
+
+However, critical divergences must be noted:
+\begin{itemize}
+\item Yog\=ac\=ara is primarily concerned with \emph{mental} phenomena and the path to liberation, while HAFF analyzes \emph{physical} structure without soteriological commitments.
+\item \=Alaya-vijñ\=ana is explicitly described as a form of consciousness, while $|\Psi_U\rangle$ is not imbued with phenomenological properties.
+\item The Yog\=ac\=ara framework is embedded in Buddhist ethics and meditation practice, which have no counterpart in HAFF's purely structural analysis.
+\end{itemize}
+
+The parallel, if valid, concerns \emph{formal structure}—both frameworks describe how individuated entities emerge from holistic substrates—not phenomenological or ontological content.
+
+\subsection{M\=adhyamaka and Emptiness}
+\label{sec:IV.3}
+
+The M\=adhyamaka (``Middle Way'') tradition, founded by N\=ag\=arjuna (c.\ 2nd century CE), articulates \textbf{śūnyat\=a} (Skt. शून्यता, ``emptiness'') as the absence of \textbf{svabh\=ava} (Skt. स्वभाव, ``intrinsic nature'' or ``own-being'') \cite{Nagarjuna_MMK_Garfield1995}. 
+
+This concept bears structural resemblance to the notion of ``emptiness'' developed in Part III (§\ref{sec:III.3}), where it denoted absence of intrinsic being without entailing non-existence. We emphasize that this parallel concerns the \emph{structural form} of the claim—denial of substance while affirming functional reality—not historical influence or causal connection \cite{Garfield2002,Siderits2007}.
+
+N\=ag\=arjuna's central argument proceeds via \emph{prasaṅga} (reductio) reasoning: all phenomena are empty because they arise dependently (\emph{prat\={\i}tyasamutp\=ada}), and what arises dependently cannot possess intrinsic nature. This is formalized in the famous verse:
+\begin{quote}
+\emph{``Whatever arises dependently is said to be empty. That, being a dependent designation, is itself the middle way.''} (MMK 24:18) \cite{Nagarjuna_MMK_Garfield1995}
+\end{quote}
+
+A structural reading: entities lacking intrinsic being (empty) can nonetheless participate in stable relational networks (dependent arising). This maps onto the framework developed in §\ref{sec:III.4}: subsystems are empty (coarse-graining-dependent, lacking intrinsic factorization) yet existent (exhibiting objective entanglement structure).
+
+\paragraph{Recursive emptiness and second-order structure.}
+A subtle question arises: in M\=adhyamaka, emptiness applies universally, including to emptiness itself—``emptiness is empty'' (\emph{śūnyat\=a-śūnyat\=a}). Does HAFF's relational existence admit similar recursive application?
+
+The answer is affirmative in a formal sense. Observable algebras $\mathcal{A}_{\mathbf{c}}$ are themselves relationally defined: they depend on physical interaction structure (Hamiltonian coupling), experimental apparatus constraints, and resolution limitations. There is no ``algebra of all algebras'' existing independently of physical context.
+
+Moreover, the coarse-graining maps $\Phi_{\mathbf{c}}$ that select accessible algebras are context-dependent: different experimental setups, measurement resolutions, or dynamical timescales induce different $\Phi$ structures. Thus, \emph{the apparatus of emergence is itself emergent}—coarse-graining structure arises from prior coarse-graining choices in a potentially infinite regress.
+
+This mirrors M\=adhyamaka's insight that even the \emph{tools of analysis} (concepts, language, logical operations) are empty—lacking intrinsic being while remaining functionally effective. In HAFF, even the ``machinery'' of accessible algebras is context-dependent, yet this does not undermine objectivity: structural invariants (entanglement entropy, symmetry groups) remain well-defined across contexts.
+
+The parallel is formal: both frameworks acknowledge that \emph{relational structure goes ``all the way down,''} with no metaphysically foundational level immune to context-dependence. However, M\=adhyamaka deploys this insight soteriologically (to undermine attachment to fixed views), while HAFF employs it descriptively (to clarify structural constraints on emergence).
+
+\paragraph{Key divergence.}
+M\=adhyamaka śūnyat\=a is deployed soteriologically—to undermine attachment to fixed views and facilitate liberation. HAFF's ``emptiness'' is a technical descriptor of relational structure, with no soteriological function. The similarity is formal, not practical or existential.
+
+\subsection{Karma and Constraint Propagation}
+\label{sec:IV.4}
+
+Buddhist karma doctrine holds that intentional actions leave traces (\emph{sa\.msk\=ara}, ``formations'') that condition future experience. In Yog\=ac\=ara, these traces are stored in \=alaya-vijñ\=ana as \emph{v\=asan\=a} (``karmic impressions'') \cite{Waldron2003}.
+
+A structural analogy: karma may be understood as \emph{constraint propagation through entanglement structure}—past actions (interventions on accessible algebras) leave informational imprints that bias future trajectories \cite{Gombrich1996,Harvey2000}.
+
+This is consonant with the account of memory developed in §\ref{sec:I.5}: causal traces are not storage of intrinsic properties but maintenance of relational structure across time.
+
+\paragraph{Critical limitation.}
+Buddhist karma is inherently normative: actions are classified as wholesome (\emph{kuśala}) or unwholesome (\emph{akuśala}) based on ethical criteria and soteriological consequences. HAFF's constraint propagation is descriptive, lacking normative content. The formal parallel does not extend to ethical or soteriological dimensions.
+
+\subsection{Limits and Divergences}
+\label{sec:IV.5}
+
+Having noted possible parallels, we now emphasize substantive divergences—areas where Buddhist frameworks and HAFF diverge structurally, methodologically, or conceptually. This section is weighted equally to §\ref{sec:IV.2}--\ref{sec:IV.4} to prevent over-interpreting formal similarities.
+
+\subsubsection{Phenomenological vs.\ Structural Orientation}
+
+Buddhist philosophy is fundamentally concerned with first-person experience and liberation from suffering (\emph{du\d{h}kha}). Yog\=ac\=ara and M\=adhyamaka analyze consciousness, perception, and mental afflictions (\emph{kleśa}) as prerequisites for soteriological transformation.
+
+HAFF, by contrast, is a third-person structural framework with no phenomenological commitments. It analyzes information-theoretic organization without addressing subjective experience, qualia, or the explanatory gap between structure and consciousness.
+
+\textbf{Consequence}: Any parallel between \=alaya-vijñ\=ana and $|\Psi_U\rangle$ cannot extend to phenomenological dimensions. HAFF does not explain consciousness, nor does it claim that quantum states possess mental properties.
+
+\subsubsection{Soteriological vs.\ Descriptive Goals}
+
+Buddhist frameworks are \emph{pragmatic} in orientation: concepts are introduced to facilitate liberation, not to accurately describe metaphysical reality. As the Buddha reportedly stated, philosophical speculation is a ``thicket of views'' (\emph{di\d{t}\d{t}hi-gahaṇa}) distracting from the path \cite{SuttaNipata}.
+
+HAFF is \emph{descriptive}: it aims to clarify structural constraints on emergence without prescribing practices or soteriological goals. There is no ``path'' in HAFF, no liberation to achieve, no suffering to overcome.
+
+\textbf{Consequence}: Structural parallels do not imply that HAFF serves Buddhist soteriological purposes, nor that Buddhist practice requires acceptance of quantum mechanics.
+
+\subsubsection{Rebirth, Cosmology, and Ethics}
+
+Traditional Buddhist cosmology includes rebirth across multiple realms, karmic causation spanning lifetimes, and detailed ethical taxonomies. These elements are absent from—and irrelevant to—HAFF's structural analysis.
+
+HAFF makes no claims about:
+\begin{itemize}
+\item Post-mortem continuity of consciousness
+\item Karmic retribution across lifetimes
+\item Ethical status of actions
+\item Cosmological realms or deities
+\item Meditation practices or contemplative attainments
+\end{itemize}
+
+\textbf{Consequence}: Identifying formal parallels does not validate Buddhist cosmology, rebirth doctrine, or ethical systems. The frameworks operate in disjoint conceptual spaces.
+
+\subsubsection{Ontological Commitments}
+
+While both frameworks reject intrinsic substance, they differ in ontological commitments:
+\begin{itemize}
+\item \textbf{Buddhist frameworks} (particularly Yog\=ac\=ara) often privilege mind or consciousness as fundamental, with matter derivative.
+\item \textbf{HAFF} remains neutral on mind-matter relations, analyzing quantum structure without metaphysical commitments about consciousness.
+\end{itemize}
+
+Additionally, M\=adhyamaka's ``two truths'' doctrine—distinguishing conventional (\emph{sa\.mv\d{r}ti}) from ultimate (\emph{param\=artha}) reality—has no clear analog in HAFF. HAFF distinguishes context-dependent from invariant structures, but this is epistemological (about what can be known) rather than ontological (about levels of reality).
+
+\subsubsection{Methodological Incommensurability}
+
+Buddhist philosophy employs contemplative introspection, textual hermeneutics, and dialectical reasoning as primary methods. HAFF employs mathematical formalism, operator algebras, and information theory.
+
+These methodologies are not mutually translatable. One cannot \emph{meditate} one's way to understanding quantum entanglement, nor \emph{calculate} one's way to soteriological insight. The parallels identified are \emph{structural}, not methodological.
+
+\paragraph{Summary of divergences.}
+The frameworks differ in:
+\begin{enumerate}
+\item Explanatory target (phenomenology vs.\ structure)
+\item Pragmatic goal (liberation vs.\ description)
+\item Scope (ethics/cosmology vs.\ physics)
+\item Ontological commitments (consciousness-first vs.\ neutral)
+\item Methodology (contemplative vs.\ mathematical)
+\end{enumerate}
+
+These divergences are not defects but reflect different intellectual projects. Recognizing formal parallels does not collapse these distinctions.
+
+\subsection{Interpretive Humility}
+\label{sec:IV.6}
+
+We conclude Part IV by reaffirming interpretive humility. The parallels identified—between accessible algebras and \=alaya-vijñ\=ana, between emptiness and śūnyat\=a, between constraint propagation and karma—are \emph{suggestive but inconclusive}.
+
+They suggest that:
+\begin{enumerate}
+\item Certain structural features (holistic substrates, relational existence, informational constraints) appear across traditions when thinkers grapple with similar conceptual problems.
+\item Cross-cultural philosophical dialogue may benefit from precise structural comparison, avoiding both premature dismissal and uncritical conflation.
+\item Formal parallels can motivate further investigation without requiring doctrinal convergence.
+\end{enumerate}
+
+They do \emph{not} suggest that:
+\begin{enumerate}
+\item Buddhist philosophy anticipated quantum mechanics or modern physics.
+\item Quantum mechanics validates Buddhist metaphysics or soteriology.
+\item Structural similarities entail ontological identity.
+\item Comparative philosophy resolves foundational debates in either tradition.
+\end{enumerate}
+
+The exercise is exploratory: we map conceptual terrain, noting points of contact and divergence, without claiming to adjudicate between frameworks. Our contribution is methodological—demonstrating how attention to algebraic structure can discipline comparative claims and prevent both over-interpretation and premature dismissal.
+
+\section{Conclusion: Structural Constraints and Interpretive Modesty}
+\label{sec:conclusion}
+
+This essay has developed a structural framework for understanding causation, agency, and existence in quantum contexts without canonical subsystem decompositions. The analysis proceeded in four parts.
+
+\paragraph{Part I: Causation.}
+Causal relations can be understood as stable asymmetries in accessible structure, without requiring fundamental temporal ordering or intrinsic relata. This account is context-dependent but objective, grounded in thermodynamic gradients and informational constraint propagation.
+
+\paragraph{Part II: Agency.}
+Agent-like behavior emerges from boundary-stabilization—subsystems maintaining non-scrambling coherence while propagating constraints. This account is eliminativist about intrinsic intentionality but realist about structural patterns. The phenomenology-structure gap remains unresolved.
+
+\paragraph{Part III: Existence.}
+Existential claims can be reformulated in terms of relational patterns rather than intrinsic substance. ``Emptiness,'' in the technical sense developed here, denotes absence of intrinsic being compatible with objectivity. This perspective avoids both naive realism and anti-realist eliminativism.
+
+\paragraph{Part IV: Interpretive Bridges.}
+Formal parallels may exist between these structural features and concepts in Buddhist philosophy (particularly Yog\=ac\=ara and M\=adhyamaka traditions). However, substantive divergences in methodology, goals, and scope prevent conflation. Parallels are offered as invitations to dialogue, not demonstrations of equivalence.
+
+\subsection{Methodological Contribution}
+
+The essay's primary contribution is methodological: it demonstrates how structural analysis can discipline interpretive claims across multiple domains.
+
+\begin{enumerate}
+\item \textbf{In quantum foundations}: By clarifying how causation, agency, and existence depend on coarse-graining structure, the framework reveals which features are context-dependent and which admit invariant characterization.
+
+\item \textbf{In philosophy of science}: By developing relational existence without metaphysical substance, the framework contributes to structural realist programs while avoiding reification of emergent entities.
+
+\item \textbf{In comparative philosophy}: By identifying formal parallels while respecting substantive divergences, the framework models how cross-cultural comparison can proceed without cultural essentialism or premature synthesis.
+\end{enumerate}
+
+\subsection{What This Essay Does Not Claim}
+
+To prevent misreading, we reiterate what the essay does \emph{not} claim:
+
+\begin{itemize}
+\item That consciousness creates reality or plays a fundamental physical role
+\item That Buddhist texts anticipated quantum mechanics or modern physics
+\item That quantum mechanics validates any particular metaphysical or religious tradition
+\item That structural parallels resolve foundational problems in physics or philosophy
+\item That comparative philosophy provides unique insights unavailable within traditions
+\end{itemize}
+
+The analysis is structural and comparative, not metaphysical or apologetic.
+
+\subsection{Open Questions}
+
+Several questions remain open:
+
+\begin{enumerate}
+\item \textbf{Phenomenology}: How, if at all, does structural organization relate to subjective experience? The framework developed here is silent on the explanatory gap.
+
+\item \textbf{Normativity}: Can constraint propagation ground normative distinctions, or does ethics require additional conceptual resources beyond structural analysis?
+
+\item \textbf{Comparative methodology}: What criteria should govern cross-cultural philosophical comparison? When do formal parallels indicate genuine convergence versus superficial similarity?
+
+\item \textbf{Empirical implications}: Do different coarse-graining choices lead to observationally distinguishable predictions in realistic physical systems?
+
+\item \textbf{Contemplative epistemology}: Can first-person contemplative methods contribute to structural understanding, or are mathematical and phenomenological investigations fundamentally disjoint?
+\end{enumerate}
+
+These questions are not deficiencies but opportunities for future investigation. The framework provides conceptual scaffolding for pursuing them with greater precision.
+
+\subsection{Final Reflection}
+
+The absence of canonical subsystem decompositions in quantum mechanics is not merely a technical curiosity. It reshapes how we think about emergence, identity, and existence across multiple domains—from quantum gravity to philosophy of mind to cross-cultural hermeneutics.
+
+By attending to structural constraints—particularly the dependence of effective descriptions on accessible algebras—we can navigate between naive realism and anti-realist eliminativism, between cultural essentialism and dismissive parochialism, between metaphysical dogmatism and interpretive nihilism.
+
+The resulting picture is one of \emph{structured pluralism}: multiple effective descriptions, none metaphysically privileged, yet constrained by objective relational patterns and transformation principles. Reality is not uniquely carved at the joints, but neither is it infinitely malleable. The joints themselves are context-dependent yet objective.
+
+This perspective invites humility. We cannot claim unique access to fundamental structure, nor can we dismiss alternative frameworks as merely conventional. Instead, we map the space of possibilities, identify structural invariants, and acknowledge the limits of any single descriptive framework.
+
+In this spirit, the essay concludes not with answers but with refined questions—questions shaped by attention to algebraic structure, informed by cross-cultural comparison, and disciplined by interpretive modesty.
+
+\section*{Acknowledgments}
+
+The author thanks the anonymous reviewers for their insightful comments and suggestions, which greatly improved the clarity and rigor of this work. This work builds on structural analysis developed in companion papers \cite{Liu2026PaperA,Liu2026PaperB}. All errors and interpretive overreach remain the author's responsibility.
+
+\bibliographystyle{unsrt}
+\begin{thebibliography}{99}
+
+% Paper A and B (self-citations)
+\bibitem{Liu2026PaperA}
+S. Liu, \emph{Emergent Geometry from Coarse-Grained Observable Algebras: The Holographic Alaya-Field Framework}, Zenodo (2026), DOI: 10.5281/zenodo.18361707.
+
+\bibitem{Liu2026PaperB}
+S. Liu, \emph{Accessibility, Stability, and Emergent Geometry: Conceptual Clarifications on the Holographic Alaya-Field Framework}, Zenodo (2026), DOI: 10.5281/zenodo.18367061.
+
+% Causation and Philosophy of Science
+\bibitem{Pearl2009}
+J. Pearl, \emph{Causality: Models, Reasoning, and Inference}, 2nd ed., Cambridge University Press (2009).
+
+\bibitem{Woodward2003}
+J. Woodward, \emph{Making Things Happen: A Theory of Causal Explanation}, Oxford University Press (2003).
+
+\bibitem{PageWootters1983}
+D. N. Page and W. K. Wootters, \emph{Evolution without evolution: Dynamics described by stationary observables}, Phys. Rev. D \textbf{27}, 2885 (1983).
+
+\bibitem{Wallace2012Time}
+D. Wallace, \emph{The Emergent Multiverse: Quantum Theory according to the Everett Interpretation}, Oxford University Press (2012), Chapter 8.
+
+\bibitem{Hayden2007}
+P. Hayden and J. Preskill, \emph{Black holes as mirrors: quantum information in random subsystems}, JHEP \textbf{09}, 120 (2007).
+
+% Philosophy of Mind and Consciousness
+\bibitem{Levine1983}
+J. Levine, \emph{Materialism and qualia: The explanatory gap}, Pacific Philosophical Quarterly \textbf{64}, 354 (1983).
+
+\bibitem{Chalmers1996}
+D. J. Chalmers, \emph{The Conscious Mind: In Search of a Fundamental Theory}, Oxford University Press (1996).
+
+% Neuroscience
+\bibitem{Graybiel2008}
+A. M. Graybiel, \emph{Habits, rituals, and the evaluative brain}, Annual Review of Neuroscience \textbf{31}, 359--387 (2008).
+
+\bibitem{Yin2006}
+H. H. Yin and B. J. Knowlton, \emph{The role of the basal ganglia in habit formation}, Nature Reviews Neuroscience \textbf{7}, 464--476 (2006).
+
+\bibitem{Haggard2005}
+P. Haggard, \emph{Conscious intention and motor cognition}, Trends in Cognitive Sciences \textbf{9}(6), 290--295 (2005).
+
+% Structural Realism
+\bibitem{Ladyman2007}
+J. Ladyman and D. Ross, \emph{Every Thing Must Go: Metaphysics Naturalized}, Oxford University Press (2007).
+
+\bibitem{French2014}
+S. French, \emph{The Structure of the World: Metaphysics and Representation}, Oxford University Press (2014).
+
+% Buddhist Primary Texts (Yogacara)
+\bibitem{Asanga_Mahayana}
+Asaṅga, \emph{Mahāyānasaṃgraha (Summary of the Great Vehicle)}, trans.\ É. Lamotte, Peeters (1973).
+
+\bibitem{Vasubandhu_Trimsika}
+Vasubandhu, \emph{Triṃśikā-vijñaptimātratā (Thirty Verses on Consciousness Only)}, trans.\ S. Anacker, in \emph{Seven Works of Vasubandhu}, Motilal Banarsidass (1984).
+
+% Buddhist Primary Texts (Madhyamaka)
+\bibitem{Nagarjuna_MMK_Garfield1995}
+Nāgārjuna, \emph{The Fundamental Wisdom of the Middle Way: Nāgārjuna's Mūlamadhyamakakārikā}, trans.\ J. L. Garfield, Oxford University Press (1995).
+
+% Buddhist Secondary Sources
+\bibitem{Lusthaus2002}
+D. Lusthaus, \emph{Buddhist Phenomenology: A Philosophical Investigation of Yogācāra Buddhism and the Ch'eng Wei-shih lun}, Routledge (2002).
+
+\bibitem{Waldron2003}
+W. S. Waldron, \emph{The Buddhist Unconscious: The Ālaya-vijñāna in the Context of Indian Buddhist Thought}, Routledge (2003).
+
+\bibitem{Garfield2002}
+J. L. Garfield, \emph{Empty Words: Buddhist Philosophy and Cross-Cultural Interpretation}, Oxford University Press (2002).
+
+\bibitem{Siderits2007}
+M. Siderits, \emph{Buddhism as Philosophy: An Introduction}, Hackett Publishing (2007).
+
+% Karma Studies
+\bibitem{Gombrich1996}
+R. F. Gombrich, \emph{How Buddhism Began: The Conditioned Genesis of the Early Teachings}, Athlone Press (1996).
+
+\bibitem{Harvey2000}
+P. Harvey, \emph{An Introduction to Buddhist Ethics: Foundations, Values and Issues}, Cambridge University Press (2000).
+
+% Early Buddhist Texts
+\bibitem{SuttaNipata}
+\emph{Sutta Nipāta}, in \emph{The Group of Discourses (Sutta Nipāta)}, trans.\ K. R. Norman, Pali Text Society (2001).
+
+\end{thebibliography}
+
+\end{document}

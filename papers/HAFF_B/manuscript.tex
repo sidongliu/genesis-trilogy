@@ -1,0 +1,487 @@
+% Paper B: Accessibility, Stability, and Emergent Geometry
+% Conceptual Clarifications on the Holographic Alaya-Field Framework
+% FINAL REVISED VERSION
+
+\documentclass[12pt,a4paper]{article}
+\usepackage{arxiv}
+\usepackage{amsmath,amssymb,amsfonts,amsthm}
+\usepackage{physics}
+\usepackage{hyperref}
+\usepackage{tcolorbox}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{remark}[theorem]{Remark}
+
+\title{Accessibility, Stability, and Emergent Geometry:\\
+Conceptual Clarifications on the Holographic Alaya--Field Framework}
+
+\author{
+  Sidong Liu, PhD \\
+  iBioStratix Ltd \\
+  \texttt{sidongliu@hotmail.com}
+}
+
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+This paper provides conceptual clarification of the Holographic Alaya-Field Framework (HAFF) introduced in our previous work. 
+We address three potential misreadings: subjectivism (that observers create spacetime), anti-realism (that geometry is illusory), and trivialism (that the framework reduces to coordinate choice). 
+By analyzing the structural notion of accessibility via stability conditions, delineating boundaries with existing interpretations (AQFT, RQM, QBism, MWI), and characterizing emergent geometry as a stable organizational phase, we clarify what the framework commits to and what it does not. 
+This analysis is purely interpretational; no new formal results are introduced.
+\end{abstract}
+
+\section{Introduction}
+\label{sec:intro}
+
+Our previous work established a framework in which emergent geometry depends on the choice of observable algebra acting on a global quantum state \cite{Liu2026}. 
+The technical results—in particular, that inequivalent coarse-graining structures induce inequivalent geometric structures from the same underlying state—are formally precise and mathematically consistent. 
+However, structural novelty of this kind is particularly vulnerable to interpretational confusion. 
+The present paper addresses these interpretational implications and clarifies the conceptual commitments of the framework.
+
+\subsection{The Risk of Misreading}
+
+The claim that geometry is coarse-graining-dependent naturally invites several misreadings, each of which conflates distinct notions of dependence. 
+Three such misreadings are especially common:
+
+\begin{enumerate}
+\item \emph{Subjectivism}: The view that observers or agents create spacetime through their choices or beliefs, collapsing the framework into an epistemic or observer-relative interpretation.
+\item \emph{Anti-realism}: The view that spacetime has no objective existence, and that emergent geometry is therefore illusory or merely pragmatic.
+\item \emph{Trivialism}: The view that coarse-graining-dependent geometry reduces to a choice of coordinates or descriptive convention, with no substantive physical consequences.
+\end{enumerate}
+
+Each of these readings is incorrect, but each arises naturally from surface-level features of the formalism. 
+The purpose of this paper is to block such misreadings by clarifying the nature of accessibility, the structural role of observable algebras, and the ontological status of emergent geometry within the framework.
+
+\subsection{Scope and Objectives}
+
+This paper does not introduce new formal results, derive additional theorems, or propose modifications to the mathematical structure presented in our previous work. 
+Rather, it provides a systematic interpretational analysis aimed at three specific objectives:
+
+\begin{enumerate}
+\item \emph{Clarify the notion of accessibility}: We demonstrate that accessibility, as employed in the framework, is a structural and operational concept determined by stability properties of subalgebras, not an epistemic or observer-dependent notion.
+\item \emph{Delineate boundaries with existing interpretations}: We situate the framework in relation to algebraic quantum field theory, relational quantum mechanics, QBism, and the Many-Worlds interpretation, clarifying points of agreement, divergence, and complementarity.
+\item \emph{Characterize the ontological status of emergent geometry}: We argue that geometry functions as a stable organizational phase of quantum information, analogous to phases in condensed matter systems, avoiding both naive realism and anti-realist eliminativism.
+\end{enumerate}
+
+Importantly, this analysis does not constitute a defense of the framework, nor does it aim to persuade readers of its correctness. 
+The goal is clarity: to ensure that the structural commitments of the framework are understood on their own terms, and that criticisms, if any, are directed at what the framework actually claims rather than at interpretational projections.
+
+\subsection{What This Paper Does Not Do}
+
+To further delimit scope, we note explicitly what this paper does \emph{not} attempt:
+
+\begin{itemize}
+\item It does not propose new dynamics, empirical predictions, or modifications to quantum mechanics.
+\item It does not claim that the framework resolves outstanding problems in quantum gravity, quantum foundations, or the measurement problem.
+\item It does not advocate for any particular metaphysical or philosophical position beyond the minimal structural commitments required by the formalism itself.
+\item It does not interpret the framework as implying idealism, observer-created reality, or any form of mind-dependence.
+\end{itemize}
+
+The analysis remains strictly within the domain of structural interpretation: identifying what the mathematical formalism commits to, what it leaves open, and how it relates to existing approaches.
+
+\subsection{Organization}
+
+The paper proceeds as follows. Section~\ref{sec:stance} briefly recapitulates the structural stance adopted in our previous work, emphasizing the priority of observable algebras over tensor factorizations and the role of coarse-graining in defining effective subsystems. 
+
+Section~\ref{sec:accessibility} provides a detailed analysis of accessibility, demonstrating that it is determined by stability conditions on subalgebras rather than by observer choices or epistemic limitations. A taxonomy is introduced distinguishing subjective, relational, and structural notions of dependence, situating the present framework firmly within the third category.
+
+Section~\ref{sec:relations} examines the relationship between the framework and four representative approaches: algebraic quantum field theory, relational quantum mechanics, QBism, and the Many-Worlds interpretation. Each subsection clarifies points of conceptual overlap and structural divergence, preventing conflation while identifying opportunities for complementarity.
+
+Section~\ref{sec:geometry_phase} argues that emergent geometry should be understood as a stable organizational phase of entanglement structure, drawing on analogies with condensed matter physics. This perspective avoids treating geometry as either fundamental or illusory, instead characterizing it as contingent but objective—dependent on physical conditions rather than epistemic contexts.
+
+Section~\ref{sec:scope} delimits the structural assumptions of the framework, enumerates what it does not commit to, and outlines open questions for future investigation. Particular attention is given to the distinction between structural analysis and metaphysical advocacy.
+
+\subsection{Methodological Note}
+
+Throughout this paper, we adopt a deliberately conservative rhetorical stance. Claims are hedged with modal qualifiers ("may suggest," "is consistent with," "can be understood as") not out of uncertainty regarding the formal results, but to avoid overstating interpretational conclusions. The goal is to present the framework as one coherent way of organizing the conceptual landscape, not as the uniquely correct interpretation.
+
+This methodological caution reflects a broader commitment: interpretational clarity is best served by precision and restraint, not by advocacy or polemics. We aim to make the framework legible to researchers across different interpretational traditions, facilitating comparison and critique rather than preempting it.
+
+\section{Structural Stance Recap}
+\label{sec:stance}
+
+We briefly recapitulate the structural stance of our previous work without repeating full mathematical derivations.
+
+The framework rests on three formal results:
+\begin{enumerate}
+\item \textbf{No canonical factorization} (Theorem 1): A generic pure state admits no unique or canonically preferred tensor factorization into subsystems. Any such decomposition requires additional structure beyond the state itself.
+
+\item \textbf{Coarse-graining-induced inequivalence} (Theorem 2): Different choices of observable algebra $\mathcal{A}_{\mathbf{c}}$ acting on the same global state $|\Psi_U\rangle$ induce inequivalent effective subsystem descriptions, characterized by distinct reduced density matrices, entanglement patterns, and POVM structures.
+
+\item \textbf{Geometry dependence} (Theorem 3): Inequivalent coarse-graining structures generically induce inequivalent geometric structures from the same underlying state, which may include distinct topological features in certain cases. This inequivalence cannot be reduced to a diffeomorphism or coordinate transformation, as it reflects differences in the underlying observable algebra.
+\end{enumerate}
+
+The conceptual core can be summarized by reversing the standard explanatory arrow:
+
+\begin{center}
+\textbf{Standard:} State + Tensor factorization $\to$ Subsystems $\to$ Entanglement $\to$ Geometry
+\end{center}
+
+\begin{center}
+\textbf{HAFF:} State + Observable algebra $\to$ Effective subsystems $\to$ Entanglement $\to$ Geometry
+\end{center}
+
+We emphasize that the observable algebra $\mathcal{A}_{\mathbf{c}}$ is not an arbitrary choice, but is determined by the physical interaction structure encoded in the Hamiltonian, specifying which degrees of freedom couple and how (see Section~\ref{sec:accessibility} for detailed discussion).
+
+This reversal has a modest but consequential implication: subsystem structure, and consequently geometry, is not intrinsic to the quantum state alone but depends on which observables are accessible—where accessibility is understood in a precise, structural sense developed in the next section.
+
+\section{Accessibility vs Observer-Dependence}
+\label{sec:accessibility}
+
+The notion of accessibility is central to the framework, and it is here that the risk of misreading is greatest. We clarify that accessibility, as employed in HAFF, is a structural property determined by physical stability conditions, not an epistemic or agent-dependent notion.
+
+\subsection{Three Notions of Dependence}
+
+To prevent conflation, we distinguish three distinct senses in which a physical quantity might be said to "depend on" something:
+
+\begin{table}[h]
+\centering
+\begin{tabular}{|l|l|l|l|}
+\hline
+\textbf{Type} & \textbf{Depends On} & \textbf{Example} & \textbf{Framework} \\
+\hline
+Subjective & Agent's beliefs/knowledge & Bayesian probability & QBism \\
+Relational & Reference system & Velocity in SR & RQM \\
+Structural & Physical interaction pattern & Decoherence basis & HAFF \\
+\hline
+\end{tabular}
+\caption{Taxonomy of dependence notions}
+\label{tab:dependence}
+\end{table}
+
+HAFF's notion of accessibility falls squarely in the third category.
+
+\subsection{Algebraic Grounding of Stability}
+
+To address potential concerns regarding circularity in defining accessibility, we provide an algebraic characterization of stability that does not presuppose factorization or observer-dependent choices.
+
+Consider a subalgebra $\mathcal{A} \subset \mathcal{B}(\mathcal{H})$ acting on the global state $\rho$. We define $\mathcal{A}$ to be \emph{stable} if it satisfies the following criteria:
+
+\paragraph{Criterion 1: Dynamical Invariance.}
+Expectation values of operators in $\mathcal{A}$ remain approximately invariant under physically motivated dynamical maps $\mathcal{E}$ (representing decoherence, RG flow, or measurement-induced back-action):
+\begin{equation}
+\|\mathcal{E}(\hat{O}) - \hat{O}\| \ll \epsilon \quad \forall \hat{O} \in \mathcal{A},
+\end{equation}
+for suitably small $\epsilon$ set by physical precision.
+
+\paragraph{Criterion 2: Environmental Redundancy (Quantum Darwinism).}
+Following Zurek's quantum Darwinism framework \cite{Zurek2009}, stable subalgebras are those whose information is redundantly encoded in environmental degrees of freedom. Formally, the subalgebra $\mathcal{A}$ should approximately commute with the environmental algebra $\mathcal{A}_E$ generated by accessible environmental observables:
+\begin{equation}
+[\hat{O}, \hat{E}] \approx 0 \quad \forall \hat{O} \in \mathcal{A}, \, \hat{E} \in \mathcal{A}_E.
+\end{equation}
+This ensures that states in $\mathcal{A}$ act as \emph{pointer states}, robustly imprinted on the environment and thus operationally accessible through multiple independent measurements.
+
+\paragraph{Criterion 3: Non-scrambling Subspace.}
+In the language of quantum information scrambling \cite{Hayden2007}, stable algebras correspond to \emph{non-scrambling subspaces}—degrees of freedom that do not rapidly lose local correlations under unitary evolution. Quantitatively, the out-of-time-order correlator (OTOC) associated with operators in $\mathcal{A}$ should exhibit slow decay:
+\begin{equation}
+\langle [\hat{O}_\mathcal{A}(t), \hat{V}(0)]^2 \rangle \ll 1 \quad \text{for } t \ll \tau_{\text{scrambling}}.
+\end{equation}
+
+These criteria are purely algebraic and operational: they refer only to operator commutation relations, dynamical maps, and measurable correlators, without invoking subjective observer choices. Stability, in this sense, is a \emph{structural property} determined by the physical interaction Hamiltonian and the global quantum state.
+
+Multiple stability criteria may select different subalgebras, reflecting different physical regimes (equilibrium vs. out-of-equilibrium, weak vs. strong coupling, etc.). This plurality is a feature analogous to how different symmetry-breaking patterns yield distinct thermodynamic phases.
+
+\begin{tcolorbox}[colback=gray!5!white,colframe=black!75!black,title=\textbf{Remark: The Hamiltonian as Physical Input}]
+A potential objection to the structural account of accessibility is that the interaction Hamiltonian $\hat{H}_{\text{int}}$ appears to be an arbitrary input, merely displacing observer-dependence from the algebra to the choice of Hamiltonian. We clarify that this is a misunderstanding of the framework's commitments.
+
+The Hamiltonian is not a free parameter chosen by an observer, but a \emph{physical specification of which degrees of freedom interact and how}. In this respect, it plays a role analogous to the stress-energy tensor $T_{\mu\nu}$ in general relativity: it is input data describing the causal structure of the system, not a coordinate choice or descriptive convention.
+
+Concretely:
+\begin{itemize}
+\item In quantum optics, $\hat{H}_{\text{int}}$ describes atom-photon coupling strengths and selection rules, determined by atomic energy levels and field modes.
+\item In condensed matter systems, it encodes lattice structure, tunneling amplitudes, and interaction potentials, all fixed by material properties.
+\item In holographic models (AdS/CFT), the boundary Hamiltonian is determined by the conformal field theory's operator content and coupling constants.
+\end{itemize}
+
+The claim is not that observers are irrelevant, but that they do not \emph{create} the interaction structure—they probe it. Different experimental setups may access different subalgebras, but which algebras are stable under given interactions is an objective, physical fact, independent of epistemic context.
+
+This is precisely analogous to how different coordinate systems in general relativity yield different component expressions for the metric $g_{\mu\nu}$, but the spacetime geometry itself (characterized by invariants like the Ricci scalar $R$) is coordinate-independent. Here, different accessible algebras yield different effective descriptions, but which algebras are stable under physical dynamics is interaction-dependent, not observer-dependent.
+
+We emphasize: the framework does not solve the problem of \emph{why} a particular Hamiltonian describes our universe (just as GR does not explain why $T_{\mu\nu}$ has its observed form). That question lies in the domain of fundamental theory or cosmology. What the framework does is analyze the \emph{consequences} of a given interaction structure for emergent subsystem decomposition and geometry.
+\end{tcolorbox}
+
+\paragraph{Pre-geometric Interaction Structure.}
+A potential concern is that the Hamiltonian $\hat{H}_{\text{int}}$ itself presupposes spacetime structure (e.g., via spatial locality in $\hat{H} = \sum_{i,j} J_{ij} \hat{\sigma}_i \cdot \hat{\sigma}_j$), creating a circular dependence: geometry emerges from algebras determined by a Hamiltonian that already assumes geometry.
+
+We clarify that the Hamiltonian input to HAFF is \emph{pre-geometric}: it is specified as an abstract interaction graph or tensor network, where edges represent couplings and nodes represent degrees of freedom, with no reference to background metric structure. The notion of "locality" in such Hamiltonians is graph-theoretic (e.g., nearest-neighbor on a lattice or tree) rather than metric-geometric.
+
+Crucially, the \emph{effective spacetime geometry} that emerges from stable algebras may differ from the graph structure of the input Hamiltonian. For instance:
+\begin{itemize}
+\item In tensor network models (MERA), the input is a discrete causal network, but the emergent geometry can be continuous AdS space \cite{Swingle2012}.
+\item In spin chain models, the Hamiltonian is defined on a 1D lattice, but entanglement structure can induce higher-dimensional effective geometry.
+\item In holographic duality (AdS/CFT), the boundary Hamiltonian is defined on a fixed $(d-1)$-dimensional manifold, but the bulk geometry (including its dimensionality) emerges dynamically.
+\end{itemize}
+
+Thus, the input interaction structure constrains but does not uniquely determine the emergent geometry—it serves as a \emph{seed} or \emph{scaffold}, not a blueprint. The framework asks: given a pre-geometric interaction graph, which stable algebras emerge, and what geometric structures do they induce?
+
+This perspective aligns with recent work on "locality from entanglement" \cite{VanRaamsdonk2010}, where spatial locality is itself understood as arising from entanglement patterns rather than being presupposed.
+
+\section{Relations to Existing Interpretations}
+\label{sec:relations}
+
+We now situate HAFF relative to four representative frameworks, clarifying conceptual boundaries and identifying points of potential complementarity.
+
+\subsection{Algebraic Quantum Field Theory (AQFT)}
+
+The closest structural affinity of HAFF is with algebraic quantum field theory \cite{Haag1996,Araki1999}. In AQFT, observable algebras are treated as primary, with states defined as positive linear functionals over these algebras. Crucially, local algebras are assigned to spacetime regions without relying on a global tensor product structure.
+
+HAFF extends this algebraic perspective by emphasizing \emph{coarse-graining relations} between algebras. In standard AQFT, locality is typically presupposed: algebras are indexed by spacetime regions, and the split property ensures independence of spacelike-separated algebras. In HAFF, we relax this assumption and instead treat \emph{stability under physical interactions} as the criterion for algebra selection.
+
+The transformation can be summarized as:
+\begin{center}
+\textbf{AQFT}: Spacetime regions $\to$ Local algebras $\to$ States \\
+\textbf{HAFF}: Interaction structure $\to$ Stable algebras $\to$ Effective geometry
+\end{center}
+
+This is not a replacement of AQFT but an exploration of its structure in contexts where spacetime locality is not presupposed. The framework may be understood as asking: what happens to the algebraic approach when we do not assume a background spacetime to index our algebras?
+
+\subsection{Relational Quantum Mechanics (RQM)}
+
+Relational quantum mechanics \cite{Rovelli1996,LaudisaRovelli2021} emphasizes that the values of physical quantities are defined only relative to observer systems, rejecting the notion of absolute, observer-independent observables. In Rovelli's formulation, quantum mechanics is fundamentally a theory of \emph{interactions} rather than systems: what exists are relational facts, not intrinsic properties.
+
+There is significant conceptual overlap with HAFF: both frameworks reject privileged subsystem decompositions and treat quantum descriptions as contextual. However, a key difference concerns the \emph{stabilization of relata}.
+
+RQM analyzes relations between systems whose existence is typically taken as given (or at least presupposed operationally through interaction records). HAFF provides a mechanism for the \emph{stabilization of distinct relata} from the underlying quantum field, identifying which subsystem partitions are robustly maintained under decoherence and measurement-induced dynamics.
+
+In this sense, HAFF may provide the stable nodes required for RQM's relational network: before relations can exist, there must be relata stable enough to participate in interactions. HAFF addresses how such stable relata emerge from the pre-factorized quantum substrate.
+
+These are complementary rather than competing perspectives: RQM asks what observables mean relative to a system, HAFF asks which systems stabilize as distinct relata in the first place. The two frameworks operate at different levels of analysis and could in principle be combined, with HAFF providing the stability conditions under which RQM's relational structure becomes well-defined.
+
+\subsection{QBism}
+
+QBism \cite{Fuchs2014,FuchsMerminSchack2014} interprets quantum states as expressions of an agent's personal beliefs about measurement outcomes, emphasizing the subjective, agent-centric nature of quantum probability assignments.
+
+Here, the distinction from HAFF is sharpest. While both frameworks reject naive realism about the quantum state, they differ fundamentally in their treatment of dependence:
+
+\begin{itemize}
+\item \textbf{QBism}: Quantum states represent personal beliefs. Dependence is epistemic and agent-centric.
+\item \textbf{HAFF}: Observable algebras are selected by physical interaction structure. Dependence is structural and interaction-centric.
+\end{itemize}
+
+The key point is that interactions are not agents: they have no beliefs, make no decisions, and exist independently of any epistemic perspective. The accessible algebra in HAFF is determined by which degrees of freedom couple via the Hamiltonian, not by what any observer happens to know or believe.
+
+We emphasize that this is a categorical difference, not a matter of one framework being "more correct" than the other. QBism and HAFF address different questions and operate within different conceptual frameworks. The point of comparison is simply to clarify that HAFF's notion of accessibility does not reduce to QBist agent-dependence.
+
+\subsection{Many-Worlds Interpretation (MWI)}
+
+The Many-Worlds interpretation \cite{Wallace2012} explains the emergence of classical behavior through decoherence-induced branching, all occurring within globally unitary quantum evolution.
+
+HAFF shares with MWI a commitment to:
+\begin{itemize}
+\item A single, objective global quantum state
+\item Unitary evolution without collapse
+\item Effective classicality emerging from entanglement structure
+\end{itemize}
+
+However, MWI typically presupposes a tensor factorization into system and environment as input, analyzing how this decomposition gives rise to branch structure. Recent work in the MWI tradition (e.g., Wallace, Saunders) addresses emergent decoherence structure, but typically within a framework where tensor factorization is assumed at the fundamental level.
+
+HAFF complements MWI by examining the preconditions for any branching structure: before branches can emerge, there must be a notion of subsystems relative to which branching occurs. In this sense, HAFF may provide a structural framework relevant to understanding how the effective subsystem decompositions presupposed by branching emerge in the first place.
+
+This is a point of potential contact rather than a hierarchical claim: we do not argue that MWI requires HAFF, but that the two frameworks address distinct but related aspects of quantum structure.
+
+\section{Geometry as a Stable Organizational Phase}
+\label{sec:geometry_phase}
+
+\paragraph{Conceptual Disclaimer.}
+Before discussing the analogy with condensed matter phases, we stress that this analogy is \emph{conceptual rather than rigorous}. Unlike in condensed matter, where a Hamiltonian uniquely determines phase structure via symmetry-breaking or RG fixed points, the HAFF framework does not posit a master Hamiltonian governing the selection of accessible algebras. The purpose of the analogy is to clarify how emergent geometry can be understood as a stable organizational pattern of entanglement, highlighting similarities in stability and robustness properties, not to assert a formal one-to-one mapping. We adopt this analogy solely as a heuristic for guiding intuition, and all structural conclusions are derived independently of it.
+
+\paragraph{Contingent Objectivity.}
+A central claim of this section is that emergent geometry is \emph{contingent but objective}. This phrasing may initially appear paradoxical, so we clarify its meaning through analogy with thermodynamic quantities.
+
+Consider temperature $T$ in statistical mechanics: it is contingent on the choice of thermodynamic ensemble (microcanonical, canonical, grand canonical), yet within any given ensemble, $T$ is an objective, measurable property determined by the system's microstate distribution. No observer dependence enters once the ensemble is specified—different observers measuring the same ensemble will agree on $T$.
+
+Similarly, in the HAFF framework, emergent geometry is contingent on the choice of accessible algebra $\mathcal{A}_{\mathbf{c}}$, which in turn is determined by the physical interaction structure (as discussed in Section~\ref{sec:accessibility}). Once $\mathcal{A}_{\mathbf{c}}$ is specified by the coupling pattern encoded in the interaction Hamiltonian, the induced geometry is an objective feature of the entanglement structure: different observers with access to the same algebra will infer the same metric $g_{\mu\nu}$ (up to diffeomorphism).
+
+The contingency lies in the physical conditions that select the algebra—just as temperature depends on which statistical ensemble describes the system's preparation. But \emph{objectivity does not require uniqueness}; it requires only mind-independence given fixed physical context. A quantity can be observer-independent even if multiple such quantities exist under different physical conditions.
+
+This resolves an apparent tension: geometry is not "fundamental" in the sense of being unique and unchanging across all contexts, but it is also not "illusory" or merely conventional. It is a stable, measurable feature of quantum correlations that emerges robustly under appropriate stability conditions, much like crystalline order emerges robustly below a critical temperature.
+
+\subsection{The Phase Analogy}
+
+With these caveats in place, we develop the analogy with condensed matter phases.
+
+In statistical mechanics, different thermodynamic phases (solid, liquid, gas, magnetic, superconducting) represent distinct organizational patterns of microscopic degrees of freedom. These phases are:
+\begin{itemize}
+\item \textbf{Emergent}: They arise from collective behavior, not from individual constituents.
+\item \textbf{Stable}: They persist under perturbations below characteristic energy scales.
+\item \textbf{Observable}: They manifest in measurable order parameters.
+\item \textbf{Contingent}: They depend on external conditions (temperature, pressure, fields).
+\end{itemize}
+
+We propose that emergent geometry in HAFF exhibits analogous features:
+
+\begin{table}[h]
+\centering
+\begin{tabular}{|l|l|}
+\hline
+\textbf{Condensed Matter} & \textbf{HAFF} \\
+\hline
+Hamiltonian $\hat{H}$ & Pre-geometric interaction graph \\
+Control parameter (Temperature $T$) & Entanglement density / Scrambling rate \\
+Symmetry breaking & Algebra selection \\
+Order parameter $\langle M \rangle$ & Entanglement pattern $I(A:B)$ \\
+Phase transition & Geometry emergence \\
+Critical temperature $T_c$ & Stability threshold $\rho_{\text{crit}}$ \\
+\hline
+\end{tabular}
+\caption{Analogy between condensed matter phases and emergent geometry. The control parameter in HAFF is entanglement density (or equivalently, the scrambling rate in large-$N$ limits), which plays a role analogous to temperature in statistical mechanics. Below a critical entanglement density, stable geometric structures emerge; above it, the system exhibits highly non-local, scrambled correlations with no coherent metric description. These correspondences are illustrative and heuristic, not exact mathematical mappings.\footnotemark}
+\label{tab:phase}
+\end{table}
+
+\footnotetext{In holographic models (AdS/CFT), the analogous control parameter is the ratio $\ell_{\text{AdS}}/\ell_{\text{Planck}}$, which governs the transition from classical bulk geometry to quantum gravitational regime \cite{Maldacena1999}.}
+
+Just as ferromagnetism is a stable organizational pattern of spin alignment below the Curie temperature, geometry may be understood as a stable organizational pattern of entanglement structure under specific accessibility conditions.
+
+\paragraph{Control Parameter and Criticality.}
+A key feature of phase transitions is the existence of a \emph{control parameter} (e.g., temperature, pressure, external field) that governs which phase is realized. In the HAFF framework, the analogous control parameter is the \emph{entanglement density} of the global state $|\Psi_U\rangle$, defined operationally as the average mutual information per degree of freedom:
+\begin{equation}
+\rho_{\text{ent}} \equiv \frac{1}{N} \sum_{\langle i,j \rangle} I(i:j),
+\end{equation}
+where the sum runs over subsystem pairs and $N$ is the total number of degrees of freedom.
+
+At low entanglement density ($\rho_{\text{ent}} \ll \rho_{\text{crit}}$), the state exhibits area-law scaling, allowing stable geometric descriptions to emerge. At high entanglement density ($\rho_{\text{ent}} \gg \rho_{\text{crit}}$), the state becomes highly scrambled, with volume-law entanglement and no coherent metric structure—analogous to the high-temperature disordered phase in spin systems.
+
+In holographic contexts, this parameter corresponds to the ratio of bulk curvature radius to Planck length, $\ell_{\text{AdS}}/\ell_P$, which controls the transition from semiclassical geometry to stringy/quantum gravity regime \cite{Maldacena1999}.
+
+This perspective suggests that geometry is not merely emergent but \emph{critically emergent}: it appears as a stable organizational pattern only when entanglement structure satisfies specific density constraints, much like crystalline order emerges only below the melting temperature.
+
+\subsection{Geometric Admissibility}
+
+Not all coarse-graining structures admit geometric interpretation. As discussed in our previous work (Definition 4.2), we require geometric admissibility conditions:
+\begin{enumerate}
+\item Finite correlation length (exponentially decaying correlations)
+\item Monotonic decay of mutual information under refinement
+\item Stability under perturbations
+\end{enumerate}
+
+These conditions are not arbitrary but reflect empirical observations from known emergent geometries:
+\begin{itemize}
+\item \textbf{AdS/CFT}: Boundary states with area-law entanglement give rise to smooth bulk geometries \cite{RyuTakayanagi2006}.
+\item \textbf{Tensor networks}: MERA and similar structures with finite bond dimension naturally induce geometric connectivity \cite{Swingle2012}.
+\item \textbf{Condensed matter}: Ground states of local Hamiltonians typically satisfy area laws and admit geometric descriptions.
+\end{itemize}
+
+Geometry, in this view, is not generic but represents a special organizational phase characterized by specific entanglement structure. This perspective explains why geometry appears in our effective descriptions: it is the stable attractor for certain classes of quantum states under physically relevant coarse-graining procedures.
+
+\section{Scope and Future Directions}
+\label{sec:scope}
+
+\subsection{Structural Assumptions}
+
+The framework rests on three core assumptions:
+\begin{enumerate}
+\item \textbf{Global state objectivity}: There exists a universal quantum state $|\Psi_U\rangle$, independent of observers.
+\item \textbf{Algebraic priority}: Observable algebras, determined by physical interaction structure, are more fundamental than tensor factorizations.
+\item \textbf{Stability-based emergence}: Effective subsystem structure and geometry emerge from stable subalgebras under physically motivated coarse-graining.
+\end{enumerate}
+
+\subsection{What the Framework Does NOT Commit To}
+
+To prevent interpretational overreach, we explicitly enumerate what the framework does \emph{not} claim:
+
+\begin{itemize}
+\item That observers create reality or that consciousness plays a fundamental role
+\item That spacetime is illusory or that geometry has no objective existence
+\item That quantum mechanics is incomplete or requires modification
+\item That the framework solves the measurement problem
+\item That Buddhist metaphysics or any other philosophical tradition is presupposed
+\end{itemize}
+
+The framework is structurally neutral regarding these questions. It analyzes consequences of relaxing the assumption of canonical tensor factorization, but does not commit to any particular metaphysical position beyond what the formalism requires.
+
+\subsection{Open Questions}
+
+The following questions represent concrete technical research directions rather than fundamental gaps in the framework. Some (particularly those concerning empirical signatures) require additional physical assumptions beyond the structural analysis presented here, and are best addressed in specific model implementations.
+
+\begin{enumerate}
+\item \textbf{Dynamical algebra selection}: Can interaction Hamiltonians, coupling strengths, or network topologies be shown to select particular stable algebras over others?
+
+\item \textbf{Information-theoretic criteria}: Do preferred geometric descriptions correlate with minimal description length, robustness under noise, or computational accessibility?
+
+\item \textbf{Quantum field theory extensions}: How does the framework interact with locality structures in algebraic QFT? Can continuum limits be rigorously constructed?
+
+\item \textbf{Empirical signatures}: Do different coarse-graining choices lead to distinguishable effective descriptions in semiclassical regimes or quantum gravity-motivated models?
+
+\item \textbf{Connections to quantum complexity}: How does the framework relate to recent work on complexity-based approaches to spacetime emergence?
+\end{enumerate}
+
+These questions are intentionally left open. The present work provides a structural scaffold within which they can be formulated precisely, but does not claim to resolve them.
+
+\subsection{Beyond Structural Analysis}
+
+The framework developed here is deliberately limited to structural and interpretational analysis. Broader philosophical implications—concerning causation, free will, ontology, and connections to contemplative traditions—lie beyond the scope of this technical paper. Such questions are addressed in a companion philosophical essay currently in preparation.
+
+\section{Conclusion}
+
+We have clarified the conceptual commitments of the Holographic Alaya-Field Framework, addressing three potential misreadings:
+
+\begin{enumerate}
+\item \textbf{Against subjectivism}: Accessibility is defined structurally via stability conditions determined by physical interaction structure, not by observer beliefs or epistemic states.
+
+\item \textbf{Against anti-realism}: Emergent geometry is a stable, measurable feature of entanglement structure—contingent on physical conditions but objective within those conditions, analogous to thermodynamic phases.
+
+\item \textbf{Against trivialism}: Coarse-graining dependence reflects genuine physical structure (accessible algebras), not mere coordinate choice. Different algebras induce inequivalent geometries that cannot be related by diffeomorphism.
+\end{enumerate}
+
+The framework has been situated relative to AQFT (closest affinity), RQM (complementary), QBism (categorically distinct), and MWI (potentially complementary). Throughout, we have emphasized what the framework commits to structurally and what it leaves open interpretionally.
+
+The central insight is modest but consequential: by removing tensor factorization from fundamental assumptions and treating it as emergent from coarse-graining structure, we reveal that geometry is more context-dependent than typically acknowledged—not in an epistemic or observer-relative sense, but in a structural, interaction-dependent sense.
+
+This perspective does not resolve deep problems in quantum foundations or quantum gravity, but it clarifies the conditions under which subsystem structure and geometry emerge. By making explicit an assumption that is often left implicit, we hope to have opened new avenues for investigating the relationship between quantum states, observable structure, and spacetime.
+
+\section*{Acknowledgments}
+
+The author thanks the anonymous reviewers for their insightful comments and suggestions, which greatly improved the clarity and rigor of this work.
+
+\begin{thebibliography}{99}
+
+\bibitem{Liu2026}
+S. Liu, \emph{Emergent Geometry from Coarse-Grained Observable Algebras: The Holographic Alaya-Field Framework}, Zenodo (2026), DOI: 10.5281/zenodo.18361707.
+
+\bibitem{Zurek2009}
+W. H. Zurek, \emph{Quantum Darwinism}, Nature Physics \textbf{5}, 181 (2009).
+
+\bibitem{Hayden2007}
+P. Hayden and J. Preskill, \emph{Black holes as mirrors: quantum information in random subsystems}, JHEP \textbf{09}, 120 (2007).
+
+\bibitem{VanRaamsdonk2010}
+M. Van Raamsdonk, \emph{Building up spacetime with quantum entanglement}, Gen. Relativ. Gravit. \textbf{42}, 2323 (2010).
+
+\bibitem{Swingle2012}
+B. Swingle, \emph{Entanglement Renormalization and Holography}, Phys. Rev. D \textbf{86}, 065007 (2012).
+
+\bibitem{Haag1996}
+R. Haag, \emph{Local Quantum Physics: Fields, Particles, Algebras}, Springer-Verlag (1996).
+
+\bibitem{Araki1999}
+H. Araki, \emph{Mathematical Theory of Quantum Fields}, Oxford University Press (1999).
+
+\bibitem{Rovelli1996}
+C. Rovelli, \emph{Relational Quantum Mechanics}, Int. J. Theor. Phys. \textbf{35}, 1637 (1996).
+
+\bibitem{LaudisaRovelli2021}
+F. Laudisa and C. Rovelli, \emph{Relational Quantum Mechanics}, Stanford Encyclopedia of Philosophy (2021).
+
+\bibitem{Fuchs2014}
+C. A. Fuchs, \emph{QBism, the Perimeter of Quantum Bayesianism}, arXiv:1003.5209 (2014).
+
+\bibitem{FuchsMerminSchack2014}
+C. A. Fuchs, N. D. Mermin, and R. Schack, \emph{An Introduction to QBism with an Application to the Locality of Quantum Mechanics}, Am. J. Phys. \textbf{82}, 749 (2014).
+
+\bibitem{Wallace2012}
+D. Wallace, \emph{The Emergent Multiverse}, Oxford University Press (2012).
+
+\bibitem{RyuTakayanagi2006}
+S. Ryu and T. Takayanagi, \emph{Holographic Derivation of Entanglement Entropy from AdS/CFT}, Phys. Rev. Lett. \textbf{96}, 181602 (2006).
+
+\bibitem{Maldacena1999}
+J. M. Maldacena, \emph{The Large N limit of superconformal field theories and supergravity}, Int. J. Theor. Phys. \textbf{38}, 1113 (1999).
+
+\end{thebibliography}
+
+\end{document}

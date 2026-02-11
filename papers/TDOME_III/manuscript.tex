@@ -1,0 +1,2443 @@
+% ============================================================
+% T-DOME Paper III: The Loop
+% T-DOME Program — Paper III
+% ============================================================
+
+\documentclass[12pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage[hidelinks]{hyperref}
+\usepackage{booktabs}
+\usepackage{physics}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{float}
+
+% Theorem environments — matching HAFF/Q-RAIF/T-DOME I/II style
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{corollary}[theorem]{Corollary}
+
+\title{Fisher Information Geometry and the Thermodynamic Cost\\
+of Self-Referential Calibration}
+
+\author{Sidong Liu, PhD \\
+\small iBioStratix Ltd \\
+\small \texttt{sidongliu@hotmail.com}}
+
+\date{February 2026}
+
+\begin{document}
+\maketitle
+
+% ============================================================
+\begin{abstract}
+Papers~I and~II of the T-DOME
+series~\cite{Liu2026TDOME_I,Liu2026TDOME_II} established
+that persistent agents must carry non-Markovian memory
+(Paper~I) and must spontaneously break the gauge symmetry of
+their internal Clifford algebra $Cl(V,q)$ to form a
+compressed reference frame---the ``ego''
+$\mathfrak{E} = (\mathcal{F}^*,\,V_{\mathrm{fg}}^*)$
+(Paper~II).
+Paper~II concluded with the \textbf{Delusion Trap}: under
+environmental drift, a fixed reference frame decouples from
+the optimal gauge on the logarithmic timescale
+$t_{\mathrm{del}}
+= \Lambda^{-1}\ln(\pi/4\theta_0)$,
+and the agent cannot detect this failure from within its own
+foreground subspace $V_{\mathrm{fg}}$.
+
+In this final work we derive the theory of
+\textbf{self-referential calibration}.
+We show that while the agent cannot observe the background
+subspace $V_{\mathrm{bg}}$ directly, it can measure the
+\textbf{Fisher information} of its own prediction-residual
+stream with respect to its frame parameters~$\sigma$.
+We prove three main results:
+\begin{enumerate}
+\item \textbf{Drift Detectability}
+  (Theorem~\ref{thm:detectability}):
+  environmental drift generates a quadratically growing
+  signal in the self-referential Fisher information
+  $\mathcal{I}_F(\sigma)$, detectable before the
+  Delusion Trap closes.
+\item \textbf{Self-Referential Cram\'{e}r--Rao Bound}
+  (Theorem~\ref{thm:SRCR}):
+  the agent's drift-estimation error is bounded below by
+  $1/(n_{\mathrm{eff}}\,\mathcal{I}_F + \mathcal{I}_{\mathrm{ego}})$,
+  where $\mathcal{I}_{\mathrm{ego}}$ quantifies the
+  rigidity of the ego prior.
+\item \textbf{Thermodynamic Cost of the Loop}
+  (Theorem~\ref{thm:loop_cost}):
+  the minimum dissipation rate for self-referential
+  calibration is
+  $\dot{W}_{\mathrm{loop}}
+  \geq k_BT\,\ln 2\,[h_\mu\,k^*
+  + \mathcal{C}_{\mathrm{meta}}]
+  + \mathcal{L}^2/\tau_{\mathrm{recalib}}^2$,
+  where $\mathcal{L}$ is the thermodynamic length of the
+  frame update and $\tau_{\mathrm{recalib}}$ is the
+  recalibration time.
+\end{enumerate}
+The calibration loop satisfies a Lyapunov tracking bound
+(Theorem~\ref{thm:loop_stability}),
+keeping the mismatch within a neighbourhood whose size is
+set by the ratio of environmental drift speed to adaptation
+rate.
+We identify this loop as the minimal physical realisation of
+\emph{reflexivity}---estimating drift from residual
+statistics and correcting the frame via Lyapunov-monitored
+natural gradient descent.
+Combining with Papers~I and~II, we state a
+\textbf{Four-Part Structure Proposition}
+(Proposition~\ref{prop:four_part}):
+within the class of agents satisfying~(C1)--(C5),
+a sufficient architecture for persistence under drift
+requires
+(1)~an external observable geometry,
+(2)~an internal control algebra,
+(3)~a self-monitoring Lyapunov function, and
+(4)~biased non-Markovian memory.
+\end{abstract}
+
+% ============================================================
+\section{Introduction}
+\label{sec:intro}
+
+% ------------------------------------------------------------
+\subsection{Context: The Delusion Trap}
+\label{subsec:delusion_context}
+
+Paper~II of this series~\cite{Liu2026TDOME_II} established
+that persistent agents under bounded computation must
+spontaneously break the gauge symmetry of their internal
+algebra $Cl(V,q)$, selecting a privileged reference frame
+$\mathcal{F}^*$ that compresses the memory kernel into a
+tractable $k^*$-dimensional foreground subspace
+$V_{\mathrm{fg}}$.
+This gauge fixing---the ``ego''
+$\mathfrak{E} := (\mathcal{F}^*,\,V_{\mathrm{fg}}^*)$---is
+not an additional hypothesis but the survival-optimal strategy
+under bounded rationality.
+
+However, Paper~II's final theorem revealed a fatal
+consequence.
+Under environmental drift (spectral-density parameters
+changing at rate~$\varepsilon$), the mismatch angle between
+the agent's fixed frame and the instantaneous optimal frame
+grows as
+$\theta(t) = \theta_0\,e^{\Lambda t}$
+(Paper~II, Definition~27),
+where $\Lambda \sim \varepsilon/\tau_{\mathrm{adapt}}$
+is the environmental Lyapunov exponent.
+Beyond the \emph{delusion time}
+\begin{equation}
+\label{eq:t_del_recall}
+t_{\mathrm{del}}
+= \frac{1}{\Lambda}\,
+\ln\!\left(\frac{\pi/4}{\theta_0}\right),
+\end{equation}
+three catastrophic failures occur simultaneously
+(Paper~II, Theorem~29):
+\begin{enumerate}
+\item The hidden survival component dominates:
+  $|\mathcal{S}_{\mathrm{hid}}|
+  > |\mathcal{S}_{\mathrm{vis}}|$.
+\item The agent's update direction anti-correlates with
+  the true survival gradient:
+  $\langle \nabla_u\mathcal{S}_{\mathrm{vis}},\,
+  \nabla_u\mathcal{S}_{\mathrm{full}}\rangle
+  < 0$.
+\item All four bias terms
+  ($\mathcal{B}_{\mathrm{select}}$,
+  $\mathcal{B}_{\mathrm{frame}}$,
+  $\mathcal{B}_{\mathrm{center}}$,
+  $\mathcal{B}_{\mathrm{inc}}$)
+  operate within $V_{\mathrm{fg}}$ and cannot register
+  changes in the background $V_{\mathrm{bg}}$.
+\end{enumerate}
+
+Paper~II further showed
+(Remark~31)
+that ``dithering''---randomly probing the background
+subspace---fails because the agent has no gradient signal to
+indicate \emph{when} or \emph{where} to probe.
+The exponential divergence in $V_{\mathrm{bg}}$ is invisible
+until it dominates, at which point it is too late.
+
+\emph{The present paper provides the escape.}
+
+% ------------------------------------------------------------
+\subsection{Position within Papers~I--III}
+\label{subsec:sequence}
+
+This paper is the third and final of the T-DOME framework,
+closing the three-paper sequence.
+
+\begin{center}
+\small
+\setlength{\tabcolsep}{4pt}%
+\begin{tabular}{@{}lp{3.5cm}p{4.2cm}c@{}}
+\toprule
+\textbf{Framework} & \textbf{Question} & \textbf{Result}
+  & \textbf{Status} \\
+\midrule
+HAFF~\cite{Liu2026HAFF_A,Liu2026HAFF_B}
+  & How does geometry emerge?
+  & Algebra $\to$ Geometry
+  & Complete \\[3pt]
+Q-RAIF~\cite{Liu2026QRAIF_A,Liu2026QRAIF_B}
+  & What algebra must an observer have?
+  & $Cl(V,q) \hookrightarrow Cl(1,3)$
+  & Complete \\[3pt]
+T-DOME~I~\cite{Liu2026TDOME_I}
+  & Why must agents carry memory?
+  & Markovian ceiling; memory as necessity
+  & Complete \\[3pt]
+T-DOME~II~\cite{Liu2026TDOME_II}
+  & Why must agents break symmetry?
+  & Reference-frame selection under bounded computation
+  & Complete \\[3pt]
+\textbf{T-DOME~III} (this work)
+  & How does self-calibration arise?
+  & Fisher self-referential bound;
+    thermodynamic cost of reflexivity
+  & \textbf{This paper} \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+The three T-DOME papers form an irreversible logical chain:
+\begin{enumerate}
+\item \textbf{Paper~I:} Without memory, a system
+  is trapped in the Markovian present.
+  Memory breaks this trap but floods the system with
+  unbounded historical data.
+\item \textbf{Paper~II:} Unbounded memory under
+  finite computational resources causes processing collapse.
+  Spontaneous symmetry breaking resolves the overload but
+  introduces systematic bias.
+\item \textbf{Paper~III (this work):} Uncorrected
+  bias diverges from a changing environment.
+  A self-referential calibration loop---monitoring the
+  Fisher information of one's own prediction stream---resolves
+  the bias but requires a second-order control structure and
+  an irreducible thermodynamic cost.
+\end{enumerate}
+
+Each resolution creates the precondition for the next
+crisis: memory enables overload, compression enables bias,
+and bias demands calibration.
+Only the complete closure
+\emph{Paper~I $+$ Paper~II $+$ Paper~III}
+allows a system to persist under the Second Law in a
+drifting environment.
+
+% ------------------------------------------------------------
+\subsection{The Information-Geometric Insight}
+\label{subsec:insight}
+
+The key observation that resolves the Delusion Trap is
+subtle:
+\emph{while the agent cannot observe $V_{\mathrm{bg}}$
+directly, it can observe the statistical properties of its
+own prediction residuals in $V_{\mathrm{fg}}$.}
+
+The prediction residual
+$e(t) := \mathcal{S}_{\mathrm{vis}}(t)
+- \mathcal{S}_{\mathrm{vis}}^{(\mathrm{pred})}(t)$
+lies in $V_{\mathrm{fg}}$ by construction.
+Its \emph{value} carries no information about the background.
+But its \emph{distribution}---the probability law
+$p(e\,|\,\sigma)$, parametrised by the gauge-fixing
+parameter~$\sigma$---does depend on~$\sigma$, because the
+projection $\Pi_{\mathcal{F}}(\sigma)$ determines which
+environmental correlations are captured and which are
+discarded.
+
+When the frame $\sigma$ drifts away from the optimal
+$\sigma^*$, the residual distribution shifts.
+The \emph{Fisher information metric}
+\begin{equation}
+\label{eq:fisher_preview}
+g_{ij}(\sigma)
+= \mathbb{E}_\sigma\!\left[
+  \frac{\partial \log p(e\,|\,\sigma)}
+       {\partial \sigma^i}\,
+  \frac{\partial \log p(e\,|\,\sigma)}
+       {\partial \sigma^j}
+\right]
+\end{equation}
+measures the sensitivity of this distribution to changes
+in~$\sigma$.
+A spike in $g_{ij}$---a ``stress'' in the agent's
+internal geometry---is the signal that the reference frame
+is becoming stale.
+
+This is the mathematical realisation of the
+``second-order operation'' demanded by
+Paper~II, Section~7.5: the agent does not need to see the
+truth (the full $Cl(V,q)$), but only the \emph{rate of
+change of its own prediction error} as a function of its
+frame parameters.
+Fisher information is precisely this quantity.
+
+% ------------------------------------------------------------
+\subsection{Relation to Architectural Incompleteness}
+\label{subsec:haff_g}
+
+The architectural incompleteness
+result~\cite{Liu2026HAFF_G} established
+\emph{architectural incompleteness}: the observable-algebra
+framework cannot self-ground.
+Paper~II provided a partial operational response (the ego as
+gauge fixing under bounded computation).
+The present paper provides the final operational response:
+the self-referential calibration loop cannot \emph{eliminate}
+architectural incompleteness, but it can \emph{track}
+the consequences of incompleteness in real time.
+The Lyapunov function $V(\sigma)$ monitors the distance
+between the agent's frame and the optimal frame without
+requiring access to the ``complete'' description---it
+operates entirely within the agent's own predictive
+statistics.
+
+% ------------------------------------------------------------
+\subsection{Scope and Disclaimers}
+\label{subsec:scope}
+
+\begin{enumerate}
+\item \emph{Reflexivity} refers throughout to
+  second-order control: the ability of a system to
+  monitor and adjust its own monitoring process.
+  It carries \emph{no} implication of phenomenal
+  consciousness, subjective experience, or qualia.
+\item The self-referential calibration loop does not
+  \emph{eliminate} the ego's bias; it tracks and
+  compensates for drift in the bias.
+  The four bias terms of Paper~II persist in the
+  calibrated phase.
+\item The thermodynamic cost bounds are
+  information-theoretic lower bounds, not claims about
+  specific physical implementations.
+\item The framework applies to systems
+  satisfying~(C1)--(C5) (Section~\ref{subsec:standing_C}).
+  It is not a universal theory of agency.
+\end{enumerate}
+
+\paragraph{Related work.}
+The Fisher information metric on statistical manifolds was
+introduced by Rao~\cite{Rao1945} and shown to be unique
+by \v{C}encov~\cite{Cencov1982}.
+The natural gradient and information geometry were developed
+by Amari~\cite{Amari1998,AmariNagaoka2000}.
+Thermodynamic length and optimal finite-time transformations
+were established by
+Crooks~\cite{Crooks2007} and
+Sivak--Crooks~\cite{SivakCrooks2012}.
+The connection between Fisher information and entropy
+production was formalised by Ito~\cite{Ito2018} and
+Barato--Seifert~\cite{BaratoSeifert2015}.
+Second-order cybernetics originates with
+Ashby~\cite{Ashby1956} and
+von Foerster~\cite{vonFoerster2003}.
+Adaptive control and self-tuning regulators are treated
+in~\cite{AstromWittenmark1995}.
+The Bayesian Cram\'{e}r--Rao bound (van Trees inequality)
+is from~\cite{vanTrees1968}.
+
+\paragraph{Summary of contributions.}
+This paper establishes three main results:
+\begin{enumerate}
+\item \textbf{Drift Detectability}
+  (Theorem~\ref{thm:detectability}):
+  the self-referential Fisher information of the
+  prediction-residual stream grows quadratically with
+  accumulated drift, providing a detectable signal
+  before the Delusion Trap closes.
+\item \textbf{Self-Referential Cram\'{e}r--Rao Bound}
+  (Theorem~\ref{thm:SRCR}):
+  drift-estimation precision is bounded by the sum of
+  data Fisher information and ego rigidity.
+\item \textbf{Thermodynamic Cost}
+  (Theorem~\ref{thm:loop_cost}):
+  the self-calibration loop requires a minimum
+  dissipation rate with three distinct components
+  (sensing, computing, actuating).
+\end{enumerate}
+
+% ============================================================
+\section{Mathematical Preliminaries}
+\label{sec:prelim}
+
+% ------------------------------------------------------------
+\subsection{Inherited Framework from Papers~I and~II}
+\label{subsec:inherited}
+
+We briefly recall the key objects; the reader is referred to
+Papers~I and~II for full definitions and proofs.
+
+\paragraph{From Paper~I~\cite{Liu2026TDOME_I}.}
+\begin{itemize}
+\item \textbf{Survival functional.}
+  $\mathcal{S}[\Lambda,\tau]
+  := \Delta F - W[0,\tau]$~(Paper~I,
+  Eq.~(9)).
+\item \textbf{Markovian Ceiling.}
+  $\mathcal{S}[\Lambda^{\mathrm{M}},\tau] \leq 0$ for all
+  $\tau \geq 0$.
+\item \textbf{Memory kernel.}
+  $\mathcal{K}(t,s)$: the non-Markovian superoperator
+  encoding system--environment correlations.
+\item \textbf{Entropy rate.}
+  $h_\mu := \lim_{T\to\infty}T^{-1}H(X_{0:T})$ (bits per
+  unit time per algebraic component).
+\item \textbf{Predictive information.}
+  $I_{\mathrm{pred}}
+  := I(\overleftarrow{X};\,\overrightarrow{X})$.
+\end{itemize}
+
+\paragraph{From Paper~II~\cite{Liu2026TDOME_II}.}
+\begin{itemize}
+\item \textbf{Internal algebra.}
+  $\mathcal{O}_{\mathrm{int}} = Cl(V,q)$, $D = \dim Cl(V,q) = 2^n$,
+  gauge group $G = \mathrm{Aut}(Cl(V,q))$.
+\item \textbf{Gauge bundle.}
+  $\pi: P \to M$, structure group $G$; a section
+  $\sigma: M \to P$ is a reference frame.
+\item \textbf{Ego.}
+  $\mathfrak{E} := (\mathcal{F}^*,\,V_{\mathrm{fg}}^*)$
+  with $k^* = \lfloor \mathcal{C}_{\mathrm{budget}}/
+  h_\mu \rfloor$ foreground components.
+\item \textbf{Projected kernel.}
+  $\mathcal{K}_{\mathcal{F}}(t,s)
+  = \Pi_{\mathcal{F}}\,\mathcal{K}(t,s)\,
+  \Pi_{\mathcal{F}}$.
+\item \textbf{Survival decomposition.}
+  $\mathcal{S} = \mathcal{S}_{\mathrm{vis}}(\mathcal{F})
+  + \mathcal{S}_{\mathrm{hid}}(\mathcal{F})$.
+\item \textbf{Four bias terms.}
+  $\mathcal{B}_{\mathrm{select}}$,
+  $\mathcal{B}_{\mathrm{frame}}$,
+  $\mathcal{B}_{\mathrm{center}}$,
+  $\mathcal{B}_{\mathrm{inc}}$
+  (Paper~II, Proposition~18, Table~2).
+\item \textbf{Delusion Trap.}
+  $t_{\mathrm{del}}
+  = \Lambda^{-1}\ln(\pi/4\theta_0)$
+  (Paper~II, Theorem~29).
+\item \textbf{Information-objects convention.}
+  $I(\mathcal{K}_{\mathcal{F}};\,\mathcal{K})
+  \equiv I(\hat{X};\,X)$ on induced record processes
+  (Paper~II, Remark~15).
+\end{itemize}
+
+% ------------------------------------------------------------
+\subsection{Fisher Information Metric}
+\label{subsec:fisher}
+
+\begin{definition}[Fisher information matrix]
+\label{def:fisher}
+Let $\{p(x\,|\,\theta) : \theta \in \Theta
+\subset \mathbb{R}^d\}$ be a parametric family of
+probability densities satisfying standard regularity
+conditions (interchange of differentiation and integration).
+The \emph{Fisher information matrix} is
+\begin{equation}
+\label{eq:fisher_def}
+g_{ij}(\theta)
+:= \mathbb{E}_\theta\!\left[
+  \frac{\partial \log p(x\,|\,\theta)}
+       {\partial \theta^i}\,
+  \frac{\partial \log p(x\,|\,\theta)}
+       {\partial \theta^j}
+\right]
+= -\mathbb{E}_\theta\!\left[
+  \frac{\partial^2 \log p(x\,|\,\theta)}
+       {\partial \theta^i\,\partial \theta^j}
+\right].
+\end{equation}
+The pair $(\Theta,\,g)$ is a Riemannian manifold called the
+\emph{statistical manifold}.
+\end{definition}
+
+\begin{remark}[Uniqueness]
+\label{rem:cencov}
+By \v{C}encov's theorem~\cite{Cencov1982}, the Fisher--Rao
+metric $g^{\mathrm{FR}}$ is, up to a positive scalar
+multiple, the unique Riemannian metric on the space of
+probability distributions that is invariant under all
+Markov morphisms (sufficient-statistic embeddings).
+This uniqueness guarantees that the Fisher metric is the
+\emph{canonical} choice for measuring drift on the
+statistical manifold of the agent's predictive model---it is
+not a design choice but a mathematical necessity.
+\end{remark}
+
+\begin{proposition}[Cram\'{e}r--Rao bound]
+\label{prop:CR}
+For any unbiased estimator $\hat{\theta}$ of $\theta$ based
+on $n$ independent observations:
+\begin{equation}
+\label{eq:CR}
+\mathrm{Cov}(\hat{\theta})
+\;\succeq\; \frac{1}{n}\,\bigl[g(\theta)\bigr]^{-1}
+\end{equation}
+in the L\"{o}wner order.
+The scalar case reads
+$\mathrm{Var}(\hat{\theta})
+\geq 1/\bigl(n\,g(\theta)\bigr)$.
+\end{proposition}
+
+\begin{remark}[Effective independence]
+\label{rem:effective_independence}
+Throughout this paper, references to ``independent
+observations'' in the context of continuous-time residual
+streams should be read as \emph{effective independence}
+after thinning by the environmental decorrelation
+time~$\tau_E$, yielding an effective sample size
+$n_{\mathrm{eff}} \approx T/\tau_E$.
+In particular, the sample count $n$ in~\eqref{eq:CR}
+becomes $n_{\mathrm{eff}}$ in the self-referential
+setting of Section~\ref{subsec:SRCR}.
+\end{remark}
+
+\begin{remark}[Fisher metric and KL divergence]
+\label{rem:fisher_KL}
+The Fisher metric arises as the Hessian of the
+Kullback--Leibler divergence~\cite{CoverThomas2006}:
+\begin{equation}
+\label{eq:fisher_KL}
+D_{\mathrm{KL}}\bigl(p_\theta \,\|\, p_{\theta+d\theta}\bigr)
+= \tfrac{1}{2}\,g_{ij}(\theta)\,d\theta^i\,d\theta^j
+  + O\!\left(|d\theta|^3\right).
+\end{equation}
+This identifies the Fisher metric as the infinitesimal
+measure of statistical distinguishability.
+\end{remark}
+
+% ------------------------------------------------------------
+\subsection{Information Geometry}
+\label{subsec:info_geom}
+
+Following Amari~\cite{Amari1985,AmariNagaoka2000}, the
+statistical manifold $(\Theta,\,g)$ carries additional
+geometric structure beyond the Riemannian metric.
+
+\paragraph{$\alpha$-connections.}
+For each $\alpha \in [-1,\,1]$, Amari defines an affine
+connection $\nabla^{(\alpha)}$ on $\Theta$.
+The cases $\alpha = 1$ (exponential connection,
+$\nabla^{(e)}$) and $\alpha = -1$ (mixture connection,
+$\nabla^{(m)}$) are \emph{dual} with respect to $g$:
+$\partial_k\,g(X,Y)
+= g(\nabla_k^{(e)}X,\,Y)
++ g(X,\,\nabla_k^{(m)}Y)$.
+For exponential families, $\nabla^{(e)}$ is flat in natural
+parameters and $\nabla^{(m)}$ is flat in expectation
+parameters---the \emph{dually flat structure}.
+The case $\alpha = 0$ recovers the Levi-Civita connection of
+the Fisher metric.
+
+\paragraph{Natural gradient.}
+Standard gradient descent in parameter space ignores the
+curvature of the statistical manifold.
+The \emph{natural gradient}~\cite{Amari1998}
+\begin{equation}
+\label{eq:natural_gradient}
+\dot{\theta}
+= -\eta\,g^{-1}(\theta)\,\nabla_\theta L(\theta),
+\end{equation}
+where $\eta > 0$ is the learning rate and $L(\theta)$ is a
+loss function, provides the steepest descent direction in the
+Fisher metric.
+It is reparametrisation-invariant and Fisher-efficient
+(achieves the Cram\'{e}r--Rao bound asymptotically).
+
+\paragraph{Pythagorean theorem.}
+In a dually flat space, the KL divergence satisfies
+a generalised Pythagorean relation:
+$D_{\mathrm{KL}}(p\,\|\,r)
+= D_{\mathrm{KL}}(p\,\|\,q)
++ D_{\mathrm{KL}}(q\,\|\,r)$
+when $q$ is the $m$-projection of $p$ onto a
+submanifold containing $r$.
+This decomposition will be applied to separate the
+foreground-recoverable and background-irrecoverable
+components of drift.
+
+% ------------------------------------------------------------
+\subsection{Thermodynamic Length}
+\label{subsec:thermo_length}
+
+\begin{definition}[Thermodynamic length]
+\label{def:thermo_length}
+Let $\lambda(t)$ for $t \in [0,\tau]$ be a path through
+control parameter space, and let $\zeta_{ij}(\lambda)$ be the
+\emph{friction tensor} (the time-integrated equilibrium
+force--force correlation function at~$\lambda$).
+The \emph{thermodynamic length} of the
+path~\cite{Crooks2007} is
+\begin{equation}
+\label{eq:thermo_length}
+\mathcal{L}
+:= \int_0^\tau
+\sqrt{\zeta_{ij}(\lambda)\,
+  \dot{\lambda}^i\,\dot{\lambda}^j}\;dt.
+\end{equation}
+\end{definition}
+
+\begin{proposition}[Sivak--Crooks bound]
+\label{prop:sivak_crooks}
+The excess (dissipated) work during a finite-time
+transformation of duration $\tau$ satisfies~\cite{SivakCrooks2012}
+\begin{equation}
+\label{eq:sivak_crooks}
+W_{\mathrm{ex}} \;\geq\; \frac{\mathcal{L}^2}{\tau}.
+\end{equation}
+The minimum is achieved by the geodesic of the friction
+tensor $\zeta$.
+In the linear-response regime, the friction tensor is
+related to the Fisher metric of the equilibrium distribution
+at $\lambda$ by
+$\zeta_{ij}(\lambda)
+\sim \tau_{\mathrm{relax}}\,g_{ij}^{\mathrm{Fisher}}(\lambda)$,
+where $\tau_{\mathrm{relax}}$ is the relaxation time.
+\end{proposition}
+
+% ------------------------------------------------------------
+\subsection{Second-Order Cybernetics}
+\label{subsec:cybernetics}
+
+Von Foerster~\cite{vonFoerster2003} distinguished two levels
+of control:
+\begin{itemize}
+\item \textbf{First-order cybernetics}: feedback control of
+  observed systems.
+  The controller adjusts its actions based on the output of
+  a sensor.
+  Paper~II's ego is a first-order structure: it processes
+  environmental data within a fixed frame.
+\item \textbf{Second-order cybernetics}: feedback control of
+  the \emph{observing} system itself.
+  The controller adjusts the \emph{sensor}---or equivalently,
+  the reference frame within which the sensor operates.
+  This is what Paper~III provides.
+\end{itemize}
+
+Ashby's Law of Requisite Variety~\cite{Ashby1956} provides a
+lower bound on the complexity of the meta-controller:
+\begin{equation}
+\label{eq:requisite_variety}
+\dim\!\left(\text{meta-controller state space}\right)
+\;\geq\; \dim\!\left(\text{environmental drift subspace}\right).
+\end{equation}
+The meta-observer must have at least as many adjustable
+parameters as there are independent modes of environmental
+drift.
+
+In adaptive control
+theory~\cite{AstromWittenmark1995}, the analogous result is
+the \emph{persistent excitation} condition: parameter
+estimates converge if and only if the input signal is
+``rich enough'' to excite all modes of the system.
+In our framework, persistent excitation corresponds to
+$h_\mu > 0$---the environment must continue to generate
+novelty for the self-calibration loop to function.
+
+\begin{remark}[Operational content]
+\label{rem:cybernetics_operational}
+The second-order cybernetic structure in this paper is
+\emph{not} a philosophical metaphor.
+It has concrete operational content: the natural gradient
+update~\eqref{eq:natural_gradient} is a specific algorithm
+that takes as input the Fisher information of the residual
+stream and produces as output an update to the frame
+parameter~$\sigma$.
+This algorithm can be implemented by any physical system
+capable of accumulating second-moment statistics of its own
+prediction errors over a window of length~$T \geq \tau_E$.
+\end{remark}
+
+% ------------------------------------------------------------
+\subsection{Standing Assumptions}
+\label{subsec:standing_C}
+
+\begin{definition}[Standing Assumptions]
+\label{def:assumptions_C}
+Throughout this paper, the following conditions are assumed:
+\begin{enumerate}
+\item[\textup{(C1)}] \textbf{Inherited framework.}
+  All assumptions (B1)--(B5) of
+  Paper~II~\cite{Liu2026TDOME_II} remain in force.
+  This transitively includes (A1)--(A5) of
+  Paper~I~\cite{Liu2026TDOME_I}
+  (open quantum system, thermal bath, well-defined free
+  energy, finite Hilbert space, weak coupling) and the
+  realizability embedding
+  $\phi: Cl(V,q) \hookrightarrow Cl(1,3)$
+  (Q-RAIF~\cite{Liu2026QRAIF_C}).
+  We invoke this embedding strictly as a structural
+  inheritance from the earlier papers; no new physical
+  claims about $Cl(1,3)$ spacetime are introduced here.
+  Additionally, the Delusion Trap is active:
+  $\tau_{\mathrm{mem}} > \tau_{\mathrm{par}}$ and
+  $\Lambda > 0$.
+\item[\textup{(C2)}] \textbf{Environmental drift.}
+  The instantaneous optimal frame
+  $\mathcal{F}^*(t)$ rotates continuously in~$G$ at
+  a rate characterised by the Lyapunov exponent
+  $\Lambda > 0$~(Paper~II, Eq.~(37)).
+\item[\textup{(C3)}] \textbf{Finite meta-observer budget.}
+  The self-calibration loop has a computational budget
+  $\mathcal{C}_{\mathrm{meta}} < \infty$ (bits per unit
+  time), distinct from the ego's processing budget
+  $\mathcal{C}_{\mathrm{budget}}$.
+\item[\textup{(C4)}] \textbf{Regularity.}
+  The agent's predictive family
+  $\{p(e\,|\,\sigma)
+  : \sigma \in G/H\}$ satisfies standard Fisher
+  information regularity: full rank, finite Fisher matrix,
+  and interchange of differentiation and integration.
+  This extends (A5) from Paper~I.
+\item[\textup{(C5)}] \textbf{Persistent excitation.}
+  The environmental entropy rate satisfies
+  $h_\mu > 0$ for all~$t$.
+  The environment generates new information indefinitely;
+  no ``frozen'' regimes occur.
+\end{enumerate}
+\end{definition}
+
+% ============================================================
+\section{The Drift Detection Problem}
+\label{sec:detection}
+
+% ------------------------------------------------------------
+\subsection{Why First-Order Control Fails}
+\label{subsec:first_order}
+
+\begin{theorem}[First-Order Insufficiency]
+\label{thm:first_order}
+Under assumptions~\textup{(C1)--(C5)}, decompose the
+prediction residual as
+$e(t) = e_{\mathrm{drift}}(t) + \xi(t)$,
+where $e_{\mathrm{drift}}$ is the deterministic
+drift-induced component (second-order in $\theta$)
+and $\xi(t)$ is the innovation noise, whose distribution
+is symmetric on $V_{\mathrm{fg}}$ under~\textup{(C5)}.
+No first-order controller---one that updates
+$\dot{\sigma} = f(e(t))$ based on the instantaneous
+residual without computing statistical properties of the
+error stream---can uniformly reduce the drift.
+Specifically: for any deterministic update function~$f$,
+there exists a measurable event
+$\mathcal{E} \subset V_{\mathrm{fg}}$ with
+$\mathbb{P}(\mathcal{E})
+\geq 1/2 - O(\mathrm{SNR})$
+under the symmetric innovation distribution~$p(\xi)$,
+such that for all $\xi \in \mathcal{E}$ the update
+direction satisfies
+$\langle \dot{\sigma},\,\dot{\sigma}^*\rangle \leq 0$,
+where $\mathrm{SNR} \sim \theta^4/h_\mu$.
+\end{theorem}
+
+\begin{proof}
+\emph{Probability space.}
+The probability is taken over the innovation sequence
+$\{\xi(t)\}_{t \geq 0}$ under the symmetric distribution
+induced by the bath coupling~(C5).
+All expectations below are over~$p(\xi)$.
+
+\emph{Signal-to-noise separation.}
+The prediction error $e(t)$ lies in $V_{\mathrm{fg}}$ by
+construction.
+Frame drift manifests as a rotation of the optimal frame
+$\mathcal{F}^*(t)$ in the gauge group $G$, shifting
+survival weight from $V_{\mathrm{fg}}$ to
+$V_{\mathrm{bg}}$.
+In $V_{\mathrm{fg}}$, the drift signal enters only at
+second order in the mismatch angle~$\theta$
+(Paper~II, proof of Theorem~29, part~(c)):
+$\mathcal{S}_{\mathrm{vis}}
+= \mathcal{S}_{\mathrm{tot}}\cos^2\theta$,
+so
+$e_{\mathrm{drift}}
+\sim \theta^2\,\mathcal{S}_{\mathrm{tot}}$.
+The noise $\xi(t)$ scales as $h_\mu^{1/2}$.
+For $\theta \ll 1$, the single-sample signal-to-noise
+ratio is
+$\mathrm{SNR} \sim \theta^4/h_\mu \ll 1$.
+
+\emph{Symmetry argument.}
+Since $p(\xi)$ is symmetric on $V_{\mathrm{fg}}$,
+for any deterministic $f$:
+\begin{itemize}
+\item If $f$ is odd (e.g., linear gain),
+  $\mathbb{E}[f(e_{\mathrm{drift}} + \xi)]
+  \approx f(e_{\mathrm{drift}})$,
+  but the instantaneous sign of $f$ is determined by $\xi$
+  with probability $\tfrac{1}{2} - O(\mathrm{SNR})$.
+\item If $f$ is even,
+  $f(e)$ carries no information about the
+  \emph{sign} of $\dot{\sigma}^*$, so
+  $\langle f(e),\,\dot{\sigma}^*\rangle$ vanishes in
+  expectation.
+\end{itemize}
+In either case, the probability that the update direction
+anti-correlates with the true drift direction is at
+least~$1/2 - O(\mathrm{SNR})$.
+Systematic drift detection requires accumulating
+second-order statistics of the residual stream over
+multiple samples---a second-order operation.
+\end{proof}
+
+% ------------------------------------------------------------
+\subsection{The Agent's Statistical Manifold}
+\label{subsec:stat_manifold}
+
+The agent's prediction-residual stream
+$\{e(t)\}_{t \geq 0}$ defines a stochastic process whose
+distribution depends on the gauge-fixing
+parameter~$\sigma$.
+We model this dependence as a parametric family.
+
+\begin{definition}[Predictive family]
+\label{def:predictive_family}
+The \emph{predictive family} of the agent is the set
+\begin{equation}
+\label{eq:predictive_family}
+\mathcal{P}
+:= \bigl\{p(e\,|\,\sigma)
+  : \sigma \in \mathcal{M}_G\bigr\},
+\end{equation}
+where $\mathcal{M}_G := G/H$ is the space of gauge-fixing
+orbits ($H$ is the stabiliser of the foreground subspace),
+$e$ denotes the prediction-residual time series over a
+window of length~$T$, and $p(e\,|\,\sigma)$ is the
+likelihood of the observed residuals given the gauge
+parameter~$\sigma$.
+\end{definition}
+
+The key insight is that $p(e\,|\,\sigma)$ depends
+on~$\sigma$ even though $e(t) \in V_{\mathrm{fg}}$,
+because the projection $\Pi_{\mathcal{F}}(\sigma)$
+determines which environmental correlations are captured.
+When $\sigma$ drifts from the optimal $\sigma^*$:
+\begin{itemize}
+\item The variance of the residuals increases (the
+  discarded background components contribute unmodelled
+  noise).
+\item The temporal correlations of the residuals change
+  (the projected kernel $\mathcal{K}_{\mathcal{F}}$ no
+  longer captures the dominant environmental modes).
+\item Higher-order statistics (kurtosis, spectral shape)
+  shift systematically.
+\end{itemize}
+These distributional changes are invisible to the
+raw error $e(t)$ but detectable by the Fisher metric
+of $\mathcal{P}$.
+
+% ------------------------------------------------------------
+\subsection{Self-Referential Fisher Information}
+\label{subsec:self_ref_fisher}
+
+\begin{definition}[Self-referential Fisher information]
+\label{def:self_ref_fisher}
+The \emph{self-referential Fisher information} of the agent
+at gauge parameter $\sigma$ is
+\begin{equation}
+\label{eq:self_ref_fisher}
+\mathcal{I}_F(\sigma)
+:= g_{ij}(\sigma)\,\delta\sigma^i\,\delta\sigma^j,
+\end{equation}
+where $g_{ij}(\sigma)$ is the Fisher information matrix of
+the predictive family $\mathcal{P}$
+(Definition~\ref{def:predictive_family}) evaluated at
+$\sigma$, and $\delta\sigma$ is the frame perturbation
+direction.
+In the scalar case (single drift mode),
+$\mathcal{I}_F(\sigma)
+= \mathbb{E}_\sigma\!\bigl[
+  (\partial_\sigma \log p(e\,|\,\sigma))^2\bigr]$.
+\end{definition}
+
+\begin{remark}[What the agent ``measures'']
+\label{rem:what_measured}
+Computing $\mathcal{I}_F(\sigma)$ does not require access
+to $V_{\mathrm{bg}}$ or to the ``true'' environment.
+It requires only: (i)~the agent's own prediction residuals
+$\{e(t)\}$ (which lie in $V_{\mathrm{fg}}$), and
+(ii)~the ability to evaluate the score function
+$\partial_\sigma \log p(e\,|\,\sigma)$---the sensitivity of
+its own predictive model to frame perturbations.
+This is a computation entirely within the agent's internal
+algebra, using only quantities already available from the
+ego's processing pipeline.
+\end{remark}
+
+\begin{theorem}[Drift Detectability]
+\label{thm:detectability}
+Under assumptions~\textup{(C1)--(C5)}, suppose the frame
+is freshly calibrated at time $t_0$
+($\theta(t_0) = 0$).  Then the self-referential
+Fisher information of the prediction-residual stream
+satisfies, for small accumulated drift
+($\Lambda\,\Delta t \ll 1$):
+\begin{equation}
+\label{eq:detectability}
+\mathcal{I}_F(\sigma;\,\{e_t\}_{t_0}^{t_0+\Delta t})
+\;\geq\; \kappa\,\Lambda^2\,(\Delta t)^2\,
+\mathcal{I}_F^{\mathrm{env}},
+\end{equation}
+where:
+\begin{itemize}
+\item $\kappa := \inf_{\sigma \in \mathcal{N}}
+  (\partial\theta / \partial\sigma)^2 > 0$ is the
+  \emph{coupling efficiency}, where $\mathcal{N}$ is a
+  compact neighbourhood of the calibrated point
+  $\sigma^*$ on which the gauge chart is non-singular
+  (existence guaranteed by~\textup{(C4)}; see proof);
+\item $\Lambda$ is the environmental Lyapunov exponent
+  \textup{(Paper~II, Eq.~(37))};
+\item $\Delta t$ is the observation window;
+\item $\mathcal{I}_F^{\mathrm{env}}
+  := \mathbb{E}_{p(\cdot|\theta)}
+  [(\partial_\theta \log p)^2]$ is the per-component
+  environmental Fisher information, measuring the
+  baseline sensitivity of the decoherence functions to the
+  mismatch angle~$\theta$.
+\end{itemize}
+
+The self-referential Fisher information grows
+\emph{quadratically} with accumulated drift time.
+\end{theorem}
+
+\begin{proof}
+\emph{Step~1: chain rule.}
+The frame parameter $\sigma$ determines the mismatch angle
+$\theta = \theta(\sigma)$ via the gauge map
+$G/H \to [0,\pi/2]$.
+The chain rule for Fisher information gives
+\begin{equation}
+\label{eq:chain_rule_IF}
+\mathcal{I}_F(\sigma)
+\;=\; \left(\frac{\partial\theta}{\partial\sigma}\right)^2
+\,\mathcal{I}_F(\theta),
+\end{equation}
+where $\mathcal{I}_F(\theta)
+:= \mathbb{E}[(\partial_\theta \log p(e|\theta))^2]$
+is the Fisher information of the residual stream with
+respect to the mismatch angle.
+By~(C4) (full-rank Fisher matrix), the Jacobian
+$\partial\theta/\partial\sigma$ is bounded away from zero
+on any compact neighbourhood $\mathcal{N}$ of the
+calibrated point;
+we define the coupling efficiency
+$\kappa := \inf_{\sigma \in \mathcal{N}}
+(\partial\theta/\partial\sigma)^2 > 0$.
+This constant depends on the foreground
+dimension~$k^*$, the Jacobian norms of the gauge-orbit
+map $G/H \to [0,\pi/2]$, and the regularity constants
+in~(C4); it is computable for any concrete model
+(see Remark~\ref{rem:kappa_qubit} for the qubit case).
+
+\emph{Step~2: small-drift expansion.}
+Under freshly calibrated initial conditions
+($\theta(t_0) = 0$),
+the mismatch angle grows as
+$\theta(\Delta t) = \Lambda\,\Delta t + O((\Delta t)^2)$
+(Paper~II, Eq.~(35), linearised about $\theta = 0$).
+The visible survival functional satisfies
+$\mathcal{S}_{\mathrm{vis}}
+= \mathcal{S}_{\mathrm{tot}}\cos^2\theta
+\approx \mathcal{S}_{\mathrm{tot}}\,(1 - \theta^2)$
+for $\theta \ll 1$.
+Thus the residual distribution
+$p(e\,|\,\theta)$ shifts from its baseline
+$p(e\,|\,0)$ by a score proportional to $\theta^2$:
+$\partial_\theta \log p \sim 2\theta
+\cdot (\partial_\theta \log p)|_{\theta=\theta^*}$,
+and consequently
+\begin{equation}
+\label{eq:IF_theta_lower}
+\mathcal{I}_F(\theta)
+\;\geq\; (\Lambda\,\Delta t)^2\,
+\mathcal{I}_F^{\mathrm{env}},
+\end{equation}
+where the inequality retains only the leading $O(\theta^2)$
+term and drops $O(\theta^4)$ corrections.
+
+\emph{Step~3: assembly.}
+Substituting~\eqref{eq:IF_theta_lower}
+into~\eqref{eq:chain_rule_IF}:
+\[
+\mathcal{I}_F(\sigma)
+\;\geq\; \kappa\,\Lambda^2\,(\Delta t)^2\,
+\mathcal{I}_F^{\mathrm{env}}.
+\qedhere
+\]
+\end{proof}
+
+\begin{remark}[Coupling efficiency in the qubit example]
+\label{rem:kappa_qubit}
+For the single-qubit model of Section~\ref{sec:example},
+the gauge orbit is parametrised directly by $\theta$
+(rotation in the $xz$-plane of the Bloch sphere), so
+$\partial\theta/\partial\sigma = 1$ and $\kappa = 1$.
+More generally, $\kappa$ depends on the dimensionality
+of the gauge group and the curvature of the orbit
+$G/H$ at the current frame.
+\end{remark}
+
+\begin{corollary}[Detection before delusion]
+\label{cor:detection_window}
+Under~\textup{(C1)--(C5)}, there exists a detection
+time $\Delta t_{\mathrm{detect}}$ satisfying
+\begin{equation}
+\label{eq:detection_window}
+\Delta t_{\mathrm{detect}}
+\;=\; \frac{1}{\Lambda}
+\sqrt{\frac{\mathcal{I}_F^{\mathrm{min}}}
+  {\kappa\,\mathcal{I}_F^{\mathrm{env}}}}
+\;<\; t_{\mathrm{del}},
+\end{equation}
+where $\mathcal{I}_F^{\mathrm{min}}$ is the minimum Fisher
+information required to exceed the noise floor
+(determined by $h_\mu$ and the observation window length).
+The detection window opens \emph{before} the Delusion Trap
+closes, provided the meta-observer budget
+$\mathcal{C}_{\mathrm{meta}}$ is sufficient to compute
+$\mathcal{I}_F$.
+\end{corollary}
+
+\begin{proof}
+The detection time
+$\Delta t_{\mathrm{detect}} \propto \Lambda^{-1}$
+(from~\eqref{eq:detectability}), while
+$t_{\mathrm{del}} = \Lambda^{-1}\ln(\pi/4\theta_0)$
+(from~\eqref{eq:t_del_recall}).
+Since $\ln(\pi/4\theta_0) > 1$ for $\theta_0 < \pi/4e$
+and the constant $\kappa\,\mathcal{I}_F^{\mathrm{env}}$
+is finite under~(C4), the square root in
+$\Delta t_{\mathrm{detect}}$ can be made smaller than
+the logarithm in $t_{\mathrm{del}}$ for sufficiently
+sensitive meta-observers (large
+$\mathcal{I}_F^{\mathrm{env}}$).
+\end{proof}
+
+% ============================================================
+\section{The Self-Referential Bound}
+\label{sec:SRCR}
+
+% ------------------------------------------------------------
+\subsection{The Bayesian Framework}
+\label{subsec:bayesian}
+
+The agent's ego structure (Paper~II) provides a
+\emph{prior belief} about the correct gauge parameter:
+the current frame $\sigma_0$ is the ego's
+``preferred'' value.
+We encode this as a prior distribution
+$\pi_{\mathrm{ego}}(\sigma)$, concentrated around
+$\sigma_0$.
+
+\begin{definition}[Ego rigidity]
+\label{def:ego_rigidity}
+The \emph{ego rigidity} is the prior Fisher information
+\begin{equation}
+\label{eq:ego_rigidity}
+\mathcal{I}_{\mathrm{ego}}
+:= \int_{\mathcal{M}_G}
+\left(\frac{\partial \log \pi_{\mathrm{ego}}(\sigma)}
+  {\partial \sigma}\right)^{\!2}
+\pi_{\mathrm{ego}}(\sigma)\,d\sigma.
+\end{equation}
+High $\mathcal{I}_{\mathrm{ego}}$ corresponds to a
+sharply peaked prior (rigid ego); low
+$\mathcal{I}_{\mathrm{ego}}$ to a diffuse prior (flexible
+ego).
+The four bias terms of Paper~II contribute to
+$\mathcal{I}_{\mathrm{ego}}$:
+$\mathcal{B}_{\mathrm{select}}$ and
+$\mathcal{B}_{\mathrm{frame}}$ sharpen the prior
+around the current basis and connection,
+while $\mathcal{B}_{\mathrm{center}}$ centres the prior
+on the agent's own state.
+\end{definition}
+
+% ------------------------------------------------------------
+\subsection{The Self-Referential Cram\'{e}r--Rao Bound}
+\label{subsec:SRCR}
+
+\begin{theorem}[Self-Referential Cram\'{e}r--Rao Bound]
+\label{thm:SRCR}
+Under assumptions~\textup{(C1)--(C5)}, let
+$\delta\hat{\sigma}$ be any estimator of the frame drift
+$\delta\sigma := \sigma^*(t) - \sigma$, based on a
+residual record of duration~$T$.
+Define the \emph{effective sample size}
+$n_{\mathrm{eff}} := T/\tau_E$, where $\tau_E$ is the
+decorrelation time of the residual process~$\{e(t)\}$
+(the time beyond which consecutive residuals carry
+approximately independent information about~$\sigma$).
+Then the van Trees inequality~\cite{vanTrees1968} gives
+\begin{equation}
+\label{eq:SRCR}
+\mathbb{E}\!\left[
+  \bigl|\delta\hat{\sigma} - \delta\sigma\bigr|^2
+\right]
+\;\geq\; \frac{1}{n_{\mathrm{eff}}\,\mathcal{I}_F(\sigma)
+  + \mathcal{I}_{\mathrm{ego}}}.
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+This is a direct application of the van Trees
+(Bayesian Cram\'{e}r--Rao)
+inequality~\cite{vanTrees1968}.
+The total information about the drift parameter $\delta\sigma$
+consists of two contributions:
+\begin{itemize}
+\item $n_{\mathrm{eff}}\,\mathcal{I}_F(\sigma)$: the data
+  Fisher information.  In continuous time, the residual
+  process is correlated with decorrelation time $\tau_E$
+  set by the bath memory kernel.
+  Over a window of duration~$T$, the process yields
+  $n_{\mathrm{eff}} \approx T/\tau_E$ effectively
+  independent samples, each carrying
+  $\mathcal{I}_F(\sigma)$ bits of information
+  about $\delta\sigma$.
+\item $\mathcal{I}_{\mathrm{ego}}$: the prior Fisher
+  information from the ego's preference for $\sigma_0$
+  (Definition~\ref{def:ego_rigidity}).
+\end{itemize}
+The van Trees inequality states that the Bayesian
+mean-squared error is bounded below by the inverse of the
+total information.
+\end{proof}
+
+\begin{remark}[The ego as help and hindrance]
+\label{rem:ego_dual}
+The ego rigidity $\mathcal{I}_{\mathrm{ego}}$ acts as
+both help and hindrance:
+\begin{itemize}
+\item \textbf{Help}: when the ego is well-aligned
+  ($\sigma_0 \approx \sigma^*$), the prior tightens the
+  bound, reducing estimation variance.
+\item \textbf{Hindrance}: when the ego is misaligned
+  ($|\sigma_0 - \sigma^*|$ large), the prior pulls the
+  estimate toward the wrong value, creating a
+  \emph{confirmation bias} that resists recalibration.
+\end{itemize}
+The optimal Bayesian estimator balances data and prior:
+\begin{equation}
+\label{eq:optimal_estimator}
+\hat{\sigma}_{\mathrm{opt}}
+= \frac{n_{\mathrm{eff}}\,\mathcal{I}_F\,\hat{\sigma}_{\mathrm{MLE}}
+  + \mathcal{I}_{\mathrm{ego}}\,\sigma_0}
+  {n_{\mathrm{eff}}\,\mathcal{I}_F + \mathcal{I}_{\mathrm{ego}}},
+\end{equation}
+a weighted average of the maximum-likelihood estimate
+$\hat{\sigma}_{\mathrm{MLE}}$ and the ego's prior belief
+$\sigma_0$, with weights proportional to their respective
+Fisher informations.
+As $n_{\mathrm{eff}}\,\mathcal{I}_F \gg \mathcal{I}_{\mathrm{ego}}$
+(enough data to overwhelm the ego), the estimator converges
+to the MLE.
+\end{remark}
+
+% ------------------------------------------------------------
+\subsection{The Rigidity-Sensitivity Trade-off}
+\label{subsec:rigidity}
+
+\begin{proposition}[Optimal ego rigidity]
+\label{prop:optimal_rigidity}
+Let the total expected loss be
+$\mathcal{L}_{\mathrm{total}}
+(\mathcal{I}_{\mathrm{ego}})
+= \mathcal{L}_{\mathrm{estimation}}
++ \lambda\,\mathcal{L}_{\mathrm{calibration}}$,
+where $\mathcal{L}_{\mathrm{estimation}}$ is the
+mean-squared drift-estimation error
+(bounded by~\eqref{eq:SRCR}) and
+$\mathcal{L}_{\mathrm{calibration}}$ is the cost of
+adjusting the frame (proportional to the frame rotation
+distance, hence larger when the ego is rigid and must be
+overcome).
+Under~\textup{(C1)--(C5)}, there exists an optimal ego
+rigidity $\mathcal{I}_{\mathrm{ego}}^*$ that minimises
+$\mathcal{L}_{\mathrm{total}}$.
+
+\emph{Too rigid}
+($\mathcal{I}_{\mathrm{ego}} \gg n_{\mathrm{eff}}\,\mathcal{I}_F$):
+the ego overwhelms the data; the agent is blind to drift.
+\emph{Too soft}
+($\mathcal{I}_{\mathrm{ego}} \ll n_{\mathrm{eff}}\,\mathcal{I}_F$):
+the agent overreacts to noise; calibration cost is high.
+The optimum balances sensitivity against stability.
+\end{proposition}
+
+\begin{proof}
+The estimation loss decreases with
+$\mathcal{I}_{\mathrm{ego}}$ (the prior sharpens the
+bound~\eqref{eq:SRCR} when $\sigma_0 \approx \sigma^*$
+but increases it when misaligned).
+The calibration cost increases with
+$\mathcal{I}_{\mathrm{ego}}$ (a rigid ego resists rotation).
+The sum is a convex function of
+$\mathcal{I}_{\mathrm{ego}}$ under standard regularity,
+so a minimum exists.
+\end{proof}
+
+% ============================================================
+\section{The Calibration Loop}
+\label{sec:loop}
+
+% ------------------------------------------------------------
+\subsection{The Natural Gradient Update Law}
+\label{subsec:update_law}
+
+The meta-observer updates the gauge parameter $\sigma$
+following the natural gradient on the statistical
+manifold~$(\mathcal{M}_G,\,g)$:
+\begin{equation}
+\label{eq:update_law}
+\dot{\sigma}
+= -\eta\,g^{-1}(\sigma)\,
+  \nabla_\sigma L_{\mathrm{frame}}(\sigma),
+\end{equation}
+where $\eta > 0$ is the adaptation rate and the
+\emph{frame loss} is
+\begin{equation}
+\label{eq:frame_loss}
+L_{\mathrm{frame}}(\sigma)
+:= \mathbb{E}_\sigma\!\left[
+  -\mathcal{S}_{\mathrm{vis}}(\sigma)\right].
+\end{equation}
+The frame loss is minimised at the optimal gauge
+$\sigma^*$ that maximises visible survival.
+The Fisher metric enters through the inverse $g^{-1}$
+in the natural gradient, not as a penalty term:
+it defines the \emph{geometry} of the update, ensuring
+reparametrisation invariance.
+
+\begin{remark}[Reparametrisation invariance]
+\label{rem:reparam}
+The natural gradient~\eqref{eq:update_law} is invariant
+under reparametrisation of the gauge manifold
+$\mathcal{M}_G$: the update direction does not depend on the
+choice of coordinates for $\sigma$.
+This is essential because the gauge manifold inherits its
+geometry from the Clifford algebra, and no canonical
+coordinate system is preferred.
+\end{remark}
+
+% ------------------------------------------------------------
+\subsection{Lyapunov Stability of the Loop}
+\label{subsec:lyapunov}
+
+\paragraph{Drift velocity.}
+Let $\sigma^*(t)$ denote the instantaneous optimal gauge
+parameter (the minimiser of $L_{\mathrm{frame}}$ at
+time~$t$; Paper~II, Definition~27).
+Define the \emph{drift velocity}
+$\dot{\sigma}^* := d\sigma^*/dt$, measured with respect to
+the Fisher metric~$g$; its norm
+$\|\dot{\sigma}^*\|_g
+:= \sqrt{g_{ij}\,\dot{\sigma}^{*i}\,\dot{\sigma}^{*j}}$
+is the instantaneous rate at which the environment's
+optimal frame rotates on the gauge manifold.
+
+\begin{definition}[Lyapunov monitoring function]
+\label{def:lyapunov}
+The \emph{Lyapunov monitoring function} is the squared
+geodesic distance on the statistical manifold from the
+current frame to the instantaneous optimal frame:
+\begin{equation}
+\label{eq:lyapunov}
+V(\sigma)
+:= d_{\mathrm{geo}}\!\left(\sigma,\,\sigma^*(t)\right)^2,
+\end{equation}
+where $d_{\mathrm{geo}}$ is the geodesic distance in the
+Fisher metric~$g$.
+\end{definition}
+
+\begin{theorem}[Loop Tracking Bound]
+\label{thm:loop_stability}
+Under assumptions~\textup{(C1)--(C5)}, the natural gradient
+update~\eqref{eq:update_law} applied to the Lyapunov
+monitoring function~\eqref{eq:lyapunov} satisfies
+\begin{equation}
+\label{eq:lyapunov_decrease}
+\frac{dV}{dt}
+\;\leq\; -2\eta\,\alpha\,V
+\;+\; 2\sqrt{V}\;\bigl\|\dot{\sigma}^*\bigr\|_g,
+\end{equation}
+where $\alpha > 0$ is the persistent excitation constant
+(Definition~\ref{def:PE_constant} below)
+and $\|\dot{\sigma}^*\|_g$ is the instantaneous drift speed
+of the optimal frame.
+Consequently:
+\begin{enumerate}
+\item[\textup{(a)}] \textbf{Tracking.}
+  Whenever $\sqrt{V} >
+  \|\dot{\sigma}^*\|_g / (\eta\,\alpha)$,
+  we have $dV/dt < 0$: the loop actively reduces the
+  mismatch.
+\item[\textup{(b)}] \textbf{Tracking neighbourhood.}
+  The mismatch converges to a neighbourhood of the set
+  of stationary points of $L_{\mathrm{frame}}$.
+  Assuming non-degeneracy (local strong convexity near
+  $\sigma^*$, consistent with persistent
+  excitation~(C5) in standard adaptive-control
+  settings~\cite{AstromWittenmark1995}),
+  this neighbourhood has size
+  \begin{equation}
+  \label{eq:tracking_neighbourhood}
+  V_\infty
+  \;:=\; \frac{\bigl\|\dot{\sigma}^*\bigr\|_g^2}
+  {(\eta\,\alpha)^2}.
+  \end{equation}
+  For bounded drift
+  ($\|\dot{\sigma}^*\|_g \leq \Lambda_{\max}$), the
+  mismatch is bounded:
+  $\limsup_{t\to\infty} V(t)
+  \leq \Lambda_{\max}^2/(\eta\alpha)^2$.
+\item[\textup{(c)}] \textbf{Static limit.}
+  When $\sigma^* = \mathrm{const}$
+  ($\dot{\sigma}^* = 0$), the bound reduces to
+  $dV/dt \leq -2\eta\alpha\,V$,
+  giving exponential convergence
+  $V(t) \leq V(0)\,e^{-2\eta\alpha\,t}$.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+Since $V(\sigma) = d_{\mathrm{geo}}(\sigma,\,\sigma^*(t))^2$
+and $\sigma^*(t)$ is time-varying, the total derivative
+has two contributions:
+\begin{equation*}
+\frac{dV}{dt}
+= \underbrace{\frac{\partial V}{\partial \sigma}
+  \cdot \dot{\sigma}}_{\text{control}}
+\;+\; \underbrace{\frac{\partial V}{\partial \sigma^*}
+  \cdot \dot{\sigma}^*}_{\text{drift}}.
+\end{equation*}
+
+\paragraph{Control term.}
+In normal coordinates centred at $\sigma^*$, let
+$\delta\sigma := \sigma - \sigma^*$.
+The control contribution is
+$2\,g(\delta\sigma,\,\dot{\sigma})
+= 2\,g(\delta\sigma,\,-\eta\,g^{-1}\nabla L_{\mathrm{frame}})
+= -2\eta\,\langle \delta\sigma,\,
+\nabla L_{\mathrm{frame}}\rangle$.
+Since $\sigma^*$ minimises $L_{\mathrm{frame}}$ by
+definition, $L_{\mathrm{frame}}$ is locally strongly
+convex near $\sigma^*$ under persistent
+excitation~(C5) (the Hessian of $L_{\mathrm{frame}}$
+at $\sigma^*$ is bounded below by $\alpha\,g$,
+where $\alpha$ is the persistent excitation constant).
+Therefore
+$\langle \delta\sigma,\,\nabla L_{\mathrm{frame}}\rangle
+\geq \alpha\,|\delta\sigma|_g^2 = \alpha\,V$,
+giving a control contribution $\leq -2\eta\,\alpha\,V$.
+
+\paragraph{Drift term.}
+The drift contribution is
+$-2\,g(\delta\sigma,\,\dot{\sigma}^*)$.
+By Cauchy--Schwarz:
+$|g(\delta\sigma,\,\dot{\sigma}^*)|
+\leq |\delta\sigma|_g\,\|\dot{\sigma}^*\|_g
+= \sqrt{V}\,\|\dot{\sigma}^*\|_g$.
+Hence the drift contribution is bounded by
+$+2\sqrt{V}\,\|\dot{\sigma}^*\|_g$.
+
+\paragraph{Combined.}
+Adding both contributions
+gives~\eqref{eq:lyapunov_decrease}.
+Part~(a) follows by setting
+$dV/dt < 0$; part~(b) by solving $dV/dt = 0$ for
+the fixed point $\sqrt{V_\infty}
+= \|\dot{\sigma}^*\|_g/(\eta\alpha)$;
+part~(c) by setting $\dot{\sigma}^* = 0$.
+\end{proof}
+
+% ------------------------------------------------------------
+\subsection{Convergence Rate under Persistent Excitation}
+\label{subsec:convergence}
+
+\begin{definition}[Persistent excitation constant]
+\label{def:PE_constant}
+The \emph{persistent excitation constant} $\alpha > 0$ is
+the minimum eigenvalue of the time-averaged Fisher
+information matrix:
+\begin{equation}
+\label{eq:PE_constant}
+\bar{g}(t)
+:= \frac{1}{T}\int_t^{t+T}
+g(\sigma(s))\,ds
+\;\succeq\; \alpha\,I
+\qquad\text{for all } t,
+\end{equation}
+guaranteed to exist by~\textup{(C5)} and~\textup{(C4)}.
+\end{definition}
+
+\begin{remark}[Tracking vs convergence]
+\label{rem:tracking}
+In the static case ($\sigma^* = \mathrm{const}$),
+Theorem~\ref{thm:loop_stability}(c) gives pure exponential
+convergence:
+$V(t) \leq V(0)\,e^{-2\eta\alpha\,t}$.
+Under environmental drift, convergence to zero is
+\emph{not} possible---instead the loop maintains the
+mismatch within the tracking
+neighbourhood~\eqref{eq:tracking_neighbourhood}.
+The tracking error $V_\infty$ grows with drift speed
+$\|\dot{\sigma}^*\|_g$ and decreases with loop parameters
+$\eta$ and $\alpha$.
+If the free-energy budget is insufficient to maintain
+$\eta\,\alpha > \Lambda$ (the drift rate), the tracking
+neighbourhood expands and the Delusion Trap re-emerges.
+This connects the Lyapunov stability of the loop
+directly to the thermodynamic budget
+(Section~\ref{sec:cost}).
+\end{remark}
+
+\begin{remark}[The necessity of novelty]
+\label{rem:novelty}
+If $h_\mu \to 0$ (the environment ceases to generate new
+information), the persistent excitation constant
+$\alpha \to 0$ and the tracking neighbourhood
+$V_\infty = \|\dot{\sigma}^*\|_g^2/(\eta\alpha)^2 \to \infty$:
+the loop loses all ability to track.
+\emph{Memory without novelty cannot sustain self-reference.}
+This is the information-theoretic expression of a basic
+physical principle: a system in thermodynamic equilibrium
+cannot ``learn'' about itself.
+\end{remark}
+
+% ------------------------------------------------------------
+\subsection{The Four-Part Structure Proposition}
+\label{subsec:four_part}
+
+We are now in a position to state the capstone result of
+the T-DOME sequence.
+
+\begin{proposition}[Sufficient Architecture for Persistent Agents]
+\label{prop:four_part}
+Within the class of agents satisfying~\textup{(C1)--(C5)},
+a sufficient architecture for maintaining a
+non-equilibrium steady state~\textup{(NESS)} in an open,
+drifting environment under bounded computation comprises
+the following four structural layers:
+\begin{enumerate}
+\item[\textup{(I)}] \textbf{External observable geometry.}
+  The environmental observable algebra supports a
+  metric structure; $Cl(1,3)$ serves as the running
+  example throughout the programme, but the argument
+  applies to any algebra satisfying~(C1).
+  \emph{Assumption:}
+  established
+  in~\cite{Liu2026HAFF_A,Liu2026HAFF_B,Liu2026QRAIF_A};
+  adopted here as a modelling premise.
+\item[\textup{(II)}] \textbf{Internal control algebra.}
+  The agent carries an internal algebra isomorphic to
+  $Cl(V,q)$ with realizability embedding
+  $\phi: Cl(V,q) \hookrightarrow Cl(1,3)$.
+  \emph{Assumption:}
+  established
+  in~\cite{Liu2026QRAIF_B,Liu2026QRAIF_C};
+  adopted here as a modelling premise.
+\item[\textup{(III)}] \textbf{Self-monitoring function.}
+  The agent maintains a Lyapunov function
+  $V(\sigma)$~\eqref{eq:lyapunov} satisfying the
+  tracking bound~\eqref{eq:lyapunov_decrease},
+  implemented via a second-order control loop
+  operating on the Fisher information of its own
+  prediction stream.  The loop keeps the mismatch
+  within the tracking
+  neighbourhood~\eqref{eq:tracking_neighbourhood}.
+  \emph{Source:} this paper,
+  Theorem~\ref{thm:loop_stability}.
+\item[\textup{(IV)}] \textbf{Biased, non-Markovian memory.}
+  The agent carries path-dependent state
+  (non-Markovian memory kernel $\mathcal{K}(t,s)$)
+  compressed through a gauge-fixed reference frame
+  (the ego $\mathfrak{E}$).
+  \emph{Source:}
+  Paper~I~\cite{Liu2026TDOME_I} (memory necessity)
+  and Paper~II~\cite{Liu2026TDOME_II} (ego necessity).
+\end{enumerate}
+Without any one of the four layers, the agent fails:
+\begin{itemize}
+\item Without~(I): no physical embedding---the agent
+  cannot interact with the Lorentzian environment.
+\item Without~(II): no channel discrimination---the agent
+  cannot distinguish survival-relevant from irrelevant
+  information.
+\item Without~(III): the Delusion Trap---the ego
+  rigidifies and prediction error diverges exponentially.
+\item Without~(IV): the Markovian Ceiling and
+  computational paralysis---no temporal accumulation, no
+  tractable processing.
+\end{itemize}
+\end{proposition}
+
+\begin{proof}
+Layers~(I) and~(II) are modelling
+assumptions adopted
+from~\cite{Liu2026HAFF_A,Liu2026HAFF_B,Liu2026QRAIF_A,Liu2026QRAIF_B,Liu2026QRAIF_C};
+their sufficiency within those frameworks is established
+therein.
+The sufficiency of~(III) follows from the present paper:
+Theorem~\ref{thm:first_order} shows that first-order
+control is insufficient to escape the Delusion Trap, and
+Theorem~\ref{thm:loop_stability} shows that the tracking
+bound is sufficient.
+The sufficiency of~(IV) follows from
+Paper~I~\cite{Liu2026TDOME_I}
+(Markovian Ceiling $\mathcal{S} \leq 0$)
+and Paper~II~\cite{Liu2026TDOME_II}
+(Computational Ceiling and necessity of SSB).
+
+The ``without'' claims follow from the respective crisis
+theorems: Paper~I's Theorem~14 (Markovian Ceiling),
+Paper~II's Theorem~7 (Computational Ceiling)
+and Theorem~29 (Delusion Trap), and the present
+Theorem~\ref{thm:first_order}.
+\end{proof}
+
+% ============================================================
+\section{Thermodynamic Cost}
+\label{sec:cost}
+
+% ------------------------------------------------------------
+\subsection{The Three Cost Components}
+\label{subsec:cost_components}
+
+The self-referential calibration loop requires three
+distinct operations, each carrying an irreducible
+thermodynamic cost:
+
+\paragraph{1.\ Sensing cost.}
+The meta-observer must read the prediction residuals from
+the ego's processing pipeline.
+This requires monitoring $k^*$ foreground channels, each
+producing $h_\mu$ bits per unit time:
+\begin{equation}
+\label{eq:W_sense}
+\dot{W}_{\mathrm{sense}}
+\;\geq\; k_BT\,\ln 2 \cdot h_\mu\,k^*.
+\end{equation}
+(Landauer cost of reading $h_\mu\,k^*$ bits per unit
+time.)
+
+\paragraph{2.\ Computing cost.}
+Evaluating the Fisher information
+$\mathcal{I}_F(\sigma)$ from the residual stream requires
+the meta-observer to process
+$\mathcal{C}_{\mathrm{meta}}$ bits per unit time:
+\begin{equation}
+\label{eq:W_compute}
+\dot{W}_{\mathrm{compute}}
+\;\geq\; k_BT\,\ln 2 \cdot \mathcal{C}_{\mathrm{meta}}.
+\end{equation}
+
+\paragraph{3.\ Actuating cost.}
+Rotating the gauge parameter from the current frame
+$\sigma$ to the estimated optimal frame
+$\hat{\sigma}^*$ is a finite-time thermodynamic
+transformation on the gauge manifold.
+By the Sivak--Crooks bound
+(Proposition~\ref{prop:sivak_crooks}):
+\begin{equation}
+\label{eq:W_actuate}
+\dot{W}_{\mathrm{actuate}}
+\;\geq\; \frac{\mathcal{L}^2(\sigma,\,\hat{\sigma}^*)}
+  {\tau_{\mathrm{recalib}}^2},
+\end{equation}
+where $\mathcal{L}(\sigma,\,\hat{\sigma}^*)$ is the
+thermodynamic length~\eqref{eq:thermo_length} of the
+geodesic from $\sigma$ to $\hat{\sigma}^*$, and
+$\tau_{\mathrm{recalib}}$ is the recalibration time.
+
+% ------------------------------------------------------------
+\subsection{The Thermodynamic Cost Theorem}
+\label{subsec:cost_theorem}
+
+\begin{theorem}[Thermodynamic Cost of Self-Referential
+Calibration]
+\label{thm:loop_cost}
+Under assumptions~\textup{(C1)--(C5)}, the minimum
+dissipation rate of the self-referential calibration loop
+satisfies
+\begin{equation}
+\label{eq:loop_cost}
+\dot{W}_{\mathrm{loop}}
+\;\geq\; k_BT\,\ln 2\,\left[
+  h_\mu\,k^*
+  + \mathcal{C}_{\mathrm{meta}}
+\right]
++ \frac{\mathcal{L}^2(\sigma,\,\sigma^*)}
+  {\tau_{\mathrm{recalib}}^2}.
+\end{equation}
+The first bracketed term is the \emph{information tax}
+(the Landauer cost of sensing and computing).
+The second term is the \emph{geometric tax}
+(the Sivak--Crooks cost of actuating the frame rotation).
+\end{theorem}
+
+\begin{proof}
+We must establish that the three lower bounds can be
+summed, i.e.\ that no single physical process can
+simultaneously satisfy two or more of them.
+
+The three operations act on \emph{disjoint physical
+degrees of freedom}:
+\begin{enumerate}
+\item \emph{Sensing} reads the prediction residuals
+  $\{e_t\}$ from the ego's foreground channels.
+  The relevant degrees of freedom are the sensor
+  registers that copy bits from the foreground subspace
+  $V_{\mathrm{fg}}$.
+  Each bit erased carries the Landauer
+  cost $k_BT\ln 2$.
+\item \emph{Computing} evaluates the Fisher information
+  $\mathcal{I}_F(\sigma)$ from the copied residuals.
+  The relevant degrees of freedom are the processor
+  logic states of the meta-observer.
+  These are distinct from the sensor registers: the
+  processor manipulates the data \emph{after} it has
+  been read, and its own state transitions carry an
+  independent Landauer cost.
+\item \emph{Actuating} rotates the gauge parameter from
+  $\sigma$ to $\hat{\sigma}^*$.
+  The relevant degrees of freedom are the control
+  fields that implement the frame rotation on the
+  agent's internal algebra $Cl(V,q)$.
+  This is a physical transformation of the agent's
+  hardware state, governed by the Sivak--Crooks bound
+  on finite-time thermodynamic transformations.
+  The $\tau_{\mathrm{recalib}}^{-2}$ scaling of the
+  dissipation \emph{rate} follows from the
+  Sivak--Crooks bound $W_{\mathrm{ex}} \geq
+  \mathcal{L}^2/\tau$ (excess \emph{work}), divided by
+  $\tau_{\mathrm{recalib}}$ to convert to a rate.
+\end{enumerate}
+Under the assumption that the three operations are
+physically realised on separable degrees of freedom
+(no shared erasure accounting),
+the sets are disjoint
+(sensor $\cap$ processor $= \emptyset$, processor
+$\cap$ actuator $= \emptyset$, sensor $\cap$ actuator
+$= \emptyset$), and the Landauer bound for each is independent.
+Moreover, the actuating cost involves a different
+\emph{type} of bound (thermodynamic length, not Landauer
+erasure), reinforcing the independence.
+The total lower bound is
+therefore the sum of the three individual
+bounds~\eqref{eq:W_sense}--\eqref{eq:W_actuate}.
+\end{proof}
+
+% ------------------------------------------------------------
+\subsection{The Complete Persistence Budget}
+\label{subsec:persistence}
+
+\begin{corollary}[Persistence Budget]
+\label{cor:persistence}
+Combining the results of Papers~I, II, and~III, the minimum
+free-energy dissipation rate for a persistent,
+self-calibrating agent in a drifting environment is
+\begin{equation}
+\label{eq:persistence_budget}
+\dot{W}_{\mathrm{total}}
+\;\geq\; \underbrace{k_BT\,\ln 2 \cdot h_\mu}_{%
+  \text{Paper~I: memory}}
++ \underbrace{k_BT\,\ln 2 \cdot h_\mu\,k^*}_{%
+  \text{Paper~II: ego processing}}
++ \underbrace{k_BT\,\ln 2\,\left[
+  h_\mu\,k^*
+  + \mathcal{C}_{\mathrm{meta}}
+\right]
++ \frac{\mathcal{L}^2}
+  {\tau_{\mathrm{recalib}}^2}}_{%
+  \text{Paper~III: self-calibration loop}}.
+\end{equation}
+Below this budget, the agent must sacrifice one or more of
+the four structural layers
+(Proposition~\ref{prop:four_part}):
+losing memory (Paper~I crisis),
+losing the ego (Paper~II crisis), or
+losing self-calibration (Paper~III crisis, the Delusion Trap).
+\end{corollary}
+
+\begin{remark}[The cost of selfhood]
+\label{rem:selfhood_cost}
+Equation~\eqref{eq:persistence_budget} is the first
+explicit, calculable lower bound on the thermodynamic cost
+of maintaining a self-referential agent in a drifting
+environment.
+It shows that ``selfhood'' is not free: the ego
+(Paper~II) and its calibration loop (Paper~III) each add
+irreducible energy taxes on top of the memory cost
+(Paper~I).
+The total cost grows with the environmental complexity
+($h_\mu$), the agent's representational capacity ($k^*$),
+the meta-observer's computational power
+($\mathcal{C}_{\mathrm{meta}}$), and the drift rate
+(through $\mathcal{L}$ and $\tau_{\mathrm{recalib}}$).
+\end{remark}
+
+% ============================================================
+\section{Worked Example: Qubit in a Drifting
+Two-Channel Bath}
+\label{sec:example}
+
+% ------------------------------------------------------------
+\subsection{Model Setup}
+\label{subsec:model_III}
+
+We extend the two-channel qubit model from
+Paper~II~(Section~6) by introducing environmental drift.
+
+\paragraph{Inherited setup.}
+A qubit ($\dim\mathcal{H}_S = 2$) with internal algebra
+$Cl(0,2) \cong \mathbb{H}$ ($D = 4$), coupled to two
+bosonic channels:
+\begin{itemize}
+\item Dephasing channel ($\sigma_z$):
+  $J_z(\omega) = 2\lambda_z\gamma_z\omega/
+  (\omega^2 + \gamma_z^2)$.
+\item Dissipative channel ($\sigma_x$):
+  $J_x(\omega) = 2\lambda_x\gamma_x\omega/
+  (\omega^2 + \gamma_x^2)$.
+\end{itemize}
+Paper~II's ego selects $V_{\mathrm{fg}}
+= \mathrm{span}\{1,\mathbf{k}\}$ (the dephasing subspace),
+discarding $V_{\mathrm{bg}}
+= \mathrm{span}\{\mathbf{i},\mathbf{j}\}$.
+
+\paragraph{Environmental drift.}
+We now allow the dephasing coupling to drift exponentially
+(matching Paper~II's Delusion Trap analysis):
+\begin{equation}
+\label{eq:drift_model}
+\lambda_z(t)
+= \lambda_z^{(0)}\bigl(1 + \theta_0\,e^{\Lambda t}\bigr),
+\qquad
+\theta_0 = 0.02,
+\quad
+\Lambda = 0.08\,\omega_0.
+\end{equation}
+The optimal frame $\mathcal{F}^*(t)$ rotates in
+$SO(3)$ as the relative survival values of the two
+channels change.  The Delusion Trap time
+$t_{\mathrm{del}}
+= \Lambda^{-1}\ln\!\bigl(\pi/(4\theta_0)\bigr)
+\approx 45.9\,\omega_0^{-1}$.
+
+\paragraph{Parameter mapping.}
+\begin{center}
+\small
+\begin{tabular}{@{}lcl@{}}
+\toprule
+\textbf{Quantity} & \textbf{Value} & \textbf{Source} \\
+\midrule
+$D = \dim Cl(0,2)$ & 4 & Paper~II \\
+$k^*$ & 2 & Paper~II, Theorem~17 \\
+$\mathcal{C}_{\mathrm{budget}}$ & $2\,h_\mu$ & Paper~II \\
+$\theta_0$ (initial misalignment) & 0.02 & this example \\
+$\Lambda$ (drift rate) & $0.08\,\omega_0$
+  & Eq.~\eqref{eq:drift_model} \\
+$t_{\mathrm{del}}$ & $45.9\,\omega_0^{-1}$
+  & Paper~II, Delusion Trap \\
+$\eta$ (adaptation rate) & $0.5$ & meta-observer \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+% ------------------------------------------------------------
+\subsection{Fisher Information under Drift}
+\label{subsec:fisher_drift}
+
+As the coupling $\lambda_z(t)$ drifts, the decoherence
+function $p_z(t)$ (Paper~II, Eq.~(34)) changes, shifting the
+residual distribution.
+The self-referential Fisher information
+$\mathcal{I}_F(\sigma)$ measures this shift.
+
+For the qubit model, the Fisher information with respect to
+the frame angle $\phi$ (parametrising the $SO(3)$ rotation
+between the current and optimal frames) is
+\begin{equation}
+\label{eq:fisher_qubit}
+\mathcal{I}_F(\phi)
+= \frac{(\partial_\phi\,\bar{e})^2}
+  {\mathrm{Var}(e)}
+\approx \frac{4\,\mathcal{S}_{\mathrm{tot}}^2\,
+  \theta^2}
+  {h_\mu / n_{\mathrm{eff}}},
+\end{equation}
+where $\bar{e} = \mathbb{E}[e\,|\,\phi]$ is the expected
+residual,
+$\theta = \theta(\phi)$ is the mismatch angle, and
+$n_{\mathrm{eff}}$ is the effective sample size
+(Remark~\ref{rem:effective_independence}).
+
+When the frame is well-aligned ($\theta \approx 0$):
+$\mathcal{I}_F \approx 0$.
+As drift accumulates ($\theta$ grows):
+$\mathcal{I}_F$ increases quadratically, producing a
+detectable ``stress signal'' consistent with
+Theorem~\ref{thm:detectability}.
+
+% ------------------------------------------------------------
+\subsection{Loop Dynamics: Self-Calibration in Action}
+\label{subsec:loop_dynamics}
+
+Under the natural gradient
+update~\eqref{eq:update_law}, the frame angle
+$\phi(t)$ tracks the drifting optimal frame
+$\phi^*(t)$.
+The Lyapunov function
+$V(t) = (\phi(t) - \phi^*(t))^2$ is governed by the
+tracking bound~\eqref{eq:lyapunov_decrease}:
+the loop drives $V$ toward the tracking neighbourhood
+$V_\infty = \|\dot{\sigma}^*\|_g^2/(\eta\alpha)^2$,
+with the approach rate set by the persistent
+excitation constant $\alpha$ and the adaptation
+rate~$\eta$.
+
+\paragraph{Comparison.}
+\begin{itemize}
+\item \textbf{Without loop} (Paper~II agent): the mismatch
+  grows as $\theta(t) = \theta_0\,e^{\Lambda t}$,
+  reaching $\pi/4$ at $t_{\mathrm{del}}$.
+  The agent is delusional.
+\item \textbf{With loop} (Paper~III agent): the mismatch
+  oscillates around zero, bounded by the estimation
+  noise floor
+  $\theta_{\mathrm{min}}
+  \sim 1/\sqrt{n_{\mathrm{eff}}\,\mathcal{I}_F^{\mathrm{env}}}$
+  (the Cram\'{e}r--Rao limit).
+  The agent remains calibrated.
+\end{itemize}
+
+A multi-dimensional numerical evaluation extending
+this qubit illustration to continuous drift is presented
+in Section~\ref{sec:numerical}.
+
+% ------------------------------------------------------------
+\subsection{Thermodynamic Cost Evaluation}
+\label{subsec:cost_eval}
+
+For the qubit example with $k^* = 2$, $h_\mu = 1$
+(normalised), $\mathcal{C}_{\mathrm{meta}} = 1\,h_\mu$
+(minimal meta-observer):
+\begin{align}
+\dot{W}_{\mathrm{sense}}
+&\geq k_BT\,\ln 2 \cdot 1 \cdot 2
+= 2\,k_BT\,\ln 2, \label{eq:cost_sense_ex} \\
+\dot{W}_{\mathrm{compute}}
+&\geq k_BT\,\ln 2 \cdot 1
+= k_BT\,\ln 2, \label{eq:cost_compute_ex} \\
+\dot{W}_{\mathrm{actuate}}
+&\geq \frac{\mathcal{L}^2}{\tau_{\mathrm{recalib}}^2}
+\approx \frac{\theta_0^2\,\tau_{\mathrm{relax}}}
+  {\tau_{\mathrm{recalib}}^2}\,k_BT.
+  \label{eq:cost_actuate_ex}
+\end{align}
+The total loop cost is dominated by the information tax
+(sensing + computing) at $\sim 3\,k_BT\,\ln 2$ per unit
+time, with the geometric tax (actuating) contributing a
+smaller correction proportional to $\theta_0^2$.
+
+For comparison, Paper~I's memory cost is
+$\dot{W}_{\mathrm{mem}} \geq k_BT\,\ln 2$ and
+Paper~II's ego processing cost is
+$\dot{W}_{\mathrm{ego}} \sim 2\,k_BT\,\ln 2\cdot h_\mu$.
+The self-calibration loop adds approximately $50\%$ to the
+total energy budget---a significant but bounded cost for
+escaping the Delusion Trap.
+
+% ============================================================
+\section{Numerical Demonstration}
+\label{sec:numerical}
+
+The preceding sections establish analytic bounds and a
+low-dimensional worked example.  We now demonstrate
+computationally that the three core phenomena---delusion
+separation, detectable staleness, and an optimal calibration
+budget---emerge in a minimal multi-dimensional system under
+continuous drift.  Full code and parameters are provided for
+reproducibility.
+
+% ------------------------------------------------------------
+\subsection{Model}
+\label{subsec:demo_model}
+
+\paragraph{Environment.}
+A $d$-dimensional linear prediction task:
+$y(t) = \mathbf{w}(t)^\top \mathbf{x}(t)
++ \sigma\,\epsilon(t)$,
+$\mathbf{x}(t) \sim \mathcal{N}(\mathbf{0}, \mathbf{I}_d)$,
+$\epsilon \sim \mathcal{N}(0,1)$.
+The weight vector $\mathbf{w}(t) \in \mathbb{S}^{d-1}$
+drifts by receiving random perturbations on
+\emph{background} dimensions only (indices $k,\ldots,d{-}1$),
+then renormalising.  Signal therefore migrates progressively
+from the ego's foreground to its blind sector.
+
+\paragraph{Agents.}
+\begin{itemize}
+\item \textbf{Fixed ego} (Paper~II analogue):
+  learns a linear model on a \emph{fixed} foreground
+  subspace of dimension~$k$ via stochastic gradient descent
+  (SGD, rate~$\eta$, decay~$\lambda$).
+  Embodies the ``frozen gauge'' of Paper~II.
+\item \textbf{Calibrated loop} (Paper~III analogue):
+  identical ego plus a staleness sentinel and recalibration
+  mechanism.
+  The sentinel tracks $g_i = \mathrm{EMA}(|e\,x_i|)$ for
+  each dimension~$i$ (an absolute-gradient proxy),
+  computes the fraction of top-$k$ gradient dimensions
+  \emph{not} in the current foreground as a frame-staleness
+  index $m \in [0,1]$, and triggers
+  recalibration when
+  $\mathrm{EMA}(m) > \theta$.
+  After recalibration, a settling period
+  of~$\tau$ steps elapses before the sentinel resumes
+  monitoring.
+\end{itemize}
+
+\paragraph{Parameters.}
+\begin{center}
+\small
+\begin{tabular}{@{}lcl@{}}
+\toprule
+\textbf{Quantity} & \textbf{Value} & \textbf{Role} \\
+\midrule
+$d$ & 20 & full ambient dimension \\
+$k$ & 5  & ego foreground dimension ($k/d = 0.25$) \\
+$\sigma$ & 0.1 & observation noise std \\
+$\eta$ & 0.01 & SGD learning rate \\
+$\lambda$ & 0.998 & SGD weight decay \\
+$\theta$ & 0.25 & staleness threshold \\
+$\Lambda$ & variable & drift rate per step \\
+$\tau$ & variable & settling period (cooldown) \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\paragraph{Oracle metrics.}
+Neither agent has access to $\mathbf{w}(t)$.
+We evaluate performance externally using the \emph{oracle
+full-space error}:
+\begin{equation}
+\label{eq:oracle_error}
+\mathcal{E}_{\mathrm{full}}
+= \bigl\|\mathbf{w}_{\mathrm{ego}}
+  - \mathbf{w}^*_{\mathrm{fg}}\bigr\|^2
++ \bigl\|\mathbf{w}^*_{\mathrm{bg}}\bigr\|^2,
+\end{equation}
+where $\mathbf{w}^*_{\mathrm{fg}}$ and
+$\mathbf{w}^*_{\mathrm{bg}}$ denote the true weight vector
+restricted to foreground and background coordinates
+respectively, and $\mathbf{w}_{\mathrm{ego}}$ is the ego's
+foreground-supported estimator lifted to the full space.
+The first term captures foreground tracking error (accessible
+to the ego); the second captures hidden-sector signal
+(invisible).
+
+% ------------------------------------------------------------
+\subsection{Results}
+\label{subsec:demo_results}
+
+\paragraph{Result 1: Delusion-correction separation
+(Figure~\ref{fig:demo_trap}).}
+At drift rate $\Lambda = 0.02$, settling period $\tau = 200$,
+and $T = 5\,000$ steps, three phenomena are visible:
+
+\begin{enumerate}
+\item[(a)]
+\emph{Delusion trap.}
+The ego's foreground tracking error converges
+to near zero, while the true full-space error rises
+toward $\sim\!1$ and stabilises.
+The growing gap between the two is the hidden sector,
+confirming the prediction
+of Theorem~\ref{thm:first_order}: first-order
+monitoring cannot detect frame drift.
+
+\item[(b)]
+\emph{Detectability.}
+The staleness sentinel produces a clean sawtooth:
+rising from zero after each recalibration, crossing the
+threshold $\theta = 0.25$, and triggering frame reset
+(25~events over $T = 5\,000$).
+This is consistent with the predicted growth trend of the
+self-referential Fisher signal
+(Theorem~\ref{thm:detectability}).
+
+\item[(c)]
+\emph{Net benefit.}
+The calibrated loop achieves
+$\mathcal{E}_{\mathrm{full}} \approx 0.74$
+versus the fixed ego's $\approx 1.02$:
+a $27\%$ reduction in true prediction error.
+\end{enumerate}
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\textwidth]{fig_delusion_trap.pdf}
+\caption{%
+\textbf{Delusion trap and calibration loop.}
+$d = 20$, $k = 5$, $\Lambda = 0.02$, $\tau = 200$,
+$T = 5\,000$.
+\textbf{(a)}~Foreground tracking error (blue) decreases
+toward zero while true full-space error (red) increases;
+the shaded region is the hidden sector, invisible to the ego.
+\textbf{(b)}~Frame-staleness sentinel (purple) rises
+monotonically between recalibration events (orange),
+producing a sawtooth with 25 threshold crossings.
+\textbf{(c)}~The calibrated loop (green) maintains
+lower true error than the fixed ego (red);
+the grey dashed line shows the foreground energy fraction
+decaying as signal migrates to the background.}
+\label{fig:demo_trap}
+\end{figure}
+
+\paragraph{Result 2: Phase structure and optimal
+calibration budget
+(Figures~\ref{fig:demo_phase}--\ref{fig:demo_alpha}).}
+We scan 16 drift rates $\Lambda \in [0.005, 0.08]$ and
+16 settling periods $\tau \in [15, 800]$
+(logarithmically spaced), running both agents for
+$T = 4\,000$ steps across 6 random seeds per grid point.
+
+Figure~\ref{fig:demo_phase}(a) shows the performance
+gain $\Delta = \mathcal{E}_{\mathrm{ego}}
+- \mathcal{E}_{\mathrm{loop}}$:
+the loop improves over the ego (green) across most of
+the parameter space, with a boundary at $\Delta = 0$
+(dashed) below which recalibration is counterproductive
+(very low drift, where the overhead of re-learning
+exceeds the benefit of tracking).
+The solid curve traces the \emph{optimal settling period}
+$\tau_{\mathrm{opt}}(\Lambda)$---the recalibration
+period minimising $\mathcal{E}_{\mathrm{loop}}$---which
+decreases monotonically from $\sim\!370$ steps at
+$\Lambda = 0.005$ to $\sim\!100$ at $\Lambda = 0.08$.
+Figure~\ref{fig:demo_phase}(b) shows that calibration
+frequency increases smoothly with drift and with shorter
+settling period, exhibiting the cost--performance
+trade-off of Theorem~\ref{thm:loop_cost}.
+
+Extracting $\tau_{\mathrm{opt}}(\Lambda)$ yields the
+\emph{optimal calibration frequency}
+$\alpha_{\mathrm{opt}}(\Lambda)
+= 1/\tau_{\mathrm{opt}}$
+(Figure~\ref{fig:demo_alpha}).
+The curve is smooth and monotonically increasing:
+faster drift demands tighter calibration.
+It saturates at high $\Lambda$ near
+$\alpha_{\mathrm{opt}} \approx 0.01$ per step
+($\tau_{\mathrm{opt}} \approx 100$), of the same
+order as the learner's settling time.
+This is consistent with the intuition that drift
+estimation requires a minimum observation window;
+the self-referential Cram\'{e}r--Rao bound
+(Theorem~\ref{thm:SRCR}) provides the analytic
+counterpart of this computational floor.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\textwidth]%
+  {fig_phase_with_boundary.pdf}
+\caption{%
+\textbf{Phase structure and calibration cost.}
+$16 \times 16$ grid, $T = 4\,000$, 6 seeds per point.
+\textbf{(a)}~Performance gain $\Delta$; green = loop
+improves on ego, red = counterproductive.
+Solid curve: $\tau_{\mathrm{opt}}(\Lambda)$.
+Dashed: $\Delta = 0$ boundary.
+\textbf{(b)}~Calibration frequency (thermodynamic cost
+proxy: recalibration events per step, proportional to
+energy expenditure under a fixed per-recalibration cost
+model); $\tau_{\mathrm{opt}}$ overlaid.}
+\label{fig:demo_phase}
+\end{figure}
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\textwidth]{fig_alpha_opt.pdf}
+\caption{%
+\textbf{Optimal calibration frequency.}
+\textbf{Left:}
+$\tau_{\mathrm{opt}}(\Lambda)$ decreases monotonically
+with drift rate.
+\textbf{Right:}
+$\alpha_{\mathrm{opt}}(\Lambda) = 1/\tau_{\mathrm{opt}}$
+increases with drift rate and saturates at the learner's
+settling timescale ($\sim\!100$ steps), consistent with
+an observation-window floor.}
+\label{fig:demo_alpha}
+\end{figure}
+
+% ------------------------------------------------------------
+\subsection{Scope of This Demonstration}
+\label{subsec:demo_scope}
+
+This demonstration \textbf{does} show:
+\begin{enumerate}
+\item The delusion-correction separation predicted by
+  Theorems~\ref{thm:first_order}
+  and~\ref{thm:detectability} emerges in a minimal
+  stochastic system with continuous drift.
+\item A frame-staleness signal with clean threshold
+  dynamics exists and triggers effective recalibration.
+\item An optimal calibration frequency
+  $\alpha_{\mathrm{opt}}(\Lambda)$ exists, increases
+  monotonically with drift rate, and saturates at the
+  learner's settling timescale.
+\item The cost--performance trade-off of
+  Theorem~\ref{thm:loop_cost} manifests as a structured
+  phase diagram with an explicit
+  $\tau_{\mathrm{opt}}$ boundary.
+\end{enumerate}
+
+\noindent
+In summary, this demonstration validates the
+\emph{existence} and \emph{detectability} of the
+loop--cost trade-off in a minimal linear setting;
+it does not claim universality across architectures
+or environment classes.
+
+\medskip
+This demonstration does \textbf{not} show:
+\begin{enumerate}
+\item That the specific functional form of
+  $\alpha_{\mathrm{opt}}(\Lambda)$ matches the analytic
+  Cram\'{e}r--Rao prediction in the
+  large-$d$ limit.  The demonstration confirms the
+  monotonic trend and saturation; deriving the exact
+  scaling exponent from Theorem~\ref{thm:SRCR}
+  remains open.
+\item That the results generalise to all environment
+  classes.  The model uses Gaussian features, linear
+  regression, and isotropic background drift; extensions
+  to non-linear, non-Gaussian, or structured-drift
+  settings require further investigation.
+\item That the calibration loop is optimal among all
+  possible adaptive strategies.  It implements one
+  specific realisation of the calibration-loop
+  architecture.
+\end{enumerate}
+
+\paragraph{Reproducibility.}
+The complete simulation is a self-contained Python script
+(\texttt{tdome\_demo.py}, $\sim\!550$ lines, requiring
+only NumPy and Matplotlib) with fixed random seeds.
+All figures in this section can be reproduced by
+executing the script after setting the output directory
+variable \texttt{BASE} to the desired path.
+
+% ============================================================
+\section{Discussion}
+\label{sec:discussion}
+
+% ------------------------------------------------------------
+\subsection{Summary of Results}
+\label{subsec:summary}
+
+\begin{center}
+\small
+\setlength{\tabcolsep}{4pt}%
+\begin{tabular}{@{}lp{6cm}c@{}}
+\toprule
+\textbf{Result} & \textbf{Statement} & \textbf{Sec.} \\
+\midrule
+First-Order Insufficiency
+  & Raw prediction error cannot detect frame drift
+  & \ref{subsec:first_order} \\[3pt]
+Drift Detectability
+  & Self-referential Fisher information grows
+    quadratically with accumulated drift
+  & \ref{subsec:self_ref_fisher} \\[3pt]
+Self-Referential CR Bound
+  & Drift estimation bounded by
+    $1/(n_{\mathrm{eff}}\,\mathcal{I}_F + \mathcal{I}_{\mathrm{ego}})$
+  & \ref{subsec:SRCR} \\[3pt]
+Loop Tracking Bound
+  & Lyapunov $V$ with tracking neighbourhood
+    $V_\infty = \|\dot{\sigma}^*\|^2/(\eta\alpha)^2$
+  & \ref{subsec:lyapunov} \\[3pt]
+Four-Part Structure
+  & Persistent agents require four structural layers
+  & \ref{subsec:four_part} \\[3pt]
+Loop Cost
+  & $\dot{W}_{\mathrm{loop}} \geq k_BT\,\ln 2\,[h_\mu\,k^*
+    + \mathcal{C}_{\mathrm{meta}}]
+    + \mathcal{L}^2/\tau_{\mathrm{recalib}}^2$
+  & \ref{subsec:cost_theorem} \\[3pt]
+Persistence Budget
+  & Total cost: memory + ego + loop
+  & \ref{subsec:persistence} \\[3pt]
+Numerical Demonstration
+  & Delusion separation, sentinel detection,
+    $\alpha_{\mathrm{opt}}(\Lambda)$ boundary
+  & \ref{sec:numerical} \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+% ------------------------------------------------------------
+\subsection{The Complete Logic Chain}
+\label{subsec:logic_chain}
+
+Papers~I--III trace an irreversible
+thermodynamic logic chain:
+
+\begin{center}
+\small
+\setlength{\tabcolsep}{3pt}%
+\begin{tabular}{@{}lp{3.2cm}p{3.8cm}l@{}}
+\toprule
+\textbf{Paper} & \textbf{Crisis} & \textbf{Resolution}
+  & \textbf{What is born} \\
+\midrule
+Paper~I
+  & Markovian trap: no history
+  & Non-Markovian memory
+  & \textbf{Temporal accumulation} \\[3pt]
+Paper~II
+  & Computation explosion: $\infty$~memory, finite budget
+  & Gauge SSB: $Cl(V,q) \to V_{\mathrm{fg}}
+    \oplus V_{\mathrm{bg}}$
+  & \textbf{Compressed ref.\ frame} \\[3pt]
+Paper~III
+  & Delusion trap: fixed bias, drifting world
+  & Fisher self-referential calibration; tracking bound
+  & \textbf{Reflexivity} \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+Each resolution creates the precondition for the next
+crisis.
+The chain terminates at Paper~III: the self-referential
+calibration loop does not create a further crisis requiring a
+``Paper~IV,'' because the loop is \emph{self-correcting}
+by construction (Theorem~\ref{thm:loop_stability}).
+Its only vulnerability is the thermodynamic budget
+(Theorem~\ref{thm:loop_cost}): if the agent's free-energy
+supply falls below the persistence
+budget~\eqref{eq:persistence_budget}, the loop degrades
+and the Delusion Trap re-emerges.
+This is not a new crisis but the Second Law itself: all
+order requires free-energy dissipation.
+
+% ------------------------------------------------------------
+\subsection{What This Paper Does and Does Not Show}
+\label{subsec:claims}
+
+This paper \textbf{does} show:
+\begin{enumerate}
+\item Under environmental drift~(C2) and bounded
+  computation~(C1), first-order control fails to detect
+  frame drift (Theorem~\ref{thm:first_order}).
+\item Self-referential Fisher information provides a
+  quadratically growing signal sufficient for drift
+  detection before the Delusion Trap
+  (Theorem~\ref{thm:detectability}).
+\item Drift estimation precision is bounded by the
+  Self-Referential Cram\'{e}r--Rao bound
+  (Theorem~\ref{thm:SRCR}).
+\item The calibration loop tracks the optimal frame
+  within a bounded neighbourhood under a Lyapunov
+  tracking bound
+  (Theorem~\ref{thm:loop_stability}).
+\item The thermodynamic cost of the loop is calculable
+  (Theorem~\ref{thm:loop_cost}).
+\end{enumerate}
+
+\medskip
+This paper does \textbf{not} show:
+\begin{enumerate}
+\item That self-referential calibration implies or requires
+  phenomenal consciousness, subjective experience, or
+  qualia. ``Reflexivity'' as used here denotes
+  second-order control, nothing more.
+\item That the Lyapunov function $V$ is a measure of
+  ``awareness.'' It is a control-theoretic stability
+  condition, not a consciousness metric.
+\item That the Four-Part Structure Proposition is a complete
+  characterisation of agency. It states sufficient
+  conditions under~(C1)--(C5); other architectures may
+  also suffice.
+\item That Fisher information requires the agent to
+  ``know'' it is computing Fisher information.
+  The computation can be implemented implicitly by any
+  physical system whose dynamics approximate the natural
+  gradient.
+\item That the calibration loop eliminates the ego's bias.
+  It tracks and compensates for drift in the bias;
+  the four bias terms of Paper~II persist.
+\item That the thermodynamic cost bounds are achievable by
+  any specific physical implementation.
+  They are information-theoretic lower bounds.
+\item That this framework applies to all possible systems.
+  It applies to systems satisfying~(C1)--(C5).
+\item That the structural parallel with philosophical
+  concepts of self-awareness constitutes a philosophical
+  or metaphysical claim.
+\item That the Clifford algebra is the only possible
+  algebraic setting. Other control algebras may yield
+  analogous results with different quantitative bounds.
+\end{enumerate}
+
+\medskip
+We have established a budgeted self-referential calibration
+loop that detects drift via an intrinsic Fisher signal,
+yields a falsifiable stability criterion, and incurs an
+unavoidable thermodynamic cost.
+In the context of Papers~I--III, this completes the
+programme's third step by turning bias (Paper~II)
+into a dynamically monitored and correctable quantity.
+
+% ============================================================
+% REFERENCES
+% ============================================================
+\begin{thebibliography}{99}
+
+\bibitem{Liu2026TDOME_I}
+S.~Liu,
+\emph{Non-Markovian Memory and the Thermodynamic Necessity
+of Temporal Accumulation},
+Zenodo (2026), DOI: 10.5281/zenodo.18574342.
+
+\bibitem{Liu2026TDOME_II}
+S.~Liu,
+\emph{Spontaneous Symmetry Breaking of Reference Frames
+as a Computational Cost Minimization Strategy},
+Zenodo (2026), DOI: 10.5281/zenodo.18579703.
+
+\bibitem{Rao1945}
+C.~R.~Rao,
+\emph{Information and the accuracy attainable in the
+estimation of statistical parameters},
+Bull.\ Calcutta Math.\ Soc.\ \textbf{37}, 81 (1945).
+
+\bibitem{Amari1985}
+S.-i.~Amari,
+\emph{Differential-Geometrical Methods in Statistics},
+Lecture Notes in Statistics \textbf{28}, Springer (1985).
+
+\bibitem{AmariNagaoka2000}
+S.-i.~Amari and H.~Nagaoka,
+\emph{Methods of Information Geometry},
+Translations of Mathematical Monographs \textbf{191},
+AMS (2000).
+
+\bibitem{Amari1998}
+S.-i.~Amari,
+\emph{Natural gradient works efficiently in learning},
+Neural Computation \textbf{10}, 251 (1998).
+
+\bibitem{Cencov1982}
+N.~N.~\v{C}encov,
+\emph{Statistical Decision Rules and Optimal Inference},
+Translations of Mathematical Monographs \textbf{53},
+AMS (1982).
+
+\bibitem{Crooks2007}
+G.~E.~Crooks,
+\emph{Measuring thermodynamic length},
+Phys.\ Rev.\ Lett.\ \textbf{99}, 100602 (2007).
+
+\bibitem{SivakCrooks2012}
+D.~A.~Sivak and G.~E.~Crooks,
+\emph{Thermodynamic metrics and optimal paths},
+Phys.\ Rev.\ Lett.\ \textbf{108}, 190602 (2012).
+
+\bibitem{vanTrees1968}
+H.~L.~van Trees,
+\emph{Detection, Estimation, and Modulation Theory},
+Part~I, Wiley (1968).
+
+\bibitem{BaratoSeifert2015}
+A.~C.~Barato and U.~Seifert,
+\emph{Thermodynamic uncertainty relation for biomolecular
+processes},
+Phys.\ Rev.\ Lett.\ \textbf{114}, 158101 (2015).
+
+\bibitem{Ito2018}
+S.~Ito,
+\emph{Stochastic thermodynamic interpretation of
+information geometry},
+Phys.\ Rev.\ Lett.\ \textbf{121}, 030605 (2018).
+
+\bibitem{Ashby1956}
+W.~R.~Ashby,
+\emph{An Introduction to Cybernetics},
+Chapman \& Hall (1956).
+
+\bibitem{vonFoerster2003}
+H.~von Foerster,
+\emph{Understanding Understanding: Essays on Cybernetics
+and Cognition},
+Springer (2003).
+
+\bibitem{AstromWittenmark1995}
+K.~J.~\AA{}str\"{o}m and B.~Wittenmark,
+\emph{Adaptive Control},
+2nd ed., Addison-Wesley (1995).
+
+\bibitem{CoverThomas2006}
+T.~M.~Cover and J.~A.~Thomas,
+\emph{Elements of Information Theory},
+2nd ed., Wiley (2006).
+
+\bibitem{Liu2026HAFF_A}
+S.~Liu,
+\emph{Emergent Geometry from Coarse-Grained Observable
+Algebras},
+Zenodo (2026), DOI: 10.5281/zenodo.18361707.
+
+\bibitem{Liu2026HAFF_B}
+S.~Liu,
+\emph{Accessibility, Stability, and Emergent Geometry},
+Zenodo (2026), DOI: 10.5281/zenodo.18367061.
+
+\bibitem{Liu2026HAFF_G}
+S.~Liu,
+\emph{Structural Limits of Unification: Accessibility,
+Incompleteness, and the Necessity of a Final Cut},
+Zenodo (2026), DOI: 10.5281/zenodo.18402908.
+
+\bibitem{Liu2026QRAIF_A}
+S.~Liu,
+\emph{Algebraic Constraints on the Emergence of Lorentzian
+Metrics in Entropic Gravity Frameworks},
+Zenodo (2026), DOI: 10.5281/zenodo.18525877.
+
+\bibitem{Liu2026QRAIF_B}
+S.~Liu,
+\emph{Thermodynamic Stability Constraints on the Operator
+Algebra of Persistent Open Quantum Subsystems},
+Zenodo (2026), DOI: 10.5281/zenodo.18525891.
+
+\bibitem{Liu2026QRAIF_C}
+S.~Liu,
+\emph{The Realizability Bridge: Algebraic Closure in the
+Q-RAIF Framework},
+Zenodo (2026), DOI: 10.5281/zenodo.18528935.
+
+\end{thebibliography}
+
+\end{document}

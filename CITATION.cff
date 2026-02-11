@@ -1,0 +1,30 @@
+cff-version: 1.2.0
+title: "The Genesis Trilogy: HAFF, Q-RAIF, and T-DOME"
+message: "If you use or reference this work, please cite using the metadata below."
+type: dataset
+authors:
+  - family-names: Liu
+    given-names: Sidong
+    affiliation: iBioStratix Ltd
+license: CC-BY-4.0
+repository-code: https://github.com/SidongLiu/genesis-trilogy
+keywords:
+  - emergent geometry
+  - observable algebras
+  - quantum foundations
+  - thermodynamic cognition
+  - self-monitoring
+  - Clifford algebra
+identifiers:
+  - type: doi
+    value: "10.5281/zenodo.18574342"
+    description: "T-DOME Paper I"
+  - type: doi
+    value: "10.5281/zenodo.18579703"
+    description: "T-DOME Paper II"
+  - type: doi
+    value: "10.5281/zenodo.18591771"
+    description: "T-DOME Paper III"
+  - type: doi
+    value: "10.5281/zenodo.18593180"
+    description: "T-DOME Complete Collection"

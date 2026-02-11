@@ -1,0 +1,206 @@
+% ============================================================
+% Q-RAIF Paper C: The Realizability Bridge (FINAL)
+% ============================================================
+
+\documentclass[12pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage[hidelinks]{hyperref}
+\usepackage{booktabs}
+\usepackage{physics}
+
+% Theorem environments — matching Paper A
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{remark}[theorem]{Remark}
+
+\title{The Realizability Bridge: Algebraic Closure\\
+in the Q-RAIF Framework}
+
+\author{Sidong Liu, PhD \\
+\small iBioStratix Ltd \\
+\small \texttt{sidongliu@hotmail.com}}
+
+\date{8th February 2026}
+
+\begin{document}
+\maketitle
+
+% ============================================================
+\begin{abstract}
+This addendum provides a minimal mathematical bridge between the two foundational papers of the \textbf{Q-RAIF (Quantum Reference Algebra for Information Flow)} framework.
+Paper A~\cite{Liu2026QRAIF_A} establishes that the observable algebra of a holographically consistent universe must contain $Cl(1,3)$ as its minimal Clifford-compatible structure.
+Paper B~\cite{Liu2026QRAIF_B} establishes that the control algebra of a persistent subsystem must be Cliffordian $Cl(V,q)$ to ensure Lyapunov stability under entropic constraints.
+
+Here we prove the \textbf{Closure Theorem}: any \emph{physically realizable} control algebra must embed into the environmental algebra as a subalgebra.
+We formalize the required feedback synchrony via a \emph{Same-Clock} co-indexing lemma, ensuring the feedback loop is thermodynamically potent.
+
+This note does not modify Papers A or B; it supplies only the realizability bridge needed for algebraic closure.
+
+\medskip
+\noindent\textbf{Keywords}: Q-RAIF, realizability, representation, operator algebra, Clifford algebra, open quantum systems, Lyapunov stability, algebraic closure
+\end{abstract}
+
+% ============================================================
+\section{Introduction}
+\label{sec:intro}
+
+\subsection{Context: The Q-RAIF Program}
+
+The Quantum Reference Algebra for Information Flow (Q-RAIF) framework investigates what algebraic structures are \emph{necessary}---as opposed to merely convenient---for the self-consistent description of physical reality and persistence within it.
+The program builds on the Holographic Alaya-Field Framework (HAFF)~\cite{Liu2026PaperA,Liu2026PaperB}, which establishes that geometry emerges from coarse-graining of observable algebras.
+
+\begin{center}
+\begin{tabular}{@{}llll@{}}
+\toprule
+\textbf{Paper} & \textbf{Question} & \textbf{Analogy} & \textbf{Result} \\
+\midrule
+HAFF~\cite{Liu2026PaperA} & How does geometry emerge? & Ocean & Algebra $\to$ Geometry \\
+Q-RAIF A~\cite{Liu2026QRAIF_A} & What algebra does geometry need? & Water & $Cl(1,3)$ \\
+Q-RAIF B~\cite{Liu2026QRAIF_B} & What algebra does survival need? & Fish & $Cl(V,q)$ \\
+This work & Must the fish fit the water? & Bridge & $Cl(V,q) \hookrightarrow Cl(1,3)$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\subsection{The Logical Gap}
+
+Papers A and B independently arrive at Clifford algebra from opposite directions.
+Both papers explicitly note that this convergence is \emph{heuristic rather than deductive}~\cite{Liu2026QRAIF_A,Liu2026QRAIF_B}.
+The present note closes the gap by proving a realizability constraint: the internal control algebra of any persistent subsystem must be representable within the external observable algebra.
+
+\subsection{Scope}
+
+This addendum introduces no new physical assumptions.
+It uses only the objects and results already established in Papers A and B, and derives their mutual constraint.
+Papers A and B remain unmodified.
+
+% ============================================================
+\section{Setup and Prerequisites}
+\label{sec:setup}
+
+Let $\mathcal{U}$ be a universe described by the Q-RAIF framework.
+\begin{itemize}
+    \item \textbf{Environment (``water'').} Let $\mathcal{A}_{\mathrm{ext}}$ denote the algebra of observables accessible at the holographic boundary.
+    Paper A~\cite{Liu2026QRAIF_A} argues that $\mathcal{A}_{\mathrm{ext}}$ must contain $Cl(1,3)$ as its minimal Clifford-compatible subalgebra (Theorem~1 of Paper A, ``Clifford Compatibility'').
+    \item \textbf{Subsystem (``fish'').} Let $\mathcal{O}_{\mathrm{int}}$ denote the internal control algebra of a persistent subsystem $R\subset\mathcal{U}$.
+    Paper B~\cite{Liu2026QRAIF_B} argues that thermodynamic persistence requires $\mathcal{O}_{\mathrm{int}} \cong Cl(V,q)$ for some $(V,q)$ (Theorem~1 of Paper B, ``Persistence Compatibility'').
+\end{itemize}
+
+The remaining logical gap is the relationship between $\mathcal{O}_{\mathrm{int}}$ and $\mathcal{A}_{\mathrm{ext}}$: can a stable Clifford control algebra exist while being structurally disjoint from the available environmental observables?
+
+% ============================================================
+\section{Realizability and Same-Clock Co-Indexing}
+\label{sec:realizability}
+
+\begin{definition}[Algebraic Realizability]
+\label{def:realizability}
+A control algebra $\mathcal{O}_{\mathrm{int}}$ is \textbf{physically realizable} within an environment $\mathcal{A}_{\mathrm{ext}}$ if there exists a homomorphism
+\begin{equation}
+    \phi: \mathcal{O}_{\mathrm{int}} \to \mathcal{A}_{\mathrm{ext}}
+\end{equation}
+such that $\mathrm{Im}(\phi)$ has non-zero action on the interaction Hamiltonian $H_{\mathrm{int}}$, i.e., $[\mathrm{Im}(\phi), H_{\mathrm{int}}] \neq 0$.
+This ensures that the controller can physically influence the system-environment boundary.
+\end{definition}
+
+Let $I$ be an operational/causal index set (e.g., proper-time frames or discretized event slices).
+For a subset $J\subseteq I$, write $\mathcal{A}|_J$ for the restriction of an algebra $\mathcal{A}$ to the index set $J$.
+
+\begin{lemma}[Same-Clock / Co-Indexing]
+\label{lem:clock}
+For a feedback loop to be causally closed and thermodynamically potent (capable of entropy export~\cite{Seifert2012}), there must exist non-null index overlap between control and feedback windows: there exist $J_{\mathrm{ctrl}},J_{\mathrm{env}}\subseteq I$ such that
+\begin{enumerate}
+    \item \textbf{Non-null intersection:} $J_{\mathrm{ctrl}}\cap J_{\mathrm{env}}\neq\emptyset$.
+    \item \textbf{Window integrity:} on any critical lookback window $W\subseteq J_{\mathrm{ctrl}}\cap J_{\mathrm{env}}$ used to define the controller, $\mathcal{A}_{\mathrm{ext}}|_W$ is well-defined (no holes on $W$).
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+If $J_{\mathrm{ctrl}}\cap J_{\mathrm{env}}=\emptyset$, the control action is operationally decoupled from environmental feedback, so no entropy export channel exists; persistence (NESS~\cite{Seifert2012}) fails.
+If window integrity fails on a critical lookback window $W$, the feedback map---and thus the Lyapunov descent condition (Eq.~(4) of Paper B~\cite{Liu2026QRAIF_B})---is not definable on the operational window.
+Therefore both conditions are necessary.
+\end{proof}
+
+% ============================================================
+\section{The Closure Theorem}
+\label{sec:closure}
+
+\begin{theorem}[Q-RAIF Algebraic Closure]
+\label{thm:closure}
+Assume $\mathcal{A}_{\mathrm{ext}} \supseteq Cl(1,3)$ (Paper A~\cite{Liu2026QRAIF_A}).
+Let $R$ be a persistent subsystem whose control algebra satisfies $\mathcal{O}_{\mathrm{int}}\cong Cl(V,q)$ (Paper B~\cite{Liu2026QRAIF_B}).
+If $\mathcal{O}_{\mathrm{int}}$ is realizable in $\mathcal{A}_{\mathrm{ext}}$ (Definition~\ref{def:realizability}) and the Same-Clock conditions of Lemma~\ref{lem:clock} hold, then the effective control algebra
+\begin{equation}
+    \mathcal{O}_{\mathrm{eff}} := \mathrm{Im}(\phi) \subseteq \mathcal{A}_{\mathrm{ext}}
+\end{equation}
+is a Clifford subalgebra of the external geometry.
+\end{theorem}
+
+\begin{proof}
+By realizability, there exists a homomorphism $\phi:\mathcal{O}_{\mathrm{int}} \to \mathcal{A}_{\mathrm{ext}}$ with non-trivial image.
+The operational content of the controller is its image $\mathcal{O}_{\mathrm{eff}} = \mathrm{Im}(\phi)$.
+Since $\mathcal{O}_{\mathrm{int}} \cong Cl(V,q)$ by the persistence requirement (Theorem~1 of Paper B), and $\phi$ is structure-preserving, $\mathcal{O}_{\mathrm{eff}}$ inherits the Clifford relations $v^2 = q(v)\mathbf{1}$~\cite{Hestenes1966}.
+Since $\mathcal{O}_{\mathrm{eff}} \subseteq \mathcal{A}_{\mathrm{ext}}$, the internal geometry $(V,q)$ is induced by a restriction of the ambient algebraic structure.
+\end{proof}
+
+\begin{corollary}[No Ghost Algebra]
+A control algebra that is mathematically stable (Cliffordian) but not representable in $\mathcal{A}_{\mathrm{ext}}$ is not physically realizable.
+In particular, a control structure with signature incompatible with $(1,3)$ cannot underwrite persistent feedback in a universe whose observable algebra contains $Cl(1,3)$.
+\end{corollary}
+
+% ============================================================
+\section{Discussion}
+\label{sec:discussion}
+
+\subsection{What This Result Does and Does Not Show}
+
+\textbf{Does show:}
+Realizability forces the internal control algebra of a persistent subsystem to embed into the external observable algebra.
+Combined with Papers A and B, this converts the previously heuristic convergence ($Cl(V,q)$ from stability, $Cl(1,3)$ from geometry) into a constrained embedding: $Cl(V,q) \hookrightarrow Cl(1,3)$.
+
+\textbf{Does not show:}
+That $\phi$ must be injective (faithful)---the theorem holds for any non-trivial homomorphism.
+That the specific signature $(V,q)$ is uniquely determined---only that it must be compatible with $(1,3)$.
+That this constitutes a derivation of physics from first principles---it is a consistency constraint within the Q-RAIF framework.
+
+\subsection{The Bridge Statement}
+
+\begin{remark}[Closing the Loop]
+Paper A fixes the realizable operator content of the world ($\mathcal{A}_{\mathrm{ext}}$).
+Paper B fixes the algebraic form required for persistence ($\mathcal{O}_{\mathrm{int}}$).
+Theorem~\ref{thm:closure} locks them together: realizable persistence forces the agent's control algebra to be built from the same algebraic atoms as its environment.
+The fish's gills must be made of water's molecules.
+\end{remark}
+
+\subsection{Connection to HAFF}
+
+Within the HAFF program~\cite{Liu2026PaperA,Liu2026PaperB}, geometry emerges from coarse-graining of observable algebras.
+The Closure Theorem adds a further structural consequence: not only does the world's geometry emerge from its algebra, but any persistent subsystem's internal geometry is \emph{constrained to be a restriction} of that emergent geometry.
+This is algebraic natural selection operating at the level of geometric structure.
+
+% ============================================================
+\begin{thebibliography}{99}
+
+\bibitem{Liu2026QRAIF_A}
+S.~Liu, \emph{Algebraic Constraints on the Emergence of Lorentzian Metrics in Entropic Gravity Frameworks}, Zenodo (2026), DOI: \href{https://doi.org/10.5281/zenodo.18525877}{10.5281/zenodo.18525877}.
+
+\bibitem{Liu2026QRAIF_B}
+S.~Liu, \emph{Thermodynamic Stability Constraints on the Operator Algebra of Persistent Open Quantum Subsystems}, Zenodo (2026), DOI: \href{https://doi.org/10.5281/zenodo.18525891}{10.5281/zenodo.18525891}.
+
+\bibitem{Liu2026PaperA}
+S.~Liu, \emph{Emergent Geometry from Coarse-Grained Observable Algebras: The Holographic Alaya-Field Framework}, Zenodo (2026), DOI: 10.5281/zenodo.18361707.
+
+\bibitem{Liu2026PaperB}
+S.~Liu, \emph{Accessibility, Stability, and Emergent Geometry: Conceptual Clarifications on the Holographic Alaya-Field Framework}, Zenodo (2026), DOI: 10.5281/zenodo.18367061.
+
+\bibitem{Hestenes1966}
+D.~Hestenes, \emph{Space-Time Algebra}, Gordon and Breach (1966).
+
+\bibitem{Seifert2012}
+U.~Seifert, \emph{Stochastic thermodynamics, fluctuation theorems and molecular machines}, Rep.\ Prog.\ Phys.\ \textbf{75}, 126001 (2012).
+
+\end{thebibliography}
+
+\end{document}

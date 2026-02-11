@@ -1,0 +1,515 @@
+% Paper E: Measurement as Accessibility
+% A Structural Analysis of Observable Algebra Selection
+% COMPLETE VERSION — Final Draft
+
+\documentclass[12pt,a4paper]{article}
+\usepackage{amsmath,amssymb,amsfonts,amsthm}
+\usepackage{physics}
+\usepackage{hyperref}
+\usepackage{geometry}
+\usepackage{array}
+\usepackage{booktabs}
+\geometry{margin=1in}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{constraint}[theorem]{Constraint}
+
+\title{Measurement as Accessibility:\\
+A Structural Analysis of Observable Algebra Selection}
+
+\author{
+  Sidong Liu, PhD \\
+  iBioStratix Ltd \\
+  \texttt{sidongliu@hotmail.com}
+}
+
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+We propose that quantum measurement is not a primitive process but a manifestation of accessibility constraints on operator algebras. Building on the Holographic Alaya-Field Framework (HAFF), we identify three structural constraints---interaction coupling, dynamical stability, and environmental redundancy---that jointly determine which observables are accessible within a given physical context. Measurement outcomes are reinterpreted as the eigenvalue structure of operators satisfying these constraints, and the definiteness of outcomes is traced to redundant environmental encoding rather than wave function collapse. This framework maintains compatibility with unitary quantum mechanics while providing a structural account of why certain observables acquire definite values. The analysis is structural in nature: we do not propose new dynamics or modifications to quantum mechanics, but clarify the conditions under which measurement-like phenomena emerge from algebraic constraints. Connections to decoherence theory, quantum Darwinism, and algebraic quantum field theory are discussed, along with explicit non-claims to prevent misinterpretation.
+\end{abstract}
+
+\section{Introduction}
+\label{sec:intro}
+
+\subsection{The Measurement Problem Reconsidered}
+
+The quantum measurement problem has resisted resolution for nearly a century. In its sharpest form, the problem asks: how do definite measurement outcomes arise from quantum states that, prior to measurement, assign non-trivial amplitudes to multiple possibilities? Standard quantum mechanics provides rules for computing outcome probabilities but does not explain the transition from superposition to definiteness.
+
+Various approaches have been proposed: collapse postulates that modify unitary evolution, many-worlds interpretations that deny the uniqueness of outcomes, and decoherence-based accounts that explain the suppression of interference without addressing the selection of particular results. Each approach has merits, but none has achieved consensus.
+
+\subsection{A Structural Reframing}
+
+This paper proposes a different perspective. Rather than asking how measurement \emph{causes} definite outcomes, we ask: under what structural conditions do observables \emph{acquire} the status of being measurable in the first place?
+
+The central claim is:
+
+\begin{quote}
+\textbf{Measurement is not a primitive process, but a manifestation of accessibility constraints on operator algebras.}
+\end{quote}
+
+Within the Holographic Alaya-Field Framework (HAFF) developed in previous papers \cite{Liu2026PaperA,Liu2026PaperB,Liu2026PaperC,Liu2026PaperD}, physical descriptions are formulated relative to accessible observable algebras $\mathcal{A}_{\mathbf{c}} \subset \mathcal{B}(\mathcal{H}_U)$. Not all mathematically definable operators correspond to physically realizable measurements. The present paper identifies three structural constraints that jointly determine which operators are accessible:
+
+\begin{enumerate}
+    \item \textbf{Interaction Constraint}: The observable must couple to external degrees of freedom.
+    \item \textbf{Stability Constraint}: The observable must persist under dynamical evolution.
+    \item \textbf{Redundancy Constraint}: Information about the observable must be redundantly encoded in the environment.
+\end{enumerate}
+
+Observables satisfying all three constraints constitute the accessible algebra. Measurement outcomes are then understood as the eigenvalue structure of these accessible observables, and definiteness arises from the redundancy of environmental records rather than from any modification of unitary dynamics.
+
+\subsection{Scope and Limitations}
+
+We emphasize what this paper does and does not attempt.
+
+\textbf{This paper does:}
+\begin{itemize}
+    \item Provide a structural characterization of measurement in terms of algebraic accessibility
+    \item Identify three physical constraints that jointly determine accessible observables
+    \item Connect measurement to established frameworks (decoherence, quantum Darwinism, AQFT)
+    \item Maintain compatibility with unitary quantum mechanics
+\end{itemize}
+
+\textbf{This paper does not:}
+\begin{itemize}
+    \item Propose new dynamics or modifications to quantum mechanics
+    \item Explain why specific measurement outcomes occur (the ``outcome problem'')
+    \item Resolve interpretational debates about the ontology of quantum states
+    \item Invoke consciousness, observers, or subjective elements
+\end{itemize}
+
+The analysis is structural: we clarify conditions under which measurement-like phenomena emerge, without claiming to have solved the measurement problem in its deepest form.
+
+\subsection{Outline}
+
+Section~\ref{sec:background} reviews relevant background on algebraic approaches to quantum mechanics and the HAFF framework. Section~\ref{sec:constraints} develops the three accessibility constraints in detail. Section~\ref{sec:measurement} reframes measurement in terms of these constraints. Section~\ref{sec:relations} discusses connections to existing approaches. Section~\ref{sec:nonclaims} states explicit non-claims. Section~\ref{sec:connection} situates the paper within the broader HAFF program. Section~\ref{sec:conclusion} concludes.
+
+\section{Background}
+\label{sec:background}
+
+\subsection{Algebraic Approaches to Quantum Mechanics}
+
+In the algebraic formulation of quantum mechanics, the fundamental objects are not wave functions or Hilbert spaces, but algebras of observables. A quantum system is characterized by a $*$-algebra $\mathcal{A}$ of bounded operators, and states are positive linear functionals on $\mathcal{A}$ \cite{Haag1996,Araki1999}.
+
+This perspective has several advantages. It does not presuppose a specific Hilbert space representation, accommodates systems with infinitely many degrees of freedom, and naturally incorporates superselection rules. Most importantly for our purposes, it treats the specification of observables as logically prior to the specification of states.
+
+\subsection{Observable Algebras in AQFT}
+
+In algebraic quantum field theory (AQFT), local observable algebras $\mathcal{A}(\mathcal{O})$ are associated with spacetime regions $\mathcal{O}$, without invoking a global tensor product structure \cite{Haag1996}. The key insight is that subsystem structure emerges from the algebra of observables rather than being presupposed.
+
+The HAFF framework extends this perspective by treating the selection of accessible algebras as physically constrained rather than given. Building on foundational work demonstrating that tensor product structures are observable-induced \cite{Zanardi2001,Zanardi2004}, different physical contexts---characterized by different interaction structures, stability conditions, and environmental couplings---yield different accessible algebras, and hence different effective physical descriptions.
+
+\subsection{Accessible Algebras in HAFF}
+
+Following \cite{Liu2026PaperA,Liu2026PaperB}, we define:
+
+\begin{definition}[Accessible Algebra]
+\label{def:accessible}
+An \textbf{accessible algebra} $\mathcal{A}_{\mathbf{c}} \subset \mathcal{B}(\mathcal{H}_U)$ is a $*$-subalgebra satisfying physical constraints that ensure its elements correspond to operationally realizable observables within a given context $\mathbf{c}$.
+\end{definition}
+
+The subscript $\mathbf{c}$ denotes the \emph{context}---the totality of physical conditions (interaction Hamiltonian, environmental structure, timescales) that determine which observables are accessible. Different contexts yield different accessible algebras from the same underlying Hilbert space.
+
+The present paper specifies three constraints that jointly determine $\mathcal{A}_{\mathbf{c}}$.
+
+\section{Accessibility as Physical Constraint}
+\label{sec:constraints}
+
+We now develop the three constraints that determine which observables belong to the accessible algebra.
+
+\subsection{Constraint 1: Interaction Coupling}
+
+\begin{constraint}[Interaction]
+\label{const:interaction}
+An observable $\hat{O} \in \mathcal{B}(\mathcal{H}_U)$ satisfies the \textbf{interaction constraint} if it couples non-trivially to external degrees of freedom via the interaction Hamiltonian:
+\begin{equation}
+[\hat{O}, \hat{H}_{\text{int}}] \neq 0.
+\end{equation}
+\end{constraint}
+
+\paragraph{Physical interpretation.}
+An observable that commutes with all interaction terms is dynamically inert: it cannot be probed, recorded, or correlated with any external system. Such observables are mathematically well-defined but physically inaccessible.
+
+\paragraph{Relation to measurement.}
+Measurement requires that the system observable become correlated with apparatus degrees of freedom. This correlation is mediated by interaction. Observables that do not couple to any external system cannot, even in principle, be measured.
+
+\begin{remark}
+The interaction constraint is necessary but not sufficient for accessibility. An observable may couple to external degrees of freedom yet fail to satisfy stability or redundancy requirements.
+\end{remark}
+
+\subsection{Constraint 2: Dynamical Stability}
+
+\begin{constraint}[Stability]
+\label{const:stability}
+An observable $\hat{O}$ satisfies the \textbf{stability constraint} if it remains approximately invariant under physically relevant dynamical maps $\mathcal{E}_t$:
+\begin{equation}
+\|\mathcal{E}_t(\hat{O}) - \hat{O}\| < \epsilon
+\end{equation}
+for timescales $t$ relevant to the physical process under consideration.
+\end{constraint}
+
+\paragraph{Physical interpretation.}
+Observables that scramble rapidly---spreading their information across many degrees of freedom faster than any recording process can track---cannot be reliably measured. Stability ensures that the observable persists long enough to be correlated with records.
+
+\paragraph{Relation to scrambling.}
+In the language of quantum chaos, stable observables are those with slow out-of-time-order correlator (OTOC) growth \cite{Hayden2007}:
+\begin{equation}
+\langle [\hat{O}(t), \hat{V}(0)]^2 \rangle \ll 1 \quad \text{for } t \ll \tau_{\text{scrambling}}.
+\end{equation}
+Observables satisfying this condition resist rapid delocalization and maintain their identity under dynamical evolution.
+
+\paragraph{Relation to decoherence.}
+The stability constraint is closely related to the selection of pointer observables in decoherence theory \cite{Zurek2003}. Pointer observables are those that remain stable under system-environment interaction, forming the preferred basis in which the density matrix becomes approximately diagonal.
+
+\begin{remark}[Threshold $\epsilon$]
+The threshold $\epsilon$ is not a fundamental constant but depends on the physical context: the precision of available recording mechanisms, the timescales of interest, and the noise level of the environment. This context-dependence is a feature, not a bug---it reflects the operational nature of accessibility.
+\end{remark}
+
+\subsection{Constraint 3: Environmental Redundancy}
+
+\begin{constraint}[Redundancy]
+\label{const:redundancy}
+An observable $\hat{O}$ satisfies the \textbf{redundancy constraint} if information about $\hat{O}$ is redundantly encoded across multiple independent environmental fragments $\{E_k\}$:
+\begin{equation}
+I(\hat{O} : E_k) \approx H(\hat{O}) \quad \text{for many } k,
+\end{equation}
+where $I(\cdot : \cdot)$ denotes quantum mutual information and $H(\cdot)$ denotes von Neumann entropy.
+\end{constraint}
+
+\paragraph{Physical interpretation.}
+Redundancy ensures that information about the observable is not localized in a single environmental degree of freedom but is broadcast across many independent fragments. This makes the information robust and intersubjectively accessible: multiple independent observers can extract the same information without disturbing each other's records.
+
+\paragraph{Relation to quantum Darwinism.}
+The redundancy constraint formalizes the central insight of quantum Darwinism \cite{Zurek2009}: classical objectivity arises when information about a system is redundantly imprinted on the environment. Observables satisfying this constraint are precisely those for which multiple observers can agree on measurement outcomes.
+
+\paragraph{Operational significance.}
+Redundancy distinguishes \emph{objective} from \emph{subjective} information. An observable whose information is encoded in only a single environmental fragment is accessible to at most one observer; different observers would obtain different, incompatible records. Redundancy ensures that the observable's value is a matter of intersubjective fact.
+
+\begin{remark}[Relation to classical objectivity]
+The redundancy constraint provides a structural account of why certain observables behave ``classically'': their values are recorded multiply and independently, making them robust against local perturbations and accessible to multiple agents.
+\end{remark}
+
+\subsection{The Accessible Algebra}
+
+\begin{definition}[Accessible Algebra via Constraints]
+\label{def:accessible-full}
+The \textbf{accessible algebra} $\mathcal{A}_{\mathbf{c}}$ relative to context $\mathbf{c}$ is the set of all observables satisfying Constraints~\ref{const:interaction}, \ref{const:stability}, and~\ref{const:redundancy}:
+\begin{equation}
+\mathcal{A}_{\mathbf{c}} = \{\hat{O} \in \mathcal{B}(\mathcal{H}_U) : \hat{O} \text{ satisfies Constraints 1, 2, and 3}\}.
+\end{equation}
+\end{definition}
+
+The accessible algebra is not fixed \emph{a priori} but is determined by the physical context. Different interaction Hamiltonians, environmental structures, and timescales yield different accessible algebras from the same underlying Hilbert space.
+
+\begin{table}[ht]
+\centering
+\small
+\begin{tabular}{|p{2.5cm}|p{5cm}|p{5cm}|}
+\hline
+\textbf{Constraint} & \textbf{Condition} & \textbf{Physical Meaning} \\
+\hline
+Interaction & $[\hat{O}, \hat{H}_{\text{int}}] \neq 0$ & Observable couples to external degrees of freedom \\
+\hline
+Stability & $\|\mathcal{E}_t(\hat{O}) - \hat{O}\| < \epsilon$ & Observable persists under dynamics \\
+\hline
+Redundancy & $I(\hat{O} : E_k) \approx H(\hat{O})$ & Information redundantly encoded \\
+\hline
+\end{tabular}
+\caption{Summary of the three accessibility constraints.}
+\label{tab:constraints}
+\end{table}
+
+\section{Measurement Reframed}
+\label{sec:measurement}
+
+We now apply the accessibility framework to reinterpret quantum measurement.
+
+\subsection{What Can Be Measured}
+
+Within the present framework, the question ``What can be measured?'' receives a precise answer:
+
+\begin{quote}
+\textbf{An observable can be measured if and only if it belongs to the accessible algebra $\mathcal{A}_{\mathbf{c}}$.}
+\end{quote}
+
+Observables outside $\mathcal{A}_{\mathbf{c}}$---those failing one or more of the three constraints---are not measurable within context $\mathbf{c}$, regardless of their mathematical definition. This does not mean they ``do not exist'' in any metaphysical sense, but that they do not correspond to operationally realizable measurements within the given physical context.
+
+\subsection{Measurement Outcomes}
+
+Given an accessible observable $\hat{O} \in \mathcal{A}_{\mathbf{c}}$, its measurement outcomes are identified with its eigenvalue structure:
+
+\begin{quote}
+\textbf{Measurement outcomes are the eigenvalues of accessible observables.}
+\end{quote}
+
+This identification is standard in quantum mechanics. The novelty lies in restricting attention to \emph{accessible} observables: only those satisfying the three constraints yield operationally meaningful outcomes.
+
+\subsection{Definiteness from Redundancy}
+
+The definiteness of measurement outcomes---the fact that measurements yield single, definite results rather than superpositions---is traced to the redundancy constraint rather than to wave function collapse.
+
+When an observable $\hat{O}$ satisfies the redundancy constraint, its eigenvalue is recorded in multiple independent environmental fragments. These records are mutually consistent: any fragment yields the same information about $\hat{O}$. This redundancy constitutes the objective, intersubjective definiteness of the measurement outcome.
+
+\begin{quote}
+\textbf{Definiteness is not imposed by collapse but constituted by redundant environmental encoding.}
+\end{quote}
+
+The global quantum state remains in superposition; what becomes definite is the content of redundant records, which all agree on the same eigenvalue.
+
+\subsection{The Outcome Problem}
+
+The framework does not explain why a \emph{particular} eigenvalue is recorded rather than another. This ``outcome problem'' remains open:
+
+\begin{quote}
+\textbf{We explain why outcomes are definite (redundancy), not why they are what they are.}
+\end{quote}
+
+This limitation is shared with decoherence-based approaches. The present framework does not claim to resolve this aspect of the measurement problem, only to clarify the structural conditions under which definite outcomes become possible.
+
+\subsection{Measurement Without Observers}
+
+A crucial feature of the framework is that measurement is characterized without reference to observers, agents, or consciousness:
+
+\begin{quote}
+\textbf{The ``observer'' is replaced by the ``interaction context.''}
+\end{quote}
+
+Any physical system satisfying the three constraints---be it a photon counter, a mineral surface, or an interstellar dust grain---constitutes a ``measurement site'' for the relevant observables. Human observers are a special case, not a privileged category.
+
+\section{Relation to Existing Approaches}
+\label{sec:relations}
+
+\subsection{Decoherence Theory}
+
+Decoherence theory explains how interference between quantum states is suppressed through environmental entanglement \cite{Zurek2003}. The present framework is fully compatible with decoherence and may be viewed as extending it in two respects:
+
+\begin{enumerate}
+    \item We make explicit the \emph{conditions} under which decoherence selects a preferred basis (the stability and redundancy constraints).
+    \item We embed decoherence within the broader HAFF framework, connecting it to emergent geometry and gravitational phenomena.
+\end{enumerate}
+
+\subsection{Quantum Darwinism}
+
+Quantum Darwinism \cite{Zurek2009} emphasizes the role of environmental redundancy in establishing classical objectivity. The redundancy constraint (Constraint~\ref{const:redundancy}) formalizes this insight as a criterion for accessibility.
+
+The present framework may be viewed as situating quantum Darwinism within an algebraic setting, treating redundancy as one of three jointly necessary conditions for observability rather than as a standalone principle.
+
+\subsection{QBism}
+
+QBism \cite{Fuchs2014} interprets quantum states as expressions of an agent's beliefs. The present framework differs fundamentally: accessibility is determined by physical interaction structure, not by agent beliefs.
+
+The key difference:
+\begin{itemize}
+    \item \textbf{QBism}: Dependence on agent's epistemic state (belief-determined)
+    \item \textbf{HAFF}: Dependence on interaction structure (interaction-determined)
+\end{itemize}
+
+Both reject naive realism about quantum states, but the present framework maintains objectivity by grounding accessibility in physical constraints rather than subjective beliefs.
+
+\subsection{Relational Quantum Mechanics}
+
+Relational quantum mechanics (RQM) \cite{Rovelli1996} holds that quantum states are relational---defined only relative to a reference system. The present framework shares the emphasis on relationality but differs in its treatment of what grounds the relation:
+
+\begin{itemize}
+    \item \textbf{RQM}: Relations between systems (system-relative)
+    \item \textbf{HAFF}: Stability conditions on algebras (interaction-determined)
+\end{itemize}
+
+HAFF may provide the stable ``nodes'' required for RQM's relational network: before relations can exist, there must be relata stable enough to participate in interactions.
+
+\subsection{Algebraic Quantum Field Theory}
+
+The closest structural affinity is with algebraic quantum field theory (AQFT) \cite{Haag1996}. Both frameworks treat observable algebras as primary and states as secondary. The present framework extends AQFT by:
+
+\begin{enumerate}
+    \item Providing explicit criteria (the three constraints) for algebra selection
+    \item Connecting algebra selection to measurement and emergent geometry
+    \item Situating AQFT insights within the broader HAFF program
+\end{enumerate}
+
+\begin{table}[ht]
+\centering
+\small
+\begin{tabular}{|p{3cm}|p{4cm}|p{5.5cm}|}
+\hline
+\textbf{Approach} & \textbf{Key Mechanism} & \textbf{Relation to HAFF} \\
+\hline
+Decoherence & Environmental entanglement & Compatible; constraints specify conditions \\
+\hline
+Quantum Darwinism & Redundant encoding & Redundancy constraint formalizes this \\
+\hline
+QBism & Agent beliefs & Categorically distinct; HAFF is interaction-determined \\
+\hline
+RQM & System relations & Complementary; HAFF provides stable relata \\
+\hline
+AQFT & Observable algebras & Closest affinity; HAFF adds selection criteria \\
+\hline
+\end{tabular}
+\caption{Relation of the present framework to existing approaches.}
+\label{tab:relations}
+\end{table}
+
+\section{What This Paper Does NOT Claim}
+\label{sec:nonclaims}
+
+To prevent misinterpretation, we state explicitly what the paper does not claim.
+
+\begin{enumerate}
+    \item \textbf{No resolution of the outcome problem.} We do not explain why particular measurement outcomes occur, only why outcomes are definite.
+    
+    \item \textbf{No collapse postulate.} The framework assumes unitary evolution throughout. Definiteness arises from redundancy, not from non-unitary collapse.
+    
+    \item \textbf{No modification of quantum mechanics.} We do not propose new equations, new dynamics, or modifications to the standard formalism.
+    
+    \item \textbf{No consciousness or observer-dependence.} Accessibility is determined by physical constraints, not by conscious observers or epistemic states.
+    
+    \item \textbf{No claim that all measurement problems are solved.} The framework addresses the definiteness problem but leaves other aspects (the preferred basis problem, the tails problem) to be addressed in conjunction with existing approaches.
+    
+    \item \textbf{No claim of novelty regarding decoherence.} The framework builds on and is compatible with decoherence theory; it does not replace it.
+    
+    \item \textbf{No claim of universal applicability.} The analysis is confined to the HAFF framework and does not assert that all approaches to measurement must adopt this structure.
+    
+    \item \textbf{No metaphysical conclusions.} We do not claim that the accessible algebra exhausts reality, only that it exhausts what is operationally measurable within a given context.
+    
+    \item \textbf{No derivation of Born rule.} The framework does not derive the Born rule for outcome probabilities; it assumes standard quantum probability.
+    
+    \item \textbf{No claim about quantum-classical divide.} We do not assert a sharp boundary between quantum and classical; accessibility is context-dependent and admits degrees.
+    
+    \item \textbf{No hidden variables.} The framework does not invoke hidden variables or additional ontology beyond standard quantum mechanics.
+    
+    \item \textbf{No many-worlds commitment.} The framework is compatible with, but does not require, many-worlds interpretations.
+    
+    \item \textbf{No claim of interpretational neutrality.} While the framework avoids some interpretational commitments, it does adopt the structural stance of HAFF, which may not be neutral with respect to all interpretations.
+\end{enumerate}
+
+\section{Connection to the HAFF Framework}
+\label{sec:connection}
+
+\subsection{Relation to Previous Papers}
+
+The present paper (Paper E) is part of a series developing the Holographic Alaya-Field Framework:
+
+\begin{itemize}
+    \item \textbf{Paper A} \cite{Liu2026PaperA}: Establishes that inequivalent coarse-graining structures induce inequivalent effective geometries from the same global quantum state.
+    
+    \item \textbf{Paper B} \cite{Liu2026PaperB}: Clarifies the structural (vs.\ epistemic) nature of accessibility and situates HAFF relative to existing interpretations.
+    
+    \item \textbf{Paper C} \cite{Liu2026PaperC}: Explores philosophical implications for causation, agency, and existence.
+    
+    \item \textbf{Paper D} \cite{Liu2026PaperD}: Proposes that gravitational dynamics corresponds to the adiabatic evolution of accessible algebras.
+    
+    \item \textbf{Paper E} (this paper): Reframes measurement as a manifestation of accessibility constraints.
+    
+    \item \textbf{Paper F} (forthcoming): Addresses temporal asymmetry as accessibility propagation.
+\end{itemize}
+
+\subsection{The Diagnostic Triangle: D + E + F}
+
+Papers D, E, and F form a ``diagnostic triangle'' within the HAFF framework:
+
+\begin{table}[ht]
+\centering
+\small
+\begin{tabular}{|p{1.5cm}|p{2.5cm}|p{3.5cm}|p{4.5cm}|}
+\hline
+\textbf{Paper} & \textbf{Phenomenon} & \textbf{Traditional View} & \textbf{HAFF Reframing} \\
+\hline
+D & Gravity & Fundamental force & Evolution of accessible algebra \\
+\hline
+E & Measurement & Primitive process & Selection within accessible algebra \\
+\hline
+F & Time & Fundamental parameter & Direction of accessibility propagation \\
+\hline
+\end{tabular}
+\caption{The diagnostic triangle: gravity, measurement, and time reframed as aspects of algebraic accessibility.}
+\label{tab:triangle}
+\end{table}
+
+The unifying insight is that force, measurement, and time are not fundamental but are different projections of the structure of accessible algebras.
+
+\subsection{Structural Link to Gravity}
+
+Paper D establishes that gravity corresponds to the evolution of the accessible algebra $\mathcal{A}_{\mathbf{c}}(t)$. The present paper clarifies what determines $\mathcal{A}_{\mathbf{c}}$ at any given time: the three accessibility constraints.
+
+The connection may be summarized as follows:
+
+\begin{quote}
+If gravity (Paper D) describes how information maps to spatial curvature, then measurement (Paper E) reveals the pruning criterion that determines which information participates in that mapping. Without accessibility constraints, the holographic map would include non-physical operators and yield divergent geometry. The finiteness of gravity is grounded in the finiteness of the accessible algebra.
+\end{quote}
+
+\section{Conclusion}
+\label{sec:conclusion}
+
+We have proposed that quantum measurement is not a primitive process but a manifestation of accessibility constraints on operator algebras.
+
+The central results are:
+
+\begin{enumerate}
+    \item \textbf{Three accessibility constraints}: Interaction coupling, dynamical stability, and environmental redundancy jointly determine which observables are accessible within a given physical context.
+    
+    \item \textbf{Measurement reframed}: What can be measured is determined by membership in the accessible algebra; measurement outcomes are eigenvalues of accessible observables; definiteness arises from redundant environmental encoding.
+    
+    \item \textbf{Observer-independence}: The framework characterizes measurement without reference to observers, consciousness, or subjective elements. The ``observer'' is replaced by the ``interaction context.''
+    
+    \item \textbf{Compatibility}: The framework is compatible with unitary quantum mechanics, decoherence theory, and quantum Darwinism, while providing a structural account that connects measurement to the broader HAFF program.
+\end{enumerate}
+
+The framework does not resolve all aspects of the measurement problem. It does not explain why particular outcomes occur, nor does it derive the Born rule. What it provides is a structural clarification: the conditions under which measurement-like phenomena emerge from physical constraints on operator algebras.
+
+Within the HAFF program, measurement joins gravity and time as phenomena that are not fundamental but emerge from the structure of accessible algebras. This diagnostic unification does not constitute a Theory of Everything, but it suggests that seemingly disparate foundational puzzles may share a common structural origin.
+
+\section*{Acknowledgments}
+
+The author thanks the anonymous reviewers for their insightful comments and suggestions, which greatly improved the clarity and rigor of this work. This work builds on foundational analysis developed in \cite{Liu2026PaperA,Liu2026PaperB,Liu2026PaperC,Liu2026PaperD}.
+
+\begin{thebibliography}{99}
+
+\bibitem{Liu2026PaperA}
+S. Liu, \emph{Emergent Geometry from Coarse-Grained Observable Algebras: The Holographic Alaya-Field Framework}, Zenodo (2026), DOI: 10.5281/zenodo.18361707.
+
+\bibitem{Liu2026PaperB}
+S. Liu, \emph{Accessibility, Stability, and Emergent Geometry: Conceptual Clarifications on the Holographic Alaya-Field Framework}, Zenodo (2026), DOI: 10.5281/zenodo.18367061.
+
+\bibitem{Liu2026PaperC}
+S. Liu, \emph{Causation, Agency, and Existence: Structural Constraints and Interpretive Bridges}, Zenodo (2026), DOI: 10.5281/zenodo.18374806.
+
+\bibitem{Liu2026PaperD}
+S. Liu, \emph{Gravitational Phenomena as Emergent Properties of Observable Algebra Selection: A Structural Analysis}, Zenodo (2026), DOI: 10.5281/zenodo.18388882.
+
+\bibitem{Haag1996}
+R. Haag, \emph{Local Quantum Physics: Fields, Particles, Algebras}, Springer-Verlag (1996).
+
+\bibitem{Araki1999}
+H. Araki, \emph{Mathematical Theory of Quantum Fields}, Oxford University Press (1999).
+
+\bibitem{Zurek2003}
+W. H. Zurek, \emph{Decoherence, einselection, and the quantum origins of the classical}, Rev. Mod. Phys. \textbf{75}, 715 (2003).
+
+\bibitem{Zurek2009}
+W. H. Zurek, \emph{Quantum Darwinism}, Nature Physics \textbf{5}, 181 (2009).
+
+\bibitem{Hayden2007}
+P. Hayden and J. Preskill, \emph{Black holes as mirrors: quantum information in random subsystems}, JHEP \textbf{09}, 120 (2007).
+
+\bibitem{Fuchs2014}
+C. A. Fuchs, N. D. Mermin, and R. Schack, \emph{An Introduction to QBism with an Application to the Locality of Quantum Mechanics}, Am. J. Phys. \textbf{82}, 749 (2014).
+
+\bibitem{Rovelli1996}
+C. Rovelli, \emph{Relational Quantum Mechanics}, Int. J. Theor. Phys. \textbf{35}, 1637 (1996).
+
+\bibitem{Zanardi2001}
+P. Zanardi, \emph{Virtual Quantum Subsystems}, Phys. Rev. Lett. \textbf{87}, 077901 (2001).
+
+\bibitem{Zanardi2004}
+P. Zanardi, D. A. Lidar, and S. Lloyd, \emph{Quantum Tensor Product Structures are Observable Induced}, Phys. Rev. Lett. \textbf{92}, 060402 (2004).
+
+\end{thebibliography}
+
+\end{document}

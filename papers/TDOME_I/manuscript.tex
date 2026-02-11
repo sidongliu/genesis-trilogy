@@ -1,0 +1,2538 @@
+% ============================================================
+% T-DOME Paper I: The Seed
+% T-DOME three-paper series, Paper I
+% ============================================================
+
+\documentclass[12pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage[hidelinks]{hyperref}
+\usepackage{booktabs}
+\usepackage{physics}
+\usepackage{graphicx}
+\usepackage{caption}
+
+% Theorem environments — matching HAFF/Q-RAIF style
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{corollary}[theorem]{Corollary}
+
+\title{Non-Markovian Memory and the Thermodynamic\\
+Necessity of Temporal Accumulation}
+
+\author{Sidong Liu, PhD \\
+\small iBioStratix Ltd \\
+\small \texttt{sidongliu@hotmail.com}}
+
+\date{February 2026}
+
+\begin{document}
+\maketitle
+
+% ============================================================
+\begin{abstract}
+We investigate the thermodynamic constraints on open quantum systems
+that must persist far from equilibrium in stochastic environments.
+Working within the framework of stochastic thermodynamics and
+information thermodynamics (Sagawa--Ueda), we define a
+\emph{survival functional} $\mathcal{S} := \Delta F - W$
+measuring the difference between the non-equilibrium free energy
+gained and the work invested by an agent.
+
+We prove a \textbf{Markovian Ceiling}: for any open-loop
+Markovian (GKSL) dynamics with no measurement or feedback,
+$\mathcal{S} \leq 0$---the agent cannot thermodynamically
+``profit.''
+We then derive an exact identity---valid for
+\emph{arbitrary} (possibly correlated) initial states under
+autonomous evolution in the weak-coupling limit---expressing
+the survival functional in terms of the change in
+system--environment mutual information and bath displacement:
+$\beta\,\mathcal{S} = -\Delta I(S{:}E)
+- \Delta D_{\mathrm{KL}}(\rho_E \| \rho_E^{\mathrm{th}})$.
+Pre-existing correlations $I(S{:}E;\, 0) > 0$, built during
+prior interaction epochs, serve as a consumable thermodynamic
+resource; their consumption during non-Markovian backflow
+intervals yields $\mathcal{S} > 0$, bounded by the initial
+correlation budget.
+
+This establishes \textbf{memory as a thermodynamic necessity}
+for sustained far-from-equilibrium persistence.
+The memory kernel induces a causal partial order on system
+trajectories that, when restricted to the classical sector
+selected by decoherence (quantum Darwinism), is consistent
+with the accessibility ordering of the Holographic Alaya-Field
+Framework (HAFF).
+A worked example---a spin-boson model with Lorentz--Drude
+spectral density---illustrates how non-Markovian backflow
+enables free-energy extraction unavailable to memoryless systems.
+
+Finally, using the entropy rate and predictive information from
+computational mechanics, we quantify the intrinsic cost of memory
+and identify the \textbf{Memory Catastrophe}: unbounded memory
+under finite energy leads to thermodynamic collapse, motivating
+the symmetry-breaking mechanism of Paper~II\@.
+
+\medskip
+\noindent\textbf{Keywords}: non-Markovian dynamics, open quantum systems,
+Nakajima--Zwanzig equation, memory kernel, thermodynamic arrow of time,
+information backflow, entropy production, stochastic thermodynamics
+\end{abstract}
+
+% ============================================================
+\section{Introduction}
+\label{sec:intro}
+
+% ------------------------------------------------------------
+\subsection{Context: The Problem of Persistence}
+
+A quantum system coupled to a thermal environment generically
+relaxes toward equilibrium. This is the content of the
+\emph{zeroth crisis}: absent special structure, every open
+subsystem is eventually erased by thermal noise~\cite{BreuerPetruccione2002}.
+
+Yet the physical world contains persistent far-from-equilibrium
+structures---from molecular machines to living organisms---that
+maintain themselves against the entropic tide for timescales
+vastly exceeding their intrinsic relaxation times. What
+structural feature of their dynamics makes this possible?
+
+The standard answer invokes free-energy input: a persistent system
+is one that continuously imports low-entropy energy and exports
+high-entropy waste~\cite{Schrodinger1944}. This is correct but
+incomplete. Two systems receiving \emph{identical} free-energy
+flux from \emph{identical} environments may exhibit vastly
+different persistence characteristics. The distinguishing factor,
+we argue, is \emph{memory}---the capacity to condition present
+dynamics on past environmental states.
+
+% ------------------------------------------------------------
+\subsection{Position within the Series}
+
+This paper is the first of three constituting the
+\textbf{T-DOME} (Thermodynamic Dynamics of Observer-Memory
+Entanglement) framework, the third pillar of a three-paper
+program.
+
+\begin{center}
+\small
+\setlength{\tabcolsep}{4pt}%
+\begin{tabular}{@{}lp{3.2cm}cp{3.4cm}c@{}}
+\toprule
+\textbf{Framework} & \textbf{Question} & & \textbf{Result} & \textbf{Status} \\
+\midrule
+HAFF~\cite{Liu2026HAFF_A,Liu2026HAFF_B}
+  & How does geometry emerge?
+  & Ocean
+  & Algebra $\to$ Geometry
+  & Complete \\[3pt]
+Q-RAIF~\cite{Liu2026QRAIF_A,Liu2026QRAIF_B}
+  & What algebra must an observer have?
+  & Fish
+  & $Cl(V,q) \hookrightarrow Cl(1,3)$
+  & Complete \\[3pt]
+\textbf{T-DOME I} (this work)
+  & Why must agents carry memory?
+  & Seed
+  & Markovian ceiling; memory as necessity
+  & \textbf{This paper} \\[3pt]
+T-DOME II
+  & Why must agents break symmetry?
+  & Ego
+  & Reference-frame selection
+  & Planned \\[3pt]
+T-DOME III
+  & How does self-calibration arise?
+  & Loop
+  & Fisher self-referential bound
+  & Planned \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+The three T-DOME papers form an irreversible logical chain.
+Each resolves a survival crisis created by its predecessor:
+\begin{enumerate}
+\item \textbf{Paper I (The Seed):} Without memory, a system
+  is trapped in the \emph{Markovian present}---no accumulation,
+  no temporal arrow, inevitable thermal death.
+  Memory breaks this trap but floods the system with unbounded
+  historical data.
+\item \textbf{Paper II (The Ego):} Unbounded memory under finite
+  computational resources causes processing collapse.
+  Spontaneous symmetry breaking of the reference frame
+  (establishing a ``self'') resolves the overload but introduces
+  systematic bias.
+\item \textbf{Paper III (The Loop):} Uncorrected bias diverges from a
+  changing environment. A self-referential calibration loop
+  (monitoring one's own prediction error) resolves the bias
+  but requires the system to ``observe its own observation''---closing
+  the self-calibration loop.
+\end{enumerate}
+
+\noindent
+The present paper addresses only the first link in this chain.
+
+% ------------------------------------------------------------
+\subsection{Relation to HAFF Paper F}
+
+HAFF Paper F~\cite{Liu2026HAFF_F} establishes the arrow of time
+as the direction of \emph{accessibility propagation}:
+informational redundancy $\mathcal{R}(\hat{O})$ generically expands,
+inducing a partial order $\prec$ on observable algebras.
+That analysis is purely algebraic---it characterizes temporal
+asymmetry without invoking dynamics.
+
+The present paper complements Paper F by identifying the
+\emph{dynamical} origin of temporal asymmetry: the non-Markovian
+memory kernel $\mathcal{K}(t,s)$. We show (Section~\ref{sec:arrow})
+that the partial order induced by the kernel's temporal support
+embeds into the HAFF accessibility ordering as a sub-structure.
+The two descriptions are dual faces of the same phenomenon:
+Paper F provides the algebraic skeleton; Paper I provides the
+dynamical muscle.
+
+% ------------------------------------------------------------
+\subsection{Scope and Disclaimers}
+
+\begin{enumerate}
+\item This work does \emph{not} claim that non-Markovian dynamics
+  is sufficient for persistence. Memory is identified as
+  \emph{necessary} under the conditions specified; sufficiency
+  requires additional structure (Papers II and III).
+\item We do \emph{not} claim that all non-Markovian systems
+  outperform all Markovian systems. The theorem establishes that
+  the supremum of survival efficiency over non-Markovian dynamics
+  strictly exceeds the Markovian supremum.
+\item We do \emph{not} derive the specific form of the memory
+  kernel from first principles. The kernel is treated as a
+  structural feature of the system-environment coupling.
+\item The term ``agent'' is used in the control-theoretic sense
+  (a subsystem that acts on its environment to maintain a target
+  state) and carries no implication of consciousness, intention,
+  or subjective experience.
+\item A broader structural analogy with classical philosophical
+  concepts of temporal persistence exists but is outside the
+  scope of this paper.
+\end{enumerate}
+
+% ============================================================
+\section{Mathematical Preliminaries}
+\label{sec:prelim}
+
+% ------------------------------------------------------------
+\subsection{Open Quantum Systems: The Markovian Baseline}
+
+Consider a bipartite Hilbert space
+$\mathcal{H} = \mathcal{H}_R \otimes \mathcal{H}_E$,
+where $R$ denotes the ``agent'' (reduced system) and $E$ the
+environment. The total Hamiltonian is
+\begin{equation}
+\label{eq:H_total}
+H = H_R \otimes \mathbb{1}_E
+  + \mathbb{1}_R \otimes H_E
+  + \lambda\, H_{\mathrm{int}},
+\end{equation}
+where $\lambda$ parametrizes the coupling strength.
+
+Under the Born--Markov and secular approximations, the reduced
+dynamics of $\rho_R(t) = \mathrm{Tr}_E[\rho(t)]$ is governed by
+the Gorini--Kossakowski--Sudarshan--Lindblad (GKSL) master
+equation~\cite{Lindblad1976,GKS1976}:
+\begin{equation}
+\label{eq:GKSL}
+\dot{\rho}_R(t)
+= -i[H_{\mathrm{eff}},\, \rho_R(t)]
+  + \sum_k \gamma_k \left(
+    L_k \rho_R(t) L_k^\dagger
+    - \tfrac{1}{2}\{L_k^\dagger L_k,\, \rho_R(t)\}
+  \right),
+\end{equation}
+with $\gamma_k \geq 0$ and Lindblad operators $\{L_k\}$.
+
+\begin{remark}[Markovian = Memoryless]
+\label{rem:markov}
+The GKSL equation is \emph{time-local}: $\dot{\rho}_R(t)$ depends
+only on $\rho_R(t)$, never on $\rho_R(s)$ for $s < t$.
+Physically, this corresponds to an environment with vanishing
+correlation time ($\tau_E \to 0$): the bath ``forgets'' its
+interaction with the system instantaneously.
+The semigroup property $\Lambda(t+s) = \Lambda(t)\Lambda(s)$
+ensures complete positivity at all times but precludes any
+information backflow from environment to system~\cite{RivasHuelgaPlenio2014}.
+\end{remark}
+
+% ------------------------------------------------------------
+\subsection{Beyond Markov: The Nakajima--Zwanzig Equation}
+
+When the environmental correlation time $\tau_E$ is non-negligible,
+the Born--Markov approximation fails. The exact reduced dynamics
+is captured by the Nakajima--Zwanzig (NZ) integro-differential
+equation~\cite{Nakajima1958,Zwanzig1960}:
+\begin{equation}
+\label{eq:NZ}
+\dot{\rho}_R(t)
+= -i[H_{\mathrm{eff}},\, \rho_R(t)]
+  + \int_0^t ds\; \mathcal{K}(t,s)\, \rho_R(s),
+\end{equation}
+where $\mathcal{K}(t,s)$ is the \textbf{memory kernel}---a
+superoperator encoding the influence of the system's entire
+history on its present dynamics.
+
+\begin{definition}[Memory Kernel]
+\label{def:kernel}
+The memory kernel $\mathcal{K}: [0,\infty)^2 \to
+\mathcal{L}(\mathcal{B}(\mathcal{H}_R))$ is the superoperator
+satisfying~\eqref{eq:NZ}. It encodes two types of information:
+\begin{enumerate}
+\item \textbf{Environmental structure:} the spectral density,
+  correlation functions, and non-equilibrium features of the bath;
+\item \textbf{Temporal reach:} the effective support
+  $\tau_{\mathrm{mem}} := \inf\{\tau : \|\mathcal{K}(t,s)\| < \epsilon
+  \;\forall\; t - s > \tau\}$, the ``memory depth.''
+\end{enumerate}
+The Markovian limit corresponds to
+$\mathcal{K}(t,s) \to \mathcal{K}_0\, \delta(t-s)$,
+recovering the GKSL generator.
+\end{definition}
+
+\begin{remark}[Information Backflow]
+\label{rem:backflow}
+Non-Markovian dynamics admits \emph{information backflow}:
+the distinguishability of two initial states, as measured by
+trace distance $D(\rho_1(t), \rho_2(t))$, can temporarily
+increase~\cite{BreuerLainePiilo2009}. This is the operational
+signature of memory---the environment returns previously
+absorbed information to the system.
+\end{remark}
+
+% ------------------------------------------------------------
+\subsection{Thermodynamic Framework}
+\label{subsec:thermo}
+
+We adopt the framework of stochastic thermodynamics for open
+quantum systems~\cite{EspositoLindenbergVandenBroeck2010}.
+The following conventions are fixed throughout.
+
+\begin{definition}[Thermodynamic Setup]
+\label{def:thermo_setup}
+\leavevmode
+\begin{enumerate}
+\item \textbf{Hamiltonian decomposition.}
+  The system Hamiltonian is
+  $H_S(t) = H_R + H_{\mathrm{ctrl}}(t)$,
+  where $H_R$ is the \emph{fixed} bare Hamiltonian and
+  $H_{\mathrm{ctrl}}(t)$ is the agent's time-dependent
+  control protocol.
+  The bath Hamiltonian $H_E$ and coupling $H_{\mathrm{int}}$
+  are as in~\eqref{eq:H_total}.
+
+\item \textbf{Reference state.}
+  The thermal equilibrium state of the bare Hamiltonian is
+  \begin{equation}
+  \label{eq:rho_eq}
+  \rho_{\mathrm{eq}} := \frac{e^{-\beta H_R}}{Z_R},
+  \qquad Z_R := \tr(e^{-\beta H_R}),
+  \qquad \beta := (k_B T)^{-1}.
+  \end{equation}
+  Since $H_R$ is time-independent, $\rho_{\mathrm{eq}}$ is a
+  well-defined, fixed reference throughout the protocol.
+
+\item \textbf{Non-equilibrium free energy.}
+  For any state $\rho$ of the reduced system,
+  \begin{equation}
+  \label{eq:F_neq}
+  F(\rho) := \tr(\rho\, H_R) + \beta^{-1}\tr(\rho\ln\rho)
+  = \langle H_R \rangle_\rho - \beta^{-1} S(\rho),
+  \end{equation}
+  where $S(\rho) = -\tr(\rho\ln\rho)$ is the von~Neumann entropy.
+  The equilibrium value is $F_{\mathrm{eq}} = -\beta^{-1}\ln Z_R$.
+
+\item \textbf{Free energy--relative entropy identity.}
+  \begin{equation}
+  \label{eq:DKL_F}
+  D_{\mathrm{KL}}(\rho \| \rho_{\mathrm{eq}})
+  = \beta\bigl(F(\rho) - F_{\mathrm{eq}}\bigr) \geq 0.
+  \end{equation}
+  Thus $D_{\mathrm{KL}}$ measures the free-energy surplus in
+  units of $k_B T$.
+
+\item \textbf{Work.}
+  The work performed on the system by the control protocol
+  over $[0,\tau]$ is
+  \begin{equation}
+  \label{eq:work}
+  W[0,\tau] := \int_0^\tau
+  \tr\!\left(\rho(t)\,
+  \frac{\partial H_{\mathrm{ctrl}}}{\partial t}\right) dt.
+  \end{equation}
+
+\item \textbf{Entropy-production functional.}
+  The \emph{generalised entropy production} over $[0,\tau]$ is
+  \begin{equation}
+  \label{eq:Sigma}
+  \Sigma[0,\tau] := \beta\bigl(W[0,\tau] - \Delta F\bigr),
+  \end{equation}
+  where $\Delta F = F(\rho(\tau)) - F(\rho(0))$.
+  For uncorrelated (product) initial states,
+  $\Sigma \geq 0$ recovers the standard second-law bound.
+  For initially correlated states, $\Sigma$ can be
+  \emph{negative}, reflecting the consumption of
+  pre-existing correlations
+  (see Remark~\ref{rem:battery}).
+\end{enumerate}
+\end{definition}
+
+\begin{remark}[Why $H_R$ is fixed]
+\label{rem:H_fixed}
+The bare Hamiltonian $H_R$ defines the system's energy scale and
+hence the reference state $\rho_{\mathrm{eq}}$.
+The agent acts on the world through $H_{\mathrm{ctrl}}(t)$,
+which may be time-dependent.
+This separation ensures that $\rho_{\mathrm{eq}}$ is
+well-defined and time-independent, avoiding the ambiguity
+that arises when the full $H_S(t)$ is used to define the
+thermal reference.
+\end{remark}
+
+\begin{definition}[Standing Assumptions]
+\label{def:assumptions}
+The following minimal assumptions are in force throughout
+Sections~\ref{sec:advantage}--\ref{sec:example} unless
+stated otherwise.
+Every main result
+(Lemma~\ref{lem:info_thermo},
+Theorem~\ref{thm:advantage},
+Corollary~\ref{cor:three_regimes})
+relies \emph{only} on items
+\textup{(A1)--(A5)} below.
+\begin{enumerate}
+\item[\textup{(A1)}]
+  \textbf{Finite-dimensional bipartite system.}
+  $\mathcal{H} = \mathcal{H}_S \otimes \mathcal{H}_E$,
+  with total Hamiltonian~\eqref{eq:H_total}
+  and global unitary evolution
+  $U(t) = \mathcal{T}\exp(-i\int_0^t H(s)\,ds)$.
+
+\item[\textup{(A2)}]
+  \textbf{Weak coupling.}
+  The system--environment interaction satisfies
+  $\lambda \ll 1$ in~\eqref{eq:H_total}, so that
+  $\Delta\langle H_{\mathrm{int}} \rangle
+  = O(\lambda)$~\cite{BreuerPetruccione2002}.
+  Energy conservation is then
+  $\Delta\langle H_R\rangle
+  + \Delta\langle H_{\mathrm{ctrl}}\rangle
+  + \Delta\langle H_E\rangle \approx 0$
+  up to controlled $O(\lambda)$ corrections.
+
+\item[\textup{(A3)}]
+  \textbf{Fixed environmental reference.}
+  $\rho_E^{\mathrm{th}} := e^{-\beta H_E}/Z_E$
+  is a fixed \emph{bookkeeping} Gibbs state at inverse
+  temperature $\beta$.
+  The \emph{actual} initial bath state $\rho_E(0)$
+  need not coincide with $\rho_E^{\mathrm{th}}$;
+  when $\rho_E(0) \neq \rho_E^{\mathrm{th}}$, the quantity
+  $D_{\mathrm{KL}}(\rho_E(t)\|\rho_E^{\mathrm{th}})$
+  tracks the nonequilibrium free energy stored in the bath
+  relative to this reference.
+  The bath Hamiltonian $H_E$ is time-independent.
+
+\item[\textup{(A4)}]
+  \textbf{Arbitrary initial state.}
+  The total initial state $\rho_{SE}(0)$ is \emph{not}
+  required to be a product state.
+  In particular, initial system--environment correlations
+  $I(S{:}E;\,0) > 0$ and initial bath displacement
+  $D_{\mathrm{KL}}(\rho_E(0)\|\rho_E^{\mathrm{th}}) > 0$
+  are both permitted.
+\item[\textup{(A5)}]
+  \textbf{Regularity.}
+  All quantum states appearing in the thermodynamic
+  identities are assumed to have full rank (or are
+  restricted to their support), so that all relative
+  entropies $D_{\mathrm{KL}}(\rho\|\sigma)$ are finite.
+\end{enumerate}
+\end{definition}
+
+\begin{remark}[Bookkeeping conventions]
+\label{rem:bookkeeping}
+The heat absorbed by the environment is
+$Q := \Delta\langle H_E \rangle
+= \mathrm{Tr}[\rho_E(\tau) H_E]
+  - \mathrm{Tr}[\rho_E(0) H_E]$
+(matching
+Esposito \emph{et al.}~\cite{EspositoLindenbergVandenBroeck2010}).
+We define $\Sigma := \beta(W - \Delta F)$ as a
+\emph{generalised entropy-balance functional};
+for correlated initial conditions $\Sigma$ need not be
+nonnegative
+(see Remark~\ref{rem:battery}).
+\end{remark}
+
+% ------------------------------------------------------------
+\subsection{The Survival Functional}
+\label{subsec:survival}
+
+We now define the central quantity of this paper.
+
+\begin{definition}[Survival Functional]
+\label{def:survival}
+For a reduced system $R$ evolving under dynamics $\Lambda$
+over $[0,\tau]$, the \textbf{survival functional} is
+\begin{equation}
+\label{eq:survival}
+\mathcal{S}[\Lambda, \tau]
+:= \Delta F - W[0,\tau]
+= \bigl[F(\rho(\tau)) - F(\rho(0))\bigr] - W[0,\tau].
+\end{equation}
+Equivalently, using~\eqref{eq:Sigma},
+\begin{equation}
+\label{eq:survival_Sigma}
+\beta\,\mathcal{S}[\Lambda,\tau] = -\Sigma[0,\tau].
+\end{equation}
+\end{definition}
+
+\noindent\textit{Note on nomenclature.}
+We retain the term ``survival functional'' to emphasize
+the biological interpretation of persistence far from
+equilibrium; mathematically, $\mathcal{S}$ is strictly a
+\emph{generalized entropy-balance functional} derived from
+the first and second laws.
+
+\begin{remark}[Interpretation]
+\label{rem:survival_interp}
+The survival functional has a transparent physical meaning:
+\begin{itemize}
+\item $\mathcal{S} > 0$: the system gained more free energy than
+  was invested by the external protocol---a \emph{thermodynamic
+  profit}. The agent has extracted usable work from environmental
+  correlations.
+\item $\mathcal{S} = 0$: the agent breaks even (reversible limit,
+  $\Sigma = 0$).
+\item $\mathcal{S} < 0$: the agent paid more than it gained
+  (the generic irreversible case).
+\end{itemize}
+Under the standard second law ($\Sigma \geq 0$),
+$\mathcal{S} \leq 0$ always.
+As we show in Sections~\ref{sec:ceiling} and~\ref{sec:advantage},
+achieving $\mathcal{S} > 0$ requires \emph{information}---and
+the memory kernel provides exactly this.
+\end{remark}
+
+\begin{remark}[Connection to Information Thermodynamics]
+\label{rem:connection_SU}
+In the Sagawa--Ueda framework~\cite{SagawaUeda2010,SagawaUeda2012},
+a system under feedback control satisfies the generalized second law
+\begin{equation}
+\label{eq:sagawa_ueda}
+\Sigma \geq -I_{\mathrm{feedback}},
+\end{equation}
+where $I_{\mathrm{feedback}} \geq 0$ is the mutual information
+gained through measurement of the system.
+This permits $\Sigma < 0$ (and hence $\mathcal{S} > 0$) at
+the expense of information.
+The core thesis of this paper is that a non-Markovian memory
+kernel provides \emph{implicit} feedback: the system's history
+encodes correlations with the environment that play the same
+thermodynamic role as explicit measurement outcomes.
+\end{remark}
+
+% ============================================================
+\section{The Markovian Ceiling}
+\label{sec:ceiling}
+
+We now establish the fundamental thermodynamic limitation
+of memoryless agents.
+The result is elementary given the framework of
+Section~\ref{subsec:thermo}, but its consequences are far-reaching:
+under \emph{open-loop} control---where the agent's protocol
+$H_{\mathrm{ctrl}}(t)$ is fixed in advance and receives no
+information from the bath---the survival functional can never
+be positive.
+
+\subsection{Spohn's Inequality}
+
+Throughout this section we assume that the GKSL generator
+$\mathcal{L}$ is a \emph{thermal Lindbladian}: it is obtained
+from the weak-coupling (Davies) limit of a system coupled to a
+single thermal bath at inverse temperature $\beta$, and satisfies
+\textbf{quantum detailed balance} (the KMS
+condition)~\cite{Spohn1978,BreuerPetruccione2002}.
+Under this assumption, the unique stationary state is the Gibbs
+state $\rho_{\mathrm{ss}} = \rho_{\mathrm{eq}}$
+of~\eqref{eq:rho_eq}, and the generator is self-adjoint with
+respect to the KMS inner product.
+This ensures that the entropy production rate below is
+well-defined and non-negative.
+
+\begin{definition}[Markovian Semigroup]
+\label{def:markov_semigroup}
+Throughout this paper, ``Markovian'' dynamics refers
+strictly to a \textbf{dynamical semigroup} generated by a
+time-independent GKSL generator $\mathcal{L}$ with
+non-negative rates.
+While time-dependent CP-divisible
+maps~\cite{RivasHuelgaPlenio2014} are often called
+Markovian in broader contexts, the ceiling theorem
+(Theorem~\ref{thm:ceiling}) targets the semigroup case
+$\Lambda(t) = e^{\mathcal{L}t}$, where no memory effects
+or temporal correlations can be exploited.
+\end{definition}
+
+\begin{lemma}[Spohn~\cite{Spohn1978}]
+\label{lem:spohn}
+For any GKSL dynamical semigroup $\Lambda_t = e^{\mathcal{L}t}$
+satisfying quantum detailed balance with unique invariant state
+$\rho_{\mathrm{eq}}$, the entropy production
+rate
+\begin{equation}
+\label{eq:spohn_sigma}
+\sigma(t) := -\tr\!\bigl(\mathcal{L}[\rho(t)]\,
+(\ln\rho(t) - \ln\rho_{\mathrm{eq}})\bigr)
+\end{equation}
+satisfies $\sigma(t) \geq 0$, with equality if and only if
+$\rho(t) = \rho_{\mathrm{eq}}$.
+\end{lemma}
+
+\begin{proof}
+This follows from the contractivity of CPTP maps under quantum
+relative entropy~\cite{Spohn1978,BreuerPetruccione2002}:
+$D_{\mathrm{KL}}(\Lambda_t\rho \| \Lambda_t\rho_{\mathrm{eq}})
+\leq D_{\mathrm{KL}}(\rho \| \rho_{\mathrm{eq}})$
+for all $t \geq 0$.
+Differentiating at $t = 0$ yields $\sigma(t) \geq 0$.
+\end{proof}
+
+\subsection{The Markovian Ceiling Theorem}
+
+\begin{definition}[Open-loop Markovian control class
+$\mathcal{C}_{\mathrm{M}}$]
+\label{def:control_class}
+A protocol $H_{\mathrm{ctrl}}(t)$ belongs to the
+\textbf{open-loop Markovian control class}
+$\mathcal{C}_{\mathrm{M}}$ if and only if:
+\begin{enumerate}
+\item[\textup{(C1)}] $H_{\mathrm{ctrl}}(t)$ is a
+  \emph{predetermined} function of $t$ alone, fixed before the
+  protocol begins.
+\item[\textup{(C2)}] No measurement of the system or
+  environment is performed during $[0,\tau]$, and
+  $H_{\mathrm{ctrl}}(t)$ receives no feedback from measurement
+  outcomes.
+\item[\textup{(C3)}] $H_{\mathrm{ctrl}}(t)$ is statistically
+  independent of the bath realization
+  $\{\xi_E(s) : s \in [0,\tau]\}$.
+\end{enumerate}
+Protocols involving adaptive measurement-based feedback
+(Sagawa--Ueda~\cite{SagawaUeda2010}) are \emph{excluded} from
+$\mathcal{C}_{\mathrm{M}}$.
+\end{definition}
+
+\begin{theorem}[Markovian Ceiling]
+\label{thm:ceiling}
+Let $\Lambda^{\mathrm{M}}$ denote GKSL dynamics~\eqref{eq:GKSL}
+satisfying quantum detailed balance
+(Lemma~\ref{lem:spohn}), coupled to a stationary thermal bath at
+inverse temperature $\beta$, under a control protocol
+$H_{\mathrm{ctrl}}(t) \in \mathcal{C}_{\mathrm{M}}$
+(Definition~\ref{def:control_class}).
+Then the survival functional satisfies
+\begin{equation}
+\label{eq:ceiling}
+\mathcal{S}[\Lambda^{\mathrm{M}}, \tau] \leq 0
+\qquad\text{for all } \tau \geq 0.
+\end{equation}
+Equality holds in the quasi-static limit ($\Sigma \to 0$),
+where the protocol varies slowly enough that the state
+remains close to the instantaneous Gibbs state
+$\rho_{\mathrm{eq}}(t)$ at all times.
+\end{theorem}
+
+\begin{proof}
+The proof proceeds in two steps.
+
+\noindent\textbf{Step 1: Free-energy balance.}
+Differentiating~\eqref{eq:DKL_F}, the relative entropy
+evolves as
+\begin{equation}
+\label{eq:balance}
+\frac{d}{dt}\, D_{\mathrm{KL}}(\rho(t) \| \rho_{\mathrm{eq}})
+= \beta\,\dot{W}(t) - \sigma(t),
+\end{equation}
+where $\dot{W}(t) = \tr(\rho(t)\,\partial_t H_{\mathrm{ctrl}})$
+is the instantaneous power and $\sigma(t)$ is Spohn's entropy
+production rate~\eqref{eq:spohn_sigma}.
+Integrating over $[0,\tau]$:
+\begin{equation}
+\label{eq:balance_int}
+\Delta D_{\mathrm{KL}} = \beta\, W[0,\tau]
+  - \underbrace{\int_0^\tau \sigma(t)\, dt}_{\displaystyle
+    = \Sigma \;\geq\; 0}.
+\end{equation}
+
+\noindent\textbf{Step 2: Applying Spohn.}
+By Lemma~\ref{lem:spohn}, $\sigma(t) \geq 0$ for all $t$,
+so $\Sigma \geq 0$.
+From~\eqref{eq:balance_int}:
+\begin{equation}
+\Delta D_{\mathrm{KL}} \leq \beta\, W[0,\tau].
+\end{equation}
+Converting via~\eqref{eq:DKL_F}:
+$\Delta F \leq W[0,\tau]$,
+whence $\mathcal{S} = \Delta F - W \leq 0$.
+
+The ceiling $\mathcal{S} = 0$ is achieved in the reversible
+limit where the protocol is infinitely slow and $\sigma(t) \to 0$
+pointwise.
+\end{proof}
+
+\begin{remark}[The ``Open-Loop'' Qualifier]
+\label{rem:open_loop}
+The restriction to the control class
+$\mathcal{C}_{\mathrm{M}}$
+(Definition~\ref{def:control_class}) is essential.
+If the agent can perform \emph{measurements} on the bath and
+condition its protocol on the outcomes---i.e., violate
+condition~\textup{(C2)}---the Sagawa--Ueda
+generalized second law~\eqref{eq:sagawa_ueda} permits
+$\Sigma < 0$ (and hence $\mathcal{S} > 0$) at the expense
+of mutual information.
+The Markovian ceiling is therefore not a universal bound on
+all Markovian agents, but on agents whose protocols satisfy
+\textup{(C1)--(C3)}.
+
+This qualifier is precisely the point:
+the memory kernel of non-Markovian dynamics provides implicit
+access to bath correlations, playing the role of implicit
+measurement---the subject of Section~\ref{sec:advantage}.
+\end{remark}
+
+\begin{corollary}[Temporal Blindness]
+\label{cor:blindness}
+Under the Born--Markov approximation, the bath correlation
+function is replaced by its white-noise limit
+$C(t,s) \to C_0\,\delta(t-s)$, and the GKSL dissipator depends
+only on the spectral density $J(\omega)$ evaluated at the
+system's Bohr frequencies.
+The agent interacts with the environment's
+\emph{power spectrum} but is structurally blind to its
+\emph{temporal correlations}---the off-diagonal elements
+$C(t,s)$ for $t \neq s$.
+
+Consequently, the spectral gap
+$\lambda_{\min} \propto \sum_k J(\omega_k)$ of the Liouvillian
+sets the rate of irreversible decay.
+Maintaining $D_{\mathrm{KL}} > 0$ requires continuous work at
+rate $\dot{W} \geq \beta^{-1}\sigma(t) > 0$, and the integrated
+cost always meets or exceeds the integrated gain.
+\end{corollary}
+
+\begin{remark}[Dissipative vs.\ Self-Nourishing Structures]
+\label{rem:ceiling_physics}
+The Markovian ceiling partitions far-from-equilibrium structures
+into two classes:
+\begin{itemize}
+\item \textbf{Dissipative structures} ($\mathcal{S} \leq 0$):
+  sustained by continuous external free-energy input.
+  Every unit of order is paid for in full.
+  (Prigogine's sense~\cite{Schrodinger1944}.)
+\item \textbf{Self-nourishing structures} ($\mathcal{S} > 0$):
+  extract structured advantage from environmental correlations,
+  gaining more free energy than they consume.
+  These require information flow, and hence memory.
+\end{itemize}
+The ceiling is not a limitation of the agent's control
+strategy but a \emph{structural consequence} of temporal
+blindness: without memory, the environment's temporal
+correlations are thermodynamically invisible.
+\end{remark}
+
+% ============================================================
+\section{The Non-Markovian Advantage}
+\label{sec:advantage}
+
+Having established that open-loop Markovian agents are
+thermodynamically capped at $\mathcal{S} \leq 0$, we now
+demonstrate how non-Markovian dynamics breaks this ceiling.
+The mechanism is grounded entirely in standard quantities:
+the quantum mutual information $I(S{:}E)$ between system
+and environment serves as a consumable thermodynamic resource.
+Non-Markovian backflow intervals are precisely those during
+which pre-existing correlations are consumed, enabling the
+system to extract free energy beyond what open-loop work
+provides.
+
+\subsection{System--Environment Mutual Information}
+
+We work with the total system--environment state
+$\rho_{SE}(t)$, evolving unitarily under the total
+Hamiltonian~\eqref{eq:H_total}.
+The quantum mutual information
+\begin{equation}
+\label{eq:mutual_info}
+I(S{:}E;\, t) := S(\rho_S(t)) + S(\rho_E(t))
+  - S(\rho_{SE}(t))
+= D_{\mathrm{KL}}\!\bigl(\rho_{SE}(t) \,\big\|\,
+  \rho_S(t) \otimes \rho_E(t)\bigr)
+\geq 0
+\end{equation}
+quantifies the total correlations (classical and quantum)
+between the system $S$ and the environment $E$ at time $t$.
+
+\begin{remark}[Role of Initial Correlations]
+\label{rem:initial_corr}
+Under the Born approximation, the initial state is taken as a
+product $\rho_{SE}(0) = \rho_S(0) \otimes \rho_E^{\mathrm{th}}$,
+so $I(S{:}E;\, 0) = 0$.
+For a system that has already been interacting with its
+environment (the physically generic situation for a
+``persistent agent''), the effective initial state at any
+restart time $t_0 > 0$ is \emph{not} a product state:
+the preceding evolution has established correlations
+$I(S{:}E;\, t_0) > 0$.
+These pre-existing correlations---the system's ``memory''
+of past interactions---are the thermodynamic resource
+that the memory kernel can exploit.
+\end{remark}
+
+\subsection{The Information--Thermodynamic Identity}
+
+The following identity is the central technical tool of this
+section.
+It holds for \textbf{any} initial state---product or
+correlated---and relies only on unitarity and the definitions
+of mutual information and relative entropy.
+
+\begin{remark}[Relative-entropy chain rule]
+\label{rem:chain_rule}
+We repeatedly use the identity
+\begin{equation}
+\label{eq:chain_general}
+D_{\mathrm{KL}}\!\bigl(\rho_{SE}\,\big\|\,
+  \rho_S\otimes\sigma_E\bigr)
+= I(S{:}E)_{\rho_{SE}}
+  + D_{\mathrm{KL}}(\rho_E\|\sigma_E),
+\end{equation}
+valid for \emph{arbitrary} (possibly correlated)
+$\rho_{SE}$ and any full-rank reference state
+$\sigma_E$.\footnote{This follows from the definition of
+quantum relative entropy and
+$\ln(\rho_S\otimes\sigma_E)
+= \ln\rho_S\otimes\mathbb{1}_E
+  +\mathbb{1}_S\otimes\ln\sigma_E$.
+See, e.g., M.~M.~Wilde, \emph{Quantum Information
+Theory}, 2nd ed., Cambridge University Press (2017),
+Sec.~11; and M.~A.~Nielsen and I.~L.~Chuang,
+\emph{Quantum Computation and Quantum Information},
+Cambridge University Press (2000), Ch.~11.}
+Importantly, this is a \emph{pure algebraic identity} and
+does not assume product initial conditions.
+\end{remark}
+
+\begin{lemma}[Information--Thermodynamic Identity]
+\label{lem:info_thermo}
+Let $\rho_{SE}(t)$ evolve unitarily under the total
+Hamiltonian.
+Then, for \textbf{any} initial state $\rho_{SE}(0)$
+(product or correlated):
+\begin{equation}
+\label{eq:info_thermo}
+\Delta I(S{:}E)
++ \Delta D_{\mathrm{KL}}\!\bigl(\rho_E \,\big\|\,
+  \rho_E^{\mathrm{th}}\bigr)
+= \Delta S_S + \beta\,\Delta\langle H_E \rangle,
+\end{equation}
+where $\Delta S_S = S(\rho_S(\tau)) - S(\rho_S(0))$ is the
+change in the system's von~Neumann entropy and
+$\Delta\langle H_E \rangle
+= \mathrm{Tr}[\rho_E(\tau)\, H_E]
+  - \mathrm{Tr}[\rho_E(0)\, H_E]$
+is the energy absorbed by the environment.
+\end{lemma}
+
+\begin{proof}
+Applying the chain rule~\eqref{eq:chain_general}
+(Remark~\ref{rem:chain_rule}) with
+$\sigma_E = \rho_E^{\mathrm{th}}$:
+\begin{equation}
+\label{eq:chain_step}
+D_{\mathrm{KL}}\!\bigl(\rho_{SE}(t) \,\big\|\,
+  \rho_S(t) \otimes \rho_E^{\mathrm{th}}\bigr)
+= I(S{:}E;\, t)
+  + D_{\mathrm{KL}}\!\bigl(\rho_E(t) \,\big\|\,
+    \rho_E^{\mathrm{th}}\bigr).
+\end{equation}
+Expanding the left side using
+$\ln\rho_E^{\mathrm{th}} = -\beta H_E - \ln Z_E$:
+\begin{equation}
+\label{eq:phi_expand}
+D_{\mathrm{KL}}\!\bigl(\rho_{SE}(t) \,\big\|\,
+  \rho_S(t) \otimes \rho_E^{\mathrm{th}}\bigr)
+= -S(\rho_{SE}(t)) + S(\rho_S(t))
+  + \beta\langle H_E \rangle_t + \ln Z_E.
+\end{equation}
+Since the total evolution is unitary,
+$S(\rho_{SE}(t)) = S(\rho_{SE}(0))$ for all $t$.
+Taking the difference between times $\tau$ and $0$ cancels
+both $S(\rho_{SE})$ and $\ln Z_E$, yielding
+\begin{equation}
+\Delta\!\left[I(S{:}E)
+  + D_{\mathrm{KL}}(\rho_E \| \rho_E^{\mathrm{th}})\right]
+= \Delta S_S + \beta\,\Delta\langle H_E \rangle.
+\end{equation}
+\end{proof}
+
+\begin{remark}[No assumption on the initial state]
+\label{rem:no_product_lemma}
+The proof of Lemma~\ref{lem:info_thermo} uses \emph{only}
+unitarity ($\Delta S(\rho_{SE}) = 0$) and the algebraic
+structure of the KL divergence.
+No assumption is made about the initial state $\rho_{SE}(0)$,
+the coupling strength, or the character (Markovian or
+non-Markovian) of the reduced dynamics.
+When the initial state is a product state with the environment
+in thermal equilibrium, all initial-time terms vanish and the
+identity reduces to the Esposito
+decomposition~\cite{EspositoLindenbergVandenBroeck2010}:
+$\Sigma = I(S{:}E;\,\tau)
++ D_{\mathrm{KL}}(\rho_E(\tau) \| \rho_E^{\mathrm{th}})$.
+\end{remark}
+
+\subsection{The Survival Identity}
+
+We now connect the information--thermodynamic
+identity~\eqref{eq:info_thermo} to the survival
+functional $\mathcal{S}$ defined in
+Section~\ref{subsec:survival}.
+
+\begin{theorem}[Survival Functional: General Form]
+\label{thm:advantage}
+Under Assumptions \textup{(A1)--(A5)} of
+Definition~\ref{def:assumptions},
+let $\rho_{SE}(t)$ evolve unitarily from an \emph{arbitrary}
+(possibly correlated) initial state $\rho_{SE}(0)$.
+The survival functional
+satisfies
+\begin{equation}
+\label{eq:advantage}
+\boxed{\;
+\beta\,\mathcal{S}[\Lambda,\tau]
+= -\Delta I(S{:}E)
+  - \Delta D_{\mathrm{KL}}\!\bigl(\rho_E \,\big\|\,
+    \rho_E^{\mathrm{th}}\bigr)
+  - \beta\,\Delta\langle H_{\mathrm{ctrl}} \rangle,
+\;}
+\end{equation}
+where $\Delta\langle H_{\mathrm{ctrl}} \rangle
+= \mathrm{Tr}[\rho_S(\tau)\, H_{\mathrm{ctrl}}(\tau)]
+  - \mathrm{Tr}[\rho_S(0)\, H_{\mathrm{ctrl}}(0)]$
+is the change in the control-field energy.
+
+For \textbf{autonomous evolution}
+($H_{\mathrm{ctrl}} = 0$ throughout $[0,\tau]$),
+the control term vanishes:
+\begin{equation}
+\label{eq:advantage_auto}
+\beta\,\mathcal{S}[\Lambda,\tau]
+= -\Delta I(S{:}E)
+  - \Delta D_{\mathrm{KL}}\!\bigl(\rho_E \,\big\|\,
+    \rho_E^{\mathrm{th}}\bigr).
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+The proof uses three ingredients: the definition of
+$\mathcal{S}$, the first law, and
+Lemma~\ref{lem:info_thermo}.
+
+\noindent\textbf{Step 1 (First law in weak coupling).}
+Since $H_{\mathrm{ctrl}}(t)$ is the only time-dependent
+component of $H$, the work satisfies
+$W = \Delta\langle H \rangle
+\approx \Delta\langle H_R \rangle
+  + \Delta\langle H_{\mathrm{ctrl}} \rangle
+  + \Delta\langle H_E \rangle$
+by Assumption~\textup{(A2)}.
+
+\noindent\textbf{Step 2 (Connecting $\Sigma$ to the
+identity).}
+From Definition~\ref{def:survival} and~\eqref{eq:Sigma},
+using $\Delta F = \Delta\langle H_R \rangle
+- \beta^{-1}\Delta S_S$:
+\begin{align}
+\Sigma &= \beta(W - \Delta F)
+= \beta\bigl(W - \Delta\langle H_R \rangle\bigr)
+  + \Delta S_S \nonumber \\
+&= \beta\bigl(\Delta\langle H_{\mathrm{ctrl}} \rangle
+  + \Delta\langle H_E \rangle\bigr) + \Delta S_S
+\nonumber \\
+&= \bigl(\Delta S_S
+  + \beta\,\Delta\langle H_E \rangle\bigr)
+  + \beta\,\Delta\langle H_{\mathrm{ctrl}} \rangle.
+\label{eq:Sigma_decomp}
+\end{align}
+By Lemma~\ref{lem:info_thermo}, the parenthesized term
+equals
+$\Delta I(S{:}E)
++ \Delta D_{\mathrm{KL}}(\rho_E \| \rho_E^{\mathrm{th}})$.
+Hence
+\begin{equation}
+\label{eq:Sigma_general}
+\Sigma = \Delta I(S{:}E)
+  + \Delta D_{\mathrm{KL}}\!\bigl(\rho_E \,\big\|\,
+    \rho_E^{\mathrm{th}}\bigr)
+  + \beta\,\Delta\langle H_{\mathrm{ctrl}} \rangle.
+\end{equation}
+
+\noindent\textbf{Step 3 (Survival functional).}
+$\beta\,\mathcal{S} = -\Sigma$ by~\eqref{eq:survival_Sigma},
+yielding~\eqref{eq:advantage}.
+For $H_{\mathrm{ctrl}} = 0$:
+$\Delta\langle H_{\mathrm{ctrl}} \rangle = 0$,
+recovering~\eqref{eq:advantage_auto}.
+\end{proof}
+
+\begin{remark}[Nature of the result]
+\label{rem:identity_not_bound}
+Equation~\eqref{eq:advantage} is an exact
+\emph{accounting identity}, not an inequality or
+optimality bound.
+It establishes that any thermodynamic profit
+($\mathcal{S} > 0$) in the autonomous regime must be
+perfectly balanced by the consumption of
+system--environment correlations ($\Delta I < 0$) or
+the relaxation of the bath
+($\Delta D_{\mathrm{KL}} < 0$).
+The ``non-Markovian advantage'' arises because memory
+kernels allow access to regimes where
+$\Delta I(S{:}E)$ is negative and dominant---a channel
+that memoryless (Born--Markov) dynamics resets to zero
+at every time step
+(Remark~\ref{rem:born_kills}).
+\end{remark}
+
+\begin{remark}[Scope of the theorem]
+\label{rem:no_product}
+Theorem~\ref{thm:advantage} holds for \emph{any} initial
+state $\rho_{SE}(0)$---product or correlated.
+The proof requires only
+Assumptions~\textup{(A1)--(A5)} of
+Definition~\ref{def:assumptions} and the definitions of
+$\mathcal{S}$, $I(S{:}E)$, and $D_{\mathrm{KL}}$.
+No assumption about the reduced dynamics (Markovian,
+non-Markovian, or otherwise) is needed.
+This generality is essential: a persistent agent that has
+already been interacting with its environment necessarily
+carries correlations ($I(S{:}E;\,0) > 0$), and it is
+precisely these correlations that constitute the thermodynamic
+resource for survival.
+\end{remark}
+
+\subsection{Three Regimes of Survival}
+
+We specialize to the autonomous case
+($H_{\mathrm{ctrl}} = 0$), which is the natural setting for
+the ``memory as a resource'' argument: the agent benefits from
+pre-existing correlations without external driving.
+
+\begin{corollary}[Three Regimes]
+\label{cor:three_regimes}
+Under autonomous evolution, identity~\eqref{eq:advantage_auto}
+identifies three regimes:
+\begin{enumerate}
+\item \textbf{Product initial state}
+  ($I(S{:}E;\, 0) = 0$,
+  $D_{\mathrm{KL}}(\rho_E(0) \| \rho_E^{\mathrm{th}}) = 0$):
+  Both $\Delta I$ and $\Delta D_{\mathrm{KL}}$ are increases
+  from zero to non-negative final values, so
+  \[
+  \beta\,\mathcal{S}
+  = -\bigl(I(S{:}E;\,\tau)
+  + D_{\mathrm{KL}}(\rho_E(\tau) \| \rho_E^{\mathrm{th}})\bigr)
+  \leq 0.
+  \]
+  This recovers the Markovian ceiling
+  (Theorem~\ref{thm:ceiling}), now with a precise accounting
+  of \emph{where} the entropy goes: into system--environment
+  correlations and bath displacement.
+
+\item \textbf{Correlated initial state}
+  ($I(S{:}E;\, 0) > 0$):
+  If the dynamics \emph{consumes} pre-existing correlations
+  ($\Delta I < 0$, i.e., $I(S{:}E;\, \tau) < I(S{:}E;\, 0)$),
+  the first term contributes \emph{positively} to
+  $\mathcal{S}$.
+  Provided
+  \begin{equation}
+  \label{eq:ceiling_breach}
+  |\Delta I(S{:}E)| > \Delta D_{\mathrm{KL}}\!\bigl(\rho_E
+  \,\big\|\, \rho_E^{\mathrm{th}}\bigr),
+  \end{equation}
+  the survival functional is strictly positive:
+  $\mathcal{S} > 0$.
+  The agent has converted pre-existing correlations into
+  usable free energy.
+
+\item \textbf{Upper bound:}
+  Since $I(S{:}E;\, \tau) \geq 0$ and
+  $D_{\mathrm{KL}}(\rho_E(\tau) \| \rho_E^{\mathrm{th}})
+  \geq 0$, the maximum survival gain is bounded by
+  \begin{equation}
+  \label{eq:S_upper}
+  \beta\,\mathcal{S}
+  \leq I(S{:}E;\, 0)
+    + D_{\mathrm{KL}}\!\bigl(\rho_E(0) \,\big\|\,
+      \rho_E^{\mathrm{th}}\bigr).
+  \end{equation}
+  The thermodynamic profit cannot exceed the total initial
+  ``resource budget''---the pre-existing correlations plus
+  the initial displacement of the bath from equilibrium.
+\end{enumerate}
+\end{corollary}
+
+\subsection{The Correlation Battery}
+
+The three regimes of Corollary~\ref{cor:three_regimes} raise a
+natural question: \emph{where do the initial correlations
+$I(S{:}E;\, 0) > 0$ come from?}
+
+\begin{remark}[The Correlation Battery]
+\label{rem:battery}
+The answer is: from \textbf{prior interaction epochs}.
+A persistent agent does not begin its existence in a product
+state.
+Over any interaction interval, unitary evolution generically
+builds system--environment correlations ($\Delta I > 0$),
+at a thermodynamic cost ($\mathcal{S} < 0$ during this
+phase by Corollary~\ref{cor:three_regimes}(i)).
+The non-Markovian agent's advantage is that these correlations
+\emph{persist} and can be consumed during later intervals
+($\Delta I < 0$, $\mathcal{S} > 0$).
+
+The process is analogous to a \textbf{battery}:
+\begin{itemize}
+\item \textbf{Charging phase}
+  (correlation building, $\Delta I > 0$):
+  the agent ``pays'' free energy to build
+  system--environment correlations.
+  $\mathcal{S} < 0$.
+\item \textbf{Discharging phase}
+  (correlation consumption, $\Delta I < 0$):
+  the agent extracts free energy from the stored
+  correlations.
+  $\mathcal{S} > 0$.
+\end{itemize}
+A Markovian agent cannot operate this battery.
+The Born approximation resets $I(S{:}E) = 0$ at every
+infinitesimal time step, destroying the stored correlations
+before they can be used.
+The semigroup property $\Lambda(t+s) = \Lambda(t)\Lambda(s)$
+is precisely the statement that no inter-epoch correlations
+survive.
+The memory kernel $\mathcal{K}(t,s)$ is what allows the
+non-Markovian agent to carry charge across epochs.
+
+Crucially, global thermodynamics remains respected.
+For any full cycle starting from an uncorrelated thermal
+state ($I(S{:}E;\,0) = 0$,
+$D_{\mathrm{KL}}(\rho_E(0)\|\rho_E^{\mathrm{th}}) = 0$),
+the total survival functional satisfies
+\begin{equation}
+\label{eq:battery_closure}
+\beta\,\mathcal{S}[0, t]
+= -\Sigma[0, t] \;\leq\; 0
+\qquad\text{(second law).}
+\end{equation}
+The local positivity $\mathcal{S}[t^*, t] > 0$ during the
+discharging phase is strictly funded by the free energy
+dissipated during the earlier charging phase
+(see Proposition~\ref{prop:full_cycle} for the formal
+decomposition).
+\end{remark}
+
+\begin{proposition}[Full-cycle closure]
+\label{prop:full_cycle}
+Under the conditions of
+Theorem~\textup{\ref{thm:advantage}} with autonomous evolution
+($H_{\mathrm{ctrl}} = 0$), partition $[0,\tau]$ at any
+intermediate time $t^*$ into a charging phase $[0,t^*]$ and
+a discharging phase $[t^*,\tau]$.
+\begin{enumerate}
+\item[\textup{(i)}]
+  \textbf{Charging} (product initial state, $I(S{:}E;\,0) = 0$).
+  By Corollary~\textup{\ref{cor:three_regimes}(i)},
+  \begin{equation}
+  \label{eq:charge}
+  \beta\,\mathcal{S}[0,t^*]
+  = -I(S{:}E;\,t^*)
+    - D_{\mathrm{KL}}\!\bigl(\rho_E(t^*) \,\big\|\,
+      \rho_E^{\mathrm{th}}\bigr)
+  \;\leq\; 0.
+  \end{equation}
+\item[\textup{(ii)}]
+  \textbf{Discharging} (correlated initial state at $t^*$).
+  Applying~\eqref{eq:advantage_auto} to $[t^*,\tau]$:
+  \begin{equation}
+  \label{eq:discharge}
+  \beta\,\mathcal{S}[t^*,\tau]
+  = -\bigl(I(S{:}E;\,\tau) - I(S{:}E;\,t^*)\bigr)
+    - \bigl(D_{\mathrm{KL}}(\rho_E(\tau)\|\rho_E^{\mathrm{th}})
+      - D_{\mathrm{KL}}(\rho_E(t^*)\|\rho_E^{\mathrm{th}})\bigr),
+  \end{equation}
+  which is positive whenever the decrease in correlations
+  dominates the change in bath displacement
+  (Corollary~\textup{\ref{cor:three_regimes}(ii)}).
+\item[\textup{(iii)}]
+  \textbf{Full cycle.}
+  Since $\mathcal{S}$ is additive over concatenated intervals,
+  $\beta\,\mathcal{S}[0,\tau]
+  = \beta\,\mathcal{S}[0,t^*]
+    + \beta\,\mathcal{S}[t^*,\tau]$.
+  Equivalently, applying~\eqref{eq:advantage_auto} directly to
+  $[0,\tau]$ with $I(S{:}E;\,0) = 0$:
+  \begin{equation}
+  \label{eq:full_cycle}
+  \beta\,\mathcal{S}[0,\tau]
+  = -I(S{:}E;\,\tau)
+    - D_{\mathrm{KL}}\!\bigl(\rho_E(\tau) \,\big\|\,
+      \rho_E^{\mathrm{th}}\bigr)
+  \;\leq\; 0.
+  \end{equation}
+\end{enumerate}
+The net thermodynamic profit over the full cycle is
+non-positive---the ``interest'' paid during charging
+meets or exceeds the ``dividend'' collected during
+discharging.
+But the \emph{local} positivity of $\mathcal{S}$ during
+discharge~\eqref{eq:discharge} is what enables the agent
+to survive through intervals that would kill a memoryless
+system.
+\end{proposition}
+
+\begin{proof}
+The survival functional is additive over concatenated
+intervals:
+\[
+\mathcal{S}[0,\tau]
+= \underbrace{(\Delta F[0,t^*] - W[0,t^*])}_{\mathcal{S}[0,t^*]}
+  +\; \underbrace{(\Delta F[t^*,\tau] - W[t^*,\tau])}_{\mathcal{S}[t^*,\tau]},
+\]
+since both $\Delta F$ and $W$ decompose additively.
+Items (i) and (iii) then follow from
+Theorem~\ref{thm:advantage} (autonomous case) applied to
+$[0,t^*]$ and $[0,\tau]$ respectively, each starting from
+a product state.
+Item (ii) follows from Theorem~\ref{thm:advantage} applied
+to $[t^*,\tau]$ with correlated initial state
+$\rho_{SE}(t^*)$.
+Inequality~\eqref{eq:full_cycle} holds because
+$I(S{:}E;\,\tau) \geq 0$ and
+$D_{\mathrm{KL}}(\rho_E(\tau)\|\rho_E^{\mathrm{th}}) \geq 0$.
+\end{proof}
+
+\subsection{Connection to Non-Markovianity Measures}
+
+\begin{remark}[The Born Approximation Destroys the Resource]
+\label{rem:born_kills}
+Under the Born (product-state) approximation, every
+infinitesimal time step begins from
+$\rho_{SE} \approx \rho_S \otimes \rho_E^{\mathrm{th}}$,
+enforcing $I(S{:}E) = 0$ at all times.
+Corollary~\ref{cor:three_regimes}(i) then guarantees
+$\mathcal{S} \leq 0$ for \emph{every} finite interval.
+The Born approximation does not merely simplify the
+dynamics---it \emph{eliminates the thermodynamic resource}
+(system--environment correlations) that would otherwise be
+available.
+\end{remark}
+
+\begin{remark}[Connection to BLP Non-Markovianity]
+\label{rem:BLP}
+The Breuer--Laine--Piilo (BLP) measure of
+non-Markovianity~\cite{BreuerLainePiilo2009} is defined via
+the temporary increase of trace distance between pairs of
+initial states:
+$\mathcal{N}_{\mathrm{BLP}} := \max_{\rho_{1,2}}
+\int_{\dot{D}>0} \frac{d}{dt}
+D(\rho_1(t),\rho_2(t))\, dt$.
+The intervals where trace distance increases are precisely the
+``discharging'' intervals of
+Remark~\ref{rem:battery}~\cite{RivasHuelgaPlenio2014}:
+correlations previously deposited in the bath flow back to the
+system, restoring distinguishability.
+The BLP measure thus witnesses the thermodynamic resource
+that drives $\mathcal{S} > 0$ in
+Corollary~\ref{cor:three_regimes}(ii).
+\end{remark}
+
+\begin{remark}[Consistency with the Sagawa--Ueda Framework]
+\label{rem:SU_consistency}
+In the Sagawa--Ueda framework~\cite{SagawaUeda2010,SagawaUeda2012},
+measurement-based feedback permits
+$\Sigma \geq -I_{\mathrm{feedback}}$, where
+$I_{\mathrm{feedback}}$ is the mutual information gained
+through measurement.
+The memory kernel plays an analogous role:
+the pre-existing correlations $I(S{:}E;\, 0)$ are the
+non-Markovian analogue of $I_{\mathrm{feedback}}$.
+The total system (agent + bath) still satisfies
+$\Sigma_{\mathrm{total}} \geq 0$; the apparent ``profit'' for
+the agent is paid for by the correlations consumed from the
+system--environment entanglement.
+The bound~\eqref{eq:S_upper} is the non-Markovian analogue of
+the Sagawa--Ueda bound $\beta\,\mathcal{S} \leq
+I_{\mathrm{feedback}}$.
+\end{remark}
+
+\subsection{Mechanism: The Surfer Analogy}
+
+The physical mechanism admits an intuitive picture.
+
+\begin{itemize}
+\item \textbf{The Markovian Agent (The Stone):}
+A stone thrown into the ocean sinks.
+It interacts with the water only at the instant of contact,
+dissipates its kinetic energy, and thermalizes
+($\mathcal{S} \leq 0$).
+Each collision builds system--environment correlations that are
+immediately discarded (Born approximation), so
+$I(S{:}E) = 0$ at all times.
+The wave structure is invisible to it.
+
+\item \textbf{The Non-Markovian Agent (The Surfer):}
+A surfer carries \emph{memory} of past wave patterns---encoded
+in the correlations $I(S{:}E;\, t_0) > 0$ built up over
+previous interactions (the ``charging phase'' of
+Remark~\ref{rem:battery}).
+During backflow intervals ($\Delta I < 0$), the surfer
+\emph{spends} these stored correlations to extract free energy
+from the wave itself.
+The surfer remains far from equilibrium not by fighting the
+environment, but by converting temporal correlations into
+thermodynamic profit.
+\end{itemize}
+
+\begin{remark}[Thermodynamic Rectification]
+\label{rem:rectification}
+The ``surfing'' mechanism is \textbf{thermodynamic
+rectification}: the memory kernel $\mathcal{K}(t,s)$ functions
+as a temporal filter that enables the system to accumulate
+correlations during one phase and consume them during another.
+Formally, the kernel enables access to the resource
+$I(S{:}E;\, 0)$ accumulated during previous interaction
+epochs---converting the environment's temporal correlations
+into the system's structural persistence via the
+$\Delta I$ term in Theorem~\ref{thm:advantage}.
+\end{remark}
+
+\begin{remark}[Memory as Implicit Maxwell's Demon]
+\label{rem:demon}
+The memory kernel functions as an \emph{implicit Maxwell's demon}.
+A Markovian system interacts with each environmental fluctuation
+exactly once, at the moment of contact; the Born approximation
+resets $I(S{:}E) = 0$ after each step.
+A non-Markovian system retains a trace of past fluctuations
+(via $\mathcal{K}(t,s)$ with $s < t$) and can exploit
+correlations between past and present environmental states.
+This is not a violation of the second law but an instance of
+the Sagawa--Ueda generalization: the demon's cost is paid in
+the currency of memory maintenance (Landauer erasure), a point
+we quantify in Section~\ref{sec:cost}.
+The total budget for ``demonic profit'' is capped by the
+bound~\eqref{eq:S_upper}.
+\end{remark}
+
+% ============================================================
+\section{Emergent Temporal Arrow}
+\label{sec:arrow}
+
+We have shown that survival requires memory.
+This requirement yields a corollary: the emergence of a
+thermodynamic arrow of time.
+In this framework, time is not an external parameter;
+rather, \emph{the direction of time is the direction of memory
+accumulation}.
+
+We formalize this by defining a dynamical partial order induced
+by the memory kernel and connecting it to the algebraic
+accessibility structure of HAFF Paper~F~\cite{Liu2026HAFF_F}.
+
+\subsection{The Causal Memory Order}
+
+A non-Markovian memory kernel $\mathcal{K}(t,s)$ defines a
+causal link between a past state at $s$ and the present dynamics
+at $t$.
+We define a partial order based on the effective support of this
+influence.
+
+\begin{definition}[Causal Memory Order]
+\label{def:memory_order}
+Let $\mathcal{T} = \{\rho(t) \mid t \in \mathbb{R}^+\}$ be
+a state trajectory.
+We define the binary relation $\prec_K$ on $\mathcal{T}$ by
+\begin{equation}
+\label{eq:memory_order}
+\rho(s) \prec_K \rho(t) \quad \iff \quad
+\exists\, \tau \in [s, t] \text{ such that }
+\| \mathcal{K}(t, \tau)[\rho(s)] \| > \epsilon,
+\end{equation}
+where $\epsilon > 0$ is a physical distinguishability threshold
+set by the thermal noise floor
+$\epsilon \sim e^{-\beta\, \Delta E_{\min}}$.
+Physically, $\rho(s) \prec_K \rho(t)$ means ``the dynamics at
+$t$ retains operationally distinguishable information about the
+state at $s$.''
+\end{definition}
+
+For a Markovian agent, $\mathcal{K}(t,s) \propto \delta(t-s)$,
+so $\rho(s) \nprec_K \rho(t)$ for any $s < t$.
+The Markovian agent has no dynamical past---it lives in an
+eternal ``now.''
+A non-Markovian agent carries its history within its dynamics;
+the depth of the order $\prec_K$ is set by the memory time
+$\tau_{\mathrm{mem}}$ (Definition~\ref{def:kernel}).
+
+\subsection{Unidirectionality from Survival Optimization}
+
+Why does the order $\prec_K$ point ``forward''?
+While the microscopic laws are time-reversible, the
+\emph{survival imperative} (maximizing $\mathcal{S}$) creates
+a statistical irreversibility.
+
+\begin{proposition}[Fisher Information Accretion]
+\label{prop:fisher_accretion}
+Let $\mathcal{I}_F(\theta;\, \rho(t))$ denote the Fisher
+information contained in the system state $\rho(t)$ regarding
+a parameter $\theta$ encoded in the environment at time $s < t$.
+For an agent whose dynamics maximize the survival
+functional~\eqref{eq:survival}, the time-averaged Fisher
+information satisfies
+\begin{equation}
+\label{eq:fisher_accretion}
+\overline{\frac{d}{dt}\,
+\mathcal{I}_F(\theta;\, \rho(t))} \geq 0,
+\end{equation}
+where the overbar denotes a time average over scales larger
+than the bath correlation time $\tau_B$.
+\end{proposition}
+
+\begin{proof}
+By Theorem~\ref{thm:advantage}, the survival functional is
+maximized when $I(S{:}E;\,0)$ is large and can be consumed
+($\Delta I < 0$) during subsequent evolution.
+Maintaining a large correlation budget $I(S{:}E)$ requires
+the system state to retain correlations with environmental
+degrees of freedom; this is precisely the content of
+$\mathcal{I}_F(\theta;\, \rho(t)) > 0$.
+An agent that discards useful correlations (decreasing
+$\mathcal{I}_F$) without thermodynamic necessity depletes the
+resource $I(S{:}E)$ and hence its survival functional.
+Since the environment's correlations decay on a timescale
+$\tau_B$, the agent must continuously build new correlations
+to replace decaying ones.
+The net effect is a time-averaged accretion of Fisher
+information, whose gradient defines the dynamical arrow of time.
+\end{proof}
+
+\subsection{The Bridge to HAFF}
+
+We now connect this dynamical picture to the algebraic picture of
+HAFF Paper~F~\cite{Liu2026HAFF_F}, where the arrow of time was
+defined by the expansion of the redundancy subalgebra
+$\mathcal{R}$.
+
+The connection requires care: quantum information cannot be
+cloned (the no-cloning theorem), so the ``redundancy expansion''
+of HAFF must be interpreted through the lens of
+\emph{quantum Darwinism}~\cite{Zurek2009}.
+In this framework, the environment acquires not copies of the
+quantum state $\rho(s)$ itself, but rather \emph{coarse-grained
+classical records} of pointer-state outcomes---precisely the
+information that survives decoherence and can be redundantly
+encoded in many environmental fragments.
+
+\begin{proposition}[Dynamical--Algebraic Correspondence]
+\label{prop:HAFF_bridge}
+Let $\prec_K$ be the causal memory order
+(Definition~\ref{def:memory_order}) and let
+$\prec_{\mathrm{HAFF}}$ be the accessibility order of
+HAFF Paper~F, defined by the inclusion of redundancy
+subalgebras $\mathcal{R}$.
+Under the additional assumption that the system--environment
+interaction produces decoherence in a preferred pointer
+basis~\cite{Zurek2009}, there exists a coarse-graining map
+$\Phi: \rho(t) \mapsto \hat{p}(t)$ (projecting onto the
+diagonal in the pointer basis) such that:
+\begin{equation}
+\label{eq:HAFF_bridge}
+\rho(s) \prec_K \rho(t)
+\quad\Longrightarrow\quad
+\mathcal{R}(\Phi[\rho(s)])
+\subseteq \mathcal{R}(\Phi[\rho(t)]).
+\end{equation}
+That is, the dynamical partial order maps into the algebraic
+accessibility order when restricted to the classical sector
+selected by decoherence.
+\end{proposition}
+
+\begin{proof}
+The argument has three steps.
+
+\noindent\textbf{Step 1 (Dynamical side):}
+$\rho(s) \prec_K \rho(t)$ implies that the memory kernel
+$\mathcal{K}$ transduces information about the state at $s$
+into the dynamics at $t$, via system--environment correlations
+built up over $[s,t]$.
+
+\noindent\textbf{Step 2 (Quantum Darwinism):}
+The system--environment interaction selects pointer states
+$\{|i\rangle\}$ that are robust under
+decoherence~\cite{Zurek2009}.
+The diagonal populations
+$p_i(t) = \langle i | \rho(t) | i \rangle$
+constitute \emph{classical} information.
+Quantum Darwinism~\cite{Zurek2009} establishes that this
+classical information---and \emph{only} this information---is
+redundantly imprinted in many environmental fragments $E_k$
+through the decoherence interaction.
+Each fragment that acquires a record of
+$\hat{p}(t) = \{p_i(t)\}$ contributes to the growth of the
+redundancy subalgebra $\mathcal{R}$.
+Crucially, no quantum cloning is involved: the no-cloning
+theorem forbids copying of arbitrary quantum states, but does
+not constrain the classical pointer-state probabilities, which
+are freely duplicable.
+The expansion of $\mathcal{R}$ reflects the proliferation of
+these classical records, not the copying of quantum coherences.
+
+\noindent\textbf{Step 3 (Correspondence):}
+The coarse-graining map $\Phi$ projects onto the
+\emph{commuting} subalgebra generated by the pointer
+observables $\{|i\rangle\langle i|\}$.
+The resulting probability distributions $\hat{p}(t)$ are
+classical and lie in a simplex.
+If $\rho(s) \prec_K \rho(t)$, then the dynamics at $t$
+retains information about the state at $s$
+(Definition~\ref{def:memory_order}); in the pointer basis,
+this means $\hat{p}(s)$ is statistically reconstructible
+from the environmental records available at $t$.
+Since each environmental fragment carrying a record of
+$\hat{p}$ contributes to the HAFF redundancy subalgebra
+$\mathcal{R}$, and the number of such fragments grows
+monotonically with the accumulation of decoherence records,
+the inclusion
+$\mathcal{R}(\Phi[\rho(s)]) \subseteq
+\mathcal{R}(\Phi[\rho(t)])$ follows.
+\end{proof}
+
+\begin{remark}[Scope of the Correspondence]
+\label{rem:scope}
+Proposition~\ref{prop:HAFF_bridge} is a \emph{consistency
+result}, not a derivation of HAFF from T-DOME or vice versa.
+It shows that the dynamical arrow (memory accumulation) and the
+algebraic arrow (redundancy expansion) are compatible when
+restricted to the decoherence-selected classical sector.
+The quantum coherences---which are not redundantly
+recorded---lie outside this correspondence and are handled by
+the full non-Markovian dynamics.
+\end{remark}
+
+\begin{remark}[Dynamical and Algebraic Time]
+\label{rem:dual_time}
+The correspondence links two independently motivated notions of
+temporal direction:
+\begin{center}
+\begin{tabular}{@{}lll@{}}
+\toprule
+& \textbf{Paper F (HAFF)} & \textbf{Paper I (T-DOME)} \\
+\midrule
+Nature & Algebraic & Dynamical \\
+Mechanism & Redundancy expansion
+  & Information backflow from memory \\
+Formalism & Partial order on $\mathcal{A}_{\mathbf{c}}$
+  & Partial order $\prec_K$ on $\rho_R(t)$ \\
+Asymmetry source & Phase-space measure
+  & Bath correlation structure \\
+Domain & Classical (pointer) sector
+  & Full quantum dynamics \\
+\bottomrule
+\end{tabular}
+\end{center}
+Paper~F provides the structural \emph{skeleton} of temporal
+asymmetry; Paper~I provides the dynamical \emph{muscle}.
+\end{remark}
+
+\begin{remark}[The Seed and the Tree]
+\label{rem:seed_tree}
+The correspondence justifies the title of this paper.
+In HAFF, the geometry of spacetime is the static ``tree.''
+In T-DOME, the memory kernel is the ``seed'' containing the
+generative algorithm for growth.
+Time is not the space in which the tree grows;
+time is the \emph{act of growing} itself.
+\end{remark}
+
+% ============================================================
+\section{Worked Example: The Quantum Predictive Agent}
+\label{sec:example}
+
+To illustrate the Markovian ceiling and the memory advantage
+\emph{quantitatively}, we employ the archetypal open quantum
+system model: the spin-boson model with Lorentz--Drude spectral
+density, which admits an exact analytic solution for the
+decoherence dynamics~\cite{BreuerPetruccione2002}.
+
+\subsection{Model Setup}
+
+The total Hamiltonian is $H = H_S + H_B + H_I$.
+The agent is a two-level system with energy gap $\omega_0$:
+$H_S = \tfrac{\omega_0}{2}\sigma_z$.
+The environment is a bosonic bath:
+$H_B = \sum_k \omega_k b_k^\dagger b_k$.
+The interaction is of the pure-dephasing form
+$H_I = \sigma_z \otimes \sum_k (g_k\, b_k
++ g_k^*\, b_k^\dagger)$.
+
+The spectral density
+$J(\omega) = \sum_k |g_k|^2 \delta(\omega - \omega_k)$
+characterizes the environment. We choose the Lorentz--Drude form:
+\begin{equation}
+\label{eq:lorentz_drude}
+J(\omega) = \frac{2\lambda\, \gamma\, \omega}
+  {\omega^2 + \gamma^2},
+\end{equation}
+where $\lambda$ is the reorganization energy and $\gamma$ is the
+bath memory rate (inverse correlation time
+$\tau_B = 1/\gamma$).
+We place the system in the low-temperature regime
+$\beta\omega_0 \gg 1$ (i.e., $k_BT \ll \omega_0$).
+The bath correlation function in the $T \to 0$ limit is
+$C(t) = \lambda\gamma\, e^{-\gamma|t|}$, so the parameter
+$\gamma$ directly controls the bath memory depth.
+For $\beta\omega_0 \geq 10$ the finite-temperature corrections
+to all quantities below are of order
+$O(e^{-\beta\omega_0}) \lesssim 5 \times 10^{-5}$ and
+are neglected throughout.\footnote{All plots and numerical values
+use the standard $T \to 0$ analytic expression for the
+decoherence function~\eqref{eq:decoherence}
+(see Breuer and Petruccione~\cite{BreuerPetruccione2002},
+Sec.~12.3, for the Lorentz--Drude pure-dephasing solution),
+which provides an accurate proxy in the low-temperature
+regime;
+$\beta$ is a well-defined bookkeeping parameter and
+$\beta^{-1}$ a finite energy scale.}
+
+\subsection{Exact Decoherence Function}
+
+For the pure-dephasing spin-boson model in the
+$T \to 0$ limit,
+the off-diagonal element of the reduced density matrix
+$\rho_{01}(t) = \rho_{01}(0)\, p(t)$ is governed by the
+\textbf{decoherence function}~\cite{BreuerPetruccione2002}:
+\begin{equation}
+\label{eq:decoherence}
+p(t) = e^{-\gamma t / 2}\left[
+  \cos(\Omega t) + \frac{\gamma}{2\Omega}\,\sin(\Omega t)
+\right],
+\end{equation}
+where $\Omega := \frac{1}{2}\sqrt{4\lambda\gamma - \gamma^2}$.
+This solution is exact for the Lorentz--Drude spectral density.
+
+\begin{remark}[Non-Markovian Regime]
+\label{rem:NM_regime}
+The character of the dynamics is controlled by the discriminant
+$\Delta := 4\lambda\gamma - \gamma^2 = \gamma(4\lambda - \gamma)$:
+\begin{itemize}
+\item $\gamma > 4\lambda$ ($\Delta < 0$):
+  $\Omega$ is imaginary, $p(t)$ decays monotonically.
+  The dynamics is Markovian (no backflow).
+\item $\gamma = 4\lambda$ ($\Delta = 0$):
+  Critical damping. $p(t) = (1 + \gamma t/2)\, e^{-\gamma t/2}$.
+\item $\gamma < 4\lambda$ ($\Delta > 0$):
+  $\Omega$ is real and positive.
+  $p(t)$ oscillates with envelope $e^{-\gamma t/2}$.
+  The dynamics is \emph{non-Markovian}: intervals where
+  $|p(t)|$ increases correspond to information
+  backflow~\cite{BreuerLainePiilo2009}.
+\end{itemize}
+The non-Markovian regime $\gamma < 4\lambda$ is thus the regime
+of structured, long-memory baths.
+\end{remark}
+
+\subsection{Quantitative Evaluation}
+
+We now evaluate the survival functional explicitly.
+For the pure-dephasing model, populations are conserved
+($p_0(t) = p_0(0)$, $p_1(t) = p_1(0)$), and the non-equilibrium
+free energy depends only on the coherence:
+\begin{equation}
+\label{eq:F_qubit}
+F(\rho(t)) - F(\rho_{\mathrm{eq}})
+= \beta^{-1}\, D_{\mathrm{KL}}(\rho(t) \| \rho_{\mathrm{eq}}).
+\end{equation}
+For a qubit with initial state
+$\rho(0) = \tfrac{1}{2}(\mathbb{1} + \vec{r}\cdot\vec{\sigma})$
+and $r_z = 0$ (maximal coherence in the $x$--$y$ plane),
+the relative entropy reduces to
+$D_{\mathrm{KL}}(\rho(t) \| \rho_{\mathrm{eq}})
+\approx |p(t)|^2\, |\rho_{01}(0)|^2$
+to leading order in the coherence (see,
+e.g.,~\cite{BreuerPetruccione2002}).
+Since there is no external driving ($H_{\mathrm{ctrl}} = 0$,
+$W = 0$), the survival functional is simply
+\begin{equation}
+\label{eq:S_qubit}
+\beta\,\mathcal{S}(t)
+= D_{\mathrm{KL}}(\rho(t) \| \rho_{\mathrm{eq}})
+  - D_{\mathrm{KL}}(\rho(0) \| \rho_{\mathrm{eq}})
+\propto |p(t)|^2 - 1.
+\end{equation}
+The proportionality in~\eqref{eq:S_qubit} is specific to
+the \textbf{pure-dephasing model} with the chosen maximally
+coherent initial state ($r_z = 0$) and measurement in the
+pointer basis ($\sigma_z$).
+Under these conditions, the exact
+solution~\cite{BreuerPetruccione2002} ensures that population
+terms vanish from the free energy
+($\Delta\langle H_S \rangle = 0$), leaving only the
+coherence contribution:
+$\beta\,\mathcal{S} = -\Delta S_S$ depends only on the
+coherence trajectory $|p(t)|$.
+The proxy $|p(t)|^2$ thus rigorously captures the sign and
+monotone behaviour of $\beta\,\mathcal{S}$; the exact
+numerical prefactor depends on the initial state and
+on $\beta$, but the qualitative conclusion---$\mathcal{S} > 0$
+during backflow intervals---is robust and does not depend on
+the proxy normalization.
+
+For a Markovian evolution, $|p(t)|$ decreases monotonically,
+so $|p(t)|^2 - 1 \leq 0$ for all $t$: $\mathcal{S} \leq 0$
+always (consistent with Theorem~\ref{thm:ceiling}).
+For non-Markovian evolution with $\gamma < 4\lambda$, the
+oscillations in $p(t)$ produce intervals where $|p(t)|$
+\emph{increases after a previous decrease}, i.e., the system
+\emph{re-coheres}.
+
+\textbf{Concrete parameters.}
+Set $\omega_0 = 1$ (energy units), $\lambda = 1$,
+$\gamma = 0.5$ (deep non-Markovian regime: $\gamma / 4\lambda = 0.125 \ll 1$).
+Then:
+\begin{equation}
+\Omega = \tfrac{1}{2}\sqrt{4 \cdot 1 \cdot 0.5 - 0.25}
+= \tfrac{1}{2}\sqrt{1.75} \approx 0.661.
+\end{equation}
+
+The decoherence function~\eqref{eq:decoherence} first reaches
+$p(t^*) = 0$ at $t^* \approx 2.00/\Omega \approx 3.03$
+(in units of $\omega_0^{-1}$), where the system has fully
+decohered.
+Subsequently, the environment \emph{returns} coherence:
+$|p(t)|$ increases, reaching a local maximum
+$|p(t_1)| \approx 0.31$ at $t_1 \approx 4.75/\omega_0$.
+
+Over the backflow interval $[t^*, t_1]$,
+for the pure-dephasing qubit with the chosen initial state
+($r_z = 0$, maximal coherence) and in the autonomous setting
+($H_{\mathrm{ctrl}} = 0$, $W = 0$),
+the survival proxy~\eqref{eq:S_qubit} gives
+\begin{equation}
+\label{eq:S_numeric}
+\beta\,\mathcal{S}[t^*, t_1]
+\propto |p(t_1)|^2 - |p(t^*)|^2
+\approx 0.093 - 0 = 0.093 > 0.
+\end{equation}
+Equivalently,
+$\mathcal{S} \approx 0.093\,\beta^{-1}$
+in the bookkeeping units set by $\beta$.
+The agent has gained a dimensionless survival advantage
+$\beta\,\mathcal{S} \approx +0.093$
+\emph{with zero work input}
+(autonomous evolution, $H_{\mathrm{ctrl}} = 0$),
+solely by exploiting the non-Markovian backflow.
+Figure~\ref{fig:survival} illustrates the contrast between
+Markovian and non-Markovian evolution.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\textwidth]{fig_survival.pdf}
+\caption{%
+Pure-dephasing spin-boson model
+(Section~\ref{sec:example}) with Lorentz--Drude spectral
+density~\eqref{eq:lorentz_drude}.
+\textbf{Parameters:}
+$\omega_0 = 1$ (energy unit),
+$\lambda = 1$ (reorganization energy).
+\textbf{Units:}
+all times in $\omega_0^{-1}$;
+energies in $\hbar\omega_0$.
+\textbf{Regime:}
+low temperature ($\beta\omega_0 \gg 1$);
+the standard $T \to 0$ analytic
+expression~\eqref{eq:decoherence}~\cite{BreuerPetruccione2002}
+is used as an accurate proxy.
+\textbf{(a)}~Decoherence amplitude $|p(t)|$
+(eq.~\eqref{eq:decoherence}).
+Blue: non-Markovian
+($\gamma = 0.5$, $\gamma/4\lambda = 0.125$).
+Orange: Markovian
+($\gamma = 5.0$, $\gamma/4\lambda = 1.25$).
+Dashed: exponential envelope $e^{-\gamma t/2}$.
+Green bands indicate backflow
+(Remark~\ref{rem:NM_regime}:
+$d|p|/dt > 0$, $\Gamma(t) < 0$
+per~\eqref{eq:Gamma_inst}).
+\textbf{(b)}~Survival proxy
+$|p(t)|^2 \propto \beta\,\mathcal{S}$
+(eq.~\eqref{eq:S_qubit}).
+At the first revival
+($t_1 = \pi/\Omega \approx 4.75\,\omega_0^{-1}$),
+the non-Markovian agent achieves
+$\beta\,\mathcal{S}[t^*,t_1] \approx +0.093$
+(eq.~\eqref{eq:S_numeric}), consistent with the
+closed-form prediction~\eqref{eq:revival_exact},
+funded by the consumption of pre-existing
+correlations
+(Proposition~\ref{prop:full_cycle}).
+The Markovian agent decays monotonically:
+$\mathcal{S} \leq 0$ always
+(Theorem~\ref{thm:ceiling}).%
+}
+\label{fig:survival}
+\end{figure}
+
+\textbf{Consistency with
+Theorem~\ref{thm:advantage} and
+Proposition~\ref{prop:full_cycle}.}
+Since this is autonomous evolution ($H_{\mathrm{ctrl}} = 0$),
+identity~\eqref{eq:advantage_auto} applies exactly:
+$\beta\,\mathcal{S} = -\Delta I(S{:}E)
+- \Delta D_{\mathrm{KL}}(\rho_E \| \rho_E^{\mathrm{th}})$.
+The example realizes the \emph{correlation battery}
+of Remark~\ref{rem:battery}, with the charge--discharge
+decomposition of
+Proposition~\ref{prop:full_cycle}:
+\begin{itemize}
+\item \textbf{Charging} ($[0, t^*]$, eq.~\eqref{eq:charge}):
+  the system decoheres, building correlations
+  $I(S{:}E;\, t^*) > 0$ at the cost of
+  $\mathcal{S} < 0$.
+\item \textbf{Discharging} ($[t^*, t_1]$,
+  eq.~\eqref{eq:discharge}):
+  the correlations are consumed
+  ($\Delta I < 0$ over this interval),
+  returning $\beta\,\mathcal{S} \approx +0.093 > 0$.
+\end{itemize}
+The bound~\eqref{eq:S_upper} is satisfied:
+$\beta\,\mathcal{S}[t^*, t_1] = 0.093
+\leq I(S{:}E;\, t^*)$.
+Full-cycle closure~\eqref{eq:full_cycle} is confirmed:
+$\beta\,\mathcal{S}[0, t_1] < 0$.
+
+\textbf{Instantaneous decoherence rate.}
+The rate of coherence loss is
+\begin{equation}
+\label{eq:Gamma_inst}
+\Gamma(t) := -\frac{d}{dt}\ln|p(t)|
+= \frac{\gamma}{2}
+  - \frac{\Omega\sin(\Omega t)
+    + \tfrac{\gamma}{2}\cos(\Omega t)}
+  {\cos(\Omega t)
+    + \tfrac{\gamma}{2\Omega}\sin(\Omega t)}\,.
+\end{equation}
+In the Markovian limit $\gamma \gg 4\lambda$,
+$\Gamma(t) \to \gamma/2 > 0$ for all $t$
+(monotone decoherence).
+In the non-Markovian regime $\gamma < 4\lambda$,
+$\Gamma(t)$ oscillates and becomes \emph{negative}
+during the backflow intervals where $|p(t)|$ increases.
+These are precisely the intervals where
+$\mathcal{S} > 0$.
+
+\textbf{Closed-form revival amplitude.}
+The decoherence function~\eqref{eq:decoherence} can be
+written as $p(t) = R\, e^{-\gamma t/2}\cos(\Omega t - \phi)$,
+where $R = \sqrt{1 + (\gamma/2\Omega)^2}$ and
+$\phi = \arctan(\gamma/2\Omega)$, with $R\cos\phi = 1$.
+The extrema of $|p(t)|$ occur at $t_n = n\pi/\Omega$
+($n = 0, 1, 2, \ldots$), and the first revival peak
+after the first zero is at $t_1 = \pi/\Omega$.
+Its amplitude is \emph{exactly}
+\begin{equation}
+\label{eq:revival_exact}
+|p(t_1)| = e^{-\gamma\pi/(2\Omega)},
+\qquad
+\beta\,\mathcal{S}[t^*, t_1]
+\approx |p(t_1)|^2
+= e^{-\gamma\pi/\Omega}.
+\end{equation}
+This is the paper's central computable prediction: the
+survival gain at first backflow is determined by a single
+dimensionless ratio $\gamma/\Omega$.
+
+\begin{remark}[Parameter Survey]
+\label{rem:parameter_survey}
+Table~\ref{tab:survey} demonstrates the transition from
+the Markovian regime ($\mathcal{S} \leq 0$) to the
+non-Markovian regime ($\mathcal{S} > 0$) as the bath
+memory rate $\gamma$ decreases below the critical value
+$4\lambda$.
+All entries use $\omega_0 = 1$, $\lambda = 1$,
+$W = 0$ (autonomous evolution), with revival amplitudes
+computed from~\eqref{eq:revival_exact}.
+\begin{center}
+\begin{tabular}{@{}cccccc@{}}
+\toprule
+$\gamma$ & $\gamma/4\lambda$ & Regime
+& $|p(t_1)|$ & $\beta\,\mathcal{S}(t_1)$
+& $\Gamma_{\min}$ \\
+\midrule
+$20.0$ & $5.0$ & Markov & --- & $\leq 0$ & $>0$ \\
+$4.0$ & $1.0$ & Critical & --- & $\leq 0$ & $= 0$ \\
+$2.0$ & $0.50$ & Non-Markov & $0.043$
+  & $+0.002$ & $< 0$ \\
+$1.0$ & $0.25$ & Non-Markov & $0.163$
+  & $+0.027$ & $< 0$ \\
+$0.5$ & $0.125$ & Deep NM & $0.305$
+  & $+0.093$ & $< 0$ \\
+$0.1$ & $0.025$ & Deep NM & $0.605$
+  & $+0.37\phantom{0}$ & $< 0$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+\captionsetup{hypcap=false}%
+\captionof{table}{%
+Survival functional at first backflow revival
+as a function of the bath memory rate $\gamma$,
+for the pure-dephasing spin-boson model
+with Lorentz--Drude spectral density.
+$|p(t_1)|$ is computed
+from~\eqref{eq:revival_exact};
+$\Gamma_{\min}$ is the sign of the minimum of the
+instantaneous decoherence rate~\eqref{eq:Gamma_inst}.
+The transition $\mathcal{S} \leq 0 \to \mathcal{S} > 0$
+occurs precisely at the non-Markovian threshold
+$\gamma = 4\lambda$.
+For $\gamma = 0.1$ (deep non-Markovian),
+the agent achieves $\beta\,\mathcal{S} \approx +0.37$
+per backflow cycle in the autonomous setting
+($H_{\mathrm{ctrl}} = 0$).%
+}
+\label{tab:survey}
+\end{remark}
+
+\begin{remark}[The Two Regimes: Summary]
+\label{rem:two_regimes}
+\begin{center}
+\begin{tabular}{@{}lll@{}}
+\toprule
+& \textbf{Markovian ($\gamma = 20$)}
+& \textbf{Non-Markovian ($\gamma = 0.5$)} \\
+\midrule
+$\gamma / 4\lambda$ & $5.0$ (overdamped)
+  & $0.125$ (underdamped) \\
+$\tau_B$ & $0.05\,\omega_0^{-1}$
+  & $2.0\,\omega_0^{-1}$ \\
+$p(t)$ & Monotone decay
+  & Oscillatory with envelope \\
+$|p(t_1)|$ at first revival & $0$ (no revival)
+  & $\approx 0.31$ \\
+$\beta\,\mathcal{S}$ at revival & $\leq 0$
+  & $\approx +0.093$ \\
+$\Gamma(t)$ & $> 0$ always
+  & Oscillates, $< 0$ during backflow \\
+Interpretation & Stone (sinks)
+  & Surfer (rides backflow) \\
+\bottomrule
+\end{tabular}
+\end{center}
+The non-Markovian agent achieves
+$\beta\,\mathcal{S} \approx +0.093$
+per backflow cycle (autonomous, $H_{\mathrm{ctrl}} = 0$),
+while the Markovian agent can only lose free energy.
+As the coupling deepens ($\gamma/4\lambda \to 0$), the
+revival amplitude grows and
+$\mathcal{S}$ increases
+(Table~\ref{tab:survey}), bounded above by
+$\beta\,\mathcal{S} \leq I(S{:}E;\, t^*)$
+(Corollary~\ref{cor:three_regimes}(iii)).
+\end{remark}
+
+% ============================================================
+\section{The Cost of Memory}
+\label{sec:cost}
+
+We have shown that memory allows an agent to breach the
+Markovian ceiling.
+However, every advantage carries a thermodynamic shadow.
+We now quantify the cost of memory and identify the survival
+crisis that sets the stage for Paper~II\@.
+
+\subsection{The Landauer Debt}
+
+To exploit the memory kernel $\mathcal{K}(t,s)$, the physical
+substrate of the agent must maintain correlations with its own
+past.
+This is equivalent to storing information.
+By Landauer's principle, erasing or overwriting this information
+dissipates heat; if the agent does not erase, it must pay an
+entropic cost to store.
+
+\begin{proposition}[Landauer Cost of Memory]
+\label{prop:cost}
+Let $\mathcal{I}_{\mathrm{stored}}(\tau_{\mathrm{mem}})$ be the
+mutual information between the agent's state trajectory over
+$[t - \tau_{\mathrm{mem}},\, t]$ and its current control
+protocol $H_{\mathrm{ctrl}}(t)$.
+The free-energy cost of maintaining this memory satisfies
+\begin{equation}
+\label{eq:landauer}
+\Delta F_{\mathrm{mem}}
+\geq k_B T \ln 2 \cdot
+\mathcal{I}_{\mathrm{stored}}(\tau_{\mathrm{mem}}).
+\end{equation}
+\end{proposition}
+
+\subsection{The Memory Catastrophe}
+
+The crisis arises from the scaling of
+$\mathcal{I}_{\mathrm{stored}}$ with time.
+To quantify this, we borrow two quantities from computational
+mechanics~\cite{CrutchfieldYoung1989,ShaliziCrutchfield2001}:
+
+\begin{definition}[Entropy Rate and Predictive Information]
+\label{def:entropy_rate}
+Let $\{X_t\}$ be the stochastic process describing the
+environment's influence on the agent (e.g., the sequence of
+bath correlation values).
+\begin{enumerate}
+\item The \textbf{entropy rate} of the environment is
+  \begin{equation}
+  \label{eq:entropy_rate}
+  h_\mu := \lim_{n \to \infty}
+  H(X_n \mid X_{n-1}, \ldots, X_1),
+  \end{equation}
+  measuring the intrinsic unpredictability per time step.
+\item The \textbf{predictive information} (excess entropy) is
+  \begin{equation}
+  \label{eq:pred_info}
+  I_{\mathrm{pred}} := I(\overleftarrow{X};\,
+  \overrightarrow{X})
+  = \sum_{k=1}^{\infty}
+  \bigl[H(X_k) - h_\mu\bigr],
+  \end{equation}
+  where $\overleftarrow{X}$ and $\overrightarrow{X}$ denote
+  the past and future half-chains.
+  This is the total amount of information about the future
+  that is encoded in the past---the \emph{useful} memory.
+\end{enumerate}
+\end{definition}
+
+For an environment with finite predictive information
+($I_{\mathrm{pred}} < \infty$), an optimal agent needs only
+finite memory to capture all exploitable correlations.
+However, for environments with \emph{divergent} predictive
+information (e.g., processes with long-range temporal
+correlations, $1/f$ noise, or non-stationary statistics),
+the required memory grows without bound.
+
+\begin{proposition}[The Memory Catastrophe]
+\label{thm:catastrophe}
+\textbf{Assumptions.}
+Let the environment be a \emph{stationary, mixing} stochastic
+process with positive entropy rate $h_\mu > 0$
+\cite{CrutchfieldYoung1989,ShaliziCrutchfield2001}.
+Consider an agent that maintains a memory kernel
+$\mathcal{K}(t,s)$ with support on $[t - \tau_{\mathrm{mem}},\, t]$.
+Let $\dot{W}_{\mathrm{budget}}$ be the agent's available
+free-energy flux (constant).
+\begin{enumerate}
+\item The minimum memory required to exploit correlations up
+  to depth $\tau_{\mathrm{mem}}$ satisfies
+  \begin{equation}
+  \label{eq:mem_lower_bound}
+  \mathcal{I}_{\mathrm{stored}}(\tau_{\mathrm{mem}})
+  \geq \min\!\big(I_{\mathrm{pred}},\;
+  h_\mu\, \tau_{\mathrm{mem}}\big).
+  \end{equation}
+\item The Landauer cost of maintaining this memory is
+  \begin{equation}
+  \label{eq:mem_cost_rate}
+  \dot{W}_{\mathrm{mem}} \geq
+  k_B T \ln 2 \cdot h_\mu,
+  \end{equation}
+  since the agent must erase (or overwrite) at least $h_\mu$
+  bits per unit time to prevent memory overflow.
+\item There exists a critical time
+  $t_{\mathrm{crit}}$ beyond which the memory maintenance cost
+  exceeds the survival gain:
+  \begin{equation}
+  \label{eq:catastrophe}
+  t > t_{\mathrm{crit}}
+  \quad\Longrightarrow\quad
+  \dot{W}_{\mathrm{mem}}(t) > \dot{W}_{\mathrm{budget}},
+  \end{equation}
+  unless the agent compresses its memory.
+\end{enumerate}
+The agent dies not from entropy (disorder) but from
+\emph{hypermnesia}: the thermodynamic cost of perfect memory
+exceeds the benefit it provides.
+\end{proposition}
+
+\begin{proof}
+Part~(1): an agent exploiting temporal correlations to depth
+$\tau_{\mathrm{mem}}$ must store at least the mutual information
+between the past $\tau_{\mathrm{mem}}$ time steps and the
+present.
+For a stationary ergodic process, this mutual information is
+bounded below by $\min(I_{\mathrm{pred}},\,
+h_\mu\, \tau_{\mathrm{mem}})$~\cite{CrutchfieldYoung1989,
+BialekNemenmanTishby2001}.
+
+Part~(2): each time step, the agent receives $\sim h_\mu$
+bits of genuinely new information.
+To maintain a fixed-capacity memory, it must erase at least
+this many bits, incurring Landauer cost
+$k_B T \ln 2 \cdot h_\mu$ per time step.
+
+Part~(3): if $I_{\mathrm{pred}} = \infty$ (as for environments
+with long-range correlations), the stored information grows
+as $\mathcal{I}_{\mathrm{stored}} \sim h_\mu\,
+\tau_{\mathrm{mem}}$.
+Combined with part~(2), the memory cost grows linearly in the
+effective memory depth.
+For any finite budget $\dot{W}_{\mathrm{budget}}$, there exists
+$t_{\mathrm{crit}}$ such that the cost exceeds the budget.
+\end{proof}
+
+\subsection{Resolution: The Necessity of Forgetting}
+
+To survive beyond $t_{\mathrm{crit}}$, the agent must introduce
+a \emph{lossy compression} scheme: it must discard the vast
+majority of stored correlations and retain only the
+thermodynamically salient features.
+
+\begin{itemize}
+\item \textbf{Compression requires a criterion.}
+  To decide what to keep and what to erase, the agent needs a
+  \emph{relevance function}---a mapping from stored correlations
+  to survival value.
+  This is a reference frame that ranks information by its
+  contribution to $\mathcal{S}$.
+
+\item \textbf{A reference frame requires symmetry breaking.}
+  An ``unbiased'' agent that treats all correlations as equally
+  valuable cannot compress: it must keep everything.
+  The act of preferring one subset of information over another
+  is a spontaneous breaking of the informational symmetry.
+  This is the thermodynamic definition of a ``perspective''---or,
+  more precisely, a \emph{privileged basis}.
+\end{itemize}
+
+\begin{remark}[The Origin of Paper II]
+\label{rem:paper_II}
+\emergencystretch=1em
+Proposition~\ref{thm:catastrophe} reveals the \emph{poison} embedded
+in Paper~I's medicine.
+Memory enables survival beyond the Markovian ceiling, but
+unbounded memory under finite energy resources leads to
+\emph{computational explosion}: the agent must process an
+ever-growing archive with bounded free energy.
+
+This is the precise thermodynamic origin of the crisis
+addressed in Paper~II\@.
+The resolution---spontaneous symmetry breaking of the
+agent's reference frame---is not an additional hypothesis
+but a \emph{thermodynamic necessity}: the agent must
+compress its infinite history into a finite, biased
+representation.
+The ``self'' (a privileged computational basis) emerges as
+the minimal structure that makes memory computationally
+tractable.
+
+In the structural parallel noted in HAFF
+Essay~C~\cite{Liu2026HAFF_C}: the accumulation mechanism of
+Paper~I provides the raw material for survival, but without the
+discriminative compression of Paper~II, the system collapses
+under the weight of its own stored correlations.
+\end{remark}
+
+% ============================================================
+\section{Numerical Demonstration}
+\label{sec:numerical}
+
+The preceding sections establish analytic bounds and a
+worked example in the spin-boson model.  We now provide a numerical illustration showing that the
+Markovian ceiling signature predicted by
+Theorem~\ref{thm:ceiling} and the memory advantage of
+Theorem~\ref{thm:advantage} are reproduced in a minimal
+partially observed environment.
+Full code and parameters are provided for reproducibility.
+
+% ------------------------------------------------------------
+\subsection{Model}
+\label{subsec:demo_model}
+
+\paragraph{Environment.}
+A two-hidden-state HMM with aliased observations.
+The hidden state $s_t \in \{0,1\}$ evolves as a persistent
+Markov chain with $\Pr(s_{t+1} = s_t) = 1 - \varepsilon$;
+the parameter $\varepsilon \in [10^{-3}, 10^{-1}]$ controls
+the correlation length $\ell \sim 1/\varepsilon$.
+Observations $o_t \in \{A, B\}$ are aliased:
+$\Pr(o_t = A \mid s_t = 0) = 0.5 + \delta$,
+$\Pr(o_t = A \mid s_t = 1) = 0.5 - \delta$,
+with $\delta = 0.05$ (mutual information
+$I(O; S) \approx 0.007$~bits).
+Reward: $r_t = 1$ if $a_t = s_t$, $0$ otherwise.
+
+\paragraph{Agents.}
+All agents use the true model parameters and compute
+exact Bayesian posteriors; the only difference is how many
+observations each agent retains.
+\begin{itemize}
+\item \textbf{Markov-$k$} ($k \in \{1,2,4,8\}$): runs
+  an exact Bayes filter over the most recent $k$
+  observations (sliding window, uniform prior at each
+  window start); acts by MAP.
+\item \textbf{Memory (Bayes filter)}: maintains the full
+  belief state $b_t = \Pr(s_t = 1 \mid o_{1:t})$ via the
+  exact predict--update cycle over all past observations;
+  acts by MAP.
+\end{itemize}
+
+\paragraph{Parameters.}
+\begin{center}
+\small
+\begin{tabular}{@{}lcl@{}}
+\toprule
+\textbf{Quantity} & \textbf{Value} & \textbf{Role} \\
+\midrule
+$T$ & $100{,}000$ & horizon per trial \\
+Seeds & 10 & independent replications \\
+$\delta$ & 0.05 & observation asymmetry \\
+$k$ & $\{1, 2, 4, 8\}$ & Markov window sizes \\
+$\varepsilon$ & logspace($10^{-3}$, $10^{-1}$, 15)
+  & transition noise grid \\
+Burn-in & $5{,}000$ & discarded steps \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+% ------------------------------------------------------------
+\subsection{Results}
+\label{subsec:demo_results}
+
+Figure~\ref{fig:markov_ceiling} shows the two key signatures.
+
+\paragraph{Result 1: Markov ceiling
+(Figure~\ref{fig:markov_ceiling}a).}
+The average reward $\bar{R}$ of the Bayes filter (memory
+agent) increases monotonically with correlation length
+$\ell = 1/\varepsilon$, while each Markov-$k$ agent
+saturates at a distinct ceiling.  The ceilings are
+ordered: $k = 1$ (lowest) through $k = 8$ (highest),
+and all fall below the memory agent for
+$\ell \gtrsim 20$.  This is consistent with the qualitative prediction of
+Theorem~\ref{thm:ceiling}: finite-order Markov
+representations have a performance upper bound that
+the memory-carrying agent surpasses.
+
+\paragraph{Result 2: Memory advantage
+(Figure~\ref{fig:markov_ceiling}b).}
+The gap $\Delta\bar{R} = \bar{R}_{\mathrm{mem}}
+- \bar{R}_{\mathrm{Markov}\text{-}k}$ increases
+monotonically with $\ell$, and is larger for smaller $k$.
+Shaded bands show 95\% confidence intervals across
+10 seeds.  The Markov-1 and Markov-2 curves nearly
+overlap at small $\ell$, reflecting the fact that
+short observation windows provide negligible additional
+information in this aliasing regime---a consistency
+check, not a deficiency.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\textwidth]%
+  {fig_paper1_markov_ceiling.pdf}
+\caption{%
+\textbf{Markov ceiling and memory advantage.}
+$T = 100{,}000$, 10 seeds, 95\% CI bands.
+\textbf{(a)}~Average reward $\bar{R}$ vs correlation
+length $\ell = 1/\varepsilon$.  The Bayes filter
+(blue, bold) rises monotonically; Markov-$k$ agents
+saturate at $k$-dependent ceilings.
+\textbf{(b)}~Performance gap
+$\Delta\bar{R} = \bar{R}_{\mathrm{mem}}
+- \bar{R}_{\mathrm{Markov}\text{-}k}$
+increases with $\ell$; smaller $k$ yields a larger gap.}
+\label{fig:markov_ceiling}
+\end{figure}
+
+% ------------------------------------------------------------
+\subsection{Scope of This Demonstration}
+\label{subsec:demo_scope}
+
+These simulations illustrate the ceiling phenomenon
+predicted by Theorem~\ref{thm:ceiling} under the stated
+model class; they do not constitute a proof beyond this
+class.
+
+\medskip
+This demonstration \textbf{does} show:
+\begin{enumerate}
+\item A reproducible regime in which finite-order Markov
+  agents exhibit a performance ceiling while a
+  memory-carrying (Bayes filter) agent improves---the
+  Markov ceiling signature predicted by
+  Theorem~\ref{thm:ceiling}.
+\item The memory advantage (Theorem~\ref{thm:advantage})
+  manifests as a monotonically growing gap that widens
+  with correlation length and tightens with window size.
+\end{enumerate}
+
+\noindent
+This demonstration does \textbf{not} show:
+\begin{enumerate}
+\item Universality across environments, observation models,
+  or agent architectures.  The model uses a two-state
+  HMM with binary aliased observations.
+\item Tight constants or the functional form of the
+  ceiling boundary $\ell_c(k)$.
+\item That the Bayes filter is optimal among all possible
+  memory-carrying agents.
+\end{enumerate}
+
+\paragraph{Reproducibility.}
+The complete simulation is a self-contained Python script
+(\texttt{paper1\_markov\_ceiling\_demo.py}, ${\sim}\,560$
+lines, requiring only NumPy and Matplotlib) with fixed
+random seeds.  All figures in this section can be
+reproduced by executing the script.  The following files
+are included in the supplementary archive:
+\begin{itemize}
+\item \texttt{paper1\_markov\_ceiling\_demo.py} --- simulation script
+\item \texttt{fig\_paper1\_markov\_ceiling.pdf} --- Figure~\ref{fig:markov_ceiling}
+\item \texttt{markov\_ceiling\_data.csv} --- raw sweep data
+\item \texttt{markov\_ceiling\_boundary.csv} --- extracted
+  ceiling boundaries $\ell_c(k)$
+\end{itemize}
+
+% ============================================================
+\section{Discussion}
+\label{sec:discussion}
+
+\subsection{Summary of Results}
+
+\begin{center}
+\small
+\setlength{\tabcolsep}{4pt}%
+\begin{tabular}{@{}lp{7.5cm}c@{}}
+\toprule
+\textbf{Result} & \textbf{Statement} & \textbf{Sec.} \\
+\midrule
+Markovian Ceiling &
+  $\mathcal{S} \leq 0$ for open-loop GKSL (no feedback)
+  & \ref{sec:ceiling} \\[3pt]
+Memory Advantage &
+  $\beta\mathcal{S} = -\Delta I
+  - \Delta D_{\mathrm{KL}}
+  - \beta\Delta\langle H_{\mathrm{ctrl}}\rangle$;\;
+  $\mathcal{S} > 0$ when correlations consumed
+  (any initial state)
+  & \ref{sec:advantage} \\[3pt]
+Quantitative demo &
+  Spin-boson: $\beta\mathcal{S} \approx +0.093 > 0$
+  at first backflow revival (Fig.~\ref{fig:survival},
+  Table~\ref{tab:survey})
+  & \ref{sec:example} \\[3pt]
+Temporal Arrow &
+  $\prec_K \to \prec_{\mathrm{HAFF}}$ via quantum
+  Darwinism
+  & \ref{sec:arrow} \\[3pt]
+Memory Catastrophe &
+  $\dot{W}_{\mathrm{mem}} \geq k_BT\ln 2 \cdot h_\mu$;\;
+  exceeds budget at $t_{\mathrm{crit}}$
+  & \ref{sec:cost} \\[3pt]
+Numerical demo &
+  Markov ceiling reproduced in HMM
+  (Fig.~\ref{fig:markov_ceiling})
+  & \ref{sec:numerical} \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\subsection{What This Paper Does and Does Not Show}
+
+\textbf{This paper shows:}
+\begin{enumerate}
+\item Under open-loop GKSL dynamics (no measurement or feedback),
+  the survival functional $\mathcal{S} \leq 0$
+  (Theorem~\ref{thm:ceiling}).
+\item For any initial state (product or correlated), the
+  survival functional satisfies the exact identity
+  $\beta\,\mathcal{S} = -\Delta I(S{:}E)
+  - \Delta D_{\mathrm{KL}}(\rho_E \| \rho_E^{\mathrm{th}})
+  - \beta\,\Delta\langle H_{\mathrm{ctrl}}\rangle$
+  (Theorem~\ref{thm:advantage}).
+  Under autonomous evolution, when pre-existing
+  system--environment correlations are consumed
+  ($\Delta I < 0$), $\mathcal{S} > 0$ is achievable,
+  bounded by the initial correlation budget
+  (Corollary~\ref{cor:three_regimes}).
+\item A quantitative spin-boson example illustrates:
+  $\beta\,\mathcal{S} \approx +0.093 > 0$ at the first
+  non-Markovian revival (Section~\ref{sec:example}).
+\item The causal memory order $\prec_K$ is consistent with the
+  HAFF accessibility order when restricted to the classical
+  (pointer-state) sector
+  (Proposition~\ref{prop:HAFF_bridge}).
+\item The thermodynamic cost of memory, quantified by the
+  environment's entropy rate $h_\mu$, creates a survival
+  crisis for agents with finite energy budgets
+  (Proposition~\ref{thm:catastrophe}).
+\item A minimal computational demonstration reproduces the
+  Markov ceiling and memory advantage signatures in a
+  two-state HMM with aliased observations
+  (Section~\ref{sec:numerical},
+  Figure~\ref{fig:markov_ceiling}).
+\end{enumerate}
+
+\textbf{This paper does not show:}
+\begin{enumerate}
+\item That non-Markovian dynamics is \emph{sufficient} for
+  persistence (it is necessary but not sufficient;
+  Paper~II addresses the additional requirements).
+\item That \emph{all} non-Markovian systems outperform all
+  Markovian systems (the comparison is between suprema under
+  specified constraints).
+\item That Markovian agents with explicit measurement-feedback
+  are bounded by the ceiling (the Sagawa--Ueda framework shows
+  they are not; Remark~\ref{rem:open_loop}).
+\item That the specific form of the optimal memory kernel can be
+  derived from first principles without specifying the
+  environment.
+\item That memory implies or requires consciousness.
+\end{enumerate}
+
+% ============================================================
+% REFERENCES
+% ============================================================
+\begin{thebibliography}{99}
+
+\bibitem{BreuerPetruccione2002}
+H.-P.~Breuer and F.~Petruccione,
+\emph{The Theory of Open Quantum Systems},
+Oxford University Press (2002).
+
+\bibitem{Schrodinger1944}
+E.~Schr\"odinger,
+\emph{What is Life?},
+Cambridge University Press (1944).
+
+\bibitem{Lindblad1976}
+G.~Lindblad,
+\emph{On the generators of quantum dynamical semigroups},
+Commun.\ Math.\ Phys.\ \textbf{48}, 119 (1976).
+
+\bibitem{GKS1976}
+V.~Gorini, A.~Kossakowski, and E.~C.~G.~Sudarshan,
+\emph{Completely positive dynamical semigroups of $N$-level systems},
+J.\ Math.\ Phys.\ \textbf{17}, 821 (1976).
+
+\bibitem{Nakajima1958}
+S.~Nakajima,
+\emph{On quantum theory of transport phenomena},
+Prog.\ Theor.\ Phys.\ \textbf{20}, 948 (1958).
+
+\bibitem{Zwanzig1960}
+R.~Zwanzig,
+\emph{Ensemble method in the theory of irreversibility},
+J.\ Chem.\ Phys.\ \textbf{33}, 1338 (1960).
+
+\bibitem{SagawaUeda2010}
+T.~Sagawa and M.~Ueda,
+\emph{Generalized Jarzynski Equality under Nonequilibrium Feedback Control},
+Phys.\ Rev.\ Lett.\ \textbf{104}, 090602 (2010).
+
+\bibitem{SagawaUeda2012}
+T.~Sagawa and M.~Ueda,
+\emph{Fluctuation Theorem with Information Exchange},
+Phys.\ Rev.\ Lett.\ \textbf{109}, 180602 (2012).
+
+\bibitem{RivasHuelgaPlenio2014}
+\'{A}.~Rivas, S.~F.~Huelga, and M.~B.~Plenio,
+\emph{Quantum non-Markovianity: characterization, quantification and detection},
+Rep.\ Prog.\ Phys.\ \textbf{77}, 094001 (2014).
+
+\bibitem{Spohn1978}
+H.~Spohn,
+\emph{Entropy production for quantum dynamical semigroups},
+J.\ Math.\ Phys.\ \textbf{19}, 1227 (1978).
+
+\bibitem{BreuerLainePiilo2009}
+H.-P.~Breuer, E.-M.~Laine, and J.~Piilo,
+\emph{Measure for the Degree of Non-Markovian Behavior of Quantum Processes in Open Systems},
+Phys.\ Rev.\ Lett.\ \textbf{103}, 210401 (2009).
+
+\bibitem{EspositoLindenbergVandenBroeck2010}
+M.~Esposito, K.~Lindenberg, and C.~Van~den~Broeck,
+\emph{Entropy production as correlation between system and reservoir},
+New J.\ Phys.\ \textbf{12}, 013013 (2010).
+
+\bibitem{Zurek2009}
+W.~H.~Zurek,
+\emph{Quantum Darwinism},
+Nature Physics \textbf{5}, 181 (2009).
+
+\bibitem{CrutchfieldYoung1989}
+J.~P.~Crutchfield and K.~Young,
+\emph{Inferring statistical complexity},
+Phys.\ Rev.\ Lett.\ \textbf{63}, 105 (1989).
+
+\bibitem{ShaliziCrutchfield2001}
+C.~R.~Shalizi and J.~P.~Crutchfield,
+\emph{Computational mechanics: Pattern and prediction, structure and simplicity},
+J.\ Stat.\ Phys.\ \textbf{104}, 817 (2001).
+
+\bibitem{BialekNemenmanTishby2001}
+W.~Bialek, I.~Nemenman, and N.~Tishby,
+\emph{Predictability, complexity, and learning},
+Neural Computation \textbf{13}, 2409 (2001).
+
+\bibitem{Liu2026HAFF_A}
+S.~Liu,
+\emph{Emergent Geometry from Coarse-Grained Observable Algebras},
+Zenodo (2026), DOI: 10.5281/zenodo.18361707.
+
+\bibitem{Liu2026HAFF_B}
+S.~Liu,
+\emph{Accessibility, Stability, and Emergent Geometry},
+Zenodo (2026), DOI: 10.5281/zenodo.18367061.
+
+\bibitem{Liu2026HAFF_C}
+S.~Liu,
+\emph{Causation, Agency, and Existence},
+Zenodo (2026), DOI: 10.5281/zenodo.18391651.
+
+\bibitem{Liu2026HAFF_F}
+S.~Liu,
+\emph{Temporal Asymmetry as Accessibility Propagation},
+Zenodo (2026), DOI: 10.5281/zenodo.18417099.
+
+\bibitem{Liu2026QRAIF_A}
+S.~Liu,
+\emph{Algebraic Constraints on the Emergence of Lorentzian Metrics in Entropic Gravity Frameworks},
+Zenodo (2026), DOI: 10.5281/zenodo.18525877.
+
+\bibitem{Liu2026QRAIF_B}
+S.~Liu,
+\emph{Thermodynamic Stability Constraints on the Operator Algebra of Persistent Open Quantum Subsystems},
+Zenodo (2026), DOI: 10.5281/zenodo.18525891.
+
+\end{thebibliography}
+
+\end{document}

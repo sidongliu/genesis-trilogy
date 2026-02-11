@@ -1,0 +1,405 @@
+\documentclass[12pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{physics}
+\usepackage{booktabs}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{corollary}[theorem]{Corollary}
+
+\title{Algebraic Constraints on the Emergence of Lorentzian Metrics\\
+in Entropic Gravity Frameworks}
+
+\author{Sidong Liu, PhD \\
+\small iBioStratix Ltd \\
+\small \texttt{sidongliu@hotmail.com}}
+
+\date{8th February 2026}
+
+\begin{document}
+\maketitle
+
+% ============================================================
+\begin{abstract}
+We investigate the algebraic conditions under which an emergent bulk geometry acquires a Lorentzian signature within the framework of entropic gravity.
+While thermodynamic approaches to gravity~\cite{Jacobson1995,Verlinde2011} and the Ryu--Takayanagi formula~\cite{RyuTakayanagi2006} relate entanglement entropy to geometric data, the specific algebraic mechanism constraining the spacetime signature remains an open question.
+
+We identify three independent constraints on the boundary algebra---associativity, metric compatibility, and causal channel encoding---and argue that their simultaneous satisfaction naturally selects a \textbf{Clifford algebra} $Cl(V,q)$ as the minimal compatible structure.
+We support this claim by systematically examining alternative algebraic frameworks (von Neumann factors, $C^*$-algebras, Jordan algebras, Lie algebras) and demonstrating that each fails to satisfy at least one constraint.
+A worked example using a qubit tensor network illustrates how the three constraints operate in a concrete setting.
+
+The analysis complements the Holographic Alaya-Field Framework (HAFF)~\cite{Liu2026PaperA,Liu2026PaperB}, which establishes that geometry emerges from coarse-graining of observable algebras: the present work characterizes the algebraic constraints that any such emergent geometry must satisfy to be Lorentzian.
+
+\medskip
+\noindent\textbf{Keywords}: emergent geometry, Clifford algebra, entropic gravity, holographic principle, signature selection, algebraic quantum gravity
+\end{abstract}
+
+% ============================================================
+\section{Introduction}
+\label{sec:intro}
+
+\subsection{Context and Motivation}
+
+The AdS/CFT correspondence~\cite{Maldacena1999} and the Ryu--Takayanagi formula~\cite{RyuTakayanagi2006} have established that spacetime geometry can be viewed as an emergent property of quantum entanglement.
+Thermodynamic approaches~\cite{Jacobson1995,Verlinde2011} further suggest that the Einstein equations arise as an equation of state.
+Yet a critical question remains: \textit{What algebraic constraints ensure that the emergent geometry is Lorentzian?}
+
+Most models assume the $(1,3)$ signature \textit{a priori}.
+We argue that this assumption can be partially justified by examining the algebraic consistency conditions on the boundary degrees of freedom.
+
+\subsection{Relation to HAFF}
+
+The Holographic Alaya-Field Framework~\cite{Liu2026PaperA,Liu2026PaperB} demonstrates that inequivalent coarse-graining structures on a global quantum state induce inequivalent emergent geometries.
+HAFF establishes \emph{that} geometry emerges from observable algebras; the present work addresses \emph{what algebraic constraints} such emergent geometry must satisfy to be Lorentzian.
+
+\begin{center}
+\begin{tabular}{ll}
+\textbf{HAFF} & Geometry is coarse-graining-dependent (the ``ocean'') \\
+\textbf{This paper} & Lorentzian signature is algebraically constrained (the ``water'')
+\end{tabular}
+\end{center}
+
+\subsection{Scope and Disclaimers}
+
+This work does not propose a new fundamental theory of gravity, nor does it claim to derive $Cl(1,3)$ from first principles alone.
+Rather, it identifies a set of physically motivated algebraic constraints and argues that Clifford algebra is the minimal structure satisfying all of them simultaneously.
+The argument is presented as a \emph{consistency analysis}, not a uniqueness proof.
+
+The specific value $(1,3)$ for the signature requires additional input beyond the algebraic constraints developed here (e.g., observational dimensionality or anomaly cancellation arguments).
+We do not address why spacetime has $3+1$ dimensions.
+
+% ============================================================
+\section{Candidate Algebraic Structures}
+\label{sec:candidates}
+
+Before deriving constraints, we survey the landscape of algebraic structures that could, in principle, describe boundary degrees of freedom in a holographic setting.
+This survey serves as the basis for the exclusion argument in Section~\ref{sec:exclusion}.
+
+\begin{definition}[Boundary Algebra]
+Let $\mathcal{A}_\partial$ be the algebra of observables on a holographic boundary.
+We require: (a)~$\mathcal{A}_\partial$ acts faithfully on $\mathcal{H}_\partial$; (b)~$\mathcal{A}_\partial$ admits a trace compatible with the holographic entropy bound; (c)~coarse-graining of $\mathcal{A}_\partial$ induces an effective bulk description.
+\end{definition}
+
+The following algebraic families are candidates:
+
+\begin{enumerate}
+\item \textbf{von Neumann algebras} (Type I, II, III): Associative, closed under adjoint, weakly closed. Standard in algebraic QFT~\cite{Haag1996}. Type~III$_1$ factors are generic in relativistic QFT.
+\item \textbf{$C^*$-algebras}: Associative Banach algebras with involution. More general than von Neumann algebras. Standard framework for quantum observables.
+\item \textbf{Lie algebras}: Antisymmetric bracket $[A,B] = -[B,A]$, satisfying the Jacobi identity. Encode infinitesimal symmetries. The universal enveloping algebra is associative.
+\item \textbf{Jordan algebras}: Commutative but generally non-associative: $A \circ B = B \circ A$, satisfying the Jordan identity. Proposed for quantum mechanics by Jordan, von Neumann, and Wigner (1934).
+\item \textbf{Octonion algebras}: Non-associative division algebra. Explored in the context of exceptional structures in string theory~\cite{Gunaydin1973}.
+\item \textbf{Clifford algebras} $Cl(V,q)$: Associative, generated by a vector space $V$ with quadratic form $q$, subject to $v^2 = q(v)\mathbf{1}$. Encode both metric and algebraic structure~\cite{Hestenes1966,Doran2003}.
+\end{enumerate}
+
+% ============================================================
+\section{Three Algebraic Constraints}
+\label{sec:constraints}
+
+We now derive three constraints from physically motivated requirements and examine which candidate algebras survive.
+
+\subsection{Constraint I: Associativity}
+
+\begin{lemma}[Associativity from Compositional Consistency]
+\label{lem:assoc}
+If the boundary algebra supports well-defined time evolution (evolution operators forming a semigroup), it must be associative.
+\end{lemma}
+
+\begin{proof}
+The semigroup property requires $(U(t_1)U(t_2))U(t_3) = U(t_1)(U(t_2)U(t_3))$ for all $t_i \geq 0$.
+In a non-associative algebra, different bracketings of $n$ sequential operations produce $C_n \sim 4^n / n^{3/2}$ distinct results (Catalan numbers), generating uncontrolled ambiguity that grows exponentially with the number of time steps.
+
+We note that this constraint is automatically satisfied by operator algebras on Hilbert spaces, where composition of linear maps is inherently associative.
+The constraint therefore functions as a \emph{structural boundary condition}: it delineates the algebraic regime in which consistent dynamics is possible, rather than excluding a plausible physical alternative.
+For analysis of non-associative dynamics and their instabilities, see~\cite{Schafer1966,Gunaydin1973}.
+\end{proof}
+
+\textbf{Exclusions}: Jordan algebras and octonion algebras are non-associative and are excluded by Constraint~I.
+
+\subsection{Constraint II: Metric Compatibility}
+\label{sec:constraint2}
+
+\begin{lemma}[Non-Degenerate Bilinear Form from Holographic Error Correction]
+\label{lem:metric}
+For the boundary algebra to support error correction compatible with holographic bulk reconstruction, a non-degenerate bilinear form must be available on the space of boundary operators.
+\end{lemma}
+
+\begin{proof}
+Error correction in the holographic context requires quantifying the ``distance'' between the actual boundary state and the target code subspace.
+This requires a Lyapunov-type function $V(\delta\rho) \geq 0$ with $\dot{V} < 0$ under the correction protocol, which in turn requires a gradient flow:
+\begin{equation}
+\dot{\lambda} = -\Gamma\, G^{-1} \nabla_\lambda V,
+\end{equation}
+where $G$ is a metric on the parameter manifold of boundary states.
+
+\textbf{Important distinction}: The metric $G$ appearing here is an \emph{information-geometric} metric on the space of boundary states (analogous to the Fisher--Rao metric~\cite{Petz1996}), not the emergent spacetime metric $g_{\mu\nu}$.
+However, recent results in holographic entanglement~\cite{Faulkner2014,Lashkari2014} establish that linearized perturbations of the bulk metric $\delta g_{\mu\nu}$ are encoded in the boundary modular Hamiltonian and its associated Fisher information.
+Specifically, the quantum-corrected Ryu--Takayanagi formula~\cite{Faulkner2014} implies:
+\begin{equation}
+\delta S_A = \delta \langle K_A \rangle + \delta S_{\text{bulk}},
+\end{equation}
+where $K_A$ is the boundary modular Hamiltonian and $S_A$ is the boundary entanglement entropy.
+The structure of $G_{\text{info}}$ on the boundary therefore constrains the structure of $g_{\mu\nu}$ in the bulk.
+
+The requirement is thus that the boundary algebra carries a non-degenerate bilinear form compatible with this holographic encoding.
+Standard quantum-state metrics (Bures, Fisher--Rao) are positive-definite and satisfy non-degeneracy, but they do not encode signature information (see Constraint~III).
+\end{proof}
+
+\textbf{Exclusions}: Lie algebras carry a Killing form, but it may be degenerate (for non-semisimple algebras) and does not naturally encode a quadratic form on the generating vector space.
+General $C^*$-algebras and von Neumann algebras support multiple choices of metric (Bures, Hilbert--Schmidt, etc.) but none is canonically ``built in'' to the algebraic structure itself.
+
+\subsection{Constraint III: Causal Channel Encoding}
+
+\begin{lemma}[Indefinite Signature from Causality]
+\label{lem:signature}
+For the emergent geometry to distinguish time-like from space-like separation, the bilinear form must have indefinite signature $(p,q)$ with $p \geq 1$, $q \geq 1$.
+\end{lemma}
+
+\begin{proof}
+A positive-definite metric treats all directions identically---no causal cone structure exists.
+Distinguishing causal from acausal domains requires at least one time-like and one space-like direction, hence indefinite signature.
+
+We emphasize that this constraint does not determine the specific values of $p$ and $q$.
+The identification $(p,q) = (1,3)$ requires additional input: the observational dimensionality of macroscopic spacetime.
+The present argument establishes only that indefiniteness is necessary for causality, not that $(1,3)$ is the unique solution.
+\end{proof}
+
+\textbf{Exclusions}: All positive-definite metrics (including standard Bures and Fisher--Rao on quantum state spaces) fail Constraint~III.
+This is the constraint that separates Clifford algebras (which carry a built-in quadratic form of arbitrary signature) from generic associative algebras with positive-definite metrics.
+
+% ============================================================
+\subsection{Exclusion of Alternative Algebras}
+\label{sec:exclusion}
+
+We now systematically evaluate each candidate from Section~\ref{sec:candidates}:
+
+\begin{table}[h]
+\centering
+\begin{tabular}{@{}lcccl@{}}
+\toprule
+\textbf{Algebra} & \textbf{I: Assoc.} & \textbf{II: Metric} & \textbf{III: Indef.} & \textbf{Status} \\
+\midrule
+von Neumann (Type III$_1$) & \checkmark & $\sim$ & $\times$ & No built-in signature \\
+$C^*$-algebra (general) & \checkmark & $\sim$ & $\times$ & Metric not canonical \\
+Lie algebra & \checkmark$^*$ & $\times$ & --- & No quadratic form \\
+Jordan algebra & $\times$ & \checkmark & --- & Non-associative \\
+Octonion algebra & $\times$ & \checkmark & --- & Non-associative \\
+\textbf{Clifford} $Cl(V,q)$ & \checkmark & \checkmark & \checkmark & \textbf{All satisfied} \\
+\bottomrule
+\end{tabular}
+\caption{Evaluation of candidate algebras against three constraints.
+$\checkmark$: satisfied; $\times$: violated; $\sim$: partially satisfied (metric exists but is not built-in or canonical).
+$^*$Lie algebras are not associative, but their universal enveloping algebras are.}
+\label{tab:exclusion}
+\end{table}
+
+The key observation is that Clifford algebras are distinguished by having the quadratic form $q$ \emph{built into} the algebraic structure via the defining relation $v^2 = q(v)\mathbf{1}$.
+Other associative algebras (von Neumann, $C^*$) can be \emph{equipped with} metrics, but do not carry a canonical one; the metric is an additional choice external to the algebra.
+In the holographic context, where the boundary algebra must encode bulk metric information, this built-in feature becomes a substantive advantage rather than a mere convenience.
+
+% ============================================================
+\subsection{Worked Example: Qubit Tensor Network}
+\label{sec:toymodel}
+
+To illustrate how the three constraints operate concretely, consider a tensor network model of holographic bulk reconstruction.
+
+\paragraph{Setup.}
+Take $N$ qubits arranged on a MERA (multiscale entanglement renormalization ansatz) tensor network~\cite{Swingle2012,Vidal2008}.
+The boundary algebra is generated by tensor products of Pauli operators $\{\sigma_x, \sigma_y, \sigma_z\}$ acting on individual qubits.
+
+\paragraph{Constraint I.}
+The Pauli algebra is associative (it consists of $2 \times 2$ matrices).
+If we were to replace the Pauli operators with elements of an octonion algebra (which is non-associative), the isometry conditions defining the MERA network---specifically, $V^\dagger V = \mathbf{1}$, which requires associative composition---would fail.
+
+\paragraph{Constraint II.}
+The Pauli operators satisfy $\{\sigma_i, \sigma_j\} = 2\delta_{ij}\mathbf{1}$, which defines a \emph{positive-definite} quadratic form.
+This is the Clifford algebra $Cl(3,0)$ (or equivalently $Cl(0,3)$, since $Cl(3,0) \cong Cl(0,3)$ as algebras over $\mathbb{R}$).
+The quadratic form is built into the anticommutation relation.
+
+\paragraph{Constraint III.}
+The Pauli algebra alone encodes a Euclidean signature $(3,0)$.
+To obtain a Lorentzian signature, we must introduce a distinguished direction corresponding to the modular Hamiltonian $K$, which generates modular flow (the boundary analog of time evolution in the bulk).
+The extended algebra $\{i K, \sigma_x, \sigma_y, \sigma_z\}$ then satisfies anticommutation relations encoding signature $(1,3)$:
+\begin{equation}
+(iK)^2 = -\mathbf{1}, \qquad \sigma_i^2 = +\mathbf{1}, \qquad \{iK, \sigma_i\} = 0.
+\end{equation}
+This is precisely $Cl(1,3)$.
+
+\paragraph{Lesson.}
+The tensor network example illustrates how associativity (isometry conditions), built-in metric (Pauli anticommutation), and indefinite signature (modular flow direction) naturally combine to produce Clifford structure in a concrete holographic model.
+
+% ============================================================
+\subsection{The Algebraic Compatibility Theorem}
+
+\begin{theorem}[Clifford Compatibility]
+\label{thm:selection}
+Among finitely-generated associative algebras over a vector space $V$ equipped with a non-degenerate quadratic form $q$, the Clifford algebra $Cl(V,q)$ is the universal (and hence minimal) such structure, by its universal property.
+\end{theorem}
+
+\begin{proof}
+Constraint~I requires associativity; Constraint~II requires a non-degenerate quadratic form on the generating space; Constraint~III requires indefinite signature.
+The universal property of Clifford algebras~\cite{Hestenes1966,Doran2003} states that $Cl(V,q)$ is the unique (up to isomorphism) associative algebra generated by $V$ subject to $v^2 = q(v)\mathbf{1}$.
+Any other associative algebra satisfying these constraints contains $Cl(V,q)$ as a subalgebra (or quotient), making Clifford the minimal compatible structure.
+\end{proof}
+
+\begin{remark}[Scope of the Claim]
+Theorem~\ref{thm:selection} is a statement about \emph{algebraic compatibility}, not physical uniqueness.
+It asserts that Clifford algebra is the natural minimal framework for encoding the three constraints simultaneously.
+It does not exclude larger structures, nor does it claim that physics \emph{must} use the minimal option.
+The theorem should be understood as identifying an algebraic bottleneck rather than deriving a unique physical theory.
+\end{remark}
+
+% ============================================================
+\section{Entropic Gravity from Algebraic Structure}
+\label{sec:entropic}
+
+\subsection{Holographic Screen and Einstein Equations}
+
+Following Jacobson~\cite{Jacobson1995}, the entropic force $F = T \nabla S$ and the holographic entropy bound $S \leq A / 4G$ reproduce the Einstein field equations in the thermodynamic limit.
+This derivation assumes local Lorentz invariance---a condition naturally satisfied when the boundary algebra is Clifford-compatible, since $Cl(1,3)$ contains $\mathrm{Spin}(1,3)$ (the double cover of the Lorentz group) as its even subalgebra.
+
+\subsection{Relation to HAFF Emergence Chain}
+
+Within HAFF, geometry emerges via:
+\[
+\text{Observable Algebra} \to \text{Representation} \to \text{Entanglement} \to \text{Connectivity} \to \text{Geometry}
+\]
+The present work adds a constraint on the final arrow: among geometrically admissible coarse-grainings~\cite{Liu2026PaperA}, those producing Lorentzian geometry must induce effective algebras compatible with $Cl(1,3)$.
+
+\subsection{Relation to Algebraic QFT}
+\label{sec:aqft}
+
+In algebraic quantum field theory (AQFT)~\cite{Haag1996}, local observable algebras associated with spacetime regions are generically Type~III$_1$ von Neumann factors.
+These algebras are associative and support rich mathematical structure, but they do not carry a canonical metric of indefinite signature.
+
+The connection to Lorentzian structure emerges through the Tomita--Takesaki theorem: for any cyclic and separating state, the modular operator $\Delta$ generates a one-parameter group (modular flow) that, in the Bisognano--Wichmann theorem, coincides with the boost generator in Rindler spacetime.
+This modular flow singles out a \emph{time-like direction} within the algebraic structure.
+
+In the HAFF framework, the accessible algebra $\mathcal{A}_{\mathbf{c}}$ can be understood as a stable subalgebra of a Type~III$_1$ factor.
+The present analysis suggests that when such a subalgebra supports a Lorentzian bulk description, it must admit a $Cl(1,3)$ representation---where the modular flow direction provides the time-like generator and spatial locality provides the space-like generators.
+
+This perspective connects the present work to Witten's observation~\cite{Witten2018} that Type~III$_1$ algebras are essential in gravitational settings, and to Connes' noncommutative geometry program~\cite{Connes1994}, where Clifford algebras play a central role in the spectral characterization of Riemannian (and pseudo-Riemannian) manifolds.
+
+% ============================================================
+\section{Discussion}
+\label{sec:discussion}
+
+\subsection{What This Result Does and Does Not Show}
+
+\textbf{Does show:}
+Clifford algebra is the minimal algebraic structure simultaneously satisfying associativity, metric compatibility, and causal channel encoding.
+The exclusion argument (Table~\ref{tab:exclusion}) demonstrates that alternative algebras fail at least one constraint.
+The tensor network example (Section~\ref{sec:toymodel}) illustrates the constraints in a concrete model.
+
+\textbf{Does not show:}
+Why $3+1$ dimensions rather than some other $(p,q)$---the argument constrains to $Cl(p,q)$ for any $p \geq 1$; the value $(1,3)$ requires additional input.
+That gravity \emph{is} entropic---we derive consistency conditions within the entropic gravity framework.
+That $Cl(1,3)$ is the \emph{unique} boundary algebra---larger algebras containing $Cl(1,3)$ as a subalgebra are also compatible.
+A complete theory of quantum gravity.
+
+\subsection{Convergence with Paper B}
+
+The companion paper~\cite{Liu2026QRAIF_B} arrives at $Cl(V,q)$ from a completely different direction: thermodynamic stability of persistent open quantum subsystems.
+
+\begin{center}
+\begin{tabular}{@{}lll@{}}
+\toprule
+& \textbf{Paper A (this work)} & \textbf{Paper B} \\
+\midrule
+Question & What algebra does geometry need? & What algebra does persistence need? \\
+Method & Holographic consistency & Lyapunov stability \\
+Perspective & The world (``ocean'') & The subsystem (``fish'') \\
+Result & $Cl(1,3)$ from signature & $Cl(V,q)$ from error stability \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+We note that this convergence is \emph{heuristic rather than deductive}: it suggests that Clifford algebra occupies a distinguished position in the landscape of emergent algebraic structures, but does not constitute a proof.
+The convergence motivates further investigation, particularly through more elaborate models and deeper connections to established algebraic frameworks.
+
+\subsection{Open Problems}
+
+\begin{enumerate}
+\item \textbf{Dimensionality}: What additional constraints (anomaly cancellation, stability of persistent subsystems, observational input) fix $(p,q) = (1,3)$?
+\item \textbf{Constructive derivation}: Can Clifford generators be explicitly constructed from modular Hamiltonians or Tomita--Takesaki data in holographic models?
+\item \textbf{Relation to noncommutative geometry}: How does the present analysis connect to Connes' spectral triples, where Clifford algebras characterize the Dirac operator?
+\item \textbf{Tensor network realization}: Can the qubit toy model of Section~\ref{sec:toymodel} be made rigorous in the context of holographic error-correcting codes?
+\end{enumerate}
+
+% ============================================================
+\section{Conclusion}
+
+We have argued that the Lorentzian metric structure in entropic gravity frameworks is algebraically constrained by three independent requirements: associativity, metric compatibility (with holographic encoding), and indefinite signature.
+A systematic exclusion of alternative algebras (von Neumann, $C^*$, Jordan, Lie, octonion) shows that Clifford algebra $Cl(V,q)$ is the minimal structure satisfying all three simultaneously.
+
+This result connects the top-down perspective of HAFF (geometry emerges from observable algebras) with bottom-up algebraic constraints (any causal geometry must be Clifford-compatible).
+It does not constitute a derivation of Lorentzian gravity from first principles, but identifies an algebraic bottleneck through which any emergent causal geometry must pass.
+
+% ============================================================
+\begin{thebibliography}{99}
+
+\bibitem{Maldacena1999}
+J.~M.~Maldacena, \emph{The Large N limit of superconformal field theories and supergravity}, Int.\ J.\ Theor.\ Phys.\ \textbf{38}, 1113 (1999).
+
+\bibitem{RyuTakayanagi2006}
+S.~Ryu and T.~Takayanagi, \emph{Holographic Derivation of Entanglement Entropy from AdS/CFT}, Phys.\ Rev.\ Lett.\ \textbf{96}, 181602 (2006).
+
+\bibitem{Verlinde2011}
+E.~Verlinde, \emph{On the Origin of Gravity and the Laws of Newton}, JHEP \textbf{04}, 029 (2011).
+
+\bibitem{Jacobson1995}
+T.~Jacobson, \emph{Thermodynamics of Spacetime: The Einstein Equation of State}, Phys.\ Rev.\ Lett.\ \textbf{75}, 1260 (1995).
+
+\bibitem{Hestenes1966}
+D.~Hestenes, \emph{Space-Time Algebra}, Gordon and Breach (1966).
+
+\bibitem{Doran2003}
+C.~Doran and A.~Lasenby, \emph{Geometric Algebra for Physicists}, Cambridge University Press (2003).
+
+\bibitem{Haag1996}
+R.~Haag, \emph{Local Quantum Physics: Fields, Particles, Algebras}, Springer-Verlag (1996).
+
+\bibitem{Connes1994}
+A.~Connes, \emph{Noncommutative Geometry}, Academic Press (1994).
+
+\bibitem{Faulkner2014}
+T.~Faulkner, M.~Guica, T.~Hartman, R.~C.~Myers, and M.~Van~Raamsdonk, \emph{Gravitation from Entanglement in Holographic CFTs}, JHEP \textbf{03}, 051 (2014).
+
+\bibitem{Lashkari2014}
+N.~Lashkari, M.~B.~McDermott, and M.~Van~Raamsdonk, \emph{Gravitational dynamics from entanglement ``thermodynamics''}, JHEP \textbf{04}, 195 (2014).
+
+\bibitem{Witten2018}
+E.~Witten, \emph{APS Medal for Exceptional Achievement in Research: Invited article on entanglement properties of quantum field theory}, Rev.\ Mod.\ Phys.\ \textbf{90}, 045003 (2018).
+
+\bibitem{Petz1996}
+D.~Petz, \emph{Monotone metrics on matrix spaces}, Linear Algebra Appl.\ \textbf{244}, 81 (1996).
+
+\bibitem{Schafer1966}
+R.~D.~Schafer, \emph{An Introduction to Nonassociative Algebras}, Academic Press (1966).
+
+\bibitem{Gunaydin1973}
+M.~G\"unaydin and F.~G\"ursey, \emph{Quark structure and octonions}, J.\ Math.\ Phys.\ \textbf{14}, 1651 (1973).
+
+\bibitem{Swingle2012}
+B.~Swingle, \emph{Entanglement Renormalization and Holography}, Phys.\ Rev.\ D \textbf{86}, 065007 (2012).
+
+\bibitem{Vidal2008}
+G.~Vidal, \emph{Class of quantum many-body states that can be efficiently simulated}, Phys.\ Rev.\ Lett.\ \textbf{101}, 110501 (2008).
+
+\bibitem{Liu2026PaperA}
+S.~Liu, \emph{Emergent Geometry from Coarse-Grained Observable Algebras: The Holographic Alaya-Field Framework}, Zenodo (2026), DOI: 10.5281/zenodo.18361707.
+
+\bibitem{Liu2026PaperB}
+S.~Liu, \emph{Accessibility, Stability, and Emergent Geometry: Conceptual Clarifications on the Holographic Alaya-Field Framework}, Zenodo (2026), DOI: 10.5281/zenodo.18367061.
+
+\bibitem{Liu2026QRAIF_B}
+S.~Liu, \emph{Thermodynamic Stability Constraints on the Operator Algebra of Persistent Open Quantum Subsystems}, Zenodo (2026), DOI: 10.5281/zenodo.18525891.
+
+\end{thebibliography}
+
+\end{document}

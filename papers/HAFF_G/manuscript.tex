@@ -1,0 +1,354 @@
+% Paper G: Structural Limits of Unification
+% Layer III: Accessibility, Incompleteness, and the Necessity of a Final Cut
+% COMPLETE VERSION — Final Draft
+
+\documentclass[12pt,a4paper]{article}
+\usepackage{amsmath,amssymb,amsfonts,amsthm}
+\usepackage{physics}
+\usepackage{hyperref}
+\usepackage{geometry}
+\usepackage{array}
+\usepackage{booktabs}
+\geometry{margin=1in}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{remark}[theorem]{Remark}
+
+\title{Structural Limits of Unification:\\
+Accessibility, Incompleteness, and the Necessity of a Final Cut}
+
+\author{
+  Sidong Liu, PhD \\
+  iBioStratix Ltd \\
+  \texttt{sidongliu@hotmail.com}
+}
+
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+This paper examines the structural conditions under which a unificatory physical framework must terminate its explanatory extension. Building on recent work demonstrating that gravitational phenomena, measurement outcomes, and temporal asymmetries can be jointly reframed as consequences of accessible observable algebra selection, we argue that such frameworks cannot be simultaneously complete and self-grounding. The incompleteness identified here is neither formal (in the G\"{o}del--Turing sense) nor epistemic, but architectural: it arises from the non-self-grounding character of accessibility-based physical description. We establish a structural lemma showing that any attempt to internalize accessibility conditions within the framework they enable leads to either infinite regress or explanatory collapse. The stopping point identified is therefore not discretionary but forced by the framework's own explanatory architecture. This analysis does not claim generality beyond the specific formalism developed; whether alternative approaches would encounter analogous limits remains an open question. The contribution is methodological: to articulate the conditions under which recognizing structural boundaries becomes a requirement of explanatory coherence rather than an admission of incompleteness.
+\end{abstract}
+
+\section{Introduction}
+\label{sec:intro}
+
+\subsection{The Expectation of Completeness}
+
+The aspiration toward a unified physical description has historically been guided by the expectation that deeper unification corresponds to increased completeness. In this traditional view, apparent multiplicity---of forces, degrees of freedom, or explanatory principles---is taken to signal provisional fragmentation, to be resolved by a more fundamental theory. A Theory of Everything, in its strongest formulation, is therefore often assumed to be both unifying and self-grounding: it should not only subsume all known interactions under a single framework, but also account for the conditions under which its own descriptions are possible.
+
+The present work does not adopt this expectation. Instead, it advances a more restricted claim: that unification may be achievable only up to a structurally imposed boundary, beyond which further explanatory extension would undermine the coherence of the framework itself. This claim does not arise from epistemic modesty, nor from skepticism regarding the scope of physical explanation, but from the internal architecture of the formalism developed in the preceding papers of this series \cite{Liu2026PaperA,Liu2026PaperB,Liu2026PaperC,Liu2026PaperD,Liu2026PaperE,Liu2026PaperF}, which builds on foundational observations regarding the non-uniqueness of tensor factorizations \cite{Zanardi2001,Zanardi2004}.
+
+\subsection{Summary of the Preceding Framework}
+
+Across Papers D--F, gravitational phenomena, measurement outcomes, and temporal asymmetries are jointly reframed as consequences of structural selection: specifically, the selection of accessible observable algebras and associated coarse-grainings. No new fundamental entities are postulated, and no modification of underlying dynamics is proposed. Rather, phenomena traditionally treated as primitive are shown to emerge from constraints on how physical descriptions are stably instantiated.
+
+\begin{itemize}
+    \item \textbf{Paper D}: Gravitational dynamics corresponds to the adiabatic flow of the accessible algebra $\mathcal{A}_{\mathbf{c}}(t)$, not to a force operating within a fixed algebra.
+    \item \textbf{Paper E}: Measurement is not a primitive process but a manifestation of accessibility constraints on operator algebras---specifically, the selection of observables satisfying interaction, stability, and redundancy criteria.
+    \item \textbf{Paper F}: Temporal directionality is identified with the direction of irreversible accessibility propagation, grounded in the asymmetric expansion of redundant environmental records.
+\end{itemize}
+
+These results share a common structure: each phenomenon is traced to accessibility conditions rather than to fundamental ontology. This constitutes a genuine unification at the level of explanatory architecture.
+
+\subsection{The Problem of Self-Grounding}
+
+However, this reframing has a nontrivial implication. If the explanatory power of the framework depends essentially on restrictions---on what is accessible, stable, and non-scrambling---then unification cannot consist in the removal of all such restrictions. To do so would be to erase the very conditions that render physical description meaningful. Unification, in this sense, cannot be both total and self-enclosed.
+
+The unifying move, therefore, is not a convergence toward an all-encompassing description, but a clarification of how far structural explanation can be coherently extended before it becomes reflexive. The aim of this final layer is to articulate that stopping point and to demonstrate that it is structurally forced rather than pragmatically chosen.
+
+\subsection{Scope and Limitations}
+
+Several clarifications are necessary at the outset.
+
+First, the incompleteness identified in this paper is not formal in the sense of G\"{o}del's incompleteness theorems. We do not claim that the framework contains undecidable propositions within a formal system, nor do we invoke metamathematical results. The incompleteness is \emph{architectural}: it concerns the explanatory roles within a physical framework, not provability within a formal calculus.
+
+Second, we do not claim that the structural limits identified here apply universally to all conceivable approaches to unification. The present analysis is confined to the algebraic and coarse-graining-based framework developed in Papers A--F. Whether alternative formalisms---category-theoretic, non-algebraic, or radically background-free---would exhibit analogous limits is an open question that we do not address.
+
+Third, the stopping point identified is not temporal, existential, or normative. It does not mark the end of physics, nor a claim about the limits of human knowledge. It marks the point at which the framework's internal explanatory resources are exhausted without circularity.
+
+\subsection{Structure of the Paper}
+
+Section~\ref{sec:accessibility} develops the notion of accessibility as a non-global structural constraint and clarifies its distinction from epistemic limitations. Section~\ref{sec:lemma} establishes a structural lemma demonstrating that accessibility-based descriptions cannot be self-grounding without collapse or regress. Section~\ref{sec:collapse} presents a concrete collapse scenario illustrating what would occur if the framework were extended beyond its structural boundary. Section~\ref{sec:cut} characterizes the final cut as a forced stopping point rather than a discretionary choice. Section~\ref{sec:nonclaims} states explicit non-claims to prevent misinterpretation. Section~\ref{sec:conclusion} concludes with reflections on the methodological significance of the analysis.
+
+\section{Accessibility as a Non-Global Constraint}
+\label{sec:accessibility}
+
+\subsection{The Role of Accessibility in HAFF}
+
+Central to the HAFF framework is the notion of accessibility. Physical descriptions are not formulated over the full algebra of global observables, but over restricted subalgebras determined by interaction structure, dynamical stability, and environmental redundancy. These restrictions are not introduced as pragmatic simplifications, nor as reflections of limited knowledge. They are constitutive of what counts as a well-defined physical description in the first place.
+
+In Papers D--F, this point is developed across distinct domains:
+
+\begin{itemize}
+    \item Effective geometry is shown to depend on coarse-grainings that preserve entanglement structure over relevant timescales.
+    \item Measurement outcomes are shown to arise from dynamically stable partitions that resist rapid scrambling.
+    \item Temporal directionality is associated with asymmetric information flow under constrained interactions.
+\end{itemize}
+
+In each case, the phenomenon under consideration becomes intelligible only relative to a selected accessible algebra.
+
+\subsection{Structural vs.\ Epistemic Constraints}
+
+A crucial distinction must be drawn between epistemic and structural constraints. This distinction is contested in philosophy of physics, and we acknowledge that what follows adopts it as a working criterion rather than a demonstrated result.
+
+\begin{definition}[Epistemic Constraint]
+A constraint is \textbf{epistemic} if it concerns what can be known, inferred, or verified by agents, given their informational position.
+\end{definition}
+
+\begin{definition}[Structural Constraint]
+A constraint is \textbf{structural} if it concerns what descriptions are well-defined, given a pattern of physical interactions, independent of any agent's knowledge or epistemic state.
+\end{definition}
+
+The HAFF framework relies exclusively on the latter notion. Accessibility is determined by stability criteria---dynamical invariance, environmental redundancy (quantum Darwinism), and non-scrambling behavior---that are properties of the Hamiltonian and the global quantum state, not of observers.
+
+Crucially, the selection of an accessible algebra is not arbitrary. Given a fixed interaction structure, different agents---or no agents at all---will identify the same accessible observables. This is the sense in which accessibility is structural rather than epistemic: it is interaction-determined, not belief-determined.
+
+\begin{remark}[Contested Distinction]
+We acknowledge that this distinction between epistemic and structural constraints is philosophically contested. The framework does not claim to have resolved this broader debate. However, the burden of argument lies with the critic to demonstrate that the stability criteria invoked in Papers A--F reduce to epistemic conditions, rather than with the framework to prove a negative. The working distinction is adopted on the grounds that interaction-determined constraints are conceptually prior to agent-relative knowledge.
+\end{remark}
+
+\subsection{Non-Globality of Accessibility}
+
+Accessibility is not a global property of the underlying theory. There is no privileged, all-encompassing accessible algebra from which all others can be derived. Each effective description presupposes its own restrictions, and those restrictions cannot be fully specified from within the description they enable.
+
+This asymmetry is decisive. Any attempt to internalize the conditions of accessibility would require a further level of description, governed by its own accessibility conditions. The implications of this observation are developed in the following section.
+
+\section{A Structural Lemma on Self-Grounding}
+\label{sec:lemma}
+
+\subsection{Statement of the Lemma}
+
+We now state the central structural result of this paper.
+
+\begin{lemma}[Structural Non-Self-Grounding]
+\label{lem:nonsg}
+Within the HAFF framework, no description can simultaneously:
+\begin{enumerate}
+    \item[(i)] specify the structure of accessibility, and
+    \item[(ii)] be formulated entirely within that same accessibility structure,
+\end{enumerate}
+without collapse into circularity or triviality.
+\end{lemma}
+
+\subsection{Argument}
+
+The argument proceeds in five steps.
+
+\paragraph{Step 1: All physical descriptions in HAFF are formulated relative to an accessible algebra.}
+This is not an optional modeling choice but the basic condition under which any observable, geometry, or temporal ordering becomes definable. Papers D--F establish that gravitational dynamics, measurement outcomes, and causal direction all presuppose restriction to a stable accessible subalgebra $\mathcal{A}_{\mathbf{c}} \subset \mathcal{B}(\mathcal{H}_U)$.
+
+\paragraph{Step 2: Accessibility itself is defined by selection criteria.}
+Stability, redundancy, and interaction locality determine which subalgebras are accessible. These criteria are conditions of possibility for description, not objects described within the description.
+
+\paragraph{Step 3: Attempting to internalize accessibility requires re-applying accessibility criteria to themselves.}
+That is, one would need an accessible algebra that describes the selection of the accessible algebra itself. The framework would have to render the conditions of its own applicability as objects within its descriptive scope.
+
+\paragraph{Step 4: This generates a fixed-point requirement.}
+The framework would have to identify an algebra $\mathcal{A}^*$ that:
+\begin{itemize}
+    \item is accessible because it satisfies the stability criteria, and
+    \item simultaneously encodes the criteria by which it is judged accessible.
+\end{itemize}
+Symbolically, one would require:
+\begin{equation}
+\mathcal{A}^* \in \text{Acc}(\mathcal{A}^*),
+\end{equation}
+where $\text{Acc}(\cdot)$ denotes the set of algebras satisfying the accessibility criteria defined within the argument algebra.
+
+\paragraph{Step 5: Such a fixed point is generically unavailable.}
+Except in degenerate cases---trivial algebras (containing only the identity) or total algebras (the full $\mathcal{B}(\mathcal{H}_U)$ that erases all structure)---the selection criteria cannot be satisfied by their own output. A non-trivial accessible algebra defines distinctions (between accessible and inaccessible, stable and scrambled, redundant and local); encoding the criteria for those distinctions within the algebra would require the algebra to contain its own meta-description, which exceeds the information available at the object level.
+
+\subsection{Conclusion of the Lemma}
+
+Therefore, the framework cannot close on itself without either:
+\begin{itemize}
+    \item collapsing into triviality (everything accessible, nothing distinguished), or
+    \item introducing an external meta-structure (violating internal coherence).
+\end{itemize}
+
+The stopping point is not pragmatic. It is forced by the non-self-grounding character of accessibility-based description.
+
+\begin{remark}[Framework-Relative Claim]
+This is a necessity claim internal to the framework's architecture, not a universal limitation on explanation. We do not claim that all physical theories must exhibit this structure, only that the HAFF framework, as developed, does.
+\end{remark}
+
+\section{A Collapse Scenario}
+\label{sec:collapse}
+
+To make the structural lemma concrete, we now present a hypothetical extension of HAFF that attempts to fully internalize accessibility as an object-level dynamical variable, and show that this attempt fails.
+
+\subsection{Hypothetical Extension}
+
+\paragraph{Step 1: Treat accessibility as a physical observable.}
+Suppose one introduces an operator or state variable $\hat{A}$ encoding ``degree of accessibility'' for subalgebras. This variable would quantify, for each subalgebra $\mathcal{A} \subset \mathcal{B}(\mathcal{H}_U)$, the extent to which it satisfies the stability criteria.
+
+\paragraph{Step 2: Demand dynamical laws for accessibility.}
+To be explanatory, $\hat{A}$ must:
+\begin{itemize}
+    \item evolve under some dynamics, and
+    \item be measurable within the theory.
+\end{itemize}
+
+\paragraph{Step 3: Apply accessibility criteria to $\hat{A}$.}
+But measurability requires that $\hat{A}$ itself satisfy:
+\begin{itemize}
+    \item stability under interaction,
+    \item redundancy across environments, and
+    \item non-scrambling behavior.
+\end{itemize}
+That is, $\hat{A}$ must belong to some accessible algebra $\mathcal{A}_{\hat{A}}$.
+
+\subsection{Two Fatal Outcomes}
+
+\paragraph{Outcome (a): Infinite regress.}
+The algebra $\mathcal{A}_{\hat{A}}$ that makes $\hat{A}$ accessible is itself defined by accessibility criteria. To explain why $\mathcal{A}_{\hat{A}}$ is accessible, one would need a further algebra $\mathcal{A}_{\mathcal{A}_{\hat{A}}}$, and so on. Each level of accessibility-description requires a higher-level accessibility structure to define its observables. The regress does not terminate.
+
+\paragraph{Outcome (b): Totalization collapse.}
+To avoid regress, one might declare everything accessible---that is, take $\mathcal{A}_{\mathbf{c}} = \mathcal{B}(\mathcal{H}_U)$. But then:
+\begin{itemize}
+    \item no algebra selection remains,
+    \item no measurement distinction exists (all observables are equally accessible),
+    \item effective geometry loses definition (no coarse-graining induces structure), and
+    \item temporal direction vanishes (no asymmetric accessibility propagation).
+\end{itemize}
+The framework either never terminates or destroys the very distinctions it set out to explain.
+
+\subsection{Conclusion of the Scenario}
+
+Any attempt to go ``beyond'' Papers D--F by internalizing accessibility eliminates the explanatory power already achieved. This is not philosophical caution. It is structural self-destruction.
+
+The collapse scenario demonstrates concretely what the structural lemma establishes abstractly: the framework cannot extend itself to explain its own conditions of applicability without losing the capacity to explain anything at all.
+
+\section{The Necessity of a Final Cut}
+\label{sec:cut}
+
+\subsection{Stopping as Structural Necessity}
+
+The preceding analyses motivate a specific sense in which the HAFF framework is incomplete. This incompleteness is neither formal nor metaphysical. It does not arise from undecidable propositions, nor from claims about the limits of human cognition. Rather, it is structural: a consequence of the fact that explanatory resources cannot simultaneously function as both explanans and explanandum.
+
+Within the framework developed here, gravity, measurement, and time are unified at the level of structural selection. They are shown to depend on how observable algebras are restricted and stabilized. This constitutes a genuine unification, insofar as disparate phenomena are traced to a common architectural feature. Yet the framework does not, and cannot, provide a further account of why those accessibility conditions obtain, without appealing to structures that would themselves require explanation under the same terms.
+
+\subsection{The Final Cut}
+
+The notion of a ``final cut'' is introduced to mark this boundary. It does not denote a temporal endpoint, nor a claim about the completion of physics. It denotes the point at which the internal explanatory strategy of the framework reaches saturation. Beyond this point, further elaboration would no longer clarify structure, but obscure it by erasing the asymmetries that make explanation possible.
+
+The introduction of a final cut is not a discretionary methodological choice, nor a gesture of philosophical modesty. It is the point at which the framework exhausts its own internal resources without contradiction.
+
+Beyond this point, any further extension would require the framework to explain the conditions of its own applicability using those very conditions---a requirement that admits no non-degenerate solution (Lemma~\ref{lem:nonsg}).
+
+The stopping point is therefore not selected but encountered. It is the boundary at which explanation ceases to be generative and becomes self-consuming.
+
+\subsection{Incompleteness as Internal Limit}
+
+In this sense, the incompleteness identified here is not provisional, nor external, nor epistemic. It is structural and internal: a limit imposed by the framework's success in making accessibility do explanatory work.
+
+The framework terminates not in absence, but at the level of unselected structure---a domain that admits no geometry, no temporal ordering, and no observational standpoint, yet functions as the necessary substrate from which all three are selectively realized.
+
+A theory may approach totality only by knowing where it must stop---relative to its own structure.
+
+\begin{remark}[Non-Arbitrary Stopping]
+The stopping point is non-arbitrary in the following precise sense: any proposed extension beyond this point can be shown to lead either to regress (Section~\ref{sec:collapse}, Outcome a) or to collapse (Section~\ref{sec:collapse}, Outcome b). The burden of argument therefore shifts to those who claim that further extension is possible: they must specify how regress or collapse is avoided.
+\end{remark}
+
+\section{Scope and Non-Claims}
+\label{sec:nonclaims}
+
+To prevent misinterpretation, several non-claims must be stated explicitly.
+
+\begin{enumerate}
+    \item \textbf{No invocation of G\"{o}del's theorems.} This work does not invoke G\"{o}del's incompleteness theorems, nor does it rely on any formal analogy to them. The incompleteness identified here is architectural, not metamathematical. It concerns explanatory roles within a physical framework, not provability within a formal system.
+    
+    \item \textbf{No claim of universal applicability.} No claim is made that accessibility constraints apply universally across all conceivable approaches to unification. The present analysis is confined to the algebraic and coarse-graining-based framework developed in Papers A--F.
+    
+    \item \textbf{Contested distinction acknowledged.} The distinction between structural and epistemic constraints is acknowledged to be contested in the philosophy of physics. The framework adopts this distinction as a working criterion, grounded in interaction-determined stability conditions. It does not claim to have resolved the broader philosophical debate.
+    
+    \item \textbf{No foreclosure of alternative frameworks.} The identification of a final cut does not preclude further physical progress, alternative models, or deeper insights within other frameworks. It merely states that, within the present formalism, further internal extension would be incoherent.
+    
+    \item \textbf{No uniqueness claim.} We do not claim that this stopping point is unique. Other frameworks may stop elsewhere, or may not require stopping at all. The claim is only that, given the explanatory architecture adopted here, the stopping point identified is forced.
+    
+    \item \textbf{No philosophical finality.} This is a structural observation within a specific formalism, not a philosophical conclusion about the ultimate nature of reality or the limits of knowledge as such. The stopping point identified is methodological and structural, not existential.
+    
+    \item \textbf{No consciousness or observer-creation claims.} The framework does not claim that consciousness plays a fundamental role, that observers create reality, or that accessibility is observer-relative in any subjective sense.
+    
+    \item \textbf{No claim of novelty regarding theoretical presupposition.} We acknowledge that the observation that explanatory frameworks have presuppositions they cannot fully explain is familiar in philosophy of science. The contribution here is to show that the specific HAFF framework forces this conclusion through its reliance on accessibility, not merely that it is compatible with it.
+\end{enumerate}
+
+\section{Conclusion}
+\label{sec:conclusion}
+
+\subsection{Summary of Results}
+
+This paper has examined the structural conditions under which the HAFF framework must terminate its explanatory extension.
+
+The central results are:
+
+\begin{enumerate}
+    \item \textbf{Accessibility as non-global constraint}: Physical descriptions in HAFF are formulated relative to accessible algebras, which are determined by stability criteria that cannot be fully specified from within the descriptions they enable.
+    
+    \item \textbf{Structural non-self-grounding} (Lemma~\ref{lem:nonsg}): No description within HAFF can simultaneously specify the structure of accessibility and be formulated entirely within that accessibility structure, without collapse or regress.
+    
+    \item \textbf{Collapse scenario}: Any attempt to internalize accessibility as an object-level variable leads to infinite regress or totalization collapse, eliminating the framework's explanatory power.
+    
+    \item \textbf{Forced stopping point}: The final cut is not discretionary but encountered as a structural necessity---the point at which further extension would be self-consuming rather than generative.
+\end{enumerate}
+
+\subsection{Methodological Significance}
+
+Unification is often equated with the elimination of boundaries. The analysis presented here suggests a different criterion: that a unifying framework should distinguish between boundaries that are provisional and those that are structural.
+
+Papers D--F identify such structural boundaries in the treatment of gravity, measurement, and time. This final layer marks the point at which acknowledging those boundaries becomes a condition of explanatory clarity rather than an admission of incompleteness.
+
+The value of the framework lies not in its ability to say everything, but in its ability to determine what cannot be said without loss of coherence. At that point, stopping is not a retreat, but a completion.
+
+\subsection{Open Questions}
+
+Several questions remain beyond the scope of this analysis:
+
+\begin{itemize}
+    \item Whether alternative frameworks (category-theoretic, non-algebraic, or background-free) would exhibit analogous structural limits.
+    \item Whether the structural/epistemic distinction adopted here can be given a more robust philosophical foundation.
+    \item Whether the collapse scenario admits any non-trivial avoidance strategies not considered here.
+\end{itemize}
+
+These questions are left for future investigation.
+
+\section*{Acknowledgments}
+
+The author thanks the anonymous reviewers for their insightful comments and suggestions, which greatly improved the clarity and rigor of this work. This work builds on foundational analysis developed in \cite{Liu2026PaperA,Liu2026PaperB,Liu2026PaperC,Liu2026PaperD,Liu2026PaperE,Liu2026PaperF}.
+
+\begin{thebibliography}{99}
+
+\bibitem{Liu2026PaperA}
+S. Liu, \emph{Emergent Geometry from Coarse-Grained Observable Algebras: The Holographic Alaya-Field Framework}, Zenodo (2026), DOI: 10.5281/zenodo.18361707.
+
+\bibitem{Liu2026PaperB}
+S. Liu, \emph{Accessibility, Stability, and Emergent Geometry: Conceptual Clarifications on the Holographic Alaya-Field Framework}, Zenodo (2026), DOI: 10.5281/zenodo.18367061.
+
+\bibitem{Liu2026PaperC}
+S. Liu, \emph{Causation, Agency, and Existence: Structural Constraints and Interpretive Bridges}, Zenodo (2026), DOI: 10.5281/zenodo.18374806.
+
+\bibitem{Liu2026PaperD}
+S. Liu, \emph{Gravitational Phenomena as Emergent Properties of Observable Algebra Selection: A Structural Analysis}, Zenodo (2026), DOI: 10.5281/zenodo.18388882.
+
+\bibitem{Liu2026PaperE}
+S. Liu, \emph{Measurement as Accessibility: A Structural Analysis of Observable Algebra Selection}, Zenodo (2026), DOI: 10.5281/zenodo.18400066.
+
+\bibitem{Liu2026PaperF}
+S. Liu, \emph{Temporal Asymmetry as Accessibility Propagation: A Structural Analysis of Causal Direction}, Zenodo (2026), DOI: 10.5281/zenodo.18400426.
+
+\bibitem{Zanardi2001}
+P. Zanardi, \emph{Virtual Quantum Subsystems}, Phys. Rev. Lett. \textbf{87}, 077901 (2001).
+
+\bibitem{Zanardi2004}
+P. Zanardi, D. A. Lidar, and S. Lloyd, \emph{Quantum Tensor Product Structures are Observable Induced}, Phys. Rev. Lett. \textbf{92}, 060402 (2004).
+
+\end{thebibliography}
+
+\end{document}

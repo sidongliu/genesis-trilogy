@@ -1,0 +1,572 @@
+% Paper D: Gravity as Coarse-Graining Effect
+% A Structural Analysis
+% COMPLETE VERSION — Final Draft
+
+\documentclass[12pt,a4paper]{article}
+\usepackage{amsmath,amssymb,amsfonts,amsthm}
+\usepackage{physics}
+\usepackage{hyperref}
+\usepackage{geometry}
+\usepackage{array}
+\usepackage{booktabs}
+\geometry{margin=1in}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{conjecture}[theorem]{Conjecture}
+
+\title{Gravitational Phenomena as Emergent Properties of Observable Algebra Selection:\\
+A Structural Analysis}
+
+\author{
+  Sidong Liu, PhD \\
+  iBioStratix Ltd \\
+  \texttt{sidongliu@hotmail.com}
+}
+
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+We propose that gravitational phenomena arise from the adiabatic evolution of accessible observable algebras as the global quantum state evolves. Building on recent work demonstrating that inequivalent coarse-graining structures induce inequivalent effective geometries, we argue that gravity is categorically distinguished from gauge interactions: gauge forces operate \emph{within} a fixed algebra $\mathcal{A}$, while gravitational dynamics reflects the \emph{flow} of $\mathcal{A}$ itself. This framework provides: (1) a generative mechanism for gravitational dynamics via state-dependent algebra selection; (2) a structural derivation of the equivalence principle from algebraic universality; (3) identification of the emergent metric with the Quantum Fisher Information Metric. We do not derive the Einstein equations, but propose a conceptual framework that explains gravity's distinctive features—universality, dynamical geometry, and resistance to naive quantization—as consequences of algebra evolution rather than force mediation.
+\end{abstract}
+
+\section{Introduction}
+\label{sec:intro}
+
+\subsection{The Quantization Problem}
+
+Among the four fundamental interactions, gravity occupies a singular position. While the strong, weak, and electromagnetic forces have been successfully incorporated into the framework of quantum field theory, gravity has resisted analogous treatment for nearly a century. The difficulties are well known: naive quantization of general relativity yields a non-renormalizable theory, and more sophisticated approaches—string theory, loop quantum gravity, asymptotic safety—remain either incomplete or empirically unconfirmed \cite{Kiefer2012}.
+
+A common diagnosis attributes this difficulty to the self-referential nature of gravity: the metric tensor both defines the arena in which physics takes place and participates as a dynamical variable within that arena. Quantizing gravity thus appears to require quantizing spacetime itself—a conceptually and technically formidable task.
+
+\subsection{An Alternative Diagnosis}
+
+In this paper, we explore an alternative structural diagnosis. We suggest that the difficulty may arise not because gravity is a particularly subtle force, but because gravity may not be a force at all—at least not in the same categorical sense as gauge interactions.
+
+The proposal rests on a simple observation: all descriptions of physical systems presuppose some decomposition of the total system into subsystems. In quantum mechanics, this corresponds to a tensor factorization of the Hilbert space. However, as has been established in foundational work on quantum information theory \cite{Zanardi2001,Zanardi2004} and developed in our previous analysis \cite{Liu2026PaperA}, there is no canonical or physically privileged factorization for a generic quantum state. Different choices of factorization—or more generally, different choices of accessible observable algebra—yield inequivalent physical descriptions.
+
+We propose that gauge forces and gravity may be distinguished at this structural level:
+
+\begin{itemize}
+    \item \textbf{Gauge forces} describe interactions between degrees of freedom \emph{within} a given subsystem decomposition.
+    \item \textbf{Gravitational phenomena} reflect properties of the decomposition \emph{itself}—specifically, how effective geometry emerges from the pattern of accessible observables.
+\end{itemize}
+
+If this reframing is correct, it may help clarify why gravity resists quantization: one cannot straightforwardly quantize the choice of how to divide a system into parts, because that choice is logically prior to the application of quantum dynamics to those parts.
+
+\subsection{Scope and Limitations}
+
+We emphasize at the outset what this paper does and does not attempt.
+
+\textbf{This paper does:}
+\begin{itemize}
+    \item Offer a structural reframing of the distinction between gravity and gauge forces
+    \item Draw on established results concerning coarse-graining and emergent geometry
+    \item Identify this perspective as a possible diagnostic for the quantization problem
+\end{itemize}
+
+\textbf{This paper does not:}
+\begin{itemize}
+    \item Propose new dynamical equations
+    \item Derive the Einstein field equations or their quantum corrections
+    \item Claim to solve the problem of quantum gravity
+    \item Introduce observer-dependent, consciousness-related, or interpretational elements
+\end{itemize}
+
+The analysis is structural in nature. We examine the conceptual architecture underlying descriptions of gravity and gauge forces, and suggest that a categorical distinction at the level of observable algebras may illuminate longstanding difficulties.
+
+\subsection{Outline}
+
+Section~\ref{sec:factorization} reviews the factorization problem: the absence of a canonical subsystem decomposition in quantum theory, and its implications for emergent structure. Section~\ref{sec:distinction} develops the proposed distinction between gauge forces and gravity in terms of their relation to observable algebra selection. Section~\ref{sec:technical} provides a technical formulation, including the central conjecture and the identification of the emergent metric with the Quantum Fisher Information Metric. Section~\ref{sec:relation} discusses connections to existing approaches including AdS/CFT, tensor networks, and thermodynamic gravity. Section~\ref{sec:limitations} states explicit scope limitations. Section~\ref{sec:open} outlines open questions, and Section~\ref{sec:conclusion} concludes.
+
+\section{The Factorization Problem}
+\label{sec:factorization}
+
+\subsection{No Canonical Tensor Factorization}
+
+In standard quantum mechanics, composite systems are described by tensor products of subsystem Hilbert spaces: $\mathcal{H}_{\text{total}} = \mathcal{H}_A \otimes \mathcal{H}_B$. This structure is typically taken as given, with subsystems identified by physical intuition or experimental arrangement.
+
+However, for a generic Hilbert space $\mathcal{H}$, there is no unique or canonical way to express it as a tensor product. Any finite-dimensional Hilbert space of dimension $d = d_1 \times d_2$ admits a factorization $\mathcal{H} \cong \mathcal{H}_{d_1} \otimes \mathcal{H}_{d_2}$, but the choice of such a factorization is not determined by the Hilbert space structure alone.
+
+This observation was formalized by Zanardi and collaborators \cite{Zanardi2001,Zanardi2004}, who demonstrated that tensor product structures are determined by the algebra of accessible observables rather than by intrinsic properties of the state space. A change in which observables are accessible corresponds to a change in how the system is effectively decomposed into subsystems.
+
+\subsection{Coarse-Graining and Effective Descriptions}
+
+Building on this foundation, our previous work \cite{Liu2026PaperA} established that:
+
+\begin{proposition}[Coarse-Graining Induced Inequivalence]
+\label{prop:inequiv}
+Let $|\Psi_U\rangle \in \mathcal{H}_{\text{total}}$ be a global quantum state, and let $\mathbf{c}_1, \mathbf{c}_2$ be two inequivalent coarse-graining structures (defined by distinct accessible algebras $\mathcal{A}_1, \mathcal{A}_2$). Then the effective descriptions induced by $\mathbf{c}_1$ and $\mathbf{c}_2$ are generically inequivalent: they yield different reduced states, different entanglement structures, and—crucially—different effective geometries.
+\end{proposition}
+
+The key point is that this inequivalence is not merely a matter of coordinate choice or descriptive convention. Different accessible algebras define different physical contents: different sets of measurable quantities, different notions of locality, and different effective spacetime structures.
+
+\subsection{Geometry from Entanglement}
+
+The connection between entanglement and geometry has been extensively studied in the context of holographic duality. The Ryu-Takayanagi formula \cite{RyuTakayanagi2006} and its generalizations establish that, in certain settings, geometric quantities (areas of extremal surfaces) are directly related to entanglement entropies of boundary regions:
+\begin{equation}
+S_A = \frac{\text{Area}(\gamma_A)}{4 G_N \hbar}.
+\end{equation}
+
+More broadly, Van Raamsdonk \cite{VanRaamsdonk2010} and others have argued that spacetime connectivity itself may be understood as a manifestation of quantum entanglement: regions that are highly entangled are geometrically ``close,'' while weakly entangled regions are ``far apart'' or even disconnected.
+
+Within the present framework, these results acquire a natural interpretation. If geometry emerges from entanglement structure, and entanglement structure depends on how the system is decomposed into subsystems, then geometry is ultimately determined by the choice of accessible observable algebra.
+
+\begin{remark}[Geometry as Coarse-Graining Dependent]
+Effective spacetime geometry is not an intrinsic property of the global quantum state $|\Psi_U\rangle$. It is a derived quantity, dependent on the coarse-graining structure $\mathbf{c}$ that specifies which observables are accessible. Different coarse-grainings may yield geometries that differ not only in metric components, but in topology and connectivity.
+\end{remark}
+
+\begin{remark}[Relation to Prior Work]
+While the non-uniqueness of tensor factorization has been widely discussed in the quantum information literature \cite{Zanardi2001,Zanardi2004}, its implications for distinguishing gravitational phenomena from gauge interactions at a structural level have not, to our knowledge, been made explicit. The present work develops this connection.
+\end{remark}
+
+This observation sets the stage for the distinction we develop in the next section.
+
+\section{A Structural Distinction: Gauge Forces vs.\ Gravity}
+\label{sec:distinction}
+
+\subsection{Forces Within a Factorization}
+
+Consider the standard description of gauge interactions. In quantum electrodynamics, the electromagnetic force is mediated by photon exchange between charged particles. In quantum chromodynamics, gluons mediate the strong force between quarks. In each case, the interaction is described as a coupling between degrees of freedom that are already identified as distinct subsystems.
+
+Formally, gauge theories are constructed on a fixed background: a spacetime manifold $M$ equipped with a principal bundle whose structure group is the gauge group ($U(1)$, $SU(2)$, $SU(3)$, etc.). Matter fields are sections of associated bundles, and gauge fields are connections on the principal bundle. The dynamics describes how these fields interact \emph{given} the background structure.
+
+Crucially, the identification of ``electron here'' and ``photon there'' presupposes a decomposition of the total system into localized subsystems. The gauge interaction operates \emph{within} this decomposition, coupling degrees of freedom that have already been distinguished.
+
+\subsection{Gravity: A Different Category?}
+
+General relativity describes gravity not as a force between objects on a fixed background, but as the curvature of spacetime itself. The metric tensor $g_{\mu\nu}$ is both the arena in which physics unfolds and a dynamical variable subject to the Einstein equations.
+
+This dual role has long been recognized as the source of conceptual and technical difficulties. But the present framework suggests a sharper formulation of the distinction.
+
+If gauge forces operate within a given subsystem decomposition, we propose that gravitational phenomena may be understood as reflecting properties of the decomposition itself. Specifically:
+
+\begin{itemize}
+    \item The effective geometry—the metric, the notion of distance, the causal structure—emerges from the pattern of entanglement among accessible degrees of freedom.
+    \item This pattern is determined by the choice of accessible observable algebra.
+    \item Gravitational phenomena, in this view, are not interactions between pre-existing objects, but manifestations of how effective spacetime structure responds to changes in what is accessible.
+\end{itemize}
+
+We emphasize that this proposal does not deny that gravity is geometrical at the effective level. Rather, it suggests that the \emph{origin} of this geometry may lie in how accessible observables define effective subsystems. The geometry remains real and physically consequential; what changes is the account of where it comes from.
+
+\subsection{An Intuitive Picture}
+
+To fix intuitions, consider the following analogy.
+
+Imagine a map of a territory. On the map, one can trace routes between cities—these routes depend on the geography depicted. Now consider the \emph{projection} used to create the map: Mercator, Robinson, or some other. Different projections yield different maps with different distance relationships and shape distortions.
+
+In this analogy:
+\begin{itemize}
+    \item \textbf{Gauge forces} are like routes on the map—interactions that take place within a given representational structure.
+    \item \textbf{Gravity} is like the projection itself—a property of how the representation is constructed, not a feature operating within it.
+\end{itemize}
+
+Changing the projection does not add new routes; it changes what ``distance'' and ``proximity'' mean. Similarly, changing the accessible observable algebra does not introduce new forces; it changes the effective geometry in which all forces are described.
+
+\begin{remark}[Intuitive Picture]
+This analogy is offered for conceptual orientation, not as a precise technical claim. The formal relationship between observable algebra selection and effective geometry requires the machinery developed in \cite{Liu2026PaperA} and subsequent sections of this paper.
+\end{remark}
+
+\subsection{Implications for Quantization}
+
+If this structural distinction is correct, it may illuminate the difficulty of quantizing gravity.
+
+Quantizing a gauge theory means promoting classical fields to operator-valued distributions on a fixed background, subject to appropriate commutation relations and dynamics. The background—including the decomposition into subsystems—is held fixed while the fields are quantized.
+
+But if gravity reflects the choice of decomposition itself, then ``quantizing gravity'' would require quantizing the selection of how to divide the system into parts. This is a categorically different task. It is not a matter of promoting a classical field to a quantum operator; it is a matter of making the \emph{framework in which quantization is defined} itself subject to quantum uncertainty.
+
+This may explain why straightforward approaches to quantum gravity encounter difficulties: they attempt to apply quantization procedures designed for systems \emph{within} a fixed decomposition to a structure that determines the decomposition itself.
+
+This perspective does not introduce new dynamics or predictions, but may offer diagnostic value: it suggests a structural reason why gravity resists the quantization procedures that succeed for gauge interactions, and points toward the need for approaches that do not presuppose a fixed subsystem decomposition.
+
+\begin{remark}[Diagnostic Value]
+We do not claim that this perspective solves the problem of quantum gravity. Rather, we suggest that it offers diagnostic value: it identifies a structural reason why gravity may resist the techniques that succeed for gauge forces, and points toward the need for approaches that do not presuppose a fixed subsystem decomposition.
+\end{remark}
+
+\subsection{Relation to Background Independence}
+
+The idea that gravity is connected to ``background independence'' is well established in the quantum gravity literature \cite{Rovelli2004,Smolin2006}. The present proposal may be viewed as a sharpening of this intuition in terms of observable algebras.
+
+Background independence is often formulated as the requirement that physical laws not depend on a fixed spacetime metric. In the present framework, this requirement is subsumed under a more general principle: physical content should not depend on a particular choice of accessible observable algebra, or at least should transform covariantly under changes in that choice.
+
+This suggests that a satisfactory theory of quantum gravity may need to be formulated not in terms of fields on a spacetime manifold, but in terms of structures that are prior to—or more fundamental than—the decomposition into spatially localized subsystems.
+
+\begin{remark}[Context-Dependence vs.\ Observer-Dependence]
+A potential misreading of this proposal is that it renders gravity ``observer-dependent'' or subjective. We stress that this is not the case. The selection of accessible observable algebras is constrained by physical interactions and stability criteria (such as decoherence structure and dynamical invariance), not by subjective choice or epistemic limitation. The resulting effective geometry is \emph{context-dependent}—it depends on which physical degrees of freedom are stably accessible—but not \emph{observer-relative} in any subjective sense. This distinction is developed in detail in \cite{Liu2026PaperB}.
+\end{remark}
+
+\subsection{The Equivalence Principle from Algebraic Universality}
+
+A central puzzle in gravitational physics is the universality of free fall: why do all forms of matter and energy couple to gravity in the same way? In standard approaches, this ``equivalence principle'' is imposed as an empirical postulate. Here, we suggest it may follow structurally from the algebraic perspective.
+
+The key observation is that the effective geometry is not a property of any particular matter field, but a property of the \emph{accessible algebra} $\mathcal{A}_{\mathbf{c}}$ itself. All observable matter fields are, by definition, constructed from operators in $\mathcal{A}_{\mathbf{c}}$ or its representations. Consequently, they must necessarily inhabit the geometry induced by $\mathcal{A}_{\mathbf{c}}$.
+
+There is no ``second geometry'' for a different particle species to follow, because any operator outside $\mathcal{A}_{\mathbf{c}}$ is operationally inaccessible within the given coarse-graining context. The universality of gravitational coupling is thus not an additional postulate, but a logical consequence of the universality of the observable algebra.
+
+\begin{remark}[Dark Sector as Algebraic Inaccessibility]
+This perspective suggests a natural interpretation of ``dark'' degrees of freedom. Matter that does not couple to our accessible algebra $\mathcal{A}_{\mathbf{c}}$—while potentially present in the global state $|\Psi_U\rangle$—would be operationally invisible except through its gravitational effects on the geometry induced by $\mathcal{A}_{\mathbf{c}}$. This is speculative but structurally consistent with the framework.
+\end{remark}
+
+\section{Technical Formulation}
+\label{sec:technical}
+
+\subsection{Setup and Notation}
+
+We consider a global quantum system described by a Hilbert space $\mathcal{H}$ with algebra of bounded operators $\mathcal{B}(\mathcal{H})$.
+
+A \emph{coarse-graining} is specified by the selection of an accessible subalgebra $\mathcal{A} \subset \mathcal{B}(\mathcal{H})$, representing the observables that remain stable under relevant dynamical and environmental constraints.
+
+\begin{definition}[Accessible Algebra]
+\label{def:accessible}
+Following \cite{Liu2026PaperA,Liu2026PaperB}, an \textbf{accessible algebra} $\mathcal{A}_{\mathbf{c}} \subset \mathcal{B}(\mathcal{H}_U)$ is a $*$-subalgebra satisfying three stability criteria:
+\begin{enumerate}
+    \item \textbf{Dynamical invariance:} Expectation values of operators in $\mathcal{A}_{\mathbf{c}}$ remain approximately invariant under physically motivated dynamical maps $\mathcal{E}$:
+    \begin{equation}
+    \|\mathcal{E}(\hat{O}) - \hat{O}\| \ll \epsilon \quad \forall \hat{O} \in \mathcal{A}_{\mathbf{c}}.
+    \end{equation}
+    
+    \item \textbf{Environmental redundancy (Quantum Darwinism):} The subalgebra approximately commutes with the environmental algebra $\mathcal{A}_E$:
+    \begin{equation}
+    [\hat{O}, \hat{E}] \approx 0 \quad \forall \hat{O} \in \mathcal{A}_{\mathbf{c}}, \, \hat{E} \in \mathcal{A}_E.
+    \end{equation}
+    
+    \item \textbf{Non-scrambling:} Out-of-time-order correlators exhibit slow decay:
+    \begin{equation}
+    \langle [\hat{O}_{\mathcal{A}}(t), \hat{V}(0)]^2 \rangle \ll 1 \quad \text{for } t \ll \tau_{\text{scrambling}}.
+    \end{equation}
+\end{enumerate}
+A \textbf{coarse-graining structure} is the pair $\mathbf{c} \equiv (\mathcal{A}_{\mathbf{c}}, \Phi_{\mathbf{c}})$, where $\Phi_{\mathbf{c}}$ is a CPTP map implementing the operational reduction.
+\end{definition}
+
+No assumption is made that such a subalgebra admits a unique or canonical tensor factorization of $\mathcal{H}$.
+
+\begin{remark}
+This notion of accessible algebra follows the spirit of algebraic quantum mechanics and quantum information--theoretic approaches, without assuming a preferred subsystem decomposition.
+\end{remark}
+
+\subsection{Entanglement Structure and Induced Geometry}
+
+Given a choice of accessible algebra $\mathcal{A}_{\mathbf{c}}$, one may consider the entanglement structure induced by restricting the global state $\rho$ to $\mathcal{A}_{\mathbf{c}}$.
+
+Following insights from holography and tensor network constructions, patterns of entanglement within $\mathcal{A}_{\mathbf{c}}$ may be associated with an effective distance structure on equivalence classes of observables.
+
+Crucially, this effective geometry depends on:
+\begin{itemize}
+    \item the choice of $\mathcal{A}_{\mathbf{c}}$,
+    \item the stability of correlations under coarse-grained dynamics,
+    \item and the redundancy of information encoding.
+\end{itemize}
+
+No claim is made that this geometry is fundamental. It is an effective description, valid within the context defined by $\mathcal{A}_{\mathbf{c}}$.
+
+\subsection{Central Conjecture}
+
+We now state the central conjecture of this paper explicitly.
+
+\begin{conjecture}[Gravity as Adiabatic Algebra Evolution]
+\label{conj:main}
+Gravitational dynamics corresponds to the \textbf{adiabatic flow} of the accessible algebra $\mathcal{A}_{\mathbf{c}}(t)$, tracked by the stability conditions (Definition~\ref{def:accessible}) acting on the evolving global state $|\Psi_U(t)\rangle$.
+
+Specifically:
+\begin{enumerate}
+    \item The global state evolves unitarily: $|\Psi_U(t)\rangle = U(t)|\Psi_U(0)\rangle$.
+    \item The stability criteria determine which subalgebra $\mathcal{A}_{\mathbf{c}}(t) \subset \mathcal{B}(\mathcal{H}_U)$ is accessible at each time.
+    \item As the state evolves, the optimal stable algebra shifts: $\mathcal{A}_{\mathbf{c}}(t) \to \mathcal{A}_{\mathbf{c}}(t + dt)$.
+    \item This shift $\dot{\mathcal{A}}_{\mathbf{c}}(t)$ manifests phenomenologically as the dynamical curvature of spacetime—i.e., as gravity.
+\end{enumerate}
+
+In contrast, unitary evolution of observables \emph{within} a fixed algebra $\mathcal{A}_{\mathbf{c}}$ manifests as gauge interactions. The categorical distinction is:
+\begin{itemize}
+    \item \textbf{Gauge dynamics:} Evolution within $\mathcal{A}_{\mathbf{c}}$ (fixed stage, moving actors)
+    \item \textbf{Gravitational dynamics:} Evolution of $\mathcal{A}_{\mathbf{c}}$ itself (moving stage)
+\end{itemize}
+\end{conjecture}
+
+This formulation addresses a key objection: if algebras are kinematical background, how can gravity be dynamical? The answer is that the \emph{selection} of which algebra is stable is itself state-dependent, and state evolution induces algebra flow.
+
+\begin{remark}[Status of Algebraic Variations]
+The adiabatic approximation assumes that algebra transitions occur slowly relative to internal dynamics within $\mathcal{A}_{\mathbf{c}}$. Rapid transitions would correspond to strong gravitational effects or spacetime singularities—regimes where the effective geometric description breaks down. The question of what dynamics, if any, governs non-adiabatic transitions is left open (see Section~\ref{sec:open}).
+\end{remark}
+
+\subsection{Metric from Quantum Information Geometry}
+
+To make the algebra-geometry correspondence precise, we identify the emergent metric with the \textbf{Quantum Fisher Information Metric (QFIM)}, a standard construction in quantum information geometry \cite{Petz1996,Bengtsson2006}.
+
+Let $\{\lambda^\mu\}$ be parameters labeling deformations of the accessible algebra or its defining stability surface. The induced metric $g_{\mu\nu}$ on the manifold of effective descriptions is given by:
+\begin{equation}
+g_{\mu\nu}(\lambda) = \frac{1}{2} \text{Tr}\left( \rho(\lambda) \{ L_\mu, L_\nu \} \right),
+\end{equation}
+where $L_\mu$ is the symmetric logarithmic derivative satisfying
+\begin{equation}
+\partial_\mu \rho = \frac{1}{2}(\rho L_\mu + L_\mu \rho).
+\end{equation}
+
+This construction has several attractive features:
+\begin{itemize}
+    \item It is coordinate-independent and intrinsically quantum.
+    \item It reduces to the classical Fisher metric in appropriate limits.
+    \item It is directly related to distinguishability of quantum states—geometrically ``close'' states are hard to distinguish operationally.
+\end{itemize}
+
+Under the hypothesis that gravitational dynamics reflects algebra evolution (Conjecture~\ref{conj:main}), the Einstein tensor $G_{\mu\nu}$ may be understood as describing the curvature of this information manifold. Changes in the accessible algebra,
+\begin{equation}
+\mathcal{A}_{\mathbf{c}} \to \mathcal{A}_{\mathbf{c}} + \delta\mathcal{A}_{\mathbf{c}},
+\end{equation}
+induce metric perturbations $\delta g_{\mu\nu}$ that correspond, in the effective geometric description, to gravitational waves.
+
+\begin{remark}[Relation to Holographic Results]
+In AdS/CFT, the Ryu-Takayanagi formula provides a precise relationship: $S_A = \text{Area}(\gamma_A)/4G_N$. The QFIM construction is consistent with this correspondence: the Fisher information metric on boundary states induces a bulk geometry whose areas encode entanglement entropies \cite{Lashkari2014,Faulkner2014}. The present framework proposes that this relationship is not specific to holography but reflects a general structural principle.
+\end{remark}
+
+\subsection{What This Section Does Not Claim}
+
+To prevent misreading, we state explicitly what this technical formulation does \emph{not} attempt:
+
+\begin{itemize}
+    \item It does not derive gravitational field equations.
+    \item It does not specify a dynamics for coarse-graining selection.
+    \item It does not claim empirical adequacy or testable predictions.
+    \item It does not introduce observer-dependent or consciousness-related elements.
+\end{itemize}
+
+The role of this section is to demonstrate internal coherence between the structural claims of Sections~1--3 and existing entanglement--geometry correspondences in the literature.
+
+\section{Relation to Existing Approaches}
+\label{sec:relation}
+
+The perspective developed in this paper does not compete with existing approaches to quantum gravity and emergent spacetime. Rather, it may be understood as offering a \emph{conceptual umbrella} under which several distinct research programs can be situated. We briefly discuss four such connections.
+
+\subsection{AdS/CFT and Holographic Duality}
+
+The AdS/CFT correspondence \cite{Maldacena1999} provides the most concrete realization of geometry emerging from quantum entanglement. In this framework, a $(d+1)$-dimensional gravitational theory in anti-de Sitter space is dual to a $d$-dimensional conformal field theory on its boundary.
+
+The Ryu-Takayanagi formula \cite{RyuTakayanagi2006} and its generalizations establish that geometric quantities in the bulk (areas of extremal surfaces) correspond to entanglement entropies in the boundary theory:
+\begin{equation}
+S_A = \frac{\text{Area}(\gamma_A)}{4 G_N \hbar}.
+\end{equation}
+
+Within the present framework, AdS/CFT may be viewed as a specific instance of the general principle that geometry emerges from entanglement structure. The boundary CFT defines a particular accessible algebra, and the bulk geometry is the effective geometry induced by that algebra.
+
+\begin{remark}[Not a Replacement]
+We do not claim that the present framework explains or derives AdS/CFT. Rather, AdS/CFT provides concrete evidence that the structural relationship between accessible algebras and effective geometry—which we propose as general—is realized in at least one well-understood setting.
+\end{remark}
+
+\subsection{Tensor Networks and MERA}
+
+Tensor network constructions, particularly the Multi-scale Entanglement Renormalization Ansatz (MERA) \cite{Vidal2008,Swingle2012}, provide discrete models in which geometry emerges from entanglement structure.
+
+In MERA, a quantum state is constructed by successive layers of disentanglers and isometries. The network structure itself defines an effective geometry: the ``depth'' direction in the network corresponds to a radial direction in an emergent spacetime, with properties reminiscent of AdS geometry.
+
+This construction illustrates concretely how:
+\begin{itemize}
+    \item A choice of coarse-graining (the tensor network structure) determines entanglement patterns.
+    \item Entanglement patterns induce effective geometric relationships.
+    \item Different network structures yield different effective geometries from the same boundary data.
+\end{itemize}
+
+The present framework generalizes this observation: tensor networks are specific implementations of coarse-graining structures, and MERA-type emergence is a special case of the algebra-to-geometry correspondence we propose.
+
+\subsection{Jacobson's Thermodynamic Derivation}
+
+Jacobson's remarkable result \cite{Jacobson1995} showed that Einstein's field equations can be derived from thermodynamic considerations applied to local Rindler horizons, assuming the Bekenstein-Hawking entropy formula and the Clausius relation $\delta Q = T \, dS$.
+
+This derivation suggests that gravity may be ``thermodynamic''—an effective description arising from coarse-graining over microscopic degrees of freedom, rather than a fundamental force.
+
+The present perspective is consonant with Jacobson's approach:
+\begin{itemize}
+    \item Both treat gravitational dynamics as emergent rather than fundamental.
+    \item Both connect gravity to entropy and information-theoretic quantities.
+    \item Both suggest that the Einstein equations describe effective, coarse-grained physics.
+\end{itemize}
+
+The contribution of the present work is to embed this intuition within a more general framework: the selection of accessible algebras as the structural origin of effective geometry.
+
+\subsection{Background Independence in Loop Quantum Gravity}
+
+Loop quantum gravity \cite{Rovelli2004,Thiemann2007} pursues quantization of gravity while maintaining background independence—the principle that physical laws should not depend on a fixed spacetime metric.
+
+The present framework shares this commitment to background independence, but approaches it differently:
+\begin{itemize}
+    \item Loop quantum gravity seeks to quantize the metric directly, constructing spacetime from spin networks.
+    \item The present approach treats spacetime as an effective structure emergent from accessible algebra selection.
+\end{itemize}
+
+These are not mutually exclusive. It is conceivable that spin network states could be understood as specific implementations of accessible algebras, with loop quantum gravity dynamics describing transitions between such algebras. We do not develop this connection here, but note it as a direction for future investigation.
+
+\subsection{Summary: A Conceptual Umbrella}
+
+\begin{table}[ht]
+\centering
+\small
+\begin{tabular}{|p{2.8cm}|p{4.5cm}|p{5.5cm}|}
+\hline
+\textbf{Approach} & \textbf{Key Mechanism} & \textbf{Relation to Present Work} \\
+\hline
+AdS/CFT & Holographic duality & Specific instance of algebra $\to$ geometry \\
+\hline
+Tensor Networks & Discrete entanglement structure & Concrete implementation of coarse-graining \\
+\hline
+Jacobson & Thermodynamic derivation & Consonant emergent perspective \\
+\hline
+Loop QG & Background-independent quantization & Shared commitment, different strategy \\
+\hline
+\end{tabular}
+\caption{Relation of the present framework to existing approaches. The present work does not replace any of these programs, but offers a unifying structural perspective.}
+\label{tab:relation}
+\end{table}
+
+We emphasize that the present framework does not claim superiority over these approaches. Each addresses aspects of quantum gravity that the present structural analysis does not. Our contribution is to articulate a perspective in which these diverse programs may be seen as exploring different facets of a common structural insight: that gravity is connected to the selection of how quantum degrees of freedom are organized into effective subsystems.
+
+\section{Explicit Scope Limitations}
+\label{sec:limitations}
+
+To ensure clarity regarding the claims of this paper, we state explicitly what it does and does not assert.
+
+\subsection{What This Paper Claims}
+
+\begin{enumerate}
+    \item \textbf{Categorical distinction:} Gauge forces and gravity are distinguished at the level of their relation to subsystem decomposition—gauge forces operate within a fixed decomposition, while gravitational phenomena reflect the evolution of the decomposition itself.
+    
+    \item \textbf{Generative mechanism:} Gravitational dynamics arises from the adiabatic flow of accessible algebras as the global quantum state evolves (Conjecture~\ref{conj:main}).
+    
+    \item \textbf{Equivalence principle:} The universality of gravitational coupling follows from the universality of the observable algebra—all accessible matter inhabits the geometry defined by $\mathcal{A}_{\mathbf{c}}$.
+    
+    \item \textbf{Information-geometric metric:} The emergent spacetime metric can be identified with the Quantum Fisher Information Metric on the space of effective descriptions.
+    
+    \item \textbf{Conceptual umbrella:} Several existing research programs (holography, tensor networks, thermodynamic gravity) may be situated under this common structural framework.
+\end{enumerate}
+
+\subsection{What This Paper Does Not Claim}
+
+\begin{enumerate}
+    \item \textbf{No new dynamics:} We do not propose equations of motion, Lagrangians, or dynamical principles beyond those already established.
+    
+    \item \textbf{No derivation of Einstein equations:} We do not claim to derive general relativity or its quantum corrections from first principles.
+    
+    \item \textbf{No empirical predictions:} We do not offer testable predictions that distinguish this perspective from standard approaches.
+    
+    \item \textbf{No resolution of quantum gravity:} We do not claim to solve the problem of quantum gravity; we offer a diagnostic perspective, not a solution.
+    
+    \item \textbf{No observer-dependence:} The framework does not render gravity subjective or observer-relative. Accessible algebras are constrained by physical criteria, not by epistemic states of observers.
+    
+    \item \textbf{No interpretational commitments:} The analysis is compatible with various interpretations of quantum mechanics and does not require commitment to any particular one.
+\end{enumerate}
+
+\section{Open Questions}
+\label{sec:open}
+
+The structural analysis presented here raises several questions that lie beyond its scope but may be fruitful for future investigation.
+
+\subsection{Dynamics of Coarse-Graining Selection}
+
+If gravitational phenomena reflect changes in accessible algebra structure, what determines how such structures evolve? Is there a ``meta-dynamics'' governing transitions between coarse-grainings, or are these transitions themselves emergent from more fundamental principles?
+
+\subsection{Recovery of Classical Limits}
+
+How does the Newtonian limit of gravity emerge from this perspective? In standard general relativity, the weak-field, slow-motion limit yields Newtonian gravity. What is the analogous limit in a framework where gravity reflects coarse-graining structure?
+
+\subsection{Black Hole Thermodynamics}
+
+Black hole entropy is intimately connected to both geometry (horizon area) and information theory (entanglement entropy). How does the present framework illuminate—or constrain—accounts of black hole thermodynamics?
+
+\subsection{Cosmological Implications}
+
+Does the coarse-graining perspective have implications for cosmology? Could the large-scale structure of the universe, or cosmological puzzles such as the horizon problem, be related to properties of cosmic-scale accessible algebras?
+
+\subsection{Mathematical Formalization}
+
+Can the conjecture stated in Section~\ref{sec:technical} be formalized with sufficient precision to permit mathematical investigation? What would constitute a proof—or disproof—of the claim that gravitational phenomena are coarse-graining effects?
+
+\section{Conclusion}
+\label{sec:conclusion}
+
+We have proposed a structural framework in which gravitational phenomena arise from the adiabatic evolution of accessible observable algebras as the global quantum state evolves.
+
+The core claims are:
+\begin{enumerate}
+    \item \textbf{Categorical distinction:} Gauge forces describe dynamics \emph{within} a fixed algebra $\mathcal{A}_{\mathbf{c}}$; gravity describes the evolution \emph{of} $\mathcal{A}_{\mathbf{c}}$ itself.
+    
+    \item \textbf{Generative mechanism:} As the global state $|\Psi_U(t)\rangle$ evolves, stability conditions select different optimal algebras $\mathcal{A}_{\mathbf{c}}(t)$. This flow manifests as spacetime curvature.
+    
+    \item \textbf{Equivalence principle:} All observable matter couples universally to gravity because all observables are, by definition, elements of the same algebra $\mathcal{A}_{\mathbf{c}}$.
+    
+    \item \textbf{Information geometry:} The emergent metric is the Quantum Fisher Information Metric on the manifold of effective descriptions.
+\end{enumerate}
+
+This framework does not derive the Einstein equations from first principles, nor does it resolve the problem of quantum gravity. However, it offers more than a diagnostic: it proposes a \emph{generative mechanism} that explains why gravity has the structural features it does—universality, dynamical geometry, resistance to naive quantization.
+
+The perspective is consistent with, and provides a conceptual umbrella for, existing research programs: holographic duality (where boundary entanglement encodes bulk geometry), tensor networks (where network structure induces effective geometry), and thermodynamic approaches (where Einstein equations emerge from entropy considerations).
+
+We conclude with a reflection. The difficulty of quantizing gravity may not be purely technical. If gravity is the evolution of the stage on which quantum mechanics is performed, rather than an actor on that stage, then quantizing gravity requires quantizing the framework of quantization itself. This is not a problem to be solved by better regularization schemes, but a conceptual challenge requiring us to think beyond fixed subsystem decompositions.
+
+The path forward may lie not in quantizing forces, but in understanding what determines the structure of accessibility—and how that structure flows.
+
+\section*{Acknowledgments}
+
+The author thanks the anonymous reviewers for their insightful comments and suggestions, which greatly improved the clarity and rigor of this work. This work builds on foundational analysis developed in \cite{Liu2026PaperA,Liu2026PaperB}.
+
+\begin{thebibliography}{99}
+
+\bibitem{Kiefer2012}
+C. Kiefer, \emph{Quantum Gravity}, 3rd ed., Oxford University Press (2012).
+
+\bibitem{Zanardi2001}
+P. Zanardi, \emph{Virtual Quantum Subsystems}, Phys. Rev. Lett. \textbf{87}, 077901 (2001).
+
+\bibitem{Zanardi2004}
+P. Zanardi, D. A. Lidar, and S. Lloyd, \emph{Quantum Tensor Product Structures are Observable Induced}, Phys. Rev. Lett. \textbf{92}, 060402 (2004).
+
+\bibitem{Liu2026PaperA}
+S. Liu, \emph{Emergent Geometry from Coarse-Grained Observable Algebras: The Holographic Alaya-Field Framework}, Zenodo (2026), DOI: 10.5281/zenodo.18361707.
+
+\bibitem{Liu2026PaperB}
+S. Liu, \emph{Accessibility, Stability, and Emergent Geometry: Conceptual Clarifications on the Holographic Alaya-Field Framework}, Zenodo (2026), DOI: 10.5281/zenodo.18367061.
+
+\bibitem{RyuTakayanagi2006}
+S. Ryu and T. Takayanagi, \emph{Holographic Derivation of Entanglement Entropy from AdS/CFT}, Phys. Rev. Lett. \textbf{96}, 181602 (2006).
+
+\bibitem{VanRaamsdonk2010}
+M. Van Raamsdonk, \emph{Building up spacetime with quantum entanglement}, Gen. Relativ. Gravit. \textbf{42}, 2323 (2010).
+
+\bibitem{Rovelli2004}
+C. Rovelli, \emph{Quantum Gravity}, Cambridge University Press (2004).
+
+\bibitem{Smolin2006}
+L. Smolin, \emph{The case for background independence}, in \emph{The Structural Foundations of Quantum Gravity}, eds. D. Rickles, S. French, J. Saatsi, Oxford University Press (2006).
+
+\bibitem{Maldacena1999}
+J. M. Maldacena, \emph{The Large N limit of superconformal field theories and supergravity}, Int. J. Theor. Phys. \textbf{38}, 1113 (1999).
+
+\bibitem{Vidal2008}
+G. Vidal, \emph{Class of quantum many-body states that can be efficiently simulated}, Phys. Rev. Lett. \textbf{101}, 110501 (2008).
+
+\bibitem{Swingle2012}
+B. Swingle, \emph{Entanglement Renormalization and Holography}, Phys. Rev. D \textbf{86}, 065007 (2012).
+
+\bibitem{Jacobson1995}
+T. Jacobson, \emph{Thermodynamics of Spacetime: The Einstein Equation of State}, Phys. Rev. Lett. \textbf{75}, 1260 (1995).
+
+\bibitem{Thiemann2007}
+T. Thiemann, \emph{Modern Canonical Quantum General Relativity}, Cambridge University Press (2007).
+
+\bibitem{Petz1996}
+D. Petz, \emph{Monotone metrics on matrix spaces}, Linear Algebra Appl. \textbf{244}, 81 (1996).
+
+\bibitem{Bengtsson2006}
+I. Bengtsson and K. \.Zyczkowski, \emph{Geometry of Quantum States: An Introduction to Quantum Entanglement}, Cambridge University Press (2006).
+
+\bibitem{Lashkari2014}
+N. Lashkari, M. B. McDermott, and M. Van Raamsdonk, \emph{Gravitational dynamics from entanglement ``thermodynamics''}, JHEP \textbf{04}, 195 (2014).
+
+\bibitem{Faulkner2014}
+T. Faulkner, M. Guica, T. Hartman, R. C. Myers, and M. Van Raamsdonk, \emph{Gravitation from Entanglement in Holographic CFTs}, JHEP \textbf{03}, 051 (2014).
+
+\end{thebibliography}
+
+\end{document}

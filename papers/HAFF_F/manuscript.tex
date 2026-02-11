@@ -1,0 +1,580 @@
+% Paper F: Temporal Asymmetry as Accessibility Propagation
+% A Structural Analysis of Causal Direction
+% COMPLETE VERSION --- Final Draft
+
+\documentclass[12pt,a4paper]{article}
+\usepackage{amsmath,amssymb,amsfonts,amsthm}
+\usepackage{physics}
+\usepackage{hyperref}
+\usepackage{geometry}
+\usepackage{array}
+\usepackage{booktabs}
+\usepackage{tcolorbox}
+\geometry{margin=1in}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{conjecture}[theorem]{Conjecture}
+
+\title{Temporal Asymmetry as Accessibility Propagation:\\
+A Structural Analysis of Causal Direction}
+
+\author{
+  Sidong Liu, PhD \\
+  iBioStratix Ltd \\
+  \texttt{sidongliu@hotmail.com}
+}
+
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+We propose that temporal and causal asymmetry arise from the directional structure of accessibility propagation. Building on the Holographic Alaya-Field Framework (HAFF), which characterizes measurement as the selection of stable accessible algebras, we argue that the ``arrow of time'' is not a fundamental parameter but a consequence of how information spreads irreversibly into environmental degrees of freedom. The redundancy constraint central to accessibility---that information must be multiply recorded to be operationally accessible---is inherently asymmetric: information expands from few to many degrees of freedom, but the reverse process is statistically suppressed to the point of physical uninstantiability. This asymmetry defines a preferred direction that we identify with temporal ordering. No fundamental time parameter is assumed; all temporal ordering emerges from a partial order induced by algebraic inclusion and redundancy monotonicity. Causation is reframed as constraint propagation along this direction, with retrocausal trajectories being non-generic (measure zero) rather than forbidden by principle. A minimal mathematical model demonstrating irreversible redundancy expansion is provided in the appendix.
+\end{abstract}
+
+\section{Introduction}
+\label{sec:intro}
+
+\subsection{The Problem of Time's Arrow}
+
+Among the deepest puzzles in physics is the origin of temporal asymmetry. The fundamental laws of physics---Newtonian mechanics, electromagnetism, quantum mechanics---are time-reversal invariant or nearly so. Yet our experience of the world is profoundly asymmetric: eggs break but do not unbreak; we remember the past but not the future; causes precede effects.
+
+This tension between microscopic reversibility and macroscopic irreversibility has been recognized since Boltzmann's work on statistical mechanics \cite{Boltzmann1896}. The standard resolution appeals to special initial conditions: the universe began in a low-entropy state, and the second law of thermodynamics reflects the statistical tendency to evolve toward higher entropy \cite{Penrose1989,Carroll2010}.
+
+While this explanation is widely accepted, it raises further questions:
+\begin{itemize}
+    \item Why should initial conditions be ``special''? What selects them?
+    \item Is the thermodynamic arrow the only arrow, or are there independent sources of temporal asymmetry?
+    \item In quantum gravity, where time itself may be emergent, how does any notion of ``before'' and ``after'' arise?
+\end{itemize}
+
+The present work does not claim to resolve these questions definitively. Instead, it offers a structural reframing: temporal asymmetry may be understood as a consequence of how accessible algebras propagate information.
+
+\subsection{Central Thesis}
+
+We propose that temporal asymmetry can be understood as follows:
+
+\begin{quote}
+\textbf{Central Thesis:} No fundamental time parameter is assumed. All temporal ordering emerges from a partial order induced by algebraic inclusion and redundancy monotonicity. The ``arrow of time'' is the direction of irreversible accessibility propagation---information spreads from localized degrees of freedom into distributed environmental records, and this expansion is statistically irreversible.
+\end{quote}
+
+This thesis builds on the accessibility framework developed in Paper E \cite{Liu2026PaperE}. Recall that an observable is accessible only if information about it is redundantly recorded in multiple environmental fragments (the redundancy constraint). This redundancy is achieved through physical processes that spread information outward---precisely the processes that define thermodynamic irreversibility.
+
+The key insight is that the redundancy constraint is inherently asymmetric:
+\begin{itemize}
+    \item \textbf{Forward direction}: Information spreads from system to environment, creating multiple records. This satisfies the redundancy constraint.
+    \item \textbf{Backward direction}: Contracting distributed information back into a localized system would require precise coordination of many degrees of freedom---a process of measure zero in the space of dynamical trajectories.
+\end{itemize}
+
+This asymmetry is not imposed by hand; it follows from the structure of accessibility itself.
+
+\subsection{Scope and Limitations}
+
+We state explicitly what this paper does and does not attempt.
+
+\textbf{This paper does:}
+\begin{itemize}
+    \item Propose a structural account of temporal asymmetry based on accessibility propagation
+    \item Derive temporal ordering from redundancy structure without assuming fundamental time
+    \item Connect this account to the thermodynamic and quantum arrows
+    \item Reframe causation as constraint propagation along the accessibility direction
+    \item Provide a minimal mathematical model (Appendix A) demonstrating irreversible redundancy expansion
+    \item Situate the analysis within the broader HAFF framework
+\end{itemize}
+
+\textbf{This paper does not:}
+\begin{itemize}
+    \item Derive the second law of thermodynamics from first principles
+    \item Explain why initial conditions are low-entropy
+    \item Resolve metaphysical debates about the nature of time (A-theory vs.\ B-theory, presentism vs.\ eternalism)
+    \item Address free will, agency, or the phenomenology of temporal experience
+    \item Propose new dynamical equations or empirical predictions
+\end{itemize}
+
+The analysis is structural. We examine how temporal asymmetry relates to accessibility structure, without claiming that this analysis exhausts the content of the problem.
+
+\begin{remark}[Relation to Papers D and E]
+Paper D \cite{Liu2026PaperD} argued that gravity reflects the evolution of accessible algebras. Paper E \cite{Liu2026PaperE} argued that measurement reflects the selection of accessible algebras. The present paper argues that time reflects the \emph{directionality} of accessibility propagation. Together, these three papers characterize the diagnostic layer of the HAFF framework:
+\begin{itemize}
+    \item D: Geometry (algebra evolution)
+    \item E: Measurement (algebra selection)
+    \item F: Time (algebra propagation direction)
+\end{itemize}
+\end{remark}
+
+\subsection{Outline}
+
+Section~\ref{sec:background} reviews the status of time in various physical theories. Section~\ref{sec:accessibility} develops the core technical content: how the accessibility constraints generate directional structure. Section~\ref{sec:causation} reframes causation as constraint propagation along the accessibility direction. Section~\ref{sec:relations} compares the present approach to existing accounts of temporal asymmetry. Section~\ref{sec:noncommitments} states explicit non-commitments. Section~\ref{sec:connection} discusses connections to the HAFF framework. Section~\ref{sec:conclusion} concludes. Appendix~\ref{app:model} provides a minimal mathematical model demonstrating the irreversibility of redundancy expansion.
+
+\section{Background: Time in Physics}
+\label{sec:background}
+
+Before developing the accessibility-based account, we briefly review the status of time in major physical theories. The purpose is to identify a common structural assumption: that time is an external parameter, given rather than derived.
+
+\subsection{Time in Classical and Quantum Mechanics}
+
+In Newtonian mechanics, time is an absolute parameter. The equations of motion are time-reversal invariant: if $\mathbf{x}(t)$ is a solution, so is $\mathbf{x}(-t)$ (with velocities reversed). There is no intrinsic arrow.
+
+In quantum mechanics, time evolution is governed by the Schr\"odinger equation:
+\begin{equation}
+i\hbar \frac{\partial}{\partial t} |\psi\rangle = \hat{H} |\psi\rangle.
+\end{equation}
+This equation is unitary and reversible. The apparent irreversibility of measurement is an interpretational issue, not a feature of the formalism itself.
+
+\subsection{Time in Quantum Gravity}
+
+In canonical approaches to quantum gravity, the Wheeler-DeWitt equation takes the form:
+\begin{equation}
+\hat{H} |\Psi\rangle = 0,
+\end{equation}
+where $|\Psi\rangle$ is the wave function of the universe. This equation contains no time parameter; the universe is described by a static state satisfying a constraint equation \cite{DeWitt1967}.
+
+The Page-Wootters mechanism \cite{PageWootters1983} recovers effective time evolution from correlations between a ``clock'' subsystem and the rest of the universe within a timeless universal state. However, this mechanism explains how time \emph{ordering} emerges from correlations but does not explain why this ordering is \emph{asymmetric}.
+
+\subsection{The Common Thread}
+
+Across these theories, time appears either as an external parameter or as an emergent concept requiring additional input. The present framework offers a third perspective: time as a \textbf{structural consequence} of accessibility propagation, with directionality arising from the statistical asymmetry of redundancy expansion.
+
+\section{Accessibility and Directionality}
+\label{sec:accessibility}
+
+We now develop the central technical content: how the accessibility constraints generate a preferred direction that can be identified with temporal ordering.
+
+\subsection{Recap: The Redundancy Constraint}
+
+Paper E \cite{Liu2026PaperE} established that an observable $\hat{O}$ belongs to the accessible algebra $\mathcal{A}_{\mathbf{c}}$ only if it satisfies three constraints, including the \emph{redundancy constraint}:
+\begin{equation}
+I(\hat{O} : E_k) \approx H(\hat{O}) \quad \text{for many } k,
+\end{equation}
+where $I(\cdot : \cdot)$ denotes quantum mutual information, $H(\cdot)$ denotes von Neumann entropy, and $\{E_k\}$ are independent environmental fragments.
+
+This constraint ensures that information about accessible observables is distributed across multiple environmental subsystems, enabling intersubjective objectivity.
+
+\subsection{The Redundancy Index}
+
+We introduce a quantitative measure of redundancy:
+
+\begin{definition}[Redundancy Index]
+\label{def:redundancy}
+For an observable $\hat{O}$ and environment $E = \bigotimes_k E_k$ consisting of $N$ fragments, the \textbf{redundancy index} $\mathcal{R}(\hat{O})$ is the number of environmental fragments that have acquired nearly complete information about $\hat{O}$:
+\begin{equation}
+\mathcal{R}(\hat{O}) = \sum_{k=1}^{N} \Theta\left( I(\hat{O} : E_k) - (1-\delta) H(\hat{O}) \right),
+\end{equation}
+where $\Theta$ is the Heaviside step function and $\delta \ll 1$ is the information loss tolerance.
+\end{definition}
+
+High redundancy ($\mathcal{R} \sim N$) corresponds to classical, objective observables. Low redundancy ($\mathcal{R} \sim 1$) corresponds to quantum, contextual observables.
+
+\subsection{Asymmetry of Redundancy Flow}
+
+The central observation is that redundancy expansion and contraction are radically asymmetric:
+
+\begin{proposition}[Asymmetry of Redundancy Flow]
+\label{prop:asymmetry}
+Let $\hat{O}$ be an observable of a central system $S$ interacting with an $N$-fragment environment $E$. Then:
+\begin{enumerate}
+    \item \textbf{Expansion is generic}: Under typical interactions, $\mathcal{R}(\hat{O})$ increases from $\mathcal{R} = 0$ toward $\mathcal{R} \sim N$.
+    \item \textbf{Contraction is non-generic}: The phase space volume of trajectories along which $\mathcal{R}$ decreases is exponentially suppressed:
+    \begin{equation}
+    \frac{\text{Vol}(\mathcal{R} \downarrow)}{\text{Vol}(\mathcal{R} \uparrow)} \sim e^{-\alpha N}
+    \end{equation}
+    for some $\alpha > 0$ depending on the fragment dimensions.
+\end{enumerate}
+\end{proposition}
+
+The proof is provided in Appendix~\ref{app:model}. The key insight is that expansion requires only generic spreading of correlations, while contraction requires exponentially precise conspiracy among $N$ independent fragments.
+
+\subsection{Temporal Direction from Redundancy Gradient}
+
+This asymmetry induces a natural ordering on configurations of the accessible algebra:
+
+\begin{definition}[Accessibility Ordering]
+\label{def:ordering}
+Let $\mathcal{A}_\alpha$ and $\mathcal{A}_\beta$ be two configurations of the accessible algebra (corresponding to different redundancy structures). We define the partial order:
+\begin{equation}
+\mathcal{A}_\alpha \prec \mathcal{A}_\beta \quad \Leftrightarrow \quad \mathcal{A}_\alpha \subset \mathcal{A}_\beta \text{ and } \mathcal{R}(\mathcal{A}_\beta) \geq \mathcal{R}(\mathcal{A}_\alpha).
+\end{equation}
+\end{definition}
+
+This partial order is not imposed externally but emerges from the statistical structure of redundancy propagation. It constitutes the structural origin of temporal direction.
+
+\begin{tcolorbox}[colback=gray!5!white,colframe=black!75!black,title=\textbf{Clarification: Arrow Without Fundamental Time}]
+No fundamental time parameter is assumed. What might conventionally be written as $\mathcal{A}(t_1)$ and $\mathcal{A}(t_2)$ with $t_1 < t_2$ is here understood as $\mathcal{A}_\alpha \prec \mathcal{A}_\beta$---a partial order on algebraic configurations induced by redundancy monotonicity.
+
+``Dynamical trajectories'' are not functions $\hat{O}(t)$ parametrized by external time, but \textbf{directed paths through the space of accessible algebras} $\{\mathcal{A}_\alpha\}$, with direction determined by the redundancy gradient:
+\begin{equation}
+\mathcal{A}_\alpha \subset \mathcal{A}_\beta \quad \text{with} \quad \mathcal{R}(\mathcal{A}_\beta) \geq \mathcal{R}(\mathcal{A}_\alpha).
+\end{equation}
+
+Time is not a parameter but the \textbf{inclusion order of accessible structures}.
+\end{tcolorbox}
+
+\subsection{The Statistical Nature of the Arrow}
+
+The arrow of time, in this framework, is neither:
+\begin{itemize}
+    \item A fundamental law (time-reversal symmetry is not violated)
+    \item A thermodynamic accident (entropy is not the primary concept)
+    \item A cosmological boundary condition (no special initial state is assumed)
+\end{itemize}
+
+Rather, it is a \emph{statistical gradient}: the overwhelming majority of accessible-algebra configurations lie in the direction of increasing redundancy. Trajectories toward decreasing redundancy exist in principle but occupy exponentially vanishing phase space volume.
+
+\begin{quote}
+\textbf{Time is the statistical gradient of redundancy.}
+\end{quote}
+
+\subsection{Relation to Thermodynamic Arrow}
+
+The accessibility arrow and the thermodynamic arrow are closely related but not identical:
+
+\begin{table}[ht]
+\centering
+\small
+\begin{tabular}{|p{3.5cm}|p{4.5cm}|p{4.5cm}|}
+\hline
+\textbf{Feature} & \textbf{Thermodynamic Arrow} & \textbf{Accessibility Arrow} \\
+\hline
+Defined by & Entropy increase & Redundancy expansion \\
+\hline
+Requires & Coarse-graining choice & Accessibility constraints \\
+\hline
+Fundamental quantity & $S = -k_B \text{Tr}(\rho \ln \rho)$ & $\mathcal{R}[\mathcal{A}]$ (redundancy index) \\
+\hline
+Applies to & Macroscopic systems & Any system with environment \\
+\hline
+\end{tabular}
+\caption{Comparison of thermodynamic and accessibility arrows.}
+\label{tab:arrows}
+\end{table}
+
+The accessibility arrow may be viewed as a \emph{generalization} of the thermodynamic arrow: it applies whenever accessibility constraints are satisfied, even in contexts where thermodynamic entropy is not well-defined (e.g., quantum gravitational regimes where spacetime is emergent).
+
+\section{Causation as Constraint Propagation}
+\label{sec:causation}
+
+Having established that accessibility propagation defines a preferred direction, we now reframe causation in these terms.
+
+\subsection{Causation Without Fundamental Time}
+
+Traditional accounts of causation presuppose temporal ordering: causes precede effects. But if temporal ordering itself emerges from accessibility structure, causation must be reframed accordingly.
+
+\begin{definition}[Causal Relation]
+\label{def:causal}
+An observable $\hat{A}$ is \textbf{causally prior} to observable $\hat{B}$ (written $\hat{A} \rightsquigarrow \hat{B}$) if:
+\begin{enumerate}
+    \item $\hat{A}$ and $\hat{B}$ are both accessible: $\hat{A}, \hat{B} \in \mathcal{A}_{\mathbf{c}}$
+    \item The redundancy of $\hat{A}$ is established before the redundancy of $\hat{B}$: $\mathcal{R}(\hat{A})$ saturates at algebraic configuration $\mathcal{A}_\alpha$ while $\mathcal{R}(\hat{B})$ saturates at $\mathcal{A}_\beta$ with $\mathcal{A}_\alpha \prec \mathcal{A}_\beta$
+    \item Counterfactual dependence holds: perturbations of $\hat{A}$ induce correlated perturbations of $\hat{B}$
+\end{enumerate}
+\end{definition}
+
+This definition grounds causation in the propagation of accessibility constraints through environmental redundancy.
+
+\subsection{Why Retrocausation is Non-Generic}
+
+A persistent question in philosophy of physics is whether retrocausation---effects preceding causes---is possible. The present framework provides a structural answer:
+
+\begin{proposition}[Suppression of Retrocausation]
+\label{prop:retro}
+Retrocausal trajectories are not excluded by principle, but are non-generic to the extent of being physically uninstantiable.
+\end{proposition}
+
+\begin{proof}[Proof sketch]
+For $\hat{B}$ to causally influence $\hat{A}$ when $\mathcal{R}(\hat{A})$ is already saturated (information about $\hat{A}$ distributed across $N$ environmental fragments), the influence would need to:
+\begin{enumerate}
+    \item Propagate through all $N$ fragments simultaneously
+    \item Reconverge the distributed information coherently
+    \item Do so without disturbing the existing redundancy structure
+\end{enumerate}
+The phase space volume for such trajectories scales as $e^{-\alpha N}$ (Appendix~\ref{app:model}), rendering them statistically negligible for macroscopic $N$.
+\end{proof}
+
+\begin{remark}
+This result does not ``forbid'' retrocausation by fiat. Rather, it explains why retrocausal scenarios---while not logically impossible---do not occur: they require exponentially fine-tuned conspiracies in Hilbert space that generically do not obtain. This is stronger than any ``causal postulate'' because it derives from the geometry of state space, not from an imposed principle.
+\end{remark}
+
+\subsection{Causal Structure Without Spacetime}
+
+The causal relation $\rightsquigarrow$ defines a partial order on accessible observables with the following properties:
+\begin{itemize}
+    \item \textbf{Irreflexive}: $\hat{A} \not\rightsquigarrow \hat{A}$
+    \item \textbf{Asymmetric}: $\hat{A} \rightsquigarrow \hat{B}$ implies $\hat{B} \not\rightsquigarrow \hat{A}$ (by Proposition~\ref{prop:retro})
+    \item \textbf{Transitive}: $\hat{A} \rightsquigarrow \hat{B}$ and $\hat{B} \rightsquigarrow \hat{C}$ implies $\hat{A} \rightsquigarrow \hat{C}$
+\end{itemize}
+
+These properties are characteristic of causal structure and emerge here without presupposing a background temporal manifold.
+
+\section{Relation to Existing Approaches}
+\label{sec:relations}
+
+We situate the accessibility-based account relative to existing approaches to temporal asymmetry.
+
+\subsection{Comparison Table}
+
+\begin{table}[ht]
+\centering
+\small
+\begin{tabular}{|p{2.8cm}|p{3.5cm}|p{3.5cm}|p{3cm}|}
+\hline
+\textbf{Approach} & \textbf{Source of Arrow} & \textbf{What It Presupposes} & \textbf{Relation to HAFF} \\
+\hline
+Thermodynamic & Entropy increase & Coarse-graining choice & Accessibility more fundamental \\
+\hline
+Cosmological & Low-entropy Big Bang & Boundary conditions & Explains initial conditions \\
+\hline
+Decoherence & Interference suppression & System-environment split & Special case of accessibility \\
+\hline
+Causal set & Fundamental partial order & Causal order as primitive & HAFF derives the order \\
+\hline
+Page-Wootters & Correlations in static $|\Psi\rangle$ & Timeless formulation & HAFF adds directionality \\
+\hline
+\textbf{Accessibility} & \textbf{Redundancy expansion} & \textbf{Interaction structure} & \textbf{---} \\
+\hline
+\end{tabular}
+\caption{Comparison of approaches to temporal asymmetry.}
+\label{tab:comparison}
+\end{table}
+
+\subsection{Key Distinctions}
+
+\textbf{Thermodynamic arrow}: The accessibility arrow is closely related but more fundamental. Entropy increase presupposes a coarse-graining; accessibility expansion explains \emph{why} certain coarse-grainings are physically relevant.
+
+\textbf{Page-Wootters}: Both approaches treat time as emergent. Page-Wootters explains how time \emph{appears}; the accessibility framework explains why it has a \emph{direction}.
+
+\textbf{Retrocausality programs}: Some approaches explore retrocausal models \cite{Price2012}. The present framework does not exclude retrocausation in principle but explains its non-occurrence: retrocausal trajectories occupy exponentially vanishing phase space volume.
+
+\section{What This Paper Does NOT Claim}
+\label{sec:noncommitments}
+
+To prevent misreading, we state explicitly what this paper does \emph{not} claim.
+
+\begin{enumerate}
+    \item \textbf{No claim that time is unreal or illusory.} The framework reframes temporal asymmetry as emergent from accessibility structure, but this does not imply that time is ``merely subjective'' or non-existent.
+    
+    \item \textbf{No adjudication between A-theory and B-theory of time.} The framework is compatible with both presentism and eternalism.
+    
+    \item \textbf{No explanation of initial conditions.} We do not explain why the universe began with low redundancy, only why redundancy generically increases thereafter.
+    
+    \item \textbf{No resolution of the problem of time in quantum gravity.} The framework clarifies what temporal asymmetry \emph{means} in accessibility terms but does not derive time from the Wheeler-DeWitt equation.
+    
+    \item \textbf{No claims about consciousness or subjective time.} The phenomenology of temporal experience is not addressed.
+    
+    \item \textbf{No novel empirical predictions.} The analysis is structural, not dynamical.
+    
+    \item \textbf{No claim that retrocausation is impossible.} Retrocausation is statistically suppressed (measure zero), not logically forbidden.
+    
+    \item \textbf{No modification of quantum mechanics.} The framework assumes standard unitary evolution throughout.
+\end{enumerate}
+
+\section{Connection to HAFF Framework}
+\label{sec:connection}
+
+This paper completes the diagnostic layer of the HAFF framework.
+
+\subsection{The D + E + F Diagnostic Triangle}
+
+Papers D, E, and F form a coherent triad, each addressing a different aspect of how structure emerges from accessible algebras:
+
+\begin{table}[ht]
+\centering
+\small
+\begin{tabular}{|p{1.5cm}|p{2.5cm}|p{4cm}|p{4.5cm}|}
+\hline
+\textbf{Paper} & \textbf{Phenomenon} & \textbf{Traditional View} & \textbf{HAFF Reframing} \\
+\hline
+D & Gravity & Force between masses & Evolution of accessible algebra \\
+\hline
+E & Measurement & Primitive process & Selection within accessible algebra \\
+\hline
+F & Time & Fundamental parameter & Direction of accessibility propagation \\
+\hline
+\end{tabular}
+\caption{The D + E + F diagnostic triangle.}
+\label{tab:triad}
+\end{table}
+
+The unifying theme is that features traditionally taken as fundamental---force, measurement, time---may be understood as emergent properties of accessibility structure.
+
+\subsection{Structural Link: D + E + F}
+
+The three papers form a symmetric closed structure:
+\begin{itemize}
+    \item \textbf{D (Gravity)}: The evolution $\mathcal{A}_{\mathbf{c}}(t)$ of the accessible algebra manifests as curved geometry.
+    \item \textbf{E (Measurement)}: The selection of $\mathcal{A}_{\mathbf{c}}$ via physical constraints manifests as objective outcomes.
+    \item \textbf{F (Time)}: The direction of redundancy expansion within $\mathcal{A}_{\mathbf{c}}$ manifests as the causal arrow.
+\end{itemize}
+
+\subsection{Boundary Note: Toward Layer III}
+
+The completion of Layer II (diagnostic unification) sets the stage for Layer III: the structural limits of the framework itself.
+
+A key insight from D + E + F is that what appears fundamental (force, measurement, time) is actually emergent from accessible algebras. But this raises a question: \emph{What determines the accessible algebra structure itself?}
+
+Layer III (Paper G) will argue that this question admits no complete answer within the framework---not because the framework is incomplete, but because any answer would require a ``meta-framework'' to justify, leading to infinite regress. The boundary is structural, not epistemic.
+
+A theory that claims to explain everything must know where it must stop.
+
+\section{Conclusion}
+\label{sec:conclusion}
+
+\subsection{Summary of Results}
+
+We have proposed a structural account of temporal asymmetry and causation based on accessibility propagation. The central results are:
+
+\begin{enumerate}
+    \item \textbf{Time without fundamental parameter}: All temporal ordering emerges from a partial order induced by algebraic inclusion and redundancy monotonicity. No external time parameter is assumed.
+    
+    \item \textbf{The accessibility arrow}: Redundancy expansion is generic; redundancy contraction is exponentially suppressed. This asymmetry defines a preferred direction.
+    
+    \item \textbf{Causation as constraint propagation}: Causal relations emerge from constraint propagation along the accessibility arrow. Causes are sources of redundancy expansion; effects are regions of redundant recording.
+    
+    \item \textbf{Retrocausation non-generic}: Retrocausal trajectories are not excluded by principle, but are non-generic to the extent of being physically uninstantiable.
+    
+    \item \textbf{Diagnostic layer complete}: With Papers D, E, and F, the HAFF framework provides unified structural accounts of gravity, measurement, and time.
+\end{enumerate}
+
+\subsection{Closing Remark}
+
+The arrow of time has puzzled physicists and philosophers for over a century. We do not claim to have dissolved this puzzle. What we have done is reframe it:
+
+\begin{quote}
+The question is not ``Why does entropy increase?'' but ``Why does accessibility expand?''
+\end{quote}
+
+The answer---that expansion is generic while contraction requires exponential fine-tuning---follows from the geometry of Hilbert space in interacting systems. This does not explain everything. But by identifying the structural basis of temporal asymmetry, we clarify what remains to be explained---and what, perhaps, lies beyond the reach of structural analysis altogether.
+
+\section*{Acknowledgments}
+
+The author thanks the anonymous reviewers for their insightful comments and suggestions, which greatly improved the clarity and rigor of this work.
+
+\appendix
+
+\section{A Minimal Model of Irreversible Redundancy Expansion}
+\label{app:model}
+
+To rigorously demonstrate the central thesis of Section~\ref{sec:accessibility}---that accessibility expansion is generic while contraction is statistically suppressed---we consider a finite-dimensional model of a central system interacting with a fragmented environment.
+
+\subsection{The Star-Graph Interaction Setup}
+
+Consider a central system $S$ (the ``source'' of accessibility) and an environment $E$ consisting of $N$ independent subsystems (fragments) $E_1, E_2, \ldots, E_N$. The total Hilbert space is:
+\begin{equation}
+\mathcal{H}_{\text{tot}} = \mathcal{H}_S \otimes \mathcal{H}_{E_1} \otimes \mathcal{H}_{E_2} \otimes \cdots \otimes \mathcal{H}_{E_N}.
+\end{equation}
+
+The interaction Hamiltonian generating accessibility is chosen to be of the ``pre-measurement'' type:
+\begin{equation}
+\hat{H}_{\text{int}} = g \sum_{k=1}^{N} \hat{O}_S \otimes \hat{M}_k,
+\end{equation}
+where $\hat{O}_S$ is the observable of $S$ becoming accessible, $\hat{M}_k$ are the monitoring operators of the environmental fragments, and $g$ is the coupling strength.
+
+\subsection{Dynamics of Redundancy}
+
+Assume the initial state is uncorrelated:
+\begin{equation}
+|\Psi(0)\rangle = |s\rangle_S \otimes |e_0\rangle_{E_1} \otimes |e_0\rangle_{E_2} \otimes \cdots \otimes |e_0\rangle_{E_N}.
+\end{equation}
+
+Under the unitary evolution $U(t) = e^{-i\hat{H}_{\text{int}}t/\hbar}$, the state evolves into an entangled superposition. For $\hat{O}_S$ with eigenstates $|o_i\rangle$:
+\begin{equation}
+|\Psi(t)\rangle = \sum_i c_i |o_i\rangle_S \otimes |E_i^{(1)}(t)\rangle \otimes |E_i^{(2)}(t)\rangle \otimes \cdots \otimes |E_i^{(N)}(t)\rangle,
+\end{equation}
+where $|E_i^{(k)}(t)\rangle$ are the relative states of the environmental fragments.
+
+The mutual information $I(\hat{O}_S : E_k)$ grows as the fragments become correlated with $S$. By standard decoherence results \cite{Zurek2003}, for small $t$:
+\begin{equation}
+I(\hat{O}_S : E_k) \sim (gt)^2.
+\end{equation}
+
+\subsection{Proof of Asymmetry}
+
+\textbf{Forward Evolution (Generic Expansion):}
+
+As $t$ increases, information spreads to more fragments. For $gt \gg 1$, the redundancy index approaches its maximum:
+\begin{equation}
+\mathcal{R}(\hat{O}_S) \to N.
+\end{equation}
+This state corresponds to the ``classical plateau'' where the algebra generated by $\hat{O}_S$ is maximally accessible.
+
+\textbf{Backward Evolution (Contraction Suppression):}
+
+Consider the time-reversed evolution from a state of high redundancy. For $\mathcal{R}$ to decrease, the $N$ environmental fragments must conspiratorially un-correlate with $S$ simultaneously.
+
+In the phase space of the total system $\mathcal{H}_{\text{tot}}$, let $V_{\text{low}}$ be the volume of states with low redundancy ($\mathcal{R} < \mathcal{R}_{\text{crit}}$) and $V_{\text{high}}$ be the volume of states with high redundancy ($\mathcal{R} \sim N$).
+
+By counting Hilbert space dimensions, the ratio is exponentially suppressed:
+\begin{equation}
+\frac{V_{\text{low}}}{V_{\text{high}}} \sim e^{-\alpha N},
+\end{equation}
+where $\alpha > 0$ depends on the dimension of the fragments.
+
+\subsection{Conclusion of Appendix}
+
+While the dynamical laws ($U(t) = e^{-i\hat{H}t/\hbar}$) are reversible, the \textbf{Accessibility Flow} is structurally irreversible:
+\begin{itemize}
+    \item A trajectory starting in $V_{\text{low}}$ generically moves to $V_{\text{high}}$ (time arrow $\to$).
+    \item A trajectory starting in $V_{\text{high}}$ will almost never spontaneously fluctuate back to $V_{\text{low}}$ within the recurrence time of the universe.
+\end{itemize}
+
+The irreversibility comes from \textbf{state space volume}, not from dynamical asymmetry. This is the structural basis of the accessibility arrow:
+
+\begin{center}
+\fbox{\textbf{Time is the statistical gradient of Redundancy.}}
+\end{center}
+
+\begin{thebibliography}{99}
+
+\bibitem{Liu2026PaperA}
+S. Liu, \emph{Emergent Geometry from Coarse-Grained Observable Algebras: The Holographic Alaya-Field Framework}, Zenodo (2026), DOI: 10.5281/zenodo.18361707.
+
+\bibitem{Liu2026PaperB}
+S. Liu, \emph{Accessibility, Stability, and Emergent Geometry: Conceptual Clarifications on the Holographic Alaya-Field Framework}, Zenodo (2026), DOI: 10.5281/zenodo.18367061.
+
+\bibitem{Liu2026PaperC}
+S. Liu, \emph{Causation, Agency, and Existence: Structural Constraints and Interpretive Bridges}, Zenodo (2026), DOI: 10.5281/zenodo.18374806.
+
+\bibitem{Liu2026PaperD}
+S. Liu, \emph{Gravitational Phenomena as Emergent Properties of Observable Algebra Selection: A Structural Analysis}, Zenodo (2026), DOI: 10.5281/zenodo.18388882.
+
+\bibitem{Liu2026PaperE}
+S. Liu, \emph{Measurement as Accessibility: A Structural Analysis of Observable Algebra Selection}, Zenodo (2026), DOI: 10.5281/zenodo.18400066.
+
+\bibitem{Boltzmann1896}
+L. Boltzmann, \emph{Vorlesungen \"uber Gastheorie}, J. A. Barth, Leipzig (1896).
+
+\bibitem{Penrose1989}
+R. Penrose, \emph{The Emperor's New Mind}, Oxford University Press (1989).
+
+\bibitem{Carroll2010}
+S. Carroll, \emph{From Eternity to Here: The Quest for the Ultimate Theory of Time}, Dutton (2010).
+
+\bibitem{DeWitt1967}
+B. S. DeWitt, \emph{Quantum Theory of Gravity. I. The Canonical Theory}, Phys. Rev. \textbf{160}, 1113 (1967).
+
+\bibitem{PageWootters1983}
+D. N. Page and W. K. Wootters, \emph{Evolution without evolution: Dynamics described by stationary observables}, Phys. Rev. D \textbf{27}, 2885 (1983).
+
+\bibitem{Zurek2003}
+W. H. Zurek, \emph{Decoherence, einselection, and the quantum origins of the classical}, Rev. Mod. Phys. \textbf{75}, 715 (2003).
+
+\bibitem{Zurek2009}
+W. H. Zurek, \emph{Quantum Darwinism}, Nature Physics \textbf{5}, 181 (2009).
+
+\bibitem{Price2012}
+H. Price, \emph{Does Time-Symmetry Imply Retrocausality?}, Found. Phys. \textbf{42}, 724 (2012).
+
+\bibitem{Zanardi2001}
+P. Zanardi, \emph{Virtual Quantum Subsystems}, Phys. Rev. Lett. \textbf{87}, 077901 (2001).
+
+\bibitem{Zanardi2004}
+P. Zanardi, D. A. Lidar, and S. Lloyd, \emph{Quantum Tensor Product Structures are Observable Induced}, Phys. Rev. Lett. \textbf{92}, 060402 (2004).
+
+\end{thebibliography}
+
+\end{document}

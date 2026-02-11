@@ -1,0 +1,2650 @@
+% ============================================================
+% T-DOME Paper II: The Ego
+% T-DOME three-paper series, Paper II
+% ============================================================
+
+\documentclass[12pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage[hidelinks]{hyperref}
+\usepackage{booktabs}
+\usepackage{physics}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{float}
+
+% Theorem environments — matching HAFF/Q-RAIF/T-DOME I style
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{corollary}[theorem]{Corollary}
+
+\title{Spontaneous Symmetry Breaking of Reference Frames\\
+as a Computational Cost Minimization Strategy}
+
+\author{Sidong Liu, PhD \\
+\small iBioStratix Ltd \\
+\small \texttt{sidongliu@hotmail.com}}
+
+\date{February 2026}
+
+\begin{document}
+\maketitle
+
+% ============================================================
+\begin{abstract}
+We investigate the computational constraints on persistent
+open quantum systems that carry non-Markovian memory
+(Paper~I~\cite{Liu2026TDOME_I}).
+Paper~I established that memory is a thermodynamic necessity
+for survival beyond the Markovian ceiling, but revealed a
+secondary crisis: the \emph{Memory Catastrophe}, in which
+the Landauer cost of maintaining unbounded history exceeds
+any finite free-energy budget.
+
+We prove a \textbf{Computational Ceiling}: any agent that
+processes its memory \emph{symmetrically}---treating all
+components of its internal Clifford algebra $Cl(V,q)$ as
+equally relevant---reaches computational paralysis at a
+finite critical time $t_{\mathrm{par}}$.
+
+We then show that the resolution requires
+\textbf{spontaneous symmetry breaking} of the agent's
+internal reference frame: the selection of a privileged basis
+(a gauge fixing of the automorphism group
+$G = \mathrm{Aut}(Cl(V,q))$) that compresses the memory
+kernel into a tractable, low-dimensional representation.
+The optimal compression is governed by a survival-weighted
+rate-distortion bound; under generic conditions, the agent
+retains $k^{*} = \mathcal{C}_{\mathrm{budget}}/h_\mu$
+components and discards the rest.
+
+This establishes \textbf{reference-frame selection as the
+survival-optimal strategy under bounded rationality}:
+the ``self'' (a privileged computational basis) is not an
+additional hypothesis but the minimal structure that makes
+memory computationally tractable.
+
+The broken phase introduces four systematic bias terms---basis
+selection, frame drag, objective centering, and model
+incompleteness---that are generic consequences
+of gauge fixing under assumptions~(B1)--(B5).
+We show that under environmental drift, a fixed reference
+frame leads to the \textbf{Delusion Trap}: an exponential
+divergence of prediction error that the agent cannot detect
+from within its own frame, establishing the crisis that
+Paper~III must resolve.
+\end{abstract}
+
+% ============================================================
+\section{Introduction}
+\label{sec:intro}
+
+% ------------------------------------------------------------
+\subsection{Context: The Problem of Overload}
+\label{subsec:overload}
+
+Paper~I of this series~\cite{Liu2026TDOME_I} established that
+non-Markovian memory is a thermodynamic necessity for
+persistent far-from-equilibrium systems: under open-loop
+Markovian (GKSL) dynamics, the survival functional satisfies
+$\mathcal{S} \leq 0$ (the Markovian Ceiling), while agents
+carrying memory kernels can achieve $\mathcal{S} > 0$ by
+consuming stored system--environment correlations.
+
+This result, however, carries a price.
+The \emph{Memory Catastrophe} (Paper~I, Proposition~10)
+shows that the Landauer cost of maintaining a memory archive
+of depth $\tau_{\mathrm{mem}}$ grows at a rate
+\begin{equation}
+\label{eq:mem_cost_recall}
+\dot{W}_{\mathrm{mem}}
+\geq k_B T \ln 2 \cdot h_\mu,
+\end{equation}
+where $h_\mu$ is the entropy rate of the environmental
+process~\cite{CrutchfieldYoung1989,ShaliziCrutchfield2001}.
+For any finite free-energy budget $\dot{W}_{\mathrm{budget}}$,
+there exists a critical time $t_{\mathrm{crit}}$ beyond which
+$\dot{W}_{\mathrm{mem}} > \dot{W}_{\mathrm{budget}}$:
+the agent's memory consumes more resources than are available.
+
+But thermodynamic cost is only half the crisis.
+Even if unlimited free energy were available for memory
+maintenance, the agent must still \emph{process} the stored
+correlations---evaluate the survival functional as a function
+of its ever-growing archive---using finite computational
+resources. This is the problem that the present paper
+addresses.
+
+% ------------------------------------------------------------
+\subsection{Position within the Series}
+\label{subsec:series_position}
+
+This paper is the second of three constituting the
+\textbf{T-DOME} (Thermodynamic Dynamics of Observer-Memory
+Entanglement) framework, the third pillar of a three-paper
+program.
+
+\begin{center}
+\small
+\setlength{\tabcolsep}{4pt}%
+\begin{tabular}{@{}lp{3.2cm}cp{3.4cm}c@{}}
+\toprule
+\textbf{Framework} & \textbf{Question} & & \textbf{Result}
+  & \textbf{Status} \\
+\midrule
+HAFF~\cite{Liu2026HAFF_A,Liu2026HAFF_B}
+  & How does geometry emerge?
+  & Ocean
+  & Algebra $\to$ Geometry
+  & Complete \\[3pt]
+Q-RAIF~\cite{Liu2026QRAIF_A,Liu2026QRAIF_B}
+  & What algebra must an observer have?
+  & Fish
+  & $Cl(V,q) \hookrightarrow Cl(1,3)$
+  & Complete \\[3pt]
+T-DOME~I~\cite{Liu2026TDOME_I}
+  & Why must agents carry memory?
+  & Seed
+  & Markovian ceiling; memory as necessity
+  & Complete \\[3pt]
+\textbf{T-DOME~II} (this work)
+  & Why must agents break symmetry?
+  & Ego
+  & Reference-frame selection under bounded computation
+  & \textbf{This paper} \\[3pt]
+T-DOME~III
+  & How does self-calibration arise?
+  & Loop
+  & Fisher self-referential bound
+  & Planned \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+The three T-DOME papers form an irreversible logical chain.
+Each resolves a survival crisis created by its predecessor:
+\begin{enumerate}
+\item \textbf{Paper~I (The Seed):} Without memory, a system
+  is trapped in the \emph{Markovian present}---no accumulation,
+  no temporal arrow, inevitable thermal death.
+  Memory breaks this trap but floods the system with unbounded
+  historical data.
+\item \textbf{Paper~II (The Ego, this work):} Unbounded memory
+  under finite computational resources causes processing
+  collapse. Spontaneous symmetry breaking of the reference
+  frame (establishing a ``self'') resolves the overload but
+  introduces systematic bias.
+\item \textbf{Paper~III (The Loop):} Uncorrected bias diverges
+  from a changing environment. A self-referential calibration
+  loop (monitoring one's own prediction error) resolves the
+  bias but requires the system to ``observe its own
+  observation''---closing the self-calibration loop.
+\end{enumerate}
+
+% ------------------------------------------------------------
+\subsection{Relation to Q-RAIF}
+\label{subsec:qraif}
+
+Q-RAIF Paper~B~\cite{Liu2026QRAIF_B} established that any
+persistent open quantum subsystem maintaining a
+non-equilibrium steady state (NESS) requires an internal
+control algebra isomorphic to a Clifford algebra $Cl(V,q)$.
+Paper~C~\cite{Liu2026QRAIF_C} showed that this algebra must
+embed in the environmental observable algebra via a
+realizability homomorphism
+$\phi: Cl(V,q) \hookrightarrow Cl(1,3)$.
+
+The Clifford algebra $Cl(V,q)$, however, admits a non-trivial
+\emph{automorphism group} $G = \mathrm{Aut}(Cl(V,q))$.
+In the absence of external constraints, all elements of $G$
+yield physically equivalent representations---the choice of
+basis within the algebra is a \emph{gauge freedom}.
+This gauge freedom is the mathematical substrate of the
+symmetry that the present paper breaks.
+
+The ``ego'' is not a new algebraic structure imposed from
+outside the Q-RAIF framework; it is a \emph{gauge fixing}
+of the already-present internal symmetry, driven by
+computational optimality under bounded resources.
+
+% ------------------------------------------------------------
+\subsection{Relation to HAFF Paper~G}
+\label{subsec:haff_g}
+
+HAFF Paper~G established \emph{architectural
+incompleteness}: the observable-algebra framework cannot
+self-ground~\cite{Liu2026HAFF_G}.
+The present paper provides a partial operational resolution:
+under bounded computation, an agent satisfying~(B1)--(B5)
+is driven to choose a computational basis (break symmetry)
+precisely \emph{because} the framework is incomplete.
+The ego is an operational response to incompleteness, not a
+metaphysical addition.
+
+% ------------------------------------------------------------
+\subsection{Scope and Disclaimers}
+\label{subsec:scope}
+
+To prevent interpretational overreach, we state at the
+outset what this paper does \emph{not} claim:
+\begin{enumerate}
+\item We do not claim that symmetry breaking is
+  \emph{sufficient} for persistence.
+  Paper~III addresses the additional requirements.
+\item We do not claim that the specific form of the
+  privileged basis is unique---only that \emph{some} basis
+  selection is necessary under bounded computation.
+\item The term ``ego'' or ``self'' is used in the
+  control-theoretic sense: a fixed reference frame within
+  the agent's internal algebra. It carries no implication
+  of consciousness or subjective experience.
+\item A broader structural analogy with classical philosophical
+  concepts of selfhood exists but is outside the scope of
+  this paper.
+\end{enumerate}
+
+\paragraph{Related work.}
+The idea that bounded agents must compress their
+representations has roots in Simon's bounded
+rationality~\cite{Simon1955}, Shannon's
+rate-distortion theory~\cite{Shannon1959,CoverThomas2006},
+and Sims's rational inattention~\cite{Sims2003}, which
+models finite-capacity decision-makers as solving a
+rate-distortion problem---precisely the economic
+counterpart of our $\mathcal{C}_{\mathrm{budget}}$
+formalism.
+The information bottleneck~\cite{Tishby2000}
+formalises relevance-weighted compression and has been
+applied to neural coding and deep
+learning.
+The role of decoherence in selecting preferred bases
+(pointer states) is well established via quantum
+Darwinism~\cite{Zurek2009}; our contribution is to
+show that the same selection arises as a \emph{computational}
+necessity, independent of the decoherence mechanism.
+Measures of non-Markovianity and their thermodynamic
+consequences are reviewed
+in~\cite{RivasHuelgaPlenio2014,BreuerPetruccione2002};
+the connection to survival was established in Paper~I.
+
+\paragraph{Summary of contributions.}
+This paper establishes three main results:
+\begin{enumerate}
+\item \textbf{Computational Ceiling scaling law}
+  (Theorem~\ref{thm:comp_ceiling}): symmetric processing
+  of a $Cl(V,q)$ memory kernel requires rate
+  $\mathcal{R} \geq h_\mu \cdot D$, leading to paralysis
+  at a finite $\tau_{\mathrm{par}}$.
+\item \textbf{Survival-weighted rate-distortion bound}
+  (Theorem~\ref{thm:compression}): the optimal gauge-fixed
+  representation retains
+  $k^* = \lfloor\mathcal{C}_{\mathrm{budget}}/h_\mu\rfloor$
+  components.
+\item \textbf{Delusion dynamics}
+  (Theorem~\ref{thm:delusion}): a fixed reference frame
+  decouples from a drifting environment on the logarithmic
+  timescale $t_{\mathrm{del}}
+  = \Lambda^{-1}\ln(\pi/4\theta_0)$.
+\end{enumerate}
+
+% ============================================================
+\section{Mathematical Preliminaries}
+\label{sec:prelim}
+
+% ------------------------------------------------------------
+\subsection{Inherited Framework from Paper~I}
+\label{subsec:inherited}
+
+We briefly recall the key objects from
+Paper~I~\cite{Liu2026TDOME_I} that the present work builds
+upon.  The reader is referred to Paper~I for full definitions
+and proofs.
+
+\paragraph{Survival functional.}
+For an open quantum system $S$ coupled to an environment $E$
+at inverse temperature $\beta$, with dynamics $\Lambda$ and
+external control protocol $H_{\mathrm{ctrl}}(t)$, the
+survival functional is
+\begin{equation}
+\label{eq:survival_recall}
+\mathcal{S}[\Lambda, \tau]
+:= \Delta F - W[0,\tau],
+\end{equation}
+where $\Delta F = F(\rho(\tau)) - F(\rho(0))$ is the change
+in non-equilibrium free energy and
+$W = \int_0^\tau \tr(\rho(t)\,\dot{H}_{\mathrm{ctrl}}(t))\,dt$
+is the work performed by the external protocol.
+
+\paragraph{Markovian Ceiling.}
+Under open-loop GKSL dynamics with no feedback
+(control class $\mathcal{C}_{\mathrm{M}}$, Paper~I,
+Definition~6):
+\begin{equation}
+\label{eq:ceiling_recall}
+\mathcal{S}[\Lambda^{\mathrm{M}}, \tau] \leq 0
+\qquad\text{for all } \tau \geq 0.
+\end{equation}
+
+\paragraph{Non-Markovian advantage identity.}
+For arbitrary initial states:
+\begin{equation}
+\label{eq:advantage_recall}
+\beta\,\mathcal{S}
+= -\Delta I(S{:}E)
+  - \Delta D_{\mathrm{KL}}(\rho_E \| \rho_E^{\mathrm{th}})
+  - \beta\,\Delta\langle H_{\mathrm{ctrl}} \rangle.
+\end{equation}
+
+\paragraph{Memory Catastrophe.}
+The Landauer cost of maintaining a memory archive of depth
+$\tau_{\mathrm{mem}}$ satisfies
+$\dot{W}_{\mathrm{mem}} \geq k_BT\ln 2 \cdot h_\mu$
+(Paper~I, Proposition~10),
+where $h_\mu$ is the \emph{per-component} entropy rate of the
+environmental process~\cite{CrutchfieldYoung1989}, defined by
+\begin{equation}
+\label{eq:entropy_rate}
+h_\mu
+:= \lim_{T\to\infty}\frac{1}{T}\,H(X_{0:T}),
+\end{equation}
+measuring the asymptotic information (in bits per unit time)
+generated by a single algebraic component of the memory
+kernel (we work in units where the sampling interval equals
+the environmental correlation time
+$\tau_E$)\footnote{For a continuous-valued process sampled at
+resolution $b$ bits, $h_\mu$ includes the quantisation cost:
+$h_\mu = h_\mu^{(\mathrm{diff})} + b\,f_s$, where
+$h_\mu^{(\mathrm{diff})}$ is the differential entropy rate
+and $f_s$ the sampling frequency.  All budget inequalities in
+this paper hold with $h_\mu$ so defined.}---and the stored
+mutual
+information grows as
+$\mathfrak{i}_{\mathrm{stored}}(\tau_{\mathrm{mem}})
+\geq \min(I_{\mathrm{pred}},\; h_\mu \,\tau_{\mathrm{mem}})$,
+with $I_{\mathrm{pred}}$ the \emph{predictive information}
+(excess entropy)~\cite{BialekNemenmanTishby2001,ShaliziCrutchfield2001},
+defined as the mutual information between past and future
+of the environmental process:
+\begin{equation}
+\label{eq:I_pred}
+I_{\mathrm{pred}}
+:= I\!\left(\overleftarrow{X};\, \overrightarrow{X}\right)
+= H(\overrightarrow{X})
+  - H(\overrightarrow{X} \mid \overleftarrow{X}),
+\end{equation}
+where $\overleftarrow{X}$ and $\overrightarrow{X}$ denote
+the semi-infinite past and future, respectively.
+For a stationary process,
+$I_{\mathrm{pred}}$ relates to $h_\mu$ via the entropy-rate
+decomposition
+$H(X_{1:T}) = I_{\mathrm{pred}} + h_\mu\,T + o(1)$
+as $T \to \infty$~\cite{CrutchfieldYoung1989}.
+
+% ------------------------------------------------------------
+\subsection{The Agent's Internal Algebra}
+\label{subsec:algebra}
+
+Following Q-RAIF~\cite{Liu2026QRAIF_B,Liu2026QRAIF_C},
+the agent's internal control algebra is a Clifford algebra
+$\mathcal{O}_{\mathrm{int}} = Cl(V,q)$
+for a real vector space $V$ equipped with a non-degenerate
+quadratic form $q$.
+The algebra satisfies the fundamental relation
+$v^2 = q(v)\,\mathbf{1}$ for all $v \in V$.
+
+The \emph{automorphism group}
+\begin{equation}
+\label{eq:gauge_group}
+G := \mathrm{Aut}(Cl(V,q))
+\end{equation}
+is the group of algebra automorphisms that preserve the
+grading and quadratic form.\footnote{\label{fn:gauge_group}%
+We use $G$ as an effective symmetry group acting
+transitively on admissible frames.
+The detailed Lie-algebraic structure of $G$ is not required
+for our results; only the existence of a non-trivial
+symmetry that must be broken (assumption~(B5)).
+In concrete models, one may replace $G$ by its image
+under the adjoint representation---typically
+$O(V,q)$ or a pin/spin subgroup.}
+For $Cl(1,3)$, $G$ contains the spin group
+$\mathrm{Spin}(1,3) \cong SL(2,\mathbb{C})$
+as a subgroup---a six-real-dimensional Lie group.
+
+In the absence of computational constraints, all
+$g \in G$ yield physically equivalent descriptions of
+the agent's internal state.
+The choice of basis within $Cl(V,q)$ is a \emph{gauge
+freedom}---the symmetry that will be broken.
+
+The realizability embedding
+$\phi: Cl(V,q) \hookrightarrow Cl(1,3)$
+(Q-RAIF Paper~C) constrains the physically accessible
+reference frames: only gauge choices compatible with
+$\mathrm{Im}(\phi) \subset Cl(1,3)$ are realizable.
+
+\paragraph{Dimensional convention.}
+Two distinct notions of dimension appear throughout:
+\begin{center}
+\small
+\begin{tabular}{@{}lll@{}}
+\toprule
+Symbol & Meaning & Scaling \\
+\midrule
+$n := \dim V$ & number of generators
+  (degrees of freedom) & --- \\
+$D := \dim Cl(V,q) = 2^n$ & full multivector space
+  (algebra basis size) & exponential in $n$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+The Computational Ceiling (Section~\ref{sec:ceiling})
+scales with~$D$, not~$n$; the distinction matters
+whenever one compares generator-level and
+algebra-level quantities.
+
+% ------------------------------------------------------------
+\subsection{Rate-Distortion Theory}
+\label{subsec:RD}
+
+We require the classical rate-distortion framework
+of Shannon~\cite{Shannon1959}.
+
+\begin{definition}[Rate-distortion function]
+\label{def:RD}
+Let $X$ be a random source with distribution $p(x)$,
+$\hat{X}$ a reconstruction, and
+$d: \mathcal{X} \times \hat{\mathcal{X}} \to [0,\infty)$
+a distortion measure.
+The \emph{rate-distortion function} is
+\begin{equation}
+\label{eq:RD}
+R(D) := \min_{\substack{p(\hat{x}|x):\\
+  \mathbb{E}[d(X,\hat{X})] \leq D}} I(X; \hat{X}),
+\end{equation}
+the minimum mutual information between source and
+reconstruction that achieves average distortion at most $D$.
+\end{definition}
+
+$R(D)$ is a convex, non-increasing function of $D$ with
+$R(0) = H(X)$ (lossless) and
+$R(D_{\max}) = 0$ (maximum distortion).
+It provides the fundamental limit on lossy
+compression~\cite{CoverThomas2006}.
+The \emph{information bottleneck} method of
+Tishby et al.~\cite{Tishby2000} generalises this framework
+to the case where the relevant variable is not the source
+itself but a downstream prediction target---precisely the
+situation in our survival-weighted compression problem
+(Section~\ref{subsec:RD_bound}).
+
+% ------------------------------------------------------------
+\subsection{Bounded Rationality}
+\label{subsec:bounded}
+
+Following Simon~\cite{Simon1955}, we model computational
+limitations as a hard constraint on the agent's information
+processing rate.
+
+\begin{definition}[Computational budget]
+\label{def:budget}
+The agent's \emph{computational budget}
+$\mathcal{C}_{\mathrm{budget}}$ (measured in bits per unit
+time) is the maximum rate at which the agent can evaluate
+functions of its stored correlations.
+We assume $\mathcal{C}_{\mathrm{budget}} < \infty$.
+\end{definition}
+
+Physically, finiteness of $\mathcal{C}_{\mathrm{budget}}$
+reflects the finite number of degrees of freedom in the
+agent's physical substrate: finite Hilbert space dimension,
+finite memory register size, and finite energy available for
+computation (Landauer's
+principle~\cite{Landauer1961,Bennett1982}).
+
+% ------------------------------------------------------------
+\subsection{Fiber Bundle Formalism}
+\label{subsec:fiber}
+
+The geometric setting for reference-frame selection is a
+principal fiber bundle.
+
+\begin{definition}[Gauge bundle]
+\label{def:bundle}
+The \emph{gauge bundle} is the principal $G$-bundle
+\begin{equation}
+\label{eq:bundle}
+\pi: P \to M, \qquad G = \mathrm{Aut}(Cl(V,q)),
+\end{equation}
+where:
+\begin{itemize}
+\item $M$ is the base space of \emph{effective memory
+  kernels}---equivalently, the space of induced
+  sufficient-statistic processes accessible to the agent
+  (a finite-dimensional manifold that admits local
+  parametrisation by the environmental spectral-density
+  couplings);
+\item $G$ is the structure group acting transitively on
+  admissible frames (see
+  footnote~\ref{fn:gauge_group} for the effective
+  subgroup);
+\item the fiber $\pi^{-1}(\kappa)$ over a kernel
+  $\kappa \in M$ is the $G$-orbit of equivalent algebraic
+  representations (frames) for describing~$\kappa$
+  in $Cl(V,q)$;
+\item a \emph{section} $\sigma: M \to P$ constitutes a
+  global gauge-fixing policy---a systematic choice
+  of reference frame for every kernel configuration.
+\end{itemize}
+\end{definition}
+
+A \emph{connection} on $P$ specifies how the reference frame
+is parallel-transported as the agent's state evolves.
+The curvature of this connection measures the extent to
+which the reference frame ``twists'' along different paths
+through state space.
+
+% ------------------------------------------------------------
+\subsection{Standing Assumptions}
+\label{subsec:standing}
+
+\begin{definition}[Standing Assumptions]
+\label{def:assumptions_B}
+Throughout this paper, the following conditions are assumed:
+\begin{enumerate}
+\item[\textup{(B1)}] \textbf{Inherited framework.}
+  All assumptions (A1)--(A5) of
+  Paper~I~\cite{Liu2026TDOME_I} remain in force
+  (open quantum system coupled to a thermal bath,
+  well-defined free energy, non-equilibrium initial state,
+  finite-dimensional system Hilbert space,
+  and weak-coupling or controlled-coupling regime).
+  Additionally, the agent possesses an internal control
+  algebra $\mathcal{O}_{\mathrm{int}} = Cl(V,q)$
+  with realizability embedding
+  $\phi: Cl(V,q) \hookrightarrow Cl(1,3)$
+  (Q-RAIF~\cite{Liu2026QRAIF_C}).
+\item[\textup{(B2)}] \textbf{Finite computational budget.}
+  The agent's information processing rate satisfies
+  $\mathcal{C}_{\mathrm{budget}} < \infty$
+  (Definition~\ref{def:budget}).
+\item[\textup{(B3)}] \textbf{Non-trivial environment.}
+  The entropy rate satisfies $h_\mu > 0$ and the
+  memory depth satisfies $\tau_{\mathrm{mem}} > 0$.
+  In Sections~\ref{sec:breaking}--\ref{sec:cost} we
+  additionally require that the Computational Ceiling
+  is binding:
+  $\tau_{\mathrm{mem}} > \tau_{\mathrm{par}}$
+  (Theorem~\ref{thm:comp_ceiling}), i.e., the symmetric
+  phase is computationally intractable.
+\item[\textup{(B4)}] \textbf{Survival imperative.}
+  The agent's dynamics must maintain
+  $\mathcal{S} \geq \mathcal{S}_{\min}$
+  over survival horizons
+  $T \gg \tau_{\mathrm{mem}}$.
+  This is a persistence constraint, not an optimization
+  objective.
+\item[\textup{(B5)}] \textbf{Gauge symmetry of bare
+  algebra.}
+  The automorphism group $G = \mathrm{Aut}(Cl(V,q))$
+  is non-trivial ($G \neq \{e\}$).
+  In the absence of computational constraints, all
+  $g \in G$ yield physically equivalent descriptions.
+\end{enumerate}
+\end{definition}
+
+% ============================================================
+\section{The Computational Ceiling}
+\label{sec:ceiling}
+
+We now establish the fundamental computational limitation of
+symmetric agents---those that treat all components of their
+internal algebra as equally relevant.
+The result is the computational analogue of Paper~I's
+Markovian Ceiling: where that theorem showed that
+\emph{memoryless} dynamics cannot achieve
+$\mathcal{S} > 0$, the present theorem shows that
+\emph{unbiased processing} of memory leads to computational
+paralysis.
+
+% ------------------------------------------------------------
+\subsection{The Information Processing Inequality
+for Bounded Agents}
+\label{subsec:processing}
+
+\paragraph{Accounting convention.}
+To ensure dimensional consistency throughout, we distinguish
+two quantities:
+\begin{itemize}
+\item $\mathcal{C}_{\mathrm{budget}}$: the agent's processing
+  \emph{rate} (bits per unit time).
+\item $\mathcal{I}_{\mathrm{proc}}(\tau)$: the total
+  information (bits) that must be processed per evaluation
+  cycle when the memory archive has depth $\tau$.
+\end{itemize}
+The agent must complete one evaluation cycle per
+environmental correlation time $\tau_E$.
+The \emph{processing rate} required for a memory depth
+$\tau$ is
+\begin{equation}
+\label{eq:rate_def}
+\mathcal{R}_{\mathrm{proc}}(\tau)
+:= \frac{\mathcal{I}_{\mathrm{proc}}(\tau)}
+        {\tau_E}.
+\end{equation}
+Paralysis occurs when
+$\mathcal{R}_{\mathrm{proc}}(\tau_{\mathrm{mem}})
+> \mathcal{C}_{\mathrm{budget}}$.
+Hereafter we measure time in units of $\tau_E$
+(i.e., set $\tau_E = 1$), so that rates and per-cycle
+information quantities are numerically equal.
+
+\begin{definition}[Symmetric processing]
+\label{def:symmetric}
+An agent processes its memory \emph{symmetrically} if both
+its cost functional $\mathcal{C}[\cdot]$ and its distortion
+measure $D(\cdot)$ are $G$-invariant:
+$\mathcal{C}[g \cdot \mathcal{K}]
+= \mathcal{C}[\mathcal{K}]$ and
+$D(g \cdot \mathcal{F}) = D(\mathcal{F})$
+for every $g \in G = \mathrm{Aut}(Cl(V,q))$.
+In operational terms: for every stored correlation $c_i$ in the
+memory kernel $\mathcal{K}(t,s)$ and every $g \in G$, the
+cost of evaluating $c_i$ equals the cost of evaluating
+$g \cdot c_i$, and no basis direction is
+\emph{a priori} preferred for survival evaluation.
+\end{definition}
+
+\begin{remark}[Operational meaning of processing rate]
+\label{rem:proc_rate}
+We define the processing rate
+$\mathcal{R}_{\mathrm{proc}}$ as an
+\emph{information-throughput} measure: the number of
+algebraic components that must be updated per unit time,
+multiplied by the innovation rate $h_\mu$ per component.
+It captures the \emph{bandwidth} cost of maintaining an
+internal representation, not the algorithmic gate
+complexity of individual operations.
+\end{remark}
+
+\begin{theorem}[Computational Ceiling]
+\label{thm:comp_ceiling}
+Let an agent satisfy assumptions~\textup{(B1)--(B5)} with
+memory depth $\tau_{\mathrm{mem}}$ and per-component entropy
+rate $h_\mu > 0$.
+Assume the environment is \textbf{unstructured} in the
+following two senses:
+\textup{(i)}~the effective activated dimension satisfies
+$D_{\mathrm{eff}} \approx D$ (all grades of $Cl(V,q)$
+carry non-negligible correlations), and
+\textup{(ii)}~the predictive information is not concentrated
+on a known sub-algebra (the agent possesses no
+\emph{a priori} knowledge of the environmental symmetry
+group and cannot exploit group-theoretic shortcuts such as
+irreducible representations or Schur
+decompositions).\footnote{%
+If the agent knows the environmental symmetry group $H$,
+symmetric processing can be restricted to the isotypic
+components of $H$, reducing the effective dimension to
+$D_{\mathrm{eff}} \leq D$.
+The ceiling applies to the \emph{generic} (worst-case)
+scenario.
+All subsequent results hold \emph{a fortiori}
+when $D$ is replaced by $D_{\mathrm{eff}}$.}
+Within the class of \emph{symmetric representations}
+that retain all $D$ components with equal fidelity
+(permitting no privileged subspace)---thereby precluding
+structured compression techniques such as sparse coding
+or Johnson--Lindenstrauss
+embeddings~\cite{JohnsonLindenstrauss1984}, as these
+inherently implement a form of symmetry
+breaking---the minimum processing rate satisfies
+\begin{equation}
+\label{eq:comp_ceiling}
+\mathcal{R}_{\mathrm{proc}}^{\mathrm{sym}}
+\;\geq\; h_\mu \cdot D,
+\qquad D := \dim Cl(V,q) = 2^n,
+\end{equation}
+where $n = \dim V$ is the number of generators.
+This rate scales \emph{linearly} in the algebra dimension
+$D$ and \emph{exponentially} in~$n$.
+
+For any finite $\mathcal{C}_{\mathrm{budget}}$, the maximum
+memory depth that can be processed before correlations
+expire is
+\begin{equation}
+\label{eq:t_par}
+\tau_{\mathrm{par}}
+:= \frac{\mathcal{C}_{\mathrm{budget}}}
+        {h_\mu \cdot D}.
+\end{equation}
+Here $\tau_{\mathrm{par}}$ is measured in units of
+$\tau_E$ (environmental correlation times), not seconds;
+cf.\ the accounting convention at the start of this section.
+
+For $\tau_{\mathrm{mem}} > \tau_{\mathrm{par}}$, the agent's
+evaluation cycle cannot complete within one correlation time:
+\begin{equation}
+\label{eq:paralysis}
+\mathcal{I}_{\mathrm{proc}}(\tau_{\mathrm{mem}})
+= h_\mu \cdot \tau_{\mathrm{mem}} \cdot D
+> \mathcal{C}_{\mathrm{budget}}.
+\end{equation}
+Stored correlations go stale before they can be used.
+\end{theorem}
+
+\begin{proof}
+Under symmetric processing, the agent maintains $D$
+parallel correlation channels---one for each independent
+algebraic component of $Cl(V,q)$.
+The environment generates innovations at rate $h_\mu$ bits
+per unit time in each channel
+(Remark~\ref{rem:proc_rate}).
+Over a memory depth $\tau_{\mathrm{mem}}$, the total
+information load is therefore
+$\mathcal{I}_{\mathrm{proc}}(\tau_{\mathrm{mem}})
+= D \cdot h_\mu \cdot \tau_{\mathrm{mem}}$
+bits~\cite{CoverThomas2006}, and the required
+\emph{rate} is
+$\mathcal{R}_{\mathrm{proc}}^{\mathrm{sym}}
+= D \cdot h_\mu$ bits per unit time.
+
+The agent must complete one evaluation cycle within
+$\tau_E$ (one environmental correlation time); otherwise
+the oldest correlations expire before use.
+Setting
+$\mathcal{R}_{\mathrm{proc}}^{\mathrm{sym}}
+= \mathcal{C}_{\mathrm{budget}}$
+and solving for $\tau_{\mathrm{mem}}$ gives
+$\tau_{\mathrm{par}}$~\eqref{eq:t_par}.
+\end{proof}
+
+\begin{corollary}[The Symmetry Tax]
+\label{cor:symmetry_tax}
+Maintaining full gauge invariance imposes a multiplicative
+overhead of $D = 2^n$ on all computational operations
+relative to a fixed-basis agent that processes only $k$
+components.
+The overhead ratio is $D/k$, which for
+$Cl(1,3)$ ($D = 16$, $k = 2$) is $8\times$, and grows
+exponentially with the number of generators $n$.
+\end{corollary}
+
+\begin{remark}[Effective vs.\ full dimension]
+\label{rem:D_eff}
+The ceiling uses $D = \dim Cl(V,q) = 2^n$, the full
+multivector dimension.
+In practice, the environment may couple to only a subset of
+grades (e.g., grade-1 generators), yielding an effective
+dimension $D_{\mathrm{eff}} \leq D$.
+For a \emph{structured} environment where the agent knows
+which grades are active, the ceiling can be tightened to
+$\mathcal{R}_{\mathrm{proc}} \gtrsim h_\mu
+\cdot D_{\mathrm{eff}}$.
+The unstructured assumption~(B3) represents the worst case;
+all subsequent results hold \emph{a fortiori} when
+$D$ is replaced by $D_{\mathrm{eff}}$.
+\end{remark}
+
+% ------------------------------------------------------------
+\subsection{Processing Collapse}
+\label{subsec:collapse}
+
+\begin{proposition}[Processing Collapse]
+\label{prop:collapse}
+Under~\textup{(B1)--(B5)}, an agent that maintains full
+gauge symmetry reaches computational paralysis at time
+$\tau_{\mathrm{par}}$~\eqref{eq:t_par}.
+Beyond $\tau_{\mathrm{par}}$, the agent's processing latency
+$\delta t_{\mathrm{proc}}$ exceeds the environmental
+correlation time $\tau_E$:
+\begin{equation}
+\label{eq:latency}
+\delta t_{\mathrm{proc}}(\tau_{\mathrm{mem}})
+= \frac{D \cdot \tau_{\mathrm{mem}}}
+       {\mathcal{C}_{\mathrm{budget}} / h_\mu}
+> 1
+\qquad\text{(in units of $\tau_E$)}.
+\end{equation}
+Every stored correlation becomes stale before it can be
+evaluated, rendering the entire memory archive operationally
+useless.
+\end{proposition}
+
+\begin{remark}[Comparison with Paper~I's Memory Catastrophe]
+\label{rem:comparison}
+Paper~I's Memory Catastrophe is \emph{thermodynamic}:
+the \emph{cost of storing} memory exceeds the energy budget.
+The Computational Ceiling is \emph{informational}: the
+\emph{cost of processing} memory exceeds the computational
+budget.
+The two crises are complementary---an agent with unlimited
+energy but finite computation is still paralyzed, and vice
+versa.
+The resolution of both crises is the same: compression
+through symmetry breaking.
+\end{remark}
+
+% ============================================================
+\section{The Symmetry Breaking Resolution}
+\label{sec:breaking}
+
+% ------------------------------------------------------------
+\subsection{Reference Frame as Gauge Fixing}
+\label{subsec:frame}
+
+\begin{definition}[Reference frame]
+\label{def:frame}
+A \emph{reference frame} $\mathcal{F}$ is a section
+$\sigma: M \to P$ of the gauge bundle
+(Definition~\ref{def:bundle}).
+Choosing $\sigma$ is equivalent to selecting a preferred
+orthonormal basis $\{e_1, \ldots, e_n\}$ of the generating
+vector space $V$ at each point in state space~$M$, thereby
+fixing the gauge freedom of $Cl(V,q)$.
+\end{definition}
+
+\begin{definition}[Projected memory kernel]
+\label{def:projected}
+Given a reference frame $\mathcal{F}$, let
+$V_{\mathrm{fg}}(\mathcal{F}) \subset Cl(V,q)$ be the
+$k^*$-dimensional \emph{foreground subspace} selected by
+the rate-distortion optimization
+(Theorem~\ref{thm:compression}).
+Let $\Pi_{\mathcal{F}}$ denote the orthogonal projection
+onto $V_{\mathrm{fg}}(\mathcal{F})$ with respect to the
+trace inner product
+$\langle A, B \rangle := \tr(A^\dagger B)$.
+The \emph{projected memory kernel} is
+\begin{equation}
+\label{eq:projected_kernel}
+\mathcal{K}_{\mathcal{F}}(t,s)
+:= \Pi_{\mathcal{F}}\,\mathcal{K}(t,s)\,
+   \Pi_{\mathcal{F}}.
+\end{equation}
+The complementary projection
+$\Pi_{\mathcal{F}}^{\perp}
+= \mathbf{1} - \Pi_{\mathcal{F}}$ defines the
+\emph{background subspace} $V_{\mathrm{bg}}(\mathcal{F})$.
+The decomposition
+$Cl(V,q) = V_{\mathrm{fg}} \oplus V_{\mathrm{bg}}$
+is determined by $\mathcal{F}$, not by any \emph{a priori}
+ordering of basis vectors.
+\end{definition}
+
+% ------------------------------------------------------------
+\subsection{The Rate-Distortion Bound}
+\label{subsec:RD_bound}
+
+We now apply rate-distortion theory to the problem of
+optimal memory compression under the survival constraint.
+
+\paragraph{Processing rate of a frame.}
+If the agent retains $k$ algebraic components (the foreground
+subspace $V_{\mathrm{fg}}$), each generating $h_\mu$ bits
+per unit time, the processing rate of frame $\mathcal{F}$ is
+\begin{equation}
+\label{eq:R_frame}
+R_{\mathcal{F}}(k) \;=\; k \cdot h_\mu
+\qquad\text{(bits per unit time)}.
+\end{equation}
+The budget constraint $R_{\mathcal{F}} \leq
+\mathcal{C}_{\mathrm{budget}}$ thus bounds the number of
+maintainable components.
+
+\begin{definition}[Survival distortion]
+\label{def:survival_distortion}
+The \emph{survival distortion} of a reference frame
+$\mathcal{F}$ is
+\begin{equation}
+\label{eq:distortion}
+D(\mathcal{F})
+:= \mathbb{E}_{\xi}\!\left[
+  \ell\!\bigl(\mathcal{S}_{\mathrm{full}}(\xi)
+  - \mathcal{S}_{\mathcal{F}}(\xi)\bigr)
+\right],
+\end{equation}
+where $\xi$ denotes environmental realizations,
+$\ell: \mathbb{R} \to [0,\infty)$ is a convex,
+non-decreasing loss function (we use squared error
+$\ell(x) = x^2$ throughout),
+$\mathcal{S}_{\mathrm{full}}(\xi)$ is the survival
+functional evaluated using the full memory kernel
+$\mathcal{K}(t,s)$, and $\mathcal{S}_{\mathcal{F}}(\xi)$
+is evaluated using the projected kernel
+$\mathcal{K}_{\mathcal{F}}(t,s)$.
+\end{definition}
+
+\begin{remark}[Information-theoretic objects]
+\label{rem:info_objects}
+Strictly speaking, rate-distortion theory and mutual
+information apply to stochastic processes, not to
+superoperator kernels directly.
+Throughout
+Sections~\ref{sec:breaking}--\ref{sec:cost},
+$I(\mathcal{K}_{\mathcal{F}};\,\mathcal{K})$ is shorthand
+for $I(\hat{X};\,X)$, where
+$X = \{c_i(t)\}_{i=1}^{D}$ is the sufficient-statistic
+record process induced by the full kernel $\mathcal{K}$
+acting on the agent's internal coordinates, and
+$\hat{X} = \{c_i(t)\}_{i \in V_{\mathrm{fg}}}$ is the
+projected record induced by
+$\mathcal{K}_{\mathcal{F}}$.
+The distortion measure~\eqref{eq:distortion} acts on the
+survival functional $\mathcal{S}$ evaluated on these
+records.
+\end{remark}
+
+\begin{theorem}[Optimal Compression under Survival Constraint]
+\label{thm:compression}
+Let an agent with computational budget
+$\mathcal{C}_{\mathrm{budget}}$ and per-component entropy
+rate $h_\mu$ choose a reference frame $\mathcal{F}$ that
+minimizes the survival distortion~\eqref{eq:distortion}
+subject to $R_{\mathcal{F}} \leq
+\mathcal{C}_{\mathrm{budget}}$~\eqref{eq:R_frame}.
+Then:
+\begin{enumerate}
+\item[\textup{(a)}] Assuming that $D(\mathcal{F})$ is
+  non-increasing in the available rate $R_{\mathcal{F}}$
+  (retaining more components cannot worsen survival
+  distortion), the set of optimal reference frames
+  $\mathfrak{F}^*
+  := \operatorname*{arg\,min}_{\mathcal{F}}
+  D(\mathcal{F})$
+  subject to the budget constraint is non-empty, and
+  any $\mathcal{F}^* \in \mathfrak{F}^*$ saturates the
+  budget:
+  $R_{\mathcal{F}^*} = \mathcal{C}_{\mathrm{budget}}$
+  (the set $\mathfrak{F}^*$ may contain multiple
+  elements; see Theorem~\ref{thm:SSB}(c)).
+\item[\textup{(b)}] The compressed representation retains
+  \begin{equation}
+  \label{eq:k_star}
+  k^* = \left\lfloor
+    \frac{\mathcal{C}_{\mathrm{budget}}}{h_\mu}
+  \right\rfloor
+  \end{equation}
+  effective algebraic components
+  (the maximum integer number of components whose processing
+  rate $k^* \cdot h_\mu$ fits within the budget;
+  in practice the floor function ensures
+  $k^* \in \mathbb{Z}_{\geq 1}$).
+\item[\textup{(c)}] The fraction of algebraic structure
+  discarded (in component count) is
+  \begin{equation}
+  \label{eq:discard_fraction}
+  1 - \frac{k^*}{D},
+  \end{equation}
+  For $Cl(1,3)$ ($D = 16$) with a budget allowing
+  $k^* = 2$, the discarded fraction is $1 - 2/16 = 87.5\%$.
+  For $k^* = 1$, it exceeds $93\%$.
+  In the regime $k^* \ll D$, the fraction approaches
+  $1 - 1/D$ and grows with algebra dimension.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+The survival functional $\mathcal{S}$ is a function of the
+full density operator $\rho(t)$, which in turn depends on
+the full memory kernel $\mathcal{K}(t,s)$.
+The agent's task is to evaluate $\mathcal{S}$ using only
+$k$ components of $\mathcal{K}$, chosen to minimize the
+mean-squared error in $\mathcal{S}$.
+
+Strictly, rate-distortion theory applies to
+\emph{random processes}, not to superoperator kernels
+directly.
+The bridge is the \emph{induced record process}: the
+memory kernel $\mathcal{K}(t,s)$, acting on the agent's
+internal coordinates, generates a $D$-component time series
+of sufficient statistics $\{c_i(t)\}_{i=1}^{D}$ whose
+entropy rate per component is~$h_\mu$.
+Rate-distortion is applied to this record
+stream~(Section~\ref{subsec:RD};
+cf.\ Tishby et al.~\cite{Tishby2000}),
+with source $X = \{c_i(t)\}$ (the full record),
+reconstruction
+$\hat{X} = \{c_i(t)\}_{i \in V_{\mathrm{fg}}}$
+(the projected record), and distortion measure
+$d = |\mathcal{S}_{\mathrm{full}}
+- \mathcal{S}_{\mathcal{F}}|^2$.
+
+By Shannon's rate-distortion theorem~\cite{Shannon1959},
+the minimum rate required to achieve distortion $\delta$ is
+$R(\delta)$, a convex non-increasing function.
+The budget constraint~\eqref{eq:R_frame} limits the
+processing rate to $R_{\mathcal{F}} = k \cdot h_\mu
+\leq \mathcal{C}_{\mathrm{budget}}$.
+The optimal frame $\mathcal{F}^*$ saturates this bound.
+
+For part~(b): by~\eqref{eq:R_frame}, tracking $k$ components
+costs $k \cdot h_\mu$ bits per unit time.
+The maximum integer $k$ satisfying
+$k \cdot h_\mu \leq \mathcal{C}_{\mathrm{budget}}$ is
+$k^* = \lfloor \mathcal{C}_{\mathrm{budget}} / h_\mu
+\rfloor$.
+
+The discard fraction~(c) follows by counting:
+$k^*$ of $D$ components are retained.
+For $Cl(1,3)$ ($D = 16$, $k^* = 2$), the discarded fraction
+is $87.5\%$; for higher-dimensional algebras it exceeds
+$99\%$.
+\end{proof}
+
+% ------------------------------------------------------------
+\subsection{Spontaneous Symmetry Breaking}
+\label{subsec:SSB}
+
+\begin{theorem}[Necessity of Symmetry Breaking]
+\label{thm:SSB}
+Under assumptions~\textup{(B1)--(B5)}, with the
+Computational Ceiling binding
+($\tau_{\mathrm{mem}} > \tau_{\mathrm{par}}$, both
+measured in units of~$\tau_E$), and
+assuming \emph{non-degeneracy}: the survival
+distortion~\eqref{eq:distortion} satisfies
+$D(\mathcal{F}) \neq D(\mathcal{F}')$ for almost all
+pairs $\mathcal{F} \neq \mathcal{F}'$ in the space of
+frames\footnote{%
+Non-degeneracy is generically satisfied when the
+environment's pointer basis~\cite{Zurek2009} assigns
+different survival values to different algebraic
+components, breaking the continuous symmetry of the
+distortion landscape.
+In degenerate cases, a finite set of local minima may
+coexist---multiple ``ego attractors''---analogous to
+the discrete magnetization directions in a
+crystal-field anisotropic ferromagnet.},
+the agent's survival-optimal strategy requires:
+\begin{enumerate}
+\item[\textup{(a)}] \textbf{Gauge fixing}: selection of a
+  section $\sigma$ of the gauge bundle
+  (Definition~\ref{def:bundle}), breaking the
+  $G$-symmetry of the bare algebra.
+\item[\textup{(b)}] \textbf{Privileged decomposition}:
+  partition of the algebra into foreground and background
+  subspaces,
+  $Cl(V,q) = V_{\mathrm{fg}} \oplus V_{\mathrm{bg}}$,
+  with
+  $\dim V_{\mathrm{fg}} = k^* \ll \dim V_{\mathrm{bg}}$.
+\item[\textup{(c)}] \textbf{Non-uniqueness}: the gauge
+  fixing is generically \emph{not} unique.
+  Different initial conditions, environmental histories,
+  or stochastic fluctuations lead to different choices of
+  $\sigma$, just as different initial conditions in a
+  ferromagnet lead to different magnetization directions.
+\end{enumerate}
+The symmetry breaking is \emph{spontaneous} in the precise
+physical sense: the underlying algebra $Cl(V,q)$ retains
+its full $G$-symmetry, but the agent's operational
+representation necessarily breaks it.
+\end{theorem}
+
+\begin{proof}
+By Theorem~\ref{thm:comp_ceiling}, symmetric processing
+leads to paralysis at $\tau_{\mathrm{par}}$.
+By assumption~(B4) (survival imperative), the agent must
+maintain $\mathcal{S} \geq \mathcal{S}_{\min}$ beyond
+$\tau_{\mathrm{par}}$.
+This requires evaluating $\mathcal{S}$ within the
+computational budget $\mathcal{C}_{\mathrm{budget}}$, which
+by Theorem~\ref{thm:compression} requires projecting onto
+$k^* < \dim Cl(V,q)$ components.
+
+Such a projection \emph{is} a gauge fixing: it selects
+$k^*$ basis vectors $\{e_1, \ldots, e_{k^*}\}$ from the
+generating space $V$, thereby breaking the
+$G$-invariance that treats all bases equivalently.
+
+Part~(b) follows from the definition of the projected kernel
+(Definition~\ref{def:projected}).
+Part~(c) follows from the non-degeneracy assumption:
+the rate-distortion optimization
+(Theorem~\ref{thm:compression}) generically admits
+finitely many local minima.
+Different initial conditions or environmental histories
+select different minima, analogous to the
+spontaneous magnetization of a ferromagnet below $T_c$.
+The breaking is \emph{spontaneous}: the algebra retains
+$G$-symmetry, but any operational solution breaks it.
+\end{proof}
+
+% ------------------------------------------------------------
+\subsection{The Four Bias Terms}
+\label{subsec:bias}
+
+\begin{proposition}[Structure of the Broken Phase]
+\label{prop:bias}
+When gauge symmetry is broken by a reference frame
+$\mathcal{F}$, the agent's operational representation
+acquires four systematic deviations from the symmetric
+phase:
+\begin{enumerate}
+\item[\textup{(i)}] \textbf{Basis selection bias}
+  ($\mathcal{B}_{\mathrm{select}}$):
+  The choice of $\{e_1, \ldots, e_{k^*}\}$ privileges
+  certain algebraic components over others.
+  Information aligned with the chosen basis is processed
+  efficiently; misaligned information is discarded or
+  distorted.
+  \emph{Observable consequence:} systematic blindness to
+  off-basis environmental perturbations (orthogonal
+  masking).
+\item[\textup{(ii)}] \textbf{Frame drag}
+  ($\mathcal{B}_{\mathrm{frame}}$):
+  The connection on the gauge bundle
+  (Section~\ref{subsec:fiber}) induces a systematic
+  preference for states near the current gauge choice.
+  The agent's predictions are biased toward confirming
+  its existing frame.
+  \emph{Observable consequence:} hysteresis in belief
+  updating; the agent's model lags behind rapid
+  environmental shifts.
+\item[\textup{(iii)}] \textbf{Objective centering}
+  ($\mathcal{B}_{\mathrm{center}}$):
+  The survival functional $\mathcal{S}$, when evaluated
+  in the projected basis, becomes centered on the agent's
+  own state rather than a global optimum.
+  The agent optimizes \emph{locally} within its frame.
+  \emph{Observable consequence:} inability to detect
+  global survival optima located in the background
+  subspace.
+\item[\textup{(iv)}] \textbf{Model incompleteness}
+  ($\mathcal{B}_{\mathrm{inc}}$):
+  The compression from $Cl(V,q)$ to $V_{\mathrm{fg}}$
+  is lossy.
+  The discarded components $V_{\mathrm{bg}}$ contain
+  correlations that are invisible to the agent but
+  physically real.
+  \emph{Observable consequence:} systematic
+  underestimation of total thermodynamic uncertainty
+  (overconfidence).
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+(i)~follows directly from the definition of the projection
+$\Pi_{\mathcal{F}}$: components orthogonal to the selected
+basis are annihilated.
+
+(ii)~The parallel transport of the gauge connection
+preserves the agent's basis choice along its trajectory.
+Under perturbation, the connection's holonomy creates a
+restoring ``force'' toward the established frame---a
+systematic confirmation bias.
+
+(iii)~In the projected representation,
+$\mathcal{S}_{\mathcal{F}}$ is a function of the
+$k^*$-dimensional foreground state only.
+The gradient $\nabla \mathcal{S}_{\mathcal{F}}$ lies
+entirely in $V_{\mathrm{fg}}$, so the agent's
+optimization is blind to directions in
+$V_{\mathrm{bg}}$.
+This is equivalent to centering the objective function
+on the agent's own representational subspace.
+
+(iv)~By Theorem~\ref{thm:compression}(c), a fraction
+$\geq 1 - k^*/\dim Cl(V,q)$ of information is discarded.
+The discarded components exist physically (they contribute
+to $\mathcal{S}_{\mathrm{full}}$) but are invisible to the
+agent's evaluation of $\mathcal{S}_{\mathcal{F}}$.
+\end{proof}
+
+\begin{table}[H]
+\centering
+\small
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{@{}lp{3.5cm}p{4.2cm}l@{}}
+\toprule
+\textbf{Bias} & \textbf{Origin}
+  & \textbf{Observable consequence}
+  & \textbf{Determines} \\
+\midrule
+$\mathcal{B}_{\mathrm{select}}$ (selection)
+  & projection $\Pi_{\mathcal{F}}$
+  & Systematic blindness to off-basis
+    perturbations (orthogonal masking)
+  & \emph{what} is seen \\[4pt]
+$\mathcal{B}_{\mathrm{frame}}$ (frame drag)
+  & bundle connection / holonomy
+  & Hysteresis in belief updating;
+    model lags behind rapid drift
+  & \emph{duration} \\[4pt]
+$\mathcal{B}_{\mathrm{center}}$ (centering)
+  & $\nabla\mathcal{S} \in V_{\mathrm{fg}}$
+  & Local frame-relative optima;
+    global background optima invisible
+  & \emph{target} \\[4pt]
+$\mathcal{B}_{\mathrm{inc}}$ (incompleteness)
+  & lossy compression $k^* \ll D$
+  & Underestimation of thermodynamic
+    uncertainty (structural overconfidence)
+  & \emph{blind spot} \\
+\bottomrule
+\end{tabular}
+\caption{The four bias terms of the broken phase.
+  All four are generic consequences of gauge fixing
+  under assumptions~(B1)--(B5).}
+\label{tab:bias}
+\end{table}
+
+\begin{remark}[Nature of the bias terms]
+\label{rem:bias_nature}
+The four bias terms (Table~\ref{tab:bias}) are not
+pathologies---they are \emph{generic} consequences of gauge
+fixing under bounded computation.
+Any agent satisfying~(B1)--(B5) acquires all four.
+\end{remark}
+
+% ============================================================
+\section{Emergent Structure: The Architecture of Ego}
+\label{sec:architecture}
+
+We consolidate the gauge-fixed compressed representation
+into a single mathematical object.
+Throughout this section, ``ego'' is used purely as shorthand
+for a gauge-fixed compressed representation; no claims about
+phenomenal consciousness, subjective experience, or qualia
+are intended or implied.
+
+\begin{definition}[Ego]
+\label{def:ego}
+The \emph{ego} of an agent satisfying~\textup{(B1)--(B5)}
+is the pair
+\begin{equation}
+\label{eq:ego}
+\mathfrak{E}
+:= \bigl(\mathcal{F}^*,\;
+   V_{\mathrm{fg}}^*\bigr),
+\end{equation}
+where $\mathcal{F}^* \in \mathfrak{F}^*$
+(Theorem~\ref{thm:compression}) is the chosen gauge
+(providing the coordinate system) and
+$V_{\mathrm{fg}}^*
+:= V_{\mathrm{fg}}(\mathcal{F}^*)$ is the
+$k^*$-dimensional foreground subspace selected by
+the rate-distortion bound (providing the compression).
+The projected memory kernel
+$\mathcal{K}_{\mathfrak{E}}
+:= \Pi_{V_{\mathrm{fg}}^*}\,\mathcal{K}\,
+\Pi_{V_{\mathrm{fg}}^*}$
+is induced by this pair.
+All bias terms, distortion bounds, and delusion dynamics
+are functions of~$\mathfrak{E}$.
+\end{definition}
+
+% ------------------------------------------------------------
+\subsection{The Ego as a Fiber Bundle Section}
+\label{subsec:section}
+
+The reference frame $\mathcal{F}$, understood as a section
+$\sigma: M \to P$, is the mathematical object we call the
+\emph{ego}.
+It has three key properties:
+
+\paragraph{Smoothness.}
+The section $\sigma$ varies continuously with the agent's
+state $\rho \in M$.
+Small changes in $\rho$ produce small changes in the
+preferred basis---the ego is not a discrete switch but a
+smooth deformation of perspective.
+
+\paragraph{Holonomy.}
+If the agent's state traces a closed loop
+$\gamma: [0,1] \to M$ with $\gamma(0) = \gamma(1) = \rho_0$,
+the parallel-transported frame need not return to its
+initial value:
+\begin{equation}
+\label{eq:holonomy}
+\sigma(\gamma(1))
+= \mathrm{Hol}(\gamma) \cdot \sigma(\gamma(0)),
+\end{equation}
+where $\mathrm{Hol}(\gamma) \in G$ is the holonomy of the
+connection around $\gamma$.
+Non-trivial holonomy means the agent can ``learn''---its
+reference frame shifts after a complete cycle of experience.
+
+\paragraph{Topological obstruction.}
+In general, a \emph{global} section $\sigma: M \to P$ may
+not exist.
+The obstruction is measured by the characteristic classes of
+the bundle $P$.
+When a global section does not exist, the ego must have
+``singularities''---states where the preferred basis is
+undefined or discontinuous.
+This connects to the crisis of Paper~III: the delusion trap
+can be understood as the agent approaching a topological
+obstruction of its own reference frame.
+
+% ------------------------------------------------------------
+\subsection{The Effective Survival Functional}
+\label{subsec:effective}
+
+\begin{proposition}[Survival decomposition]
+\label{prop:decomp}
+In the broken phase, the survival functional decomposes as
+\begin{equation}
+\label{eq:decomp}
+\mathcal{S}
+= \mathcal{S}_{\mathrm{vis}}(\mathcal{F})
+  + \mathcal{S}_{\mathrm{hid}}(\mathcal{F}),
+\end{equation}
+where:
+\begin{itemize}
+\item $\mathcal{S}_{\mathrm{vis}}(\mathcal{F})$
+  is the contribution from the foreground subspace
+  $V_{\mathrm{fg}}$, computable within the agent's
+  reference frame;
+\item $\mathcal{S}_{\mathrm{hid}}(\mathcal{F})$
+  is the contribution from the background subspace
+  $V_{\mathrm{bg}}$, invisible to the agent.
+\end{itemize}
+The agent maximizes $\mathcal{S}_{\mathrm{vis}}$ while
+being structurally blind to
+$\mathcal{S}_{\mathrm{hid}}$.
+\end{proposition}
+
+\begin{proof}
+The survival functional $\mathcal{S} = \Delta F - W$ depends
+on $\rho(t)$, which is a function of the full memory kernel
+$\mathcal{K}(t,s)$.
+Decomposing
+$\mathcal{K} = \Pi_{\mathcal{F}}\,\mathcal{K}\,
+\Pi_{\mathcal{F}}
++ \Pi_{\mathcal{F}}^{\perp}\,\mathcal{K}\,
+\Pi_{\mathcal{F}}^{\perp}
++ \text{cross terms}$,
+the leading contributions are
+$\mathcal{S}_{\mathrm{vis}} := \mathcal{S}[
+\Pi_{\mathcal{F}}\,\mathcal{K}\,\Pi_{\mathcal{F}}]$
+and
+$\mathcal{S}_{\mathrm{hid}} := \mathcal{S} -
+\mathcal{S}_{\mathrm{vis}}$
+(collecting background and cross terms).
+The agent computes only
+$\mathcal{S}_{\mathrm{vis}}$, as the projected kernel
+$\mathcal{K}_{\mathcal{F}}$ discards all background
+components.
+\end{proof}
+
+% ------------------------------------------------------------
+\subsection{The Computational Speedup}
+\label{subsec:speedup}
+
+\begin{proposition}[Ego dividend]
+\label{prop:speedup}
+After symmetry breaking, the computational cost of
+processing memory drops from
+$\mathcal{C}_{\mathrm{proc}} \sim h_\mu \cdot
+\tau_{\mathrm{mem}} \cdot D$
+(symmetric case, $D = \dim Cl(V,q)$) to
+\begin{equation}
+\label{eq:speedup}
+\mathcal{C}_{\mathrm{proc}}^{(\mathcal{F})}
+\sim h_\mu \cdot \tau_{\mathrm{mem}}
+     \cdot k^*.
+\end{equation}
+The speedup factor is
+\begin{equation}
+\label{eq:speedup_factor}
+\frac{D}{k^*} = \frac{2^n}{k^*}.
+\end{equation}
+\end{proposition}
+
+This is the computational advantage of reference-frame
+selection.
+For $Cl(1,3)$ ($D = 16$) with $k^* = 2$, the speedup is
+$8\times$.
+For higher-dimensional algebras, the speedup grows
+exponentially in $n$.
+
+% ------------------------------------------------------------
+\subsection{The Ego-Entropy Trade-off}
+\label{subsec:tradeoff}
+
+\begin{theorem}[Ego-Entropy Trade-off]
+\label{thm:tradeoff}
+Let $X = \{c_i(t)\}_{i=1}^{D}$ denote the full stochastic
+record process induced by the memory kernel $\mathcal{K}$
+on the agent's internal coordinates, and let
+$\hat{X} = \{c_i(t)\}_{i \in V_{\mathrm{fg}}}$ denote the
+projected record retained by the ego.
+The mutual information between compressed and full records,
+denoted $I(\mathcal{K}_{\mathcal{F}};\,\mathcal{K})
+\equiv I(\hat{X};\,X)$, satisfies
+\begin{equation}
+\label{eq:I_retained}
+I(\hat{X};\,X) \;\leq\; H(\hat{X})
+\;\leq\; k^* \cdot h_\mu \cdot \tau_{\mathrm{mem}}.
+\end{equation}
+Under the additional assumption that
+$I_{\mathrm{pred}}$~\eqref{eq:I_pred} is approximately
+uniformly distributed across the $D$ algebraic components
+in the symmetric phase\footnote{%
+This ``uniformity assumption'' is the information-theoretic
+counterpart of the unstructured-environment condition in
+Theorem~\ref{thm:comp_ceiling}.
+When some components carry disproportionately more predictive
+information, the bound tightens or loosens depending on the
+alignment between $V_{\mathrm{fg}}$ and the high-information
+subspace.},
+the information discarded by the ego is bounded below
+(up to $O(1)$ constants under uniformity):
+\begin{equation}
+\label{eq:I_discarded}
+I_{\mathrm{discarded}}
+:= H(X) - I(\hat{X};\,X)
+\gtrsim \left(1 - \frac{k^*}{D}\right)
+\cdot I_{\mathrm{pred}}.
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+By the data processing inequality,
+$I(\hat{X};\,X) \leq H(\hat{X})$.
+The projected record $\hat{X}$ has $k^*$ components,
+each carrying at most $h_\mu$ bits per unit time over a
+window of $\tau_{\mathrm{mem}}$, giving
+$H(\hat{X}) \leq k^* \cdot h_\mu \cdot
+\tau_{\mathrm{mem}}$~\cite{CoverThomas2006}.
+This yields~\eqref{eq:I_retained}.
+The total predictive information in the full record is
+$I_{\mathrm{pred}}$~\eqref{eq:I_pred}.
+Under the uniformity assumption, each of the $D$ components
+carries $\sim I_{\mathrm{pred}}/D$, so the $k^*$ retained
+components account for $\sim (k^*/D)\,I_{\mathrm{pred}}$.
+The discarded fraction follows by subtraction.
+\end{proof}
+
+\begin{remark}[The price of selfhood]
+\label{rem:price}
+Equation~\eqref{eq:I_discarded} quantifies the
+\emph{information cost of having an ego}: the agent
+sacrifices at least a fraction
+$1 - k^*/\dim Cl(V,q)$ of all predictive information
+about its environment in exchange for computational
+tractability.
+This is not a deficiency---it is a \emph{design
+constraint} forced by bounded resources.
+The ego is the optimal lossy compression under survival
+weighting.
+\end{remark}
+
+% ============================================================
+\section{Worked Example: Qubit in a Two-Channel Bath}
+\label{sec:example}
+
+% ------------------------------------------------------------
+\subsection{Model Setup}
+\label{subsec:model}
+
+We extend Paper~I's spin-boson model to demonstrate
+symmetry breaking explicitly.
+Consider a qubit ($\dim \mathcal{H}_S = 2$) with internal
+algebra $Cl(0,2) \cong \mathbb{H}$ (the quaternions,
+$\dim = 4$).
+
+\paragraph{Symbol mapping.}
+The general framework of Sections~\ref{sec:ceiling}--\ref{sec:architecture}
+specialises as follows:
+\begin{center}
+\small
+\begin{tabular}{@{}lll@{}}
+\toprule
+General & This example & Value \\
+\midrule
+$Cl(V,q)$ & $Cl(0,2) \cong \mathbb{H}$
+  & $D = 4$ \\
+$G = \mathrm{Aut}(Cl(V,q))$ & $SO(3)$
+  & acting on $\{\mathbf{i},\mathbf{j},\mathbf{k}\}$\\
+$\mathcal{C}_{\mathrm{budget}}$ & $2\,h_\mu$
+  & bits/time \\
+$k^*$ (Thm.~\ref{thm:compression})
+  & $\lfloor 2h_\mu / h_\mu \rfloor = 2$
+  & components \\
+$V_{\mathrm{fg}}$ & $\mathrm{span}\{1,\mathbf{k}\}$
+  & dephasing subspace \\
+$V_{\mathrm{bg}}$ & $\mathrm{span}\{\mathbf{i},\mathbf{j}\}$
+  & dissipative subspace \\
+$\tau_{\mathrm{par}}$ (Thm.~\ref{thm:comp_ceiling})
+  & $2h_\mu / (4h_\mu) = 0.5$
+  & $\omega_0^{-1}$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+The qubit is coupled to a bosonic environment through
+\emph{two} independent channels:
+\begin{itemize}
+\item A \emph{dephasing channel} via $\sigma_z$, with
+  spectral density
+  \begin{equation}
+  \label{eq:J_z}
+  J_z(\omega)
+  = \frac{2\lambda_z\,\gamma_z\,\omega}
+         {\omega^2 + \gamma_z^2}
+  \qquad\text{(Lorentz--Drude)},
+  \end{equation}
+  producing a memory kernel $\mathcal{K}_z(t,s)$ with
+  non-Markovian backflow.
+\item A \emph{dissipative channel} via $\sigma_x$, with
+  spectral density
+  \begin{equation}
+  \label{eq:J_x}
+  J_x(\omega)
+  = \frac{2\lambda_x\,\gamma_x\,\omega}
+         {\omega^2 + \gamma_x^2}
+  \qquad\text{(Lorentz--Drude)},
+  \end{equation}
+  producing a memory kernel $\mathcal{K}_x(t,s)$.
+\end{itemize}
+
+The full memory kernel is
+$\mathcal{K}(t,s)
+= \mathcal{K}_z(t,s) \oplus \mathcal{K}_x(t,s)$,
+and the quaternionic algebra
+$\mathbb{H} = \mathrm{span}\{1, \mathbf{i}, \mathbf{j},
+\mathbf{k}\}$
+has automorphism group
+$G = \mathrm{Aut}(\mathbb{H}) \cong SO(3)$
+(rotations of the pure quaternion subspace).
+
+\paragraph{Parameters.}
+We set $\omega_0 = 1$ (energy unit),
+$\lambda_z = 1$, $\gamma_z = 0.5$ (underdamped, strong
+non-Markovian effects in the dephasing channel),
+$\lambda_x = 0.3$, $\gamma_x = 5.0$ (overdamped,
+approximately Markovian in the dissipative channel),
+and the low-temperature regime $\beta\omega_0 \gg 1$.
+
+\paragraph{Computational budget.}
+The agent has
+$\mathcal{C}_{\mathrm{budget}} = 2\,h_\mu$
+bits per unit time---sufficient to track two components
+of $\mathbb{H}$ but not all four.
+
+\paragraph{Parameter-to-theorem mapping.}
+Table~\ref{tab:params} collects the example parameters and
+confirms that the Computational Ceiling binds.
+
+\begin{table}[t]
+\centering
+\small
+\begin{tabular}{@{}lcll@{}}
+\toprule
+\textbf{Quantity} & \textbf{Symbol} & \textbf{Value}
+  & \textbf{Theorem check} \\
+\midrule
+Full dimension & $D$ & $4$ &
+  Thm.~\ref{thm:comp_ceiling} \\
+Entropy rate & $h_\mu$ & $1.0$ (normalised) &
+  per-component rate \\
+Budget & $\mathcal{C}_{\mathrm{budget}}$ & $2\,h_\mu$
+  & Def.~\ref{def:budget} \\
+\midrule
+Ceiling check & $h_\mu D$ vs $\mathcal{C}_{\rm budget}$
+  & $4 > 2$ & \textbf{ceiling binds} \\
+Optimal $k$ & $k^*$ & $\lfloor 2/1 \rfloor = 2$
+  & Thm.~\ref{thm:compression}(b) \\
+Discard fraction & $1 - k^*/D$ & $1/2 = 50\%$
+  & Thm.~\ref{thm:tradeoff} \\
+Paralysis time & $\tau_{\mathrm{par}}$ & $2/(4) = 0.5$
+  & Eq.~\eqref{eq:t_par} \\
+\bottomrule
+\end{tabular}
+\caption{Parameter mapping for the two-channel qubit
+example.  The ceiling check confirms that symmetry
+breaking is necessary; the budget is exactly saturated
+after breaking ($R_{\mathcal{F}} = k^* h_\mu
+= \mathcal{C}_{\mathrm{budget}}$).}
+\label{tab:params}
+\end{table}
+
+% ------------------------------------------------------------
+\subsection{The Unbroken Phase: Paralysis}
+\label{subsec:unbroken}
+
+In the symmetric phase, the agent tracks all four
+quaternionic components
+$\{1, \mathbf{i}, \mathbf{j}, \mathbf{k}\}$
+simultaneously.
+The computational cost is
+\begin{equation}
+\label{eq:cost_full}
+\mathcal{C}_{\mathrm{proc}}
+= h_\mu \cdot \tau_{\mathrm{mem}} \cdot D
+= 4\,h_\mu \cdot \tau_{\mathrm{mem}},
+\qquad D := \dim Cl(0,2) = 4.
+\end{equation}
+The paralysis time is
+\begin{equation}
+\label{eq:t_par_example}
+\tau_{\mathrm{par}}
+= \frac{\mathcal{C}_{\mathrm{budget}}}
+       {h_\mu \cdot D}
+= \frac{2\,h_\mu}{4\,h_\mu} = 0.5
+\qquad\text{(in units of $\omega_0^{-1}$)}.
+\end{equation}
+Beyond $\tau_{\mathrm{mem}} = 0.5\,\omega_0^{-1}$,
+the agent cannot process both channels
+simultaneously---it is paralyzed.
+
+% ------------------------------------------------------------
+\subsection{Symmetry Breaking: Choosing $\sigma_z$}
+\label{subsec:choosing}
+
+The agent breaks the $SO(3)$ symmetry of $\mathbb{H}$
+by selecting $\sigma_z$ as the privileged basis direction,
+retaining the $\{1, \mathbf{k}\}$ subspace (the dephasing
+channel) as foreground and discarding
+$\{\mathbf{i}, \mathbf{j}\}$ (the dissipative channel)
+as background:
+\begin{equation}
+\label{eq:decomp_example}
+\mathbb{H}
+= \underbrace{\mathrm{span}\{1, \mathbf{k}\}}_{%
+  V_{\mathrm{fg}}\; (k^* = 2)}
+\oplus
+\underbrace{\mathrm{span}\{\mathbf{i}, \mathbf{j}\}}_{%
+  V_{\mathrm{bg}}}.
+\end{equation}
+
+\paragraph{Why $\sigma_z$?}
+The dephasing channel ($\lambda_z = 1$, $\gamma_z = 0.5$)
+is strongly non-Markovian and carries the dominant
+survival-relevant information (the backflow revivals that
+enable $\mathcal{S} > 0$, as demonstrated in Paper~I).
+The dissipative channel ($\lambda_x = 0.3$, $\gamma_x = 5.0$)
+is approximately Markovian and contributes primarily to
+decoherence---its survival value is negative.
+
+This choice coincides with the \emph{pointer basis}
+selected by environmental decoherence (quantum
+Darwinism~\cite{Zurek2009}): the $\sigma_z$ eigenstates
+are the states that survive decoherence and become
+redundantly encoded in the environment.
+The ego ``accepts the suggestion'' of decoherence,
+aligning its computational resources with the
+environmentally stable basis.
+
+% ------------------------------------------------------------
+\subsection{The Broken Phase: Effective Processing}
+\label{subsec:broken}
+
+In the broken phase, the projected memory kernel
+$\mathcal{K}_{\mathcal{F}} = \mathcal{K}_z$ retains only
+the dephasing-channel dynamics.
+The computational cost drops to
+\begin{equation}
+\label{eq:cost_broken}
+\mathcal{C}_{\mathrm{proc}}^{(\mathcal{F})}
+= h_\mu \cdot \tau_{\mathrm{mem}} \cdot k^*
+= 2\,h_\mu \cdot \tau_{\mathrm{mem}},
+\end{equation}
+exactly half the symmetric cost~\eqref{eq:cost_full}.
+The agent can now process memory up to depth
+$\tau_{\mathrm{mem}} = 1\,\omega_0^{-1}$ before reaching
+its budget---twice the paralysis time.
+
+The survival functional in the broken phase is
+\begin{equation}
+\label{eq:S_broken}
+\mathcal{S}_{\mathrm{vis}}(\mathcal{F})
+= \mathcal{S}[\mathcal{K}_z],
+\end{equation}
+which, as shown in Paper~I, achieves
+$\beta\,\mathcal{S}_{\mathrm{vis}} \approx +0.093$ at
+the first backflow revival.
+
+The hidden component
+$\mathcal{S}_{\mathrm{hid}} = \mathcal{S}[\mathcal{K}_x]$
+is the survival contribution from the dissipative channel,
+which the agent can no longer evaluate.
+For the chosen parameters,
+$|\mathcal{S}_{\mathrm{hid}}|
+\ll |\mathcal{S}_{\mathrm{vis}}|$
+(the dissipative channel contributes primarily negative
+survival value), so the distortion is small.
+
+% ------------------------------------------------------------
+\subsection{Quantitative Evaluation}
+\label{subsec:quantitative}
+
+We now evaluate the ego dividend explicitly.
+Each channel's decoherence function follows from the exact
+$T \to 0$ solution of the Lorentz--Drude pure-dephasing
+model~\cite{BreuerPetruccione2002,Liu2026TDOME_I}:
+\begin{equation}
+\label{eq:decoherence_II}
+p_\alpha(t) = e^{-\gamma_\alpha t/2}\!\left[
+  \cos(\Omega_\alpha t)
+  + \frac{\gamma_\alpha}{2\Omega_\alpha}\,
+    \sin(\Omega_\alpha t)
+\right],
+\quad
+\Omega_\alpha
+:= \tfrac{1}{2}\sqrt{4\lambda_\alpha\gamma_\alpha
+   - \gamma_\alpha^2},
+\end{equation}
+for $\alpha \in \{z, x\}$.
+When $4\lambda_\alpha\gamma_\alpha < \gamma_\alpha^2$
+(the overdamped regime), $\Omega_\alpha$ becomes imaginary
+and the trigonometric functions are replaced by hyperbolic
+functions (monotonic decay, no backflow).
+
+For our parameters:
+\begin{itemize}
+\item \textbf{$z$-channel} ($\lambda_z = 1$,
+  $\gamma_z = 0.5$):
+  $\Omega_z = \frac{1}{2}\sqrt{1.75} \approx 0.661$.
+  Underdamped; $|p_z(t)|$ exhibits oscillatory backflow.
+\item \textbf{$x$-channel} ($\lambda_x = 0.3$,
+  $\gamma_x = 5.0$):
+  Discriminant $4\lambda_x\gamma_x - \gamma_x^2
+  = 6 - 25 = -19 < 0$.
+  Overdamped; $|p_x(t)|$ decays monotonically with no
+  backflow.
+\end{itemize}
+
+The survival proxy from Paper~I,
+$\beta\,\mathcal{S} \propto |p(t)|^2 - 1$
+(valid for the pure-dephasing model with maximally coherent
+initial state and pointer-basis measurement), applies to
+each channel independently.
+Backflow intervals---where $d|p_\alpha|/dt > 0$---produce
+$\mathcal{S} > 0$ over those subintervals (Paper~I,
+Theorem~2).
+
+\textbf{Key result.}
+For the $z$-channel with $\gamma_z = 0.5$, the first
+backflow interval begins at
+$t^* \approx 2.9\,\omega_0^{-1}$---well after the
+paralysis time $\tau_{\mathrm{par}} = 0.5\,\omega_0^{-1}$.
+The symmetric agent, paralyzed at $\tau_{\mathrm{par}}$,
+can harvest \emph{zero} backflow.
+The ego agent, tracking only the $z$-channel, can process
+memory to depth $1\,\omega_0^{-1}$ and exploits \emph{all
+three} backflow revivals visible in
+Figure~\ref{fig:ego}(a).
+
+The cumulative backflow harvested by the ego agent
+(Figure~\ref{fig:ego}(b)) totals approximately $0.10$
+(in dimensionless $\beta\,\mathcal{S}$ units) over
+$t \in [0, 15\,\omega_0^{-1}]$.
+The symmetric agent harvests exactly zero.
+This infinite ratio is the \emph{ego dividend}: the entire
+non-Markovian survival advantage is accessible only to the
+agent that has broken symmetry.
+
+Crucially, visual inspection of Figure~\ref{fig:ego}(a)
+reveals a timeline of tragedy for the symmetric agent.
+The paralysis time $\tau_{\mathrm{par}} = 0.5$ occurs
+\emph{before} the onset of the first backflow interval
+($t^* \approx 2.9$).
+The symmetric agent is computationally dead before the
+environment offers its first gift.
+The ratio of survival profit is not merely large; it is
+singular.
+In this framework, to remain symmetric is to starve in the
+midst of plenty.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\textwidth]{fig_ego.pdf}
+\caption{%
+Two-channel qubit model (Section~\ref{sec:example}) with
+Lorentz--Drude spectral density.
+\textbf{Parameters:}
+$\omega_0 = 1$ (energy unit);
+$\lambda_z = 1$, $\gamma_z = 0.5$ (dephasing, non-Markovian);
+$\lambda_x = 0.3$, $\gamma_x = 5.0$ (dissipative,
+$\sim$Markovian);
+$\mathcal{C}_{\mathrm{budget}} = 2\,h_\mu$.
+\textbf{Units:} time in $\omega_0^{-1}$.
+\textbf{Regime:} low temperature ($\beta\omega_0 \gg 1$);
+using the standard $T \to 0$ analytic
+expression~\eqref{eq:decoherence_II}~%
+\cite{BreuerPetruccione2002}.
+\textbf{(a)}~Decoherence amplitudes $|p_z(t)|$ (blue,
+non-Markovian, with backflow in green bands) and
+$|p_x(t)|$ (orange, monotonic decay).
+Red dashed: paralysis time $\tau_{\mathrm{par}} = 0.5$.
+\textbf{(b)}~Cumulative backflow harvested.
+Blue: ego agent (broken $\to \sigma_z$) exploits all three
+revival intervals.
+Red dashed: symmetric agent, paralyzed at
+$\tau_{\mathrm{par}}$, harvests zero---all backflow occurs
+after paralysis onset.
+The growing gap is the \emph{ego dividend}.}
+\label{fig:ego}
+\end{figure}
+
+\paragraph{Consistency check.}
+We verify the Computational Ceiling
+(Theorem~\ref{thm:comp_ceiling}) directly:
+$\mathcal{R}_{\mathrm{proc}}^{\mathrm{sym}}
+= h_\mu \cdot D = 4\,h_\mu
+> \mathcal{C}_{\mathrm{budget}} = 2\,h_\mu$,
+confirming that the ceiling binds and symmetry breaking is
+required.
+After breaking ($k^* = 2$),
+$R_{\mathcal{F}} = 2\,h_\mu
+= \mathcal{C}_{\mathrm{budget}}$:
+the budget is exactly saturated, as predicted by
+Theorem~\ref{thm:compression}(a).
+
+% ------------------------------------------------------------
+\subsection{The Pointer-State Connection}
+\label{subsec:pointer}
+
+The optimal basis choice coincides with the einselection
+(environment-induced superselection) basis of decoherence
+theory~\cite{Zurek2009}.
+This is not a coincidence: the pointer states are precisely
+those that generate the most redundant records in the
+environment---i.e., the most predictive correlations.
+The rate-distortion optimization
+(Theorem~\ref{thm:compression}) selects the components
+with the highest survival value per bit, which are
+generically the pointer-state components.
+
+\begin{remark}[Decoherence as symmetry-breaking catalyst]
+\label{rem:decoherence}
+The environment does not \emph{force} a specific gauge
+fixing; it merely breaks the degeneracy among possible
+fixings by making some bases more informationally
+efficient than others.
+The agent's bounded computation does the rest: once
+the degeneracy is broken, the survival imperative~(B4)
+selects the pointer-aligned frame as optimal.
+This is the precise sense in which decoherence ``catalyzes''
+the spontaneous symmetry breaking of the ego.
+\end{remark}
+
+% ============================================================
+\section{The Cost of Ego}
+\label{sec:cost}
+
+The ego resolves the computational crisis of
+Section~\ref{sec:ceiling}, but it introduces a new
+vulnerability. A fixed reference frame is a \emph{static}
+gauge choice in a \emph{dynamic} environment.
+If the environment changes, the ego becomes progressively
+maladaptive.
+
+\paragraph{Drift layer.}
+Environmental change can occur at multiple levels:
+parameter drift ($\lambda_\alpha(t)$, $\gamma_\alpha(t)$),
+spectral-density deformation ($J(\omega, t)$), or
+full process-distribution shift ($P_t(X)$).
+For analytical tractability, we model drift at the
+\emph{spectral-density parameter level} throughout this
+section; the results generalise monotonically to deeper
+levels (faster drift $\Rightarrow$ shorter
+$t_{\mathrm{del}}$).
+
+% ------------------------------------------------------------
+\subsection{The Rigidity Trap}
+\label{subsec:rigidity}
+
+\begin{proposition}[Frame Rigidity under Drift]
+\label{prop:rigidity}
+Let the environment undergo slow drift: the spectral density
+parameters change as
+$\lambda_\alpha(t) = \lambda_\alpha^{(0)}
++ \varepsilon\,f_\alpha(t)$
+for $\alpha \in \{z, x\}$, with drift rate
+$\varepsilon > 0$.
+The optimal reference frame $\mathcal{F}^*(t)$ (the
+instantaneous minimizer of survival distortion)
+rotates continuously in the gauge group~$G$.
+
+If the agent's reference frame $\mathcal{F}$ is held fixed
+(no recalibration), the mismatch between $\mathcal{F}$
+and $\mathcal{F}^*(t)$ grows as
+\begin{equation}
+\label{eq:mismatch}
+\delta(t)
+:= d_G\bigl(\mathcal{F},\, \mathcal{F}^*(t)\bigr)
+\sim \varepsilon \int_0^t \bigl|\dot{f}(s)\bigr|\,ds,
+\end{equation}
+where $d_G$ is the geodesic distance in the gauge group.
+\end{proposition}
+
+\begin{proof}
+The instantaneous optimal frame $\mathcal{F}^*(t)$ is a
+continuous function of the spectral density parameters
+$\{\lambda_\alpha(t), \gamma_\alpha(t)\}$.
+Under the drift $\lambda_\alpha(t)
+= \lambda_\alpha^{(0)} + \varepsilon\,f_\alpha(t)$,
+the chain rule gives
+$\dot{\mathcal{F}}^*(t)
+= \varepsilon\,\sum_\alpha
+(\partial \mathcal{F}^*/\partial\lambda_\alpha)\,
+\dot{f}_\alpha(t)$.
+Integrating and taking the norm in $G$ gives
+the bound~\eqref{eq:mismatch}.
+\end{proof}
+
+% ------------------------------------------------------------
+\subsection{Stylized Drift Model}
+\label{subsec:drift_model}
+
+To quantify the collapse of a fixed frame, we introduce
+a minimal drift model that makes the exponential divergence
+and the logarithmic delusion time algebraically explicit.
+
+\begin{definition}[Rotating optimal frame]
+\label{def:drift}
+Let the mismatch angle $\theta(t)$ between the agent's
+fixed frame $\mathcal{F}$ and the instantaneous optimal
+frame $\mathcal{F}^*(t)$ evolve as
+\begin{equation}
+\label{eq:theta}
+\theta(t) = \theta_0\,e^{\Lambda t}
+\qquad\text{(chaotic drift)},
+\end{equation}
+where $\theta_0 \in (0, \pi/4)$ is the initial misalignment
+(so that $t_{\mathrm{del}} > 0$) and
+$\Lambda > 0$ is the environmental Lyapunov exponent
+(the rate at which nearby environmental trajectories
+diverge in spectral-density space).
+Operationally, $\Lambda$ is determined by the drift rate
+$\varepsilon$ and the adaptation timescale
+$\tau_{\mathrm{adapt}}$ of the spectral-density
+parameters via the scaling
+\begin{equation}
+\label{eq:Lambda_scaling}
+\Lambda \;\sim\; \frac{\varepsilon}
+  {\tau_{\mathrm{adapt}}}\,;
+\end{equation}
+cf.~\eqref{eq:mismatch}.
+For slow linear drift ($\theta(t) = \varepsilon\,t$,
+$\Lambda \to 0$), the crossover time is
+$t_{\mathrm{del}} = \pi/(4\varepsilon)$
+(Remark~\ref{rem:linear_drift}).
+
+The visible and hidden survival components decompose
+geometrically:
+\begin{equation}
+\label{eq:vis_hid_theta}
+\mathcal{S}_{\mathrm{vis}}(t)
+= \mathcal{S}_{\mathrm{tot}}\,\cos^2\theta(t),
+\qquad
+\mathcal{S}_{\mathrm{hid}}(t)
+= \mathcal{S}_{\mathrm{tot}}\,\sin^2\theta(t),
+\end{equation}
+where $\mathcal{S}_{\mathrm{tot}}$ is the full survival
+functional (invariant under frame rotation).
+\end{definition}
+
+% ------------------------------------------------------------
+\subsection{The Prediction Error Divergence}
+\label{subsec:divergence}
+
+\begin{proposition}[Divergence of Hidden Survival]
+\label{prop:divergence}
+Under the drift model~\eqref{eq:theta}--\eqref{eq:vis_hid_theta},
+the hidden survival component grows as
+\begin{equation}
+\label{eq:divergence}
+\bigl|\mathcal{S}_{\mathrm{hid}}(t)\bigr|
+= |\mathcal{S}_{\mathrm{tot}}|\,\sin^2\!\bigl(\theta_0\,
+  e^{\Lambda t}\bigr).
+\end{equation}
+For small angles ($\theta_0 e^{\Lambda t} \ll 1$):
+$|\mathcal{S}_{\mathrm{hid}}| \approx
+|\mathcal{S}_{\mathrm{tot}}|\,\theta_0^2\,e^{2\Lambda t}$
+(exponential growth).
+\end{proposition}
+
+\begin{proof}
+Direct substitution of~\eqref{eq:theta}
+into~\eqref{eq:vis_hid_theta}.
+The small-angle expansion
+$\sin^2\theta \approx \theta^2$ gives the exponential
+form.
+\end{proof}
+
+% ------------------------------------------------------------
+\subsection{The Delusion Trap}
+\label{subsec:delusion}
+
+\begin{theorem}[The Delusion Trap]
+\label{thm:delusion}
+Under~\textup{(B1)--(B5)} with the drift
+model~\eqref{eq:theta} and initial misalignment
+$\theta_0 \in (0,\,\pi/4)$, an agent with a fixed
+reference frame $\mathcal{F}$ reaches a critical
+\textbf{delusion time}
+\begin{equation}
+\label{eq:t_delusion}
+t_{\mathrm{del}}
+= \frac{1}{\Lambda}\,
+\ln\!\left(\frac{\pi/4}{\theta_0}\right),
+\end{equation}
+beyond which:
+\begin{enumerate}
+\item[\textup{(a)}]
+  $|\mathcal{S}_{\mathrm{hid}}(t)|
+  > |\mathcal{S}_{\mathrm{vis}}(t)|$:
+  the invisible component dominates the survival functional.
+\item[\textup{(b)}]
+  The agent's update direction becomes
+  \emph{anti-correlated} with the true optimal direction:
+  the inner product of survival gradients
+  (with respect to the agent's control variables
+  $u \in V_{\mathrm{fg}}$) satisfies
+  \begin{equation}
+  \label{eq:anti_correlation}
+  \bigl\langle \nabla_u\mathcal{S}_{\mathrm{vis}},\;
+    \nabla_u\mathcal{S}_{\mathrm{full}}
+  \bigr\rangle < 0.
+  \end{equation}
+  Updating $u$ to maximise $\mathcal{S}_{\mathrm{vis}}$
+  actually \emph{decreases}
+  $\mathcal{S}_{\mathrm{full}}$.
+\item[\textup{(c)}]
+  The agent cannot detect this failure from within its
+  own reference frame, because all four bias terms
+  ($\mathcal{B}_{\mathrm{select}}$,
+  $\mathcal{B}_{\mathrm{frame}}$,
+  $\mathcal{B}_{\mathrm{center}}$,
+  $\mathcal{B}_{\mathrm{inc}}$)
+  operate within $V_{\mathrm{fg}}$ and cannot register
+  changes in $V_{\mathrm{bg}}$.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+Part~(a):
+The crossover $|\mathcal{S}_{\mathrm{hid}}|
+= |\mathcal{S}_{\mathrm{vis}}|$ occurs when
+$\sin^2\theta = \cos^2\theta$, i.e.,
+$\theta(t_{\mathrm{del}}) = \pi/4$.
+Substituting~\eqref{eq:theta}:
+$\theta_0\,e^{\Lambda\,t_{\mathrm{del}}} = \pi/4$,
+which gives~\eqref{eq:t_delusion}.
+The logarithmic dependence on $1/\theta_0$ means that
+even a very small initial misalignment ($\theta_0 \sim 10^{-3}$)
+delays the trap only by $\sim 7/\Lambda$---a modest
+multiple of the environmental Lyapunov time.
+
+Part~(b):
+Beyond $t_{\mathrm{del}}$, the gradient
+$\nabla\mathcal{S}_{\mathrm{full}}$ points primarily
+into $V_{\mathrm{bg}}$ (the hidden sector now carrying
+$> 50\%$ of survival weight), while
+$\nabla\mathcal{S}_{\mathrm{vis}}$ remains confined to
+$V_{\mathrm{fg}}$.
+Since the foreground and background subspaces are
+orthogonal by construction, the angle between the two
+gradients exceeds $\pi/2$, yielding anti-correlation.
+
+Part~(c):
+The bias terms
+$\mathcal{B}_{\mathrm{select}}$ through
+$\mathcal{B}_{\mathrm{inc}}$
+(Proposition~\ref{prop:bias}) are defined
+\emph{within} $V_{\mathrm{fg}}$.
+The agent's performance metric
+$\mathcal{S}_{\mathrm{vis}} =
+\mathcal{S}_{\mathrm{tot}}\cos^2\theta$
+decreases only at second order in $\theta$,
+so it remains positive and shows no anomaly until
+$\theta$ is already $O(1)$.
+The growing signal in $V_{\mathrm{bg}}$ maps to the null
+space of $\Pi_{\mathcal{F}}$ and is strictly invisible.
+\end{proof}
+
+\begin{remark}[Linear drift limit]
+\label{rem:linear_drift}
+For slow linear drift ($\theta(t) = \varepsilon\,t$,
+$\Lambda \to 0$), the crossover occurs at
+$t_{\mathrm{del}} = \pi/(4\varepsilon)$.
+With $\varepsilon = 0.01\,\omega_0$,
+$t_{\mathrm{del}} \approx 79\,\omega_0^{-1}$---long
+enough for the agent to accumulate a false sense of
+security, yet short on environmental timescales.
+\end{remark}
+
+\begin{remark}[Why dithering does not help]
+\label{rem:dithering}
+One might ask whether the agent could escape the delusion
+trap by randomly ``probing'' the background subspace
+$V_{\mathrm{bg}}$---temporarily rotating its frame to
+sample hidden components.
+This fails for two reasons.
+First, each probe costs
+$\sim h_\mu \cdot D$ bits of
+computation (the Symmetry Tax, Corollary~\ref{cor:symmetry_tax}),
+directly competing with the budget allocated to foreground
+processing.
+Second---and more fundamentally---the agent has no
+\emph{gradient signal} to indicate \emph{when} or
+\emph{where} to probe.
+As long as $|\mathcal{S}_{\mathrm{hid}}|
+< |\mathcal{S}_{\mathrm{vis}}|$ (pre-delusion), the
+in-frame performance metric $\mathcal{S}_{\mathrm{vis}}$
+shows no anomaly.
+The exponential divergence~\eqref{eq:divergence} is
+invisible until it dominates---at which point it is too late.
+Systematic correction requires monitoring the \emph{rate of
+change} of prediction error, which is a second-order
+operation: the subject of Paper~III.
+\end{remark}
+
+\begin{remark}[The ego as medicine and poison]
+\label{rem:medicine_poison}
+The ego cures computational paralysis
+(Theorem~\ref{thm:comp_ceiling}) but creates the delusion
+trap (Theorem~\ref{thm:delusion}).
+It is simultaneously the \emph{medicine} for Paper~I's
+crisis and the \emph{poison} that generates Paper~III's
+crisis.
+This duality is a structural consequence of the irreversible
+logic chain: each resolution creates the conditions for the
+next crisis.
+\end{remark}
+
+% ------------------------------------------------------------
+\subsection{The Origin of Paper~III}
+\label{subsec:paper3}
+
+To escape the delusion trap, the agent needs a mechanism
+to monitor the quality of its own reference frame---to
+``observe its own observation.''
+This requires a \emph{second-order control loop}: a
+meta-controller that adjusts the gauge fixing $\sigma$ in
+response to accumulated prediction errors.
+
+The key difficulty is that the prediction errors the agent
+can measure ($\mathcal{S}_{\mathrm{vis}} -
+\mathcal{S}_{\mathrm{vis}}^{\mathrm{predicted}}$) all
+lie within $V_{\mathrm{fg}}$.
+To detect frame drift, the agent must compare these
+in-frame errors to an estimate of out-of-frame
+contributions---a self-referential operation that requires
+\emph{Fisher information about the agent's own parameters}.
+
+This is the subject of Paper~III: the Fisher information
+geometry of self-referential calibration, and the
+thermodynamic cost of the loop that closes the chain
+\emph{Chaos $\to$ Time $\to$ Self $\to$ Calibration}.
+
+% ============================================================
+\section{Numerical Demonstration}
+\label{sec:numerical}
+
+The preceding sections establish analytic bounds and a
+worked example with a qubit in a two-channel bath.
+We now provide a numerical illustration showing that the
+core symmetry-breaking signature---attention entropy collapse
+under budget constraints---and the resulting selection
+advantage are reproduced in a minimal multi-dimensional
+system.
+Full code and parameters are provided for reproducibility.
+
+% ------------------------------------------------------------
+\subsection{Model}
+\label{subsec:demo_model}
+
+\paragraph{Environment.}
+A $D$-dimensional linear prediction task with sparse
+rotating support:
+$y(t) = \mathbf{w}^*(t)^\top \mathbf{x}(t) + \xi(t)$,
+$\mathbf{x}(t) \sim \mathcal{N}(\mathbf{0}, \mathbf{I}_D)$,
+$\xi \sim \mathcal{N}(0, \sigma^2)$.
+Only $m \ll D$ dimensions carry nonzero weight at any time;
+the active support rotates every $\tau_{\mathrm{switch}}$
+steps, modelling environmental drift.
+
+\paragraph{Hard budget constraint.}
+Per step, the agent may update only $k$ coordinates of its
+weight vector (a hard processing budget), mirroring the
+bounded computation assumption~(B2).
+
+\paragraph{Agents.}
+\begin{itemize}
+\item \textbf{Budgeted selector (SSB)}: selects the top-$k$
+  dimensions by importance score---an exponential moving
+  average of the signed per-coordinate gradient.  Signed
+  accumulation ensures that noise dimensions (zero expected
+  signal) cancel over time while signal dimensions persist,
+  enabling reliable discrimination without access to the true
+  support.
+\item \textbf{Random-$k$ baseline}: selects $k$ dimensions
+  uniformly at random each step.  This provides a
+  budget-fair comparison: identical mechanism, no symmetry
+  breaking.
+\end{itemize}
+
+\noindent
+The choice of \emph{signed} gradient EMA (rather than
+squared-gradient magnitude) is structurally motivated:
+for noise dimensions $\mathbb{E}[r\,x_i] = 0$, so the
+signed accumulation cancels over time; for signal
+dimensions $\mathbb{E}[r\,x_i] \neq 0$, so a consistent
+directional bias persists.  The signed EMA thus acts as a
+\emph{directional coherence filter} that discriminates
+signal from noise without access to the true support---a
+minimal realisation of the ``reference-frame bias'' that
+emerges from symmetry breaking.
+
+\paragraph{Parameters.}
+\begin{center}
+\small
+\begin{tabular}{@{}lcl@{}}
+\toprule
+\textbf{Quantity} & \textbf{Value} & \textbf{Role} \\
+\midrule
+$D$ & 64 & ambient dimension \\
+$m$ & 8  & signal dimensions (sparse support) \\
+$T$ & $10{,}000$ & horizon per trial \\
+Seeds & 10 & independent replications \\
+$\sigma$ & 0.3 & observation noise std \\
+$\eta$ & 0.02 & SGD learning rate \\
+$\lambda$ & 0.995 & weight decay per step \\
+$k$ & 2, 4, 6, 8, 10, 12, 16, 20, 24, 32, 48, 64
+  & budget grid \\
+$\tau_{\mathrm{switch}}$ & $\{500, 1000, 2000\}$
+  & support rotation period \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\paragraph{Attention entropy.}
+Let $n_i$ be the number of updates coordinate $i$ receives
+in a measurement window of the last $1{,}000$ steps.
+The normalised update frequency
+$p_i = n_i / \sum_j n_j$ defines the attention entropy:
+\begin{equation}
+\label{eq:H_attn}
+H_{\mathrm{attn}} = -\sum_{i=1}^{D} p_i \ln p_i.
+\end{equation}
+Under symmetric processing (no SSB), $p_i = 1/D$ and
+$H_{\mathrm{attn}} = \ln D$.  Under budget-constrained
+selection, $H_{\mathrm{attn}}$ collapses away from $\ln D$,
+serving as an order parameter for symmetry breaking.
+
+\paragraph{Oracle metric.}
+Neither agent has access to $\mathbf{w}^*(t)$.
+Performance is evaluated externally using the
+weight-space mean-squared error
+$\mathrm{MSE} = \|\hat{\mathbf{w}} - \mathbf{w}^*\|^2$,
+averaged over post-burn-in steps.
+
+% ------------------------------------------------------------
+\subsection{Results}
+\label{subsec:demo_results}
+
+Figure~\ref{fig:kstar_scaling} shows the two key signatures.
+
+\paragraph{Result 1: Attention entropy collapse
+(Figure~\ref{fig:kstar_scaling}a).}
+Under fixed support (no rotation), the attention entropy
+$H_{\mathrm{attn}}$ exhibits a sharp collapse away from
+$\ln D = \ln 64 \approx 4.16$ and increases monotonically
+with $k$, consistent with a budget-induced concentration
+of update mass onto signal-carrying dimensions.
+For budgets near and below the signal scale ($k \leq m$),
+$H_{\mathrm{attn}}$ remains $O(\ln m)$, consistent with
+confinement to the signal subspace.
+We use the collapse of $H_{\mathrm{attn}}$ away from
+$\ln D$ as the order parameter of symmetry breaking;
+a strict plateau at $\ln m$ is not expected under the
+present re-selection dynamics and finite-window estimator.
+
+\paragraph{Result 2: Selection advantage
+(Figure~\ref{fig:kstar_scaling}b).}
+Under rotating support, the mean-squared error gap
+$\Delta\mathrm{MSE} = \mathrm{MSE}_{\mathrm{rnd}}
+- \mathrm{MSE}_{\mathrm{sel}}$ is positive for
+$k \lesssim 3m$ and peaks at tight budgets ($k = 2$)
+where the selection advantage is strongest.
+For $k \gg m$ the gap turns slightly negative
+(the selector's commitment to stale dimensions costs
+more than the random baseline's diversification),
+before returning to zero at $k = D$.
+The three $\tau_{\mathrm{switch}}$ curves are ordered:
+slower drift (larger $\tau$) yields a larger peak gap,
+with the ordering most visible at small $k$.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\textwidth]%
+  {fig_paper2_kstar_scaling.pdf}
+\caption{%
+\textbf{Budget-induced symmetry breaking.}
+$D = 64$, $m = 8$, $T = 10{,}000$, 10 seeds, 95\% CI bands.
+\textbf{(a)}~Attention entropy $H_{\mathrm{attn}}$ vs
+budget $k$ (fixed support).  The empirical curve (blue)
+collapses from $\ln D \approx 4.16$ toward an
+$O(\ln m)$ floor as budget tightens.
+For $k \leq m$, $H_{\mathrm{attn}}$ remains below
+$\ln m \approx 2.08$ (green dashed), consistent with
+confinement to the signal subspace.
+\textbf{(b)}~Selection advantage
+$\Delta\mathrm{MSE} = \mathrm{MSE}_{\mathrm{rnd}}
+- \mathrm{MSE}_{\mathrm{sel}}$ vs budget $k$ under
+rotating support.  The gap is positive for $k \lesssim 3m$
+(selection helps), turns slightly negative at large $k$
+(commitment cost exceeds diversification), and returns
+to zero at $k = D$.  Slower drift ($\tau = 2000$)
+yields a larger peak advantage.}
+\label{fig:kstar_scaling}
+\end{figure}
+
+% ------------------------------------------------------------
+\subsection{Scope of This Demonstration}
+\label{subsec:demo_scope}
+
+These simulations illustrate the symmetry-breaking
+phenomenon predicted by Theorem~\ref{thm:SSB} under
+the stated model class; they do not constitute a proof
+beyond this class.
+
+\medskip
+This demonstration \textbf{does} show:
+\begin{enumerate}
+\item Under hard budget constraints, attention entropy
+  collapses sharply away from $\ln D$ and remains
+  $O(\ln m)$ for $k \leq m$---the agent confines its
+  updates to the signal subspace.
+  This is the computational analogue of spontaneous
+  symmetry breaking (Theorem~\ref{thm:SSB}).
+\item A budgeted selector that exploits importance-weighted
+  selection systematically outperforms a budget-fair
+  random baseline, consistent with a survival advantage
+  in the broken phase
+  (cf.~Proposition~\ref{prop:speedup}).
+\item The advantage scales with both budget tightness
+  (smaller $k$) and environmental stability (larger
+  $\tau_{\mathrm{switch}}$).
+\end{enumerate}
+
+\noindent
+In summary, this demonstration validates the
+\emph{existence} and \emph{measurability} of
+budget-induced symmetry breaking in a minimal linear
+setting; it does not claim universality across
+architectures or environment classes.
+
+\medskip
+This demonstration does \textbf{not} show:
+\begin{enumerate}
+\item That $H_{\mathrm{attn}}$ reaches a strict plateau
+  at $\ln m$ for all $k \leq m$.  Under the adaptive
+  re-selection dynamics used here, the selector cycles
+  within the signal subspace, producing
+  $H_{\mathrm{attn}}$ values near but not locked to
+  $\ln m$.  The relevant signature is the collapse
+  \emph{away from} $\ln D$, not convergence to a
+  specific lower bound.
+\item That the specific form of the importance score
+  (signed gradient EMA) is optimal.  It is one
+  realisation of the selection mechanism.
+\item That the results generalise to all environment
+  classes.  The model uses Gaussian features, linear
+  regression, and sparse rotating support.
+\item That the delusion--correction cycle is addressed.
+  This is the subject of Paper~III.
+\end{enumerate}
+
+\paragraph{Reproducibility.}
+The complete simulation is a self-contained Python script
+(\texttt{paper2\_kstar\_scaling\_demo.py}, ${\sim}\,540$
+lines, requiring only NumPy and Matplotlib) with fixed
+random seeds.  All figures in this section can be
+reproduced by executing the script.  The following files
+are included in the supplementary archive:
+\begin{itemize}
+\item \texttt{paper2\_kstar\_scaling\_demo.py} --- simulation script
+\item \texttt{fig\_paper2\_kstar\_scaling.pdf} --- Figure~\ref{fig:kstar_scaling}
+\item \texttt{kstar\_scaling\_data.csv} --- raw performance gap data
+\end{itemize}
+
+% ============================================================
+\section{Discussion}
+\label{sec:discussion}
+
+% ------------------------------------------------------------
+\subsection{Summary of Results}
+\label{subsec:summary}
+
+\begin{center}
+\small
+\setlength{\tabcolsep}{4pt}%
+\begin{tabular}{@{}lp{6cm}c@{}}
+\toprule
+\textbf{Result} & \textbf{Statement} & \textbf{Sec.} \\
+\midrule
+Computational Ceiling
+  & Symmetric processing cost exceeds
+    $\mathcal{C}_{\mathrm{budget}}$ at
+    $\tau_{\mathrm{par}}$
+  & \ref{sec:ceiling} \\[3pt]
+Rate-Distortion Bound
+  & Optimal compression retains
+    $k^* = \mathcal{C}_{\mathrm{budget}}/h_\mu$
+    components
+  & \ref{subsec:RD_bound} \\[3pt]
+Necessity of SSB
+  & Under bounded computation, survival requires gauge fixing
+  & \ref{subsec:SSB} \\[3pt]
+Four Bias Terms
+  & Broken phase acquires $\mathcal{B}_{\mathrm{select}}$,
+    $\mathcal{B}_{\mathrm{frame}}$,
+    $\mathcal{B}_{\mathrm{center}}$,
+    $\mathcal{B}_{\mathrm{inc}}$
+  & \ref{subsec:bias} \\[3pt]
+Survival Decomposition
+  & $\mathcal{S} = \mathcal{S}_{\mathrm{vis}} +
+    \mathcal{S}_{\mathrm{hid}}$
+  & \ref{subsec:effective} \\[3pt]
+Ego-Entropy Trade-off
+  & $\gtrsim 1 - k^*/\dim Cl(V,q)$ of
+    $I_{\mathrm{pred}}$ discarded (uniformity assumption)
+  & \ref{subsec:tradeoff} \\[3pt]
+Delusion Trap
+  & Fixed frame diverges from optimal under environmental
+    drift; agent cannot self-detect
+  & \ref{subsec:delusion} \\[3pt]
+Numerical demo
+  & Budget-induced SSB and selection advantage
+    (Fig.~\ref{fig:kstar_scaling})
+  & \ref{sec:numerical} \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+% ------------------------------------------------------------
+\subsection{What This Paper Does and Does Not Show}
+\label{subsec:claims}
+
+This paper \textbf{does} show:
+\begin{enumerate}
+\item Under bounded computation~(B2) and non-trivial
+  environment~(B3), symmetric processing of memory leads
+  to computational paralysis (Theorem~\ref{thm:comp_ceiling}).
+\item The survival-optimal response is spontaneous symmetry
+  breaking of the internal reference frame
+  (Theorem~\ref{thm:SSB}), governed by a rate-distortion
+  bound (Theorem~\ref{thm:compression}).
+\item The broken phase acquires four generic bias
+  terms under~(B1)--(B5) (Proposition~\ref{prop:bias}).
+\item Under environmental drift, a fixed frame leads to
+  exponential divergence of prediction error---the
+  Delusion Trap (Theorem~\ref{thm:delusion}).
+\item A minimal computational demonstration reproduces
+  the budget-induced symmetry-breaking signature (attention
+  entropy collapse away from $\ln D$) and selection
+  advantage over a budget-fair random baseline
+  (Section~\ref{sec:numerical},
+  Figure~\ref{fig:kstar_scaling}).
+\end{enumerate}
+
+\medskip
+This paper does \textbf{not} show:
+\begin{enumerate}
+\item That the privileged basis is uniquely determined by
+  computational constraints. The basis is constrained but
+  not unique---different histories lead to different gauge
+  fixings, as in a ferromagnet.
+\item That symmetry breaking is sufficient for persistence.
+  It is the survival-optimal strategy under bounded computation;
+  sufficiency
+  requires the self-referential calibration of Paper~III.
+\item That the ``ego'' implies or requires consciousness,
+  subjective experience, or phenomenal awareness.
+  The term is used strictly in the control-theoretic sense.
+\item That this framework constitutes a theory of
+  consciousness. It is a theory of computational optimality
+  under thermodynamic constraints.
+\item That the four bias terms exhaust the phenomenology of
+  self-reference. They are the minimal structural
+  consequences of gauge fixing in a Clifford algebra.
+\item That the rate-distortion bound is achievable by any
+  specific physical implementation. It is an
+  information-theoretic lower bound.
+\item That the Delusion Trap is inescapable. Paper~III will
+  show it can be mitigated by self-referential calibration.
+\item That the framework constitutes or implies a
+  philosophical or metaphysical claim about the nature
+  of selfhood.
+\item That this framework applies to all possible physical
+  systems. It applies to systems
+  satisfying~(B1)--(B5)---persistent agents with finite
+  computation in non-trivial environments.
+\item That the Clifford algebra is the only possible
+  algebraic setting. It is the minimal setting inherited
+  from Q-RAIF. Other algebras may yield analogous results.
+\end{enumerate}
+
+% ============================================================
+% REFERENCES
+% ============================================================
+\begin{thebibliography}{99}
+
+\bibitem{Liu2026TDOME_I}
+S.~Liu,
+\emph{Non-Markovian Memory and the Thermodynamic Necessity
+of Temporal Accumulation},
+Zenodo (2026), DOI: 10.5281/zenodo.18574342.
+
+\bibitem{BreuerPetruccione2002}
+H.-P.~Breuer and F.~Petruccione,
+\emph{The Theory of Open Quantum Systems},
+Oxford University Press (2002).
+
+\bibitem{CrutchfieldYoung1989}
+J.~P.~Crutchfield and K.~Young,
+\emph{Inferring statistical complexity},
+Phys.\ Rev.\ Lett.\ \textbf{63}, 105 (1989).
+
+\bibitem{ShaliziCrutchfield2001}
+C.~R.~Shalizi and J.~P.~Crutchfield,
+\emph{Computational mechanics: Pattern and prediction,
+structure and simplicity},
+J.\ Stat.\ Phys.\ \textbf{104}, 817 (2001).
+
+\bibitem{BialekNemenmanTishby2001}
+W.~Bialek, I.~Nemenman, and N.~Tishby,
+\emph{Predictability, complexity, and learning},
+Neural Computation \textbf{13}, 2409 (2001).
+
+\bibitem{Shannon1959}
+C.~E.~Shannon,
+\emph{Coding theorems for a discrete source with a
+fidelity criterion},
+IRE Nat.\ Conv.\ Rec., Part~4, pp.~142--163 (1959).
+
+\bibitem{CoverThomas2006}
+T.~M.~Cover and J.~A.~Thomas,
+\emph{Elements of Information Theory},
+2nd ed., Wiley (2006).
+
+\bibitem{Simon1955}
+H.~A.~Simon,
+\emph{A behavioral model of rational choice},
+Quarterly J.\ of Economics \textbf{69}, 99 (1955).
+
+\bibitem{Tishby2000}
+N.~Tishby, F.~C.~Pereira, and W.~Bialek,
+\emph{The information bottleneck method},
+in Proc.\ 37th Allerton Conf.\ on Communication, Control,
+and Computing (1999); arXiv:physics/0004057 (2000).
+
+\bibitem{Sims2003}
+C.~A.~Sims,
+\emph{Implications of rational inattention},
+J.\ Monetary Economics \textbf{50}, 665 (2003).
+
+\bibitem{JohnsonLindenstrauss1984}
+W.~B.~Johnson and J.~Lindenstrauss,
+\emph{Extensions of Lipschitz mappings into a Hilbert space},
+Contemp.\ Math.\ \textbf{26}, 189 (1984).
+
+\bibitem{Landauer1961}
+R.~Landauer,
+\emph{Irreversibility and heat generation in the
+computing process},
+IBM J.\ Res.\ Dev.\ \textbf{5}, 183 (1961).
+
+\bibitem{Bennett1982}
+C.~H.~Bennett,
+\emph{The thermodynamics of computation---a review},
+Int.\ J.\ Theor.\ Phys.\ \textbf{21}, 905 (1982).
+
+\bibitem{Zurek2009}
+W.~H.~Zurek,
+\emph{Quantum Darwinism},
+Nature Physics \textbf{5}, 181 (2009).
+
+\bibitem{RivasHuelgaPlenio2014}
+\'{A}.~Rivas, S.~F.~Huelga, and M.~B.~Plenio,
+\emph{Quantum non-Markovianity: characterization,
+quantification and detection},
+Rep.\ Prog.\ Phys.\ \textbf{77}, 094001 (2014).
+
+\bibitem{Liu2026HAFF_A}
+S.~Liu,
+\emph{Emergent Geometry from Coarse-Grained Observable
+Algebras},
+Zenodo (2026), DOI: 10.5281/zenodo.18361707.
+
+\bibitem{Liu2026HAFF_B}
+S.~Liu,
+\emph{Accessibility, Stability, and Emergent Geometry},
+Zenodo (2026), DOI: 10.5281/zenodo.18367061.
+
+\bibitem{Liu2026HAFF_G}
+S.~Liu,
+\emph{Structural Limits of Unification: Accessibility,
+Incompleteness, and the Necessity of a Final Cut},
+Zenodo (2026), DOI: 10.5281/zenodo.18402908.
+
+\bibitem{Liu2026QRAIF_A}
+S.~Liu,
+\emph{Algebraic Constraints on the Emergence of Lorentzian
+Metrics in Entropic Gravity Frameworks},
+Zenodo (2026), DOI: 10.5281/zenodo.18525877.
+
+\bibitem{Liu2026QRAIF_B}
+S.~Liu,
+\emph{Thermodynamic Stability Constraints on the Operator
+Algebra of Persistent Open Quantum Subsystems},
+Zenodo (2026), DOI: 10.5281/zenodo.18525891.
+
+\bibitem{Liu2026QRAIF_C}
+S.~Liu,
+\emph{The Realizability Bridge: Algebraic Closure in the
+Q-RAIF Framework},
+Zenodo (2026), DOI: 10.5281/zenodo.18528935.
+
+\end{thebibliography}
+
+\end{document}
