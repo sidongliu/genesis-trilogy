@@ -6,6 +6,7 @@ authors:
   - family-names: Liu
     given-names: Sidong
     affiliation: iBioStratix Ltd
+    orcid: "https://orcid.org/0009-0000-3180-2936"
 license: CC-BY-4.0
 doi: "10.5281/zenodo.18608021"
 repository-code: https://github.com/sidongliu/genesis-trilogy
@@ -19,7 +20,49 @@ keywords:
 identifiers:
   - type: doi
     value: "10.5281/zenodo.18608021"
-    description: "Genesis Trilogy Complete Collection"
+    description: "Genesis Trilogy"
+  - type: doi
+    value: "10.5281/zenodo.18361706"
+    description: "HAFF Paper A"
+  - type: doi
+    value: "10.5281/zenodo.18367060"
+    description: "HAFF Paper B"
+  - type: doi
+    value: "10.5281/zenodo.18374805"
+    description: "HAFF Paper C"
+  - type: doi
+    value: "10.5281/zenodo.18388881"
+    description: "HAFF Paper D"
+  - type: doi
+    value: "10.5281/zenodo.18400065"
+    description: "HAFF Paper E"
+  - type: doi
+    value: "10.5281/zenodo.18400425"
+    description: "HAFF Paper F"
+  - type: doi
+    value: "10.5281/zenodo.18402907"
+    description: "HAFF Paper G"
+  - type: doi
+    value: "10.5281/zenodo.18407367"
+    description: "HAFF Postscript"
+  - type: doi
+    value: "10.5281/zenodo.18416482"
+    description: "HAFF Abstract"
+  - type: doi
+    value: "10.5281/zenodo.18452194"
+    description: "HAFF Complete Collection"
+  - type: doi
+    value: "10.5281/zenodo.18525876"
+    description: "Q-RAIF Paper A"
+  - type: doi
+    value: "10.5281/zenodo.18525890"
+    description: "Q-RAIF Paper B"
+  - type: doi
+    value: "10.5281/zenodo.18528934"
+    description: "Q-RAIF Paper C"
+  - type: doi
+    value: "10.5281/zenodo.18548704"
+    description: "Q-RAIF Complete Collection"
   - type: doi
     value: "10.5281/zenodo.18574342"
     description: "T-DOME Paper I"

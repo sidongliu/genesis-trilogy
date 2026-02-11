@@ -80,12 +80,29 @@ genesis-trilogy/
 
 ## Zenodo DOIs (Concept DOIs — always resolve to latest version)
 
-| Item | DOI |
-|------|-----|
-| **Genesis Trilogy (this collection)** | [10.5281/zenodo.18608021](https://doi.org/10.5281/zenodo.18608021) |
-| T-DOME Paper I | [10.5281/zenodo.18574342](https://doi.org/10.5281/zenodo.18574342) |
-| T-DOME Paper II | [10.5281/zenodo.18579703](https://doi.org/10.5281/zenodo.18579703) |
-| T-DOME Paper III | [10.5281/zenodo.18591771](https://doi.org/10.5281/zenodo.18591771) |
+| Item | Concept DOI |
+|------|-------------|
+| **Genesis Trilogy** | [10.5281/zenodo.18608021](https://doi.org/10.5281/zenodo.18608021) |
+| | |
+| HAFF Paper A — Emergent Geometry | [10.5281/zenodo.18361706](https://doi.org/10.5281/zenodo.18361706) |
+| HAFF Paper B — Accessibility, Stability | [10.5281/zenodo.18367060](https://doi.org/10.5281/zenodo.18367060) |
+| HAFF Paper C — Causation, Agency, Existence | [10.5281/zenodo.18374805](https://doi.org/10.5281/zenodo.18374805) |
+| HAFF Paper D — Gravitational Phenomena | [10.5281/zenodo.18388881](https://doi.org/10.5281/zenodo.18388881) |
+| HAFF Paper E — Measurement as Accessibility | [10.5281/zenodo.18400065](https://doi.org/10.5281/zenodo.18400065) |
+| HAFF Paper F — Temporal Asymmetry | [10.5281/zenodo.18400425](https://doi.org/10.5281/zenodo.18400425) |
+| HAFF Paper G — Structural Limits of Unification | [10.5281/zenodo.18402907](https://doi.org/10.5281/zenodo.18402907) |
+| HAFF Postscript | [10.5281/zenodo.18407367](https://doi.org/10.5281/zenodo.18407367) |
+| HAFF Abstract | [10.5281/zenodo.18416482](https://doi.org/10.5281/zenodo.18416482) |
+| HAFF Complete Collection | [10.5281/zenodo.18452194](https://doi.org/10.5281/zenodo.18452194) |
+| | |
+| Q-RAIF Paper A — Lorentzian Metrics | [10.5281/zenodo.18525876](https://doi.org/10.5281/zenodo.18525876) |
+| Q-RAIF Paper B — Operator Algebra Stability | [10.5281/zenodo.18525890](https://doi.org/10.5281/zenodo.18525890) |
+| Q-RAIF Paper C — Realizability Bridge | [10.5281/zenodo.18528934](https://doi.org/10.5281/zenodo.18528934) |
+| Q-RAIF Complete Collection | [10.5281/zenodo.18548704](https://doi.org/10.5281/zenodo.18548704) |
+| | |
+| T-DOME Paper I — Non-Markovian Memory | [10.5281/zenodo.18574342](https://doi.org/10.5281/zenodo.18574342) |
+| T-DOME Paper II — Reference Frame SSB | [10.5281/zenodo.18579703](https://doi.org/10.5281/zenodo.18579703) |
+| T-DOME Paper III — Self-Referential Calibration | [10.5281/zenodo.18591771](https://doi.org/10.5281/zenodo.18591771) |
 | T-DOME Complete Collection | [10.5281/zenodo.18593180](https://doi.org/10.5281/zenodo.18593180) |
 
 ---
