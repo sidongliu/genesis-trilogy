@@ -82,6 +82,7 @@ genesis-trilogy/
 
 | Item | DOI |
 |------|-----|
+| **Genesis Trilogy (this collection)** | [10.5281/zenodo.18608021](https://doi.org/10.5281/zenodo.18608021) |
 | T-DOME Paper I | [10.5281/zenodo.18574342](https://doi.org/10.5281/zenodo.18574342) |
 | T-DOME Paper II | [10.5281/zenodo.18579703](https://doi.org/10.5281/zenodo.18579703) |
 | T-DOME Paper III | [10.5281/zenodo.18591771](https://doi.org/10.5281/zenodo.18591771) |
