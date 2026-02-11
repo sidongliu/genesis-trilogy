@@ -142,6 +142,18 @@ python build_genesis_trilogy.py     # → Genesis_Trilogy.tex
 
 ---
 
+## Archive / Long-term Preservation
+
+| Layer | Platform | Identifier |
+|-------|----------|------------|
+| Academic citation | **Zenodo** | [10.5281/zenodo.18608021](https://doi.org/10.5281/zenodo.18608021) |
+| Canonical source | **GitHub** | [github.com/sidongliu/genesis-trilogy](https://github.com/sidongliu/genesis-trilogy) |
+| Software Heritage | **SWH** | [`swh:1:snp:76ebc4c8e9cd85e7f9e97a0b7c0237ca17696f83`](https://archive.softwareheritage.org/swh:1:snp:76ebc4c8e9cd85e7f9e97a0b7c0237ca17696f83) |
+
+This repository contains the LaTeX sources, numerical demonstrations, and build scripts needed to reproduce every result in the Genesis Trilogy. The Zenodo DOIs serve as the academic citation entry point; the GitHub repository is the canonical, versioned source; and the Software Heritage archive provides content-addressed, platform-independent long-term preservation.
+
+---
+
 ## License
 
 This work is licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/).
