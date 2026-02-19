@@ -4557,15 +4557,59 @@ delays the trap only by $\sim 7/\Lambda$---a modest
 multiple of the environmental Lyapunov time.
 
 Part~(b):
-Beyond $t_{\mathrm{del}}$, the gradient
-$\nabla\mathcal{S}_{\mathrm{full}}$ points primarily
-into $V_{\mathrm{bg}}$ (the hidden sector now carrying
-$> 50\%$ of survival weight), while
-$\nabla\mathcal{S}_{\mathrm{vis}}$ remains confined to
-$V_{\mathrm{fg}}$.
-Since the foreground and background subspaces are
-orthogonal by construction, the angle between the two
-gradients exceeds $\pi/2$, yielding anti-correlation.
+Decompose $\mathcal{S}_{\mathrm{full}}$ in the agent's
+(rotated) coordinates as
+$\mathcal{S}_{\mathrm{full}}(u,v)
+= \mathcal{S}_{\mathrm{ff}}(u)
++ \mathcal{S}_{\mathrm{fb}}(u,v)
++ \mathcal{S}_{\mathrm{bb}}(v)$,
+where $u \in V_{\mathrm{fg}}$, $v \in V_{\mathrm{bg}}$,
+$\mathcal{S}_{\mathrm{ff}}$ depends only on foreground
+controls, $\mathcal{S}_{\mathrm{bb}}$ only on background,
+and $\mathcal{S}_{\mathrm{fb}}$ encodes the
+foreground--background cross-coupling.
+The projected kernel
+$\mathcal{K}_{\mathcal{F}}
+= \Pi_{\mathcal{F}}\,\mathcal{K}\,\Pi_{\mathcal{F}}$
+discards $\mathcal{S}_{\mathrm{fb}}$ and
+$\mathcal{S}_{\mathrm{bb}}$, so
+$\mathcal{S}_{\mathrm{vis}}(u)
+= \mathcal{S}_{\mathrm{ff}}(u)$.
+The foreground gradients are therefore
+$\nabla_u\mathcal{S}_{\mathrm{vis}}
+= \nabla_u\mathcal{S}_{\mathrm{ff}}$
+and
+$\nabla_u\mathcal{S}_{\mathrm{full}}
+= \nabla_u\mathcal{S}_{\mathrm{ff}}
++ \nabla_u\mathcal{S}_{\mathrm{fb}}$,
+giving
+\[
+\bigl\langle
+  \nabla_u\mathcal{S}_{\mathrm{vis}},\;
+  \nabla_u\mathcal{S}_{\mathrm{full}}
+\bigr\rangle
+= \bigl|\nabla_u\mathcal{S}_{\mathrm{ff}}\bigr|^2
++ \bigl\langle
+  \nabla_u\mathcal{S}_{\mathrm{ff}},\;
+  \nabla_u\mathcal{S}_{\mathrm{fb}}
+\bigr\rangle.
+\]
+The first term is non-negative.
+Under the rotating drift model, the frame rotation
+by~$\theta$ induces cross-coupling that scales as
+$\sin\theta\cos\theta$ (maximal at $\theta = \pi/4$),
+while the direct term scales as $\cos^4\!\theta$.
+The sign of $\nabla_u\mathcal{S}_{\mathrm{fb}}$
+is set by the background state~$v$: since the agent
+invests no control resources in $V_{\mathrm{bg}}$,
+$v$~relaxes toward the uncontrolled equilibrium,
+where the cross-coupling penalises
+foreground-directed updates
+($\langle \nabla_u\mathcal{S}_{\mathrm{ff}},\,
+\nabla_u\mathcal{S}_{\mathrm{fb}}\rangle < 0$).
+Beyond $t_{\mathrm{del}}$ ($\theta > \pi/4$),
+the adverse coupling dominates the direct term,
+yielding~\eqref{II-eq:anti_correlation}.
 
 Part~(c):
 The bias terms
@@ -7507,44 +7551,44 @@ Springer (2003).
 \bibitem{Liu2026HAFF_A}
 S.~Liu,
 \emph{Emergent Geometry from Coarse-Grained Observable Algebras},
-Zenodo (2026), DOI: 10.5281/zenodo.18361707.
+Zenodo (2026), DOI: 10.5281/zenodo.18361706.
 
 \bibitem{Liu2026HAFF_B}
 S.~Liu,
 \emph{Accessibility, Stability, and Emergent Geometry},
-Zenodo (2026), DOI: 10.5281/zenodo.18367061.
+Zenodo (2026), DOI: 10.5281/zenodo.18367060.
 
 \bibitem{Liu2026HAFF_C}
 S.~Liu,
 \emph{Causation, Agency, and Existence},
-Zenodo (2026), DOI: 10.5281/zenodo.18391651.
+Zenodo (2026), DOI: 10.5281/zenodo.18374805.
 
 \bibitem{Liu2026HAFF_F}
 S.~Liu,
 \emph{Temporal Asymmetry as Accessibility Propagation},
-Zenodo (2026), DOI: 10.5281/zenodo.18417099.
+Zenodo (2026), DOI: 10.5281/zenodo.18400425.
 
 \bibitem{Liu2026HAFF_G}
 S.~Liu,
 \emph{Structural Limits of Unification: Accessibility,
 Incompleteness, and the Necessity of a Final Cut},
-Zenodo (2026), DOI: 10.5281/zenodo.18402908.
+Zenodo (2026), DOI: 10.5281/zenodo.18402907.
 
 \bibitem{Liu2026QRAIF_A}
 S.~Liu,
 \emph{Algebraic Constraints on the Emergence of Lorentzian Metrics in Entropic Gravity Frameworks},
-Zenodo (2026), DOI: 10.5281/zenodo.18525877.
+Zenodo (2026), DOI: 10.5281/zenodo.18525876.
 
 \bibitem{Liu2026QRAIF_B}
 S.~Liu,
 \emph{Thermodynamic Stability Constraints on the Operator Algebra of Persistent Open Quantum Subsystems},
-Zenodo (2026), DOI: 10.5281/zenodo.18525891.
+Zenodo (2026), DOI: 10.5281/zenodo.18525890.
 
 \bibitem{Liu2026QRAIF_C}
 S.~Liu,
 \emph{The Realizability Bridge: Algebraic Closure in the
 Q-RAIF Framework},
-Zenodo (2026), DOI: 10.5281/zenodo.18528935.
+Zenodo (2026), DOI: 10.5281/zenodo.18528934.
 
 \bibitem{Liu2026TDOME_I}
 S.~Liu,
