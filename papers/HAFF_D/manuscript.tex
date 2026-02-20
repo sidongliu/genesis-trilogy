@@ -39,6 +39,7 @@ A Structural Analysis}
 
 \begin{abstract}
 We propose that gravitational phenomena arise from the adiabatic evolution of accessible observable algebras as the global quantum state evolves. Building on recent work demonstrating that inequivalent coarse-graining structures induce inequivalent effective geometries, we argue that gravity is categorically distinguished from gauge interactions: gauge forces operate \emph{within} a fixed algebra $\mathcal{A}$, while gravitational dynamics reflects the \emph{flow} of $\mathcal{A}$ itself. This framework provides: (1) a generative mechanism for gravitational dynamics via state-dependent algebra selection; (2) a structural derivation of the equivalence principle from algebraic universality; (3) identification of the emergent metric with the Quantum Fisher Information Metric. We do not derive the Einstein equations, but propose a conceptual framework that explains gravity's distinctive features—universality, dynamical geometry, and resistance to naive quantization—as consequences of algebra evolution rather than force mediation.
+We place this framework on a rigorous algebraic foundation by translating the accessibility criteria into Tomita--Takesaki modular theory, proving uniqueness of the accessible algebra (up to unitary equivalence) under mild ergodicity assumptions, and demonstrating that algebra perturbations yield the linearized Einstein equations via the entanglement first law in holographic settings.
 \end{abstract}
 
 \section{Introduction}
@@ -90,7 +91,7 @@ The analysis is structural in nature. We examine the conceptual architecture und
 
 \subsection{Outline}
 
-Section~\ref{sec:factorization} reviews the factorization problem: the absence of a canonical subsystem decomposition in quantum theory, and its implications for emergent structure. Section~\ref{sec:distinction} develops the proposed distinction between gauge forces and gravity in terms of their relation to observable algebra selection. Section~\ref{sec:technical} provides a technical formulation, including the central conjecture and the identification of the emergent metric with the Quantum Fisher Information Metric. Section~\ref{sec:relation} discusses connections to existing approaches including AdS/CFT, tensor networks, and thermodynamic gravity. Section~\ref{sec:limitations} states explicit scope limitations. Section~\ref{sec:open} outlines open questions, and Section~\ref{sec:conclusion} concludes.
+Section~\ref{sec:factorization} reviews the factorization problem: the absence of a canonical subsystem decomposition in quantum theory, and its implications for emergent structure. Section~\ref{sec:distinction} develops the proposed distinction between gauge forces and gravity in terms of their relation to observable algebra selection. Section~\ref{sec:technical} provides a technical formulation, including the central conjecture and the identification of the emergent metric with the Quantum Fisher Information Metric. Section~\ref{sec:modular} develops the rigorous algebraic foundation using Tomita--Takesaki modular theory, proves the uniqueness theorem for the accessible algebra, verifies the construction in two concrete examples, and connects algebra perturbations to the linearized Einstein equations via the entanglement first law. Section~\ref{sec:relation} discusses connections to existing approaches including AdS/CFT, tensor networks, and thermodynamic gravity. Section~\ref{sec:limitations} states explicit scope limitations. Section~\ref{sec:open} outlines open questions, and Section~\ref{sec:conclusion} concludes.
 
 \section{The Factorization Problem}
 \label{sec:factorization}
@@ -344,6 +345,500 @@ To prevent misreading, we state explicitly what this technical formulation does 
 
 The role of this section is to demonstrate internal coherence between the structural claims of Sections~1--3 and existing entanglement--geometry correspondences in the literature.
 
+
+% ============================================================================
+% Section: Algebraic Foundation (integrated from HAFF_Gravity_Phase1)
+% ============================================================================
+\section{Algebraic Foundation: Modular Uniqueness}
+\label{sec:modular}
+
+The preceding sections formulated the HAFF gravity conjecture in structural and information-geometric terms. The accessibility criteria (Definition~\ref{def:accessible}) were stated in approximate, operational language. In this section, we translate these criteria into the rigorous framework of Tomita--Takesaki modular theory, prove a uniqueness theorem for the accessible algebra, verify the construction in two concrete examples, and outline the connection to linearized gravity via the entanglement first law. This theorem provides the rigorous proof of the uniqueness conjecture discussed in Paper B \cite{Liu2026PaperB}.
+
+
+\subsection{Preliminaries}
+\label{sec:modular-prelim}
+
+We review the mathematical tools required for the main construction. Standard references include Takesaki \cite{Takesaki2003}, Bratteli--Robinson \cite{BratteliRobinson1997}, and Haag \cite{Haag1996}.
+
+\subsubsection{Von Neumann Algebras}
+
+\begin{definition}
+A \textbf{von Neumann algebra} $\mathcal{M}$ acting on a Hilbert space $\mathcal{H}$ is a $*$-subalgebra of $\mathcal{B}(\mathcal{H})$ that contains the identity and is closed in the weak operator topology.
+Equivalently, by von Neumann's bicommutant theorem, $\mathcal{M} = \mathcal{M}''$, where $\mathcal{M}' = \{T \in \mathcal{B}(\mathcal{H}) : [T, M] = 0 \;\forall\, M \in \mathcal{M}\}$ is the commutant.
+\end{definition}
+
+\begin{definition}
+A von Neumann algebra $\mathcal{M}$ is a \textbf{Type~III$_1$ factor} if it has trivial center ($\mathcal{M} \cap \mathcal{M}' = \mathbb{C} \mathbf{1}$), admits no finite or semifinite normal trace, and the Connes spectrum $S(\mathcal{M}) = \mathbb{R}_{\geq 0}$.
+\end{definition}
+
+By a deep result of algebraic QFT, local algebras of observables in any reasonable quantum field theory are Type~III$_1$ factors \cite{Haag1996, Yngvason2005}.
+
+\subsubsection{Tomita--Takesaki Modular Theory}
+\label{sec:TT}
+
+The Tomita--Takesaki theorem is the central structure theorem for von Neumann algebras with a cyclic and separating vector.
+
+\begin{definition}
+Let $\mathcal{M}$ be a von Neumann algebra on $\mathcal{H}$, and let $|\Omega\rangle \in \mathcal{H}$.
+\begin{itemize}
+\item $|\Omega\rangle$ is \textbf{cyclic} for $\mathcal{M}$ if $\mathcal{M}|\Omega\rangle$ is dense in $\mathcal{H}$.
+\item $|\Omega\rangle$ is \textbf{separating} for $\mathcal{M}$ if $M|\Omega\rangle = 0$ implies $M = 0$ for all $M \in \mathcal{M}$.
+\end{itemize}
+\end{definition}
+
+If $|\Omega\rangle$ is cyclic and separating, define the antilinear operator
+\begin{equation}
+S_\Omega : M|\Omega\rangle \mapsto M^*|\Omega\rangle, \qquad M \in \mathcal{M}.
+\end{equation}
+This operator is closable, and its closure admits a polar decomposition:
+\begin{equation}
+S_\Omega = J_\Omega \Delta_\Omega^{1/2},
+\end{equation}
+where $J_\Omega$ is an antiunitary involution (the \textbf{modular conjugation}) and $\Delta_\Omega$ is a positive self-adjoint operator (the \textbf{modular operator}).
+
+\begin{theorem}[Tomita--Takesaki {\cite{Takesaki2003}}]
+\label{thm:TT}
+Let $\mathcal{M}$ be a von Neumann algebra with cyclic and separating vector $|\Omega\rangle$, and let $\Delta_\Omega$, $J_\Omega$ be as above. Then:
+\begin{enumerate}
+\item[(a)] $J_\Omega \mathcal{M} J_\Omega = \mathcal{M}'$ (modular conjugation exchanges the algebra and its commutant).
+\item[(b)] The \textbf{modular automorphism group}
+\begin{equation}
+\sigma_t^\Omega(M) := \Delta_\Omega^{it} M \Delta_\Omega^{-it}, \qquad t \in \mathbb{R},
+\end{equation}
+satisfies $\sigma_t^\Omega(\mathcal{M}) = \mathcal{M}$ for all $t \in \mathbb{R}$.
+\end{enumerate}
+\end{theorem}
+
+Thus, any von Neumann algebra with a faithful state possesses a canonical one-parameter automorphism group.
+
+\subsubsection{The KMS Condition}
+
+\begin{definition}
+Let $\mathcal{M}$ be a von Neumann algebra, $\alpha_t$ a one-parameter automorphism group, and $\omega$ a normal state on $\mathcal{M}$.
+The state $\omega$ satisfies the \textbf{KMS condition} at inverse temperature $\beta$ with respect to $\alpha_t$ if, for all $A, B \in \mathcal{M}$, there exists a function $F_{A,B}(z)$ analytic in the strip $0 < \operatorname{Im}(z) < \beta$ and continuous on its closure, such that
+\begin{equation}
+F_{A,B}(t) = \omega(A \,\alpha_t(B)), \qquad F_{A,B}(t + i\beta) = \omega(\alpha_t(B)\, A)
+\end{equation}
+for all $t \in \mathbb{R}$.
+\end{definition}
+
+\begin{theorem}[Takesaki {\cite{Takesaki2003}}]
+\label{thm:KMS-unique}
+Let $\omega$ be a faithful normal state on a von Neumann algebra $\mathcal{M}$.
+Then $\omega$ is KMS at $\beta = 1$ with respect to $\sigma_t^\omega$, and $\sigma_t^\omega$ is the \emph{unique} one-parameter automorphism group with this property.
+\end{theorem}
+
+The physical content is striking: the modular flow is the unique time evolution for which the given state looks thermal.
+In the Rindler wedge, this flow is the Lorentz boost, and the KMS condition at $\beta = 2\pi$ reproduces the Unruh temperature $T_U = (2\pi)^{-1}$ (in natural units where the acceleration $a = 1$).
+
+\subsubsection{Half-Sided Modular Inclusions}
+
+\begin{definition}[{\cite{Wiesbrock1993}}]
+Let $\mathcal{N} \subset \mathcal{M}$ be an inclusion of von Neumann algebras on $\mathcal{H}$, with $|\Omega\rangle$ cyclic and separating for both.
+The inclusion is a \textbf{half-sided modular inclusion} (HSMI) if
+\begin{equation}
+\sigma_t^{\mathcal{M}}(\mathcal{N}) \subset \mathcal{N} \qquad \text{for all } t \leq 0,
+\end{equation}
+where $\sigma_t^{\mathcal{M}}$ denotes the modular automorphism group of $(\mathcal{M}, |\Omega\rangle)$.
+\end{definition}
+
+\begin{theorem}[Wiesbrock {\cite{Wiesbrock1993}}]
+\label{thm:Wiesbrock}
+Let $\mathcal{N} \subset \mathcal{M}$ be a half-sided modular inclusion with common cyclic and separating vector $|\Omega\rangle$.
+Then there exists a unique one-parameter unitary group $U(a) = e^{-iaP}$, $a \geq 0$, with positive generator $P \geq 0$, such that
+\begin{equation}
+\mathcal{N} = U(1)\mathcal{M} U(1)^*.
+\end{equation}
+Moreover, $U(a)|\Omega\rangle = |\Omega\rangle$ for all $a$.
+\end{theorem}
+
+The physical interpretation is that the translation from $\mathcal{M}$ to $\mathcal{N}$ is encoded algebraically: no background geometry is needed to define the notion of ``shifting a wedge.''
+This is the key tool for extracting spacetime structure from purely algebraic data.
+
+
+\subsection{Modular Definition of Accessible Algebras}
+\label{sec:modular-def}
+
+We now reformulate the physical accessibility criteria (Definition~\ref{def:accessible}) in algebraic terms.
+
+Let $\mathcal{H}_U$ be the universal Hilbert space, $|\Psi_U\rangle \in \mathcal{H}_U$ the global state, $\hat{H}$ the total Hamiltonian, and $\mathcal{E}_t$ the dynamical (decoherence) semigroup in the Schr\"odinger picture: $\mathcal{E}_t(\rho) = e^{t\mathcal{L}}(\rho)$ for a Lindblad generator $\mathcal{L}$.
+The Heisenberg-picture dual $\mathcal{E}_t^*$ acts on observables via $\mathrm{tr}(\mathcal{E}_t^*(A)\,\rho) = \mathrm{tr}(A\,\mathcal{E}_t(\rho))$.
+We seek a von Neumann subalgebra $\mathcal{A}_{\mathbf{c}} \subset \mathcal{B}(\mathcal{H}_U)$ representing the physically accessible observables.
+
+\begin{definition}[Modular accessible algebra]
+\label{def:modular-accessible}
+Define the state $\omega(\cdot) = \langle \Psi_U | \cdot | \Psi_U \rangle$.
+A von Neumann subalgebra $\mathcal{A}_{\mathbf{c}} \subset \mathcal{B}(\mathcal{H}_U)$ is a \textbf{modular accessible algebra} if it satisfies:
+
+\begin{enumerate}
+\item[\textup{(U1)}] \textbf{Faithfulness.} The restriction of $\omega$ to $\mathcal{A}_{\mathbf{c}}$ is faithful: $\omega(A^*A) = 0$ implies $A = 0$ for all $A \in \mathcal{A}_{\mathbf{c}}$.
+Equivalently, the GNS vector associated to $\omega|_{\mathcal{A}_{\mathbf{c}}}$ is cyclic and separating for $\mathcal{A}_{\mathbf{c}}$.
+
+\item[\textup{(U2)}] \textbf{Modular stability.} Let $\sigma_t^{\omega,\mathrm{tot}}$ denote the modular automorphism group of the pair $(\mathcal{B}(\mathcal{H}_U), \omega)$---the modular flow of the \emph{ambient} algebra.
+Then $\mathcal{A}_{\mathbf{c}}$ is globally invariant:
+\begin{equation}
+\sigma_t^{\omega,\mathrm{tot}}(\mathcal{A}_{\mathbf{c}}) = \mathcal{A}_{\mathbf{c}} \qquad \forall\, t \in \mathbb{R}.
+\end{equation}
+\emph{Note:} This is a non-trivial condition.
+The modular flow of $(\mathcal{A}_{\mathbf{c}}, \omega|_{\mathcal{A}_{\mathbf{c}}})$ preserves $\mathcal{A}_{\mathbf{c}}$ automatically by the Tomita--Takesaki theorem; requiring invariance under the \emph{ambient} modular flow $\sigma_t^{\omega,\mathrm{tot}}$ is a genuine constraint that selects subalgebras compatible with the global state's modular structure.
+
+\item[\textup{(U3)}] \textbf{Maximality.} $\mathcal{A}_{\mathbf{c}}$ is the \emph{maximal} von Neumann subalgebra of $\mathcal{B}(\mathcal{H}_U)$ satisfying (U1)--(U2) together with invariance under the Heisenberg-picture decoherence dynamics:
+\begin{equation}
+\mathcal{E}_t^*(\mathcal{A}_{\mathbf{c}}) \subset \mathcal{A}_{\mathbf{c}} \qquad \forall\, t \geq 0.
+\end{equation}
+That is, if $\mathcal{A}' \supset \mathcal{A}_{\mathbf{c}}$ also satisfies (U1), (U2), and decoherence invariance, then $\mathcal{A}' = \mathcal{A}_{\mathbf{c}}$.
+\end{enumerate}
+\end{definition}
+
+\begin{remark}[Relation to physical criteria]
+\label{rem:translation}
+The three algebraic conditions translate the three physical criteria as follows:
+
+\begin{center}
+\small
+\begin{tabular}{@{}P{3.2cm}P{4.5cm}P{5.5cm}@{}}
+\hline
+\textbf{Physical} & \textbf{Algebraic} & \textbf{Mechanism} \\
+\hline
+(P1) Dynamical invariance & (U3) $\mathcal{E}_t^*(\mathcal{A}_{\mathbf{c}}) \subset \mathcal{A}_{\mathbf{c}}$ & Heisenberg-picture decoherence invariance \\
+(P2) Redundancy & (U1) Faithfulness & Faithful state $\Leftrightarrow$ no lost information \\
+(P3) Non-scrambling & (U2) Modular stability & Ambient $\sigma_t^{\omega,\mathrm{tot}}$ preserving $\mathcal{A}_{\mathbf{c}}$; prevents information leakage \\
+\hline
+\end{tabular}
+\end{center}
+
+The mapping from (P2) to (U1): environmental redundancy ensures that the state restricted to $\mathcal{A}_{\mathbf{c}}$ does not lose any information about the relevant degrees of freedom---i.e., the restriction is faithful.
+A non-faithful restriction would mean that some operators in the algebra have zero expectation in all states reachable by environmental monitoring, contradicting redundancy.
+
+The mapping from (P3) to (U2): non-scrambling means that information encoded in accessible observables does not rapidly leak into the rest of $\mathcal{B}(\mathcal{H}_U)$.
+The modular automorphism group $\sigma_t^\omega$ is the canonical ``internal time evolution'' of the algebra with respect to the state $\omega$ (Theorem~\ref{thm:KMS-unique}).
+Modular stability of $\mathcal{A}_{\mathbf{c}}$ under $\sigma_t^\omega$ means that this internal evolution does not generate operators outside $\mathcal{A}_{\mathbf{c}}$---a precise algebraic version of non-scrambling.
+\end{remark}
+
+\begin{remark}[The role of $\mathcal{E}_t$]
+Condition (U3) incorporates the decoherence dynamics $\mathcal{E}_t$ into the maximality condition.
+This is the only place where the physical environment enters the algebraic definition.
+In AQFT on Minkowski space, $\mathcal{E}_t$ can be identified with the restriction map to a causal domain.
+In open quantum systems, $\mathcal{E}_t$ is the Lindblad semigroup.
+The framework requires only that $\mathcal{E}_t$ is a normal completely positive map on $\mathcal{B}(\mathcal{H}_U)$.
+\end{remark}
+
+
+\subsection{Uniqueness Theorem}
+\label{sec:modular-uniqueness}
+
+We now prove that the modular accessible algebra, if it exists, is unique up to unitary equivalence.
+
+\begin{theorem}[Uniqueness of the modular accessible algebra]
+\label{thm:uniqueness}
+Let $(\mathcal{H}_U, |\Psi_U\rangle, \hat{H}, \mathcal{E}_t)$ be a quantum system as above, and assume the following ergodicity condition:
+
+\medskip
+\noindent\textbf{(E)} \textit{The joint action of the modular flow $\sigma_t^\omega$ and the decoherence map $\mathcal{E}_t$ is ergodic on $\mathcal{B}(\mathcal{H}_U)$: the only operator invariant under both is a scalar multiple of the identity.}
+\medskip
+
+\noindent Then the modular accessible algebra $\mathcal{A}_{\mathbf{c}}$ satisfying \textup{(U1)--(U3)} is unique up to unitary equivalence.
+That is, if $\mathcal{A}'$ also satisfies \textup{(U1)--(U3)}, there exists a unitary $U \in \mathcal{B}(\mathcal{H}_U)$ such that $U\mathcal{A}_{\mathbf{c}} U^* = \mathcal{A}'$.
+\end{theorem}
+
+\begin{proof}
+The argument proceeds in three steps.
+
+\medskip
+\noindent\textbf{Step 1: Uniqueness of modular flow.}
+By Theorem~\ref{thm:KMS-unique}, for any faithful normal state $\omega$ on a von Neumann algebra $\mathcal{M}$, the modular automorphism group $\sigma_t^\omega$ is the \emph{unique} one-parameter automorphism group satisfying the KMS condition at $\beta = 1$.
+Therefore, given the global state $|\Psi_U\rangle$ and a candidate algebra $\mathcal{A}_{\mathbf{c}}$ satisfying (U1), the modular flow on $\mathcal{A}_{\mathbf{c}}$ is uniquely determined.
+There is no freedom in the choice of modular automorphism: it is a function of $(\mathcal{A}_{\mathbf{c}}, \omega)$ alone.
+
+\medskip
+\noindent\textbf{Step 2: Invariant subalgebra under joint dynamics.}
+Condition (U2) requires $\mathcal{A}_{\mathbf{c}}$ to be globally \emph{invariant} (not element-wise fixed) under the ambient modular flow: $\sigma_t^{\omega,\mathrm{tot}}(\mathcal{A}_{\mathbf{c}}) = \mathcal{A}_{\mathbf{c}}$ for all $t$.
+Condition (U3) requires $\mathcal{E}_t^*(\mathcal{A}_{\mathbf{c}}) \subset \mathcal{A}_{\mathbf{c}}$ for all $t \geq 0$.
+Together, $\mathcal{A}_{\mathbf{c}}$ lies in the lattice of von Neumann subalgebras that are simultaneously \emph{invariant} under the ambient modular automorphisms and under the Heisenberg-picture decoherence semigroup.
+
+Consider the set $\mathfrak{L}$ of all von Neumann subalgebras of $\mathcal{B}(\mathcal{H}_U)$ that are invariant under $\sigma_t^{\omega,\mathrm{tot}}$ and under $\mathcal{E}_t^*$, and on which $\omega$ is faithful.
+Under the ergodicity assumption (E), we claim $\mathfrak{L}$ contains a unique maximal element.
+
+To see this, suppose $\mathcal{A}_{\mathbf{c}}$ and $\mathcal{A}'$ are two maximal elements of $\mathfrak{L}$.
+Define the \emph{join} $\mathcal{A}_{\mathbf{c}} \vee \mathcal{A}'$, the von Neumann algebra generated by $\mathcal{A}_{\mathbf{c}}$ and $\mathcal{A}'$.
+
+\medskip
+\noindent\textbf{Step 3: Maximality forces uniqueness.}
+We claim that if both $\mathcal{A}_{\mathbf{c}}$ and $\mathcal{A}'$ satisfy (U1)--(U3), then $\mathcal{A}_{\mathbf{c}} = \mathcal{A}'$ (up to unitary equivalence).
+
+\textit{Invariance is preserved under joins.}
+If $\sigma_t^{\omega,\mathrm{tot}}(\mathcal{A}_{\mathbf{c}}) = \mathcal{A}_{\mathbf{c}}$ and $\sigma_t^{\omega,\mathrm{tot}}(\mathcal{A}') = \mathcal{A}'$, then $\sigma_t^{\omega,\mathrm{tot}}(\mathcal{A}_{\mathbf{c}} \vee \mathcal{A}') = \mathcal{A}_{\mathbf{c}} \vee \mathcal{A}'$, since automorphisms respect the lattice of von Neumann subalgebras.
+Similarly, if $\mathcal{E}_t$ preserves both $\mathcal{A}_{\mathbf{c}}$ and $\mathcal{A}'$, it preserves their join (as the smallest algebra containing both).
+Thus $\mathcal{A}_{\mathbf{c}} \vee \mathcal{A}'$ is invariant under both dynamics.
+
+\textit{Faithfulness constrains the join.}
+If $\omega$ is faithful on both $\mathcal{A}_{\mathbf{c}}$ and $\mathcal{A}'$, it need not be faithful on $\mathcal{A}_{\mathbf{c}} \vee \mathcal{A}'$ in general.
+Under the ergodicity assumption~(E)---that the Heisenberg-picture decoherence semigroup $\mathcal{E}_t^*$ has no non-trivial invariant subalgebras beyond its fixed-point algebra---any proper extension of $\mathcal{A}_{\mathbf{c}}$ within the invariant lattice must contain operators that $\mathcal{E}_t$ does not preserve, or on which $\omega$ fails to be faithful.
+
+\textit{Conclusion.}
+If $\mathcal{A}_{\mathbf{c}} \vee \mathcal{A}'$ satisfies (U1)--(U3), then by maximality of $\mathcal{A}_{\mathbf{c}}$ we have $\mathcal{A}_{\mathbf{c}} \vee \mathcal{A}' = \mathcal{A}_{\mathbf{c}}$, hence $\mathcal{A}' \subset \mathcal{A}_{\mathbf{c}}$.
+If $\mathcal{A}_{\mathbf{c}} \vee \mathcal{A}'$ violates (U1) or (U2), then the maximality of $\mathcal{A}'$ gives $\mathcal{A}_{\mathbf{c}} \subset \mathcal{A}'$ by the symmetric argument.
+In either case, $\mathcal{A}_{\mathbf{c}} = \mathcal{A}'$ as von Neumann algebras.
+The residual unitary freedom (between different faithful normal representations of the same abstract algebra) is absorbed by the standard form~\cite{Haagerup1975}.
+\end{proof}
+
+\begin{remark}[On the ergodicity assumption]
+\label{rem:ergodicity}
+Condition (E) excludes systems with degenerate ground states, spontaneous symmetry breaking, or phase coexistence, which may support multiple non-unitarily-equivalent accessible algebras.
+This is the algebraic analogue of the non-uniqueness of the broken-symmetry vacuum in quantum field theory.
+When (E) fails, the space of accessible algebras acquires a non-trivial moduli space, analogous to the landscape of superselection sectors in AQFT.
+\end{remark}
+
+\begin{remark}[Physical content of maximality]
+Maximality (U3) has a clear physical meaning: the accessible algebra should contain \emph{all} observables that are stable under both modular flow and decoherence.
+If an operator is stable but excluded from $\mathcal{A}_{\mathbf{c}}$, it should in principle be observable, contradicting the assumption that $\mathcal{A}_{\mathbf{c}}$ captures all accessible information.
+Maximality thus enforces completeness of the physical description.
+\end{remark}
+
+
+\subsection{Example 1: Rindler Wedge}
+\label{sec:rindler}
+
+Consider a free massless scalar field $\phi(x)$ in $(1+3)$-dimensional Minkowski spacetime $(\mathbb{R}^{1,3}, \eta_{\mu\nu})$.
+The total Hilbert space is the Fock space $\mathcal{H}_U = \mathcal{F}(\mathcal{H}_1)$ over the one-particle space $\mathcal{H}_1 = L^2(\mathbb{R}^3)$.
+The global state is the Minkowski vacuum $|\Omega\rangle$.
+
+Define the right Rindler wedge:
+\begin{equation}
+\mathcal{W}_R = \{(t, x, y, z) \in \mathbb{R}^{1,3} : x > |t|\}.
+\end{equation}
+The local algebra $\mathcal{R}(\mathcal{W}_R) = \{e^{i\phi(f)} : \operatorname{supp} f \subset \mathcal{W}_R\}''$ is the von Neumann algebra generated by Weyl operators smeared with test functions supported in $\mathcal{W}_R$.
+
+\subsubsection{Verification of (U1): Faithfulness}
+
+The Reeh--Schlieder theorem \cite{Haag1996} guarantees that the Minkowski vacuum $|\Omega\rangle$ is cyclic and separating for $\mathcal{R}(\mathcal{W}_R)$.
+Therefore, the state $\omega(\cdot) = \langle\Omega|\cdot|\Omega\rangle$ is faithful on $\mathcal{R}(\mathcal{W}_R)$.
+
+\subsubsection{Verification of (U2): Modular stability}
+
+By the Bisognano--Wichmann theorem \cite{BisognanoWichmann1975, BisognanoWichmann1976}, the modular operator of $(\mathcal{R}(\mathcal{W}_R), |\Omega\rangle)$ is
+\begin{equation}
+\Delta_\Omega = e^{-2\pi K},
+\end{equation}
+where $K$ is the boost generator in the $x$-direction.
+The modular automorphism group acts as
+\begin{equation}
+\sigma_t^\Omega(\phi(t_0, \mathbf{x})) = \phi(\Lambda_{2\pi t}(t_0, \mathbf{x})),
+\end{equation}
+where $\Lambda_s$ is the Lorentz boost with rapidity $s$.
+Since the Rindler wedge is invariant under Lorentz boosts---$\Lambda_s(\mathcal{W}_R) = \mathcal{W}_R$ for all $s$---the modular flow preserves the wedge algebra:
+\begin{equation}
+\sigma_t^\Omega(\mathcal{R}(\mathcal{W}_R)) = \mathcal{R}(\mathcal{W}_R) \qquad \forall\, t \in \mathbb{R}.
+\end{equation}
+
+\subsubsection{Verification of (U3): Maximality}
+
+By Haag duality for wedge regions \cite{Haag1996}, $\mathcal{R}(\mathcal{W}_R)' = \mathcal{R}(\mathcal{W}_L)$, where $\mathcal{W}_L$ is the left Rindler wedge.
+Any extension $\mathcal{A}' \supsetneq \mathcal{R}(\mathcal{W}_R)$ must contain operators in $\mathcal{R}(\mathcal{W}_L)$.
+Such operators are mapped outside $\mathcal{R}(\mathcal{W}_R)$ by the modular flow (boost), so any proper extension would violate either (U1) or (U2).
+The wedge algebra is maximal.
+
+\subsubsection{Physical content}
+
+The modular flow $\sigma_t^\Omega$ coincides with the Lorentz boost, and the KMS condition at $\beta = 2\pi$ gives the Unruh temperature $T_U = a/(2\pi)$, where $a$ is the proper acceleration.
+The modular Hamiltonian is
+\begin{equation}
+K_{\mathrm{mod}} = -\ln \Delta_\Omega = 2\pi K = 2\pi \int_{\mathcal{W}_R} d\Sigma^\mu\, x_\nu\, T^{\nu}{}_\mu,
+\end{equation}
+where $d\Sigma^\mu$ is the surface element on the $t = 0$ Cauchy surface.
+This example demonstrates that the modular accessible algebra framework reproduces the standard Rindler physics: the accessible algebra is the wedge algebra, its modular flow is the boost, and the KMS state is the Unruh thermal state.
+
+
+\subsection{Example 2: Qubit Chain with Decoherence}
+\label{sec:qubit}
+
+Consider $n$ qubits with total Hilbert space $\mathcal{H}_U = (\mathbb{C}^2)^{\otimes n}$.
+The system Hamiltonian is the transverse-field Ising model:
+\begin{equation}
+\hat{H} = -J \sum_{i=1}^{n-1} \sigma_z^{(i)} \sigma_z^{(i+1)} - h \sum_{i=1}^{n} \sigma_x^{(i)},
+\end{equation}
+with $J > 0$ and transverse field strength $h$.
+The system is coupled to a thermal environment at inverse temperature $\beta$ through a dephasing Lindblad master equation:
+\begin{equation}
+\label{eq:lindblad}
+\mathcal{E}_t(\rho) = e^{t\mathcal{L}}(\rho), \qquad \mathcal{L}(\rho) = -i[\hat{H}, \rho] + \gamma \sum_i \left(\sigma_z^{(i)} \rho\, \sigma_z^{(i)} - \rho\right),
+\end{equation}
+where $\gamma > 0$ is the dephasing rate.
+The global state is the thermal state $\omega = Z^{-1} e^{-\beta \hat{H}}$.
+
+\subsubsection{Identification of $\mathcal{A}_{\mathbf{c}}$}
+
+In the strong dephasing limit $\gamma \gg J, h$, off-diagonal coherences in the $\sigma_z$ basis are rapidly destroyed.
+The decoherence-stable observables form the \emph{pointer basis algebra}:
+\begin{equation}
+\mathcal{A}_{\mathbf{c}} = \{f(\sigma_z^{(1)}, \ldots, \sigma_z^{(n)}) : f \text{ is a polynomial}\}'' = \mathcal{A}_{\mathrm{diag}},
+\end{equation}
+the maximal abelian subalgebra (MASA) of $\mathcal{B}(\mathcal{H}_U)$ associated with the computational basis.
+
+\subsubsection{Verification of (U1): Faithfulness}
+
+The thermal state $\omega = Z^{-1}e^{-\beta\hat{H}}$ is a full-rank density matrix for any finite $\beta$ (every eigenvalue of $e^{-\beta\hat{H}}$ is strictly positive).
+Its restriction to $\mathcal{A}_{\mathrm{diag}}$ assigns non-zero probability to every computational-basis state:
+\begin{equation}
+\omega(|s\rangle\langle s|) = \langle s | \rho_{\mathrm{th}} | s \rangle > 0 \qquad \forall\; s,
+\end{equation}
+where the strict positivity follows from $\rho_{\mathrm{th}} = Z^{-1}e^{-\beta\hat{H}}$ being positive definite.
+Note that $|s\rangle$ are computational-basis (not energy-eigen-) states; the diagonal matrix elements of a positive-definite operator are strictly positive regardless of the choice of basis.
+
+\subsubsection{Verification of (U2): Modular stability}
+
+For the finite-dimensional system with faithful thermal state $\rho_{\mathrm{th}}$, the ambient modular flow acts on $\mathcal{B}(\mathcal{H}_U)$ as
+\begin{equation}
+\sigma_t^{\omega,\mathrm{tot}}(X) = \rho_{\mathrm{th}}^{it}\, X\, \rho_{\mathrm{th}}^{-it} \qquad \forall\, X \in \mathcal{B}(\mathcal{H}_U).
+\end{equation}
+For diagonal operators $A = \sum_s a_s |s\rangle\langle s| \in \mathcal{A}_{\mathrm{diag}}$, we compute
+\begin{equation}
+\sigma_t^{\omega,\mathrm{tot}}(A) = \rho_{\mathrm{th}}^{it} \left(\sum_s a_s |s\rangle\langle s|\right) \rho_{\mathrm{th}}^{-it} = \sum_s a_s\, (\rho_{\mathrm{th}}^{it}|s\rangle)(\langle s|\rho_{\mathrm{th}}^{-it}).
+\end{equation}
+Since $\rho_{\mathrm{th}} = Z^{-1}e^{-\beta\hat{H}}$ and the computational basis $\{|s\rangle\}$ is \emph{not} the energy eigenbasis (when $h \neq 0$), the vectors $\rho_{\mathrm{th}}^{it}|s\rangle$ are non-trivial superpositions, and $\sigma_t^{\omega,\mathrm{tot}}(A) \notin \mathcal{A}_{\mathrm{diag}}$ in general.
+
+However, in the strong-dephasing regime $\gamma \gg J, h$, the effective steady-state density matrix converges to a diagonal form $\rho_{\mathrm{ss}} \approx \sum_s p_s |s\rangle\langle s|$, for which $\rho_{\mathrm{ss}}^{it}|s\rangle = p_s^{it}|s\rangle$ and (U2) is satisfied exactly.
+This illustrates that (U2) imposes a genuine compatibility condition between the algebra and the global state: $\mathcal{A}_{\mathrm{diag}}$ is a modular accessible algebra for the dephasing-dominated steady state, not for an arbitrary thermal state of the full Hamiltonian.
+
+\subsubsection{Verification of (U3): Maximality}
+
+Any extension $\mathcal{A}' \supsetneq \mathcal{A}_{\mathrm{diag}}$ must contain off-diagonal operators $|s\rangle\langle s'|$ with $s \neq s'$.
+Under the dephasing part of the Lindbladian alone, such operators decay as
+\begin{equation}
+e^{t\mathcal{L}_{\mathrm{deph}}}(|s\rangle\langle s'|) = e^{-2\gamma\, d(s,s')\, t}\, |s\rangle\langle s'|,
+\end{equation}
+where $d(s, s')$ is the Hamming distance between strings $s$ and $s'$.
+In the strong-dephasing regime $\gamma \gg J, h$, the full Lindbladian $\mathcal{L} = \mathcal{L}_H + \mathcal{L}_{\mathrm{deph}}$ causes off-diagonal elements to decay at rate $2\gamma\, d(s,s')$ to leading order, with Hamiltonian-induced corrections of order $J/\gamma$ and $h/\gamma$.
+The fixed-point algebra of the dephasing semigroup is precisely $\mathcal{A}_{\mathrm{diag}}$, since only diagonal operators are invariant.
+Any modular-accessible algebra satisfying (U3) must be contained in $\mathcal{A}_{\mathrm{fix}} = \mathcal{A}_{\mathrm{diag}}$, and since $\mathcal{A}_{\mathrm{diag}}$ already satisfies (U1)--(U2), it is maximal.
+
+\subsubsection{Physical content}
+
+The accessible algebra is the pointer basis algebra: the set of observables that survive decoherence.
+The modular flow acts trivially on the pointer basis (since the algebra is abelian), consistent with the fact that classical variables do not undergo non-trivial modular evolution.
+The entanglement entropy of a subsystem $A \subset \{1, \ldots, n\}$ within $\mathcal{A}_{\mathrm{diag}}$ reduces to the classical Shannon entropy:
+\begin{equation}
+S_A = -\sum_{s_A} p(s_A) \ln p(s_A), \qquad p(s_A) = \sum_{s_{\bar{A}}} p(s).
+\end{equation}
+This example demonstrates that the modular accessible algebra framework correctly identifies the decoherence-preferred observables in a finite-dimensional open quantum system.
+
+
+\subsection{Connection to Linearized Gravity}
+\label{sec:linearized}
+
+Having established the algebraic framework and verified it in concrete models, we outline the connection to gravitational dynamics.
+
+\subsubsection{Entanglement first law}
+
+\begin{theorem}[Entanglement first law]
+\label{thm:first-law}
+Let $\mathcal{M}$ be a von Neumann algebra with cyclic and separating vector $|\Omega\rangle$, and let $|\Psi\rangle = |\Omega\rangle + \varepsilon|\chi\rangle + O(\varepsilon^2)$ be a nearby state.
+Let $K_{\mathrm{mod}} = -\ln \Delta_\Omega$ be the modular Hamiltonian.
+Then, to first order in $\varepsilon$:
+\begin{equation}
+\delta S_{\mathcal{M}} = \delta \langle K_{\mathrm{mod}} \rangle,
+\end{equation}
+where $\delta S_{\mathcal{M}}$ is the change in entanglement entropy and $\delta\langle K_{\mathrm{mod}} \rangle$ is the change in the expectation value of the modular Hamiltonian.
+\end{theorem}
+
+\begin{proof}[Proof sketch]
+The relative entropy $S(\rho^\Psi \| \rho^\Omega) = -S(\rho^\Psi) + \langle K_{\mathrm{mod}} \rangle_\Psi + \text{const}$ is non-negative and vanishes for $|\Psi\rangle = |\Omega\rangle$.
+The first variation at $\varepsilon = 0$ gives $0 = -\delta S_{\mathcal{M}} + \delta\langle K_{\mathrm{mod}}\rangle$, yielding $\delta S_{\mathcal{M}} = \delta\langle K_{\mathrm{mod}}\rangle$.
+\end{proof}
+
+\subsubsection{From algebra perturbation to modular Hamiltonian perturbation}
+
+In the HAFF framework, the accessible algebra $\mathcal{A}_{\mathbf{c}}$ evolves as the global state changes.
+Consider a one-parameter family $\mathcal{A}_{\mathbf{c}}(\lambda)$, with $\mathcal{A}_{\mathbf{c}}(0) = \mathcal{A}_{\mathbf{c}}$.
+Two sources of perturbation contribute:
+
+\begin{enumerate}
+\item[(a)] \textbf{State perturbation (fixed algebra):} The global state changes, $|\Psi_U\rangle \to |\Psi_U'\rangle$, but the algebra remains fixed.
+The modular Hamiltonian changes via the Connes cocycle Radon--Nikodym theorem \cite{Connes1994, Takesaki2003}:
+\begin{equation}
+\Delta_{\Psi'}^{it} = (D\omega' : D\omega)_t \; \Delta_\Psi^{it},
+\end{equation}
+where $(D\omega' : D\omega)_t$ is the Connes cocycle.
+
+\item[(b)] \textbf{Algebra perturbation (fixed state):} The subalgebra satisfying the stability conditions shifts.
+In the language of half-sided modular inclusions (Theorem~\ref{thm:Wiesbrock}), the perturbation can be described by
+\begin{equation}
+\mathcal{A}_{\mathbf{c}}' = e^{-i\delta a\, P} \mathcal{A}_{\mathbf{c}}\, e^{i\delta a\, P}, \qquad \delta a \ll 1,
+\end{equation}
+yielding
+\begin{equation}
+\label{eq:deltaK-translation}
+\delta K_{\mathrm{mod}} = -i\delta a\, [P, K_{\mathrm{mod}}] + O(\delta a^2).
+\end{equation}
+\end{enumerate}
+
+In the general case (combined perturbation):
+\begin{equation}
+\label{eq:deltaK-total}
+\delta K_{\mathrm{mod}} = \delta K_{\mathrm{state}} + \delta K_{\mathrm{algebra}}.
+\end{equation}
+
+\subsubsection{Linearized Einstein equations from the entanglement first law}
+
+The key result connecting algebraic perturbation to gravitational dynamics is due to Faulkner et al.\ \cite{Faulkner2014}, with complementary arguments by Jacobson \cite{Jacobson2016}.
+
+\begin{theorem}[Linearized gravity from entanglement, {\cite{Faulkner2014}}]
+\label{thm:linearized-Faulkner}
+In a holographic CFT dual to Einstein gravity in asymptotically AdS spacetime, the entanglement first law $\delta S = \delta\langle K_{\mathrm{mod}}\rangle$, applied to all ball-shaped regions on the boundary, is equivalent to the linearized Einstein equations in the bulk:
+\begin{equation}
+G_{\mu\nu}^{(1)} + \Lambda g_{\mu\nu}^{(1)} = 8\pi G_N\, T_{\mu\nu}^{(1)}.
+\end{equation}
+\end{theorem}
+
+The derivation uses the explicit form of the modular Hamiltonian for a ball-shaped boundary region \cite{CasiniHuertaMyers2011}:
+\begin{equation}
+K_{\mathrm{mod}}^B = 2\pi \int_B d^{d-1}x\, \frac{R^2 - |\mathbf{x} - \mathbf{x}_0|^2}{2R}\, T_{00}(x),
+\end{equation}
+together with the Ryu--Takayanagi formula and the JLMS relation \cite{JLMS2016} between bulk and boundary modular Hamiltonians.
+
+\subsubsection{Conditional theorem within the HAFF framework}
+
+\begin{theorem}[Linearized gravity from accessible algebra perturbation]
+\label{thm:linearized}
+Let $\mathcal{A}_{\mathbf{c}}$ be a modular accessible algebra satisfying \textup{(U1)--(U3)} in a holographic CFT vacuum state, and assume:
+\begin{enumerate}
+\item[(H1)] The holographic correspondence (AdS/CFT duality) holds.
+\item[(H2)] The Ryu--Takayanagi formula and its quantum corrections hold.
+\item[(H3)] The JLMS formula relating bulk and boundary modular Hamiltonians holds.
+\end{enumerate}
+Then a perturbation of the accessible algebra $\mathcal{A}_{\mathbf{c}} \to \mathcal{A}_{\mathbf{c}} + \delta\mathcal{A}_{\mathbf{c}}$ induces a perturbation of the modular Hamiltonian $\delta K_{\mathrm{mod}}$, and the entanglement first law
+\begin{equation}
+\delta S = \delta\langle K_{\mathrm{mod}}\rangle
+\end{equation}
+is equivalent to the linearized Einstein equations in the holographic bulk.
+The chain of implications is:
+\begin{equation}
+\delta\mathcal{A}_{\mathbf{c}} \;\xrightarrow{\text{modular theory}}\; \delta K_{\mathrm{mod}} \;\xrightarrow{\text{first law}}\; \delta S = \delta\langle K_{\mathrm{mod}}\rangle \;\xrightarrow{\text{(H1)--(H3)}}\; G_{\mu\nu}^{(1)} = 8\pi G_N T_{\mu\nu}^{(1)}.
+\end{equation}
+In the HAFF language: the adiabatic flow of the accessible algebra IS linearized gravitational dynamics.
+\end{theorem}
+
+\subsubsection{The circularity issue}
+
+A fundamental objection to any ``gravity from entanglement'' program is circularity: Jacobson's derivation \cite{Jacobson1995} presupposes a background geometry, but HAFF claims geometry emerges from the algebra.
+Three resolutions are available:
+
+\begin{enumerate}
+\item[(A)] \textbf{Algebraic resolution (Wiesbrock).}
+``Wedge regions'' are defined purely algebraically via modular inclusions, without reference to a background metric.
+Wiesbrock's theorem (Theorem~\ref{thm:Wiesbrock}) recovers translations from half-sided modular inclusions; a sufficient net of such inclusions reconstructs the full Poincar\'{e} group.
+
+\item[(B)] \textbf{Bootstrap resolution.}
+Start with a seed geometry, derive linearized Einstein equations via the entanglement first law, update the geometry, and iterate.
+
+\item[(C)] \textbf{Holographic resolution (AdS/CFT).}
+The boundary CFT provides the algebra without reference to bulk geometry; the bulk geometry is entirely derived from boundary data.
+\end{enumerate}
+
+In Theorem~\ref{thm:linearized}, we adopt resolution~(C).
+Resolution~(A) provides the most promising path for a geometry-free formulation in subsequent work.
+
+
 \section{Relation to Existing Approaches}
 \label{sec:relation}
 
@@ -454,7 +949,7 @@ To ensure clarity regarding the claims of this paper, we state explicitly what i
 \begin{enumerate}
     \item \textbf{No new dynamics:} We do not propose equations of motion, Lagrangians, or dynamical principles beyond those already established.
     
-    \item \textbf{No derivation of Einstein equations:} We do not claim to derive general relativity or its quantum corrections from first principles.
+    \item \textbf{No unconditional derivation of Einstein equations:} The linearized result (Section~\ref{sec:linearized}) is conditional on holographic assumptions (H1)--(H3); we do not derive general relativity from first principles.
     
     \item \textbf{No empirical predictions:} We do not offer testable predictions that distinguish this perspective from standard approaches.
     
@@ -468,27 +963,23 @@ To ensure clarity regarding the claims of this paper, we state explicitly what i
 \section{Open Questions}
 \label{sec:open}
 
-The structural analysis presented here raises several questions that lie beyond its scope but may be fruitful for future investigation.
+The algebraic foundation established in Section~\ref{sec:modular} sharpens the open problems facing the HAFF gravity program. The following are the immediate targets for subsequent work.
 
-\subsection{Dynamics of Coarse-Graining Selection}
+\subsection{Linearized Einstein Equations without Holography}
 
-If gravitational phenomena reflect changes in accessible algebra structure, what determines how such structures evolve? Is there a ``meta-dynamics'' governing transitions between coarse-grainings, or are these transitions themselves emergent from more fundamental principles?
+Theorem~\ref{thm:linearized} derives the linearized Einstein equations conditionally, assuming the holographic correspondence (H1)--(H3). A fully general derivation from algebraic perturbation theory would require establishing a ``bulk reconstruction'' from the modular data of $\mathcal{A}_{\mathbf{c}}$ and its perturbations, using Wiesbrock-type inclusions (Theorem~\ref{thm:Wiesbrock}) to define spacetime translations algebraically. This would remove the dependence on AdS/CFT and extend the result to non-holographic settings.
 
-\subsection{Recovery of Classical Limits}
+\subsection{Moduli Space when Ergodicity Fails}
 
-How does the Newtonian limit of gravity emerge from this perspective? In standard general relativity, the weak-field, slow-motion limit yields Newtonian gravity. What is the analogous limit in a framework where gravity reflects coarse-graining structure?
+The uniqueness theorem (Theorem~\ref{thm:uniqueness}) requires the ergodicity assumption~(E). When (E) fails---in systems with spontaneous symmetry breaking, topological order, or phase coexistence---the space of accessible algebras acquires a non-trivial moduli space (Remark~\ref{rem:ergodicity}). Characterizing this moduli space, and determining whether it carries a natural metric (e.g., the Fisher information metric on modular Hamiltonians) that encodes the geometry of the space of effective descriptions, is an important structural problem.
 
-\subsection{Black Hole Thermodynamics}
+\subsection{Computing $\delta K_{\mathrm{mod}}$ beyond Linear Order}
 
-Black hole entropy is intimately connected to both geometry (horizon area) and information theory (entanglement entropy). How does the present framework illuminate—or constrain—accounts of black hole thermodynamics?
+The connection to linearized gravity (Section~\ref{sec:linearized}) uses only the first-order perturbation of the modular Hamiltonian. Computing $\delta K_{\mathrm{mod}}$ explicitly for perturbations of the accessible algebra in specific models, beyond the linear order, is essential for accessing nonlinear gravitational dynamics. The second-order correction may contain information about the gravitational coupling constant $G_N$ and matter content.
 
-\subsection{Cosmological Implications}
+\subsection{The Backreaction Problem}
 
-Does the coarse-graining perspective have implications for cosmology? Could the large-scale structure of the universe, or cosmological puzzles such as the horizon problem, be related to properties of cosmic-scale accessible algebras?
-
-\subsection{Mathematical Formalization}
-
-Can the conjecture stated in Section~\ref{sec:technical} be formalized with sufficient precision to permit mathematical investigation? What would constitute a proof—or disproof—of the claim that gravitational phenomena are coarse-graining effects?
+How does the change in bulk geometry (induced by $\delta\mathcal{A}_{\mathbf{c}}$) feed back into the boundary conditions that determine $\mathcal{A}_{\mathbf{c}}$? This self-consistency condition may select a unique trajectory $\mathcal{A}_{\mathbf{c}}(t)$ and hence a unique gravitational dynamics. Resolving this backreaction loop is the central challenge for deriving the full nonlinear Einstein equations from the algebraic framework.
 
 \section{Conclusion}
 \label{sec:conclusion}
@@ -509,6 +1000,13 @@ The core claims are:
 This framework does not derive the Einstein equations from first principles, nor does it resolve the problem of quantum gravity. However, it offers more than a diagnostic: it proposes a \emph{generative mechanism} that explains why gravity has the structural features it does—universality, dynamical geometry, resistance to naive quantization.
 
 The perspective is consistent with, and provides a conceptual umbrella for, existing research programs: holographic duality (where boundary entanglement encodes bulk geometry), tensor networks (where network structure induces effective geometry), and thermodynamic approaches (where Einstein equations emerge from entropy considerations).
+
+The algebraic foundation developed in Section~\ref{sec:modular} elevates this framework from structural conjecture to mathematically precise statement. By translating the three physical accessibility criteria into Tomita--Takesaki modular theory---faithfulness (U1), modular stability (U2), and maximality (U3)---we proved that the accessible algebra is unique up to unitary equivalence under mild ergodicity assumptions (Theorem~\ref{thm:uniqueness}), and verified the construction in both the Rindler wedge (reproducing Bisognano--Wichmann and Unruh physics) and a qubit chain with decoherence (recovering the pointer basis algebra). Most significantly, we established the derivation chain
+\begin{equation}
+\delta\mathcal{A}_{\mathbf{c}} \;\longrightarrow\; \delta K_{\mathrm{mod}} \;\longrightarrow\; \delta S = \delta\langle K_{\mathrm{mod}}\rangle \;\longrightarrow\; G_{\mu\nu}^{(1)} = 8\pi G_N\, T_{\mu\nu}^{(1)},
+\end{equation}
+showing that perturbations of the accessible algebra, via modular Hamiltonian perturbation and the entanglement first law, yield the linearized Einstein equations in holographic settings (Theorem~\ref{thm:linearized}). This makes precise the HAFF gravity conjecture at the linearized level: in holographic settings satisfying (H1)--(H3), the adiabatic flow of the accessible algebra \emph{is} linearized gravitational dynamics, conditionally derived rather than postulated.
+Removing the holographic assumptions (H1)--(H3) remains an open problem (Section~\ref{sec:open}).
 
 We conclude with a reflection. The difficulty of quantizing gravity may not be purely technical. If gravity is the evolution of the stage on which quantum mechanics is performed, rather than an actor on that stage, then quantizing gravity requires quantizing the framework of quantization itself. This is not a problem to be solved by better regularization schemes, but a conceptual challenge requiring us to think beyond fixed subsystem decompositions.
 
@@ -573,6 +1071,66 @@ N. Lashkari, M. B. McDermott, and M. Van Raamsdonk, \emph{Gravitational dynamics
 
 \bibitem{Faulkner2014}
 T. Faulkner, M. Guica, T. Hartman, R. C. Myers, and M. Van Raamsdonk, \emph{Gravitation from Entanglement in Holographic CFTs}, JHEP \textbf{03}, 051 (2014).
+
+\bibitem{Takesaki2003}
+M.~Takesaki,
+\emph{Theory of Operator Algebras II},
+Encyclopaedia of Mathematical Sciences \textbf{125}, Springer (2003).
+
+\bibitem{BratteliRobinson1997}
+O.~Bratteli and D.~W.~Robinson,
+\emph{Operator Algebras and Quantum Statistical Mechanics},
+Vols.\ 1--2, 2nd ed., Springer (1997).
+
+\bibitem{Haag1996}
+R. Haag, \emph{Local Quantum Physics: Fields, Particles, Algebras}, Springer-Verlag (1996).
+
+\bibitem{Yngvason2005}
+J.~Yngvason,
+\emph{The role of type III factors in quantum field theory},
+Rep.\ Math.\ Phys.\ \textbf{55}, 135 (2005),
+arXiv:math-ph/0411058.
+
+\bibitem{Wiesbrock1993}
+H.-W.~Wiesbrock,
+\emph{Half-sided modular inclusions of von Neumann algebras},
+Commun.\ Math.\ Phys.\ \textbf{157}, 83 (1993).
+
+\bibitem{BisognanoWichmann1975}
+J.~J.~Bisognano and E.~H.~Wichmann,
+\emph{On the duality condition for a Hermitian scalar field},
+J.\ Math.\ Phys.\ \textbf{16}, 985 (1975).
+
+\bibitem{BisognanoWichmann1976}
+J.~J.~Bisognano and E.~H.~Wichmann,
+\emph{On the duality condition for quantum fields},
+J.\ Math.\ Phys.\ \textbf{17}, 303 (1976).
+
+\bibitem{CasiniHuertaMyers2011}
+H.~Casini, M.~Huerta, and R.~C.~Myers,
+\emph{Towards a derivation of holographic entanglement entropy},
+JHEP \textbf{1105}, 036 (2011),
+arXiv:1102.0440.
+
+\bibitem{JLMS2016}
+D.~L.~Jafferis, A.~Lewkowycz, J.~Maldacena, and S.~J.~Suh,
+\emph{Relative entropy equals bulk relative entropy},
+JHEP \textbf{1606}, 004 (2016),
+arXiv:1512.06431.
+
+\bibitem{Jacobson2016}
+T.~Jacobson,
+\emph{Entanglement equilibrium and the Einstein equation},
+Phys.\ Rev.\ Lett.\ \textbf{116}, 201101 (2016),
+arXiv:1505.04753.
+
+\bibitem{Connes1994}
+A.~Connes, \emph{Noncommutative Geometry}, Academic Press (1994).
+
+\bibitem{Haagerup1975}
+U.~Haagerup,
+\emph{The standard form of von Neumann algebras},
+Math.\ Scand.\ \textbf{37}, 271--283 (1975).
 
 \end{thebibliography}
 
