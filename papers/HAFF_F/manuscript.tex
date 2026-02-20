@@ -8,6 +8,7 @@
 \usepackage{hyperref}
 \usepackage{geometry}
 \usepackage{array}
+\newcolumntype{P}[1]{>{\raggedright\arraybackslash}p{#1}}
 \usepackage{booktabs}
 \usepackage{tcolorbox}
 \geometry{margin=1in}
@@ -28,9 +29,13 @@ A Structural Analysis of Causal Direction}
   \texttt{sidongliu@hotmail.com}
 }
 
-\date{\today}
+\date{February 2026}
 
 \begin{document}
+\emergencystretch=2em
+\raggedbottom
+\hbadness=5000
+\vbadness=5000
 
 \maketitle
 
@@ -237,7 +242,7 @@ The accessibility arrow and the thermodynamic arrow are closely related but not 
 \begin{table}[ht]
 \centering
 \small
-\begin{tabular}{|p{3.5cm}|p{4.5cm}|p{4.5cm}|}
+\begin{tabular}{|P{3.5cm}|P{4.5cm}|P{4.5cm}|}
 \hline
 \textbf{Feature} & \textbf{Thermodynamic Arrow} & \textbf{Accessibility Arrow} \\
 \hline
@@ -321,7 +326,7 @@ We situate the accessibility-based account relative to existing approaches to te
 \begin{table}[ht]
 \centering
 \small
-\begin{tabular}{|p{2.8cm}|p{3.5cm}|p{3.5cm}|p{3cm}|}
+\begin{tabular}{|P{2.8cm}|P{3.5cm}|P{3.5cm}|P{3cm}|}
 \hline
 \textbf{Approach} & \textbf{Source of Arrow} & \textbf{What It Presupposes} & \textbf{Relation to HAFF} \\
 \hline
@@ -385,7 +390,7 @@ Papers D, E, and F form a coherent triad, each addressing a different aspect of 
 \begin{table}[ht]
 \centering
 \small
-\begin{tabular}{|p{1.5cm}|p{2.5cm}|p{4cm}|p{4.5cm}|}
+\begin{tabular}{|P{1.5cm}|P{2.5cm}|P{4cm}|P{4.5cm}|}
 \hline
 \textbf{Paper} & \textbf{Phenomenon} & \textbf{Traditional View} & \textbf{HAFF Reframing} \\
 \hline

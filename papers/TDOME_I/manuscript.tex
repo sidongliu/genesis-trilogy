@@ -11,6 +11,8 @@
 \usepackage{physics}
 \usepackage{graphicx}
 \usepackage{caption}
+\usepackage{array}
+\newcolumntype{P}[1]{>{\raggedright\arraybackslash}p{#1}}
 
 % Theorem environments — matching HAFF/Q-RAIF style
 \newtheorem{theorem}{Theorem}
@@ -30,6 +32,10 @@ Necessity of Temporal Accumulation}
 \date{February 2026}
 
 \begin{document}
+\emergencystretch=2em
+\raggedbottom
+\hbadness=10000
+\vbadness=10000
 \maketitle
 
 % ============================================================
@@ -120,7 +126,7 @@ program.
 \begin{center}
 \small
 \setlength{\tabcolsep}{4pt}%
-\begin{tabular}{@{}lp{3.2cm}cp{3.4cm}c@{}}
+\begin{tabular}{@{}lP{3.2cm}cP{3.4cm}c@{}}
 \toprule
 \textbf{Framework} & \textbf{Question} & & \textbf{Result} & \textbf{Status} \\
 \midrule
@@ -2135,7 +2141,6 @@ thermodynamically salient features.
 
 \begin{remark}[The Origin of Paper II]
 \label{rem:paper_II}
-\emergencystretch=1em
 Proposition~\ref{thm:catastrophe} reveals the \emph{poison} embedded
 in Paper~I's medicine.
 Memory enables survival beyond the Markovian ceiling, but
@@ -2307,6 +2312,7 @@ This demonstration does \textbf{not} show:
 \end{enumerate}
 
 \paragraph{Reproducibility.}
+\begin{sloppypar}
 The complete simulation is a self-contained Python script
 (\texttt{paper1\_markov\_ceiling\_demo.py}, ${\sim}\,560$
 lines, requiring only NumPy and Matplotlib) with fixed
@@ -2320,6 +2326,7 @@ are included in the supplementary archive:
 \item \texttt{markov\_ceiling\_boundary.csv} --- extracted
   ceiling boundaries $\ell_c(k)$
 \end{itemize}
+\end{sloppypar}
 
 % ============================================================
 \section{Discussion}
@@ -2330,7 +2337,7 @@ are included in the supplementary archive:
 \begin{center}
 \small
 \setlength{\tabcolsep}{4pt}%
-\begin{tabular}{@{}lp{7.5cm}c@{}}
+\begin{tabular}{@{}lP{7.5cm}c@{}}
 \toprule
 \textbf{Result} & \textbf{Statement} & \textbf{Sec.} \\
 \midrule

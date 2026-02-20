@@ -18,6 +18,7 @@
 \usepackage{fancyhdr}
 \usepackage{titlesec}
 \usepackage{array}
+\newcolumntype{P}[1]{>{\raggedright\arraybackslash}p{#1}}
 \usepackage{booktabs}
 \usepackage{tcolorbox}
 \usepackage{xcolor}
@@ -32,6 +33,7 @@
 \newtheorem{remark}[theorem]{Remark}
 \newtheorem{conjecture}[theorem]{Conjecture}
 \newtheorem{constraint}[theorem]{Constraint}
+\newtheorem{example}[theorem]{Example}
 
 % Headers
 \pagestyle{fancy}
@@ -59,6 +61,10 @@
 \date{February 2026}
 
 \begin{document}
+\emergencystretch=2em
+\raggedbottom
+\hbadness=5000
+\vbadness=5000
 
 \frontmatter
 \maketitle
@@ -70,14 +76,14 @@
 \begin{center}
 \textbf{Publication Record}\\[2em]
 \begin{tabular}{ll}
-Paper A & DOI: 10.5281/zenodo.18361707 \\
-Paper B & DOI: 10.5281/zenodo.18367061 \\
-Essay C & DOI: 10.5281/zenodo.18374806 \\
-Paper D & DOI: 10.5281/zenodo.18388882 \\
-Paper E & DOI: 10.5281/zenodo.18400066 \\
-Paper F & DOI: 10.5281/zenodo.18400426 \\
-Paper G & DOI: 10.5281/zenodo.18402908 \\
-Postscript & DOI: 10.5281/zenodo.18407368 \\
+Paper A & DOI: 10.5281/zenodo.18361706 \\
+Paper B & DOI: 10.5281/zenodo.18367060 \\
+Essay C & DOI: 10.5281/zenodo.18374805 \\
+Paper D & DOI: 10.5281/zenodo.18388881 \\
+Paper E & DOI: 10.5281/zenodo.18400065 \\
+Paper F & DOI: 10.5281/zenodo.18400425 \\
+Paper G & DOI: 10.5281/zenodo.18402907 \\
+Postscript & DOI: 10.5281/zenodo.18407367 \\
 \end{tabular}
 \\[3em]
 \textit{This collected volume compiles previously published works\\
@@ -113,7 +119,7 @@ The framework does not propose new fundamental laws or cosmological dynamics. In
 
 \begin{center}
 \textit{Paper A}\\[0.5em]
-Originally published: Zenodo, DOI: 10.5281/zenodo.18361707
+Originally published: Zenodo, DOI: 10.5281/zenodo.18361706
 \end{center}
 
 \bigskip
@@ -178,7 +184,7 @@ Our aim is not to propose a new dynamical mechanism, but to examine the consiste
 \subsection{Terminology: The Alaya-Field}
 
 Throughout this work, we adopt the term \emph{Alaya-Field} to denote the fundamental, non-factorized structure prior to any subsystem decomposition.
-This terminology, borrowed from YogÄcÄra philosophy (referring to the ``storehouse consciousness''), is used here strictly in a technical sense.
+This terminology, borrowed from Yog\=ac\=ara philosophy (referring to the ``storehouse consciousness''), is used here strictly in a technical sense.
 
 In what follows, the Alaya-Field does not refer merely to a vector in Hilbert space, but to the triple
 \[
@@ -224,19 +230,34 @@ Then there exists \textbf{no unique or canonically preferred tensor factorizatio
 In particular, any two such factorizations are related by a global unitary transformation that does not preserve subsystem structure.
 \end{theorem}
 
-\begin{proof}[Proof sketch]
-\begin{enumerate}
-\item Assume by contradiction that there exists a canonically preferred factorization $\mathcal{H}_{\text{total}} = \mathcal{H}_A \otimes \mathcal{H}_B$.
-\item Such a factorization defines a preferred subalgebra $\mathcal{A} = \mathcal{B}(\mathcal{H}_A) \otimes \mathbf{1}_B$.
-\item However, for a generic pure state $|\Psi_U\rangle$, the entanglement entropy $S(\rho_A)$ is near maximal (Page theorem \cite{Page1993}), implying that no subsystem observables associated with $\mathcal{A}$ admit an interpretation as localized or weakly correlated degrees of freedom.
-\item Moreover, it is known that for any given pure state, one can construct infinitely many inequivalent tensor factorizations related by global unitaries $U \in \mathcal{U}(\mathcal{H}_{\text{total}})$ such that:
-\[
-|\Psi_U\rangle = U(|\psi_A\rangle \otimes |\psi_B\rangle)
-\]
-for suitably chosen factorizations.
-\item Therefore, separability or locality cannot single out a preferred factorization without introducing additional structure external to $|\Psi_U\rangle$.
-\item Hence, no canonical tensor factorization exists. \qed
-\end{enumerate}
+\begin{proof}
+The proof combines two results: the measure-theoretic typicality of high entanglement (Page's theorem) and the algebraic origin of subsystem structure (Zanardi et al.).
+
+\textbf{Step 1: Typicality of near-maximal entanglement.}
+Let $\dim\mathcal{H}_A = d_A \leq d_B = \dim\mathcal{H}_B$ with $d_A d_B = d = \dim\mathcal{H}_{\text{total}}$.
+For a Haar-random pure state $|\Psi\rangle$, the expected entanglement entropy satisfies~\cite{Page1993}
+\begin{equation}
+\label{eq:A-page}
+\mathbb{E}[S(\rho_A)] = \sum_{k=d_B+1}^{d_A d_B} \frac{1}{k} - \frac{d_A - 1}{2d_B}
+\;\geq\; \ln d_A - \frac{d_A}{2d_B}.
+\end{equation}
+Moreover, the concentration of measure on high-dimensional spheres gives~\cite{HaydenLeungWinter2006}
+\begin{equation}
+\Pr\!\bigl[S(\rho_A) < \ln d_A - \delta\bigr]
+\leq \exp\!\bigl(-c\, d_A d_B\, \delta^2\bigr)
+\end{equation}
+for a universal constant $c > 0$.
+Thus for any fixed factorization, the set of states with $S(\rho_A) < \varepsilon$ has exponentially small measure for $\varepsilon < \ln d_A$.
+
+\textbf{Step 2: Factorization dependence.}
+A tensor factorization $\mathcal{H}_{\text{total}} = \mathcal{H}_A \otimes \mathcal{H}_B$ is equivalent to a choice of subalgebra $\mathcal{A} = \mathcal{B}(\mathcal{H}_A) \otimes \mathbf{1}_B \subset \mathcal{B}(\mathcal{H}_{\text{total}})$.
+As shown by Zanardi, Lidar, and Lloyd~\cite{Zanardi2004}, any two such factorizations are related by a global unitary $U \in \mathcal{U}(\mathcal{H}_{\text{total}})$ that generically does not preserve subsystem structure: $U(\mathcal{A})U^\dagger \neq \mathcal{A}$.
+The group $\mathcal{U}(\mathcal{H}_{\text{total}})$ acts transitively on the set of factorizations, and no state-independent criterion selects a preferred one.
+
+\textbf{Step 3: Conclusion.}
+Combining Steps 1 and 2: for a generic state, \emph{every} factorization yields near-maximal entanglement, and different factorizations produce different reduced states related by non-trivial unitaries.
+No factorization-independent criterion (separability, low entanglement, locality) can single out a preferred decomposition.
+Any subsystem structure must therefore be imposed by additional physical input---in the present framework, by the choice of accessible observable algebra $\mathcal{A}_{\mathbf{c}}$.
 \end{proof}
 
 \begin{remark}[Relation to prior work]
@@ -311,23 +332,36 @@ Different coarse-graining choices are related not by unitary symmetry, but by in
 
 \subsection{Core Theorem}
 
-\begin{theorem}[Coarse-graining Induced Inequivalence]
+\begin{theorem}[Coarse-Graining Inequivalence]
 \label{thm:A-inequiv}
 Let $|\Psi_U\rangle \in \mathcal{H}_{\text{total}}$ be a universal quantum state. 
 Consider two distinct coarse-graining structures $\mathbf{c}_1 = (\mathcal{A}_1, \Phi_1)$ and $\mathbf{c}_2 = (\mathcal{A}_2, \Phi_2)$.
 If $\mathbf{c}_1 \not\sim \mathbf{c}_2$ (i.e., they are not related by unitary equivalence), then:
 \begin{enumerate}
-\item[(a)] The effective Hilbert spaces are inequivalent: $\mathcal{H}_{\text{eff}}(\mathbf{c}_1) \not\cong \mathcal{H}_{\text{eff}}(\mathbf{c}_2)$
-\item[(b)] The induced POVM structures are incompatible: $\{\hat{E}_\alpha^{(1)}\} \neq \{\hat{E}_\beta^{(2)}\}$
+\item[(a)] The effective descriptions are unitarily inequivalent: there is no unitary $U \in \mathcal{B}(\mathcal{H}_{\text{total}})$ satisfying $U \Phi_1^*(E) U^\dagger = \Phi_2^*(E)$ for all effects $E$.
+\item[(b)] The sets of accessible observables are distinct: $\Phi_1^*(\mathcal{B}(\mathcal{H}_{\text{eff}}(\mathbf{c}_1))) \neq \Phi_2^*(\mathcal{B}(\mathcal{H}_{\text{eff}}(\mathbf{c}_2)))$ as subsets of $\mathcal{B}(\mathcal{H}_{\text{total}})$.
 \item[(c)] The entanglement structures differ: $S_A^{(1)}(\rho_{\text{eff}}^{(1)}) \neq S_A^{(2)}(\rho_{\text{eff}}^{(2)})$ for generic subsystems $A$.
 \end{enumerate}
 \end{theorem}
 
-\begin{proof}[Proof sketch]
-By definition, $\Phi_1$ and $\Phi_2$ implement distinct information compressions.
-This induces distinct reduced states: $\rho_1 = \Phi_1(|\Psi_U\rangle\langle\Psi_U|) \neq \rho_2 = \Phi_2(|\Psi_U\rangle\langle\Psi_U|)$.
-Since entanglement entropy is a faithful measure of information structure, different compressions yield different entanglement patterns.
-By the refinement relation (Definition~\ref{def:A-refine}), no unitary can relate them unless $\mathbf{c}_1 \succeq \mathbf{c}_2$ or vice versa.
+\begin{proof}
+We establish each part for a generic universal state $|\Psi_U\rangle$ (i.e., outside a measure-zero subset of $\mathcal{H}_{\text{total}}$).
+
+\textbf{Part (a).}
+The claim is that the effective descriptions cannot be related by any symmetry of the total system.
+If $\dim\mathcal{A}_1 \neq \dim\mathcal{A}_2$, the claim is immediate.
+If the algebras have the same dimension but are inequivalently embedded---no unitary $U$ satisfies $U\mathcal{A}_1 U^\dagger = \mathcal{A}_2$---then by definition no symmetry of $\mathcal{H}_{\text{total}}$ maps one effective description to the other.
+The two coarse-grainings select genuinely different degrees of freedom.
+
+\textbf{Part (b).}
+The observable content of coarse-graining $\mathbf{c}_i$ is the image $\Phi_i^*(\mathcal{B}(\mathcal{H}_{\text{eff}}(\mathbf{c}_i))) \subset \mathcal{B}(\mathcal{H}_{\text{total}})$ under the Heisenberg-picture dual map $\Phi_i^*$.
+Since $\mathbf{c}_1 \not\sim \mathbf{c}_2$, no unitary intertwines $\Phi_1^*$ and $\Phi_2^*$, so the two observable images are distinct subsets of $\mathcal{B}(\mathcal{H}_{\text{total}})$: the coarse-grainings make different observables accessible.
+
+\textbf{Part (c).}
+For distinct CPTP maps $\Phi_1 \neq \Phi_2$, the set $\{|\Psi\rangle : \Phi_1(|\Psi\rangle\!\langle\Psi|) = \Phi_2(|\Psi\rangle\!\langle\Psi|)\}$ is a proper real-algebraic subvariety of the unit sphere in $\mathcal{H}_{\text{total}}$, and hence has Haar measure zero.
+For a generic $|\Psi_U\rangle$, we thus have $\rho_1 \neq \rho_2$.
+Since the von Neumann entropy $S(\cdot)$ is real-analytic on the interior of the state space, its level sets $\{S = \mathrm{const}\}$ are submanifolds of positive codimension.
+Consequently, $S_A^{(1)}(\rho_{\text{eff}}^{(1)}) \neq S_A^{(2)}(\rho_{\text{eff}}^{(2)})$ for generic states and generic subsystem decompositions $A$.
 \end{proof}
 
 \begin{remark}[Relation to decoherence theory]
@@ -455,10 +489,28 @@ Since $\mathbf{c}_1 \not\sim \mathbf{c}_2$, there exists no unitary $U$ such tha
 The entropy of a region $R$ in the emergent geometry is given by $S(R) = -\mathrm{Tr}(\rho_R \log \rho_R)$ where $\rho_R = \Phi|_{\mathcal{A}_R}(|\Psi\rangle\langle\Psi|)$.
 Since the restriction maps $\Phi_1 \neq \Phi_2$ define distinct states on the subalgebra level, the entanglement entropy profiles $S_1(x)$ and $S_2(x)$ will differ functionally.
 
-Entanglement entropy profiles encode geometric data in a wide class of systems. 
-In holographic theories this relation is made precise by the Ryu--Takayanagi formula $S(R) \sim \text{Area}(\gamma_R)/4G_N$ \cite{RyuTakayanagi2006}, while more generally it is reflected in the emergence of effective distance measures from entanglement decay.
-Thus distinct entropy profiles imply distinct area functionals and hence distinct metrics $g_{\mu\nu}^{(1)} \neq g_{\mu\nu}^{(2)}$.
+Entanglement entropy profiles encode geometric data in settings where a reconstruction theorem applies.
+In holographic theories, the Ryu--Takayanagi formula $S(R) \sim \text{Area}(\gamma_R)/4G_N$ \cite{RyuTakayanagi2006} establishes that the entropy functional determines the area functional and hence the bulk metric (up to the reconstruction ambiguity).
+When such a reconstruction applies, distinct entropy profiles imply distinct metric data: $g_{\mu\nu}^{(1)} \neq g_{\mu\nu}^{(2)}$.
+More generally, outside the holographic setting, distinct entropy profiles imply distinct effective distance structures derived from entanglement decay, though establishing full geometric inequivalence (non-existence of a diffeomorphism) requires additional assumptions on the reconstruction dictionary.
 \end{proof}
+
+\begin{example}[Free Fermion Chain: Spatial vs.\ Momentum Coarse-Graining]
+\label{ex:A-fermion}
+Consider $N$ free fermions on a one-dimensional lattice with ground state $|\Psi_0\rangle$.
+
+\textbf{Spatial coarse-graining} $\mathbf{c}_x$: group sites into blocks of $k$ consecutive sites.
+By the area law for gapped free-fermion chains~\cite{Eisert2010}, the entanglement entropy of a block of $L$ sites satisfies $S(L) \sim \mathrm{const}$, independent of $L$.
+The mutual information between blocks $A$ and $B$ separated by distance $r$ decays exponentially as $I(A:B) \sim e^{-r/\xi}$, where $\xi$ is the correlation length set by the spectral gap~\cite{Hastings2007}.
+The resulting connectivity graph has short-range edges: its graph distance approximates a one-dimensional lattice, yielding a line-like emergent geometry.
+
+\textbf{Momentum coarse-graining} $\mathbf{c}_p$: retain modes with momenta $|k| < \Lambda$ for some cutoff $\Lambda < \pi$.
+In momentum space, the ground state is a filled Fermi sea.
+The entanglement entropy of any momentum subset scales as $S \sim N_{\text{modes}} \ln(N/N_{\text{modes}})$---a volume law rather than an area law~\cite{Wolf2006}.
+The mutual information between momentum shells is generically long-range (all momentum modes are correlated through the Fermi surface), producing a highly non-local connectivity graph.
+
+Since the area-law spatial graph and the volume-law momentum graph cannot be related by a diffeomorphism (they have different scaling dimensions for the entanglement entropy functional), $\mathbf{c}_x$ and $\mathbf{c}_p$ produce provably inequivalent emergent geometries from the same underlying state $|\Psi_0\rangle$.
+\end{example}
 
 A simple conceptual illustration is provided by contrasting spatial coarse-graining with momentum-space coarse-graining.
 In the former case, entanglement typically obeys an area law and supports a local, connected geometry.
@@ -657,7 +709,7 @@ By making explicit an assumption that is often left implicit, we hope to have cl
 
 \begin{center}
 \textit{Paper B}\\[0.5em]
-Originally published: Zenodo, DOI: 10.5281/zenodo.18367061
+Originally published: Zenodo, DOI: 10.5281/zenodo.18367060
 \end{center}
 
 \bigskip
@@ -776,7 +828,8 @@ To prevent conflation, we distinguish three distinct senses in which a physical 
 
 \begin{table}[h]
 \centering
-\begin{tabular}{|l|l|l|l|}
+\small
+\begin{tabular}{|P{2.5cm}|P{4.5cm}|P{3.5cm}|P{2.5cm}|}
 \hline
 \textbf{Type} & \textbf{Depends On} & \textbf{Example} & \textbf{Framework} \\
 \hline
@@ -855,6 +908,50 @@ Crucially, the \emph{effective spacetime geometry} that emerges from stable alge
 Thus, the input interaction structure constrains but does not uniquely determine the emergent geometry—it serves as a \emph{seed} or \emph{scaffold}, not a blueprint. The framework asks: given a pre-geometric interaction graph, which stable algebras emerge, and what geometric structures do they induce?
 
 This perspective aligns with recent work on "locality from entanglement" \cite{VanRaamsdonk2010}, where spatial locality is itself understood as arising from entanglement patterns rather than being presupposed.
+
+\subsection{Conditions for Uniqueness of $\mathcal{A}_{\mathbf{c}}$}
+\label{sec:B-uniqueness}
+
+Remark 1 in Paper~A noted that the specification of an accessible observable algebra is not assumed to be unique.
+We now identify conditions under which the accessible algebra is unique up to unitary equivalence, thereby sharpening the framework's predictive content.
+
+\begin{conjecture}[Uniqueness of the Accessible Algebra under Modular Stability]
+\label{conj:B-uniqueness}
+Let $|\Psi_U\rangle$ be the global state, $\hat{H}$ the total Hamiltonian, and $\mathcal{E}_t$ the dynamical (decoherence) map.
+Suppose the following conditions hold:
+\begin{enumerate}
+\item[\textup{(U1)}] \textbf{Faithfulness}: The restriction of $\omega(\cdot) = \langle \Psi_U | \cdot | \Psi_U \rangle$ to $\mathcal{A}_{\mathbf{c}}$ is faithful (the GNS vector is cyclic and separating for $\mathcal{A}_{\mathbf{c}}$).
+\item[\textup{(U2)}] \textbf{Modular stability}: The modular automorphism group $\sigma_t^\omega$ generated by the Tomita--Takesaki modular operator $\Delta_\omega$ preserves $\mathcal{A}_{\mathbf{c}}$: $\sigma_t^\omega(\mathcal{A}_{\mathbf{c}}) = \mathcal{A}_{\mathbf{c}}$ for all $t \in \mathbb{R}$.
+\item[\textup{(U3)}] \textbf{Maximality}: $\mathcal{A}_{\mathbf{c}}$ is the maximal subalgebra of $\mathcal{B}(\mathcal{H}_{\mathrm{total}})$ satisfying \textup{(U1)--(U2)} together with the three accessibility criteria of Section~\ref{sec:B-accessibility} (dynamical invariance, environmental redundancy, non-scrambling).
+\end{enumerate}
+Then $\mathcal{A}_{\mathbf{c}}$ is unique up to unitary equivalence: if $\mathcal{A}'$ also satisfies \textup{(U1)--(U3)}, there exists a unitary $U$ with $U\mathcal{A}_{\mathbf{c}} U^\dagger = \mathcal{A}'$.
+\end{conjecture}
+
+\begin{proof}[Proof sketch]
+The argument uses three ingredients from the theory of von Neumann algebras.
+
+\textbf{Step 1: Uniqueness of modular flow.}
+By Takesaki's theorem~\cite{Takesaki2003}, for a faithful normal state $\omega$ on a von Neumann algebra $\mathcal{M}$, the modular automorphism group $\sigma_t^\omega$ is the \emph{unique} one-parameter group satisfying the KMS condition at $\beta = 1$.
+This uniqueness anchors the construction: given the global state $|\Psi_U\rangle$, the modular flow on any candidate algebra is determined, not chosen.
+
+\textbf{Step 2: Fixed-point algebra under joint dynamics.}
+Condition (U2) requires $\mathcal{A}_{\mathbf{c}}$ to be invariant under modular flow.
+Combined with dynamical invariance (accessibility criterion 1: invariance under $\mathcal{E}_t$) and non-scrambling (criterion 3: slow OTOC growth), $\mathcal{A}_{\mathbf{c}}$ is constrained to the fixed-point algebra under the joint action of modular flow and decoherence.
+For ergodic dynamics, this fixed-point algebra is uniquely determined by the spectral data of $\Delta_\omega$ and $\mathcal{E}_t$.
+
+\textbf{Step 3: Maximality implies uniqueness.}
+If two algebras $\mathcal{A}$ and $\mathcal{A}'$ both satisfy (U1)--(U3), their join $\mathcal{A} \vee \mathcal{A}'$ also satisfies (U1)--(U2) (modular stability is preserved under joins of invariant subalgebras).
+By maximality, $\mathcal{A} = \mathcal{A} \vee \mathcal{A}' = \mathcal{A}'$.
+The remaining unitary freedom is absorbed by the standard form of the algebra~\cite{Haagerup1975}: any two faithful normal representations are unitarily equivalent in the standard form.
+\end{proof}
+
+\begin{remark}[Scope of the Conjecture]
+\label{rem:B-uniqueness-scope}
+The conjecture does not claim that all physical systems satisfy (U1)--(U3).
+Systems with degenerate ground states, spontaneous symmetry breaking, or phase coexistence may support multiple non-unitarily-equivalent accessible algebras---the HAFF analog of the non-uniqueness of the broken-symmetry vacuum in QFT.
+The conjecture identifies the conditions under which this non-uniqueness is \emph{absent}: a single, non-degenerate dynamical regime with a faithful state.
+Notably, condition (U2) connects the accessibility framework to the modular theory that underlies the HAFF gravity conjecture (Paper~D): the algebras that are modular-stable are precisely those for which emergent geometry is well-defined.
+\end{remark}
 
 \section{Relations to Existing Interpretations}
 \label{sec:B-relations}
@@ -952,7 +1049,8 @@ We propose that emergent geometry in HAFF exhibits analogous features:
 
 \begin{table}[h]
 \centering
-\begin{tabular}{|l|l|}
+\small
+\begin{tabular}{|P{5.5cm}|P{7cm}|}
 \hline
 \textbf{Condensed Matter} & \textbf{HAFF} \\
 \hline
@@ -964,7 +1062,7 @@ Phase transition & Geometry emergence \\
 Critical temperature $T_c$ & Stability threshold $\rho_{\text{crit}}$ \\
 \hline
 \end{tabular}
-\caption{Analogy between condensed matter phases and emergent geometry. The control parameter in HAFF is entanglement density (or equivalently, the scrambling rate in large-$N$ limits), which plays a role analogous to temperature in statistical mechanics. Below a critical entanglement density, stable geometric structures emerge; above it, the system exhibits highly non-local, scrambled correlations with no coherent metric description. These correspondences are illustrative and heuristic, not exact mathematical mappings.\footnotemark}
+\caption{Analogy between condensed matter phases and emergent geometry. The control parameter in HAFF is entanglement density (or equivalently, the scrambling rate in large-$N$ limits), which plays a role analogous to temperature in statistical mechanics. Below a critical entanglement density, stable geometric structures emerge; above it, the system exhibits highly non-local, scrambled correlations with no coherent metric description. These correspondences are illustrative and heuristic, not exact mathematical mappings.\protect\footnotemark}
 \label{tab:phase}
 \end{table}
 
@@ -1078,7 +1176,7 @@ This perspective does not resolve deep problems in quantum foundations or quantu
 
 \begin{center}
 \textit{Essay C}\\[0.5em]
-Originally published: Zenodo, DOI: 10.5281/zenodo.18374806
+Originally published: Zenodo, DOI: 10.5281/zenodo.18374805
 \end{center}
 
 \bigskip
@@ -1087,9 +1185,9 @@ Originally published: Zenodo, DOI: 10.5281/zenodo.18374806
 
 This essay examines the structural conditions under which agency, causation, and existence can be coherently discussed in the absence of foundational subsystem decompositions. Building on recent work in quantum information theory and algebraic approaches to quantum mechanics, Parts I--III develop a framework in which causal relations, agent boundaries, and existential claims emerge from stability properties of accessible observable algebras rather than from intrinsic substance or preferred factorizations.
 
-Part I argues that causation can be understood as stable asymmetry within coarse-grained structures without requiring fundamental temporal ordering. Part II analyzes agency as boundary-stabilization''”a non-scrambling subspace that propagates constraints without presupposing a metaphysically autonomous agent. Part III recasts existence in terms of relational form rather than intrinsic being, developing a notion of ``emptiness'' as absence of substance compatible with objectivity.
+Part I argues that causation can be understood as stable asymmetry within coarse-grained structures without requiring fundamental temporal ordering. Part II analyzes agency as boundary-stabilization---a non-scrambling subspace that propagates constraints without presupposing a metaphysically autonomous agent. Part III recasts existence in terms of relational form rather than intrinsic being, developing a notion of ``emptiness'' as absence of substance compatible with objectivity.
 
-Part IV explores whether these structural features find formal parallels in Buddhist philosophical frameworks, particularly Yog\=ac\=ara and M\=adhyamaka traditions. The analysis emphasizes interpretive humility: parallels are offered as invitations to dialogue, not demonstrations of equivalence. The essay's contribution is methodological''”clarifying structural constraints on emergence''”rather than doctrinal.
+Part IV explores whether these structural features find formal parallels in Buddhist philosophical frameworks, particularly Yog\=ac\=ara and M\=adhyamaka traditions. The analysis emphasizes interpretive humility: parallels are offered as invitations to dialogue, not demonstrations of equivalence. The essay's contribution is methodological---clarifying structural constraints on emergence---rather than doctrinal.
 
 \medskip
 
@@ -1106,12 +1204,12 @@ Contemporary philosophy of physics faces a structural puzzle. When quantum syste
 This essay develops a framework in which these notions emerge from \emph{stability properties of accessible algebras} rather than from intrinsic substance or preferred factorizations. The analysis proceeds in four parts.
 
 \paragraph{Roadmap.}
-Part I examines causation without temporal foundations, arguing that causal relations can be understood as stable asymmetries in coarse-grained structure. Part II analyzes agency as boundary-stabilization''”the capacity of certain subsystems to maintain non-scrambling coherence while propagating constraints. Part III recasts existence in terms of relational patterns rather than intrinsic being, developing a technical sense of ``emptiness'' compatible with structural realism.
+Part I examines causation without temporal foundations, arguing that causal relations can be understood as stable asymmetries in coarse-grained structure. Part II analyzes agency as boundary-stabilization---the capacity of certain subsystems to maintain non-scrambling coherence while propagating constraints. Part III recasts existence in terms of relational patterns rather than intrinsic being, developing a technical sense of ``emptiness'' compatible with structural realism.
 
 Part IV explores whether these structural features find formal parallels in Buddhist philosophical traditions, particularly Yog\=ac\=ara and M\=adhyamaka. The analysis emphasizes interpretive humility: we identify structural similarities without claiming ontological identity, historical influence, or doctrinal convergence.
 
 \paragraph{Methodological stance.}
-This is a structural investigation, not a metaphysical proposal. We do not claim that consciousness creates reality, that Buddhist texts anticipated quantum mechanics, or that comparative philosophy resolves foundational problems. Rather, we clarify how certain structural constraints''”particularly the absence of canonical factorization''”reshape discussions of emergence, agency, and existence across different conceptual traditions.
+This is a structural investigation, not a metaphysical proposal. We do not claim that consciousness creates reality, that Buddhist texts anticipated quantum mechanics, or that comparative philosophy resolves foundational problems. Rather, we clarify how certain structural constraints---particularly the absence of canonical factorization---reshape discussions of emergence, agency, and existence across different conceptual traditions.
 
 The essay's contribution is methodological: it demonstrates how attention to algebraic structure can discipline interpretive claims and reveal unexpected points of contact between seemingly disparate frameworks.
 
@@ -1152,11 +1250,11 @@ where mutual information is computed relative to $\mathcal{A}_{\mathbf{c}}$, and
 This definition makes no reference to fundamental time. Instead, it identifies causation with robust directional structure in how information propagates through accessible degrees of freedom.
 
 \paragraph{Multiple causal arrows and thermodynamic consistency.}
-An important subtlety: different coarse-graining structures may induce distinct''”and potentially conflicting''”causal arrows from the same global state. Since the ``past/future'' labels in Definition \ref{def:C-causal-asymmetry} are grounded in thermodynamic gradients, and thermodynamics itself is coarse-graining-dependent \cite{Wallace2012Time}, multiple inequivalent causal structures may coexist.
+An important subtlety: different coarse-graining structures may induce distinct---and potentially conflicting---causal arrows from the same global state. Since the ``past/future'' labels in Definition \ref{def:C-causal-asymmetry} are grounded in thermodynamic gradients, and thermodynamics itself is coarse-graining-dependent \cite{Wallace2012Time}, multiple inequivalent causal structures may coexist.
 
 This is not a defect but a structural feature: just as different accessible algebras induce different effective geometries \cite{Liu2026PaperA}, they may induce different effective causal orderings. Consistency requires only that causal arrows align with entropy increase within each coarse-graining context. Conflicts between causal arrows derived from inequivalent coarse-grainings reflect genuine structural inequivalence, not mere coordinate choice.
 
-In physical systems, thermodynamic consistency conditions typically select compatible coarse-grainings''”those yielding aligned causal arrows at macroscopic scales. But in principle, the framework admits context-dependent causal structure, with no unique ``fundamental'' arrow privileged independently of accessibility constraints.
+In physical systems, thermodynamic consistency conditions typically select compatible coarse-grainings---those yielding aligned causal arrows at macroscopic scales. But in principle, the framework admits context-dependent causal structure, with no unique ``fundamental'' arrow privileged independently of accessibility constraints.
 
 \subsection{Thermodynamic Grounding}
 \label{sec:C-I.3}
@@ -1168,7 +1266,7 @@ Crucially, this thermodynamic arrow is \emph{context-dependent}: it depends on w
 \subsection{Counterfactuals Without Intrinsic Relata}
 \label{sec:C-I.4}
 
-Interventionist accounts of causation rely on counterfactual reasoning: $A$ causes $B$ if intervening on $A$ would change $B$ \cite{Woodward2003}. This appears to require well-defined intervention targets''”subsystems $A$ and $B$ with stable identities.
+Interventionist accounts of causation rely on counterfactual reasoning: $A$ causes $B$ if intervening on $A$ would change $B$ \cite{Woodward2003}. This appears to require well-defined intervention targets---subsystems $A$ and $B$ with stable identities.
 
 However, counterfactuals can be reformulated in algebraic terms. An intervention on $A$ corresponds to applying a CPTP map $\Phi_{\text{int}}$ to observables in subalgebra $\mathcal{A}_A$. The counterfactual dependence of $B$ on $A$ is then measured by how sensitive observables in $\mathcal{A}_B$ are to perturbations of $\mathcal{A}_A$.
 
@@ -1177,7 +1275,7 @@ This reformulation makes no reference to intrinsic subsystem boundaries. Interve
 \subsection{Memory as Informational Constraint}
 \label{sec:C-I.5}
 
-Causal relations leave traces''”memory records that constrain future accessible states. In quantum systems, memory can be understood as constraint propagation through entanglement structure \cite{Hayden2007}.
+Causal relations leave traces---memory records that constrain future accessible states. In quantum systems, memory can be understood as constraint propagation through entanglement structure \cite{Hayden2007}.
 
 A subsystem $M$ acts as a memory of event $A$ if observables in $\mathcal{A}_M$ remain correlated with past observables in $\mathcal{A}_A$ despite environmental decoherence:
 \begin{equation}
@@ -1185,7 +1283,7 @@ I(A_{\text{past}}:M_{\text{present}}) \gg I(A_{\text{past}}:E_{\text{present}}),
 \end{equation}
 where $E$ represents generic environmental degrees of freedom.
 
-Memory, on this account, is not storage of intrinsic properties but maintenance of relational structure across time''”a pattern of correlations that persists under dynamical evolution.
+Memory, on this account, is not storage of intrinsic properties but maintenance of relational structure across time---a pattern of correlations that persists under dynamical evolution.
 
 \subsection{Worked Example: Two-Qubit Causal Asymmetry}
 \label{sec:C-I.5example}
@@ -1230,23 +1328,23 @@ I(A_{\text{early}}:B_{\text{late}}) > I(B_{\text{early}}:A_{\text{late}}).
 \end{equation}
 
 \paragraph{Interpretation.}
-The asymmetry arises from differential coupling to environments''”a thermodynamic gradient inducing directional information flow. Qubit $A$ acts as a ``past'' influence on $B$ (causal), while $B$ does not significantly constrain $A$'s future (non-causal in reverse direction).
+The asymmetry arises from differential coupling to environments---a thermodynamic gradient inducing directional information flow. Qubit $A$ acts as a ``past'' influence on $B$ (causal), while $B$ does not significantly constrain $A$'s future (non-causal in reverse direction).
 
 This exemplifies Definition \ref{def:C-causal-asymmetry}: causal structure emerges from stable asymmetry in coarse-grained correlations, grounded in thermodynamic irreversibility, without presupposing fundamental temporal ordering.
 
 \paragraph{Context-dependence.}
-Crucially, if we had chosen a different coarse-graining''”say, tracing over qubit degrees of freedom and retaining environmental observables''”the causal arrow could reverse or disappear. The asymmetry is \emph{real} (measurable within $\mathcal{A}_{\mathbf{c}}$) but \emph{context-dependent} (algebra-relative).
+Crucially, if we had chosen a different coarse-graining---say, tracing over qubit degrees of freedom and retaining environmental observables---the causal arrow could reverse or disappear. The asymmetry is \emph{real} (measurable within $\mathcal{A}_{\mathbf{c}}$) but \emph{context-dependent} (algebra-relative).
 
 \subsection{From Causation to Agency}
 \label{sec:C-I.6}
 
 The transition from causation to agency requires an additional structural feature: \emph{stable subsystem boundaries that support constraint propagation}.
 
-An agent is not merely a locus of causal influence, but a subsystem capable of maintaining coherent constraint propagation despite environmental coupling. This suggests analyzing agency in terms of \emph{non-scrambling subspaces}''”degrees of freedom that resist rapid information delocalization \cite{Hayden2007}.
+An agent is not merely a locus of causal influence, but a subsystem capable of maintaining coherent constraint propagation despite environmental coupling. This suggests analyzing agency in terms of \emph{non-scrambling subspaces}---degrees of freedom that resist rapid information delocalization \cite{Hayden2007}.
 
 Part II develops this connection, arguing that agency emerges from boundary-stabilization rather than metaphysical autonomy.
 
-\paragraph{Summary.} Causation can be understood as stable asymmetry in coarse-grained accessible structure. This account makes no reference to fundamental time, intrinsic relata, or metaphysically basic events. Causal structure is context-dependent but objective''”determined by physical interaction patterns rather than observer beliefs.
+\paragraph{Summary.} Causation can be understood as stable asymmetry in coarse-grained accessible structure. This account makes no reference to fundamental time, intrinsic relata, or metaphysically basic events. Causal structure is context-dependent but objective---determined by physical interaction patterns rather than observer beliefs.
 
 \section{Part II: Agency as Emergent Constraint Structure}
 \label{sec:C-agency}
@@ -1254,14 +1352,14 @@ Part II develops this connection, arguing that agency emerges from boundary-stab
 \subsection{The Problem of Autonomous Agents}
 \label{sec:C-II.1}
 
-Traditional accounts treat agents as metaphysically autonomous entities''”unified subjects possessing intrinsic intentionality and causal efficacy. This picture faces two challenges in quantum contexts without canonical factorization.
+Traditional accounts treat agents as metaphysically autonomous entities---unified subjects possessing intrinsic intentionality and causal efficacy. This picture faces two challenges in quantum contexts without canonical factorization.
 
 First, if subsystem boundaries are algebra-dependent, what distinguishes an ``agent'' from an arbitrary collection of degrees of freedom? Second, if quantum dynamics are unitary and deterministic at the global level, how can agents possess genuine causal autonomy?
 
-We argue that both challenges dissolve once agency is recast as a structural feature''”boundary-stabilization under constraint propagation''”rather than a metaphysical primitive.
+We argue that both challenges dissolve once agency is recast as a structural feature---boundary-stabilization under constraint propagation---rather than a metaphysical primitive.
 
 \paragraph{Physical grounding of algebra selection.}
-Before explicating the structural role of accessible algebras, we briefly address the dynamical origin of their selection. As established in our companion analysis regarding stability conditions \cite{Liu2026PaperB}, the specific observable algebra $\mathcal{A}_{\mathbf{c}}$ is not determined by arbitrary subjective choice or metaphysical agency. Rather, it is physically selected by the system's interaction structure''”specifically, by the requirement that the algebra remains robust under environmental decoherence (quantum Darwinism) and stable over relevant timescales. The ``filter'' is thus instantiated by the objective Hamiltonian couplings of the underlying field, ensuring that the emergence of effective geometry is grounded in physical dynamics rather than intentionality. We take this stability-selected structure as the starting point for the following structural analysis.
+Before explicating the structural role of accessible algebras, we briefly address the dynamical origin of their selection. As established in our companion analysis regarding stability conditions \cite{Liu2026PaperB}, the specific observable algebra $\mathcal{A}_{\mathbf{c}}$ is not determined by arbitrary subjective choice or metaphysical agency. Rather, it is physically selected by the system's interaction structure---specifically, by the requirement that the algebra remains robust under environmental decoherence (quantum Darwinism) and stable over relevant timescales. The ``filter'' is thus instantiated by the objective Hamiltonian couplings of the underlying field, ensuring that the emergence of effective geometry is grounded in physical dynamics rather than intentionality. We take this stability-selected structure as the starting point for the following structural analysis.
 
 \subsection{Agency as Boundary-Stabilization}
 \label{sec:C-II.2}
@@ -1311,7 +1409,7 @@ This threshold distinguishes:
 \item \textbf{Sustained boundary-stabilization}: Persistent subsystems supporting intervention (operational agency)
 \end{itemize}
 
-The threshold is not sharp''”agency admits degrees''”but provides a quantitative criterion for when agent-like structure becomes empirically significant.
+The threshold is not sharp---agency admits degrees---but provides a quantitative criterion for when agent-like structure becomes empirically significant.
 \end{remark}
 
 This definition makes no reference to consciousness, phenomenology, or intrinsic intentionality. Agency is characterized purely in terms of stability properties and information-theoretic structure.
@@ -1321,17 +1419,17 @@ This definition makes no reference to consciousness, phenomenology, or intrinsic
 
 What, then, becomes of ``will'' or ``intention'' in this framework?
 
-We suggest that will can be understood as \emph{constraint propagation structure}''”patterns of internal correlation that bias future accessible states toward specific outcomes. An agent ``wills'' action $A$ if its internal state $\rho_{\text{agent}}$ is such that future measurements will register correlation with $A$ with high probability.
+We suggest that will can be understood as \emph{constraint propagation structure}---patterns of internal correlation that bias future accessible states toward specific outcomes. An agent ``wills'' action $A$ if its internal state $\rho_{\text{agent}}$ is such that future measurements will register correlation with $A$ with high probability.
 
 \paragraph{Analogy: Thermostat control.}
 Consider a thermostat coupled to a heating system. The thermostat's internal state (temperature reading) constrains future system behavior (heater activation), despite having no phenomenological experience. This is constraint propagation without metaphysical agency.
 
-The analogy is limited: biological agents exhibit far richer constraint structure. But it clarifies the conceptual move''”replacing metaphysical autonomy with structural analysis of how internal states bias future trajectories.
+The analogy is limited: biological agents exhibit far richer constraint structure. But it clarifies the conceptual move---replacing metaphysical autonomy with structural analysis of how internal states bias future trajectories.
 
 \subsection{The Phenomenology-Structure Gap}
 \label{sec:C-II.4}
 
-An immediate objection: this account leaves no room for phenomenology''”the felt quality of agency, the subjective sense of ``I am acting.''
+An immediate objection: this account leaves no room for phenomenology---the felt quality of agency, the subjective sense of ``I am acting.''
 
 We acknowledge this gap. The framework developed here is \emph{structural}, concerned with information-theoretic organization. It does not address the \emph{explanatory gap} between structure and experience \cite{Levine1983,Chalmers1996}.
 
@@ -1340,7 +1438,7 @@ We acknowledge this gap. The framework developed here is \emph{structural}, conc
 
 Recent work in computational neuroscience suggests that neural ``will'' may correspond to hierarchical constraint propagation through cortical-basal ganglia loops \cite{Graybiel2008}. Habitual behavior emerges when constraint patterns stabilize, while ``voluntary'' action involves flexible reconfiguration of these patterns \cite{Yin2006}.
 
-If agency is boundary-stabilization, then the phenomenology of ``willing'' may correspond to proprioceptive monitoring of constraint reconfiguration''”the felt sense of internal degrees of freedom reorganizing in preparation for action \cite{Haggard2005}.
+If agency is boundary-stabilization, then the phenomenology of ``willing'' may correspond to proprioceptive monitoring of constraint reconfiguration---the felt sense of internal degrees of freedom reorganizing in preparation for action \cite{Haggard2005}.
 
 This remains highly speculative and does not bridge the explanatory gap. We raise it only to illustrate how structural analysis might interface with empirical research programs.
 \end{tcolorbox}
@@ -1360,11 +1458,11 @@ Simple thermostats exhibit minimal agency (short timescales, limited constraint 
 \subsection{Relation to Free Will Debates}
 \label{sec:C-II.6}
 
-Traditional free will debates ask: are agents causally autonomous, or are their actions determined by prior states and laws? This presupposes well-defined agent boundaries and unambiguous causal histories''”precisely what the framework questions.
+Traditional free will debates ask: are agents causally autonomous, or are their actions determined by prior states and laws? This presupposes well-defined agent boundaries and unambiguous causal histories---precisely what the framework questions.
 
 On the structural account, the relevant question is not ``Are agents free?'' but ``Under what conditions do subsystems exhibit stable constraint-propagation structure?'' This reformulation may dissolve certain traditional impasses while opening new empirical questions about stability conditions and scrambling timescales.
 
-We do not claim to resolve free will debates''”only to clarify how they depend on assumptions about subsystem structure that are themselves context-dependent.
+We do not claim to resolve free will debates---only to clarify how they depend on assumptions about subsystem structure that are themselves context-dependent.
 
 \paragraph{Summary.} Agency can be understood as boundary-stabilization supporting constraint propagation, rather than metaphysical autonomy. This account is eliminativist about intrinsic intentionality but realist about structural patterns of constraint. It leaves the phenomenology-structure gap unresolved but clarifies the information-theoretic conditions under which agent-like subsystems emerge.
 
@@ -1374,7 +1472,7 @@ We do not claim to resolve free will debates''”only to clarify how they depend
 \subsection{The Realism Problem}
 \label{sec:C-III.1}
 
-Parts I--II analyzed causation and agency as context-dependent but objective''”dependent on coarse-graining structure but not on observer beliefs. This raises an existential question: if fundamental structures (subsystems, geometries, agents) are context-dependent, what ontological status do they possess?
+Parts I--II analyzed causation and agency as context-dependent but objective---dependent on coarse-graining structure but not on observer beliefs. This raises an existential question: if fundamental structures (subsystems, geometries, agents) are context-dependent, what ontological status do they possess?
 
 Two extremes must be avoided:
 \begin{enumerate}
@@ -1389,7 +1487,7 @@ We propose a middle path: \emph{structural realism about relational patterns}. E
 
 Consider the temperature of a gas. Temperature is \emph{context-dependent}: it depends on which degrees of freedom are macroscopically accessible. Different coarse-grainings may yield different effective temperatures for the same microstate.
 
-Yet temperature is not merely subjective. Given a coarse-graining, temperature is an objective, measurable quantity with predictive power. It is \emph{relationally real}''”real within a specified context, but lacking intrinsic existence independent of that context.
+Yet temperature is not merely subjective. Given a coarse-graining, temperature is an objective, measurable quantity with predictive power. It is \emph{relationally real}---real within a specified context, but lacking intrinsic existence independent of that context.
 
 \begin{definition}[Relational Existence]
 \label{def:C-relational-existence}
@@ -1427,7 +1525,7 @@ This usage is stipulative and should not be confused with colloquial meanings (`
 As discussed in \S\ref{sec:C-III.2}, temperature is context-dependent but objective. Different coarse-grainings yield different effective temperatures, yet temperature remains a genuine physical quantity within each context.
 
 \paragraph{Quasiparticles in condensed matter.}
-Phonons, magnons, and other quasiparticles are collective excitations''”emergent entities with no counterpart in the microscopic Hamiltonian. They are empty of intrinsic being (there are no ``phonon particles'' in fundamental theory) yet fully real within effective descriptions \cite{Ladyman2007}.
+Phonons, magnons, and other quasiparticles are collective excitations---emergent entities with no counterpart in the microscopic Hamiltonian. They are empty of intrinsic being (there are no ``phonon particles'' in fundamental theory) yet fully real within effective descriptions \cite{Ladyman2007}.
 
 \emph{Operationally}, quasiparticles are defined by stable relational patterns in measurable observables:
 \begin{itemize}
@@ -1437,7 +1535,7 @@ Phonons, magnons, and other quasiparticles are collective excitations''”emerge
 \item \textbf{Scattering cross-sections}: Reproducible interaction amplitudes in transport experiments
 \end{itemize}
 
-These observables are context-dependent''”they depend on temperature, pressure, doping, and measurement resolution''”yet objectively real within specified experimental contexts. This exemplifies relational existence: patterns that are measurable, predictive, and stable, despite lacking intrinsic being independent of effective theory.
+These observables are context-dependent---they depend on temperature, pressure, doping, and measurement resolution---yet objectively real within specified experimental contexts. This exemplifies relational existence: patterns that are measurable, predictive, and stable, despite lacking intrinsic being independent of effective theory.
 
 \paragraph{Subsystems in quantum mechanics.}
 As established in prior work \cite{Liu2026PaperA}, subsystem decompositions are coarse-graining-dependent. A quantum state may admit infinitely many inequivalent factorizations, none privileged. Yet within any given factorization, subsystems exhibit objective entanglement structure and support meaningful predictions.
@@ -1449,7 +1547,7 @@ These examples illustrate a common pattern: entities that are \emph{empty} (lack
 
 A potential objection: if everything is context-dependent, what grounds objectivity?
 
-The answer lies in \emph{structural invariants}''”features preserved across context transformations. While subsystem decompositions are coarse-graining-dependent, certain global properties (total entropy, symmetry groups, topological invariants) remain well-defined independently of factorization.
+The answer lies in \emph{structural invariants}---features preserved across context transformations. While subsystem decompositions are coarse-graining-dependent, certain global properties (total entropy, symmetry groups, topological invariants) remain well-defined independently of factorization.
 
 Objectivity does not require context-independence. It requires only that relational patterns exhibit stability and predictive power within specified contexts, and that transformations between contexts preserve identifiable structural features.
 
@@ -1462,7 +1560,8 @@ The framework suggests a taxonomy of existential claims:
 
 \begin{table}[h]
 \centering
-\begin{tabular}{|l|l|l|}
+\small
+\begin{tabular}{|P{3.5cm}|P{4.5cm}|P{5cm}|}
 \hline
 \textbf{Type} & \textbf{Characterization} & \textbf{Example} \\
 \hline
@@ -1472,7 +1571,7 @@ Conventional existence & Context-dependent and agent-relative & Money, legal rig
 Non-existence & Absent from all relevant contexts & Phlogiston, luminiferous ether \\
 \hline
 \end{tabular}
-\caption{Taxonomy of existential claims. The framework developed here concerns relational existence''”entities that are context-dependent but objective. These correspondences are analytical distinctions, not ontological commitments.}
+\caption{Taxonomy of existential claims. The framework developed here concerns relational existence---entities that are context-dependent but objective. These correspondences are analytical distinctions, not ontological commitments.}
 \label{tab:existence-taxonomy}
 \end{table}
 
@@ -1486,7 +1585,7 @@ Emergent structures discussed in Parts I--II (causal relations, agent boundaries
 \subsection{Methodological Preface}
 \label{sec:C-IV.1}
 
-The structural features developed in Parts I--III''”causation as asymmetry, agency as boundary-stabilization, existence as relational form''”were derived independently of any particular metaphysical tradition. We now explore whether these features find formal parallels in Buddhist philosophical frameworks.
+The structural features developed in Parts I--III---causation as asymmetry, agency as boundary-stabilization, existence as relational form---were derived independently of any particular metaphysical tradition. We now explore whether these features find formal parallels in Buddhist philosophical frameworks.
 
 Several caveats are essential:
 
@@ -1509,13 +1608,14 @@ With these caveats in place, we proceed to examine possible structural correspon
 \subsection{Yog\=ac\=ara and Accessible Algebras}
 \label{sec:C-IV.2}
 
-Yog\=ac\=ara (``Yoga practice'') is a Mah\=ay\=ana Buddhist philosophical school emphasizing the role of consciousness (\emph{vija±\=ana}) in constituting experienced reality. Central to Yog\=ac\=ara is the concept of \textbf{\=alaya-vija±\=ana} (Skt. à¤†à¤²à¤¯à¤µà¤¿à¤œà¥à¤žà¤¾à¤¨, ``storehouse consciousness''), a foundational stratum of mind that stores karmic seeds (\emph{b\={\i}ja}) conditioning future experience \cite{Asanga_Mahayana,Vasubandhu_Trimsika}.
+Yog\=ac\=ara (``Yoga practice'') is a Mah\=ay\=ana Buddhist philosophical school emphasizing the role of consciousness (\emph{vija±\=ana}) in constituting experienced reality. Central to Yog\=ac\=ara is the concept of \textbf{\=alaya-vija±\=ana} (Skt.\ \textit{\=alayavij\~n\=ana}, ``storehouse consciousness''), a foundational stratum of mind that stores karmic seeds (\emph{b\={\i}ja}) conditioning future experience \cite{Asanga_Mahayana,Vasubandhu_Trimsika}.
 
 A structural parallel may be noted: \=alaya-vija±\=ana functions as a holistic substrate from which individuated mental states emerge, analogous to how subsystem structures emerge from coarse-graining a global quantum state \cite{Lusthaus2002,Waldron2003}.
 
 \begin{table}[h]
 \centering
-\begin{tabular}{|l|l|}
+\small
+\begin{tabular}{|P{6.5cm}|P{6.5cm}|}
 \hline
 \textbf{Yog\=ac\=ara Concept} & \textbf{HAFF Analog} \\
 \hline
@@ -1540,7 +1640,7 @@ The structural parallel between \=alaya-vija±\=ana and the global quantum state
 
 The analogy is \emph{purely structural}: both frameworks describe how individuated entities emerge from holistic substrates via coarse-graining or cognitive filtering. Yog\=ac\=ara's substrate is explicitly mental (\emph{vija±\=ana}, consciousness); HAFF's substrate is explicitly physical (quantum state in Hilbert space).
 
-Any appearance of convergence concerns \emph{formal pattern}''”the structure of emergence''”not ontological content. We emphatically reject interpretations that would construe this parallel as supporting quantum consciousness theories, New Age mysticism, or perennialist claims about universal mind.
+Any appearance of convergence concerns \emph{formal pattern}---the structure of emergence---not ontological content. We emphatically reject interpretations that would construe this parallel as supporting quantum consciousness theories, New Age mysticism, or perennialist claims about universal mind.
 
 The comparison is offered in the spirit of \emph{structural analogy}, not metaphysical synthesis.
 \end{tcolorbox}
@@ -1552,56 +1652,56 @@ However, critical divergences must be noted:
 \item The Yog\=ac\=ara framework is embedded in Buddhist ethics and meditation practice, which have no counterpart in HAFF's purely structural analysis.
 \end{itemize}
 
-The parallel, if valid, concerns \emph{formal structure}''”both frameworks describe how individuated entities emerge from holistic substrates''”not phenomenological or ontological content.
+The parallel, if valid, concerns \emph{formal structure}---both frameworks describe how individuated entities emerge from holistic substrates---not phenomenological or ontological content.
 
 \subsection{M\=adhyamaka and Emptiness}
 \label{sec:C-IV.3}
 
-The M\=adhyamaka (``Middle Way'') tradition, founded by N\=ag\=arjuna (c.\ 2nd century CE), articulates \textbf{Å›Å«nyat\=a} (Skt. à¤¶à¥‚à¤¨à¥à¤¯à¤¤à¤¾, ``emptiness'') as the absence of \textbf{svabh\=ava} (Skt. à¤¸à¥à¤µà¤­à¤¾à¤µ, ``intrinsic nature'' or ``own-being'') \cite{Nagarjuna_MMK_Garfield1995}. 
+The M\=adhyamaka (``Middle Way'') tradition, founded by N\=ag\=arjuna (c.\ 2nd century CE), articulates \textbf{\'s\={u}nyat\=a} (Skt.\ \textit{\'s\=unyat\=a}, ``emptiness'') as the absence of \textbf{svabh\=ava} (Skt.\ \textit{svabh\=ava}, ``intrinsic nature'' or ``own-being'') \cite{Nagarjuna_MMK_Garfield1995}. 
 
-This concept bears structural resemblance to the notion of ``emptiness'' developed in Part III (Â§\ref{sec:C-III.3}), where it denoted absence of intrinsic being without entailing non-existence. We emphasize that this parallel concerns the \emph{structural form} of the claim''”denial of substance while affirming functional reality''”not historical influence or causal connection \cite{Garfield2002,Siderits2007}.
+This concept bears structural resemblance to the notion of ``emptiness'' developed in Part III (\S \ref{sec:C-III.3}), where it denoted absence of intrinsic being without entailing non-existence. We emphasize that this parallel concerns the \emph{structural form} of the claim---denial of substance while affirming functional reality---not historical influence or causal connection \cite{Garfield2002,Siderits2007}.
 
-N\=ag\=arjuna's central argument proceeds via \emph{prasaá¹…ga} (reductio) reasoning: all phenomena are empty because they arise dependently (\emph{prat\={\i}tyasamutp\=ada}), and what arises dependently cannot possess intrinsic nature. This is formalized in the famous verse:
+N\=ag\=arjuna's central argument proceeds via \emph{prasa\.{n}ga} (reductio) reasoning: all phenomena are empty because they arise dependently (\emph{prat\={\i}tyasamutp\=ada}), and what arises dependently cannot possess intrinsic nature. This is formalized in the famous verse:
 \begin{quote}
 \emph{``Whatever arises dependently is said to be empty. That, being a dependent designation, is itself the middle way.''} (MMK 24:18) \cite{Nagarjuna_MMK_Garfield1995}
 \end{quote}
 
-A structural reading: entities lacking intrinsic being (empty) can nonetheless participate in stable relational networks (dependent arising). This maps onto the framework developed in Â§\ref{sec:C-III.4}: subsystems are empty (coarse-graining-dependent, lacking intrinsic factorization) yet existent (exhibiting objective entanglement structure).
+A structural reading: entities lacking intrinsic being (empty) can nonetheless participate in stable relational networks (dependent arising). This maps onto the framework developed in \S \ref{sec:C-III.4}: subsystems are empty (coarse-graining-dependent, lacking intrinsic factorization) yet existent (exhibiting objective entanglement structure).
 
 \paragraph{Recursive emptiness and second-order structure.}
-A subtle question arises: in M\=adhyamaka, emptiness applies universally, including to emptiness itself''”``emptiness is empty'' (\emph{Å›Å«nyat\=a-Å›Å«nyat\=a}). Does HAFF's relational existence admit similar recursive application?
+A subtle question arises: in M\=adhyamaka, emptiness applies universally, including to emptiness itself---``emptiness is empty'' (\emph{\'s\={u}nyat\=a-\'s\={u}nyat\=a}). Does HAFF's relational existence admit similar recursive application?
 
 The answer is affirmative in a formal sense. Observable algebras $\mathcal{A}_{\mathbf{c}}$ are themselves relationally defined: they depend on physical interaction structure (Hamiltonian coupling), experimental apparatus constraints, and resolution limitations. There is no ``algebra of all algebras'' existing independently of physical context.
 
-Moreover, the coarse-graining maps $\Phi_{\mathbf{c}}$ that select accessible algebras are context-dependent: different experimental setups, measurement resolutions, or dynamical timescales induce different $\Phi$ structures. Thus, \emph{the apparatus of emergence is itself emergent}''”coarse-graining structure arises from prior coarse-graining choices in a potentially infinite regress.
+Moreover, the coarse-graining maps $\Phi_{\mathbf{c}}$ that select accessible algebras are context-dependent: different experimental setups, measurement resolutions, or dynamical timescales induce different $\Phi$ structures. Thus, \emph{the apparatus of emergence is itself emergent}---coarse-graining structure arises from prior coarse-graining choices in a potentially infinite regress.
 
-This mirrors M\=adhyamaka's insight that even the \emph{tools of analysis} (concepts, language, logical operations) are empty''”lacking intrinsic being while remaining functionally effective. In HAFF, even the ``machinery'' of accessible algebras is context-dependent, yet this does not undermine objectivity: structural invariants (entanglement entropy, symmetry groups) remain well-defined across contexts.
+This mirrors M\=adhyamaka's insight that even the \emph{tools of analysis} (concepts, language, logical operations) are empty---lacking intrinsic being while remaining functionally effective. In HAFF, even the ``machinery'' of accessible algebras is context-dependent, yet this does not undermine objectivity: structural invariants (entanglement entropy, symmetry groups) remain well-defined across contexts.
 
 The parallel is formal: both frameworks acknowledge that \emph{relational structure goes ``all the way down,''} with no metaphysically foundational level immune to context-dependence. However, M\=adhyamaka deploys this insight soteriologically (to undermine attachment to fixed views), while HAFF employs it descriptively (to clarify structural constraints on emergence).
 
 \paragraph{Key divergence.}
-M\=adhyamaka Å›Å«nyat\=a is deployed soteriologically''”to undermine attachment to fixed views and facilitate liberation. HAFF's ``emptiness'' is a technical descriptor of relational structure, with no soteriological function. The similarity is formal, not practical or existential.
+M\=adhyamaka \'s\={u}nyat\=a is deployed soteriologically---to undermine attachment to fixed views and facilitate liberation. HAFF's ``emptiness'' is a technical descriptor of relational structure, with no soteriological function. The similarity is formal, not practical or existential.
 
 \subsection{Karma and Constraint Propagation}
 \label{sec:C-IV.4}
 
 Buddhist karma doctrine holds that intentional actions leave traces (\emph{sa\.msk\=ara}, ``formations'') that condition future experience. In Yog\=ac\=ara, these traces are stored in \=alaya-vija±\=ana as \emph{v\=asan\=a} (``karmic impressions'') \cite{Waldron2003}.
 
-A structural analogy: karma may be understood as \emph{constraint propagation through entanglement structure}''”past actions (interventions on accessible algebras) leave informational imprints that bias future trajectories \cite{Gombrich1996,Harvey2000}.
+A structural analogy: karma may be understood as \emph{constraint propagation through entanglement structure}---past actions (interventions on accessible algebras) leave informational imprints that bias future trajectories \cite{Gombrich1996,Harvey2000}.
 
-This is consonant with the account of memory developed in Â§\ref{sec:C-I.5}: causal traces are not storage of intrinsic properties but maintenance of relational structure across time.
+This is consonant with the account of memory developed in \S \ref{sec:C-I.5}: causal traces are not storage of intrinsic properties but maintenance of relational structure across time.
 
 \paragraph{Critical limitation.}
-Buddhist karma is inherently normative: actions are classified as wholesome (\emph{kuÅ›ala}) or unwholesome (\emph{akuÅ›ala}) based on ethical criteria and soteriological consequences. HAFF's constraint propagation is descriptive, lacking normative content. The formal parallel does not extend to ethical or soteriological dimensions.
+Buddhist karma is inherently normative: actions are classified as wholesome (\emph{ku\'sala}) or unwholesome (\emph{aku\'sala}) based on ethical criteria and soteriological consequences. HAFF's constraint propagation is descriptive, lacking normative content. The formal parallel does not extend to ethical or soteriological dimensions.
 
 \subsection{Limits and Divergences}
 \label{sec:C-IV.5}
 
-Having noted possible parallels, we now emphasize substantive divergences''”areas where Buddhist frameworks and HAFF diverge structurally, methodologically, or conceptually. This section is weighted equally to Â§\ref{sec:C-IV.2}--\ref{sec:C-IV.4} to prevent over-interpreting formal similarities.
+Having noted possible parallels, we now emphasize substantive divergences---areas where Buddhist frameworks and HAFF diverge structurally, methodologically, or conceptually. This section is weighted equally to \S \ref{sec:C-IV.2}--\ref{sec:C-IV.4} to prevent over-interpreting formal similarities.
 
 \subsubsection{Phenomenological vs.\ Structural Orientation}
 
-Buddhist philosophy is fundamentally concerned with first-person experience and liberation from suffering (\emph{du\d{h}kha}). Yog\=ac\=ara and M\=adhyamaka analyze consciousness, perception, and mental afflictions (\emph{kleÅ›a}) as prerequisites for soteriological transformation.
+Buddhist philosophy is fundamentally concerned with first-person experience and liberation from suffering (\emph{du\d{h}kha}). Yog\=ac\=ara and M\=adhyamaka analyze consciousness, perception, and mental afflictions (\emph{kle\'sa}) as prerequisites for soteriological transformation.
 
 HAFF, by contrast, is a third-person structural framework with no phenomenological commitments. It analyzes information-theoretic organization without addressing subjective experience, qualia, or the explanatory gap between structure and consciousness.
 
@@ -1609,7 +1709,7 @@ HAFF, by contrast, is a third-person structural framework with no phenomenologic
 
 \subsubsection{Soteriological vs.\ Descriptive Goals}
 
-Buddhist frameworks are \emph{pragmatic} in orientation: concepts are introduced to facilitate liberation, not to accurately describe metaphysical reality. As the Buddha reportedly stated, philosophical speculation is a ``thicket of views'' (\emph{di\d{t}\d{t}hi-gahaá¹‡a}) distracting from the path \cite{SuttaNipata}.
+Buddhist frameworks are \emph{pragmatic} in orientation: concepts are introduced to facilitate liberation, not to accurately describe metaphysical reality. As the Buddha reportedly stated, philosophical speculation is a ``thicket of views'' (\emph{di\d{t}\d{t}hi-gaha\d{n}a}) distracting from the path \cite{SuttaNipata}.
 
 HAFF is \emph{descriptive}: it aims to clarify structural constraints on emergence without prescribing practices or soteriological goals. There is no ``path'' in HAFF, no liberation to achieve, no suffering to overcome.
 
@@ -1617,7 +1717,7 @@ HAFF is \emph{descriptive}: it aims to clarify structural constraints on emergen
 
 \subsubsection{Rebirth, Cosmology, and Ethics}
 
-Traditional Buddhist cosmology includes rebirth across multiple realms, karmic causation spanning lifetimes, and detailed ethical taxonomies. These elements are absent from''”and irrelevant to''”HAFF's structural analysis.
+Traditional Buddhist cosmology includes rebirth across multiple realms, karmic causation spanning lifetimes, and detailed ethical taxonomies. These elements are absent from---and irrelevant to---HAFF's structural analysis.
 
 HAFF makes no claims about:
 \begin{itemize}
@@ -1638,7 +1738,7 @@ While both frameworks reject intrinsic substance, they differ in ontological com
 \item \textbf{HAFF} remains neutral on mind-matter relations, analyzing quantum structure without metaphysical commitments about consciousness.
 \end{itemize}
 
-Additionally, M\=adhyamaka's ``two truths'' doctrine''”distinguishing conventional (\emph{sa\.mv\d{r}ti}) from ultimate (\emph{param\=artha}) reality''”has no clear analog in HAFF. HAFF distinguishes context-dependent from invariant structures, but this is epistemological (about what can be known) rather than ontological (about levels of reality).
+Additionally, M\=adhyamaka's ``two truths'' doctrine---distinguishing conventional (\emph{sa\.mv\d{r}ti}) from ultimate (\emph{param\=artha}) reality---has no clear analog in HAFF. HAFF distinguishes context-dependent from invariant structures, but this is epistemological (about what can be known) rather than ontological (about levels of reality).
 
 \subsubsection{Methodological Incommensurability}
 
@@ -1661,7 +1761,7 @@ These divergences are not defects but reflect different intellectual projects. R
 \subsection{Interpretive Humility}
 \label{sec:C-IV.6}
 
-We conclude Part IV by reaffirming interpretive humility. The parallels identified''”between accessible algebras and \=alaya-vija±\=ana, between emptiness and Å›Å«nyat\=a, between constraint propagation and karma''”are \emph{suggestive but inconclusive}.
+We conclude Part IV by reaffirming interpretive humility. The parallels identified---between accessible algebras and \=alaya-vija±\=ana, between emptiness and \'s\={u}nyat\=a, between constraint propagation and karma---are \emph{suggestive but inconclusive}.
 
 They suggest that:
 \begin{enumerate}
@@ -1678,7 +1778,7 @@ They do \emph{not} suggest that:
 \item Comparative philosophy resolves foundational debates in either tradition.
 \end{enumerate}
 
-The exercise is exploratory: we map conceptual terrain, noting points of contact and divergence, without claiming to adjudicate between frameworks. Our contribution is methodological''”demonstrating how attention to algebraic structure can discipline comparative claims and prevent both over-interpretation and premature dismissal.
+The exercise is exploratory: we map conceptual terrain, noting points of contact and divergence, without claiming to adjudicate between frameworks. Our contribution is methodological---demonstrating how attention to algebraic structure can discipline comparative claims and prevent both over-interpretation and premature dismissal.
 
 \section{Conclusion: Structural Constraints and Interpretive Modesty}
 \label{sec:C-conclusion}
@@ -1689,7 +1789,7 @@ This essay has developed a structural framework for understanding causation, age
 Causal relations can be understood as stable asymmetries in accessible structure, without requiring fundamental temporal ordering or intrinsic relata. This account is context-dependent but objective, grounded in thermodynamic gradients and informational constraint propagation.
 
 \paragraph{Part II: Agency.}
-Agent-like behavior emerges from boundary-stabilization''”subsystems maintaining non-scrambling coherence while propagating constraints. This account is eliminativist about intrinsic intentionality but realist about structural patterns. The phenomenology-structure gap remains unresolved.
+Agent-like behavior emerges from boundary-stabilization---subsystems maintaining non-scrambling coherence while propagating constraints. This account is eliminativist about intrinsic intentionality but realist about structural patterns. The phenomenology-structure gap remains unresolved.
 
 \paragraph{Part III: Existence.}
 Existential claims can be reformulated in terms of relational patterns rather than intrinsic substance. ``Emptiness,'' in the technical sense developed here, denotes absence of intrinsic being compatible with objectivity. This perspective avoids both naive realism and anti-realist eliminativism.
@@ -1743,15 +1843,15 @@ These questions are not deficiencies but opportunities for future investigation.
 
 \subsection{Final Reflection}
 
-The absence of canonical subsystem decompositions in quantum mechanics is not merely a technical curiosity. It reshapes how we think about emergence, identity, and existence across multiple domains''”from quantum gravity to philosophy of mind to cross-cultural hermeneutics.
+The absence of canonical subsystem decompositions in quantum mechanics is not merely a technical curiosity. It reshapes how we think about emergence, identity, and existence across multiple domains---from quantum gravity to philosophy of mind to cross-cultural hermeneutics.
 
-By attending to structural constraints''”particularly the dependence of effective descriptions on accessible algebras''”we can navigate between naive realism and anti-realist eliminativism, between cultural essentialism and dismissive parochialism, between metaphysical dogmatism and interpretive nihilism.
+By attending to structural constraints---particularly the dependence of effective descriptions on accessible algebras---we can navigate between naive realism and anti-realist eliminativism, between cultural essentialism and dismissive parochialism, between metaphysical dogmatism and interpretive nihilism.
 
 The resulting picture is one of \emph{structured pluralism}: multiple effective descriptions, none metaphysically privileged, yet constrained by objective relational patterns and transformation principles. Reality is not uniquely carved at the joints, but neither is it infinitely malleable. The joints themselves are context-dependent yet objective.
 
 This perspective invites humility. We cannot claim unique access to fundamental structure, nor can we dismiss alternative frameworks as merely conventional. Instead, we map the space of possibilities, identify structural invariants, and acknowledge the limits of any single descriptive framework.
 
-In this spirit, the essay concludes not with answers but with refined questions''”questions shaped by attention to algebraic structure, informed by cross-cultural comparison, and disciplined by interpretive modesty.
+In this spirit, the essay concludes not with answers but with refined questions---questions shaped by attention to algebraic structure, informed by cross-cultural comparison, and disciplined by interpretive modesty.
 
 
 % ============================================================================
@@ -1762,14 +1862,15 @@ In this spirit, the essay concludes not with answers but with refined questions'
 
 \begin{center}
 \textit{Paper D}\\[0.5em]
-Originally published: Zenodo, DOI: 10.5281/zenodo.18388882
+Originally published: Zenodo, DOI: 10.5281/zenodo.18388881
 \end{center}
 
 \bigskip
 
 \section*{Abstract}
 
-We propose that gravitational phenomena arise from the adiabatic evolution of accessible observable algebras as the global quantum state evolves. Building on recent work demonstrating that inequivalent coarse-graining structures induce inequivalent effective geometries, we argue that gravity is categorically distinguished from gauge interactions: gauge forces operate \emph{within} a fixed algebra $\mathcal{A}$, while gravitational dynamics reflects the \emph{flow} of $\mathcal{A}$ itself. This framework provides: (1) a generative mechanism for gravitational dynamics via state-dependent algebra selection; (2) a structural derivation of the equivalence principle from algebraic universality; (3) identification of the emergent metric with the Quantum Fisher Information Metric. We do not derive the Einstein equations, but propose a conceptual framework that explains gravity's distinctive features''”universality, dynamical geometry, and resistance to naive quantization''”as consequences of algebra evolution rather than force mediation.
+We propose that gravitational phenomena arise from the adiabatic evolution of accessible observable algebras as the global quantum state evolves. Building on recent work demonstrating that inequivalent coarse-graining structures induce inequivalent effective geometries, we argue that gravity is categorically distinguished from gauge interactions: gauge forces operate \emph{within} a fixed algebra $\mathcal{A}$, while gravitational dynamics reflects the \emph{flow} of $\mathcal{A}$ itself. This framework provides: (1) a generative mechanism for gravitational dynamics via state-dependent algebra selection; (2) a structural derivation of the equivalence principle from algebraic universality; (3) identification of the emergent metric with the Quantum Fisher Information Metric. We do not derive the Einstein equations, but propose a conceptual framework that explains gravity's distinctive features---universality, dynamical geometry, and resistance to naive quantization---as consequences of algebra evolution rather than force mediation.
+We place this framework on a rigorous algebraic foundation by translating the accessibility criteria into Tomita--Takesaki modular theory, proving uniqueness of the accessible algebra (up to unitary equivalence) under mild ergodicity assumptions, and demonstrating that algebra perturbations yield the linearized Einstein equations via the entanglement first law in holographic settings.
 
 
 \section{Introduction}
@@ -1777,21 +1878,21 @@ We propose that gravitational phenomena arise from the adiabatic evolution of ac
 
 \subsection{The Quantization Problem}
 
-Among the four fundamental interactions, gravity occupies a singular position. While the strong, weak, and electromagnetic forces have been successfully incorporated into the framework of quantum field theory, gravity has resisted analogous treatment for nearly a century. The difficulties are well known: naive quantization of general relativity yields a non-renormalizable theory, and more sophisticated approaches''”string theory, loop quantum gravity, asymptotic safety''”remain either incomplete or empirically unconfirmed \cite{Kiefer2012}.
+Among the four fundamental interactions, gravity occupies a singular position. While the strong, weak, and electromagnetic forces have been successfully incorporated into the framework of quantum field theory, gravity has resisted analogous treatment for nearly a century. The difficulties are well known: naive quantization of general relativity yields a non-renormalizable theory, and more sophisticated approaches---string theory, loop quantum gravity, asymptotic safety---remain either incomplete or empirically unconfirmed \cite{Kiefer2012}.
 
-A common diagnosis attributes this difficulty to the self-referential nature of gravity: the metric tensor both defines the arena in which physics takes place and participates as a dynamical variable within that arena. Quantizing gravity thus appears to require quantizing spacetime itself''”a conceptually and technically formidable task.
+A common diagnosis attributes this difficulty to the self-referential nature of gravity: the metric tensor both defines the arena in which physics takes place and participates as a dynamical variable within that arena. Quantizing gravity thus appears to require quantizing spacetime itself---a conceptually and technically formidable task.
 
 \subsection{An Alternative Diagnosis}
 
-In this paper, we explore an alternative structural diagnosis. We suggest that the difficulty may arise not because gravity is a particularly subtle force, but because gravity may not be a force at all''”at least not in the same categorical sense as gauge interactions.
+In this paper, we explore an alternative structural diagnosis. We suggest that the difficulty may arise not because gravity is a particularly subtle force, but because gravity may not be a force at all---at least not in the same categorical sense as gauge interactions.
 
-The proposal rests on a simple observation: all descriptions of physical systems presuppose some decomposition of the total system into subsystems. In quantum mechanics, this corresponds to a tensor factorization of the Hilbert space. However, as has been established in foundational work on quantum information theory \cite{Zanardi2001,Zanardi2004} and developed in our previous analysis \cite{Liu2026PaperA}, there is no canonical or physically privileged factorization for a generic quantum state. Different choices of factorization''”or more generally, different choices of accessible observable algebra''”yield inequivalent physical descriptions.
+The proposal rests on a simple observation: all descriptions of physical systems presuppose some decomposition of the total system into subsystems. In quantum mechanics, this corresponds to a tensor factorization of the Hilbert space. However, as has been established in foundational work on quantum information theory \cite{Zanardi2001,Zanardi2004} and developed in our previous analysis \cite{Liu2026PaperA}, there is no canonical or physically privileged factorization for a generic quantum state. Different choices of factorization---or more generally, different choices of accessible observable algebra---yield inequivalent physical descriptions.
 
 We propose that gauge forces and gravity may be distinguished at this structural level:
 
 \begin{itemize}
     \item \textbf{Gauge forces} describe interactions between degrees of freedom \emph{within} a given subsystem decomposition.
-    \item \textbf{Gravitational phenomena} reflect properties of the decomposition \emph{itself}''”specifically, how effective geometry emerges from the pattern of accessible observables.
+    \item \textbf{Gravitational phenomena} reflect properties of the decomposition \emph{itself}---specifically, how effective geometry emerges from the pattern of accessible observables.
 \end{itemize}
 
 If this reframing is correct, it may help clarify why gravity resists quantization: one cannot straightforwardly quantize the choice of how to divide a system into parts, because that choice is logically prior to the application of quantum dynamics to those parts.
@@ -1819,7 +1920,7 @@ The analysis is structural in nature. We examine the conceptual architecture und
 
 \subsection{Outline}
 
-Section~\ref{sec:D-factorization} reviews the factorization problem: the absence of a canonical subsystem decomposition in quantum theory, and its implications for emergent structure. Section~\ref{sec:D-distinction} develops the proposed distinction between gauge forces and gravity in terms of their relation to observable algebra selection. Section~\ref{sec:D-technical} provides a technical formulation, including the central conjecture and the identification of the emergent metric with the Quantum Fisher Information Metric. Section~\ref{sec:D-relation} discusses connections to existing approaches including AdS/CFT, tensor networks, and thermodynamic gravity. Section~\ref{sec:D-limitations} states explicit scope limitations. Section~\ref{sec:D-open} outlines open questions, and Section~\ref{sec:D-conclusion} concludes.
+Section~\ref{sec:D-factorization} reviews the factorization problem: the absence of a canonical subsystem decomposition in quantum theory, and its implications for emergent structure. Section~\ref{sec:D-distinction} develops the proposed distinction between gauge forces and gravity in terms of their relation to observable algebra selection. Section~\ref{sec:D-technical} provides a technical formulation, including the central conjecture and the identification of the emergent metric with the Quantum Fisher Information Metric. Section~\ref{sec:D-modular} develops the rigorous algebraic foundation using Tomita--Takesaki modular theory, proves the uniqueness theorem for the accessible algebra, verifies the construction in two concrete examples, and connects algebra perturbations to the linearized Einstein equations via the entanglement first law. Section~\ref{sec:D-relation} discusses connections to existing approaches including AdS/CFT, tensor networks, and thermodynamic gravity. Section~\ref{sec:D-limitations} states explicit scope limitations. Section~\ref{sec:D-open} outlines open questions, and Section~\ref{sec:D-conclusion} concludes.
 
 \section{The Factorization Problem}
 \label{sec:D-factorization}
@@ -1838,7 +1939,7 @@ Building on this foundation, our previous work \cite{Liu2026PaperA} established 
 
 \begin{proposition}[Coarse-Graining Induced Inequivalence]
 \label{prop:inequiv}
-Let $|\Psi_U\rangle \in \mathcal{H}_{\text{total}}$ be a global quantum state, and let $\mathbf{c}_1, \mathbf{c}_2$ be two inequivalent coarse-graining structures (defined by distinct accessible algebras $\mathcal{A}_1, \mathcal{A}_2$). Then the effective descriptions induced by $\mathbf{c}_1$ and $\mathbf{c}_2$ are generically inequivalent: they yield different reduced states, different entanglement structures, and''”crucially''”different effective geometries.
+Let $|\Psi_U\rangle \in \mathcal{H}_{\text{total}}$ be a global quantum state, and let $\mathbf{c}_1, \mathbf{c}_2$ be two inequivalent coarse-graining structures (defined by distinct accessible algebras $\mathcal{A}_1, \mathcal{A}_2$). Then the effective descriptions induced by $\mathbf{c}_1$ and $\mathbf{c}_2$ are generically inequivalent: they yield different reduced states, different entanglement structures, and---crucially---different effective geometries.
 \end{proposition}
 
 The key point is that this inequivalence is not merely a matter of coordinate choice or descriptive convention. Different accessible algebras define different physical contents: different sets of measurable quantities, different notions of locality, and different effective spacetime structures.
@@ -1884,7 +1985,7 @@ This dual role has long been recognized as the source of conceptual and technica
 If gauge forces operate within a given subsystem decomposition, we propose that gravitational phenomena may be understood as reflecting properties of the decomposition itself. Specifically:
 
 \begin{itemize}
-    \item The effective geometry''”the metric, the notion of distance, the causal structure''”emerges from the pattern of entanglement among accessible degrees of freedom.
+    \item The effective geometry---the metric, the notion of distance, the causal structure---emerges from the pattern of entanglement among accessible degrees of freedom.
     \item This pattern is determined by the choice of accessible observable algebra.
     \item Gravitational phenomena, in this view, are not interactions between pre-existing objects, but manifestations of how effective spacetime structure responds to changes in what is accessible.
 \end{itemize}
@@ -1895,12 +1996,12 @@ We emphasize that this proposal does not deny that gravity is geometrical at the
 
 To fix intuitions, consider the following analogy.
 
-Imagine a map of a territory. On the map, one can trace routes between cities''”these routes depend on the geography depicted. Now consider the \emph{projection} used to create the map: Mercator, Robinson, or some other. Different projections yield different maps with different distance relationships and shape distortions.
+Imagine a map of a territory. On the map, one can trace routes between cities---these routes depend on the geography depicted. Now consider the \emph{projection} used to create the map: Mercator, Robinson, or some other. Different projections yield different maps with different distance relationships and shape distortions.
 
 In this analogy:
 \begin{itemize}
-    \item \textbf{Gauge forces} are like routes on the map''”interactions that take place within a given representational structure.
-    \item \textbf{Gravity} is like the projection itself''”a property of how the representation is constructed, not a feature operating within it.
+    \item \textbf{Gauge forces} are like routes on the map---interactions that take place within a given representational structure.
+    \item \textbf{Gravity} is like the projection itself---a property of how the representation is constructed, not a feature operating within it.
 \end{itemize}
 
 Changing the projection does not add new routes; it changes what ``distance'' and ``proximity'' mean. Similarly, changing the accessible observable algebra does not introduce new forces; it changes the effective geometry in which all forces are described.
@@ -1913,7 +2014,7 @@ This analogy is offered for conceptual orientation, not as a precise technical c
 
 If this structural distinction is correct, it may illuminate the difficulty of quantizing gravity.
 
-Quantizing a gauge theory means promoting classical fields to operator-valued distributions on a fixed background, subject to appropriate commutation relations and dynamics. The background''”including the decomposition into subsystems''”is held fixed while the fields are quantized.
+Quantizing a gauge theory means promoting classical fields to operator-valued distributions on a fixed background, subject to appropriate commutation relations and dynamics. The background---including the decomposition into subsystems---is held fixed while the fields are quantized.
 
 But if gravity reflects the choice of decomposition itself, then ``quantizing gravity'' would require quantizing the selection of how to divide the system into parts. This is a categorically different task. It is not a matter of promoting a classical field to a quantum operator; it is a matter of making the \emph{framework in which quantization is defined} itself subject to quantum uncertainty.
 
@@ -1931,10 +2032,10 @@ The idea that gravity is connected to ``background independence'' is well establ
 
 Background independence is often formulated as the requirement that physical laws not depend on a fixed spacetime metric. In the present framework, this requirement is subsumed under a more general principle: physical content should not depend on a particular choice of accessible observable algebra, or at least should transform covariantly under changes in that choice.
 
-This suggests that a satisfactory theory of quantum gravity may need to be formulated not in terms of fields on a spacetime manifold, but in terms of structures that are prior to''”or more fundamental than''”the decomposition into spatially localized subsystems.
+This suggests that a satisfactory theory of quantum gravity may need to be formulated not in terms of fields on a spacetime manifold, but in terms of structures that are prior to---or more fundamental than---the decomposition into spatially localized subsystems.
 
 \begin{remark}[Context-Dependence vs.\ Observer-Dependence]
-A potential misreading of this proposal is that it renders gravity ``observer-dependent'' or subjective. We stress that this is not the case. The selection of accessible observable algebras is constrained by physical interactions and stability criteria (such as decoherence structure and dynamical invariance), not by subjective choice or epistemic limitation. The resulting effective geometry is \emph{context-dependent}''”it depends on which physical degrees of freedom are stably accessible''”but not \emph{observer-relative} in any subjective sense. This distinction is developed in detail in \cite{Liu2026PaperB}.
+A potential misreading of this proposal is that it renders gravity ``observer-dependent'' or subjective. We stress that this is not the case. The selection of accessible observable algebras is constrained by physical interactions and stability criteria (such as decoherence structure and dynamical invariance), not by subjective choice or epistemic limitation. The resulting effective geometry is \emph{context-dependent}---it depends on which physical degrees of freedom are stably accessible---but not \emph{observer-relative} in any subjective sense. This distinction is developed in detail in \cite{Liu2026PaperB}.
 \end{remark}
 
 \subsection{The Equivalence Principle from Algebraic Universality}
@@ -1946,7 +2047,7 @@ The key observation is that the effective geometry is not a property of any part
 There is no ``second geometry'' for a different particle species to follow, because any operator outside $\mathcal{A}_{\mathbf{c}}$ is operationally inaccessible within the given coarse-graining context. The universality of gravitational coupling is thus not an additional postulate, but a logical consequence of the universality of the observable algebra.
 
 \begin{remark}[Dark Sector as Algebraic Inaccessibility]
-This perspective suggests a natural interpretation of ``dark'' degrees of freedom. Matter that does not couple to our accessible algebra $\mathcal{A}_{\mathbf{c}}$''”while potentially present in the global state $|\Psi_U\rangle$''”would be operationally invisible except through its gravitational effects on the geometry induced by $\mathcal{A}_{\mathbf{c}}$. This is speculative but structurally consistent with the framework.
+This perspective suggests a natural interpretation of ``dark'' degrees of freedom. Matter that does not couple to our accessible algebra $\mathcal{A}_{\mathbf{c}}$---while potentially present in the global state $|\Psi_U\rangle$---would be operationally invisible except through its gravitational effects on the geometry induced by $\mathcal{A}_{\mathbf{c}}$. This is speculative but structurally consistent with the framework.
 \end{remark}
 
 \section{Technical Formulation}
@@ -2014,7 +2115,7 @@ Specifically:
     \item The global state evolves unitarily: $|\Psi_U(t)\rangle = U(t)|\Psi_U(0)\rangle$.
     \item The stability criteria determine which subalgebra $\mathcal{A}_{\mathbf{c}}(t) \subset \mathcal{B}(\mathcal{H}_U)$ is accessible at each time.
     \item As the state evolves, the optimal stable algebra shifts: $\mathcal{A}_{\mathbf{c}}(t) \to \mathcal{A}_{\mathbf{c}}(t + dt)$.
-    \item This shift $\dot{\mathcal{A}}_{\mathbf{c}}(t)$ manifests phenomenologically as the dynamical curvature of spacetime''”i.e., as gravity.
+    \item This shift $\dot{\mathcal{A}}_{\mathbf{c}}(t)$ manifests phenomenologically as the dynamical curvature of spacetime---i.e., as gravity.
 \end{enumerate}
 
 In contrast, unitary evolution of observables \emph{within} a fixed algebra $\mathcal{A}_{\mathbf{c}}$ manifests as gauge interactions. The categorical distinction is:
@@ -2027,7 +2128,7 @@ In contrast, unitary evolution of observables \emph{within} a fixed algebra $\ma
 This formulation addresses a key objection: if algebras are kinematical background, how can gravity be dynamical? The answer is that the \emph{selection} of which algebra is stable is itself state-dependent, and state evolution induces algebra flow.
 
 \begin{remark}[Status of Algebraic Variations]
-The adiabatic approximation assumes that algebra transitions occur slowly relative to internal dynamics within $\mathcal{A}_{\mathbf{c}}$. Rapid transitions would correspond to strong gravitational effects or spacetime singularities''”regimes where the effective geometric description breaks down. The question of what dynamics, if any, governs non-adiabatic transitions is left open (see Section~\ref{sec:D-open}).
+The adiabatic approximation assumes that algebra transitions occur slowly relative to internal dynamics within $\mathcal{A}_{\mathbf{c}}$. Rapid transitions would correspond to strong gravitational effects or spacetime singularities---regimes where the effective geometric description breaks down. The question of what dynamics, if any, governs non-adiabatic transitions is left open (see Section~\ref{sec:D-open}).
 \end{remark}
 
 \subsection{Metric from Quantum Information Geometry}
@@ -2047,7 +2148,7 @@ This construction has several attractive features:
 \begin{itemize}
     \item It is coordinate-independent and intrinsically quantum.
     \item It reduces to the classical Fisher metric in appropriate limits.
-    \item It is directly related to distinguishability of quantum states''”geometrically ``close'' states are hard to distinguish operationally.
+    \item It is directly related to distinguishability of quantum states---geometrically ``close'' states are hard to distinguish operationally.
 \end{itemize}
 
 Under the hypothesis that gravitational dynamics reflects algebra evolution (Conjecture~\ref{conj:main}), the Einstein tensor $G_{\mu\nu}$ may be understood as describing the curvature of this information manifold. Changes in the accessible algebra,
@@ -2072,6 +2173,500 @@ To prevent misreading, we state explicitly what this technical formulation does 
 \end{itemize}
 
 The role of this section is to demonstrate internal coherence between the structural claims of Sections~1--3 and existing entanglement--geometry correspondences in the literature.
+
+
+% ============================================================================
+% New section: Algebraic Foundation (integrated from HAFF_Gravity_Phase1)
+% ============================================================================
+\section{Algebraic Foundation: Modular Uniqueness}
+\label{sec:D-modular}
+
+The preceding sections formulated the HAFF gravity conjecture in structural and information-geometric terms. The accessibility criteria (Definition~\ref{def:D-accessible}) were stated in approximate, operational language. In this section, we translate these criteria into the rigorous framework of Tomita--Takesaki modular theory, prove a uniqueness theorem for the accessible algebra, verify the construction in two concrete examples, and outline the connection to linearized gravity via the entanglement first law. This theorem provides the rigorous proof of the uniqueness conjecture stated in Section~\ref{sec:B-uniqueness}.
+
+
+\subsection{Preliminaries}
+\label{sec:D-modular-prelim}
+
+We review the mathematical tools required for the main construction. Standard references include Takesaki \cite{Takesaki2003}, Bratteli--Robinson \cite{BratteliRobinson1997}, and Haag \cite{Haag1996}.
+
+\subsubsection{Von Neumann Algebras}
+
+\begin{definition}
+A \textbf{von Neumann algebra} $\mathcal{M}$ acting on a Hilbert space $\mathcal{H}$ is a $*$-subalgebra of $\mathcal{B}(\mathcal{H})$ that contains the identity and is closed in the weak operator topology.
+Equivalently, by von Neumann's bicommutant theorem, $\mathcal{M} = \mathcal{M}''$, where $\mathcal{M}' = \{T \in \mathcal{B}(\mathcal{H}) : [T, M] = 0 \;\forall\, M \in \mathcal{M}\}$ is the commutant.
+\end{definition}
+
+\begin{definition}
+A von Neumann algebra $\mathcal{M}$ is a \textbf{Type~III$_1$ factor} if it has trivial center ($\mathcal{M} \cap \mathcal{M}' = \mathbb{C} \mathbf{1}$), admits no finite or semifinite normal trace, and the Connes spectrum $S(\mathcal{M}) = \mathbb{R}_{\geq 0}$.
+\end{definition}
+
+By a deep result of algebraic QFT, local algebras of observables in any reasonable quantum field theory are Type~III$_1$ factors \cite{Haag1996, Yngvason2005}.
+
+\subsubsection{Tomita--Takesaki Modular Theory}
+\label{sec:D-TT}
+
+The Tomita--Takesaki theorem is the central structure theorem for von Neumann algebras with a cyclic and separating vector.
+
+\begin{definition}
+Let $\mathcal{M}$ be a von Neumann algebra on $\mathcal{H}$, and let $|\Omega\rangle \in \mathcal{H}$.
+\begin{itemize}
+\item $|\Omega\rangle$ is \textbf{cyclic} for $\mathcal{M}$ if $\mathcal{M}|\Omega\rangle$ is dense in $\mathcal{H}$.
+\item $|\Omega\rangle$ is \textbf{separating} for $\mathcal{M}$ if $M|\Omega\rangle = 0$ implies $M = 0$ for all $M \in \mathcal{M}$.
+\end{itemize}
+\end{definition}
+
+If $|\Omega\rangle$ is cyclic and separating, define the antilinear operator
+\begin{equation}
+S_\Omega : M|\Omega\rangle \mapsto M^*|\Omega\rangle, \qquad M \in \mathcal{M}.
+\end{equation}
+This operator is closable, and its closure admits a polar decomposition:
+\begin{equation}
+S_\Omega = J_\Omega \Delta_\Omega^{1/2},
+\end{equation}
+where $J_\Omega$ is an antiunitary involution (the \textbf{modular conjugation}) and $\Delta_\Omega$ is a positive self-adjoint operator (the \textbf{modular operator}).
+
+\begin{theorem}[Tomita--Takesaki {\cite{Takesaki2003}}]
+\label{thm:D-TT}
+Let $\mathcal{M}$ be a von Neumann algebra with cyclic and separating vector $|\Omega\rangle$, and let $\Delta_\Omega$, $J_\Omega$ be as above. Then:
+\begin{enumerate}
+\item[(a)] $J_\Omega \mathcal{M} J_\Omega = \mathcal{M}'$ (modular conjugation exchanges the algebra and its commutant).
+\item[(b)] The \textbf{modular automorphism group}
+\begin{equation}
+\sigma_t^\Omega(M) := \Delta_\Omega^{it} M \Delta_\Omega^{-it}, \qquad t \in \mathbb{R},
+\end{equation}
+satisfies $\sigma_t^\Omega(\mathcal{M}) = \mathcal{M}$ for all $t \in \mathbb{R}$.
+\end{enumerate}
+\end{theorem}
+
+Thus, any von Neumann algebra with a faithful state possesses a canonical one-parameter automorphism group.
+
+\subsubsection{The KMS Condition}
+
+\begin{definition}
+Let $\mathcal{M}$ be a von Neumann algebra, $\alpha_t$ a one-parameter automorphism group, and $\omega$ a normal state on $\mathcal{M}$.
+The state $\omega$ satisfies the \textbf{KMS condition} at inverse temperature $\beta$ with respect to $\alpha_t$ if, for all $A, B \in \mathcal{M}$, there exists a function $F_{A,B}(z)$ analytic in the strip $0 < \operatorname{Im}(z) < \beta$ and continuous on its closure, such that
+\begin{equation}
+F_{A,B}(t) = \omega(A \,\alpha_t(B)), \qquad F_{A,B}(t + i\beta) = \omega(\alpha_t(B)\, A)
+\end{equation}
+for all $t \in \mathbb{R}$.
+\end{definition}
+
+\begin{theorem}[Takesaki {\cite{Takesaki2003}}]
+\label{thm:D-KMS-unique}
+Let $\omega$ be a faithful normal state on a von Neumann algebra $\mathcal{M}$.
+Then $\omega$ is KMS at $\beta = 1$ with respect to $\sigma_t^\omega$, and $\sigma_t^\omega$ is the \emph{unique} one-parameter automorphism group with this property.
+\end{theorem}
+
+The physical content is striking: the modular flow is the unique time evolution for which the given state looks thermal.
+In the Rindler wedge, this flow is the Lorentz boost, and the KMS condition at $\beta = 2\pi$ reproduces the Unruh temperature $T_U = (2\pi)^{-1}$ (in natural units where the acceleration $a = 1$).
+
+\subsubsection{Half-Sided Modular Inclusions}
+
+\begin{definition}[{\cite{Wiesbrock1993}}]
+Let $\mathcal{N} \subset \mathcal{M}$ be an inclusion of von Neumann algebras on $\mathcal{H}$, with $|\Omega\rangle$ cyclic and separating for both.
+The inclusion is a \textbf{half-sided modular inclusion} (HSMI) if
+\begin{equation}
+\sigma_t^{\mathcal{M}}(\mathcal{N}) \subset \mathcal{N} \qquad \text{for all } t \leq 0,
+\end{equation}
+where $\sigma_t^{\mathcal{M}}$ denotes the modular automorphism group of $(\mathcal{M}, |\Omega\rangle)$.
+\end{definition}
+
+\begin{theorem}[Wiesbrock {\cite{Wiesbrock1993}}]
+\label{thm:D-Wiesbrock}
+Let $\mathcal{N} \subset \mathcal{M}$ be a half-sided modular inclusion with common cyclic and separating vector $|\Omega\rangle$.
+Then there exists a unique one-parameter unitary group $U(a) = e^{-iaP}$, $a \geq 0$, with positive generator $P \geq 0$, such that
+\begin{equation}
+\mathcal{N} = U(1)\mathcal{M} U(1)^*.
+\end{equation}
+Moreover, $U(a)|\Omega\rangle = |\Omega\rangle$ for all $a$.
+\end{theorem}
+
+The physical interpretation is that the translation from $\mathcal{M}$ to $\mathcal{N}$ is encoded algebraically: no background geometry is needed to define the notion of ``shifting a wedge.''
+This is the key tool for extracting spacetime structure from purely algebraic data.
+
+
+\subsection{Modular Definition of Accessible Algebras}
+\label{sec:D-modular-def}
+
+We now reformulate the physical accessibility criteria (Definition~\ref{def:D-accessible}) in algebraic terms.
+
+Let $\mathcal{H}_U$ be the universal Hilbert space, $|\Psi_U\rangle \in \mathcal{H}_U$ the global state, $\hat{H}$ the total Hamiltonian, and $\mathcal{E}_t$ the dynamical (decoherence) semigroup in the Schr\"odinger picture: $\mathcal{E}_t(\rho) = e^{t\mathcal{L}}(\rho)$ for a Lindblad generator $\mathcal{L}$.
+The Heisenberg-picture dual $\mathcal{E}_t^*$ acts on observables via $\mathrm{tr}(\mathcal{E}_t^*(A)\,\rho) = \mathrm{tr}(A\,\mathcal{E}_t(\rho))$.
+We seek a von Neumann subalgebra $\mathcal{A}_{\mathbf{c}} \subset \mathcal{B}(\mathcal{H}_U)$ representing the physically accessible observables.
+
+\begin{definition}[Modular accessible algebra]
+\label{def:D-modular-accessible}
+Define the state $\omega(\cdot) = \langle \Psi_U | \cdot | \Psi_U \rangle$.
+A von Neumann subalgebra $\mathcal{A}_{\mathbf{c}} \subset \mathcal{B}(\mathcal{H}_U)$ is a \textbf{modular accessible algebra} if it satisfies:
+
+\begin{enumerate}
+\item[\textup{(U1)}] \textbf{Faithfulness.} The restriction of $\omega$ to $\mathcal{A}_{\mathbf{c}}$ is faithful: $\omega(A^*A) = 0$ implies $A = 0$ for all $A \in \mathcal{A}_{\mathbf{c}}$.
+Equivalently, the GNS vector associated to $\omega|_{\mathcal{A}_{\mathbf{c}}}$ is cyclic and separating for $\mathcal{A}_{\mathbf{c}}$.
+
+\item[\textup{(U2)}] \textbf{Modular stability.} Let $\sigma_t^{\omega,\mathrm{tot}}$ denote the modular automorphism group of the pair $(\mathcal{B}(\mathcal{H}_U), \omega)$---the modular flow of the \emph{ambient} algebra.
+Then $\mathcal{A}_{\mathbf{c}}$ is globally invariant:
+\begin{equation}
+\sigma_t^{\omega,\mathrm{tot}}(\mathcal{A}_{\mathbf{c}}) = \mathcal{A}_{\mathbf{c}} \qquad \forall\, t \in \mathbb{R}.
+\end{equation}
+\emph{Note:} This is a non-trivial condition.
+The modular flow of $(\mathcal{A}_{\mathbf{c}}, \omega|_{\mathcal{A}_{\mathbf{c}}})$ preserves $\mathcal{A}_{\mathbf{c}}$ automatically by the Tomita--Takesaki theorem; requiring invariance under the \emph{ambient} modular flow $\sigma_t^{\omega,\mathrm{tot}}$ is a genuine constraint that selects subalgebras compatible with the global state's modular structure.
+
+\item[\textup{(U3)}] \textbf{Maximality.} $\mathcal{A}_{\mathbf{c}}$ is the \emph{maximal} von Neumann subalgebra of $\mathcal{B}(\mathcal{H}_U)$ satisfying (U1)--(U2) together with invariance under the Heisenberg-picture decoherence dynamics:
+\begin{equation}
+\mathcal{E}_t^*(\mathcal{A}_{\mathbf{c}}) \subset \mathcal{A}_{\mathbf{c}} \qquad \forall\, t \geq 0.
+\end{equation}
+That is, if $\mathcal{A}' \supset \mathcal{A}_{\mathbf{c}}$ also satisfies (U1), (U2), and decoherence invariance, then $\mathcal{A}' = \mathcal{A}_{\mathbf{c}}$.
+\end{enumerate}
+\end{definition}
+
+\begin{remark}[Relation to physical criteria]
+\label{rem:D-translation}
+The three algebraic conditions translate the three physical criteria as follows:
+
+\begin{center}
+\small
+\begin{tabular}{@{}P{3.2cm}P{4.5cm}P{5.5cm}@{}}
+\hline
+\textbf{Physical} & \textbf{Algebraic} & \textbf{Mechanism} \\
+\hline
+(P1) Dynamical invariance & (U3) $\mathcal{E}_t^*(\mathcal{A}_{\mathbf{c}}) \subset \mathcal{A}_{\mathbf{c}}$ & Heisenberg-picture decoherence invariance \\
+(P2) Redundancy & (U1) Faithfulness & Faithful state $\Leftrightarrow$ no lost information \\
+(P3) Non-scrambling & (U2) Modular stability & Ambient $\sigma_t^{\omega,\mathrm{tot}}$ preserving $\mathcal{A}_{\mathbf{c}}$; prevents information leakage \\
+\hline
+\end{tabular}
+\end{center}
+
+The mapping from (P2) to (U1): environmental redundancy ensures that the state restricted to $\mathcal{A}_{\mathbf{c}}$ does not lose any information about the relevant degrees of freedom---i.e., the restriction is faithful.
+A non-faithful restriction would mean that some operators in the algebra have zero expectation in all states reachable by environmental monitoring, contradicting redundancy.
+
+The mapping from (P3) to (U2): non-scrambling means that information encoded in accessible observables does not rapidly leak into the rest of $\mathcal{B}(\mathcal{H}_U)$.
+The modular automorphism group $\sigma_t^\omega$ is the canonical ``internal time evolution'' of the algebra with respect to the state $\omega$ (Theorem~\ref{thm:D-KMS-unique}).
+Modular stability of $\mathcal{A}_{\mathbf{c}}$ under $\sigma_t^\omega$ means that this internal evolution does not generate operators outside $\mathcal{A}_{\mathbf{c}}$---a precise algebraic version of non-scrambling.
+\end{remark}
+
+\begin{remark}[The role of $\mathcal{E}_t$]
+Condition (U3) incorporates the decoherence dynamics $\mathcal{E}_t$ into the maximality condition.
+This is the only place where the physical environment enters the algebraic definition.
+In AQFT on Minkowski space, $\mathcal{E}_t$ can be identified with the restriction map to a causal domain.
+In open quantum systems, $\mathcal{E}_t$ is the Lindblad semigroup.
+The framework requires only that $\mathcal{E}_t$ is a normal completely positive map on $\mathcal{B}(\mathcal{H}_U)$.
+\end{remark}
+
+
+\subsection{Uniqueness Theorem}
+\label{sec:D-modular-uniqueness}
+
+We now prove that the modular accessible algebra, if it exists, is unique up to unitary equivalence.
+
+\begin{theorem}[Uniqueness of the modular accessible algebra]
+\label{thm:D-uniqueness}
+Let $(\mathcal{H}_U, |\Psi_U\rangle, \hat{H}, \mathcal{E}_t)$ be a quantum system as above, and assume the following ergodicity condition:
+
+\medskip
+\noindent\textbf{(E)} \textit{The joint action of the modular flow $\sigma_t^\omega$ and the decoherence map $\mathcal{E}_t$ is ergodic on $\mathcal{B}(\mathcal{H}_U)$: the only operator invariant under both is a scalar multiple of the identity.}
+\medskip
+
+\noindent Then the modular accessible algebra $\mathcal{A}_{\mathbf{c}}$ satisfying \textup{(U1)--(U3)} is unique up to unitary equivalence.
+That is, if $\mathcal{A}'$ also satisfies \textup{(U1)--(U3)}, there exists a unitary $U \in \mathcal{B}(\mathcal{H}_U)$ such that $U\mathcal{A}_{\mathbf{c}} U^* = \mathcal{A}'$.
+\end{theorem}
+
+\begin{proof}
+The argument proceeds in three steps.
+
+\medskip
+\noindent\textbf{Step 1: Uniqueness of modular flow.}
+By Theorem~\ref{thm:D-KMS-unique}, for any faithful normal state $\omega$ on a von Neumann algebra $\mathcal{M}$, the modular automorphism group $\sigma_t^\omega$ is the \emph{unique} one-parameter automorphism group satisfying the KMS condition at $\beta = 1$.
+Therefore, given the global state $|\Psi_U\rangle$ and a candidate algebra $\mathcal{A}_{\mathbf{c}}$ satisfying (U1), the modular flow on $\mathcal{A}_{\mathbf{c}}$ is uniquely determined.
+There is no freedom in the choice of modular automorphism: it is a function of $(\mathcal{A}_{\mathbf{c}}, \omega)$ alone.
+
+\medskip
+\noindent\textbf{Step 2: Invariant subalgebra under joint dynamics.}
+Condition (U2) requires $\mathcal{A}_{\mathbf{c}}$ to be globally \emph{invariant} (not element-wise fixed) under the ambient modular flow: $\sigma_t^{\omega,\mathrm{tot}}(\mathcal{A}_{\mathbf{c}}) = \mathcal{A}_{\mathbf{c}}$ for all $t$.
+Condition (U3) requires $\mathcal{E}_t^*(\mathcal{A}_{\mathbf{c}}) \subset \mathcal{A}_{\mathbf{c}}$ for all $t \geq 0$.
+Together, $\mathcal{A}_{\mathbf{c}}$ lies in the lattice of von Neumann subalgebras that are simultaneously \emph{invariant} under the ambient modular automorphisms and under the Heisenberg-picture decoherence semigroup.
+
+Consider the set $\mathfrak{L}$ of all von Neumann subalgebras of $\mathcal{B}(\mathcal{H}_U)$ that are invariant under $\sigma_t^{\omega,\mathrm{tot}}$ and under $\mathcal{E}_t^*$, and on which $\omega$ is faithful.
+Under the ergodicity assumption (E), we claim $\mathfrak{L}$ contains a unique maximal element.
+
+To see this, suppose $\mathcal{A}_{\mathbf{c}}$ and $\mathcal{A}'$ are two maximal elements of $\mathfrak{L}$.
+Define the \emph{join} $\mathcal{A}_{\mathbf{c}} \vee \mathcal{A}'$, the von Neumann algebra generated by $\mathcal{A}_{\mathbf{c}}$ and $\mathcal{A}'$.
+
+\medskip
+\noindent\textbf{Step 3: Maximality forces uniqueness.}
+We claim that if both $\mathcal{A}_{\mathbf{c}}$ and $\mathcal{A}'$ satisfy (U1)--(U3), then $\mathcal{A}_{\mathbf{c}} = \mathcal{A}'$ (up to unitary equivalence).
+
+\textit{Invariance is preserved under joins.}
+If $\sigma_t^{\omega,\mathrm{tot}}(\mathcal{A}_{\mathbf{c}}) = \mathcal{A}_{\mathbf{c}}$ and $\sigma_t^{\omega,\mathrm{tot}}(\mathcal{A}') = \mathcal{A}'$, then $\sigma_t^{\omega,\mathrm{tot}}(\mathcal{A}_{\mathbf{c}} \vee \mathcal{A}') = \mathcal{A}_{\mathbf{c}} \vee \mathcal{A}'$, since automorphisms respect the lattice of von Neumann subalgebras.
+Similarly, if $\mathcal{E}_t$ preserves both $\mathcal{A}_{\mathbf{c}}$ and $\mathcal{A}'$, it preserves their join (as the smallest algebra containing both).
+Thus $\mathcal{A}_{\mathbf{c}} \vee \mathcal{A}'$ is invariant under both dynamics.
+
+\textit{Faithfulness constrains the join.}
+If $\omega$ is faithful on both $\mathcal{A}_{\mathbf{c}}$ and $\mathcal{A}'$, it need not be faithful on $\mathcal{A}_{\mathbf{c}} \vee \mathcal{A}'$ in general.
+Under the ergodicity assumption~(E)---that the Heisenberg-picture decoherence semigroup $\mathcal{E}_t^*$ has no non-trivial invariant subalgebras beyond its fixed-point algebra---any proper extension of $\mathcal{A}_{\mathbf{c}}$ within the invariant lattice must contain operators that $\mathcal{E}_t$ does not preserve, or on which $\omega$ fails to be faithful.
+
+\textit{Conclusion.}
+If $\mathcal{A}_{\mathbf{c}} \vee \mathcal{A}'$ satisfies (U1)--(U3), then by maximality of $\mathcal{A}_{\mathbf{c}}$ we have $\mathcal{A}_{\mathbf{c}} \vee \mathcal{A}' = \mathcal{A}_{\mathbf{c}}$, hence $\mathcal{A}' \subset \mathcal{A}_{\mathbf{c}}$.
+If $\mathcal{A}_{\mathbf{c}} \vee \mathcal{A}'$ violates (U1) or (U2), then the maximality of $\mathcal{A}'$ gives $\mathcal{A}_{\mathbf{c}} \subset \mathcal{A}'$ by the symmetric argument.
+In either case, $\mathcal{A}_{\mathbf{c}} = \mathcal{A}'$ as von Neumann algebras.
+The residual unitary freedom (between different faithful normal representations of the same abstract algebra) is absorbed by the standard form~\cite{Haagerup1975}.
+\end{proof}
+
+\begin{remark}[On the ergodicity assumption]
+\label{rem:D-ergodicity}
+Condition (E) excludes systems with degenerate ground states, spontaneous symmetry breaking, or phase coexistence, which may support multiple non-unitarily-equivalent accessible algebras.
+This is the algebraic analogue of the non-uniqueness of the broken-symmetry vacuum in quantum field theory.
+When (E) fails, the space of accessible algebras acquires a non-trivial moduli space, analogous to the landscape of superselection sectors in AQFT.
+\end{remark}
+
+\begin{remark}[Physical content of maximality]
+Maximality (U3) has a clear physical meaning: the accessible algebra should contain \emph{all} observables that are stable under both modular flow and decoherence.
+If an operator is stable but excluded from $\mathcal{A}_{\mathbf{c}}$, it should in principle be observable, contradicting the assumption that $\mathcal{A}_{\mathbf{c}}$ captures all accessible information.
+Maximality thus enforces completeness of the physical description.
+\end{remark}
+
+
+\subsection{Example 1: Rindler Wedge}
+\label{sec:D-rindler}
+
+Consider a free massless scalar field $\phi(x)$ in $(1+3)$-dimensional Minkowski spacetime $(\mathbb{R}^{1,3}, \eta_{\mu\nu})$.
+The total Hilbert space is the Fock space $\mathcal{H}_U = \mathcal{F}(\mathcal{H}_1)$ over the one-particle space $\mathcal{H}_1 = L^2(\mathbb{R}^3)$.
+The global state is the Minkowski vacuum $|\Omega\rangle$.
+
+Define the right Rindler wedge:
+\begin{equation}
+\mathcal{W}_R = \{(t, x, y, z) \in \mathbb{R}^{1,3} : x > |t|\}.
+\end{equation}
+The local algebra $\mathcal{R}(\mathcal{W}_R) = \{e^{i\phi(f)} : \operatorname{supp} f \subset \mathcal{W}_R\}''$ is the von Neumann algebra generated by Weyl operators smeared with test functions supported in $\mathcal{W}_R$.
+
+\subsubsection{Verification of (U1): Faithfulness}
+
+The Reeh--Schlieder theorem \cite{Haag1996} guarantees that the Minkowski vacuum $|\Omega\rangle$ is cyclic and separating for $\mathcal{R}(\mathcal{W}_R)$.
+Therefore, the state $\omega(\cdot) = \langle\Omega|\cdot|\Omega\rangle$ is faithful on $\mathcal{R}(\mathcal{W}_R)$.
+
+\subsubsection{Verification of (U2): Modular stability}
+
+By the Bisognano--Wichmann theorem \cite{BisognanoWichmann1975, BisognanoWichmann1976}, the modular operator of $(\mathcal{R}(\mathcal{W}_R), |\Omega\rangle)$ is
+\begin{equation}
+\Delta_\Omega = e^{-2\pi K},
+\end{equation}
+where $K$ is the boost generator in the $x$-direction.
+The modular automorphism group acts as
+\begin{equation}
+\sigma_t^\Omega(\phi(t_0, \mathbf{x})) = \phi(\Lambda_{2\pi t}(t_0, \mathbf{x})),
+\end{equation}
+where $\Lambda_s$ is the Lorentz boost with rapidity $s$.
+Since the Rindler wedge is invariant under Lorentz boosts---$\Lambda_s(\mathcal{W}_R) = \mathcal{W}_R$ for all $s$---the modular flow preserves the wedge algebra:
+\begin{equation}
+\sigma_t^\Omega(\mathcal{R}(\mathcal{W}_R)) = \mathcal{R}(\mathcal{W}_R) \qquad \forall\, t \in \mathbb{R}.
+\end{equation}
+
+\subsubsection{Verification of (U3): Maximality}
+
+By Haag duality for wedge regions \cite{Haag1996}, $\mathcal{R}(\mathcal{W}_R)' = \mathcal{R}(\mathcal{W}_L)$, where $\mathcal{W}_L$ is the left Rindler wedge.
+Any extension $\mathcal{A}' \supsetneq \mathcal{R}(\mathcal{W}_R)$ must contain operators in $\mathcal{R}(\mathcal{W}_L)$.
+Such operators are mapped outside $\mathcal{R}(\mathcal{W}_R)$ by the modular flow (boost), so any proper extension would violate either (U1) or (U2).
+The wedge algebra is maximal.
+
+\subsubsection{Physical content}
+
+The modular flow $\sigma_t^\Omega$ coincides with the Lorentz boost, and the KMS condition at $\beta = 2\pi$ gives the Unruh temperature $T_U = a/(2\pi)$, where $a$ is the proper acceleration.
+The modular Hamiltonian is
+\begin{equation}
+K_{\mathrm{mod}} = -\ln \Delta_\Omega = 2\pi K = 2\pi \int_{\mathcal{W}_R} d\Sigma^\mu\, x_\nu\, T^{\nu}{}_\mu,
+\end{equation}
+where $d\Sigma^\mu$ is the surface element on the $t = 0$ Cauchy surface.
+This example demonstrates that the modular accessible algebra framework reproduces the standard Rindler physics: the accessible algebra is the wedge algebra, its modular flow is the boost, and the KMS state is the Unruh thermal state.
+
+
+\subsection{Example 2: Qubit Chain with Decoherence}
+\label{sec:D-qubit}
+
+Consider $n$ qubits with total Hilbert space $\mathcal{H}_U = (\mathbb{C}^2)^{\otimes n}$.
+The system Hamiltonian is the transverse-field Ising model:
+\begin{equation}
+\hat{H} = -J \sum_{i=1}^{n-1} \sigma_z^{(i)} \sigma_z^{(i+1)} - h \sum_{i=1}^{n} \sigma_x^{(i)},
+\end{equation}
+with $J > 0$ and transverse field strength $h$.
+The system is coupled to a thermal environment at inverse temperature $\beta$ through a dephasing Lindblad master equation:
+\begin{equation}
+\label{eq:D-lindblad}
+\mathcal{E}_t(\rho) = e^{t\mathcal{L}}(\rho), \qquad \mathcal{L}(\rho) = -i[\hat{H}, \rho] + \gamma \sum_i \left(\sigma_z^{(i)} \rho\, \sigma_z^{(i)} - \rho\right),
+\end{equation}
+where $\gamma > 0$ is the dephasing rate.
+The global state is the thermal state $\omega = Z^{-1} e^{-\beta \hat{H}}$.
+
+\subsubsection{Identification of $\mathcal{A}_{\mathbf{c}}$}
+
+In the strong dephasing limit $\gamma \gg J, h$, off-diagonal coherences in the $\sigma_z$ basis are rapidly destroyed.
+The decoherence-stable observables form the \emph{pointer basis algebra}:
+\begin{equation}
+\mathcal{A}_{\mathbf{c}} = \{f(\sigma_z^{(1)}, \ldots, \sigma_z^{(n)}) : f \text{ is a polynomial}\}'' = \mathcal{A}_{\mathrm{diag}},
+\end{equation}
+the maximal abelian subalgebra (MASA) of $\mathcal{B}(\mathcal{H}_U)$ associated with the computational basis.
+
+\subsubsection{Verification of (U1): Faithfulness}
+
+The thermal state $\omega = Z^{-1}e^{-\beta\hat{H}}$ is a full-rank density matrix for any finite $\beta$ (every eigenvalue of $e^{-\beta\hat{H}}$ is strictly positive).
+Its restriction to $\mathcal{A}_{\mathrm{diag}}$ assigns non-zero probability to every computational-basis state:
+\begin{equation}
+\omega(|s\rangle\langle s|) = \langle s | \rho_{\mathrm{th}} | s \rangle > 0 \qquad \forall\; s,
+\end{equation}
+where the strict positivity follows from $\rho_{\mathrm{th}} = Z^{-1}e^{-\beta\hat{H}}$ being positive definite.
+Note that $|s\rangle$ are computational-basis (not energy-eigen-) states; the diagonal matrix elements of a positive-definite operator are strictly positive regardless of the choice of basis.
+
+\subsubsection{Verification of (U2): Modular stability}
+
+For the finite-dimensional system with faithful thermal state $\rho_{\mathrm{th}}$, the ambient modular flow acts on $\mathcal{B}(\mathcal{H}_U)$ as
+\begin{equation}
+\sigma_t^{\omega,\mathrm{tot}}(X) = \rho_{\mathrm{th}}^{it}\, X\, \rho_{\mathrm{th}}^{-it} \qquad \forall\, X \in \mathcal{B}(\mathcal{H}_U).
+\end{equation}
+For diagonal operators $A = \sum_s a_s |s\rangle\langle s| \in \mathcal{A}_{\mathrm{diag}}$, we compute
+\begin{equation}
+\sigma_t^{\omega,\mathrm{tot}}(A) = \rho_{\mathrm{th}}^{it} \left(\sum_s a_s |s\rangle\langle s|\right) \rho_{\mathrm{th}}^{-it} = \sum_s a_s\, (\rho_{\mathrm{th}}^{it}|s\rangle)(\langle s|\rho_{\mathrm{th}}^{-it}).
+\end{equation}
+Since $\rho_{\mathrm{th}} = Z^{-1}e^{-\beta\hat{H}}$ and the computational basis $\{|s\rangle\}$ is \emph{not} the energy eigenbasis (when $h \neq 0$), the vectors $\rho_{\mathrm{th}}^{it}|s\rangle$ are non-trivial superpositions, and $\sigma_t^{\omega,\mathrm{tot}}(A) \notin \mathcal{A}_{\mathrm{diag}}$ in general.
+
+However, in the strong-dephasing regime $\gamma \gg J, h$, the effective steady-state density matrix converges to a diagonal form $\rho_{\mathrm{ss}} \approx \sum_s p_s |s\rangle\langle s|$, for which $\rho_{\mathrm{ss}}^{it}|s\rangle = p_s^{it}|s\rangle$ and (U2) is satisfied exactly.
+This illustrates that (U2) imposes a genuine compatibility condition between the algebra and the global state: $\mathcal{A}_{\mathrm{diag}}$ is a modular accessible algebra for the dephasing-dominated steady state, not for an arbitrary thermal state of the full Hamiltonian.
+
+\subsubsection{Verification of (U3): Maximality}
+
+Any extension $\mathcal{A}' \supsetneq \mathcal{A}_{\mathrm{diag}}$ must contain off-diagonal operators $|s\rangle\langle s'|$ with $s \neq s'$.
+Under the dephasing part of the Lindbladian alone, such operators decay as
+\begin{equation}
+e^{t\mathcal{L}_{\mathrm{deph}}}(|s\rangle\langle s'|) = e^{-2\gamma\, d(s,s')\, t}\, |s\rangle\langle s'|,
+\end{equation}
+where $d(s, s')$ is the Hamming distance between strings $s$ and $s'$.
+In the strong-dephasing regime $\gamma \gg J, h$, the full Lindbladian $\mathcal{L} = \mathcal{L}_H + \mathcal{L}_{\mathrm{deph}}$ causes off-diagonal elements to decay at rate $2\gamma\, d(s,s')$ to leading order, with Hamiltonian-induced corrections of order $J/\gamma$ and $h/\gamma$.
+The fixed-point algebra of the dephasing semigroup is precisely $\mathcal{A}_{\mathrm{diag}}$, since only diagonal operators are invariant.
+Any modular-accessible algebra satisfying (U3) must be contained in $\mathcal{A}_{\mathrm{fix}} = \mathcal{A}_{\mathrm{diag}}$, and since $\mathcal{A}_{\mathrm{diag}}$ already satisfies (U1)--(U2), it is maximal.
+
+\subsubsection{Physical content}
+
+The accessible algebra is the pointer basis algebra: the set of observables that survive decoherence.
+The modular flow acts trivially on the pointer basis (since the algebra is abelian), consistent with the fact that classical variables do not undergo non-trivial modular evolution.
+The entanglement entropy of a subsystem $A \subset \{1, \ldots, n\}$ within $\mathcal{A}_{\mathrm{diag}}$ reduces to the classical Shannon entropy:
+\begin{equation}
+S_A = -\sum_{s_A} p(s_A) \ln p(s_A), \qquad p(s_A) = \sum_{s_{\bar{A}}} p(s).
+\end{equation}
+This example demonstrates that the modular accessible algebra framework correctly identifies the decoherence-preferred observables in a finite-dimensional open quantum system.
+
+
+\subsection{Connection to Linearized Gravity}
+\label{sec:D-linearized}
+
+Having established the algebraic framework and verified it in concrete models, we outline the connection to gravitational dynamics.
+
+\subsubsection{Entanglement first law}
+
+\begin{theorem}[Entanglement first law]
+\label{thm:D-first-law}
+Let $\mathcal{M}$ be a von Neumann algebra with cyclic and separating vector $|\Omega\rangle$, and let $|\Psi\rangle = |\Omega\rangle + \varepsilon|\chi\rangle + O(\varepsilon^2)$ be a nearby state.
+Let $K_{\mathrm{mod}} = -\ln \Delta_\Omega$ be the modular Hamiltonian.
+Then, to first order in $\varepsilon$:
+\begin{equation}
+\delta S_{\mathcal{M}} = \delta \langle K_{\mathrm{mod}} \rangle,
+\end{equation}
+where $\delta S_{\mathcal{M}}$ is the change in entanglement entropy and $\delta\langle K_{\mathrm{mod}} \rangle$ is the change in the expectation value of the modular Hamiltonian.
+\end{theorem}
+
+\begin{proof}[Proof sketch]
+The relative entropy $S(\rho^\Psi \| \rho^\Omega) = -S(\rho^\Psi) + \langle K_{\mathrm{mod}} \rangle_\Psi + \text{const}$ is non-negative and vanishes for $|\Psi\rangle = |\Omega\rangle$.
+The first variation at $\varepsilon = 0$ gives $0 = -\delta S_{\mathcal{M}} + \delta\langle K_{\mathrm{mod}}\rangle$, yielding $\delta S_{\mathcal{M}} = \delta\langle K_{\mathrm{mod}}\rangle$.
+\end{proof}
+
+\subsubsection{From algebra perturbation to modular Hamiltonian perturbation}
+
+In the HAFF framework, the accessible algebra $\mathcal{A}_{\mathbf{c}}$ evolves as the global state changes.
+Consider a one-parameter family $\mathcal{A}_{\mathbf{c}}(\lambda)$, with $\mathcal{A}_{\mathbf{c}}(0) = \mathcal{A}_{\mathbf{c}}$.
+Two sources of perturbation contribute:
+
+\begin{enumerate}
+\item[(a)] \textbf{State perturbation (fixed algebra):} The global state changes, $|\Psi_U\rangle \to |\Psi_U'\rangle$, but the algebra remains fixed.
+The modular Hamiltonian changes via the Connes cocycle Radon--Nikodym theorem \cite{Connes1994, Takesaki2003}:
+\begin{equation}
+\Delta_{\Psi'}^{it} = (D\omega' : D\omega)_t \; \Delta_\Psi^{it},
+\end{equation}
+where $(D\omega' : D\omega)_t$ is the Connes cocycle.
+
+\item[(b)] \textbf{Algebra perturbation (fixed state):} The subalgebra satisfying the stability conditions shifts.
+In the language of half-sided modular inclusions (Theorem~\ref{thm:D-Wiesbrock}), the perturbation can be described by
+\begin{equation}
+\mathcal{A}_{\mathbf{c}}' = e^{-i\delta a\, P} \mathcal{A}_{\mathbf{c}}\, e^{i\delta a\, P}, \qquad \delta a \ll 1,
+\end{equation}
+yielding
+\begin{equation}
+\label{eq:D-deltaK-translation}
+\delta K_{\mathrm{mod}} = -i\delta a\, [P, K_{\mathrm{mod}}] + O(\delta a^2).
+\end{equation}
+\end{enumerate}
+
+In the general case (combined perturbation):
+\begin{equation}
+\label{eq:D-deltaK-total}
+\delta K_{\mathrm{mod}} = \delta K_{\mathrm{state}} + \delta K_{\mathrm{algebra}}.
+\end{equation}
+
+\subsubsection{Linearized Einstein equations from the entanglement first law}
+
+The key result connecting algebraic perturbation to gravitational dynamics is due to Faulkner et al.\ \cite{Faulkner2014}, with complementary arguments by Jacobson \cite{Jacobson2016}.
+
+\begin{theorem}[Linearized gravity from entanglement, {\cite{Faulkner2014}}]
+\label{thm:D-linearized-Faulkner}
+In a holographic CFT dual to Einstein gravity in asymptotically AdS spacetime, the entanglement first law $\delta S = \delta\langle K_{\mathrm{mod}}\rangle$, applied to all ball-shaped regions on the boundary, is equivalent to the linearized Einstein equations in the bulk:
+\begin{equation}
+G_{\mu\nu}^{(1)} + \Lambda g_{\mu\nu}^{(1)} = 8\pi G_N\, T_{\mu\nu}^{(1)}.
+\end{equation}
+\end{theorem}
+
+The derivation uses the explicit form of the modular Hamiltonian for a ball-shaped boundary region \cite{CasiniHuertaMyers2011}:
+\begin{equation}
+K_{\mathrm{mod}}^B = 2\pi \int_B d^{d-1}x\, \frac{R^2 - |\mathbf{x} - \mathbf{x}_0|^2}{2R}\, T_{00}(x),
+\end{equation}
+together with the Ryu--Takayanagi formula and the JLMS relation \cite{JLMS2016} between bulk and boundary modular Hamiltonians.
+
+\subsubsection{Conditional theorem within the HAFF framework}
+
+\begin{theorem}[Linearized gravity from accessible algebra perturbation]
+\label{thm:D-linearized}
+Let $\mathcal{A}_{\mathbf{c}}$ be a modular accessible algebra satisfying \textup{(U1)--(U3)} in a holographic CFT vacuum state, and assume:
+\begin{enumerate}
+\item[(H1)] The holographic correspondence (AdS/CFT duality) holds.
+\item[(H2)] The Ryu--Takayanagi formula and its quantum corrections hold.
+\item[(H3)] The JLMS formula relating bulk and boundary modular Hamiltonians holds.
+\end{enumerate}
+Then a perturbation of the accessible algebra $\mathcal{A}_{\mathbf{c}} \to \mathcal{A}_{\mathbf{c}} + \delta\mathcal{A}_{\mathbf{c}}$ induces a perturbation of the modular Hamiltonian $\delta K_{\mathrm{mod}}$, and the entanglement first law
+\begin{equation}
+\delta S = \delta\langle K_{\mathrm{mod}}\rangle
+\end{equation}
+is equivalent to the linearized Einstein equations in the holographic bulk.
+The chain of implications is:
+\begin{equation}
+\delta\mathcal{A}_{\mathbf{c}} \;\xrightarrow{\text{modular theory}}\; \delta K_{\mathrm{mod}} \;\xrightarrow{\text{first law}}\; \delta S = \delta\langle K_{\mathrm{mod}}\rangle \;\xrightarrow{\text{(H1)--(H3)}}\; G_{\mu\nu}^{(1)} = 8\pi G_N T_{\mu\nu}^{(1)}.
+\end{equation}
+In the HAFF language: the adiabatic flow of the accessible algebra IS linearized gravitational dynamics.
+\end{theorem}
+
+\subsubsection{The circularity issue}
+
+A fundamental objection to any ``gravity from entanglement'' program is circularity: Jacobson's derivation \cite{Jacobson1995} presupposes a background geometry, but HAFF claims geometry emerges from the algebra.
+Three resolutions are available:
+
+\begin{enumerate}
+\item[(A)] \textbf{Algebraic resolution (Wiesbrock).}
+``Wedge regions'' are defined purely algebraically via modular inclusions, without reference to a background metric.
+Wiesbrock's theorem (Theorem~\ref{thm:D-Wiesbrock}) recovers translations from half-sided modular inclusions; a sufficient net of such inclusions reconstructs the full Poincar\'{e} group.
+
+\item[(B)] \textbf{Bootstrap resolution.}
+Start with a seed geometry, derive linearized Einstein equations via the entanglement first law, update the geometry, and iterate.
+
+\item[(C)] \textbf{Holographic resolution (AdS/CFT).}
+The boundary CFT provides the algebra without reference to bulk geometry; the bulk geometry is entirely derived from boundary data.
+\end{enumerate}
+
+In Theorem~\ref{thm:D-linearized}, we adopt resolution~(C).
+Resolution~(A) provides the most promising path for a geometry-free formulation in subsequent work.
+
 
 \section{Relation to Existing Approaches}
 \label{sec:D-relation}
@@ -2112,7 +2707,7 @@ The present framework generalizes this observation: tensor networks are specific
 
 Jacobson's remarkable result \cite{Jacobson1995} showed that Einstein's field equations can be derived from thermodynamic considerations applied to local Rindler horizons, assuming the Bekenstein-Hawking entropy formula and the Clausius relation $\delta Q = T \, dS$.
 
-This derivation suggests that gravity may be ``thermodynamic''''”an effective description arising from coarse-graining over microscopic degrees of freedom, rather than a fundamental force.
+This derivation suggests that gravity may be ``thermodynamic''---an effective description arising from coarse-graining over microscopic degrees of freedom, rather than a fundamental force.
 
 The present perspective is consonant with Jacobson's approach:
 \begin{itemize}
@@ -2125,7 +2720,7 @@ The contribution of the present work is to embed this intuition within a more ge
 
 \subsection{Background Independence in Loop Quantum Gravity}
 
-Loop quantum gravity \cite{Rovelli2004,Thiemann2007} pursues quantization of gravity while maintaining background independence''”the principle that physical laws should not depend on a fixed spacetime metric.
+Loop quantum gravity \cite{Rovelli2004,Thiemann2007} pursues quantization of gravity while maintaining background independence---the principle that physical laws should not depend on a fixed spacetime metric.
 
 The present framework shares this commitment to background independence, but approaches it differently:
 \begin{itemize}
@@ -2140,7 +2735,7 @@ These are not mutually exclusive. It is conceivable that spin network states cou
 \begin{table}[ht]
 \centering
 \small
-\begin{tabular}{|p{2.8cm}|p{4.5cm}|p{5.5cm}|}
+\begin{tabular}{|P{2.8cm}|P{4.5cm}|P{5.5cm}|}
 \hline
 \textbf{Approach} & \textbf{Key Mechanism} & \textbf{Relation to Present Work} \\
 \hline
@@ -2167,11 +2762,11 @@ To ensure clarity regarding the claims of this paper, we state explicitly what i
 \subsection{What This Paper Claims}
 
 \begin{enumerate}
-    \item \textbf{Categorical distinction:} Gauge forces and gravity are distinguished at the level of their relation to subsystem decomposition''”gauge forces operate within a fixed decomposition, while gravitational phenomena reflect the evolution of the decomposition itself.
+    \item \textbf{Categorical distinction:} Gauge forces and gravity are distinguished at the level of their relation to subsystem decomposition---gauge forces operate within a fixed decomposition, while gravitational phenomena reflect the evolution of the decomposition itself.
     
     \item \textbf{Generative mechanism:} Gravitational dynamics arises from the adiabatic flow of accessible algebras as the global quantum state evolves (Conjecture~\ref{conj:main}).
     
-    \item \textbf{Equivalence principle:} The universality of gravitational coupling follows from the universality of the observable algebra''”all accessible matter inhabits the geometry defined by $\mathcal{A}_{\mathbf{c}}$.
+    \item \textbf{Equivalence principle:} The universality of gravitational coupling follows from the universality of the observable algebra---all accessible matter inhabits the geometry defined by $\mathcal{A}_{\mathbf{c}}$.
     
     \item \textbf{Information-geometric metric:} The emergent spacetime metric can be identified with the Quantum Fisher Information Metric on the space of effective descriptions.
     
@@ -2183,7 +2778,7 @@ To ensure clarity regarding the claims of this paper, we state explicitly what i
 \begin{enumerate}
     \item \textbf{No new dynamics:} We do not propose equations of motion, Lagrangians, or dynamical principles beyond those already established.
     
-    \item \textbf{No derivation of Einstein equations:} We do not claim to derive general relativity or its quantum corrections from first principles.
+    \item \textbf{No unconditional derivation of Einstein equations:} The linearized result (Section~\ref{sec:D-linearized}) is conditional on holographic assumptions (H1)--(H3); we do not derive general relativity from first principles.
     
     \item \textbf{No empirical predictions:} We do not offer testable predictions that distinguish this perspective from standard approaches.
     
@@ -2197,27 +2792,23 @@ To ensure clarity regarding the claims of this paper, we state explicitly what i
 \section{Open Questions}
 \label{sec:D-open}
 
-The structural analysis presented here raises several questions that lie beyond its scope but may be fruitful for future investigation.
+The algebraic foundation established in Section~\ref{sec:D-modular} sharpens the open problems facing the HAFF gravity program. The following are the immediate targets for subsequent work.
 
-\subsection{Dynamics of Coarse-Graining Selection}
+\subsection{Linearized Einstein Equations without Holography}
 
-If gravitational phenomena reflect changes in accessible algebra structure, what determines how such structures evolve? Is there a ``meta-dynamics'' governing transitions between coarse-grainings, or are these transitions themselves emergent from more fundamental principles?
+Theorem~\ref{thm:D-linearized} derives the linearized Einstein equations conditionally, assuming the holographic correspondence (H1)--(H3). A fully general derivation from algebraic perturbation theory would require establishing a ``bulk reconstruction'' from the modular data of $\mathcal{A}_{\mathbf{c}}$ and its perturbations, using Wiesbrock-type inclusions (Theorem~\ref{thm:D-Wiesbrock}) to define spacetime translations algebraically. This would remove the dependence on AdS/CFT and extend the result to non-holographic settings.
 
-\subsection{Recovery of Classical Limits}
+\subsection{Moduli Space when Ergodicity Fails}
 
-How does the Newtonian limit of gravity emerge from this perspective? In standard general relativity, the weak-field, slow-motion limit yields Newtonian gravity. What is the analogous limit in a framework where gravity reflects coarse-graining structure?
+The uniqueness theorem (Theorem~\ref{thm:D-uniqueness}) requires the ergodicity assumption~(E). When (E) fails---in systems with spontaneous symmetry breaking, topological order, or phase coexistence---the space of accessible algebras acquires a non-trivial moduli space (Remark~\ref{rem:D-ergodicity}). Characterizing this moduli space, and determining whether it carries a natural metric (e.g., the Fisher information metric on modular Hamiltonians) that encodes the geometry of the space of effective descriptions, is an important structural problem.
 
-\subsection{Black Hole Thermodynamics}
+\subsection{Computing $\delta K_{\mathrm{mod}}$ beyond Linear Order}
 
-Black hole entropy is intimately connected to both geometry (horizon area) and information theory (entanglement entropy). How does the present framework illuminate''”or constrain''”accounts of black hole thermodynamics?
+The connection to linearized gravity (Section~\ref{sec:D-linearized}) uses only the first-order perturbation of the modular Hamiltonian. Computing $\delta K_{\mathrm{mod}}$ explicitly for perturbations of the accessible algebra in specific models, beyond the linear order, is essential for accessing nonlinear gravitational dynamics. The second-order correction may contain information about the gravitational coupling constant $G_N$ and matter content.
 
-\subsection{Cosmological Implications}
+\subsection{The Backreaction Problem}
 
-Does the coarse-graining perspective have implications for cosmology? Could the large-scale structure of the universe, or cosmological puzzles such as the horizon problem, be related to properties of cosmic-scale accessible algebras?
-
-\subsection{Mathematical Formalization}
-
-Can the conjecture stated in Section~\ref{sec:D-technical} be formalized with sufficient precision to permit mathematical investigation? What would constitute a proof''”or disproof''”of the claim that gravitational phenomena are coarse-graining effects?
+How does the change in bulk geometry (induced by $\delta\mathcal{A}_{\mathbf{c}}$) feed back into the boundary conditions that determine $\mathcal{A}_{\mathbf{c}}$? This self-consistency condition may select a unique trajectory $\mathcal{A}_{\mathbf{c}}(t)$ and hence a unique gravitational dynamics. Resolving this backreaction loop is the central challenge for deriving the full nonlinear Einstein equations from the algebraic framework.
 
 \section{Conclusion}
 \label{sec:D-conclusion}
@@ -2235,13 +2826,20 @@ The core claims are:
     \item \textbf{Information geometry:} The emergent metric is the Quantum Fisher Information Metric on the manifold of effective descriptions.
 \end{enumerate}
 
-This framework does not derive the Einstein equations from first principles, nor does it resolve the problem of quantum gravity. However, it offers more than a diagnostic: it proposes a \emph{generative mechanism} that explains why gravity has the structural features it does''”universality, dynamical geometry, resistance to naive quantization.
+This framework does not derive the Einstein equations from first principles, nor does it resolve the problem of quantum gravity. However, it offers more than a diagnostic: it proposes a \emph{generative mechanism} that explains why gravity has the structural features it does---universality, dynamical geometry, resistance to naive quantization.
 
 The perspective is consistent with, and provides a conceptual umbrella for, existing research programs: holographic duality (where boundary entanglement encodes bulk geometry), tensor networks (where network structure induces effective geometry), and thermodynamic approaches (where Einstein equations emerge from entropy considerations).
 
+The algebraic foundation developed in Section~\ref{sec:D-modular} elevates this framework from structural conjecture to mathematically precise statement. By translating the three physical accessibility criteria into Tomita--Takesaki modular theory---faithfulness (U1), modular stability (U2), and maximality (U3)---we proved that the accessible algebra is unique up to unitary equivalence under mild ergodicity assumptions (Theorem~\ref{thm:D-uniqueness}), and verified the construction in both the Rindler wedge (reproducing Bisognano--Wichmann and Unruh physics) and a qubit chain with decoherence (recovering the pointer basis algebra). Most significantly, we established the derivation chain
+\begin{equation}
+\delta\mathcal{A}_{\mathbf{c}} \;\longrightarrow\; \delta K_{\mathrm{mod}} \;\longrightarrow\; \delta S = \delta\langle K_{\mathrm{mod}}\rangle \;\longrightarrow\; G_{\mu\nu}^{(1)} = 8\pi G_N\, T_{\mu\nu}^{(1)},
+\end{equation}
+showing that perturbations of the accessible algebra, via modular Hamiltonian perturbation and the entanglement first law, yield the linearized Einstein equations in holographic settings (Theorem~\ref{thm:D-linearized}). This makes precise the HAFF gravity conjecture at the linearized level: in holographic settings satisfying (H1)--(H3), the adiabatic flow of the accessible algebra \emph{is} linearized gravitational dynamics, conditionally derived rather than postulated.
+Removing the holographic assumptions (H1)--(H3) remains an open problem (Section~\ref{sec:D-open}).
+
 We conclude with a reflection. The difficulty of quantizing gravity may not be purely technical. If gravity is the evolution of the stage on which quantum mechanics is performed, rather than an actor on that stage, then quantizing gravity requires quantizing the framework of quantization itself. This is not a problem to be solved by better regularization schemes, but a conceptual challenge requiring us to think beyond fixed subsystem decompositions.
 
-The path forward may lie not in quantizing forces, but in understanding what determines the structure of accessibility''”and how that structure flows.
+The path forward may lie not in quantizing forces, but in understanding what determines the structure of accessibility---and how that structure flows.
 
 
 % ============================================================================
@@ -2252,7 +2850,7 @@ The path forward may lie not in quantizing forces, but in understanding what det
 
 \begin{center}
 \textit{Paper E}\\[0.5em]
-Originally published: Zenodo, DOI: 10.5281/zenodo.18400066
+Originally published: Zenodo, DOI: 10.5281/zenodo.18400065
 \end{center}
 
 \bigskip
@@ -2437,7 +3035,7 @@ The accessible algebra is not fixed \emph{a priori} but is determined by the phy
 \begin{table}[ht]
 \centering
 \small
-\begin{tabular}{|p{2.5cm}|p{5cm}|p{5cm}|}
+\begin{tabular}{|P{2.5cm}|P{5cm}|P{5cm}|}
 \hline
 \textbf{Constraint} & \textbf{Condition} & \textbf{Physical Meaning} \\
 \hline
@@ -2563,7 +3161,7 @@ The closest structural affinity is with algebraic quantum field theory (AQFT) \c
 \begin{table}[ht]
 \centering
 \small
-\begin{tabular}{|p{3cm}|p{4cm}|p{5.5cm}|}
+\begin{tabular}{|P{3cm}|P{4cm}|P{5.5cm}|}
 \hline
 \textbf{Approach} & \textbf{Key Mechanism} & \textbf{Relation to HAFF} \\
 \hline
@@ -2643,7 +3241,7 @@ Papers D, E, and F form a ``diagnostic triangle'' within the HAFF framework:
 \begin{table}[ht]
 \centering
 \small
-\begin{tabular}{|p{1.5cm}|p{2.5cm}|p{3.5cm}|p{4.5cm}|}
+\begin{tabular}{|P{1.5cm}|P{2.5cm}|P{3.5cm}|P{4.5cm}|}
 \hline
 \textbf{Paper} & \textbf{Phenomenon} & \textbf{Traditional View} & \textbf{HAFF Reframing} \\
 \hline
@@ -2700,7 +3298,7 @@ Within the HAFF program, measurement joins gravity and time as phenomena that ar
 
 \begin{center}
 \textit{Paper F}\\[0.5em]
-Originally published: Zenodo, DOI: 10.5281/zenodo.18400426
+Originally published: Zenodo, DOI: 10.5281/zenodo.18400425
 \end{center}
 
 \bigskip
@@ -2909,7 +3507,7 @@ The accessibility arrow and the thermodynamic arrow are closely related but not 
 \begin{table}[ht]
 \centering
 \small
-\begin{tabular}{|p{3.5cm}|p{4.5cm}|p{4.5cm}|}
+\begin{tabular}{|P{3.5cm}|P{4.5cm}|P{4.5cm}|}
 \hline
 \textbf{Feature} & \textbf{Thermodynamic Arrow} & \textbf{Accessibility Arrow} \\
 \hline
@@ -2993,7 +3591,7 @@ We situate the accessibility-based account relative to existing approaches to te
 \begin{table}[ht]
 \centering
 \small
-\begin{tabular}{|p{2.8cm}|p{3.5cm}|p{3.5cm}|p{3cm}|}
+\begin{tabular}{|P{2.8cm}|P{3.5cm}|P{3.5cm}|P{3cm}|}
 \hline
 \textbf{Approach} & \textbf{Source of Arrow} & \textbf{What It Presupposes} & \textbf{Relation to HAFF} \\
 \hline
@@ -3057,7 +3655,7 @@ Papers D, E, and F form a coherent triad, each addressing a different aspect of 
 \begin{table}[ht]
 \centering
 \small
-\begin{tabular}{|p{1.5cm}|p{2.5cm}|p{4cm}|p{4.5cm}|}
+\begin{tabular}{|P{1.5cm}|P{2.5cm}|P{4cm}|P{4.5cm}|}
 \hline
 \textbf{Paper} & \textbf{Phenomenon} & \textbf{Traditional View} & \textbf{HAFF Reframing} \\
 \hline
@@ -3203,7 +3801,7 @@ The irreversibility comes from \textbf{state space volume}, not from dynamical a
 
 \begin{center}
 \textit{Paper G}\\[0.5em]
-Originally published: Zenodo, DOI: 10.5281/zenodo.18402908
+Originally published: Zenodo, DOI: 10.5281/zenodo.18402907
 \end{center}
 
 \bigskip
@@ -3504,7 +4102,7 @@ These questions are left for future investigation.
 \addcontentsline{toc}{chapter}{Postscript}
 
 \begin{center}
-\textit{Originally published: Zenodo, DOI: 10.5281/zenodo.18407368}
+\textit{Originally published: Zenodo, DOI: 10.5281/zenodo.18407367}
 \end{center}
 
 \bigskip
@@ -3581,13 +4179,28 @@ The author thanks the anonymous reviewers for their insightful comments and sugg
 H. Araki, \emph{Mathematical Theory of Quantum Fields}, Oxford University Press (1999).
 
 \bibitem{Asanga_Mahayana}
-Asaá¹…ga, \emph{MahÄyÄnasaá¹ƒgraha (Summary of the Great Vehicle)}, trans.\ Ã‰. Lamotte, Peeters (1973).
+Asa\.{n}ga, \emph{Mah\={a}y\={a}nasa\d{m}graha (Summary of the Great Vehicle)}, trans.\ \'E. Lamotte, Peeters (1973).
 
 \bibitem{Bengtsson2006}
 I. Bengtsson and K. \.Zyczkowski, \emph{Geometry of Quantum States: An Introduction to Quantum Entanglement}, Cambridge University Press (2006).
 
+\bibitem{BisognanoWichmann1975}
+J.~J.~Bisognano and E.~H.~Wichmann,
+\emph{On the duality condition for a Hermitian scalar field},
+J.\ Math.\ Phys.\ \textbf{16}, 985 (1975).
+
+\bibitem{BisognanoWichmann1976}
+J.~J.~Bisognano and E.~H.~Wichmann,
+\emph{On the duality condition for quantum fields},
+J.\ Math.\ Phys.\ \textbf{17}, 303 (1976).
+
 \bibitem{Boltzmann1896}
 L. Boltzmann, \emph{Vorlesungen \"uber Gastheorie}, J. A. Barth, Leipzig (1896).
+
+\bibitem{BratteliRobinson1997}
+O.~Bratteli and D.~W.~Robinson,
+\emph{Operator Algebras and Quantum Statistical Mechanics},
+Vols.\ 1--2, 2nd ed., Springer (1997).
 
 \bibitem{Carroll2010}
 S. Carroll, \emph{From Eternity to Here: The Quest for the Ultimate Theory of Time}, Dutton (2010).
@@ -3595,10 +4208,24 @@ S. Carroll, \emph{From Eternity to Here: The Quest for the Ultimate Theory of Ti
 \bibitem{Chalmers1996}
 D. J. Chalmers, \emph{The Conscious Mind: In Search of a Fundamental Theory}, Oxford University Press (1996).
 
+\bibitem{CasiniHuertaMyers2011}
+H.~Casini, M.~Huerta, and R.~C.~Myers,
+\emph{Towards a derivation of holographic entanglement entropy},
+JHEP \textbf{1105}, 036 (2011),
+arXiv:1102.0440.
+
+\bibitem{Connes1994}
+A.~Connes, \emph{Noncommutative Geometry}, Academic Press (1994).
+
 % Neuroscience
 
 \bibitem{DeWitt1967}
 B. S. DeWitt, \emph{Quantum Theory of Gravity. I. The Canonical Theory}, Phys. Rev. \textbf{160}, 1113 (1967).
+
+\bibitem{Eisert2010}
+J.~Eisert, M.~Cramer, and M.~B.~Plenio,
+\emph{Colloquium: Area laws for the entanglement entropy},
+Rev.\ Mod.\ Phys.\ \textbf{82}, 277 (2010).
 
 \bibitem{Faulkner2014}
 T. Faulkner, M. Guica, T. Hartman, R. C. Myers, and M. Van Raamsdonk, \emph{Gravitation from Entanglement in Holographic CFTs}, JHEP \textbf{03}, 051 (2014).
@@ -3626,8 +4253,19 @@ A. M. Graybiel, \emph{Habits, rituals, and the evaluative brain}, Annual Review 
 \bibitem{Haag1996}
 R. Haag, \emph{Local Quantum Physics: Fields, Particles, Algebras}, Springer-Verlag (1996).
 
+\bibitem{Haagerup1975}
+U.~Haagerup,
+\emph{The standard form of von Neumann algebras},
+Math.\ Scand.\ \textbf{37}, 271--283 (1975).
+
 \bibitem{Haggard2005}
 P. Haggard, \emph{Conscious intention and motor cognition}, Trends in Cognitive Sciences \textbf{9}(6), 290--295 (2005).
+
+\bibitem{Hastings2007}
+M.~B.~Hastings,
+\emph{An area law for one-dimensional quantum systems},
+J.\ Stat.\ Mech.\ \textbf{2007}, P08024 (2007),
+arXiv:0705.2024.
 
 % Structural Realism
 
@@ -3639,8 +4277,25 @@ P. Harvey, \emph{An Introduction to Buddhist Ethics: Foundations, Values and Iss
 \bibitem{Hayden2007}
 P. Hayden and J. Preskill, \emph{Black holes as mirrors: quantum information in random subsystems}, JHEP \textbf{09}, 120 (2007).
 
+\bibitem{HaydenLeungWinter2006}
+P.~Hayden, D.~W.~Leung, and A.~Winter,
+\emph{Aspects of generic entanglement},
+Commun.\ Math.\ Phys.\ \textbf{265}, 95--117 (2006).
+
 \bibitem{Jacobson1995}
 T. Jacobson, \emph{Thermodynamics of Spacetime: The Einstein Equation of State}, Phys. Rev. Lett. \textbf{75}, 1260 (1995).
+
+\bibitem{Jacobson2016}
+T.~Jacobson,
+\emph{Entanglement equilibrium and the Einstein equation},
+Phys.\ Rev.\ Lett.\ \textbf{116}, 201101 (2016),
+arXiv:1505.04753.
+
+\bibitem{JLMS2016}
+D.~L.~Jafferis, A.~Lewkowycz, J.~Maldacena, and S.~J.~Suh,
+\emph{Relative entropy equals bulk relative entropy},
+JHEP \textbf{1606}, 004 (2016),
+arXiv:1512.06431.
 
 \bibitem{Kiefer2012}
 C. Kiefer, \emph{Quantum Gravity}, 3rd ed., Oxford University Press (2012).
@@ -3658,36 +4313,36 @@ F. Laudisa and C. Rovelli, \emph{Relational Quantum Mechanics}, Stanford Encyclo
 J. Levine, \emph{Materialism and qualia: The explanatory gap}, Pacific Philosophical Quarterly \textbf{64}, 354 (1983).
 
 \bibitem{Liu2026}
-S. Liu, \emph{Emergent Geometry from Coarse-Grained Observable Algebras: The Holographic Alaya-Field Framework}, Zenodo (2026), DOI: 10.5281/zenodo.18361707.
+S. Liu, \emph{Emergent Geometry from Coarse-Grained Observable Algebras: The Holographic Alaya-Field Framework}, Zenodo (2026), DOI: 10.5281/zenodo.18361706.
 
 \bibitem{Liu2026PaperA}
-S. Liu, \emph{Emergent Geometry from Coarse-Grained Observable Algebras: The Holographic Alaya-Field Framework}, Zenodo (2026), DOI: 10.5281/zenodo.18361707.
+S. Liu, \emph{Emergent Geometry from Coarse-Grained Observable Algebras: The Holographic Alaya-Field Framework}, Zenodo (2026), DOI: 10.5281/zenodo.18361706.
 
 \bibitem{Liu2026PaperB}
-S. Liu, \emph{Accessibility, Stability, and Emergent Geometry: Conceptual Clarifications on the Holographic Alaya-Field Framework}, Zenodo (2026), DOI: 10.5281/zenodo.18367061.
+S. Liu, \emph{Accessibility, Stability, and Emergent Geometry: Conceptual Clarifications on the Holographic Alaya-Field Framework}, Zenodo (2026), DOI: 10.5281/zenodo.18367060.
 
 % Causation and Philosophy of Science
 
 \bibitem{Liu2026PaperC}
-S. Liu, \emph{Causation, Agency, and Existence: Structural Constraints and Interpretive Bridges}, Zenodo (2026), DOI: 10.5281/zenodo.18374806.
+S. Liu, \emph{Causation, Agency, and Existence: Structural Constraints and Interpretive Bridges}, Zenodo (2026), DOI: 10.5281/zenodo.18374805.
 
 \bibitem{Liu2026PaperD}
-S. Liu, \emph{Gravitational Phenomena as Emergent Properties of Observable Algebra Selection: A Structural Analysis}, Zenodo (2026), DOI: 10.5281/zenodo.18388882.
+S. Liu, \emph{Gravitational Phenomena as Emergent Properties of Observable Algebra Selection: A Structural Analysis}, Zenodo (2026), DOI: 10.5281/zenodo.18388881.
 
 \bibitem{Liu2026PaperE}
-S. Liu, \emph{Measurement as Accessibility: A Structural Analysis of Observable Algebra Selection}, Zenodo (2026), DOI: 10.5281/zenodo.18400066.
+S. Liu, \emph{Measurement as Accessibility: A Structural Analysis of Observable Algebra Selection}, Zenodo (2026), DOI: 10.5281/zenodo.18400065.
 
 \bibitem{Liu2026PaperF}
-S. Liu, \emph{Temporal Asymmetry as Accessibility Propagation: A Structural Analysis of Causal Direction}, Zenodo (2026), DOI: 10.5281/zenodo.18400426.
+S. Liu, \emph{Temporal Asymmetry as Accessibility Propagation: A Structural Analysis of Causal Direction}, Zenodo (2026), DOI: 10.5281/zenodo.18400425.
 
 \bibitem{Lusthaus2002}
-D. Lusthaus, \emph{Buddhist Phenomenology: A Philosophical Investigation of YogÄcÄra Buddhism and the Ch'eng Wei-shih lun}, Routledge (2002).
+D. Lusthaus, \emph{Buddhist Phenomenology: A Philosophical Investigation of Yog\=ac\=ara Buddhism and the Ch'eng Wei-shih lun}, Routledge (2002).
 
 \bibitem{Maldacena1999}
 J. M. Maldacena, \emph{The Large N limit of superconformal field theories and supergravity}, Int. J. Theor. Phys. \textbf{38}, 1113 (1999).
 
 \bibitem{Nagarjuna_MMK_Garfield1995}
-NÄgÄrjuna, \emph{The Fundamental Wisdom of the Middle Way: NÄgÄrjuna's MÅ«lamadhyamakakÄrikÄ}, trans.\ J. L. Garfield, Oxford University Press (1995).
+N\={a}g\={a}rjuna, \emph{The Fundamental Wisdom of the Middle Way: N\={a}g\={a}rjuna's M\={u}lamadhyamakak\={a}rik\={a}}, trans.\ J. L. Garfield, Oxford University Press (1995).
 
 % Buddhist Secondary Sources
 
@@ -3727,10 +4382,15 @@ M. Siderits, \emph{Buddhism as Philosophy: An Introduction}, Hackett Publishing 
 L. Smolin, \emph{The case for background independence}, in \emph{The Structural Foundations of Quantum Gravity}, eds. D. Rickles, S. French, J. Saatsi, Oxford University Press (2006).
 
 \bibitem{SuttaNipata}
-\emph{Sutta NipÄta}, in \emph{The Group of Discourses (Sutta NipÄta)}, trans.\ K. R. Norman, Pali Text Society (2001).
+\emph{Sutta Nip\={a}ta}, in \emph{The Group of Discourses (Sutta Nip\={a}ta)}, trans.\ K. R. Norman, Pali Text Society (2001).
 
 \bibitem{Swingle2012}
 B. Swingle, \emph{Entanglement Renormalization and Holography}, Phys. Rev. D \textbf{86}, 065007 (2012).
+
+\bibitem{Takesaki2003}
+M.~Takesaki,
+\emph{Theory of Operator Algebras II},
+Encyclopaedia of Mathematical Sciences \textbf{125}, Springer (2003).
 
 \bibitem{Thiemann2007}
 T. Thiemann, \emph{Modern Canonical Quantum General Relativity}, Cambridge University Press (2007).
@@ -3739,7 +4399,7 @@ T. Thiemann, \emph{Modern Canonical Quantum General Relativity}, Cambridge Unive
 M. Van Raamsdonk, \emph{Building up spacetime with quantum entanglement}, Gen. Relativ. Gravit. \textbf{42}, 2323 (2010).
 
 \bibitem{Vasubandhu_Trimsika}
-Vasubandhu, \emph{Triá¹ƒÅ›ikÄ-vijÃ±aptimÄtratÄ (Thirty Verses on Consciousness Only)}, trans.\ S. Anacker, in \emph{Seven Works of Vasubandhu}, Motilal Banarsidass (1984).
+Vasubandhu, \emph{Tri\d{m}\'sik\={a}-vij\~{n}aptim\={a}trat\={a} (Thirty Verses on Consciousness Only)}, trans.\ S. Anacker, in \emph{Seven Works of Vasubandhu}, Motilal Banarsidass (1984).
 
 % Buddhist Primary Texts (Madhyamaka)
 
@@ -3750,7 +4410,7 @@ G. Vidal, \emph{Class of quantum many-body states that can be efficiently simula
 H. Barnum, E. Knill, G. Ortiz, R. Somma, and L. Viola, \emph{A Subsystem-Independent Generalization of Entanglement}, Phys. Rev. Lett. \textbf{92}, 107902 (2004).
 
 \bibitem{Waldron2003}
-W. S. Waldron, \emph{The Buddhist Unconscious: The Ä€laya-vijÃ±Äna in the Context of Indian Buddhist Thought}, Routledge (2003).
+W. S. Waldron, \emph{The Buddhist Unconscious: The \={A}laya-vij\~{n}\={a}na in the Context of Indian Buddhist Thought}, Routledge (2003).
 
 \bibitem{Wallace2012}
 D. Wallace, \emph{The Emergent Multiverse}, Oxford University Press (2012).
@@ -3758,11 +4418,27 @@ D. Wallace, \emph{The Emergent Multiverse}, Oxford University Press (2012).
 \bibitem{Wallace2012Time}
 D. Wallace, \emph{The Emergent Multiverse: Quantum Theory according to the Everett Interpretation}, Oxford University Press (2012), Chapter 8.
 
+\bibitem{Wiesbrock1993}
+H.-W.~Wiesbrock,
+\emph{Half-sided modular inclusions of von Neumann algebras},
+Commun.\ Math.\ Phys.\ \textbf{157}, 83 (1993).
+
+\bibitem{Wolf2006}
+M.~M.~Wolf,
+\emph{Violation of the entropic area law for fermions},
+Phys.\ Rev.\ Lett.\ \textbf{96}, 010404 (2006).
+
 \bibitem{Woodward2003}
 J. Woodward, \emph{Making Things Happen: A Theory of Causal Explanation}, Oxford University Press (2003).
 
 \bibitem{Yin2006}
 H. H. Yin and B. J. Knowlton, \emph{The role of the basal ganglia in habit formation}, Nature Reviews Neuroscience \textbf{7}, 464--476 (2006).
+
+\bibitem{Yngvason2005}
+J.~Yngvason,
+\emph{The role of type III factors in quantum field theory},
+Rep.\ Math.\ Phys.\ \textbf{55}, 135 (2005),
+arXiv:math-ph/0411058.
 
 \bibitem{Zanardi2001}
 P. Zanardi, \emph{Virtual Quantum Subsystems}, Phys. Rev. Lett. \textbf{87}, 077901 (2001).

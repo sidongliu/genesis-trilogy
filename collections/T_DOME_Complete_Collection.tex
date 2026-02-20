@@ -14,6 +14,7 @@
 \usepackage{geometry}
 \usepackage{fancyhdr}
 \usepackage{array}
+\newcolumntype{P}[1]{>{\raggedright\arraybackslash}p{#1}}
 \usepackage{booktabs}
 \usepackage{xcolor}
 \usepackage{caption}
@@ -53,6 +54,10 @@
 \date{February 2026}
 
 \begin{document}
+\emergencystretch=2em
+\raggedbottom
+\hbadness=5000
+\vbadness=5000
 
 \frontmatter
 \maketitle
@@ -202,7 +207,7 @@ program.
 \begin{center}
 \small
 \setlength{\tabcolsep}{4pt}%
-\begin{tabular}{@{}lp{3.2cm}cp{3.4cm}c@{}}
+\begin{tabular}{@{}lP{3.2cm}cP{3.4cm}c@{}}
 \toprule
 \textbf{Framework} & \textbf{Question} & & \textbf{Result} & \textbf{Status} \\
 \midrule
@@ -2217,7 +2222,6 @@ thermodynamically salient features.
 
 \begin{remark}[The Origin of Paper II]
 \label{I-rem:paper_II}
-\emergencystretch=1em
 Proposition~\ref{I-thm:catastrophe} reveals the \emph{poison} embedded
 in Paper~I's medicine.
 Memory enables survival beyond the Markovian ceiling, but
@@ -2389,12 +2393,14 @@ This demonstration does \textbf{not} show:
 \end{enumerate}
 
 \paragraph{Reproducibility.}
+\begin{sloppypar}
 The complete simulation is a self-contained Python script
 (\texttt{paper1\_markov\_ceiling\_demo.py}, ${\sim}\,560$
 lines, requiring only NumPy and Matplotlib) with fixed
 random seeds.  All figures in this section can be
 reproduced by executing the script.  The following files
 are included in the supplementary archive:
+\end{sloppypar}
 \begin{itemize}
 \item \texttt{paper1\_markov\_ceiling\_demo.py} --- simulation script
 \item \texttt{fig\_paper1\_markov\_ceiling.pdf} --- Figure~\ref{I-fig:markov_ceiling}
@@ -2412,7 +2418,7 @@ are included in the supplementary archive:
 \begin{center}
 \small
 \setlength{\tabcolsep}{4pt}%
-\begin{tabular}{@{}lp{7.5cm}c@{}}
+\begin{tabular}{@{}lP{7.5cm}c@{}}
 \toprule
 \textbf{Result} & \textbf{Statement} & \textbf{Sec.} \\
 \midrule
@@ -2613,7 +2619,7 @@ program.
 \begin{center}
 \small
 \setlength{\tabcolsep}{4pt}%
-\begin{tabular}{@{}lp{3.2cm}cp{3.4cm}c@{}}
+\begin{tabular}{@{}lP{3.2cm}cP{3.4cm}c@{}}
 \toprule
 \textbf{Framework} & \textbf{Question} & & \textbf{Result}
   & \textbf{Status} \\
@@ -3681,7 +3687,7 @@ agent's evaluation of $\mathcal{S}_{\mathcal{F}}$.
 \centering
 \small
 \setlength{\tabcolsep}{3pt}
-\begin{tabular}{@{}lp{3.5cm}p{4.2cm}l@{}}
+\begin{tabular}{@{}lP{3.5cm}P{4.2cm}l@{}}
 \toprule
 \textbf{Bias} & \textbf{Origin}
   & \textbf{Observable consequence}
@@ -4922,12 +4928,14 @@ This demonstration does \textbf{not} show:
 \end{enumerate}
 
 \paragraph{Reproducibility.}
+\begin{sloppypar}
 The complete simulation is a self-contained Python script
 (\texttt{paper2\_kstar\_scaling\_demo.py}, ${\sim}\,540$
 lines, requiring only NumPy and Matplotlib) with fixed
 random seeds.  All figures in this section can be
 reproduced by executing the script.  The following files
 are included in the supplementary archive:
+\end{sloppypar}
 \begin{itemize}
 \item \texttt{paper2\_kstar\_scaling\_demo.py} --- simulation script
 \item \texttt{fig\_paper2\_kstar\_scaling.pdf} --- Figure~\ref{II-fig:kstar_scaling}
@@ -4945,7 +4953,7 @@ are included in the supplementary archive:
 \begin{center}
 \small
 \setlength{\tabcolsep}{4pt}%
-\begin{tabular}{@{}lp{6cm}c@{}}
+\begin{tabular}{@{}lP{6cm}c@{}}
 \toprule
 \textbf{Result} & \textbf{Statement} & \textbf{Sec.} \\
 \midrule
@@ -4987,6 +4995,67 @@ Numerical demo
 \bottomrule
 \end{tabular}
 \end{center}
+
+% ------------------------------------------------------------
+\subsection{Testable Predictions}
+\label{II-subsec:predictions}
+
+The results of this paper yield several quantitative predictions that are, in principle, falsifiable in computational and biological systems.
+We emphasize that these predictions follow from the \emph{classical} content of T-DOME: the thermodynamic and information-theoretic bounds apply to any open system maintaining a non-equilibrium steady state under bounded computation, regardless of whether the underlying dynamics are quantum or classical.
+
+\paragraph{Prediction 1: Attention entropy collapse under resource constraints.}
+Theorem~\ref{II-thm:SSB} predicts that any adaptive agent operating under computational budget $\mathcal{C}_{\mathrm{budget}}$ in an environment with $D$ relevant degrees of freedom and metric entropy $h_\mu$ will exhibit a sharp symmetry-breaking transition when $\mathcal{C}_{\mathrm{budget}} < D \cdot h_\mu \cdot \tau_{\mathrm{mem}}$.
+The order parameter---attention entropy $H_{\mathrm{attn}} = -\sum_i p_i \ln p_i$ over the agent's allocation of computational resources---should collapse from $\ln D$ (symmetric phase) to $\ln k^*$ (broken phase), with $k^* = \lfloor \mathcal{C}_{\mathrm{budget}} / h_\mu \rfloor$.
+
+\textbf{Protocol}: Train reinforcement learning agents on a $D$-dimensional partially observable environment with systematically varied computational budgets (context window, hidden state dimension, or parameter count).
+Measure attention entropy as a function of $\mathcal{C}_{\mathrm{budget}}/D$.
+The predicted transition should be:
+\begin{itemize}
+\item Sharp (not gradual) in the limit $D \to \infty$
+\item Located at $\mathcal{C}_{\mathrm{budget}} / (D\, h_\mu\, \tau_{\mathrm{mem}}) \approx 1$
+\item Accompanied by spontaneous selection of $k^*$ ``preferred'' features
+\end{itemize}
+The numerical demonstration in Section~\ref{II-sec:numerical} provides preliminary evidence for this transition.
+Extending to deep RL agents with continuous state spaces would constitute a non-trivial test.
+
+\paragraph{Prediction 2: Information-discarded scaling law.}
+Theorem~\ref{II-thm:tradeoff} predicts that the mutual information between an agent's compressed representation and the full environmental state satisfies:
+\begin{equation}
+\frac{I_{\mathrm{discarded}}}{I_{\mathrm{pred}}} \gtrsim 1 - \frac{k^*}{D}
+\label{II-eq:discard-scaling}
+\end{equation}
+under the uniformity assumption.
+This is a specific, quantitative prediction: an agent retaining $k^*$ out of $D$ features discards at least a fraction $1 - k^*/D$ of the total predictive information.
+
+\textbf{Protocol}: For RL agents with tunable bottleneck width $k$, measure the mutual information $I(\hat{X}; X)$ between the compressed internal state $\hat{X}$ and the full environmental state $X$ using variational estimators~\cite{PooleOzairVanDenOord2019}.
+Plot $I_{\mathrm{discarded}} / I_{\mathrm{pred}}$ against $k/D$.
+The prediction is a linear lower bound with slope $-1/D$ and intercept $1$.
+
+\paragraph{Prediction 3: Delusion trap timescale.}
+Theorem~\ref{II-thm:delusion} predicts a critical timescale $t_{\mathrm{del}} = \Lambda^{-1} \ln(\pi / 4\theta_0)$ beyond which a fixed-frame agent's gradient updates become anti-correlated with the true optimum.
+
+\textbf{Protocol}: Deploy a fixed-architecture RL agent in an environment with controlled rotation rate $\Lambda$ of the reward-relevant features.
+Measure the cosine similarity between the agent's policy gradient $\nabla_u \mathcal{S}_{\mathrm{vis}}$ and the oracle gradient $\nabla_u \mathcal{S}_{\mathrm{full}}$ as a function of time.
+The prediction:
+\begin{itemize}
+\item Cosine similarity $> 0$ for $t < t_{\mathrm{del}}$ (updates improve performance)
+\item Cosine similarity crosses zero at $t \approx t_{\mathrm{del}}$
+\item Cosine similarity $< 0$ for $t > t_{\mathrm{del}}$ (updates degrade performance)
+\item The crossover timescale scales as $\Lambda^{-1} \ln(1/\theta_0)$
+\end{itemize}
+This is directly testable in non-stationary RL benchmarks with controlled distributional shift.
+
+\paragraph{Prediction 4: Biological information bottleneck.}
+The ego-entropy tradeoff is not specific to artificial agents.
+Any biological system maintaining homeostasis under bounded sensory processing capacity should exhibit the same $k^*/D$ scaling.
+In bacterial chemotaxis, the bacterium processes $D \sim 5$--$10$ chemical gradients through a signaling pathway with $k^* \sim 2$--$3$ effective internal states (CheY-P phosphorylation levels).
+The prediction is:
+\begin{equation}
+\frac{I(\text{internal state};\, \text{chemical environment})}{I(\text{chemical environment};\, \text{survival})} \lesssim \frac{k^*}{D} \approx 0.2\text{--}0.6
+\label{II-eq:bio-bound}
+\end{equation}
+Single-cell measurements of chemotactic mutual information~\cite{MehtaSchwab2012,GovernTenWolde2014} provide the experimental technology to test this bound.
+The key test is whether the information efficiency saturates the bound (suggesting the biological system has optimized against it) or falls significantly below it.
 
 % ------------------------------------------------------------
 \subsection{What This Paper Does and Does Not Show}
@@ -5215,7 +5284,7 @@ closing the three-paper sequence.
 \begin{center}
 \small
 \setlength{\tabcolsep}{4pt}%
-\begin{tabular}{@{}lp{3.5cm}p{4.2cm}c@{}}
+\begin{tabular}{@{}lP{3.5cm}P{4.2cm}c@{}}
 \toprule
 \textbf{Framework} & \textbf{Question} & \textbf{Result}
   & \textbf{Status} \\
@@ -6488,16 +6557,17 @@ the following four structural layers:
   in~\cite{Liu2026QRAIF_B,Liu2026QRAIF_C};
   adopted here as a modelling premise.
 \item[\textup{(III)}] \textbf{Self-monitoring function.}
+  {\tolerance=9999\emergencystretch=3em
   The agent maintains a Lyapunov function
-  $V(\sigma)$~\eqref{III-eq:lyapunov} satisfying the
-  tracking bound~\eqref{III-eq:lyapunov_decrease},
-  implemented via a second-order control loop
-  operating on the Fisher information of its own
-  prediction stream.  The loop keeps the mismatch
-  within the tracking
+  $V(\sigma)$~\eqref{III-eq:lyapunov} satisfying
+  the tracking
+  bound~\eqref{III-eq:lyapunov_decrease},
+  via a second-order control loop on the agent's
+  Fisher information, keeping the mismatch within
+  the tracking
   neighbourhood~\eqref{III-eq:tracking_neighbourhood}.
   \emph{Source:} this paper,
-  Theorem~\ref{III-thm:loop_stability}.
+  Theorem~\ref{III-thm:loop_stability}.\par}
 \item[\textup{(IV)}] \textbf{Biased, non-Markovian memory.}
   The agent carries path-dependent state
   (non-Markovian memory kernel $\mathcal{K}(t,s)$)
@@ -7174,12 +7244,14 @@ This demonstration does \textbf{not} show:
 \end{enumerate}
 
 \paragraph{Reproducibility.}
+\begin{sloppypar}
 The complete simulation is a self-contained Python script
 (\texttt{tdome\_demo.py}, $\sim\!550$ lines, requiring
 only NumPy and Matplotlib) with fixed random seeds.
 All figures in this section can be reproduced by
 executing the script after setting the output directory
 variable \texttt{BASE} to the desired path.
+\end{sloppypar}
 
 % ============================================================
 \section{Discussion}
@@ -7192,7 +7264,7 @@ variable \texttt{BASE} to the desired path.
 \begin{center}
 \small
 \setlength{\tabcolsep}{4pt}%
-\begin{tabular}{@{}lp{6cm}c@{}}
+\begin{tabular}{@{}lP{6cm}c@{}}
 \toprule
 \textbf{Result} & \textbf{Statement} & \textbf{Sec.} \\
 \midrule
@@ -7240,7 +7312,7 @@ thermodynamic logic chain:
 \begin{center}
 \small
 \setlength{\tabcolsep}{3pt}%
-\begin{tabular}{@{}lp{3.2cm}p{3.8cm}l@{}}
+\begin{tabular}{@{}lP{3.2cm}P{3.8cm}l@{}}
 \toprule
 \textbf{Paper} & \textbf{Crisis} & \textbf{Resolution}
   & \textbf{What is born} \\
@@ -7437,6 +7509,11 @@ V.~Gorini, A.~Kossakowski, and E.~C.~G.~Sudarshan,
 \emph{Completely positive dynamical semigroups of $N$-level systems},
 J.\ Math.\ Phys.\ \textbf{17}, 821 (1976).
 
+\bibitem{GovernTenWolde2014}
+W.~P.~Govern and P.~R.~ten~Wolde,
+\emph{Optimal resource allocation in cellular sensing systems},
+Proc.\ Natl.\ Acad.\ Sci.\ USA \textbf{111}, 17486 (2014).
+
 \bibitem{Ito2018}
 S.~Ito,
 \emph{Stochastic thermodynamic interpretation of
@@ -7459,10 +7536,20 @@ G.~Lindblad,
 \emph{On the generators of quantum dynamical semigroups},
 Commun.\ Math.\ Phys.\ \textbf{48}, 119 (1976).
 
+\bibitem{MehtaSchwab2012}
+P.~Mehta and D.~J.~Schwab,
+\emph{Energetic costs of cellular computation},
+Proc.\ Natl.\ Acad.\ Sci.\ USA \textbf{109}, 17978 (2012).
+
 \bibitem{Nakajima1958}
 S.~Nakajima,
 \emph{On quantum theory of transport phenomena},
 Prog.\ Theor.\ Phys.\ \textbf{20}, 948 (1958).
+
+\bibitem{PooleOzairVanDenOord2019}
+B.~Poole, S.~Ozair, A.~Van~Den~Oord, A.~Alemi, and G.~Tucker,
+\emph{On variational bounds of mutual information},
+Proc.\ ICML, PMLR \textbf{97}, 5171--5180 (2019).
 
 \bibitem{Rao1945}
 C.~R.~Rao,

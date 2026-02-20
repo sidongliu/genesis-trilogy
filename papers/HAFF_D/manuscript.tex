@@ -8,6 +8,7 @@
 \usepackage{hyperref}
 \usepackage{geometry}
 \usepackage{array}
+\newcolumntype{P}[1]{>{\raggedright\arraybackslash}p{#1}}
 \usepackage{booktabs}
 \geometry{margin=1in}
 
@@ -26,9 +27,13 @@ A Structural Analysis}
   \texttt{sidongliu@hotmail.com}
 }
 
-\date{\today}
+\date{February 2026}
 
 \begin{document}
+\emergencystretch=2em
+\raggedbottom
+\hbadness=5000
+\vbadness=5000
 
 \maketitle
 
@@ -53,10 +58,12 @@ The proposal rests on a simple observation: all descriptions of physical systems
 
 We propose that gauge forces and gravity may be distinguished at this structural level:
 
+\begin{sloppypar}
 \begin{itemize}
     \item \textbf{Gauge forces} describe interactions between degrees of freedom \emph{within} a given subsystem decomposition.
-    \item \textbf{Gravitational phenomena} reflect properties of the decomposition \emph{itself}—specifically, how effective geometry emerges from the pattern of accessible observables.
+    \item \textbf{Gravitational phenomena} reflect properties of the decomposition \emph{itself}---specifically, how effective geometry emerges from the pattern of accessible observables.
 \end{itemize}
+\end{sloppypar}
 
 If this reframing is correct, it may help clarify why gravity resists quantization: one cannot straightforwardly quantize the choice of how to divide a system into parts, because that choice is logically prior to the application of quantum dynamics to those parts.
 
@@ -404,7 +411,7 @@ These are not mutually exclusive. It is conceivable that spin network states cou
 \begin{table}[ht]
 \centering
 \small
-\begin{tabular}{|p{2.8cm}|p{4.5cm}|p{5.5cm}|}
+\begin{tabular}{|P{2.8cm}|P{4.5cm}|P{5.5cm}|}
 \hline
 \textbf{Approach} & \textbf{Key Mechanism} & \textbf{Relation to Present Work} \\
 \hline
@@ -509,7 +516,7 @@ The path forward may lie not in quantizing forces, but in understanding what det
 
 \section*{Acknowledgments}
 
-The author thanks the anonymous reviewers for their insightful comments and suggestions, which greatly improved the clarity and rigor of this work. This work builds on foundational analysis developed in \cite{Liu2026PaperA,Liu2026PaperB}.
+The author thanks the anonymous reviewers for their insightful comments and suggestions, which greatly improved the clarity and rigor of this work.
 
 \begin{thebibliography}{99}
 

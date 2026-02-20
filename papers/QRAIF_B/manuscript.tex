@@ -1,7 +1,9 @@
-\documentclass[aps,pre,twocolumn,superscriptaddress,floatfix,longbibliography]{revtex4-2}
+\documentclass[aps,pre,onecolumn,superscriptaddress,floatfix,longbibliography]{revtex4-2}
 \usepackage{amsmath,amssymb,amsthm,bm,color}
 \usepackage{hyperref}
 \usepackage{booktabs}
+\usepackage{array}
+\newcolumntype{P}[1]{>{\raggedright\arraybackslash}p{#1}}
 \usepackage{tikz}
 \usetikzlibrary{shapes,arrows,positioning,calc,decorations.pathmorphing}
 
@@ -13,6 +15,10 @@
 \newtheorem{corollary}[theorem]{Corollary}
 
 \begin{document}
+\emergencystretch=2em
+\raggedbottom
+\hbadness=5000
+\vbadness=5000
 
 \title{Thermodynamic Stability Constraints on the Operator Algebra\\
 of Persistent Open Quantum Subsystems}
@@ -21,7 +27,7 @@ of Persistent Open Quantum Subsystems}
 \small iBioStratix Ltd \\
 \small \texttt{sidongliu@hotmail.com}}
 
-\date{8th February 2026}
+\date{February 2026}
 
 \begin{abstract}
 We investigate the necessary conditions for an open quantum subsystem to maintain a non-equilibrium steady state (NESS) with bounded internal entropy under continuous environmental interaction.
@@ -115,6 +121,7 @@ Non-associative algebras (Jordan, octonion) are not realistic candidates for qua
 
 Lemma~\ref{lem:assoc} therefore functions as a \emph{structural boundary marker}: it delineates the minimal algebraic condition separating consistent from inconsistent dynamics, analogous to how the second law delineates irreversibility without claiming that reversible processes are a realistic threat.
 For the mathematical structure of non-associative algebras and their dynamical instabilities, see~\cite{Schafer1966,Gunaydin1973}.
+The physical pathologies of non-associative alternatives are discussed in Paper~A~\cite{Liu2026QRAIF_A} (Remark~3, ``Physical pathologies of non-associative dynamics'').
 
 The substantive constraint is Constraint~II, which discriminates among \emph{associative} algebras.
 
@@ -139,12 +146,14 @@ Standard quantum state metrics (Bures, Fisher--Rao~\cite{Petz1996}) are positive
 However, they are \emph{isotropic}: they treat all perturbation directions equivalently.
 
 In realistic open quantum systems, the environment couples to the subsystem through qualitatively different channels---dissipative (population decay), dephasing (coherence loss), and unitary (Hamiltonian shift).
-Effective error correction requires distinguishing these channel types, which demands an \emph{anisotropic} metric that assigns different signs to different directions.
+Effective error correction requires distinguishing \emph{qualitatively} between these channel types.
 
-An indefinite quadratic form $q(v) = \eta_{\mu\nu} v^\mu v^\nu$ with $\mathrm{sig}(\eta) = (p,q)$, $p,q \geq 1$, encodes this distinction: positive-norm directions correspond to one class of perturbations, negative-norm directions to another.
+A positive-definite anisotropic metric (e.g., $\mathrm{diag}(a, b, c)$ with $a \neq b \neq c > 0$) can encode quantitative differences between directions, but cannot encode a \emph{qualitative} dichotomy: all directions remain ``of the same type.''
+The distinction between thermodynamically reversible perturbations (unitary, entropy-preserving) and irreversible perturbations (dissipative, entropy-producing) is not a matter of degree but of kind.
+An indefinite quadratic form $q(v) = \eta_{\mu\nu} v^\mu v^\nu$ with $\mathrm{sig}(\eta) = (p,r)$, $p,r \geq 1$, encodes this: positive-norm directions correspond to one class, negative-norm directions to another.
 This is precisely the structure built into Clifford algebras via $v^2 = q(v)\mathbf{1}$.
 
-Algebras with only positive-definite metrics (generic von Neumann factors, $C^*$-algebras with Bures metric) cannot distinguish channel types at the algebraic level, requiring external structure to do so.
+Standard quantum state metrics (Bures, Fisher--Rao) are positive-definite and therefore cannot algebraically encode the reversible/irreversible dichotomy without external structure.
 \end{proof}
 
 \subsection{Exclusion of Alternative Algebras}
@@ -201,8 +210,10 @@ In the Pauli/Clifford case, the metric is \emph{internal}: the same algebraic st
 This unification is what makes Clifford algebras uniquely suited for feedback control where both direction and magnitude matter.
 
 \paragraph{Extension to indefinite signature.}
+\begin{sloppypar}
 When the subsystem must distinguish dissipative from unitary perturbations---e.g., $\gamma_\downarrow \neq 0$ (dissipative) versus Hamiltonian noise (unitary)---the control space naturally splits into positive-norm (unitary) and negative-norm (dissipative) sectors.
 Encoding this distinction algebraically requires an indefinite quadratic form, upgrading $Cl(3,0)$ to $Cl(p,q)$ with appropriate signature.
+\end{sloppypar}
 
 % ============================================================
 \subsection{The Algebraic Compatibility Theorem}
@@ -226,6 +237,15 @@ Any subsystem maintaining NESS for $\tau \gg \tau_{\mathrm{relax}}$ while discri
 The theorem establishes a selection principle.
 Subsystems do not ``choose'' Clifford algebra; only Clifford-compatible structures persist when channel discrimination is required.
 This is algebraic natural selection.
+\end{remark}
+
+\begin{remark}[Content of the Argument]
+\label{rem:scope}
+As with the Clifford Compatibility Theorem in Paper~A~\cite{Liu2026QRAIF_A}, the final step of the proof---invoking the universal property of $Cl(V,q)$---is a standard algebraic identity.
+The substantive content resides in the constraints:
+Lemma~\ref{lem:assoc} (associativity as a boundary condition, with non-associative alternatives producing quantifiable pathologies; see Paper~A~\cite{Liu2026QRAIF_A}, Remark~3),
+and Lemma~\ref{lem:metric} (indefinite metric from the requirement of channel discrimination in directed error correction).
+The worked example in Section~\ref{sec:toymodel} demonstrates that the constraints are simultaneously satisfiable in a concrete Lindblad model.
 \end{remark}
 
 % ============================================================
@@ -337,13 +357,13 @@ P.~Zanardi, \emph{Virtual Quantum Subsystems}, Phys.\ Rev.\ Lett.\ \textbf{87}, 
 D.~A.~Lidar and K.~B.~Whaley, \emph{Decoherence-free subspaces and subsystems}, in \emph{Irreversible Quantum Dynamics}, Springer, pp.\ 83--120 (2003).
 
 \bibitem{Liu2026PaperA}
-S.~Liu, \emph{Emergent Geometry from Coarse-Grained Observable Algebras: The Holographic Alaya-Field Framework}, Zenodo (2026), DOI: 10.5281/zenodo.18361707.
+S.~Liu, \emph{Emergent Geometry from Coarse-Grained Observable Algebras: The Holographic Alaya-Field Framework}, Zenodo (2026), DOI: 10.5281/zenodo.18361706.
 
 \bibitem{Liu2026PaperB}
-S.~Liu, \emph{Accessibility, Stability, and Emergent Geometry: Conceptual Clarifications on the Holographic Alaya-Field Framework}, Zenodo (2026), DOI: 10.5281/zenodo.18367061.
+S.~Liu, \emph{Accessibility, Stability, and Emergent Geometry: Conceptual Clarifications on the Holographic Alaya-Field Framework}, Zenodo (2026), DOI: 10.5281/zenodo.18367060.
 
 \bibitem{Liu2026QRAIF_A}
-S.~Liu, \emph{Algebraic Constraints on the Emergence of Lorentzian Metrics in Entropic Gravity Frameworks}, Zenodo (2026), DOI: 10.5281/zenodo.18525877.
+S.~Liu, \emph{Algebraic Constraints on the Emergence of Lorentzian Metrics in Entropic Gravity Frameworks}, Zenodo (2026), DOI: 10.5281/zenodo.18525876.
 
 \end{thebibliography}
 

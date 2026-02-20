@@ -12,6 +12,8 @@
 \usepackage{graphicx}
 \usepackage{caption}
 \usepackage{float}
+\usepackage{array}
+\newcolumntype{P}[1]{>{\raggedright\arraybackslash}p{#1}}
 
 % Theorem environments — matching HAFF/Q-RAIF/T-DOME I style
 \newtheorem{theorem}{Theorem}
@@ -31,6 +33,10 @@ as a Computational Cost Minimization Strategy}
 \date{February 2026}
 
 \begin{document}
+\emergencystretch=2em
+\raggedbottom
+\hbadness=10000
+\vbadness=10000
 \maketitle
 
 % ============================================================
@@ -130,7 +136,7 @@ program.
 \begin{center}
 \small
 \setlength{\tabcolsep}{4pt}%
-\begin{tabular}{@{}lp{3.2cm}cp{3.4cm}c@{}}
+\begin{tabular}{@{}lP{3.2cm}cP{3.4cm}c@{}}
 \toprule
 \textbf{Framework} & \textbf{Question} & & \textbf{Result}
   & \textbf{Status} \\
@@ -1198,7 +1204,7 @@ agent's evaluation of $\mathcal{S}_{\mathcal{F}}$.
 \centering
 \small
 \setlength{\tabcolsep}{3pt}
-\begin{tabular}{@{}lp{3.5cm}p{4.2cm}l@{}}
+\begin{tabular}{@{}lP{3.5cm}P{4.2cm}l@{}}
 \toprule
 \textbf{Bias} & \textbf{Origin}
   & \textbf{Observable consequence}
@@ -2439,6 +2445,7 @@ This demonstration does \textbf{not} show:
 \end{enumerate}
 
 \paragraph{Reproducibility.}
+\begin{sloppypar}
 The complete simulation is a self-contained Python script
 (\texttt{paper2\_kstar\_scaling\_demo.py}, ${\sim}\,540$
 lines, requiring only NumPy and Matplotlib) with fixed
@@ -2450,6 +2457,7 @@ are included in the supplementary archive:
 \item \texttt{fig\_paper2\_kstar\_scaling.pdf} --- Figure~\ref{fig:kstar_scaling}
 \item \texttt{kstar\_scaling\_data.csv} --- raw performance gap data
 \end{itemize}
+\end{sloppypar}
 
 % ============================================================
 \section{Discussion}
@@ -2462,7 +2470,7 @@ are included in the supplementary archive:
 \begin{center}
 \small
 \setlength{\tabcolsep}{4pt}%
-\begin{tabular}{@{}lp{6cm}c@{}}
+\begin{tabular}{@{}lP{6cm}c@{}}
 \toprule
 \textbf{Result} & \textbf{Statement} & \textbf{Sec.} \\
 \midrule
@@ -2504,6 +2512,67 @@ Numerical demo
 \bottomrule
 \end{tabular}
 \end{center}
+
+% ------------------------------------------------------------
+\subsection{Testable Predictions}
+\label{subsec:predictions}
+
+The results of this paper yield several quantitative predictions that are, in principle, falsifiable in computational and biological systems.
+We emphasize that these predictions follow from the \emph{classical} content of T-DOME: the thermodynamic and information-theoretic bounds apply to any open system maintaining a non-equilibrium steady state under bounded computation, regardless of whether the underlying dynamics are quantum or classical.
+
+\paragraph{Prediction 1: Attention entropy collapse under resource constraints.}
+Theorem~\ref{thm:SSB} predicts that any adaptive agent operating under computational budget $\mathcal{C}_{\mathrm{budget}}$ in an environment with $D$ relevant degrees of freedom and metric entropy $h_\mu$ will exhibit a sharp symmetry-breaking transition when $\mathcal{C}_{\mathrm{budget}} < D \cdot h_\mu \cdot \tau_{\mathrm{mem}}$.
+The order parameter---attention entropy $H_{\mathrm{attn}} = -\sum_i p_i \ln p_i$ over the agent's allocation of computational resources---should collapse from $\ln D$ (symmetric phase) to $\ln k^*$ (broken phase), with $k^* = \lfloor \mathcal{C}_{\mathrm{budget}} / h_\mu \rfloor$.
+
+\textbf{Protocol}: Train reinforcement learning agents on a $D$-dimensional partially observable environment with systematically varied computational budgets (context window, hidden state dimension, or parameter count).
+Measure attention entropy as a function of $\mathcal{C}_{\mathrm{budget}}/D$.
+The predicted transition should be:
+\begin{itemize}
+\item Sharp (not gradual) in the limit $D \to \infty$
+\item Located at $\mathcal{C}_{\mathrm{budget}} / (D\, h_\mu\, \tau_{\mathrm{mem}}) \approx 1$
+\item Accompanied by spontaneous selection of $k^*$ ``preferred'' features
+\end{itemize}
+The numerical demonstration in Section~\ref{sec:numerical} provides preliminary evidence for this transition.
+Extending to deep RL agents with continuous state spaces would constitute a non-trivial test.
+
+\paragraph{Prediction 2: Information-discarded scaling law.}
+Theorem~\ref{thm:tradeoff} predicts that the mutual information between an agent's compressed representation and the full environmental state satisfies:
+\begin{equation}
+\frac{I_{\mathrm{discarded}}}{I_{\mathrm{pred}}} \gtrsim 1 - \frac{k^*}{D}
+\label{eq:discard-scaling}
+\end{equation}
+under the uniformity assumption.
+This is a specific, quantitative prediction: an agent retaining $k^*$ out of $D$ features discards at least a fraction $1 - k^*/D$ of the total predictive information.
+
+\textbf{Protocol}: For RL agents with tunable bottleneck width $k$, measure the mutual information $I(\hat{X}; X)$ between the compressed internal state $\hat{X}$ and the full environmental state $X$ using variational estimators~\cite{PooleOzairVanDenOord2019}.
+Plot $I_{\mathrm{discarded}} / I_{\mathrm{pred}}$ against $k/D$.
+The prediction is a linear lower bound with slope $-1/D$ and intercept $1$.
+
+\paragraph{Prediction 3: Delusion trap timescale.}
+Theorem~\ref{thm:delusion} predicts a critical timescale $t_{\mathrm{del}} = \Lambda^{-1} \ln(\pi / 4\theta_0)$ beyond which a fixed-frame agent's gradient updates become anti-correlated with the true optimum.
+
+\textbf{Protocol}: Deploy a fixed-architecture RL agent in an environment with controlled rotation rate $\Lambda$ of the reward-relevant features.
+Measure the cosine similarity between the agent's policy gradient $\nabla_u \mathcal{S}_{\mathrm{vis}}$ and the oracle gradient $\nabla_u \mathcal{S}_{\mathrm{full}}$ as a function of time.
+The prediction:
+\begin{itemize}
+\item Cosine similarity $> 0$ for $t < t_{\mathrm{del}}$ (updates improve performance)
+\item Cosine similarity crosses zero at $t \approx t_{\mathrm{del}}$
+\item Cosine similarity $< 0$ for $t > t_{\mathrm{del}}$ (updates degrade performance)
+\item The crossover timescale scales as $\Lambda^{-1} \ln(1/\theta_0)$
+\end{itemize}
+This is directly testable in non-stationary RL benchmarks with controlled distributional shift.
+
+\paragraph{Prediction 4: Biological information bottleneck.}
+The ego-entropy tradeoff is not specific to artificial agents.
+Any biological system maintaining homeostasis under bounded sensory processing capacity should exhibit the same $k^*/D$ scaling.
+In bacterial chemotaxis, the bacterium processes $D \sim 5$--$10$ chemical gradients through a signaling pathway with $k^* \sim 2$--$3$ effective internal states (CheY-P phosphorylation levels).
+The prediction is:
+\begin{equation}
+\frac{I(\text{internal state};\, \text{chemical environment})}{I(\text{chemical environment};\, \text{survival})} \lesssim \frac{k^*}{D} \approx 0.2\text{--}0.6
+\label{eq:bio-bound}
+\end{equation}
+Single-cell measurements of chemotactic mutual information~\cite{MehtaSchwab2012,GovernTenWolde2014} provide the experimental technology to test this bound.
+The key test is whether the information efficiency saturates the bound (suggesting the biological system has optimized against it) or falls significantly below it.
 
 % ------------------------------------------------------------
 \subsection{What This Paper Does and Does Not Show}
@@ -2688,6 +2757,21 @@ S.~Liu,
 \emph{The Realizability Bridge: Algebraic Closure in the
 Q-RAIF Framework},
 Zenodo (2026), DOI: 10.5281/zenodo.18528934.
+
+\bibitem{PooleOzairVanDenOord2019}
+B.~Poole, S.~Ozair, A.~Van~Den~Oord, A.~Alemi, and G.~Tucker,
+\emph{On variational bounds of mutual information},
+Proc.\ ICML, PMLR \textbf{97}, 5171--5180 (2019).
+
+\bibitem{MehtaSchwab2012}
+P.~Mehta and D.~J.~Schwab,
+\emph{Energetic costs of cellular computation},
+Proc.\ Natl.\ Acad.\ Sci.\ USA \textbf{109}, 17978 (2012).
+
+\bibitem{GovernTenWolde2014}
+W.~P.~Govern and P.~R.~ten~Wolde,
+\emph{Optimal resource allocation in cellular sensing systems},
+Proc.\ Natl.\ Acad.\ Sci.\ USA \textbf{111}, 17486 (2014).
 
 \end{thebibliography}
 

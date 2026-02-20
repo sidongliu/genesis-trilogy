@@ -7,6 +7,8 @@
 \usepackage{amsmath,amssymb,amsthm}
 \usepackage[hidelinks]{hyperref}
 \usepackage{booktabs}
+\usepackage{array}
+\newcolumntype{P}[1]{>{\raggedright\arraybackslash}p{#1}}
 \usepackage{physics}
 
 % Theorem environments — matching Paper A
@@ -23,9 +25,13 @@ in the Q-RAIF Framework}
 \small iBioStratix Ltd \\
 \small \texttt{sidongliu@hotmail.com}}
 
-\date{8th February 2026}
+\date{February 2026}
 
 \begin{document}
+\emergencystretch=2em
+\raggedbottom
+\hbadness=5000
+\vbadness=5000
 \maketitle
 
 % ============================================================
@@ -53,6 +59,7 @@ The Quantum Reference Algebra for Information Flow (Q-RAIF) framework investigat
 The program builds on the Holographic Alaya-Field Framework (HAFF)~\cite{Liu2026PaperA,Liu2026PaperB}, which establishes that geometry emerges from coarse-graining of observable algebras.
 
 \begin{center}
+\small
 \begin{tabular}{@{}llll@{}}
 \toprule
 \textbf{Paper} & \textbf{Question} & \textbf{Analogy} & \textbf{Result} \\
@@ -175,6 +182,16 @@ Moreover, by Lemma~\ref{lem:semisimple}, if\/ $\dim V$ is even then $Cl(V,q)$ is
 In the physically relevant case ($\dim V = 4$, signature $(1,3)$ or compatible sub-signature), the even-dimensionality condition is satisfied.
 Since $\mathcal{O}_{\mathrm{eff}} \subseteq \mathcal{A}_{\mathrm{ext}}$, the internal geometry $(V,q)$ is induced by a restriction of the ambient algebraic structure.
 \end{proof}
+
+\begin{remark}[Scope of the closure theorem]
+\label{rem:scope}
+The logical structure of Theorem~\ref{thm:closure} is essentially: ``a Clifford algebra, homomorphically embedded in a larger algebra, lands as a Clifford subalgebra.''
+The non-trivial content resides not in this deduction but in the \emph{input conditions}:
+(i)~Paper~A's argument that $\mathcal{A}_{\mathrm{ext}} \supseteq Cl(1,3)$;
+(ii)~Paper~B's argument that persistence forces $\mathcal{O}_{\mathrm{int}} \cong Cl(V,q)$;
+(iii)~the injectivity guarantee from semisimplicity (Lemma~\ref{lem:semisimple}).
+The theorem's role is to assemble these independently substantiated conditions into a single algebraic closure statement, not to introduce new mathematical content.
+\end{remark}
 
 \begin{corollary}[No Ghost Algebra]
 A control algebra that is mathematically stable (Cliffordian) but not representable in $\mathcal{A}_{\mathrm{ext}}$ is not physically realizable.

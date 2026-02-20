@@ -8,6 +8,7 @@
 \usepackage{hyperref}
 \usepackage{geometry}
 \usepackage{array}
+\newcolumntype{P}[1]{>{\raggedright\arraybackslash}p{#1}}
 \usepackage{booktabs}
 \geometry{margin=1in}
 
@@ -26,9 +27,13 @@ A Structural Analysis of Observable Algebra Selection}
   \texttt{sidongliu@hotmail.com}
 }
 
-\date{\today}
+\date{February 2026}
 
 \begin{document}
+\emergencystretch=2em
+\raggedbottom
+\hbadness=5000
+\vbadness=5000
 
 \maketitle
 
@@ -211,7 +216,7 @@ The accessible algebra is not fixed \emph{a priori} but is determined by the phy
 \begin{table}[ht]
 \centering
 \small
-\begin{tabular}{|p{2.5cm}|p{5cm}|p{5cm}|}
+\begin{tabular}{|P{2.5cm}|P{5cm}|P{5cm}|}
 \hline
 \textbf{Constraint} & \textbf{Condition} & \textbf{Physical Meaning} \\
 \hline
@@ -337,7 +342,7 @@ The closest structural affinity is with algebraic quantum field theory (AQFT) \c
 \begin{table}[ht]
 \centering
 \small
-\begin{tabular}{|p{3cm}|p{4cm}|p{5.5cm}|}
+\begin{tabular}{|P{3cm}|P{4cm}|P{5.5cm}|}
 \hline
 \textbf{Approach} & \textbf{Key Mechanism} & \textbf{Relation to HAFF} \\
 \hline
@@ -417,7 +422,7 @@ Papers D, E, and F form a ``diagnostic triangle'' within the HAFF framework:
 \begin{table}[ht]
 \centering
 \small
-\begin{tabular}{|p{1.5cm}|p{2.5cm}|p{3.5cm}|p{4.5cm}|}
+\begin{tabular}{|P{1.5cm}|P{2.5cm}|P{3.5cm}|P{4.5cm}|}
 \hline
 \textbf{Paper} & \textbf{Phenomenon} & \textbf{Traditional View} & \textbf{HAFF Reframing} \\
 \hline
@@ -467,7 +472,7 @@ Within the HAFF program, measurement joins gravity and time as phenomena that ar
 
 \section*{Acknowledgments}
 
-The author thanks the anonymous reviewers for their insightful comments and suggestions, which greatly improved the clarity and rigor of this work. This work builds on foundational analysis developed in \cite{Liu2026PaperA,Liu2026PaperB,Liu2026PaperC,Liu2026PaperD}.
+The author thanks the anonymous reviewers for their insightful comments and suggestions, which greatly improved the clarity and rigor of this work.
 
 \begin{thebibliography}{99}
 

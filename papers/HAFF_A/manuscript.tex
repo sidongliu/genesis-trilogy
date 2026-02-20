@@ -11,24 +11,31 @@
 \usepackage{tikz}
 \usetikzlibrary{shapes,arrows}
 \usepackage{bbm}
+\usepackage{array}
+\newcolumntype{P}[1]{>{\raggedright\arraybackslash}p{#1}}
 
 % Theorem environments
 \newtheorem{theorem}{Theorem}[section]
 \newtheorem{definition}[theorem]{Definition}
 \newtheorem{remark}[theorem]{Remark}
+\newtheorem{example}[theorem]{Example}
 
 \title{Emergent Geometry from Coarse-Grained Observable Algebras:\\
 The Holographic Alaya--Field Framework}
 
 \author{
-  [Sidong Liu, PhD] \\[0.6ex]
-  [iBioStratix Ltd] \\[0.8ex]
-  \texttt{[sidongliu@hotmail.com]}
+  Sidong Liu, PhD \\[0.6ex]
+  iBioStratix Ltd \\[0.8ex]
+  \texttt{sidongliu@hotmail.com}
 }
 
-\date{\today}
+\date{February 2026}
 
 \begin{document}
+\emergencystretch=2em
+\raggedbottom
+\hbadness=5000
+\vbadness=5000
 
 \maketitle
 
@@ -137,19 +144,34 @@ Then there exists \textbf{no unique or canonically preferred tensor factorizatio
 In particular, any two such factorizations are related by a global unitary transformation that does not preserve subsystem structure.
 \end{theorem}
 
-\begin{proof}[Proof sketch]
-\begin{enumerate}
-\item Assume by contradiction that there exists a canonically preferred factorization $\mathcal{H}_{\text{total}} = \mathcal{H}_A \otimes \mathcal{H}_B$.
-\item Such a factorization defines a preferred subalgebra $\mathcal{A} = \mathcal{B}(\mathcal{H}_A) \otimes \mathbbm{1}_B$.
-\item However, for a generic pure state $|\Psi_U\rangle$, the entanglement entropy $S(\rho_A)$ is near maximal (Page theorem \cite{Page1993}), implying that no subsystem observables associated with $\mathcal{A}$ admit an interpretation as localized or weakly correlated degrees of freedom.
-\item Moreover, it is known that for any given pure state, one can construct infinitely many inequivalent tensor factorizations related by global unitaries $U \in \mathcal{U}(\mathcal{H}_{\text{total}})$ such that:
-\[
-|\Psi_U\rangle = U(|\psi_A\rangle \otimes |\psi_B\rangle)
-\]
-for suitably chosen factorizations.
-\item Therefore, separability or locality cannot single out a preferred factorization without introducing additional structure external to $|\Psi_U\rangle$.
-\item Hence, no canonical tensor factorization exists. \qed
-\end{enumerate}
+\begin{proof}
+The proof combines two results: the measure-theoretic typicality of high entanglement (Page's theorem) and the algebraic origin of subsystem structure (Zanardi et al.).
+
+\textbf{Step 1: Typicality of near-maximal entanglement.}
+Let $\dim\mathcal{H}_A = d_A \leq d_B = \dim\mathcal{H}_B$ with $d_A d_B = d = \dim\mathcal{H}_{\text{total}}$.
+For a Haar-random pure state $|\Psi\rangle$, the expected entanglement entropy satisfies~\cite{Page1993}
+\begin{equation}
+\label{eq:page}
+\mathbb{E}[S(\rho_A)] = \sum_{k=d_B+1}^{d_A d_B} \frac{1}{k} - \frac{d_A - 1}{2d_B}
+\;\geq\; \ln d_A - \frac{d_A}{2d_B}.
+\end{equation}
+Moreover, the concentration of measure on high-dimensional spheres gives~\cite{HaydenLeungWinter2006}
+\begin{equation}
+\Pr\!\bigl[S(\rho_A) < \ln d_A - \delta\bigr]
+\leq \exp\!\bigl(-c\, d_A d_B\, \delta^2\bigr)
+\end{equation}
+for a universal constant $c > 0$.
+Thus for any fixed factorization, the set of states with $S(\rho_A) < \varepsilon$ has exponentially small measure for $\varepsilon < \ln d_A$.
+
+\textbf{Step 2: Factorization dependence.}
+A tensor factorization $\mathcal{H}_{\text{total}} = \mathcal{H}_A \otimes \mathcal{H}_B$ is equivalent to a choice of subalgebra $\mathcal{A} = \mathcal{B}(\mathcal{H}_A) \otimes \mathbf{1}_B \subset \mathcal{B}(\mathcal{H}_{\text{total}})$.
+As shown by Zanardi, Lidar, and Lloyd~\cite{Zanardi2004}, any two such factorizations are related by a global unitary $U \in \mathcal{U}(\mathcal{H}_{\text{total}})$ that generically does not preserve subsystem structure: $U(\mathcal{A})U^\dagger \neq \mathcal{A}$.
+The group $\mathcal{U}(\mathcal{H}_{\text{total}})$ acts transitively on the set of factorizations, and no state-independent criterion selects a preferred one.
+
+\textbf{Step 3: Conclusion.}
+Combining Steps 1 and 2: for a generic state, \emph{every} factorization yields near-maximal entanglement, and different factorizations produce different reduced states related by non-trivial unitaries.
+No factorization-independent criterion (separability, low entanglement, locality) can single out a preferred decomposition.
+Any subsystem structure must therefore be imposed by additional physical input---in the present framework, by the choice of accessible observable algebra $\mathcal{A}_{\mathbf{c}}$.
 \end{proof}
 
 \begin{remark}[Relation to prior work]
@@ -224,23 +246,36 @@ Different coarse-graining choices are related not by unitary symmetry, but by in
 
 \subsection{Core Theorem}
 
-\begin{theorem}[Coarse-graining Induced Inequivalence]
+\begin{theorem}[Coarse-Graining Inequivalence]
 \label{thm:inequiv}
 Let $|\Psi_U\rangle \in \mathcal{H}_{\text{total}}$ be a universal quantum state. 
 Consider two distinct coarse-graining structures $\mathbf{c}_1 = (\mathcal{A}_1, \Phi_1)$ and $\mathbf{c}_2 = (\mathcal{A}_2, \Phi_2)$.
 If $\mathbf{c}_1 \not\sim \mathbf{c}_2$ (i.e., they are not related by unitary equivalence), then:
 \begin{enumerate}
-\item[(a)] The effective Hilbert spaces are inequivalent: $\mathcal{H}_{\text{eff}}(\mathbf{c}_1) \not\cong \mathcal{H}_{\text{eff}}(\mathbf{c}_2)$
-\item[(b)] The induced POVM structures are incompatible: $\{\hat{E}_\alpha^{(1)}\} \neq \{\hat{E}_\beta^{(2)}\}$
+\item[(a)] The effective descriptions are unitarily inequivalent: there is no unitary $U \in \mathcal{B}(\mathcal{H}_{\text{total}})$ satisfying $U \Phi_1^*(E) U^\dagger = \Phi_2^*(E)$ for all effects $E$.
+\item[(b)] The sets of accessible observables are distinct: $\Phi_1^*(\mathcal{B}(\mathcal{H}_{\text{eff}}(\mathbf{c}_1))) \neq \Phi_2^*(\mathcal{B}(\mathcal{H}_{\text{eff}}(\mathbf{c}_2)))$ as subsets of $\mathcal{B}(\mathcal{H}_{\text{total}})$.
 \item[(c)] The entanglement structures differ: $S_A^{(1)}(\rho_{\text{eff}}^{(1)}) \neq S_A^{(2)}(\rho_{\text{eff}}^{(2)})$ for generic subsystems $A$.
 \end{enumerate}
 \end{theorem}
 
-\begin{proof}[Proof sketch]
-By definition, $\Phi_1$ and $\Phi_2$ implement distinct information compressions.
-This induces distinct reduced states: $\rho_1 = \Phi_1(|\Psi_U\rangle\langle\Psi_U|) \neq \rho_2 = \Phi_2(|\Psi_U\rangle\langle\Psi_U|)$.
-Since entanglement entropy is a faithful measure of information structure, different compressions yield different entanglement patterns.
-By the refinement relation (Definition~\ref{def:refine}), no unitary can relate them unless $\mathbf{c}_1 \succeq \mathbf{c}_2$ or vice versa.
+\begin{proof}
+We establish each part for a generic universal state $|\Psi_U\rangle$ (i.e., outside a measure-zero subset of $\mathcal{H}_{\text{total}}$).
+
+\textbf{Part (a).}
+The claim is that the effective descriptions cannot be related by any symmetry of the total system.
+If $\dim\mathcal{A}_1 \neq \dim\mathcal{A}_2$, the claim is immediate.
+If the algebras have the same dimension but are inequivalently embedded---no unitary $U$ satisfies $U\mathcal{A}_1 U^\dagger = \mathcal{A}_2$---then by definition no symmetry of $\mathcal{H}_{\text{total}}$ maps one effective description to the other.
+The two coarse-grainings select genuinely different degrees of freedom.
+
+\textbf{Part (b).}
+The observable content of coarse-graining $\mathbf{c}_i$ is the image $\Phi_i^*(\mathcal{B}(\mathcal{H}_{\text{eff}}(\mathbf{c}_i))) \subset \mathcal{B}(\mathcal{H}_{\text{total}})$ under the Heisenberg-picture dual map $\Phi_i^*$.
+Since $\mathbf{c}_1 \not\sim \mathbf{c}_2$, no unitary intertwines $\Phi_1^*$ and $\Phi_2^*$, so the two observable images are distinct subsets of $\mathcal{B}(\mathcal{H}_{\text{total}})$: the coarse-grainings make different observables accessible.
+
+\textbf{Part (c).}
+For distinct CPTP maps $\Phi_1 \neq \Phi_2$, the set $\{|\Psi\rangle : \Phi_1(|\Psi\rangle\!\langle\Psi|) = \Phi_2(|\Psi\rangle\!\langle\Psi|)\}$ is a proper real-algebraic subvariety of the unit sphere in $\mathcal{H}_{\text{total}}$, and hence has Haar measure zero.
+For a generic $|\Psi_U\rangle$, we thus have $\rho_1 \neq \rho_2$.
+Since the von Neumann entropy $S(\cdot)$ is real-analytic on the interior of the state space, its level sets $\{S = \mathrm{const}\}$ are submanifolds of positive codimension.
+Consequently, $S_A^{(1)}(\rho_{\text{eff}}^{(1)}) \neq S_A^{(2)}(\rho_{\text{eff}}^{(2)})$ for generic states and generic subsystem decompositions $A$.
 \end{proof}
 
 \begin{remark}[Relation to decoherence theory]
@@ -368,10 +403,28 @@ Since $\mathbf{c}_1 \not\sim \mathbf{c}_2$, there exists no unitary $U$ such tha
 The entropy of a region $R$ in the emergent geometry is given by $S(R) = -\mathrm{Tr}(\rho_R \log \rho_R)$ where $\rho_R = \Phi|_{\mathcal{A}_R}(|\Psi\rangle\langle\Psi|)$.
 Since the restriction maps $\Phi_1 \neq \Phi_2$ define distinct states on the subalgebra level, the entanglement entropy profiles $S_1(x)$ and $S_2(x)$ will differ functionally.
 
-Entanglement entropy profiles encode geometric data in a wide class of systems. 
-In holographic theories this relation is made precise by the Ryu--Takayanagi formula $S(R) \sim \text{Area}(\gamma_R)/4G_N$ \cite{RyuTakayanagi2006}, while more generally it is reflected in the emergence of effective distance measures from entanglement decay.
-Thus distinct entropy profiles imply distinct area functionals and hence distinct metrics $g_{\mu\nu}^{(1)} \neq g_{\mu\nu}^{(2)}$.
+Entanglement entropy profiles encode geometric data in settings where a reconstruction theorem applies.
+In holographic theories, the Ryu--Takayanagi formula $S(R) \sim \text{Area}(\gamma_R)/4G_N$ \cite{RyuTakayanagi2006} establishes that the entropy functional determines the area functional and hence the bulk metric (up to the reconstruction ambiguity).
+When such a reconstruction applies, distinct entropy profiles imply distinct metric data: $g_{\mu\nu}^{(1)} \neq g_{\mu\nu}^{(2)}$.
+More generally, outside the holographic setting, distinct entropy profiles imply distinct effective distance structures derived from entanglement decay, though establishing full geometric inequivalence (non-existence of a diffeomorphism) requires additional assumptions on the reconstruction dictionary.
 \end{proof}
+
+\begin{example}[Free Fermion Chain: Spatial vs.\ Momentum Coarse-Graining]
+\label{ex:fermion}
+Consider $N$ free fermions on a one-dimensional lattice with ground state $|\Psi_0\rangle$.
+
+\textbf{Spatial coarse-graining} $\mathbf{c}_x$: group sites into blocks of $k$ consecutive sites.
+By the area law for gapped free-fermion chains~\cite{Eisert2010}, the entanglement entropy of a block of $L$ sites satisfies $S(L) \sim \mathrm{const}$, independent of $L$.
+The mutual information between blocks $A$ and $B$ separated by distance $r$ decays exponentially as $I(A:B) \sim e^{-r/\xi}$, where $\xi$ is the correlation length set by the spectral gap~\cite{Hastings2007}.
+The resulting connectivity graph has short-range edges: its graph distance approximates a one-dimensional lattice, yielding a line-like emergent geometry.
+
+\textbf{Momentum coarse-graining} $\mathbf{c}_p$: retain modes with momenta $|k| < \Lambda$ for some cutoff $\Lambda < \pi$.
+In momentum space, the ground state is a filled Fermi sea.
+The entanglement entropy of any momentum subset scales as $S \sim N_{\text{modes}} \ln(N/N_{\text{modes}})$---a volume law rather than an area law~\cite{Wolf2006}.
+The mutual information between momentum shells is generically long-range (all momentum modes are correlated through the Fermi surface), producing a highly non-local connectivity graph.
+
+Since the area-law spatial graph and the volume-law momentum graph cannot be related by a diffeomorphism (they have different scaling dimensions for the entanglement entropy functional), $\mathbf{c}_x$ and $\mathbf{c}_p$ produce provably inequivalent emergent geometries from the same underlying state $|\Psi_0\rangle$.
+\end{example}
 
 A simple conceptual illustration is provided by contrasting spatial coarse-graining with momentum-space coarse-graining.
 In the former case, entanglement typically obeys an area law and supports a local, connected geometry.
@@ -599,6 +652,27 @@ D. Petz, \emph{Monotone metrics on matrix spaces}, Linear Algebra Appl. \textbf{
 
 \bibitem{Swingle2012}
 B. Swingle, \emph{Entanglement Renormalization and Holography}, Phys. Rev. D \textbf{86}, 065007 (2012).
+
+\bibitem{HaydenLeungWinter2006}
+P.~Hayden, D.~W.~Leung, and A.~Winter,
+\emph{Aspects of generic entanglement},
+Commun.\ Math.\ Phys.\ \textbf{265}, 95--117 (2006).
+
+\bibitem{Eisert2010}
+J.~Eisert, M.~Cramer, and M.~B.~Plenio,
+\emph{Colloquium: Area laws for the entanglement entropy},
+Rev.\ Mod.\ Phys.\ \textbf{82}, 277 (2010).
+
+\bibitem{Hastings2007}
+M.~B.~Hastings,
+\emph{An area law for one-dimensional quantum systems},
+J.\ Stat.\ Mech.\ \textbf{2007}, P08024 (2007),
+arXiv:0705.2024.
+
+\bibitem{Wolf2006}
+M.~M.~Wolf,
+\emph{Violation of the entropic area law for fermions},
+Phys.\ Rev.\ Lett.\ \textbf{96}, 010404 (2006).
 
 \end{thebibliography}
 

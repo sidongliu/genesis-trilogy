@@ -12,6 +12,8 @@
 \usepackage{tcolorbox}
 \usepackage{cite}
 \usepackage{newunicodechar}
+\usepackage{array}
+\newcolumntype{P}[1]{>{\raggedright\arraybackslash}p{#1}}
 \geometry{margin=1in}
 
 % Handle Devanagari characters (fallback rendering)
@@ -48,9 +50,13 @@ Structural Constraints and Interpretive Bridges}
   \texttt{sidongliu@hotmail.com}
 }
 
-\date{\today}
+\date{February 2026}
 
 \begin{document}
+\emergencystretch=2em
+\raggedbottom
+\hbadness=10000
+\vbadness=10000
 
 \maketitle
 
@@ -228,7 +234,7 @@ Traditional accounts treat agents as metaphysically autonomous entities—unifie
 
 First, if subsystem boundaries are algebra-dependent, what distinguishes an ``agent'' from an arbitrary collection of degrees of freedom? Second, if quantum dynamics are unitary and deterministic at the global level, how can agents possess genuine causal autonomy?
 
-We argue that both challenges dissolve once agency is recast as a structural feature—boundary-stabilization under constraint propagation—rather than a metaphysical primitive.
+We argue that both challenges dissolve once agency is recast as a structural feature---boundary-stabilization under constraint propagation---rather than a metaphysical primitive.
 
 \paragraph{Physical grounding of algebra selection.}
 Before explicating the structural role of accessible algebras, we briefly address the dynamical origin of their selection. As established in our companion analysis regarding stability conditions \cite{Liu2026PaperB}, the specific observable algebra $\mathcal{A}_{\mathbf{c}}$ is not determined by arbitrary subjective choice or metaphysical agency. Rather, it is physically selected by the system's interaction structure—specifically, by the requirement that the algebra remains robust under environmental decoherence (quantum Darwinism) and stable over relevant timescales. The ``filter'' is thus instantiated by the objective Hamiltonian couplings of the underlying field, ensuring that the emergence of effective geometry is grounded in physical dynamics rather than intentionality. We take this stability-selected structure as the starting point for the following structural analysis.
@@ -432,7 +438,8 @@ The framework suggests a taxonomy of existential claims:
 
 \begin{table}[h]
 \centering
-\begin{tabular}{|l|l|l|}
+\small
+\begin{tabular}{|P{3.5cm}|P{4.5cm}|P{5cm}|}
 \hline
 \textbf{Type} & \textbf{Characterization} & \textbf{Example} \\
 \hline
@@ -725,7 +732,7 @@ In this spirit, the essay concludes not with answers but with refined questions�
 
 \section*{Acknowledgments}
 
-The author thanks the anonymous reviewers for their insightful comments and suggestions, which greatly improved the clarity and rigor of this work. This work builds on structural analysis developed in companion papers \cite{Liu2026PaperA,Liu2026PaperB}. All errors and interpretive overreach remain the author's responsibility.
+The author thanks the anonymous reviewers for their insightful comments and suggestions, which greatly improved the clarity and rigor of this work.
 
 \bibliographystyle{unsrt}
 \begin{thebibliography}{99}
