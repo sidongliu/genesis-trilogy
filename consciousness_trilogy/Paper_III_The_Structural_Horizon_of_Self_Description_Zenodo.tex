@@ -1,0 +1,1134 @@
+\documentclass[12pt]{article}
+
+\usepackage[a4paper, margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{mathtools}
+\usepackage{mathrsfs}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fontspec}
+
+\defaultfontfeatures{Ligatures=TeX}
+\IfFontExistsTF{Times New Roman}
+  {\setmainfont{Times New Roman}}
+  {\setmainfont{TeX Gyre Termes}}
+\IfFontExistsTF{Menlo}
+  {\setmonofont{Menlo}}
+  {\setmonofont{Latin Modern Mono}}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+
+\newcommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+
+\title{%
+  \textbf{The Structural Horizon of Self-Description:}\\
+  \textbf{Fisher Bounds, Small-Ball Remainders, and the Quantitative Explanatory Gap}%
+}
+
+\author{
+  Sidong Liu, PhD \\
+  \small iBioStratix Ltd \\
+  \small \texttt{sidongliu@hotmail.com}
+}
+
+\date{April 2026}
+
+\begin{document}
+\emergencystretch=2em
+\raggedbottom
+\hbadness=5000
+\vbadness=5000
+
+\maketitle
+
+\begin{abstract}
+%
+Paper~G located the explanatory gap at a structural limit of
+self-description, but did so qualitatively. Paper~II then identified a
+concrete physical carrier of that limit: the higher-order
+\(O(R^{d+3})\) remainder in the small-ball modular expansion, beyond
+the part controlled by linearized gravitational consistency. The present
+paper supplies the quantitative sequel. We define the self-description
+deficit of a finite observer as the optimal local minimax
+Araki-relative-entropy loss in compressing and reconstructing its own
+accessible state by means of an admissible \(n\)-dimensional self-model.
+
+Our first main result is a local minimax drift-floor theorem. For
+locally bounded self-models that factor through a Fisher-whitened
+\(n\)-dimensional statistical manifold, the local deficit satisfies
+\[
+\varepsilon_{\mathrm{loc}}(n)
+\ge
+\frac{(1-2\eta)\,\mathcal{I}_F}
+{2\bigl(\mathcal{I}_F + \mathcal{I}_{\mathrm{ego}}\bigr)},
+\]
+where \(\mathcal{I}_F\) is the observer's modular Fisher sensitivity,
+\(\mathcal{I}_{\mathrm{ego}}\) is the ego-rigidity prior of
+T-DOME~Paper~III, and \(\eta\in[0,\tfrac{1}{2})\) is a local
+quadratic-control parameter that can be made arbitrarily small by
+shrinking the BKM ball. Our second main result then connects the finite
+trace-budget side of the theory to Paper~II by defining the maximal
+small-ball control order \(k(n)\). In the free scalar CFT worked
+example, an exact \(d=1\) signal-factor calculation together with a
+general-dimensional boundary-kernel estimate yields
+\[
+\log I_k = -\alpha k\log k + O(k),
+\]
+so that
+\[
+k(n)=O\!\left(\frac{\log n}{\log\log n}\right).
+\]
+Thus a finite self-model can internalize only finitely many higher-order
+small-ball coefficients, and the number of controllable orders grows
+only logarithmically.
+
+The paper does not claim a fully operator-algebraic derivation of the
+Fisher ceiling, nor a general theorem for arbitrary Type~III nets. Its
+claims are deliberately narrower. Within the local regime stated above,
+however, the conclusion is sharp: the residual explanatory gap admits a
+quantitative reinterpretation as a structural horizon of
+self-description.
+ \end{abstract}
+
+\clearpage
+\tableofcontents
+\clearpage
+
+%
+\section{Introduction}\label{sec:1}
+
+Paper~G\cite{PaperG} argued that the apparent explanatory gap is not,
+at bottom, a failure to explain how physical structure produces
+experience. The deeper obstruction is structural. A framework that
+describes the world by selecting accessible structure cannot, without
+circularity, fully internalize the conditions of its own accessibility.
+That result was qualitative. It identified a boundary, but did not
+measure it.
+
+Paper~II\cite{PaperII} moved the discussion to a more concrete level.
+In the higher-dimensional CHM ball framework, consistency between local
+modular data and local geometry fixes the linearized Einstein tensor at
+order \(R^{d+1}\). The first uncontrolled terms appear at
+\(O(R^{d+3})\). This naturally suggests a new question: can those
+higher-order remainders be interpreted as the quantitative residue of
+finite self-description?
+
+The present paper gives a first affirmative answer. Its aim is narrower
+than a full theory of finite observers, but sharper than a philosophical
+gloss. We define the \emph{self-description deficit} of an observer of
+complexity \(n\) as a local minimax Araki-relative-entropy loss incurred
+when the observer compresses and reconstructs its own accessible state
+through an admissible \(n\)-dimensional self-model. We then derive a
+local lower bound on this deficit from three inputs:
+\begin{enumerate}
+\item the BKM/QFIM structure already used in Paper~I\cite{PaperI};
+\item the self-referential Fisher and ego-rigidity formalism of
+T-DOME~Paper~III\cite{TDOMEIII};
+\item the small-ball remainder structure isolated in Paper~II
+\cite{PaperII}.
+\end{enumerate}
+
+The main theorem chain is intentionally honest. We do \emph{not} claim
+that every finite observer automatically determines a finite statistical
+model in a purely operator-algebraic way. Nor do we claim a general
+Type~III theorem for arbitrary nets or arbitrary perturbations. The
+theorem-grade result is conditional on an admissible self-model
+factoring through a Fisher-whitened \(n\)-dimensional statistical
+manifold. Within that domain, the drift-channel bound for locally
+bounded self-models is clean (Corollary~\ref{cor:3.4}, after shrinking
+\(\delta\) so that \(\eta\to 0\)):
+\[
+\varepsilon_{\mathrm{loc}}(n)
+\ge
+\frac{\mathcal{I}_F}{2\bigl(\mathcal{I}_F+\mathcal{I}_{\mathrm{ego}}\bigr)}.
+\]
+This already quantifies the structural claim of Paper~G at the local
+minimax level.
+
+The second half of the paper translates that bound back into the
+small-ball language of Paper~II. We define the maximal small-ball order
+\(k(n)\) that a finite Fisher budget can control. In the free scalar
+CFT worked example, the signal factor has exact factorial suppression in
+\(d=1\), while the general-dimensional renormalized boundary kernel
+contributes at most polynomial \(k\)-dependence. The resulting Fisher
+spectrum obeys
+\[
+\log I_k = -\alpha k\log k + O(k),
+\]
+and therefore
+\[
+k(n)=O\!\left(\frac{\log n}{\log\log n}\right).
+\]
+The controllable part of the small-ball expansion grows only
+logarithmically with model complexity.
+
+The paper is organized as follows. Section~\ref{sec:2} defines finite
+observers, admissible self-models, and the self-description deficit.
+Section~\ref{sec:3} proves the local drift-floor theorem. Section~\ref{sec:4}
+defines the small-ball control order and derives its abstract growth
+law from a spectral hypothesis. Section~\ref{sec:5} verifies that
+hypothesis at worked-example level in the free scalar CFT. Section~\ref{sec:6}
+explains the trilogy-level significance of the result, and
+Section~\ref{sec:7} states the remaining limitations and open problems.
+
+\section{Finite Observers and the Self-Description Deficit}\label{sec:2}
+
+\subsection{Finite Observers}\label{subsec:2.1}
+
+Paper~G\cite{PaperG} framed structural incompleteness in architectural
+terms: no accessibility-based framework can fully internalize its own
+accessibility conditions without either regress or collapse. To
+quantify that boundary, we must first specify what counts as a finite
+self-model.
+
+\begin{definition}[Finite observer]\label{def:2.1}
+A finite observer of complexity \(n\) is a triple
+\[
+(\mathcal{A}_{\mathrm{obs}},\omega_{\mathrm{obs}},\mathfrak{M}_n),
+\]
+where:
+\begin{enumerate}
+\item \(\mathcal{A}_{\mathrm{obs}} \subset \mathcal{A}_c\) is the
+observer's accessible subalgebra;
+\item \(\omega_{\mathrm{obs}} = \omega|_{\mathcal{A}_{\mathrm{obs}}}\)
+is the restricted state;
+\item \(\mathfrak{M}_n\) is an \(n\)-dimensional statistical model used
+internally to represent the observer's own accessible state.
+\end{enumerate}
+\end{definition}
+
+The complexity parameter \(n\) measures effective statistical degrees of
+freedom, not arbitrary description length. This is deliberate. Paper~III
+is not about Kolmogorov complexity in full generality. It is about the
+finite number of statistically usable directions available to an
+observer trying to model itself.
+
+\subsection{Modular Fisher Sensitivity}\label{subsec:2.1b}
+
+The Tomita--Takesaki modular automorphism group
+\(\sigma_t^\omega\) of a faithful normal state \(\omega\) on a von
+Neumann algebra satisfies \(\omega\circ\sigma_t^\omega=\omega\) for
+all \(t\). The orbit is therefore trivial at the level of states, and
+the associated tangent vector vanishes. Since the modular orbit itself
+carries no state-level Fisher information, we replace it with the
+intrinsic accessible-unitary perturbation family as the operational
+proxy for modular sensitivity.
+
+\begin{definition}[Modular Fisher sensitivity]\label{def:2.1b}
+Fix a self-adjoint element
+\(h\in\mathcal{A}_{\mathrm{obs}}\) and define the perturbed family
+\[
+\omega_s^{(h)}
+:=
+\omega_{\mathrm{obs}}\circ\mathrm{Ad}(e^{ish}),
+\qquad s\in(-\epsilon,\epsilon).
+\]
+The modular Fisher sensitivity of
+\(\omega_{\mathrm{obs}}\) along \(h\) is
+\[
+\mathcal{I}_F(\omega_{\mathrm{obs}},h)
+:=
+\mathbf{Q}_{\omega_{\mathrm{obs}}}\!\left(
+\frac{d\omega_s^{(h)}}{ds}\bigg|_{s=0},\;
+\frac{d\omega_s^{(h)}}{ds}\bigg|_{s=0}
+\right).
+\]
+The modular Fisher sensitivity of the observer is
+\[
+\mathcal{I}_F(\omega_{\mathrm{obs}})
+:=
+\sup\bigl\{
+\mathcal{I}_F(\omega_{\mathrm{obs}},h)
+:\;
+h=h^*\in\mathcal{A}_{\mathrm{obs}},\;
+\|h\|\le 1
+\bigr\}.
+\]
+\end{definition}
+
+The supremum is taken over unit-norm self-adjoint perturbations in the
+observer's own accessible algebra. It is finite whenever the BKM form
+is bounded on the unit ball of
+\(\mathcal{A}_{\mathrm{obs}}\)-tangent directions, which holds in the
+local regime used throughout this paper. The quantity
+\(\mathcal{I}_F(\omega_{\mathrm{obs}})\) measures the observer's
+maximal intrinsic sensitivity to unitary perturbations of its own
+accessible state. It is strictly positive whenever
+\(\omega_{\mathrm{obs}}\) is not a trace state on
+\(\mathcal{A}_{\mathrm{obs}}\).
+
+Throughout the paper, the term \emph{local modular drift family}
+refers to the one-parameter family \(\{\omega_s^{(h)}\}\) for a fixed
+perturbation \(h\). When the supremum in
+Definition~\ref{def:2.1b} is attained, we take \(h\) to be a
+maximizer; when it is not, we use a standard
+\(\eta\)-optimization: for each \(\eta>0\), choose
+\(h_\eta=h_\eta^*\in\mathcal{A}_{\mathrm{obs}}\) with
+\(\|h_\eta\|\le 1\) and
+\(\mathcal{I}_F(\omega_{\mathrm{obs}},h_\eta)\ge
+\mathcal{I}_F(\omega_{\mathrm{obs}})-\eta\), carry out the proof for
+\(h_\eta\), and let \(\eta\downarrow 0\). Despite the name, this
+family is not the Tomita--Takesaki modular orbit (which is
+state-preserving) but the accessible-unitary perturbation family that
+serves as its operational proxy at the level of Fisher information.
+This is the family along which the observer's self-description is
+hardest to compress.
+
+\subsection{Admissible Self-Models}\label{subsec:2.2}
+
+The theorem chain does not require a literal embedding of the self-model
+into a matrix algebra. That stronger route would force us to solve a
+much harder operator-algebraic problem than the present paper needs.
+What matters here is the existence of a finite statistical bottleneck.
+
+\begin{definition}[Admissible self-model]\label{def:2.2}
+An admissible \(n\)-dimensional self-model is a pair
+\[
+(\Pi_n,\Psi_n),
+\]
+where:
+\begin{enumerate}
+\item \(\Pi_n:\mathcal{S}(\mathcal{A}_{\mathrm{obs}})\to
+\mathfrak{M}_n\) is the state-space map induced by a normal unital
+completely positive map from a finite-dimensional algebra into
+\(\mathcal{A}_{\mathrm{obs}}\), so that Petz monotonicity of relative
+entropy applies;
+\item \(\Psi_n:\mathfrak{M}_n\to
+\mathcal{S}(\mathcal{A}_{\mathrm{obs}})\) is a recovery map;
+\item \(\Pi_n\) factors through the observer's own accessible state
+space, so no external ``God's-eye'' parameter is introduced;
+\item near the reference state \(\omega_{\mathrm{obs}}\), the Fisher
+matrix on \(\mathfrak{M}_n\) can be whitened:
+\[
+\mathbf{I}^{(n)}_\omega
+=
+\mathrm{diag}(\lambda_1,\dots,\lambda_n),
+\qquad
+\lambda_a \leq \mathcal{I}_F(\omega_{\mathrm{obs}}).
+\]
+\end{enumerate}
+\end{definition}
+
+The last condition is the substantive standing assumption of the
+theorem, not a mere coordinate normalization. It says that the
+compressed model has only \(n\) effective Fisher directions, and none of
+them is sharper than the observer's own modular sensitivity scale. This
+is the exact place where the theorem absorbs finite-dimensionality.
+
+\subsection{Self-Description Deficit}\label{subsec:2.3}
+
+The correct loss function is not a metric but a divergence. In a
+Type~III setting there is no preferred trace-class density-matrix
+picture, while Araki relative entropy is native to the operator
+algebraic formulation \cite{Araki1976}.
+
+\begin{definition}[Self-description deficit]\label{def:2.3}
+Define the BKM ball of radius \(\delta\) around
+\(\omega_{\mathrm{obs}}\) by
+\[
+\mathcal{B}_\delta(\omega_{\mathrm{obs}})
+:=
+\bigl\{
+\omega\in\mathcal{S}(\mathcal{A}_{\mathrm{obs}})
+:\;
+\mathbf{Q}_{\omega_{\mathrm{obs}}}(\omega-\omega_{\mathrm{obs}},\,
+\omega-\omega_{\mathrm{obs}})
+<\delta^2
+\bigr\}.
+\]
+Fix once and for all a \(\delta>0\) small enough that Araki relative
+entropy admits its quadratic expansion on
+\(\mathcal{B}_\delta(\omega_{\mathrm{obs}})\), and large enough that
+the ego-rigidity prior \(\pi_{\mathrm{ego}}\) of
+T-DOME~Paper~III\cite{TDOMEIII} can be supported on a segment of the
+local modular drift family inside
+\(\mathcal{B}_\delta(\omega_{\mathrm{obs}})\). The self-description
+deficit of complexity \(n\) is
+\[
+\varepsilon(n)
+:=
+\inf_{(\Pi_n,\Psi_n)}
+\sup_{\omega\in \mathcal{B}_\delta(\omega_{\mathrm{obs}})}
+S\!\left(
+\omega
+\;\middle\|\;
+\Psi_n\circ\Pi_n(\omega)
+\right),
+\]
+where the infimum is taken over all admissible \(n\)-dimensional
+self-models.
+\end{definition}
+
+Near a fixed state, Araki relative entropy has the familiar BKM/QFIM
+quadratic expansion
+\[
+S(\omega\|\omega+\delta\omega)
+=
+\frac{1}{2}\mathbf{Q}_\omega(\delta\omega,\delta\omega)
++o(\|\delta\omega\|^2),
+\]
+which is the local information-geometric structure already used in
+Paper~I\cite{PaperI} and in Petz's monotone-metric framework
+\cite{Petz1996}. The minimax form is essential: it rules out trivial
+constant recovery maps that memorize the reference state while failing
+arbitrarily nearby. Thus \(\varepsilon(n)\) measures optimal local
+uniform reconstruction loss in the intrinsic Type~III geometry of
+states.
+
+\section{The Fisher Ceiling for Admissible Self-Models}\label{sec:3}
+
+\subsection{Petz Monotonicity and Finite Fisher Budget}\label{subsec:3.1}
+
+The first ingredient is standard.
+
+\begin{lemma}[Petz monotonicity]\label{lem:3.1}
+For any normal coarse-graining \(\Pi_n\),
+\[
+S(\omega\|\sigma)\ge S(\Pi_n(\omega)\|\Pi_n(\sigma)).
+\]
+\end{lemma}
+
+\begin{proof}
+This is the monotonicity of relative entropy under coarse-graining
+\cite{Petz1986}. The present paper uses it only in the local regime,
+where it implies that compression cannot increase BKM/Fisher
+information.
+\end{proof}
+
+Whitening then converts finite statistical dimension directly into two
+distinct ceilings: one for the specific modular drift channel, and one
+for the total trace budget across all retained directions.
+
+\begin{proposition}[Directional and total Fisher ceilings]\label{prop:3.2}
+Let \((\Pi_n,\Psi_n)\) be an admissible \(n\)-dimensional self-model.
+Then:
+\begin{enumerate}
+\item along the local modular drift family through
+\(\omega_{\mathrm{obs}}\), the Fisher information retained after
+compression satisfies
+\[
+\mathcal{I}^{(n)}_{\mathrm{drift}}
+\le
+\mathcal{I}_F(\omega_{\mathrm{obs}});
+\]
+\item the total retained data Fisher information satisfies
+\[
+\mathcal{I}^{(n)}_{\mathrm{data}}
+:=
+\mathrm{tr}\,\mathbf{I}^{(n)}_\omega
+\le
+n\,\mathcal{I}_F(\omega_{\mathrm{obs}}).
+\]
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+\(\!\)(1) Apply Lemma~\ref{lem:3.1} to the one-parameter modular drift
+family. In the local quadratic regime, monotonicity of relative entropy
+implies monotonicity of the associated BKM/Fisher metric, so
+compression cannot increase Fisher information for that specific scalar
+parameter.
+
+\(\!\)(2) In Fisher-whitened coordinates, the compressed Fisher matrix is
+\[
+\mathbf{I}^{(n)}_\omega
+=
+\mathrm{diag}(\lambda_1,\dots,\lambda_n),
+\qquad
+\lambda_a \le \mathcal{I}_F(\omega_{\mathrm{obs}}).
+\]
+Summing over the \(n\) effective directions gives
+\[
+\mathrm{tr}\,\mathbf{I}^{(n)}_\omega
+=
+\sum_{a=1}^n \lambda_a
+\le
+n\,\mathcal{I}_F(\omega_{\mathrm{obs}}).
+\]
+\end{proof}
+
+\subsection{Ego Rigidity and the Local Deficit Bound}\label{subsec:3.2}
+
+T-DOME~Paper~III\cite{TDOMEIII} introduced a self-referential
+calibration loop and the associated Bayesian correction term
+\(\mathcal{I}_{\mathrm{ego}}\), interpreted there as ego rigidity. In
+the present context the same term enters naturally as prior Fisher
+information in a van Trees bound.
+
+\begin{theorem}[Local minimax drift floor]\label{thm:3.3}
+Let \((\mathcal{A}_{\mathrm{obs}},\omega_{\mathrm{obs}},\mathfrak{M}_n)\)
+be a finite observer, and let \((\Pi_n,\Psi_n)\) be an admissible
+\(n\)-dimensional self-model. Assume:
+\begin{enumerate}[label=(\roman*)]
+\item the local modular drift subfamily
+through \(\omega_{\mathrm{obs}}\) lies inside
+\(\mathcal{B}_{\delta/2}(\omega_{\mathrm{obs}})\);
+\item the quadratic expansion of Araki relative entropy is controlled
+on \(\mathcal{B}_\delta(\omega_{\mathrm{obs}})\): there exists
+\(\eta\in[0,\tfrac{1}{2})\) such that
+\[
+S(\omega\|\sigma)
+\ge
+(\tfrac{1}{2}-\eta)\,
+\mathbf{Q}_\omega(\sigma-\omega,\,\sigma-\omega)
+\]
+for all \(\omega,\sigma\in
+\mathcal{B}_\delta(\omega_{\mathrm{obs}})\);
+\item the BKM form is uniformly comparable on
+\(\mathcal{B}_\delta(\omega_{\mathrm{obs}})\): there exists
+\(C_\delta\ge 1\) such that
+\[
+C_\delta^{-1}\,
+\mathbf{Q}_{\omega_{\mathrm{obs}}}(v,v)
+\le
+\mathbf{Q}_\omega(v,v)
+\le
+C_\delta\,
+\mathbf{Q}_{\omega_{\mathrm{obs}}}(v,v)
+\]
+for all \(\omega\in
+\mathcal{B}_\delta(\omega_{\mathrm{obs}})\) and all tangent vectors
+\(v\), with \(C_\delta\to 1\) as \(\delta\to 0\).
+\end{enumerate}
+Define the \emph{local self-description deficit} by restricting the
+minimax to self-models whose reconstruction maps
+\(\mathcal{B}_{\delta/2}(\omega_{\mathrm{obs}})\) into
+\(\mathcal{B}_\delta(\omega_{\mathrm{obs}})\):
+\[
+\varepsilon_{\mathrm{loc}}(n)
+:=
+\inf_{\substack{(\Pi_n,\Psi_n)\\[2pt]
+\Psi_n\circ\Pi_n(\mathcal{B}_{\delta/2})\subset
+\mathcal{B}_\delta}}
+\sup_{\omega\in \mathcal{B}_\delta(\omega_{\mathrm{obs}})}
+S\!\left(
+\omega
+\;\middle\|\;
+\Psi_n\circ\Pi_n(\omega)
+\right).
+\]
+Then
+\[
+\varepsilon_{\mathrm{loc}}(n)
+\ge
+\frac{(1-2\eta)\,\mathcal{I}_F(\omega_{\mathrm{obs}})}
+{2\bigl(\mathcal{I}_F(\omega_{\mathrm{obs}})
++
+\mathcal{I}_{\mathrm{ego}}\bigr)}.
+\]
+In particular, \(\varepsilon(n)=\varepsilon_{\mathrm{loc}}(n)\)
+whenever the infimum in Definition~\ref{def:2.3} is attained by a
+locally bounded self-model.
+\end{theorem}
+
+\begin{proof}
+Fix a locally bounded admissible self-model \((\Pi_n,\Psi_n)\), and
+write \(\{\omega_s\}\) for the local modular drift family. Let
+\(\pi\) be the ego-rigidity prior \(\pi_{\mathrm{ego}}\) restricted
+and renormalized to the drift segment inside
+\(\mathcal{B}_{\delta/2}(\omega_{\mathrm{obs}})\) (this is possible by
+assumption~(i) and the support condition in
+Definition~\ref{def:2.3}). Then
+\[
+\sup_{\omega\in \mathcal{B}_\delta(\omega_{\mathrm{obs}})}
+S\!\left(
+\omega\;\middle\|\;\Psi_n\circ\Pi_n(\omega)
+\right)
+\ge
+\int
+S\!\left(
+\omega_s\;\middle\|\;\Psi_n\circ\Pi_n(\omega_s)
+\right)\,d\pi(s).
+\]
+Since \(\omega_s\in\mathcal{B}_{\delta/2}(\omega_{\mathrm{obs}})\)
+and the self-model is locally bounded,
+\(\Psi_n\circ\Pi_n(\omega_s)\in
+\mathcal{B}_\delta(\omega_{\mathrm{obs}})\). Both states therefore
+lie inside the controlled ball, so assumption~(ii) gives
+\[
+S(\omega_s\|\Psi_n\circ\Pi_n(\omega_s))
+\ge
+(\tfrac{1}{2}-\eta)\,
+\mathbf{Q}_{\omega_s}(\delta\omega_{\mathrm{recon}}(s),\,
+\delta\omega_{\mathrm{recon}}(s)),
+\]
+where
+\(\delta\omega_{\mathrm{recon}}(s):=
+\Psi_n\circ\Pi_n(\omega_s)-\omega_s\).
+Since \(\omega_s\in\mathcal{B}_{\delta/2}(\omega_{\mathrm{obs}})\),
+assumption~(iii) gives
+\(\mathbf{Q}_{\omega_s}(v,v)\ge C_\delta^{-1}\,
+\mathbf{Q}_{\omega_{\mathrm{obs}}}(v,v)\). Absorbing
+\(C_\delta^{-1}\) into the prefactor \((\tfrac{1}{2}-\eta)\) (both
+approach their ideal values as \(\delta\to 0\)), we may replace
+\(\mathbf{Q}_{\omega_s}\) by
+\(\mathbf{Q}_{\omega_{\mathrm{obs}}}\) at the cost of adjusting
+\(\eta\). Decompose the reconstruction error:
+\[
+\delta\omega_{\mathrm{recon}}(s)
+=
+\dot{\omega}\,(\widehat{s}(s)-s)
++
+\delta\omega_{\perp}(s),
+\]
+where \(\widehat{s}(s)\) is the
+\(\mathbf{Q}_{\omega_{\mathrm{obs}}}\)-projection coefficient of
+\(\delta\omega_{\mathrm{recon}}(s)\) onto the drift tangent
+\(\dot{\omega}\).
+By positivity and the orthogonal decomposition,
+\[
+\mathbf{Q}_{\omega_{\mathrm{obs}}}(\delta\omega_{\mathrm{recon}}(s),\,
+\delta\omega_{\mathrm{recon}}(s))
+\ge
+\mathcal{I}_F(\omega_{\mathrm{obs}})
+\bigl(\widehat{s}(s)-s\bigr)^2.
+\]
+Integrating against \(\pi\) gives
+\[
+\int
+S\!\left(
+\omega_s\;\middle\|\;\Psi_n\circ\Pi_n(\omega_s)
+\right)\,d\pi(s)
+\ge
+(\tfrac{1}{2}-\eta)\,\mathcal{I}_F(\omega_{\mathrm{obs}})
+\int\bigl(\widehat{s}(s)-s\bigr)^2\,d\pi(s).
+\]
+
+By Proposition~\ref{prop:3.2}(1), the compressed model retains at most
+\(\mathcal{I}_F(\omega_{\mathrm{obs}})\) Fisher information about that
+single scalar parameter. Adding the Bayesian prior term from ego
+rigidity gives the effective scalar information ceiling
+\[
+\mathcal{I}_{\mathrm{eff}}^{\mathrm{drift}}
+\le
+\mathcal{I}_F(\omega_{\mathrm{obs}})
++
+\mathcal{I}_{\mathrm{ego}}.
+\]
+The scalar van Trees inequality then yields a Bayes-risk lower bound
+\[
+\int\bigl(\widehat{s}(s)-s\bigr)^2\,d\pi(s)
+\ge
+\frac{1}{\mathcal{I}_F(\omega_{\mathrm{obs}})
++
+\mathcal{I}_{\mathrm{ego}}}
+\]
+for estimation along the local modular drift channel
+\cite{vanTrees1968,TDOMEIII}. Combining gives
+\[
+\sup_{\omega\in \mathcal{B}_\delta(\omega_{\mathrm{obs}})}
+S\!\left(
+\omega\;\middle\|\;\Psi_n\circ\Pi_n(\omega)
+\right)
+\ge
+\frac{(1-2\eta)\,\mathcal{I}_F(\omega_{\mathrm{obs}})}
+{2\bigl(\mathcal{I}_F(\omega_{\mathrm{obs}})
++
+\mathcal{I}_{\mathrm{ego}}\bigr)}.
+\]
+Since this holds for every locally bounded admissible
+\((\Pi_n,\Psi_n)\), the same lower bound holds after taking the
+infimum.
+\end{proof}
+
+\begin{corollary}[Non-vanishing local floor]\label{cor:3.4}
+If \(\mathcal{I}_F(\omega_{\mathrm{obs}})>0\) and \(\eta\) can be
+taken arbitrarily small (by shrinking \(\delta\)), then for every
+\(n\),
+\[
+\varepsilon_{\mathrm{loc}}(n)\ge
+\frac{1}{
+2\left(
+1+\mathcal{I}_{\mathrm{ego}}/\mathcal{I}_F(\omega_{\mathrm{obs}})
+\right)}.
+\]
+\end{corollary}
+
+\begin{proof}
+Take \(\eta\to 0\) in Theorem~\ref{thm:3.3} and rewrite
+algebraically.
+\end{proof}
+
+In words: the local self-description deficit is bounded below by a
+ratio that depends only on the observer's modular sensitivity and its
+ego-rigidity prior. Even if \(\mathcal{I}_{\mathrm{ego}}=0\), the
+floor is \(1/2\), reflecting a pure Fisher ceiling. A larger
+\(\mathcal{I}_{\mathrm{ego}}\) lowers the floor because the prior
+absorbs some of the reconstruction burden, but the floor never reaches
+zero as long as \(\mathcal{I}_F>0\).
+
+\begin{remark}\label{rem:3.5}
+Theorem~\ref{thm:3.3} is the theorem-grade core of Paper~III, but its
+scope is deliberately narrow. It is a local minimax statement for the
+single modular drift channel around a fixed observer state, restricted
+to locally bounded self-models. The
+\(n\)-dependence of higher-order control enters only later, through the
+full trace budget of Proposition~\ref{prop:3.2}(2) applied to
+\(\mathbf{Q}_\omega\)-orthogonal coefficient families. A stronger global
+operator-algebraic route is left to future work.
+\end{remark}
+
+\section{Small-Ball Remainders and Finite Control Order}\label{sec:4}
+
+\subsection{From Paper II to a Control-Order Definition}\label{subsec:4.1}
+
+Paper~II\cite{PaperII} showed that, in the CHM small-ball framework
+\cite{CasiniHuertaMyers2011},
+\[
+\delta\langle K_{B,u}\rangle
+=
+\sum_{k=0}^{\infty} a_k(x_0,u)\,R^{d+1+2k},
+\]
+with the \(k=0\) term fixed by the local stress tensor and the first
+uncontrolled terms appearing at \(O(R^{d+3})\). To turn this into a
+finite-self-model statement, we now leave the single-channel setting of
+Theorem~\ref{thm:3.3} and use the full trace budget from
+Proposition~\ref{prop:3.2}(2). We associate a Fisher cost to each
+higher-order coefficient.
+
+\begin{definition}[Coefficient Fisher information]\label{def:4.1}
+Fix \(k\ge 1\). Let \(\omega_\theta^{(k)}\) be a one-parameter family of
+perturbations whose tangent vector is chosen, by BKM Gram--Schmidt
+orthogonalization if necessary, to be
+\(\mathbf{Q}_\omega\)-orthogonal to the span of the lower-order
+coefficient directions and to vary \(a_k\) at linear order. The Fisher
+information of the \(k\)-th coefficient is
+\[
+I_k
+:=
+\mathbf{Q}_\omega\!\left(
+\frac{\partial\omega_\theta^{(k)}}{\partial\theta}\Big|_{\theta=0},
+\frac{\partial\omega_\theta^{(k)}}{\partial\theta}\Big|_{\theta=0}
+\right).
+\]
+\end{definition}
+
+We then encode finite control by budget exhaustion.
+
+\begin{definition}[Small-ball control order]\label{def:4.2}
+The maximal small-ball control order of an \(n\)-dimensional self-model
+is
+\[
+k(n)
+:=
+\max\left\{
+K\ge 1:
+\sum_{j=1}^{K} I_j^{-1}
+\le
+n\,\mathcal{I}_F(\omega_{\mathrm{obs}})
++
+\mathcal{I}_{\mathrm{ego}}
+\right\}.
+\]
+\end{definition}
+
+This definition packages the additive Fisher-budget approximation
+directly into the quantity being studied. The point is not that all
+channels are literally independent in every model, but that the joint
+control problem costs at least the cumulative Cram\'er--Rao budget
+appearing on the left-hand side. With the orthogonalized coefficient
+directions of Definition~\ref{def:4.1}, the local Fisher matrix is
+diagonal at the reference state, so the additive budget written above is
+exact at quadratic order.
+
+\subsection{Abstract Growth Law}\label{subsec:4.2}
+
+The next statement is conditional on the spectral asymptotic extracted
+from the worked example in Section~\ref{sec:5}.
+
+\begin{theorem}[Finite self-models control only finitely many orders
+(conditional on spectral hypothesis)]
+\label{thm:4.3}
+Assume the higher-order coefficient spectrum obeys
+\[
+\log I_k = -\alpha k\log k + O(k)
+\qquad
+(\alpha>0).
+\]
+Then
+\[
+k(n)
+=
+O\!\left(\frac{\log n}{\log\log n}\right).
+\]
+\end{theorem}
+
+\begin{proof}
+By Definition~\ref{def:4.2}, which packages the trace ceiling from
+Proposition~\ref{prop:3.2}(2),
+\[
+\sum_{j=1}^{k(n)} I_j^{-1}
+\le
+n\,\mathcal{I}_F(\omega_{\mathrm{obs}})
++
+\mathcal{I}_{\mathrm{ego}}.
+\]
+The assumed asymptotic implies that \(I_j^{-1}\) grows in a
+stretched-factorial manner, so the sum is dominated by its final term:
+\[
+\sum_{j=1}^{K} I_j^{-1}\asymp I_K^{-1}.
+\]
+Taking logarithms gives
+\[
+\alpha K\log K + O(K)
+\lesssim
+\log n.
+\]
+Solving this growth relation yields
+\[
+K = O\!\left(\frac{\log n}{\log\log n}\right).
+\]
+\end{proof}
+
+\begin{remark}\label{rem:4.4}
+Theorem~\ref{thm:4.3} says less than a general theorem on all higher
+coefficients, but more than a slogan. It shows that once the spectrum is
+super-polynomially sparse, increasing model complexity produces only
+logarithmic gains in controllable small-ball order.
+\end{remark}
+
+\section{Worked Example: Free Scalar CFT and the Fisher Spectrum}
+\label{sec:5}
+
+\subsection{What Must Be Verified}\label{subsec:5.1}
+
+The only input missing from Section~\ref{sec:4} is the growth law for
+\(I_k\). Here we do not attempt a general theorem for all conformal
+theories. We verify a worked-example-level statement in the free scalar
+CFT, which is enough to support the first version of Paper~III.
+
+The logic is simple. The Fisher spectrum of the \(k\)-th coefficient is
+controlled by two pieces:
+\begin{enumerate}
+\item a signal factor \(c_k\) coming from the CHM moment extracting the
+\(2k\)-th derivative;
+\item a renormalized boundary kernel \(\gamma_k\) coming from the
+fluctuation structure of the smeared operator.
+\end{enumerate}
+If \(\gamma_k\) contributes at most polynomial \(k\)-dependence and no
+new factorial growth, then the asymptotic is governed entirely by the
+signal factor.
+
+\subsection{Exact d=1 Signal Factor}\label{subsec:5.2}
+
+In \(d=1\), the CHM modular Hamiltonian is
+\[
+K_B
+=
+\frac{\pi}{R}\int_{-R}^{R}(R^2-x^2)\,T_{00}(x)\,dx.
+\]
+Expanding \(T_{00}(x)\) around the ball center gives
+\[
+T_{00}(x)
+=
+\sum_{k\ge 0}\frac{x^{2k}}{(2k)!}\partial_x^{2k}T_{00}(0)+\cdots.
+\]
+Therefore the coefficient multiplying the \(2k\)-th derivative is
+\[
+c_k^{(d=1)}
+=
+\frac{\pi}{R}\cdot\frac{1}{(2k)!}
+\int_{-R}^{R}(R^2-x^2)x^{2k}\,dx\cdot R^{-(2k+2)}.
+\]
+The radial moment is exact:
+\[
+\int_{-R}^{R}(R^2-x^2)x^{2k}\,dx
+=
+\frac{4R^{2k+3}}{(2k+1)(2k+3)}.
+\]
+Hence
+\[
+c_k^{(d=1)}
+=
+\frac{4\pi}{(2k+1)(2k+3)(2k)!},
+\]
+which shows exact factorial suppression:
+\[
+c_k^{(d=1)}
+\sim
+\frac{\mathrm{const}}{(2k)!\,k^2}.
+\]
+
+\subsection{Boundary Kernel}\label{subsec:5.3}
+
+The kernel side is less rigid, and this is exactly where we refuse to
+overclaim. The large-\(k\) boundary-layer analysis shows that in
+\(d=1\),
+\[
+\gamma_k^{(d=1)}\sim \frac{G_*}{4k^4},
+\]
+so no factorial enhancement appears. In higher dimensions, the angular
+average is ultraviolet singular before renormalization, and the correct
+object is a renormalized boundary kernel. What the present paper needs,
+and what the worked example supports, is only the following structural
+input:
+
+\begin{proposition}[Worked-example spectral input]\label{prop:5.1}
+In the free scalar CFT worked example:
+\begin{enumerate}
+\item the \(d=1\) signal factor is exactly factorially suppressed, as
+above;
+\item if the renormalized boundary kernel contributes at most
+polynomial \(k\)-dependence and no new factorial growth in general
+dimension, then the coefficient Fisher spectrum satisfies
+\[
+\log I_k = -\alpha k\log k + O(k)
+\qquad
+(\alpha>0).
+\]
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+The first part is the exact computation above. For the second, the
+polynomial kernel contributes only \(O(\log k)\) corrections to
+\(\log I_k\), while the signal factor contributes the dominant
+\(-\alpha k\log k\) term through Stirling asymptotics of \((2k)!\).
+\end{proof}
+
+\begin{corollary}\label{cor:5.2}
+Under the worked-example hypothesis of
+Proposition~\ref{prop:5.1}, the small-ball control order satisfies
+\[
+k(n)=O\!\left(\frac{\log n}{\log\log n}\right).
+\]
+\end{corollary}
+
+\begin{proof}
+Combine Proposition~\ref{prop:5.1} with
+Theorem~\ref{thm:4.3}.
+\end{proof}
+
+\subsection{What the Worked Example Shows and Does Not Show}
+\label{subsec:5.4}
+
+The worked example shows three things. First, the spectral input needed
+for Theorem~\ref{thm:4.3} is physically plausible and mathematically
+supported in the simplest CFT setting. Second, the dominant suppression
+comes from the CHM signal factor rather than from a delicate estimate of
+the boundary kernel exponent. Third, the resulting growth law is slower
+than the original power-law guess: finite self-models gain access to
+higher-order information only logarithmically.
+
+What it does \emph{not} show is equally important. It does not prove a
+general-dimensional closed formula for \(\gamma_k\). It does not prove
+a universal theorem for all conformal nets. And it does not yet convert
+the spectral statement into a purely operator-algebraic result
+independent of the worked-example assumptions.
+
+\section{Trilogy Implications}\label{sec:6}
+
+\subsection{Quantifying Paper G}\label{subsec:6.1}
+
+Paper~G\cite{PaperG} argued that the explanatory boundary is structural
+rather than epistemic. Theorem~\ref{thm:3.3} gives that claim a first
+quantitative form. Even before one studies higher-order coefficient
+families, every locally bounded admissible finite self-model with
+\(\mathcal{I}_F(\omega_{\mathrm{obs}})>0\) has a strictly positive local
+minimax loss along the observer's own modular drift channel. The limit
+is not merely that an observer happens to lack some information; it is
+that finite self-description already hits a nonzero local floor,
+provided the self-model's reconstruction remains in the quadratic
+regime.
+
+\subsection{Relocating the Gap in Paper II Terms}\label{subsec:6.2}
+
+Paper~II\cite{PaperII} showed that linearized gravitational consistency
+fixes the \(R^{d+1}\) term in the small-ball expansion, leaving the
+higher-order remainder outside the linearized control problem. Paper~III
+now reinterprets that remainder. The uncontrolled orders are not just
+``higher corrections'' in a formal expansion. They are the orders whose
+joint Fisher cost exceeds what a finite self-model can stably absorb.
+
+This is the precise sense in which the gap is relocated. It is not a
+gap between two ontologically separate domains. It is the mismatch
+between a finite internal model and the higher-order structure of its
+own modular-geometric organization.
+
+\subsection{Trilogy-Level Interpretation}\label{subsec:6.3}
+
+Conditional on the identifications defended in Papers~I and~II
+\cite{PaperI,PaperII}, the hard-problem headline can now be restated
+more carefully. Paper~I removed the presupposition of independent
+describability. Paper~II showed that, in higher dimensions, consistency
+of the inseparable structures forces linearized gravity. Paper~III adds
+that the residual sense of an explanatory gap is quantitatively
+compatible with a finite self-description horizon.
+
+We do not identify qualia with specific coefficient orders or with a
+particular small-ball remainder tower. The present claim is narrower:
+once the trilogy's modular and geometric identifications are granted,
+the remaining gap is structurally and quantitatively located in the part
+of the algebraic organization that finite self-models cannot stably
+internalize.
+
+\section{Limitations and Open Problems}\label{sec:7}
+
+The current paper leaves four substantial tasks open.
+
+\begin{enumerate}
+\item \textbf{Strong Lemma C.} The Fisher ceiling is currently proved
+for self-models that factor through a Fisher-whitened finite statistical
+model. A stronger theorem would derive the same ceiling directly from
+pure operator-algebraic self-reference, without inserting that
+statistical layer by hand. The obstacle is that the passage from a Type
+III von Neumann algebra to a finite-dimensional statistical model
+currently requires the admissibility assumption
+(Definition~\ref{def:2.2}), which is not derived from the algebraic
+structure.
+
+\item \textbf{General-dimensional kernel control.} The free scalar
+worked example supports the spectral law under a ``no new factorial
+growth'' assumption on the renormalized boundary kernel. Turning that
+assumption into a theorem remains a real mathematical problem. The
+obstacle is that the renormalized boundary kernel in \(d>1\) involves
+UV-singular angular integrals whose large-\(k\) behavior is not
+controlled by the present methods.
+
+\item \textbf{Global and nonlinear extension.} Paper~II was deliberately
+linearized and local. A true sequel would connect the present finite
+self-description bound to global ball-space consistency and to the
+nonlinear regime.
+
+\item \textbf{Observer design and optimal rigidity.} T-DOME~Paper~III
+already suggests a rigidity-sensitivity trade-off in
+\(\mathcal{I}_{\mathrm{ego}}\). Paper~III does not optimize that trade
+off; it only shows how it enters the deficit bound. The problem of
+optimal self-description at fixed thermodynamic and computational budget
+is still open.
+\end{enumerate}
+
+\section{Conclusion}\label{sec:8}
+
+Paper~III provides a first quantitative pass over the explanatory
+gap. Paper~G located the gap architecturally. Paper~II located a
+physical carrier of the unresolved information in higher-order
+small-ball terms. The present paper introduces a finite-self-model
+formalism in which that residual information becomes a measurable
+deficit.
+
+Within the deliberately narrow regime studied here, the conclusion is
+sharp. A locally bounded finite self-model has a finite Fisher ceiling.
+Along the observer's own modular drift channel, that ceiling produces a
+nonzero local minimax loss whenever
+\(\mathcal{I}_F(\omega_{\mathrm{obs}})>0\), provided the
+reconstruction remains in the quadratic regime. Across
+\(\mathbf{Q}_\omega\)-orthogonal higher-order small-ball directions, it
+allows only logarithmically slow access to new orders. The gap is
+therefore not eliminated, but neither is it mysterious. It appears as a
+structural horizon imposed by finite self-description.
+
+\appendix
+
+\section{Trilogy Key Premises Summary}\label{app:premises}
+
+The following table lists the specific results from other papers in the
+trilogy that are used in Paper~III. Each entry provides a self-contained
+statement sufficient for following the proofs in the present paper.
+
+\begin{enumerate}
+\item \textbf{BKM/QFIM structure} (Paper~I\cite{PaperI}).
+The Araki relative entropy of two nearby faithful normal states on a
+Type~III von Neumann algebra admits a local quadratic expansion
+\(S(\omega\|\omega+\delta\omega)=\tfrac{1}{2}\mathbf{Q}_\omega
+(\delta\omega,\delta\omega)+o(\|\delta\omega\|^2)\), where
+\(\mathbf{Q}_\omega\) is the BKM/QFIM quadratic form. This is the
+information-geometric structure used in Definitions~\ref{def:2.1b}
+and~\ref{def:2.3} and throughout Section~\ref{sec:3}.
+
+\item \textbf{Small-ball expansion with \(O(R^{d+3})\) remainder}
+(Paper~II\cite{PaperII}).
+In the CHM ball framework for conformal nets, the modular energy of a
+small ball of radius \(R\) admits the expansion
+\(\delta\langle K_{B,u}\rangle = \frac{2\pi V_d}{d+2}R^{d+1}
+\delta\langle T_{\mu\nu}\rangle u^\mu u^\nu + O(R^{d+3})\).
+The \(k=0\) term is fixed by the linearized Einstein equation; the
+higher-order terms are uncontrolled. This expansion is the starting
+point of Section~\ref{sec:4}.
+
+\item \textbf{Qualitative incompleteness} (Paper~G\cite{PaperG}).
+No accessibility-based framework can fully internalize its own
+accessibility conditions without either regress or collapse: the
+self-referential fixed point
+\(\mathcal{A}^*\in\mathrm{Acc}(\mathcal{A}^*)\) generically does not
+exist. This is the qualitative claim that Paper~III quantifies.
+
+\item \textbf{Ego-rigidity prior}
+(T-DOME~Paper~III\cite{TDOMEIII}).
+The ego-rigidity prior \(\mathcal{I}_{\mathrm{ego}}\) is the Fisher
+information of the observer's prior distribution over its own
+self-model parameters:
+\(\mathcal{I}_{\mathrm{ego}}:=\int(\partial_\sigma\log
+\pi_{\mathrm{ego}}(\sigma))^2\pi_{\mathrm{ego}}(\sigma)\,d\sigma\).
+It enters Theorem~\ref{thm:3.3} as the Bayesian prior term in the van
+Trees bound.
+\end{enumerate}
+ 
+\newpage
+%
+\addcontentsline{toc}{section}{References}
+
+\begin{thebibliography}{99}
+
+\bibitem{PaperI}
+S.~Liu,
+\emph{The Inseparability of Geometry and Modular Flow: A Structural Inseparability Theorem and Its Implications for the Hard Problem},
+Consciousness Trilogy, Paper~I (2026),
+Zenodo, DOI: 10.5281/zenodo.19607387.
+
+\bibitem{PaperII}
+S.~Liu,
+\emph{Higher-Dimensional Consistency of Geometry and Modular Flow: Small-Ball Modular Data and Linearized Gravity},
+Consciousness Trilogy, Paper~II (2026),
+Zenodo, DOI: 10.5281/zenodo.19607543.
+
+\bibitem{PaperG}
+S.~Liu,
+\emph{Structural Limits of Unification: Accessibility, Incompleteness, and the Necessity of a Final Cut},
+HAFF, Paper~G (2026),
+Zenodo, DOI: 10.5281/zenodo.18402907.
+
+\bibitem{TDOMEIII}
+S.~Liu,
+\emph{Thermodynamic Dynamics of Observer-Memory Entanglement, Paper~III: The Self-Calibration Loop},
+T-DOME, Paper~III (2026),
+Zenodo, DOI: 10.5281/zenodo.18591771.
+
+\bibitem{Araki1976}
+H.~Araki,
+\emph{Relative entropy of states of von Neumann algebras},
+Publ.\ Res.\ Inst.\ Math.\ Sci.\ \textbf{11}, 809--833 (1976).
+
+\bibitem{Petz1986}
+D.~Petz,
+\emph{Sufficient subalgebras and the relative entropy of states of a von Neumann algebra},
+Commun.\ Math.\ Phys.\ \textbf{105}, 123--131 (1986).
+
+\bibitem{Petz1996}
+D.~Petz,
+\emph{Monotone metrics on matrix spaces},
+Linear Algebra Appl.\ \textbf{244}, 81--96 (1996).
+
+\bibitem{vanTrees1968}
+H.~L.~Van Trees,
+\emph{Detection, Estimation, and Modulation Theory, Part~I},
+Wiley, New York (1968).
+
+\bibitem{CasiniHuertaMyers2011}
+H.~Casini, M.~Huerta, and R.~C.~Myers,
+\emph{Towards a derivation of holographic entanglement entropy},
+JHEP \textbf{1105}, 036 (2011),
+arXiv:1102.0440.
+
+\end{thebibliography}
+ 
+\end{document}

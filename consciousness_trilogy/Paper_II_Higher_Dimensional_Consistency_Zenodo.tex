@@ -1,0 +1,592 @@
+\documentclass[12pt]{article}
+
+\usepackage[a4paper, margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{mathtools}
+\usepackage{mathrsfs}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fontspec}
+
+\defaultfontfeatures{Ligatures=TeX}
+\IfFontExistsTF{Times New Roman}
+  {\setmainfont{Times New Roman}}
+  {\setmainfont{TeX Gyre Termes}}
+\IfFontExistsTF{Menlo}
+  {\setmonofont{Menlo}}
+  {\setmonofont{Latin Modern Mono}}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+
+\newcommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+
+\title{%
+  \textbf{Higher-Dimensional Consistency of Geometry and Modular Flow:}\\
+  \textbf{Small-Ball Modular Data and Linearized Gravity}%
+}
+
+\author{
+  Sidong Liu, PhD \\
+  \small iBioStratix Ltd \\
+  \small \texttt{sidongliu@hotmail.com}
+}
+
+\date{April 2026}
+
+\begin{document}
+\emergencystretch=2em
+\raggedbottom
+\hbadness=5000
+\vbadness=5000
+
+\maketitle
+
+\begin{abstract}
+%
+Paper~I established that, in 1+1 dimensions, emergent geometry and
+modular flow are not independently deformable. The higher-dimensional
+sequel cannot proceed by simply replacing the one-parameter cross-ratio
+family with a higher-dimensional analogue. For ball-shaped regions in
+\(d+1\) dimensions, the relevant non-gauge datum is not an individual
+nested configuration but the full family of modular Hamiltonians
+attached to all balls and all local rest frames. The new question is
+therefore one of consistency: when can this multi-directional family of
+modular data be explained by a single geometry?
+
+We study this question in the CHM ball framework for conformal nets with
+finite-dimensional conformal covariance, in the linearized regime.
+First, we show that the small-ball limit of the modular energy uniquely
+recovers the local stress tensor from the all-directions family of
+modular data. Second, we show that any local geometric functional
+satisfying linearity, locality, covariance, gauge invariance, and the
+correct scaling behavior has a unique small-ball leading term
+proportional to the linearized Einstein tensor. Matching the modular and
+geometric small-ball expansions then yields the linearized Einstein
+equation within the stated domain. Thus, in higher dimensions,
+inseparability does not merely lock geometry and modular flow together;
+the consistency of that locking across directions takes the form of
+linearized gravitational constraint equations.
+
+The resulting theorem is conditional but precise. It does not attempt
+full generality, nonlinear dynamics, or arbitrary Type~III$_1$ nets.
+Its proof domain is restricted to CHM ball data in conformally covariant
+theories, in the linearized regime. Within that domain, however, the
+conclusion is sharp: the linearized Einstein equation appears as the
+consistency condition required for a single geometry to remain
+compatible with the full modular data family.
+ \end{abstract}
+
+\clearpage
+\tableofcontents
+\clearpage
+
+%
+\section{Introduction}\label{sec:1}
+
+Paper~I\cite{PaperI} showed that, in \(1+1\) dimensions, the standard hard-problem presupposition of independent describability fails because geometry and modular flow cannot be independently deformed. That result depended on a one-parameter datum: the cross-ratio family of double intervals. In higher dimensions, the mathematical problem changes in a decisive way. There is no longer a single distinguished scalar modulus whose variation carries the entire scale information. The higher-dimensional sequel must therefore identify a different object.
+
+The central claim of the present paper is that the correct object is the full family of ball modular Hamiltonians, indexed not only by center and radius but also by local timelike direction. Once this is recognized, the problem becomes a consistency problem rather than a parametrization problem. A single ball gives only one local modular datum. A family of balls in many directions gives many such data. The question is whether they can all be explained by one and the same geometry.
+
+Our answer is that, in the CHM ball framework and at linear order, the consistency condition is already strong enough to force gravitational dynamics. This is the higher-dimensional upgrade of Paper~I\cite{PaperI}. In \(1+1\) dimensions, inseparability says that geometry and modular structure are locked together. In \(d+1\) dimensions, the way they are locked together across directions takes the form of the linearized Einstein equation.
+
+The proof strategy is intentionally narrow. We do not attempt a nonlinear theorem, a fully general Type~III$_1$ result, or an ``if and only if'' in complete abstractity. Instead we isolate a tractable domain in which the statement can be made cleanly: conformal nets with finite-dimensional conformal covariance, CHM modular Hamiltonians for balls, the vacuum or near-vacuum linearized regime, and a local geometric functional satisfying a small list of natural structural axioms. Within that domain, the theorem is short. The real work lies in identifying the correct small-ball expansions on both the modular and geometric sides.
+
+The paper is organized in the reverse order of discovery. Section~\ref{sec:2} defines the higher-dimensional modular datum and explains why the natural \(1+1\)-dimensional cross-ratio strategy has no direct higher-dimensional analogue. Section~\ref{sec:3} formulates the small-ball consistency condition that replaces assembly in higher dimensions. Section~\ref{sec:4} states and proves the main theorem. Section~\ref{sec:5} records the free-field worked example that motivated the final theorem statements. Section~\ref{sec:6} discusses the converse direction and the limits of the argument. Section~\ref{sec:7} places the result in the broader Consciousness Trilogy, and Section~\ref{sec:8} lists the natural open problems.
+
+\begin{remark}[Relation to Paper~I]
+Paper~II is mathematically self-contained. It uses Paper~I only for
+motivation and context: the conceptual shift from ``independent
+describability'' to ``independent deformability,'' and the observation
+that in \(1+1\) dimensions the cross-ratio family carries the full
+scale information. No theorem from Paper~I is invoked as a premise in
+any proof of Paper~II. The CHM ball framework, the geometric axioms
+(G1)--(G5), and the small-ball consistency condition (MC) are all
+defined and used within the present paper.
+\end{remark}
+
+\section{Multi-Directional Modular Data in Higher Dimensions}\label{sec:2}
+
+\subsection{From Cross-Ratio to Ball Families}\label{subsec:2.1}
+
+Paper~I\cite{PaperI} relied on the fact that, in \(1+1\) dimensions, the correct non-gauge local modulus is the cross-ratio of a double-interval configuration. That datum is one-dimensional, and the resulting assembly problem is trivial. There is only one parameter direction, so there is no compatibility problem between different directional slices.
+
+In higher dimensions, the naive analogue fails. A single ball is a conformal gauge orbit. Even a nested pair of balls does not produce a nontrivial scalar modulus in the way that a double interval does in \(1+1\) dimensions. The correct higher-dimensional object therefore cannot be ``a better cross-ratio.'' The no-go is structural: the relevant conformal degrees of freedom are not carried by one isolated nested configuration.
+
+What replaces the cross-ratio is the family of all ball modular data. The local region is now a ball
+\[
+B(\mathbf{x}_0,R)\subset \mathbb{R}^d,
+\]
+or, more invariantly, a small causal diamond with center \(x_0\), radius \(R\), and rest-frame normal \(u^\mu\). Each such region gives one modular Hamiltonian. The higher-dimensional datum is not one scalar parameter but a family
+\[
+\{K_{B,u}\}_{(B,u)\in\mathcal{B}},
+\]
+where \(\mathcal{B}\) denotes the set of all sufficiently small balls in all local rest frames.
+
+\subsection{CHM Ball Hamiltonians}\label{subsec:2.2}
+
+In the vacuum of a conformal theory, the modular Hamiltonian of a ball is local and universal. In a rest frame adapted to the ball, the Casini--Huerta--Myers\cite{CasiniHuertaMyers2011} formula gives
+\[
+K_{B,u}
+=
+2\pi\int_{B_u} d^d x\,
+\frac{R^2-|\mathbf{x}-\mathbf{x}_0|^2}{2R}\,
+T_{\mu\nu}(x)\,u^\mu u^\nu.
+\]
+The importance of this formula for the present paper is twofold. First, it supplies an explicit local kernel. Second, it shows that what the ball modular Hamiltonian probes is not an arbitrary operator but the rest-frame energy density \(T_{uu}:=T_{\mu\nu}u^\mu u^\nu\).
+
+This already reveals the first higher-dimensional subtlety. If one restricts to a single fixed time slice, then the family of all balls only probes \(T_{00}\). That is enough to recover the Hamiltonian constraint source, but not enough to recover the full stress tensor. To reconstruct the full tensorial source, the family must vary not only in center and radius but also in local timelike direction. This is why ``multi-directional modular datum'' is not rhetorical excess but a necessary mathematical strengthening.
+
+\subsection{The Canonical Datum}\label{subsec:2.3}
+
+We therefore take the higher-dimensional canonical modular datum to be the full ball family
+\[
+K_{B,u}:=-\ln\Delta_{\mathcal{A}(B_u),\Omega},
+\]
+understood in the CHM class where the modular Hamiltonian admits the local stress-tensor representation above. This datum is canonical in exactly the sense needed for the sequel to Paper~I\cite{PaperI}: it is the minimal non-gauge family rich enough to encode the directional dependence that becomes nontrivial in dimensions higher than \(1+1\).
+
+The conceptual shift is worth making explicit. In Paper~I\cite{PaperI}, geometry and modular flow were locked by a one-parameter scale datum. In the present paper, they are locked by the requirement that an entire family of local modular energies be compatible with one geometry at once. What becomes nontrivial in higher dimensions is therefore not ``finding the right modulus,'' but enforcing coherence across a family of moduli.
+
+\section{The Small-Ball Consistency Condition}\label{sec:3}
+
+\subsection{Why Small Balls First}\label{subsec:3.1}
+
+The strongest possible version of Paper~II would formulate a global consistency condition on the modular data of all balls and derive the linearized Einstein equation from that global condition. We do not begin there. The small-ball regime already contains the local dynamical content, while avoiding the additional integrability problems of a global ball-space formulation. If the thesis fails even in the small-ball limit, the global version has no chance. If it succeeds there, the globalization problem becomes a genuine strengthening rather than a prerequisite.
+
+\subsection{Modular Small-Ball Expansion}\label{subsec:3.2}
+
+Let \(\delta\omega\) be a linearized perturbation of the vacuum, and assume the local stress tensor is smooth in a neighborhood of a point \(x_0\). Then the CHM kernel gives an immediate small-ball asymptotic:
+\[
+\delta\langle K_{B,u}\rangle
+=
+\frac{2\pi V_d}{d+2}\,
+R^{d+1}\,
+\delta\langle T_{\mu\nu}(x_0)\rangle u^\mu u^\nu
++
+O(R^{d+3}),
+\]
+where \(V_d = \pi^{d/2}/\Gamma(d/2+1)\) is the volume of the unit \(d\)-ball. The key point is not the coefficient but the structural content: the leading small-ball term is the quadratic form of the local stress tensor evaluated on the timelike direction \(u^\mu\).
+
+Because the family is taken over all timelike \(u^\mu\), the leading term uniquely determines the full symmetric tensor \(\delta\langle T_{\mu\nu}(x_0)\rangle\). This is the first half of the main theorem. The all-directions small-ball modular datum is already strong enough to recover the complete local matter source.
+
+\subsection{Geometric Small-Ball Functional}\label{subsec:3.3}
+
+The geometric side is intentionally abstract. We do not assume a particular holographic dictionary, RT formula\cite{RyuTakayanagi2006}, or bulk construction. Instead we assume that the geometry supplies, for each small ball and each direction, a linearized functional
+\[
+\delta\mathcal{G}_{B,u}[h],
+\]
+depending on the metric perturbation \(h_{\mu\nu}\), subject to five structural requirements:
+\begin{enumerate}
+\item linearity in \(h\);
+\item locality in the small-ball limit;
+\item covariance under local Lorentz transformations;
+\item invariance under linearized gauge transformations;
+\item the same leading scaling \(R^{d+1}\) as the modular side.
+\end{enumerate}
+These assumptions are not arbitrary. They are exactly what is needed for a small-ball geometric quantity to be comparable to the CHM modular energy without smuggling in additional dynamics by hand.
+
+\subsection{Consistency}\label{subsec:3.4}
+
+The higher-dimensional consistency condition can now be stated in its minimal form.
+
+\textbf{Small-ball modular consistency (MC).}
+For all sufficiently small balls and all local timelike directions \(u^\mu\), the modular small-ball functional and the geometric small-ball functional agree:
+\[
+\delta\mathcal{G}_{B,u}[h]
+=
+\delta\langle K_{B,u}\rangle.
+\]
+
+This is the higher-dimensional replacement for the trivial assembly of Paper~I\cite{PaperI}. In \(1+1\) dimensions, there is only one parameter direction, so the scale datum needs no consistency check beyond existence. In higher dimensions, the requirement that all directional slices fit one geometry is itself the dynamical content.
+
+\section{Main Theorem: Small-Ball Consistency Forces Linearized Gravity}\label{sec:4}
+
+\subsection{Modular Extraction Proposition}\label{subsec:4.1}
+
+The modular side is summarized by the following statement.
+
+\begin{proposition}\label{prop:II.1}
+In the CHM ball framework, the all-directions small-ball modular datum has leading expansion
+\[
+\delta\langle K_{B,u}\rangle
+=
+\frac{2\pi V_d}{d+2}\,
+R^{d+1}\,
+\delta\langle T_{\mu\nu}(x_0)\rangle u^\mu u^\nu
++
+O(R^{d+3}).
+\]
+\end{proposition}
+
+The proof is the small-ball Taylor expansion of the CHM kernel, together with the symmetry of the ball that kills the linear term. The resulting leading coefficient is universal and independent of the detailed model.
+
+\begin{corollary}\label{cor:II.1.1}
+The all-directions leading small-ball term uniquely determines the full symmetric tensor \(\delta\langle T_{\mu\nu}(x_0)\rangle\) at each point.
+\end{corollary}
+
+This is immediate because a symmetric rank-2 tensor is uniquely fixed by its quadratic form on all timelike directions.
+
+\subsection{Geometric Uniqueness Proposition}\label{subsec:4.2}
+
+The geometric side is summarized by the corresponding uniqueness statement.
+
+\begin{proposition}\label{prop:II.3}
+Any local small-ball geometric functional satisfying linearity, locality, covariance, gauge invariance, and the correct scaling behavior has leading term
+\[
+\delta\mathcal{G}_{B,u}[h]
+=
+\alpha_d\,R^{d+1}\,
+G^{\mathrm{lin}}_{\mu\nu}(x_0)\,u^\mu u^\nu
++
+O(R^{d+3}),
+\]
+for a dimension-dependent constant \(\alpha_d\).
+\end{proposition}
+
+The proof is structural rather than computational. Under the stated assumptions, the leading coefficient must be a local, symmetric, gauge-invariant rank-2 tensor linear in \(h\) and involving two derivatives. On a Minkowski background, the only such tensor is the linearized Einstein tensor, up to normalization. (The original Lovelock theorem~\cite{Lovelock1971} classifies divergence-free symmetric rank-2 tensors built from the metric and its first two derivatives in arbitrary dimension; the linearized version on a flat background used here is a standard corollary.) In that sense, the Einstein tensor already appears before any field equation is imposed; it is selected by the form of the comparison problem itself.
+
+\subsection{Main Theorem}\label{subsec:4.3}
+
+The main theorem is then immediate.
+
+\begin{theorem}\label{thm:II.4}
+Assume:
+\begin{enumerate}
+\item CHM modular Hamiltonians for all sufficiently small balls;
+\item conformal covariance of the net (finite-dimensional conformal group \(\mathrm{SO}(d,2)\));
+\item linearization around a Minkowski vacuum background;
+\item existence of a geometric functional satisfying the small-ball axioms (G1)--(G5) above;
+\item small-ball modular consistency (MC).
+\end{enumerate}
+Then
+\[
+G^{\mathrm{lin}}_{\mu\nu}
+=
+\kappa_d\,
+\delta\langle T_{\mu\nu}\rangle,
+\]
+with \(\kappa_d = \frac{2\pi V_d}{\alpha_d(d+2)}\).
+\end{theorem}
+
+The proof is a three-line comparison of coefficients. The modular side identifies the leading small-ball term with \(\delta\langle T_{\mu\nu}\rangle u^\mu u^\nu\); the geometric side identifies it with \(G^{\mathrm{lin}}_{\mu\nu}u^\mu u^\nu\); equality for all timelike \(u^\mu\) forces equality of the tensors themselves.
+
+\begin{remark}[Conditionality and consistency]
+Assumption~(4) is the most significant: the existence of a geometric
+functional satisfying (G1)--(G5) is not derived from the algebraic
+data but axiomatized. The theorem says that \emph{if} such a functional
+exists and agrees with the modular side for all sufficiently small
+balls, \emph{then} its leading local content is forced to be
+Einsteinian. The internal construction of
+\(\delta\mathcal{G}_{B,u}\) from modular data alone remains the most
+significant open problem (Section~\ref{subsec:8.3}).
+
+The matching is also dynamically consistent: the linearized Einstein
+tensor satisfies the Bianchi identity
+\(\partial^\mu G^{\mathrm{lin}}_{\mu\nu}=0\), and the stress tensor
+satisfies the conservation law
+\(\partial^\mu\delta\langle T_{\mu\nu}\rangle=0\). Both sides of the
+equation are independently divergence-free.
+\end{remark}
+
+\subsection{Interpretation}\label{subsec:4.4}
+
+This theorem is the higher-dimensional analogue of the inseparability theorem of Paper~I\cite{PaperI}, but with one crucial new feature. In \(1+1\) dimensions, inseparability rules out independent deformation. In higher dimensions, the demand that the inseparable structures remain mutually consistent across all directions forces the geometry to obey linearized gravitational dynamics.
+
+That is the sense in which gravity enters the trilogy. It is not introduced as an additional law attached from outside the modular-geometric relation. It appears as the consistency condition required for that relation to survive directional proliferation.
+
+\section{Worked Example: Free Conformal Scalar Field in \texorpdfstring{\(d+1\)}{d+1} Dimensions}\label{sec:5}
+
+This section verifies the main theorem in the simplest higher-dimensional model where all ingredients are explicit: the free massless conformal scalar field in \(d+1\) dimensions. The verification has three parts: the stress tensor and its perturbation, the small-ball modular expansion, and the consistency check against the linearized Einstein equation.
+
+\subsection{The Model}\label{subsec:5.1}
+
+Let \(\phi\) be a free massless scalar field in \(d+1\) Minkowski spacetime, with action
+\[
+S = -\frac{1}{2}\int d^{d+1}x\, (\partial\phi)^2.
+\]
+The stress-energy tensor is
+\[
+T_{\mu\nu} = \partial_\mu\phi\,\partial_\nu\phi - \frac{1}{2}\eta_{\mu\nu}(\partial\phi)^2,
+\]
+with the conformal improvement term understood when \(d > 1\). In the vacuum state \(|\Omega\rangle\), \(\langle T_{\mu\nu}\rangle = 0\).
+
+\subsection{Perturbation: Classical Source}\label{subsec:5.2}
+
+For the purpose of verifying the small-ball expansion, we do not need the full machinery of coherent states. It suffices to take any smooth, conserved classical stress tensor as the source. Let \(\phi_{\mathrm{cl}}\) be a smooth solution of the free wave equation \(\Box\phi_{\mathrm{cl}} = 0\), and define
+\[
+\delta\langle T_{\mu\nu}(\mathbf{x})\rangle
+:=
+\partial_\mu\phi_{\mathrm{cl}}\,\partial_\nu\phi_{\mathrm{cl}}
+-
+\frac{1}{2}\eta_{\mu\nu}(\partial\phi_{\mathrm{cl}})^2,
+\]
+with the conformal improvement understood when \(d > 1\). This is the classical stress tensor of the on-shell configuration \(\phi_{\mathrm{cl}}\). It is smooth, symmetric, and satisfies the conservation law
+\[
+\partial^\mu\delta\langle T_{\mu\nu}\rangle = 0
+\]
+as a direct consequence of \(\Box\phi_{\mathrm{cl}} = 0\).
+
+The ``linearized regime'' of the theorem refers to linearization in the metric perturbation \(h_{\mu\nu}\), not in the matter amplitude. The classical source \(\delta\langle T_{\mu\nu}\rangle\) is a fixed, smooth tensor field that enters the right-hand side of the linearized Einstein equation. No conflict arises between the quadratic nature of the stress tensor in \(\phi_{\mathrm{cl}}\) and the linearized-gravity framework.
+
+\subsection{Modular Side: Small-Ball Expansion}\label{subsec:5.3}
+
+For a ball \(B(\mathbf{x}_0, R)\) in the rest frame with timelike normal \(u^\mu = (1, \mathbf{0})\), the CHM formula gives
+\[
+\delta\langle K_B\rangle
+=
+2\pi \int_{|\mathbf{x}-\mathbf{x}_0| < R} d^d x\,
+\frac{R^2 - |\mathbf{x}-\mathbf{x}_0|^2}{2R}\,
+\delta\langle T_{00}(\mathbf{x})\rangle.
+\]
+
+Expanding \(\delta\langle T_{00}(\mathbf{x})\rangle\) around \(\mathbf{x}_0\):
+\[
+\delta\langle T_{00}(\mathbf{x})\rangle
+=
+\delta\langle T_{00}(\mathbf{x}_0)\rangle
++
+\partial_i\delta\langle T_{00}\rangle(\mathbf{x}_0)(x^i - x_0^i)
++
+O(|\mathbf{x}-\mathbf{x}_0|^2).
+\]
+
+The linear term integrates to zero by the spherical symmetry of the ball. The leading contribution is therefore
+\[
+\delta\langle K_B\rangle
+=
+2\pi\,\delta\langle T_{00}(\mathbf{x}_0)\rangle
+\int_{|\mathbf{y}| < R} d^d y\,
+\frac{R^2 - |\mathbf{y}|^2}{2R}
++
+O(R^{d+3}).
+\]
+
+The radial integral evaluates to
+\[
+\int_{|\mathbf{y}| < R} d^d y\,
+\frac{R^2 - |\mathbf{y}|^2}{2R}
+=
+\frac{\Omega_{d-1}}{2R}
+\int_0^R r^{d-1}(R^2 - r^2)\,dr
+=
+\frac{\Omega_{d-1}}{2R}\left(\frac{R^{d+2}}{d} - \frac{R^{d+2}}{d+2}\right)
+=
+\frac{\Omega_{d-1}\,R^{d+1}}{d(d+2)},
+\]
+where \(\Omega_{d-1} = \frac{2\pi^{d/2}}{\Gamma(d/2)}\) is the surface area of the unit \((d-1)\)-sphere. Since \(V_d = \frac{\Omega_{d-1}}{d}\), this simplifies to
+\[
+\int_{|\mathbf{y}| < R} d^d y\,
+\frac{R^2 - |\mathbf{y}|^2}{2R}
+=
+\frac{V_d\,R^{d+1}}{d+2}.
+\]
+
+Therefore
+\[
+\delta\langle K_B\rangle
+=
+\frac{2\pi V_d}{d+2}\,R^{d+1}\,\delta\langle T_{00}(\mathbf{x}_0)\rangle
++
+O(R^{d+3}).
+\]
+
+For a boosted ball with timelike normal \(u^\mu\), the same computation in the adapted frame gives
+\[
+\delta\langle K_{B,u}\rangle
+=
+\frac{2\pi V_d}{d+2}\,R^{d+1}\,\delta\langle T_{\mu\nu}(\mathbf{x}_0)\rangle\,u^\mu u^\nu
++
+O(R^{d+3}),
+\]
+confirming Proposition~\ref{prop:II.1} in the free-field model.
+
+\subsection{Full Tensor Recovery}\label{subsec:5.4}
+
+In the free-field classical source, \(\delta\langle T_{\mu\nu}\rangle\) is a smooth symmetric tensor field. By Corollary~\ref{cor:II.1.1}, the all-directions small-ball data uniquely determine this tensor at each point. In the present model, this can be verified directly: the quadratic form \(u^\mu u^\nu\,\delta\langle T_{\mu\nu}(\mathbf{x}_0)\rangle\) for all timelike \(u\) determines \(\delta\langle T_{\mu\nu}(\mathbf{x}_0)\rangle\) because the timelike cone spans the full symmetric tensor space.
+
+\subsection{Conservation Law}\label{subsec:5.5}
+
+The classical stress tensor satisfies the conservation law
+\[
+\partial^\mu\delta\langle T_{\mu\nu}\rangle = 0
+\]
+as established in Section~\ref{subsec:5.2} from the on-shell condition \(\Box\phi_{\mathrm{cl}} = 0\). This is the necessary compatibility condition for the comparison with the linearized Einstein tensor, which satisfies the Bianchi identity \(\partial^\mu G^{\mathrm{lin}}_{\mu\nu} = 0\). In the free-field model, both sides of the would-be Einstein equation are independently divergence-free, so the matching is dynamically consistent and not merely algebraic.
+
+\subsection{Consistency Check}\label{subsec:5.6}
+
+Suppose a linearized metric perturbation \(h_{\mu\nu}\) is sourced by the free-field stress tensor via the semiclassical Einstein equation
+\[
+G^{\mathrm{lin}}_{\mu\nu}[h] = 8\pi G_N\,\delta\langle T_{\mu\nu}\rangle.
+\]
+Then the geometric small-ball functional, by Proposition~\ref{prop:II.3}, has leading term
+\[
+\delta\mathcal{G}_{B,u}[h]
+=
+\alpha_d\,R^{d+1}\,G^{\mathrm{lin}}_{\mu\nu}(\mathbf{x}_0)\,u^\mu u^\nu
++
+O(R^{d+3})
+=
+\alpha_d\cdot 8\pi G_N\,R^{d+1}\,\delta\langle T_{\mu\nu}(\mathbf{x}_0)\rangle\,u^\mu u^\nu
++
+O(R^{d+3}).
+\]
+
+Comparing with the modular side:
+\[
+\delta\langle K_{B,u}\rangle
+=
+\frac{2\pi V_d}{d+2}\,R^{d+1}\,\delta\langle T_{\mu\nu}(\mathbf{x}_0)\rangle\,u^\mu u^\nu
++
+O(R^{d+3}).
+\]
+
+The consistency condition (MC) requires these to be equal. Matching coefficients:
+\[
+\alpha_d\cdot 8\pi G_N = \frac{2\pi V_d}{d+2},
+\]
+which fixes the gravitational coupling in terms of the geometric normalization constant \(\alpha_d\) and the spatial dimension \(d\). This is not a derivation of \(G_N\) from first principles --- the constant \(\alpha_d\) is part of the geometric functional's normalization --- but it shows that the coefficient comparison is compatible with the linearized Einstein equation: if such an equation holds, the modular and geometric small-ball data match at leading order.
+
+\subsection{What the Example Does and Does Not Show}\label{subsec:5.7}
+
+The free-field example verifies three things:
+\begin{enumerate}
+\item The small-ball modular expansion (Proposition~\ref{prop:II.1}) is not a formal artifact. It is realized with explicit, computable coefficients in a standard QFT model.
+\item The conservation law on the modular side matches the Bianchi identity on the geometric side, so the comparison is dynamically consistent.
+\item The coefficient comparison is compatible with a semiclassical Einstein interpretation: if a metric perturbation satisfying the linearized Einstein equation exists, then the consistency condition (MC) is satisfied at leading order.
+\end{enumerate}
+
+The example does not prove the abstract theorem. It does not show that (MC) is the unique route to the Einstein equation, nor does it address the converse direction. Its role is to demonstrate that the theorem's hypotheses are not vacuous and that the leading-order structure is realized in a genuine higher-dimensional quantum field theory.
+
+\section{Converse, Limits, and Relation to Faulkner--Jacobson}\label{sec:6}
+
+\subsection{Why the Theorem Is Not an Equivalence}\label{subsec:6.1}
+
+Theorem~\ref{thm:II.4} is intentionally a forward theorem. It begins with the small-ball modular family, assumes that this family admits a single geometric explanation through a functional \(\delta\mathcal{G}_{B,u}[h]\), and concludes that the underlying metric perturbation must satisfy the linearized Einstein equation. The reverse implication would require substantially more structure. One would need a faithful reconstruction map
+\[
+h_{\mu\nu}
+\longmapsto
+\{\delta\mathcal{G}_{B,u}[h]\}_{(B,u)}
+\]
+defined for all sufficiently small balls, with the correct normalization and covariance properties, and with agreement not only at leading order but at the level of the full ball-dependent functional. The linearized Einstein equation by itself does not provide such a map.
+
+This distinction is not pedantic. The coefficient comparison in Section~\ref{sec:4} identifies the leading local tensorial term,
+\[
+G^{\mathrm{lin}}_{\mu\nu}(x_0)
+\propto
+\delta\langle T_{\mu\nu}(x_0)\rangle,
+\]
+because equality for all timelike \(u^\mu\) forces equality of the corresponding quadratic forms. But that argument is deliberately local and asymptotic. It does not control the \(O(R^{d+3})\) remainder, it does not determine the full dependence of \(\delta\mathcal{G}_{B,u}[h]\) on the ball parameters, and it does not show that every solution of the linearized Einstein equation arises from a geometric functional satisfying (G1)--(G5). The converse direction therefore belongs to a stronger future theorem, not to the present one.
+
+\subsection{Precise Relation to the Faulkner--Jacobson Line}\label{subsec:6.2}
+
+The closest existing line of work runs from the CHM ball modular Hamiltonian through the entanglement first law to the Faulkner\cite{Faulkner2014}--Jacobson\cite{Jacobson2016} derivations of linearized gravity (see also \cite{Lashkari2014}). The overlap is genuine and should be stated without exaggeration. In both settings, ball-shaped regions are essential, the CHM kernel supplies the universal local weighting, and the comparison across sufficiently small balls in all directions forces a rank-2 tensor equation whose leading local content is Einsteinian. At the level of small-ball tensor algebra, both routes exploit the same rigid fact: on a Minkowski background, the only local, symmetric, gauge-invariant, two-derivative tensor linear in \(h_{\mu\nu}\) is the linearized Einstein tensor up to normalization \cite{Lovelock1971}.
+
+The difference lies in what is taken as primitive. Faulkner-type arguments begin from an entropy variation on the geometric side, typically mediated by holographic ingredients such as the RT formula\cite{RyuTakayanagi2006} and, in the quantum-corrected setting, JLMS\cite{JLMS2016}. The present paper begins instead from the family of modular Hamiltonians itself and asks for the weakest condition under which one geometry can explain that family. The geometric side is therefore left abstract: we do not assume a bulk dual, a surface-area formula, or an entanglement-entropy interpretation. What we assume is the existence of a small-ball geometric functional satisfying (G1)--(G5). In that sense the present theorem is less holographically committed, but also more explicit about where the geometric input enters.
+
+It is therefore best to regard the two routes as overlapping but not identical. If one instantiates \(\delta\mathcal{G}_{B,u}[h]\) by an entropy or area variation of the appropriate kind, then the present framework reproduces the local core of the Faulkner--Jacobson argument. If one does not make that choice, Theorem~\ref{thm:II.4} still goes through as an abstract consistency theorem. The gain is conceptual rather than maximal generality: gravity appears here as the condition for multi-directional modular data to be geometrically coherent, not as a consequence of a particular holographic dictionary.
+
+\subsection{Limits of the Present Result}\label{subsec:6.3}
+
+The domain of validity should also be kept explicit. First, the modular side is restricted to the CHM ball class in conformally covariant theories, so the theorem does not apply to arbitrary Type~III$_1$ nets. Second, the argument is local and small-ball. It extracts the leading tensorial content near each point, but it does not yet provide a global all-balls integrability theorem. Third, the analysis is linearized around a Minkowski vacuum background. Extension to other maximally symmetric backgrounds (de~Sitter, anti-de~Sitter) would require replacing \(G^{\mathrm{lin}}_{\mu\nu}\) by the appropriate background-relative linearized Einstein operator; this is a natural but nontrivial generalization. Nothing in the present paper proves the full nonlinear Einstein equation.
+
+Fourth, the geometric functional is axiomatized rather than internally derived from the algebraic data. This is the main remaining mathematical burden. The theorem shows that once such a functional exists and agrees with the modular side for all sufficiently small balls, its leading local content is forced to be Einsteinian. It does not yet explain, in full generality, why every admissible algebraic model should supply that functional on its own. Globalization, nonlinear order, and internal construction are therefore genuine next problems rather than hidden assumptions of the present paper.
+
+\section{Broader Physical and Conceptual Implications}\label{sec:7}
+
+Paper~I\cite{PaperI} showed that the standard hard-problem framing fails because geometry and modular flow are inseparable. The present paper sharpens that claim in a specific and unexpected direction.
+
+In \(1+1\) dimensions, inseparability is a rigidity statement: the two structures cannot be independently deformed. In higher dimensions, the same demand --- that one geometry remain compatible with all directional modular perspectives --- is no longer merely rigid. It is dynamically constrained. The consistency condition takes the form of the linearized Einstein equation.
+
+This has three consequences for the trilogy as a whole.
+
+First, it changes the status of gravity within the programme. In Paper~I\cite{PaperI}, gravity was not mentioned. The inseparability theorem concerned the relation between geometry and modular flow, and the fact that the emergent geometry happened to be a Lorentzian metric was a structural output, not a dynamical one. The present paper shows that the dynamical content --- the Einstein equation --- is not an additional law imposed from outside. It is the integrability condition that inseparability must satisfy when extended across multiple observational directions. Gravity, in this sense, is the cost of maintaining geometry-modular-flow rigidity in a world with more than one spatial dimension.
+
+Second, it sharpens the philosophical claim of Paper~I\cite{PaperI}. The hard problem's presupposition of independent describability fails not only statically (geometry and modular flow are locked) but dynamically (the way they are locked is governed by gravitational constraint equations). This means that the ``physical world'' inside the trilogy is not a passive backdrop against which modular flow unfolds. Its admissible deformations are themselves determined by the requirement of modular consistency across perspectives.
+
+Third, it sets the stage for Paper~III. The present theorem is local and leading-order. The \(O(R^{d+3})\) remainder terms, which encode subleading corrections to the small-ball expansion, are not controlled by the linearized Einstein equation. These higher-order terms are the natural candidates for a quantitative self-description deficit: the finite observer's inability to fully internalize the geometry-modular relation beyond leading order. Paper~III's task will be to make that deficit precise.
+
+\section{Open Problems}\label{sec:8}
+
+\subsection{Globalization}\label{subsec:8.1}
+
+The present theorem is small-ball and local. It extracts the leading tensorial content near each point but does not provide a global all-balls integrability theorem. A global version would require controlling the full ball-dependent functional \(\delta\mathcal{G}_{B,u}[h]\), not just its small-ball asymptotic. This is a genuine strengthening that would bring the result closer to the Faulkner\cite{Faulkner2014}--Jacobson\cite{Jacobson2016} line, where the entanglement first law is applied to all balls simultaneously.
+
+\subsection{Nonlinear Order}\label{subsec:8.2}
+
+The \(O(R^{d+3})\) and higher terms in the small-ball expansion may encode nonlinear corrections to the Einstein equation. In the Jacobson\cite{Jacobson2016} thermodynamic derivation, the passage from linearized to full nonlinear Einstein equations requires an additional equilibrium or maximal-entropy assumption. Whether a similar upgrade is available in the present modular-consistency framework is an open question. This is the natural bridge to a later gravity paper, not something to force into the present one.
+
+\subsection{Internal Construction of the Geometric Functional}\label{subsec:8.3}
+
+At present, the geometric small-ball functional \(\delta\mathcal{G}_{B,u}[h]\) is axiomatized through (G1)--(G5), not constructed from purely algebraic data. The theorem shows that once such a functional exists and agrees with the modular side, its leading content is Einsteinian. But it does not explain why every admissible algebraic model should supply that functional on its own. Closing this gap --- constructing \(\delta\mathcal{G}_{B,u}\) from the modular data without external geometric input --- would substantially strengthen the theorem and remove the most significant remaining conditionality.
+
+\subsection{Connection to Paper~III}\label{subsec:8.4}
+
+The higher-order remainder terms in the small-ball expansion are natural candidates for information that may not be fully accessible to the finite observer from within the algebraic structure. If this inaccessibility can be made precise, it would provide exactly the kind of quantitative self-description deficit that Paper~III aims to formalize. In that case, the explanatory gap of Paper~I\cite{PaperI} would acquire a precise quantitative measure tied to the gravitational dynamics of Paper~II.
+
+\subsection{Relation to Entanglement Equilibrium}\label{subsec:8.5}
+
+Jacobson's\cite{Jacobson2016} entanglement equilibrium approach derives the full nonlinear Einstein equation from the assumption that the vacuum maximizes entanglement entropy for small causal diamonds. The present framework does not assume entropy maximization. Whether the modular consistency condition (MC) implies, or is implied by, an entanglement equilibrium condition is an unexplored connection that could unify the two approaches.
+ 
+\newpage
+%
+\addcontentsline{toc}{section}{References}
+
+\begin{thebibliography}{99}
+
+\bibitem{PaperI}
+S.~Liu,
+\emph{The Inseparability of Geometry and Modular Flow: A Structural Inseparability Theorem and Its Implications for the Hard Problem},
+Consciousness Trilogy, Paper~I (2026),
+Zenodo, DOI: 10.5281/zenodo.19607387.
+
+\bibitem{CasiniHuertaMyers2011}
+H.~Casini, M.~Huerta, and R.~C.~Myers,
+\emph{Towards a derivation of holographic entanglement entropy},
+JHEP \textbf{1105}, 036 (2011),
+arXiv:1102.0440.
+
+\bibitem{Faulkner2014}
+T.~Faulkner, M.~Guica, T.~Hartman, R.~C.~Myers, and M.~Van~Raamsdonk,
+\emph{Gravitation from entanglement in holographic CFTs},
+JHEP \textbf{1403}, 051 (2014),
+arXiv:1312.7856.
+
+\bibitem{Jacobson2016}
+T.~Jacobson,
+\emph{Entanglement equilibrium and the Einstein equation},
+Phys.\ Rev.\ Lett.\ \textbf{116}, 201101 (2016),
+arXiv:1505.04753.
+
+\bibitem{Lovelock1971}
+D.~Lovelock,
+\emph{The Einstein tensor and its generalizations},
+J.\ Math.\ Phys.\ \textbf{12}, 498--501 (1971).
+
+\bibitem{RyuTakayanagi2006}
+S.~Ryu and T.~Takayanagi,
+\emph{Holographic derivation of entanglement entropy from AdS/CFT},
+Phys.\ Rev.\ Lett.\ \textbf{96}, 181602 (2006).
+
+\bibitem{JLMS2016}
+D.~L.~Jafferis, A.~Lewkowycz, J.~Maldacena, and S.~J.~Suh,
+\emph{Relative entropy equals bulk relative entropy},
+JHEP \textbf{1606}, 004 (2016),
+arXiv:1512.06431.
+
+\bibitem{Lashkari2014}
+N.~Lashkari, M.~B.~McDermott, and M.~Van~Raamsdonk,
+\emph{Gravitational dynamics from entanglement ``thermodynamics''},
+JHEP \textbf{1404}, 195 (2014),
+arXiv:1308.3716.
+
+\end{thebibliography}
+ 
+\end{document}

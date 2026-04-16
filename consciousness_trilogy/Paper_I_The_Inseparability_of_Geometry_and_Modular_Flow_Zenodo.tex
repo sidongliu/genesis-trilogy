@@ -1,0 +1,2235 @@
+\documentclass[12pt]{article}
+
+\usepackage[a4paper, margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{mathtools}
+\usepackage{mathrsfs}
+\usepackage{array}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{tabularx}
+\usepackage{enumitem}
+\usepackage{float}
+\usepackage{xcolor}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fontspec}
+\usepackage{xeCJK}
+
+\defaultfontfeatures{Ligatures=TeX}
+\IfFontExistsTF{Times New Roman}
+  {\setmainfont{Times New Roman}}
+  {\setmainfont{TeX Gyre Termes}}
+\IfFontExistsTF{Menlo}
+  {\setmonofont{Menlo}}
+  {\setmonofont{Latin Modern Mono}}
+\IfFontExistsTF{PingFang SC}
+  {\setCJKmonofont{PingFang SC}}
+  {\IfFontExistsTF{Songti SC}
+    {\setCJKmonofont{Songti SC}}
+    {}}
+\IfFontExistsTF{PingFang SC}
+  {\setCJKmainfont{PingFang SC}}
+  {\IfFontExistsTF{Songti SC}
+    {\setCJKmainfont{Songti SC}}
+    {\setCJKmainfont{STSong}}}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+
+\newcolumntype{P}[1]{>{\raggedright\arraybackslash}p{#1}}
+\newcolumntype{Y}{X}
+
+\newcommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+
+\newcounter{none}
+
+\setlength{\LTleft}{0pt}
+\setlength{\LTright}{0pt}
+
+\title{%
+  \textbf{The Inseparability of Geometry and Modular Flow:}\\
+  \textbf{A Structural Inseparability Theorem and Its Implications for the Hard Problem}%
+}
+
+\author{
+  Sidong Liu, PhD \\
+  \small iBioStratix Ltd \\
+  \small \texttt{sidongliu@hotmail.com}
+}
+
+\date{April 2026}
+
+\begin{document}
+\emergencystretch=2em
+\raggedbottom
+\hbadness=5000
+\vbadness=5000
+
+\maketitle
+
+\begin{abstract}
+%
+The hard problem of consciousness presupposes that physical structure
+and experiential structure can be specified independently. We show that
+this presupposition is not available in a precise algebraic setting.
+
+Working with Type III\(_1\) von Neumann algebras, we identify emergent
+geometry as the relevant mathematical proxy for physical structure and
+Tomita-Takesaki modular flow as the relevant proxy for first-person
+temporal structure. The resulting question is whether these two sectors
+can be independently deformed within an admissible algebraic class. We
+show first that, working within the admissible class selected by
+\((U3)\), from the proof-relevant axiom package \[
+(U1)+(C)+(Amb)+(CN_\exists),
+\] one obtains a standard half-sided modular inclusion and hence, via
+the Guido-Longo-Wiesbrock construction, a canonical conformal skeleton.
+This yields a conformal-level Weak Inseparability theorem. We then show
+that the correct non-gauge local modulus is the double-interval
+cross-ratio family, which determines a canonical modular scale datum \[
+\{K_b\}_{b\in(0,1)}.
+\] Under the additional conditions \((LImp^1)\), \((CR\text{-}nd)\), and
+\((SFa)\), this datum induces a Type III-compatible QFIM scale shadow \[
+h_b=\mathbf{Q}_{\omega,b}(\partial_b K_b,\partial_b K_b)\,db^2,
+\] At the abstract level, this yields a full geometric datum consisting
+of the conformal skeleton together with the scale family. In the worked
+examples, where the cross-ratio parameter naturally parametrizes spatial
+position, this datum determines the Lorentzian metric. In this setting,
+the full geometric datum and the extended modular data are
+bidirectionally inseparable.
+
+We verify the additional Phase 2 conditions in two structurally distinct
+models, the Rindler/free-field chiral half-line model and the Virasoro
+net. Both yield the universal profile \[
+h_b=C(1-b)^{-2}db^2,
+\] with model dependence entering only through the overall constant. The
+philosophical consequence is not that the hard problem has been solved
+in the ordinary production sense, but that its standard formulation
+rests on a presupposition---independent describability---that is not
+available in the relevant algebraic setting. The remaining explanatory gap is
+thereby relocated from a gap between independently specified domains to
+a structural limit on self-description by observers embedded in
+\((\mathcal{A},\omega)\).
+ \end{abstract}
+
+\clearpage
+\tableofcontents
+\clearpage
+
+%
+\section{The Hidden Presupposition of the Hard
+Problem}\label{the-hidden-presupposition-of-the-hard-problem}
+
+The hard problem of consciousness is usually presented as a question
+about production: how do physical processes give rise to subjective
+experience? In that form, the problem appears deeper than the familiar
+``easy problems'' because those concern discrimination, report,
+integration, control, and other functional capacities, whereas the hard
+problem concerns the existence of a first-person point of view and the
+felt character of experience itself. This contrast, introduced most
+influentially by Chalmers~\cite{Chalmers1996}, has shaped almost every major debate in
+contemporary philosophy of mind.
+
+Yet the canonical formulation contains a strong presupposition that is
+rarely isolated and almost never challenged at the level of formal
+structure. The presupposition is that physical structure and
+experiential structure can be specified independently. One first gives a
+complete account of the physical facts, in third-person terms, and then
+asks why those facts are accompanied by experience, or by this
+experience rather than another. Without this prior separability, the
+production question cannot even be posed in its usual form. The hard
+problem therefore depends not only on a gap between two domains, but on
+the prior availability of those domains as independently describable.
+
+This presupposition is shared by positions that otherwise disagree
+sharply. Functionalism and mainstream physicalism accept it and then
+attempt to dissolve the residual gap by appeal to organization, role, or
+supervenience. Panpsychism accepts it as well, but seeks to avoid brute
+emergence by distributing proto-experiential or experiential properties
+more fundamentally. Illusionism also inherits the same starting point:
+it grants the independent specification of physical structure and then
+argues that what seemed left over on the experiential side is a
+cognitive misdescription. Integrated Information Theory takes a
+different route, but still treats consciousness as something to be
+attached to or read off from an already specified structure by means of
+an additional quantity. In all of these cases, the debate concerns how
+the bridge should be built. The deeper assumption that there are two
+independently specifiable shores is left intact.
+
+The present paper takes aim at that assumption. It does not begin by
+proposing a new psychophysical law, a new emergent mechanism, or a new
+primitive consciousness quantity. It begins by asking whether the
+independent-describability presupposition survives translation into a
+precise mathematical framework. If ``physical structure'' is represented
+not by an unconstrained intuitive picture of matter but by an emergent
+geometric structure, and if ``first-person time'' is represented by
+modular flow in the sense of Tomita-Takesaki theory, then the hard
+problem can be reformulated as a structural question: can these two
+sectors be independently varied inside a single admissible algebraic
+setting?
+
+The central claim of this paper is that, under a precise Type III\(_1\)
+algebraic framework, they cannot. At the conformal level, emergent
+causal geometry and conformal modular data are already mutually rigid.
+With three additional Phase 2 inputs, the same becomes true at the full
+Lorentzian level: complete geometry and extended modular data cannot be
+independently deformed. This does not amount to the claim that the hard
+problem has simply been ``solved.'' It amounts to a more exact and, in
+one sense, more radical thesis: the standard production form of the hard
+problem depends on a presupposition that is not available in the
+relevant mathematical setting.
+
+This is why the main theorem of the paper is an inseparability theorem
+rather than a reduction theorem. The point is not that one side reduces
+to the other, nor that one side causally generates the other, but that
+both emerge as two readings of one underlying algebraic organization. In
+philosophical terms, the paper argues that the usual mind-body contrast
+is not fundamental enough to underwrite the standard hard-problem
+question. In mathematical terms, it shows that the admissible
+deformations of geometry and modular structure do not factor into two
+independent sectors.
+
+The argument unfolds in three stages. First, we translate the relevant
+philosophical notions into precise mathematical objects: emergent
+geometry for the object-side physical structure, and modular flow for
+first-person temporal structure. Second, we prove the Phase 1 result:
+working within the admissible class selected by \((U3)\), from the
+proof-relevant axiom package \[
+(U1)+(C)+(Amb)+(CN_\exists)
+\] one canonically obtains a conformal skeleton, together with a
+conformal-level inseparability theorem. Third, we explain how the full
+metric scale is added by the cross-ratio modular datum and its Type III
+QFIM shadow, yielding a conditional full inseparability theorem under
+the additional Phase 2 package \[
+(\mathrm{LImp}^1)+(\mathrm{CR\text{-}nd})+(\mathrm{SFa}).
+\] Two worked examples, one based on the Rindler/free-field chiral
+half-line model and one on the Virasoro net, show that the Phase 2
+conditions are not merely formal placeholders but are realized in
+structurally distinct settings.
+
+The resulting philosophical payoff is twofold. First, the hard problem
+is reframed: the primary error lies not in failing to build a bridge,
+but in assuming that the bridge must connect independently specifiable
+domains. Second, the residual explanatory gap is relocated rather than
+denied. Once independent describability fails, the remaining question is
+no longer how matter produces experience, but why a finite observer
+embedded in a single algebraic structure cannot completely internalize
+the relation between structural invariants and lived articulation. That
+second issue belongs to the limits of self-description, not to a
+production gap between two ontologically detached realms.
+
+The rest of the paper is organized as follows. Section 2 identifies the
+mathematical counterparts of physical structure and first-person time,
+and formulates the independent-describability issue as a question of
+independent deformability. Section 3 states the algebraic framework and
+axioms. Section 4 proves the Phase 1 result: from the HAFF-native
+package to a canonical conformal skeleton and Weak Inseparability.
+Section 5 develops the Phase 2 completion via the cross-ratio
+modular scale datum and the full inseparability theorems.
+Section 6 identifies abstract sufficient conditions for the chart axiom
+$(LImp^1)$: for Diff-covariant nets it is fully discharged, and for
+non-Diff-covariant nets the remaining burden is isolated to
+transportability and regularity assumptions.
+Section 7 verifies the remaining Phase 2 conditions in two worked examples.
+Section 8 then returns to
+the hard problem directly and argues that the theorem shows its
+standard formulation rests on a presupposition not available in the
+stated algebraic setting, while relocating the remaining explanatory gap to
+the self-referential horizon of finite observers. Section 9 discusses
+the broader mathematical and physical significance, and Section 10 states
+the explicit non-claims and open problems.
+
+\subsection{Logical Roadmap}\label{subsec:roadmap}
+
+The argument has two phases, each with a clear input-output structure.
+
+\emph{Phase 1} (Sections 3--4). Input: the axiom package
+\((U1)+(C)+(Amb)+(CN_\exists)\), working within the admissible class
+selected by \((U3)\). Output: a canonical conformal skeleton via the
+Guido-Longo-Wiesbrock reconstruction, and a conformal-level Weak
+Inseparability theorem (Theorem~4.8). The key new step is that
+half-sided modular inclusion is \emph{derived} from the
+modular-decoherence scaling axiom \((C)\), not assumed.
+
+\emph{Phase 2} (Section 5). Input: the additional conditions
+\((LImp^1)+(CR\text{-}nd)+(SFa)\). Output: a full geometric datum
+(conformal skeleton + scale shadow) and bidirectional Full
+Inseparability (Theorem~5.7). The key new object is the cross-ratio
+modular scale datum \(\{K_b\}\) and its Araki-Hessian QFIM shadow
+\(h_b\).
+
+Section 6 provides abstract sufficient conditions for \((LImp^1)\).
+Section 7 verifies all Phase 2 conditions in two worked examples.
+Sections 8--10 draw philosophical consequences, discuss broader
+significance, and state open problems.
+
+\section{Mathematical Identification: Geometry as Physics, Modular Flow
+as First-Person
+Time}\label{mathematical-identification-geometry-as-physics-modular-flow-as-first-person-time}
+
+The philosophical argument of this paper rests on a mathematical
+theorem. For the theorem to bear on the hard problem, the translation
+between philosophical concepts and mathematical objects must be made
+explicit and defended. This section fixes the three identifications that
+underwrite the rest of the paper: emergent geometry as the mathematical
+content of physical structure, Tomita-Takesaki modular flow as the
+mathematical content of first-person time, and independent deformability
+as the mathematical translation of independent describability.
+
+\subsection{Emergent Geometry as Physical
+Structure}\label{emergent-geometry-as-physical-structure}
+
+In the standard formulation of the hard problem, ``physical structure''
+is left deliberately broad. It may refer to microphysical states,
+functional organization, or spacetime geometry, depending on the author.
+For the present purposes, the relevant notion of physical structure is
+not an arbitrary state description but the emergent spacetime geometry
+associated with a quantum-algebraic datum.
+
+The reason for this choice is not merely technical convenience. In the
+algebraic approach to quantum field theory, spacetime is not a fixed
+background container. It is recovered from the algebraic relations among
+observables. The programme initiated by Wiesbrock and developed by
+Guido, Longo, and others has shown that, under appropriate conditions,
+the inclusion structure of von Neumann algebras determines a conformal
+geometry~\cite{Wiesbrock1993,GLW1998}, and in favorable cases a full Lorentzian metric. In this
+setting, ``physical structure'' is not something given prior to the
+algebra. It is something read off from the algebra.
+
+This is the correct level of description for the hard problem, because
+the hard problem is not about the relation between consciousness and
+some particular physical substrate such as neurons or silicon. It is
+about the relation between the subjective and the objective as
+structural categories. If the objective-physical side is itself an
+emergent reading of algebraic data, then the question of whether it can
+be independently specified becomes a question about the algebraic
+structure, not about a particular material realization.
+
+We therefore identify:
+
+\[
+\text{physical structure} \longleftrightarrow \mathrm{Geom}(\mathcal{N},\omega),
+\]
+
+where \(\mathrm{Geom}\) denotes the emergent geometry extracted from a
+family \(\mathcal{N}\) of von Neumann algebras in a state \(\omega\). At
+the Phase 1 level, this is a conformal skeleton. At the full level, it
+includes the metric scale.
+
+\subsection{Modular Flow as First-Person
+Time}\label{modular-flow-as-first-person-time}
+
+The second identification is less familiar in the philosophy of mind but
+is equally well motivated from the algebraic side.
+
+Given a von Neumann algebra \(\mathcal{A}\) and a faithful normal state
+\(\omega\), the Tomita-Takesaki theorem~\cite{Takesaki2003} produces a canonical
+one-parameter automorphism group \(\sigma_t^\omega\) of \(\mathcal{A}\),
+the modular automorphism group. This group has three properties that
+make it the natural mathematical counterpart of first-person temporal
+structure.
+
+First, uniqueness. The modular flow is the unique automorphism group
+satisfying the KMS condition at inverse temperature \(\beta = 1\) with
+respect to \(\omega\). No external clock or background time parameter is
+needed to define it. It is intrinsic to the pair
+\((\mathcal{A},\omega)\).
+
+Second, algebraic relativity. Different choices of algebra
+\(\mathcal{A}\) within the same ambient structure yield different
+modular flows. This is not a defect. It is the mathematical expression
+of the fact that different observational perspectives give rise to
+different temporal experiences. The Unruh effect is the most familiar
+physical instance~\cite{Unruh1976}: an accelerated observer's modular flow differs from
+that of an inertial observer, and the difference is experienced as a
+thermal bath.
+
+Third, structural inseparability at the operator level. The
+Tomita-Takesaki polar decomposition \[
+S_\Omega = J_\Omega \Delta_\Omega^{1/2}
+\] is unique. The modular operator \(\Delta\) and the modular
+conjugation \(J\) are not independently choosable components. One cannot
+have \(\Delta\) without \(J\), nor \(J\) without \(\Delta\). Since
+\(\Delta^{it}\) generates the modular flow and \(J\) implements the
+exchange between the algebra and its commutant, this already hints at
+the inseparability that the main theorem will establish at the geometric
+level: the temporal structure (\(\Delta\)) and the spatial/duality
+structure (\(J\)) are two factors of a single operator.
+
+We therefore identify:
+
+\[
+\text{first-person time} \longleftrightarrow \sigma_t^\omega = \Delta_\omega^{it}(\cdot)\Delta_\omega^{-it}.
+\]
+
+More precisely, the full modular sector includes not only the
+one-parameter flow but also the modular Hamiltonian
+\(K_\omega = -\ln\Delta_\omega\), the modular conjugation \(J_\omega\),
+and, at the extended level, the local modular scale data \(\{K_b\}\)
+introduced in Phase 2.
+
+\subsection{From Independent Describability to Independent
+Deformability}\label{from-independent-describability-to-independent-deformability}
+
+With the two identifications in place, the philosophical question can be
+stated mathematically.
+
+The hard problem, in its standard form, presupposes that one can give a
+complete specification of the physical facts and then ask, as a further
+question, why those facts are accompanied by experience. Translated into
+the present framework, this becomes: can one specify
+\(\mathrm{Geom}(\mathcal{N},\omega)\) without thereby fixing
+\(\mathrm{Mod}(\mathcal{N},\omega)\), or conversely?
+
+The natural mathematical formalization of ``independent specification''
+is independent deformability. Two structures are independently
+describable, in the relevant sense, if and only if there exist
+admissible deformations of the underlying algebraic data that change one
+while leaving the other invariant. If no such deformation exists, then
+specifying one structure automatically constrains the other, and the two
+cannot be treated as independently given.
+
+This is a precise, falsifiable mathematical question. It does not depend
+on intuitions about zombies, inverted qualia, or conceivability
+arguments. It depends on the rigidity properties of the map
+
+\[
+(\mathcal{N},\omega) \longmapsto \big(\mathrm{Geom}(\mathcal{N},\omega),\;\mathrm{Mod}(\mathcal{N},\omega)\big)
+\]
+
+within the admissible class defined by the axiom package.
+
+The hard problem, so translated, becomes:
+
+\begin{quote}
+Does there exist an admissible deformation of \((\mathcal{N},\omega)\)
+that changes \(\mathrm{Geom}\) while preserving \(\mathrm{Mod}\), or
+vice versa?
+\end{quote}
+
+The inseparability theorems of this paper answer: no. At the conformal
+level (Phase 1), the answer is unconditional within the axiom class. At
+the full scale-sensitive level (Phase 2), the answer is conditional on
+three
+regularity inputs that are verified in two worked examples.
+
+\subsection{What This Translation Does and Does Not
+Claim}\label{what-this-translation-does-and-does-not-claim}
+
+Two caveats are essential.
+
+First, the identification of modular flow with first-person time is a
+structural correspondence, not an identity claim. We do not assert that
+modular flow ``is'' consciousness in any reductive sense. We assert that
+modular flow is the correct mathematical object that plays the
+structural role assigned to first-person temporal experience in the
+hard-problem debate. The correspondence is justified by the three
+properties listed above: intrinsicness, perspectival relativity, and
+operator-level inseparability from spatial structure.
+
+Second, the identification of emergent geometry with physical structure
+is restricted to the level of spacetime geometry. It does not claim to
+capture all of physics. In particular, it does not address the relation
+between consciousness and specific material substrates such as neural
+tissue. The claim is that at the level of structural categories relevant
+to the hard problem, emergent geometry is the right proxy for the
+objective-physical side. Whether this extends to more fine-grained
+physical descriptions is an open question that lies beyond the scope of
+the present paper.
+
+\section{Algebraic Framework and
+Axioms}\label{algebraic-framework-and-axioms}
+
+We now state the minimal algebraic framework in which the failure of
+independent deformability can be proved. The point of this section is
+not to give a general introduction to Type III\(_1\) factors or to
+algebraic quantum field theory. It is to isolate the exact package of
+assumptions needed for the Phase 1 theorem and to indicate, in each
+case, why that assumption belongs in the present hard-problem-led
+setting.
+
+\subsection{Ambient Datum and Admissible
+Object}\label{ambient-datum-and-admissible-object}
+
+We work in the standard form of an ambient von Neumann algebra \[
+(\mathcal{H}_U,\mathcal{A}_U,\Omega),
+\] where \(\Omega\) is cyclic and separating for \(\mathcal{A}_U\).
+This is the minimal regularity needed for Tomita-Takesaki theory and is
+satisfied in all standard AQFT models~\cite{Haag1996}.
+Inside \(\mathcal{A}_U\) we select an accessible von Neumann subalgebra
+\[
+\mathcal{A}_c\subset \mathcal{A}_U,
+\] and define the reference state \[
+\omega(X):=\langle \Omega, X\Omega\rangle.
+\]
+
+The pair \[
+(\mathcal{A}_c,\omega)
+\] is the basic object of the theory. In the intended applications,
+\(\mathcal{A}_c\) is of Type III\(_1\). This is not an arbitrary
+technical preference. Type III\(_1\) is the natural habitat of local
+quantum field theoretic algebras~\cite{Haag1996}, and it is precisely the setting in
+which modular theory is rich enough to support the present route from
+algebraic accessibility data to emergent geometry.
+
+The ambient algebra \(\mathcal{A}_U\) should be thought of as the
+unreduced field of possible observables, while \(\mathcal{A}_c\) is the
+algebra actually stabilized or selected by the accessibility criterion.
+The question of the paper is then asked not about the entire ambient
+structure at once, but about what can be extracted from the selected
+pair \((\mathcal{A}_c,\omega)\).
+
+\subsection{Inherited Accessibility
+Conditions}\label{inherited-accessibility-conditions}
+
+The first two assumptions are inherited from the HAFF
+setting~\cite{Liu2026PaperD}.
+
+\textbf{(U1) Faithfulness.}
+The restriction of the reference state to the accessible algebra is
+faithful: \[
+\omega|_{\mathcal{A}_c}\ \text{is faithful}.
+\] Equivalently, \(\Omega\) is cyclic and separating for
+\(\mathcal{A}_c\).
+
+This is the minimal condition that allows modular theory to be applied
+to \((\mathcal{A}_c,\omega)\). In the present philosophical translation,
+\((U1)\) says that the allegedly ``first-person'' sector is not attached
+to a degenerate algebraic viewpoint. The accessible algebra must support
+a genuine intrinsic modular structure.
+
+\textbf{(U3) Maximality.}
+The accessible algebra is maximal among von Neumann subalgebras that are
+faithful and stable under the decoherence semigroup: \[
+\mathcal{E}_t(\mathcal{A}_c)\subset \mathcal{A}_c,
+\qquad
+\forall t\ge 0,
+\] and no strictly larger von Neumann subalgebra satisfying \((U1)\) and
+this forward stability property exists.
+
+Here \(\{\mathcal{E}_t\}_{t\ge 0}\) is the decoherence semigroup acting
+on the ambient algebra: a strongly continuous one-parameter semigroup of
+normal completely positive unital maps on \(\mathcal{A}_U\) satisfying
+the Markov property \(\mathcal{E}_0=\mathrm{id}\) and
+\(\mathcal{E}_{s+t}=\mathcal{E}_s\circ\mathcal{E}_t\). Its physical
+role is to model the progressive loss of coherence between the
+accessible algebra and its environment; the fixed-point algebra of the
+semigroup is \(\mathcal{A}_c\) itself. (For the full construction and
+motivation, see~\cite{Liu2026PaperD}.)
+
+The role of \((U3)\) is to prevent an arbitrary shrinking of the
+accessible algebra. It says that \(\mathcal{A}_c\) is not merely one
+convenient observational slice among many. It is maximal with respect to
+the stability criterion that defines accessibility in the first place.
+This matters philosophically because the inseparability theorem is meant
+to concern the selected structural viewpoint itself, not an artificially
+weakened fragment of it.
+
+Throughout this paper, we work within the admissible class selected by
+\((U3)\). The Phase 1 proofs below do not use maximality directly; its
+role is to ensure that the algebraic datum is canonical rather than
+artificially restricted.
+
+\subsection{The New Dynamical Axiom}\label{the-new-dynamical-axiom}
+
+The crucial new input is the scaling relation between decoherence and
+modular evolution.
+
+\textbf{(C) Modular-decoherence scaling covariance.}
+For all \(s\in\mathbb{R}\) and \(t\ge 0\), \[
+\mathcal{E}_t\circ \mathrm{Ad}\,\Delta_{\mathcal{A}_c}^{is}
+=
+\mathrm{Ad}\,\Delta_{\mathcal{A}_c}^{is}\circ \mathcal{E}_{e^{2\pi s}t}.
+\]
+
+Here \(\mathrm{Ad}\,\Delta_{\mathcal{A}_c}^{is}\) denotes the outer
+conjugation action of the modular unitary on the ambient operator
+algebra.
+
+This is the only genuinely new dynamical axiom introduced in Phase 1.
+Its content is that modular evolution does not merely preserve the
+accessible algebra tautologically. It rescales the effective decoherence
+depth. In the language of the hard problem, \((C)\) is the first place
+where the object-side and act-side structures are explicitly tied
+together. It is therefore the real replacement for the earlier
+non-scrambling intuition.
+
+\begin{remark}[Physical plausibility of \((C)\)]
+Axiom \((C)\) holds whenever the modular flow of the accessible algebra
+acts as a dilation on the decoherence time parameter. This is the case
+in the Bisognano-Wichmann setting, where modular flow is a Lorentz
+boost and decoherence depth scales with the boost parameter, and more
+generally in any Rindler-type wedge algebra. The axiom is a nontrivial
+dynamical input: it ties the intrinsic modular time of the accessible
+algebra to the extrinsic decoherence structure of the ambient algebra.
+Its domain of validity beyond the HAFF setting~\cite{Liu2026PaperD} is
+an open question.
+\end{remark}
+
+\subsection{Ambient Shell Realization}\label{ambient-shell-realization}
+
+To turn \((C)\) into a geometric statement, one needs an external family
+on which the rescaling can act.
+
+\textbf{(Amb) Ambient shell realization.}
+There exists a family of von Neumann algebras \[
+\{\mathcal{A}(\tau)\}_{\tau>0}
+\] such that:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  for every \(\tau>0\), \[
+  \mathcal{A}_c\subset \mathcal{A}(\tau)\subset \mathcal{A}_U;
+  \]
+\item
+  if \(\tau_1<\tau_2\), then \[
+  \mathcal{A}(\tau_1)\supset \mathcal{A}(\tau_2);
+  \]
+\item
+  the accessible algebra is the core limit: \[
+  \mathcal{A}_c=\bigcap_{\tau>0}\mathcal{A}(\tau);
+  \]
+\item
+  the family \(\mathcal{A}(\tau)\) is an ambient realization of the
+  decoherence shells, so that the scaling computation induced by \((C)\)
+  legitimately reads the parameter \(\tau\) as a decoherence window.
+\end{enumerate}
+
+The point of \((Amb)\) is regularity, not extra dynamics. It provides a
+shell family external to \(\mathcal{A}_c\) but still anchored in the
+ambient algebra. Without such a realization, the scaling relation of
+\((C)\) would remain formal. With it, modular flow acquires a genuine
+action on a stratified family of observational stability levels. This is
+the step that allows ``information stability'' to be re-read as
+``geometric organization.''
+
+It is important to note what \((Amb)\) is not. It is not an arbitrary
+filtration appended for convenience. It is the rigorous formalization of
+the shell notion actually used downstream. In particular, outer
+standardness will later be derived from \((Amb)\) rather than postulated
+separately.
+
+\subsection{Existential Conormality}\label{existential-conormality}
+
+The final input required for the Phase 1 conformal reconstruction is a
+second-direction existence condition.
+
+\textbf{(CN\(_\exists\)) Existential conormality.}
+There exists some \(\mu_0>0\) such that, for \[
+\mathcal{C}_{\mu_0}:=\mathcal{B}_{\mu_0}'\cap \mathcal{A}_c,
+\] the vector \(\Omega\) is cyclic.
+
+The algebras \(\mathcal{B}_{\mu}\) will be constructed from \((C)\) and
+\((Amb)\) in Section 4; the present point is only that one cyclicity
+assumption at one scale is enough to close the second direction and
+trigger the GLW reconstruction.
+
+Philosophically, \((CN_\exists)\) is the minimal extra input needed to
+pass from a single half-sided modular direction to a full conformal
+skeleton. It should therefore be read neither as an arbitrary technical
+patch nor as a hidden second dynamics. It is an existence-type condition
+ensuring that the accessible algebra contains enough internal relational
+richness to support the second lightlike direction.
+
+\subsection{What Is Explicitly Not
+Assumed}\label{what-is-explicitly-not-assumed}
+
+One older condition is intentionally removed.
+
+\textbf{(U2) is deleted.}
+The statement that the modular group preserves the accessible algebra,
+\[
+\sigma_t^{\mathcal{A}_c}(\mathcal{A}_c)=\mathcal{A}_c,
+\] is automatic from Tomita-Takesaki theory~\cite{Takesaki2003} and therefore carries no
+genuine selection content.
+
+This deletion matters conceptually. The paper does not rest on a
+tautological ``modular stability'' assumption. The real content enters
+through \((C)\), where modular evolution acts outwardly on the shell
+family rather than merely inwardly on \(\mathcal{A}_c\) itself.
+
+It is also worth noting that the stronger exhaustion condition \[
+\mathrm{OE}: \quad W^*\!\Big(\bigcup_{\tau>0}\mathcal{A}(\tau)\Big)=\mathcal{B}(\mathcal{H}_U)
+\] is not part of the minimal Phase 1 package. It is only relevant for
+stronger scalar-core statements that are not needed for the present
+conformal-level theorem.
+
+\subsection{The Minimal Phase 1
+Package}\label{the-minimal-phase-1-package}
+
+We may now summarize the standing assumptions. Throughout the paper we
+work within the admissible class selected by \((U3)\). The
+proof-relevant Phase 1 package is: \[
+(U1)+(C)+(Amb)+(CN_\exists).
+\]
+
+The logic of this package is straightforward.
+
+\begin{itemize}
+\tightlist
+\item
+  \((U1)\) makes modular theory available on the accessible algebra.
+\item
+  \((C)\) ties modular evolution to decoherence depth.
+\item
+  \((Amb)\) gives that depth a concrete shell realization inside the
+  ambient algebra.
+\item
+  \((CN_\exists)\) provides the minimal extra cyclicity needed to
+  reconstruct the second direction and hence the conformal skeleton.
+\end{itemize}
+
+The remainder of Phase 1 consists in proving that this proof-relevant
+package is
+already enough to derive a standard half-sided modular inclusion, a
+canonical GLW Möbius net, and therefore a conformal-level inseparability
+theorem. That is the task of the next section.
+
+\section{From Axioms to Conformal Skeleton (Phase
+1)}\label{from-axioms-to-conformal-skeleton-phase-1}
+
+\subsection{From Axiom C to Standard Half-Sided Modular
+Inclusion}\label{from-axiom-c-to-standard-half-sided-modular-inclusion}
+
+The first structural point of the paper is that the half-sided modular
+inclusion needed by the Wiesbrock-GLW machinery is not postulated. It is
+extracted from the HAFF-native dynamics once the modular-decoherence
+covariance axiom is combined with an ambient realization of the
+decoherence shells. In particular, the present route differs sharply
+from the earlier formulation in which HSMI appeared as an external
+ansatz. Here it is the output of the Phase 1 assumptions.
+
+Throughout this section we assume \((U1)\), \((C)\), and \((Amb)\), and
+we work within the admissible class selected by \((U3)\). We write \[
+\sigma_t := \sigma_t^{\mathcal{A}_c}
+\] for the modular automorphism group of \((\mathcal{A}_c,\Omega)\) and
+\[
+J := J_{\mathcal{A}_c}
+\] for the associated modular conjugation. By \((Amb)\), we are given a
+decreasing family of ambient shell algebras \[
+\mathcal{A}_c \subset \mathcal{A}(\tau) \subset \mathcal{A}_U,
+\qquad
+\tau>0,
+\] with \[
+\mathcal{A}_c=\bigcap_{\tau>0}\mathcal{A}(\tau),
+\] and whose parameter \(\tau\) is interpreted as a decoherence window.
+
+\subsection{Outer Scaling from Modular-Decoherence
+Covariance}\label{outer-scaling-from-modular-decoherence-covariance}
+
+The real content of axiom \((C)\) is that the modular flow of the
+accessible algebra does not merely preserve \(\mathcal{A}_c\)
+tautologically. Rather, it rescales the ambient shell parameter. This is
+the first point at which the older \((U2)\)-style formulation must be
+replaced.
+
+\begin{proposition}[Outer scaling law]\label{prop:4.1}
+Under \((U1)\), \((C)\), and \((Amb)\), \[
+\sigma_s(\mathcal{A}(\tau))=\mathcal{A}(e^{-2\pi s}\tau),
+\qquad
+\forall s\in\mathbb{R},\ \tau>0.
+\]
+\end{proposition}
+
+\begin{proof}
+By the shell interpretation built into \((Amb)\), membership in
+\(\mathcal{A}(\tau)\) is determined by stability on the time window of
+size \(\tau\). For any \(O\in\mathcal{A}(\tau)\), axiom \((C)\) gives \[
+\mathcal{E}_t\!\big(\sigma_s(O)\big)
+=
+\sigma_s\!\big(\mathcal{E}_{e^{2\pi s}t}(O)\big),
+\] hence the same stability estimate that characterizes \(O\) on the
+window \(e^{2\pi s}t\le \tau\) characterizes \(\sigma_s(O)\) on the
+window \(t\le e^{-2\pi s}\tau\). Therefore
+\(\sigma_s(O)\in\mathcal{A}(e^{-2\pi s}\tau)\). Applying the same
+argument to \(\sigma_{-s}\) yields the reverse inclusion.
+\end{proof}
+
+This result is the correct algebraic replacement for the old
+non-scrambling intuition: modular time rescales decoherence depth. It is
+already an inseparability statement in weak form, because the shell
+parameter and the modular parameter are no longer independently
+adjustable.
+
+\subsection{Outer Standardness}\label{outer-standardness}
+
+The next observation is simple but essential: the ambient shells are
+standard for the same vector \(\Omega\). This is where the ambient
+realization is used as a regularity hypothesis rather than as extra
+dynamics.
+
+\begin{lemma}[Outer standardness]\label{lem:4.2}
+For every \(\tau>0\), the vector \(\Omega\) is cyclic and separating for
+\(\mathcal{A}(\tau)\).
+\end{lemma}
+
+\begin{proof}
+Since \(\mathcal{A}_c\subset \mathcal{A}(\tau)\) and
+\(\Omega\) is cyclic for \(\mathcal{A}_c\) by \((U1)\), it is cyclic for
+\(\mathcal{A}(\tau)\). Since \(\mathcal{A}(\tau)\subset \mathcal{A}_U\)
+and \(\Omega\) is separating for \(\mathcal{A}_U\) by the ambient datum
+(Section 3.1), separation passes to the subalgebra
+\(\mathcal{A}(\tau)\).
+\end{proof}
+
+This standardness will allow us to transport the outer shell family into
+an internal family inside \(\mathcal{A}_c\) by Tomita-Takesaki duality.
+
+\subsection{\texorpdfstring{The \(J\)-Dual Internal
+Filtration}{The J-Dual Internal Filtration}}\label{the-j-dual-internal-filtration}
+
+The key construction is to turn the outer shell family into a family of
+subalgebras of the accessible algebra itself. This is the point at which
+the earlier interiorization axiom becomes unnecessary.
+
+For \(\mu>0\), define \[
+\mathcal{B}_\mu:=J\,\mathcal{A}(1/\mu)'\,J.
+\]
+
+The next proposition records the properties of this family needed for
+the HSMI step.
+
+\begin{proposition}[\(J\)-dual internal filtration]\label{prop:4.3}
+The family \(\{\mathcal{B}_\mu\}_{\mu>0}\) satisfies:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \(\mathcal{B}_\mu\subset \mathcal{A}_c\) for all \(\mu>0\);
+\item
+  if \(\mu_1>\mu_2\), then
+  \(\mathcal{B}_{\mu_1}\subset \mathcal{B}_{\mu_2}\);
+\item
+  \(\Omega\) is cyclic and separating for each \(\mathcal{B}_\mu\);
+\item
+  the modular group rescales the family according to \[
+  \sigma_s(\mathcal{B}_\mu)=\mathcal{B}_{e^{-2\pi s}\mu};
+  \]
+\item
+  the family generates the accessible algebra: \[
+  W^*\!\Big(\bigcup_{\mu>0}\mathcal{B}_\mu\Big)=\mathcal{A}_c.
+  \]
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+The inclusion \(\mathcal{A}_c\subset \mathcal{A}(1/\mu)\) implies \[
+\mathcal{A}(1/\mu)'\subset \mathcal{A}_c',
+\] hence \[
+\mathcal{B}_\mu
+=
+J\,\mathcal{A}(1/\mu)'\,J
+\subset
+J\,\mathcal{A}_c'\,J
+=
+\mathcal{A}_c,
+\] which proves (1).
+
+For (2), if \(\mu_1>\mu_2\), then \(1/\mu_1<1/\mu_2\), so the
+monotonicity of the outer shell family gives \[
+\mathcal{A}(1/\mu_1)\supset \mathcal{A}(1/\mu_2),
+\] hence \[
+\mathcal{A}(1/\mu_1)'\subset \mathcal{A}(1/\mu_2)'
+\] and therefore \[
+\mathcal{B}_{\mu_1}\subset \mathcal{B}_{\mu_2}.
+\]
+
+For (3), Lemma 4.2 shows that \(\Omega\) is cyclic and separating for
+\(\mathcal{A}(1/\mu)\). Therefore \(\Omega\) is also cyclic and
+separating for \(\mathcal{A}(1/\mu)'\). Since \(J\Omega=\Omega\) and
+\(J\) is antiunitary, the same holds for \[
+J\,\mathcal{A}(1/\mu)'\,J=\mathcal{B}_\mu.
+\]
+
+For (4), using the Tomita relation \[
+\Delta^{is}J=J\Delta^{-is},
+\] we compute \[
+\sigma_s(\mathcal{B}_\mu)
+=
+\Delta^{is}J\,\mathcal{A}(1/\mu)'\,J\Delta^{-is}
+=
+J\Delta^{-is}\mathcal{A}(1/\mu)'\Delta^{is}J
+=
+J\,\sigma_{-s}\!\big(\mathcal{A}(1/\mu)\big)'\,J.
+\] Now Proposition 4.1 gives \[
+\sigma_{-s}\!\big(\mathcal{A}(1/\mu)\big)
+=
+\mathcal{A}(e^{2\pi s}/\mu),
+\] so \[
+\sigma_s(\mathcal{B}_\mu)
+=
+J\,\mathcal{A}(e^{2\pi s}/\mu)'\,J
+=
+\mathcal{B}_{e^{-2\pi s}\mu}.
+\]
+
+Finally, (5) follows from the core limit in \((Amb)\): \[
+\mathcal{A}_c=\bigcap_{\tau>0}\mathcal{A}(\tau)
+\quad\Longrightarrow\quad
+\mathcal{A}_c'=W^*\!\Big(\bigcup_{\tau>0}\mathcal{A}(\tau)'\Big).
+\] Applying \(J(\cdot)J\) yields \[
+\mathcal{A}_c
+=
+J\mathcal{A}_c'J
+=
+W^*\!\Big(\bigcup_{\tau>0}J\,\mathcal{A}(\tau)'\,J\Big)
+=
+W^*\!\Big(\bigcup_{\mu>0}\mathcal{B}_\mu\Big).
+\]
+\end{proof}
+
+This construction is the first genuinely new structural step of the
+Phase 1 chain. The internal family is not imposed from outside. It is
+obtained functorially from the shell realization and modular data.
+
+\subsection{Half-Sided Modular Inclusion as a
+Theorem}\label{half-sided-modular-inclusion-as-a-theorem}
+
+We may now isolate the fixed inclusion that drives the Wiesbrock
+machinery.
+
+\begin{theorem}[HSMI from modular-decoherence covariance]\label{thm:4.4}
+For any fixed \(\mu_0>0\), the inclusion \[
+(\mathcal{B}_{\mu_0}\subset \mathcal{A}_c,\Omega)
+\] is a half-sided modular inclusion, namely \[
+\sigma_t(\mathcal{B}_{\mu_0})\subset \mathcal{B}_{\mu_0},
+\qquad
+\forall t\le 0.
+\]
+\end{theorem}
+
+\begin{proof}
+By Proposition 4.3(3), \(\Omega\) is cyclic and separating for both
+\(\mathcal{B}_{\mu_0}\) and \(\mathcal{A}_c\). By Proposition 4.3(4), \[
+\sigma_t(\mathcal{B}_{\mu_0})
+=
+\mathcal{B}_{e^{-2\pi t}\mu_0}.
+\] If \(t\le 0\), then \(e^{-2\pi t}\ge 1\), hence
+\(e^{-2\pi t}\mu_0\ge \mu_0\). By Proposition 4.3(2), \[
+\mathcal{B}_{e^{-2\pi t}\mu_0}\subset \mathcal{B}_{\mu_0}.
+\] Therefore \[
+\sigma_t(\mathcal{B}_{\mu_0})\subset \mathcal{B}_{\mu_0},
+\qquad t\le 0.
+\]
+\end{proof}
+
+The important point is conceptual as much as technical: in the present
+framework, HSMI is not a geometric input imported from AQFT\@. It is the
+algebraic consequence of a scaling law that ties modular flow to
+decoherence depth.
+
+\subsection{The Wiesbrock-Borchers Positive
+Generator}\label{the-wiesbrock-borchers-positive-generator}
+
+Once the fixed inclusion is available, the standard Wiesbrock-Borchers
+conclusion follows.
+
+\begin{corollary}[Positive translation generator for the fixed
+inclusion]\label{cor:4.5}
+For each fixed \(\mu_0>0\), there exists a unique positive self-adjoint
+operator \[
+P_{\mu_0}\ge 0
+\] such that, with \[
+U_{\mu_0}(a):=e^{-iaP_{\mu_0}},
+\qquad
+a\ge 0,
+\] one has
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \(U_{\mu_0}(a)\Omega=\Omega\) for all \(a\ge 0\);
+\item
+  the Borchers covariance relation \[
+  \Delta_{\mathcal{A}_c}^{is}U_{\mu_0}(a)\Delta_{\mathcal{A}_c}^{-is}
+  =
+  U_{\mu_0}(e^{-2\pi s}a)
+  \] holds for all \(s\in\mathbb{R}\) and \(a\ge 0\).
+\end{enumerate}
+\end{corollary}
+
+\begin{proof}
+This is the standard Wiesbrock theorem for a fixed half-sided modular
+inclusion~\cite{Wiesbrock1993}, together with Borchers covariance~\cite{Borchers1992}.
+\end{proof}
+
+At this stage we do not claim a pointwise identification between the
+entire family \(\{\mathcal{B}_\mu\}_{\mu>0}\) and the Wiesbrock orbit
+generated by \(P_{\mu_0}\). Such an identification requires an
+additional normalization or uniqueness argument and is not needed for
+the Phase 1 main chain.
+
+This completes the first half of Phase 1. We have shown that the
+accessible algebra canonically carries the half-sided modular structure
+needed to enter the Möbius reconstruction theorem.
+
+\subsection{GLW Conformal Skeleton and Weak
+Inseparability}\label{glw-conformal-skeleton-and-weak-inseparability}
+
+The second half of Phase 1 upgrades the fixed half-sided modular
+inclusion to a full conformal skeleton. The only additional input is an
+existential conormality condition. Once this is imposed, the
+Guido-Longo-Wiesbrock reconstruction theorem produces a canonical
+strongly additive local Möbius net on \(S^1\), and with it the
+conformal-level version of inseparability.
+
+Throughout this section we assume, in addition to the hypotheses of
+Section 4.1, the conormality condition \((CN_\exists)\): there exists
+\(\mu_0>0\) such that the vector \(\Omega\) is cyclic for \[
+\mathcal{C}_{\mu_0}:=\mathcal{B}_{\mu_0}'\cap \mathcal{A}_c.
+\]
+
+\subsection{The Second Direction from Existential
+Conormality}\label{the-second-direction-from-existential-conormality}
+
+The role of \((CN_\exists)\) is very precise. It is not used to
+construct the half-sided inclusion itself. That has already been
+achieved in Section 4.1. Rather, it upgrades the fixed inclusion to a
+standard one in the sense required by the GLW theorem.
+
+For \(\mu>0\), define \[
+\mathcal{C}_\mu:=\mathcal{B}_\mu'\cap \mathcal{A}_c.
+\]
+
+\begin{proposition}[The second direction]\label{prop:4.6}
+Under \((U1)\), \((C)\), \((Amb)\), and \((CN_\exists)\), the
+family \(\{\mathcal{C}_\mu\}_{\mu>0}\) satisfies:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \(\mathcal{C}_\mu\subset \mathcal{A}_c\) and \(\Omega\) is separating
+  for \(\mathcal{C}_\mu\);
+\item
+  the modular group rescales the family by \[
+  \sigma_t(\mathcal{C}_\mu)=\mathcal{C}_{e^{-2\pi t}\mu};
+  \]
+\item
+  for all \(t\ge 0\), \[
+  \sigma_t(\mathcal{C}_\mu)\subset \mathcal{C}_\mu;
+  \]
+\item
+  if \(\Omega\) is cyclic for one \(\mathcal{C}_{\mu_0}\), then by
+  modular propagation it is cyclic for all \(\mathcal{C}_\mu\).
+\end{enumerate}
+
+In particular, the fixed inclusion \[
+(\mathcal{B}_{\mu_0}\subset \mathcal{A}_c,\Omega)
+\] is standard.
+\end{proposition}
+
+\begin{proof}
+The inclusion \(\mathcal{C}_\mu\subset \mathcal{A}_c\) is immediate from
+the definition. Separation of \(\Omega\) follows from \((U1)\), since
+\(\omega|_{\mathcal{A}_c}\) is faithful and faithfulness passes to
+subalgebras.
+
+For modular covariance, \[
+\sigma_t(\mathcal{C}_\mu)
+=
+\sigma_t(\mathcal{B}_\mu'\cap \mathcal{A}_c)
+=
+\sigma_t(\mathcal{B}_\mu)'\cap \sigma_t(\mathcal{A}_c)
+=
+\mathcal{B}_{e^{-2\pi t}\mu}'\cap \mathcal{A}_c
+=
+\mathcal{C}_{e^{-2\pi t}\mu},
+\] where we used Proposition 4.3(4) and the tautological invariance of
+\(\mathcal{A}_c\) under its own modular group.
+
+If \(t\ge 0\), then \(e^{-2\pi t}\le 1\), so the monotonicity of the
+\(\mathcal{B}_\mu\) family implies the reverse monotonicity of the
+relative commutants: \[
+\mathcal{C}_{e^{-2\pi t}\mu}\subset \mathcal{C}_\mu.
+\] Thus \[
+\sigma_t(\mathcal{C}_\mu)\subset \mathcal{C}_\mu.
+\]
+
+Finally, \((CN_\exists)\) gives cyclicity for one
+\(\mathcal{C}_{\mu_0}\), and the modular covariance formula propagates
+this cyclicity along the entire orbit. Since Section 4.1 already gives
+cyclicity and separation for \(\mathcal{B}_{\mu_0}\) and
+\(\mathcal{A}_c\), the inclusion is standard.
+\end{proof}
+
+This is the exact point at which the second direction closes. No
+stronger global conormality assumption is needed for the fixed inclusion
+that feeds the GLW theorem.
+
+\subsection{The GLW Reconstruction
+Theorem}\label{the-glw-reconstruction-theorem}
+
+Once standardness is available, the conformal skeleton appears by a
+known AQFT theorem. The novelty in the present paper is not the GLW
+theorem itself, but the fact that its input is derived from the
+HAFF-native algebraic package.
+
+\begin{theorem}[Conformal skeleton via Guido-Longo-Wiesbrock]\label{thm:4.7}
+Fix \(\mu_0>0\) as in \((CN_\exists)\). Then the standard half-sided
+modular inclusion \[
+(\mathcal{B}_{\mu_0}\subset \mathcal{A}_c,\Omega)
+\] determines a unique strongly additive local Möbius covariant net \[
+I\longmapsto \mathcal{A}_{\mathrm{GLW}}(I)
+\] on \(S^1\) such that \[
+\mathcal{A}_{\mathrm{GLW}}(0,+\infty)=\mathcal{A}_c,
+\qquad
+\mathcal{A}_{\mathrm{GLW}}(1,+\infty)=\mathcal{B}_{\mu_0},
+\] and \(\Omega\) is the vacuum vector for the corresponding
+positive-energy representation of \(\mathrm{PSL}(2,\mathbb{R})\).
+\end{theorem}
+
+\begin{proof}
+This is precisely the Guido-Longo-Wiesbrock reconstruction theorem for
+standard half-sided modular inclusions~\cite{GLW1998}.
+\end{proof}
+
+Two clarifications are important here.
+
+First, at this stage no separate relative-position hypothesis is needed.
+Standard HSMI is enough to reconstruct the Möbius net. The previously
+suspected relative-position bottleneck concerns later identification
+questions, not the existence of the conformal skeleton itself.
+
+Second, the net produced here is an abstract but canonical conformal
+object attached to the fixed inclusion. The remaining question of
+identifying this GLW net pointwise with the pre-given shell filtrations
+or later cross-ratio families belongs to the next phase of the program.
+
+\subsection{The Conformal Skeleton as the Output of Modular
+Data}\label{the-conformal-skeleton-as-the-output-of-modular-data}
+
+Theorem 4.7 already yields the first inseparability statement of the
+paper. The data entering the standard inclusion are modular data; the
+output is a conformal geometry in the minimal sense appropriate to one
+spatial and one temporal dimension, namely a causal/conformal skeleton.
+
+To make this precise, let \[
+\mathrm{Mod}_{\mathrm{conf}}(\mathcal{A}_c,\omega)
+\] denote the conformal modular sector determined in Phase 1: the
+modular group of \((\mathcal{A}_c,\Omega)\), the fixed-inclusion
+positive generator \(P_{\mu_0}\), and the corresponding Möbius
+representation recovered from the standard HSMI\@. Let \[
+\mathrm{Conf}(\mathcal{A}_c,\omega)
+\] denote the conformal skeleton, equivalently the GLW net together with
+its Möbius vacuum representation.
+
+\begin{theorem}[Weak Inseparability]\label{thm:4.8}
+Within the admissible class selected by \((U3)\), and under \((U1)\),
+\((C)\), \((Amb)\), and \((CN_\exists)\), the conformal skeleton and the
+conformal modular sector cannot be independently varied. More precisely:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  the standard HSMI data determine a unique conformal skeleton;
+\item
+  the conformal skeleton, once normalized by the half-line
+  identification above, determines the conformal modular sector;
+\item
+  therefore any admissible deformation that preserves one of these two
+  structures must preserve the other.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+Item (1) is exactly Theorem 4.7.
+
+For item (2), the Möbius net comes equipped with a positive-energy
+representation of \(\mathrm{PSL}(2,\mathbb{R})\). Once the half-line
+normalization \[
+\mathcal{A}_{\mathrm{GLW}}(0,+\infty)=\mathcal{A}_c,
+\qquad
+\mathcal{A}_{\mathrm{GLW}}(1,+\infty)=\mathcal{B}_{\mu_0}
+\] is fixed, the corresponding dilation and translation subgroups
+recover the modular action and the positive translation generator
+associated with the inclusion. In other words, the conformal skeleton
+rigidly determines the conformal modular sector.
+
+Item (3) is immediate. If an admissible deformation preserves the
+conformal modular sector, item (1) forces the conformal skeleton to
+remain fixed. Conversely, if it preserves the conformal skeleton, item
+(2) forces the modular sector to remain fixed. Hence the two structures
+are not independently deformable.
+\end{proof}
+
+This result is weak only in the sense that it stops at the conformal
+level. It does not yet recover metric scale. That is the purpose of Step
+I and Step II\@. But it already establishes the central conceptual point
+of Phase 1:
+
+\begin{quote}
+causal/conformal geometry and modular time are not two separately
+specified ingredients;\\
+they are two readings of the same standard half-sided modular data.
+\end{quote}
+
+\subsection{What Phase 1 Has Actually
+Closed}\label{what-phase-1-has-actually-closed}
+
+It is useful to isolate the precise mathematical output of the section
+before moving on to metric scale.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  HSMI is no longer an assumption. It is a theorem derived from \((C)\)
+  and \((Amb)\).
+\item
+  The second direction is no longer a global mystery. It is isolated
+  into the existence-type conormality input \((CN_\exists)\).
+\item
+  The conformal skeleton is no longer conjectural. It is reconstructed
+  canonically by GLW from the fixed standard inclusion.
+\item
+  The first inseparability theorem is already in hand: conformal
+  geometry and conformal modular data are mutually rigid.
+\end{enumerate}
+
+What remains open after Phase 1 is not the existence of the conformal
+skeleton, but the recovery of metric scale from local modular data. That
+is why the next phase turns to the cross-ratio family and to the
+canonical local modular scale datum \[
+\{K_b\}_{b\in(0,1)}.
+\]
+
+\section{From Conformal Skeleton to Full Geometry (Phase
+2)}\label{from-conformal-skeleton-to-full-geometry-phase-2}
+
+Phase 1 established that conformal geometry and conformal modular data
+are inseparable. But the conformal skeleton determines only the causal
+structure, the light cones. It does not determine distances. A conformal
+class of Lorentzian metrics contains infinitely many metrics related by
+Weyl rescaling. To reach the full inseparability statement, we must show
+that the metric scale is also locked to modular data.
+
+This is the task of Phase 2. The strategy has three steps: identify the
+correct local geometric modulus, extract a canonical modular scale datum
+from it, and show that this datum determines the metric scale via a Type
+III-compatible quantum Fisher information metric.
+
+\subsection{Why Single-Interval Deformations
+Fail}\label{why-single-interval-deformations-fail}
+
+The first instinct is to deform a single interval within the GLW net and
+track how the modular Hamiltonian changes. This fails for a precise
+reason.
+
+On \(S^1\), the group \(\mathrm{PSL}(2,\mathbb{R})\) acts transitively
+on the space of intervals. Any single-interval deformation, such as
+moving one endpoint while fixing the other, is a Möbius transformation.
+Since the vacuum state \(\omega\) is Möbius-invariant, pulling back the
+restricted state along such a deformation produces a constant family.
+The quantum Fisher information metric of a constant family is zero.
+
+The lesson is that single-interval endpoint motion is a gauge orbit, not
+a geometric deformation. To obtain a nontrivial modulus, one needs at
+least four boundary points.
+
+\subsection{The Cross-Ratio as the Minimal Non-Möbius
+Modulus}\label{the-cross-ratio-as-the-minimal-non-muxf6bius-modulus}
+
+Consider a nested double-interval configuration within the GLW net: \[
+\mathcal{M}_{\mathrm{in}}(b) \subset \mathcal{M}_{\mathrm{out}},
+\qquad b \in (0,1).
+\] In the standard half-line gauge, this means \[
+\mathcal{M}_{\mathrm{out}} = \mathcal{A}_{\mathrm{GLW}}(0,\infty),
+\qquad
+\mathcal{M}_{\mathrm{in}}(b) = \mathcal{A}_{\mathrm{GLW}}(b,1).
+\] The four boundary points are \(0, b, 1, \infty\). The Möbius group
+has three real parameters, so after gauge-fixing, exactly one real
+modulus survives: the cross-ratio \[
+\chi = b.
+\]
+
+This is the minimal non-Möbius geometric degree of freedom available in
+the GLW net. Varying \(b\) genuinely changes the relative position of
+the inner and outer algebras in a way that no Möbius transformation can
+undo.
+
+\subsection{The Canonical Modular Scale
+Datum}\label{the-canonical-modular-scale-datum}
+
+For each \(b \in (0,1)\), the inclusion
+\(\mathcal{M}_{\mathrm{in}}(b) \subset \mathcal{M}_{\mathrm{out}}\)
+determines a modular operator
+\(\Delta_{\mathcal{M}_{\mathrm{in}}(b),\Omega}\) via the Tomita-Takesaki
+theorem applied to \(\mathcal{M}_{\mathrm{in}}(b)\) with respect to the
+vacuum vector \(\Omega\).
+
+\begin{definition}[Canonical modular scale datum]\label{def:5.1}
+\[
+K_b := -\ln \Delta_{\mathcal{M}_{\mathrm{in}}(b),\Omega},
+\qquad b \in (0,1).
+\]
+\end{definition}
+
+The family \(\{K_b\}_{b \in (0,1)}\) is the canonical local modular
+scale datum. It is determined entirely by the GLW net and the vacuum
+state. No additional choices are involved.
+
+\begin{proposition}[Cross-ratio is the minimal non-M\"obius
+modulus]\label{prop:5.2}
+A nested double-interval configuration in the GLW net has
+exactly one Möbius-invariant modulus, the cross-ratio \(\chi = b\). In
+particular, the family \(\{K_b\}\) captures the minimal local modular
+scale information that is not already contained in the conformal
+skeleton.
+\end{proposition}
+
+This is the theorem-level output of Step I. It requires no additional
+axioms beyond Phase 1.
+
+\subsection{The Chart Axiom and the Scale
+Shadow}\label{the-chart-axiom-and-the-scale-shadow}
+
+To convert the modular scale datum into a Riemannian metric on the
+cross-ratio parameter space, we need to differentiate the family
+\(\{K_b\}\) and evaluate a quadratic form. This requires regularity that
+is not automatic from the abstract GLW construction.
+
+\textbf{Axiom (LImp\(^1\)).} For each reference point \(b_0 \in (0,1)\),
+there exists a neighborhood \(U_{b_0}\) and a unitary family \[
+W_b \in \mathcal{U}(\mathcal{M}_{\mathrm{out}}),
+\qquad b \in U_{b_0},
+\] satisfying:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \(W_{b_0} = \mathbf{1}\);
+\item
+  \(W_b \mathcal{M}_* W_b^* = \mathcal{M}_{\mathrm{in}}(b)\) for a fixed
+  reference algebra \(\mathcal{M}_* = \mathcal{M}_{\mathrm{in}}(b_0)\);
+\item
+  \(b \mapsto \omega(W_b A W_b^*)\) is \(C^1\) for each
+  \(A \in \mathcal{M}_*\);
+\item
+  the tangent vector \(\dot{\phi}_{b_0}\) at \(b = b_0\) is represented
+  by the modular Hamiltonian variation
+  \(\dot{K}_{b_0} = \frac{d}{db}|_{b=b_0} K_b\) via the standard Araki
+  correspondence.
+\end{enumerate}
+
+This axiom packages three regularity conditions into one: the existence
+of a local implementer (CR1), \(C^1\) smoothness of the pulled-back
+state family (CR2), and tangent compatibility with the modular
+Hamiltonian variation (CR3).
+
+\textbf{Axiom (CR-nd) (Non-degeneracy).} The Araki-Hessian quadratic
+form \(\mathbf{Q}_{\omega,b}\) is strictly positive on the modular
+Hamiltonian variation: \[
+\mathbf{Q}_{\omega,b}(\partial_b K_b, \partial_b K_b) > 0,
+\qquad \forall\, b \in (0,1).
+\]
+In the worked examples, this follows from the positivity of the
+stress-tensor two-point function. It fails only if the cross-ratio
+deformation produces no state-level change, a physically degenerate
+situation.
+
+Under these two conditions, the scale shadow is a genuine Riemannian
+metric on the cross-ratio parameter space.
+
+\begin{theorem}[Scale shadow, conditional on \textnormal{(LImp\(^1\))} +
+\textnormal{(CR-nd)}]\label{thm:5.3}
+Under the Phase 1 axioms and the additional conditions
+\((LImp^1)\) and \((CR\text{-}nd)\), the canonical modular scale datum
+induces a Riemannian scale shadow \[
+h_b = \mathbf{Q}_{\omega,b}(\partial_b K_b, \partial_b K_b)\, db^2,
+\] where \(\mathbf{Q}_{\omega,b}\) is the positive quadratic form
+induced by the Araki relative entropy Hessian~\cite{Araki1976} at the state
+\(\omega|_{\mathcal{M}_{\mathrm{in}}(b)}\) via the \((LImp^1)\) chart.
+\end{theorem}
+
+\begin{remark}
+In the special case where the chart is of exponential
+type (CR-exp), this reduces to the familiar variance formula \[
+h_b = \mathrm{Var}_\omega(\partial_b K_b)\, db^2.
+\] The general formula via \(\mathbf{Q}_{\omega,b}\) does not require
+this specialization.
+\end{remark}
+
+\subsection{Geometric Datum: Conformal Skeleton + Slice
+Scale}\label{assembly-conformal-skeleton-scale-lorentzian-geometry}
+
+The conformal skeleton from Phase 1 determines the causal structure,
+equivalently the conformal causal structure. The scale shadow
+\(\{h_b\}\) determines the complementary scale information along the
+cross-ratio slice family. At the abstract level established in this
+paper, the pair \((\mathrm{Conf},\{h_b\})\) is the full geometric datum.
+In the worked examples of Section 6, the cross-ratio parameter \(b\)
+naturally parametrizes the spatial position of the inner interval
+endpoint within the outer interval. The scale shadow \(h_b\) therefore
+directly defines a Riemannian metric on the spatial slice, and together
+with the conformal causal structure determines a Lorentzian metric.
+
+\begin{corollary}[Full geometric datum, 1+1 dimensions]\label{cor:5.4}
+In the 1+1
+dimensional setting of the GLW net, the conformal skeleton
+\(\mathrm{Conf}(\mathcal{N},\omega)\) together with the scale family
+\(\{h_b\}_{b \in (0,1)}\) defines the full geometric datum \[
+\mathrm{Geom}_{\mathrm{full}}(\mathcal{N},\omega)
+:=
+\big(\mathrm{Conf}(\mathcal{N},\omega),\; \{h_b\}_{b \in (0,1)}\big).
+\]
+In the worked examples of Section 6, the cross-ratio parameter \(b\)
+naturally parametrizes the spatial position of the inner interval
+endpoint within the outer interval. The scale shadow \(h_b\) therefore
+directly defines a Riemannian metric on the spatial slice, and together
+with the conformal causal structure determines a Lorentzian metric.
+\end{corollary}
+
+\begin{remark}
+The step from scale shadow to Lorentzian metric relies on the
+model-level identification of the cross-ratio parameter with spatial
+position. At the abstract level, Corollary~\ref{cor:5.4} provides a
+full geometric datum; the Lorentzian interpretation is verified in the
+worked examples but not proved in full generality. The extension to
+higher dimensions is an open problem (Section~\ref{open-problems}).
+\end{remark}
+
+\subsection{Forward and Bidirectional Full
+Inseparability}\label{forward-and-bidirectional-full-inseparability}
+
+With the full geometric datum in hand, we can state the main theorems.
+
+\begin{definition}[Extended modular data]\label{def:5.5}
+\[
+\mathrm{Mod}_{\mathrm{ext}}(\mathcal{N},\omega)
+:=
+\big(\mathrm{Mod}_{\mathrm{conf}}(\mathcal{N},\omega),\; \{K_b\}_{b \in (0,1)}\big).
+\]
+\end{definition}
+
+Two extended modular data
+\(\mathrm{Mod}_{\mathrm{ext}}^{(1)}\) and
+\(\mathrm{Mod}_{\mathrm{ext}}^{(2)}\) are identified if their conformal
+modular sectors agree and their canonical scale families \(\{K_b\}\)
+agree up to the trivial equivalences specified in \((SFa)\). All
+equalities of \(\mathrm{Mod}_{\mathrm{ext}}\) below are understood in
+this quotient sense.
+
+\begin{theorem}[Forward Full Inseparability]\label{thm:5.6}
+Under the Phase 1
+axioms and \((LImp^1) + (CR\text{-}nd)\), if two admissible objects have
+the same extended modular data, then they have the same full geometric
+datum:
+\[
+\mathrm{Mod}_{\mathrm{ext}}^{(1)} = \mathrm{Mod}_{\mathrm{ext}}^{(2)}
+\quad \Longrightarrow \quad
+\mathrm{Geom}_{\mathrm{full}}^{(1)} = \mathrm{Geom}_{\mathrm{full}}^{(2)}.
+\]
+\end{theorem}
+
+\begin{proof}
+By Phase 1 Weak Inseparability, the conformal modular
+data determine the conformal skeleton. By Theorem 5.3, the canonical
+modular scale family \(\{K_b\}\) determines the scale shadow
+\(\{h_b\}\). By Corollary 5.4, the conformal skeleton and scale shadow
+together determine the full geometric datum.
+\end{proof}
+
+The forward direction says: you cannot change the full geometric datum
+without changing the modular data. But can you change the modular data
+without changing the full geometric datum? This requires an additional
+faithfulness
+condition.
+
+\textbf{Axiom (SFa) (Scale faithfulness).} The canonical scale map
+\(\{K_b\} \mapsto \{h_b\}\) is faithful within the admissible class: if
+\(h_b^{(1)} = h_b^{(2)}\) for all \(b\), then \(K_b^{(1)} = K_b^{(2)}\)
+for all \(b\), up to trivial equivalences that do not affect the scale
+map.
+
+\begin{theorem}[Bidirectional Full Inseparability]\label{thm:5.7}
+Under the
+Phase 1 axioms, \((LImp^1)\), \((CR\text{-}nd)\), and \((SFa)\), \[
+\mathrm{Geom}_{\mathrm{full}}^{(1)} = \mathrm{Geom}_{\mathrm{full}}^{(2)}
+\quad \Longleftrightarrow \quad
+\mathrm{Mod}_{\mathrm{ext}}^{(1)} = \mathrm{Mod}_{\mathrm{ext}}^{(2)}.
+\] The full geometric datum and the extended modular data are not independently
+deformable.
+\end{theorem}
+
+\begin{proof}
+The forward direction (\(\Leftarrow\)) is Theorem 5.6.
+For the reverse direction (\(\Rightarrow\)): by the definition of
+\(\mathrm{Geom}_{\mathrm{full}}\), equality of full geometries
+determines both the conformal skeleton and the scale family \(\{h_b\}\).
+The conformal skeleton determines the conformal modular data by Phase 1
+Weak Inseparability. The scale family determines the canonical modular
+scale family \(\{K_b\}\) by \((SFa)\). Together,
+\(\mathrm{Mod}_{\mathrm{ext}}^{(1)} = \mathrm{Mod}_{\mathrm{ext}}^{(2)}\).
+\end{proof}
+
+This is the central mathematical result of the paper. Under the
+identifications defended in Section 2, the mathematical counterpart of
+physical structure (the full geometric datum
+\(\mathrm{Geom}_{\mathrm{full}}\)) and the mathematical counterpart of
+first-person time (extended modular data) cannot be independently
+specified. The independent-describability presupposition of the hard
+problem fails at the full scale-sensitive level.
+
+\section{Abstract Sufficient Conditions for \texorpdfstring{$(LImp^1)$}{(LImp1)}}\label{sufficient-conditions-limp}
+
+The Phase~2 theorems are conditional on the chart axiom $(LImp^1)$, the non-degeneracy condition $(CR\text{-}nd)$, and the faithfulness condition $(SFa)$. Of these three, $(LImp^1)$ is the most structurally demanding: it requires a local unitary implementer family with $C^1$ regularity and tangent compatibility. This section identifies two abstract routes for discharging $(LImp^1)$: a full discharge for Diff-covariant nets, and a decomposition of the remaining non-Diff burden into transportability, inner implementability, and regularity.
+
+The conditions $(CR\text{-}nd)$ and $(SFa)$ are not addressed here. They appear to depend on dynamical and spectral properties of the specific model (e.g., the positivity of the stress-tensor two-point function for $(CR\text{-}nd)$, and the injectivity of the variance map for $(SFa)$), and are better treated as model-level verifications rather than consequences of structural regularity.
+
+\subsection{Decomposition of \texorpdfstring{$(LImp^1)$}{(LImp1)}}\label{decomposition-limp}
+
+It is useful to isolate the three independent requirements packaged into $(LImp^1)$:
+
+\begin{enumerate}
+\item \textbf{Local transport.} For each $b$ near a reference point $b_0$, there exists an isomorphism $\alpha_b\colon \mathcal{M}_* \to \mathcal{M}_{\mathrm{in}}(b)$ that extends to an automorphism of $\mathcal{M}_{\mathrm{out}}$.
+\item \textbf{Unitary implementability.} The automorphism $\alpha_b$ is inner in $\mathcal{M}_{\mathrm{out}}$: there exists $W_b \in \mathcal{U}(\mathcal{M}_{\mathrm{out}})$ with $\alpha_b = \mathrm{Ad}(W_b)$.
+\item \textbf{$C^1$ regularity and tangent compatibility.} The map $b \mapsto \omega(W_b A W_b^*)$ is $C^1$ for each $A \in \mathcal{M}_*$, and the tangent at $b_0$ is represented by the modular Hamiltonian variation $\dot{K}_{b_0}$ via the Araki correspondence.
+\end{enumerate}
+
+Different sufficient conditions address different subsets of these requirements.
+
+\subsection{Why Split Property Alone Is Not Sufficient}\label{why-split-alone-insufficient}
+
+The split property for the inclusion $\mathcal{M}_{\mathrm{in}}(b) \subset \mathcal{M}_{\mathrm{out}}$ guarantees the existence of a Type~I factor $\mathcal{N}$ interpolating between the two algebras, and hence a local tensor product decomposition of the Hilbert space. This is relevant to requirement~(2): in the presence of a split, the ``annular region'' between the inner and outer algebras has enough room to localize unitary implementers.
+
+However, the split property does not by itself produce the transport of requirement~(1). It tells you that the relative position of $\mathcal{M}_{\mathrm{in}}(b)$ inside $\mathcal{M}_{\mathrm{out}}$ is ``standard'' in a measure-theoretic sense, but it does not provide a canonical family of automorphisms mapping $\mathcal{M}_*$ to $\mathcal{M}_{\mathrm{in}}(b)$ as $b$ varies. That family must come from an external source: either a symmetry group acting on the net, or an explicit transportability assumption.
+
+Nor does the split property address requirement~(3). The $C^1$ regularity of the pulled-back state family and its tangent compatibility with the modular Hamiltonian variation are analytic conditions that depend on the smoothness of whatever generates the transport, not on the split structure.
+
+In summary: split property assists with unitary implementability but does not generate transport or regularity. It is a facilitating condition, not a sufficient one.
+
+\subsection{Diff-Covariant Nets}\label{diff-covariant-nets}
+
+The cleanest sufficient condition for $(LImp^1)$ is diffeomorphism covariance of the net.
+
+\begin{theorem}[Diff-covariance implies $(LImp^1)$]\label{thm:diff-limp}
+Let $I \mapsto \mathcal{A}(I)$ be a local net on $S^1$ (or on the half-line) that is covariant under a strongly continuous positive-energy representation of $\mathrm{Diff}(S^1)$ (respectively, of orientation-preserving diffeomorphisms of the half-line fixing the boundary). Then $(LImp^1)$ holds for the cross-ratio family $\{\mathcal{M}_{\mathrm{in}}(b)\}_{b \in (0,1)}$ inside $\mathcal{M}_{\mathrm{out}}$.
+\end{theorem}
+
+\begin{proof}
+Fix a reference point $b_0 \in (0,1)$ and set $\mathcal{M}_* = \mathcal{M}_{\mathrm{in}}(b_0)$. For each $b$ in a neighborhood of $b_0$, choose a smooth family of diffeomorphisms $f_b$ satisfying $f_{b_0} = \mathrm{id}$, $f_b(b_0) = b$, $f_b(1) = 1$, with support contained in the outer interval.
+
+\emph{Transport.} The diffeomorphism covariance of the net gives $f_b(\mathcal{M}_*) = \mathcal{M}_{\mathrm{in}}(b)$, and since $\mathrm{supp}(f_b)$ is contained in the outer interval, the corresponding automorphism $\alpha_b$ restricts to an automorphism of $\mathcal{M}_{\mathrm{out}}$. This establishes requirement~(1).
+
+\emph{Unitary implementability.} The positive-energy representation provides unitaries $U(f_b)$ implementing $\alpha_b$. Since $f_b$ is supported in the outer interval, $U(f_b) \in \mathcal{M}_{\mathrm{out}}$ by Haag duality (or by the localization properties of the Diff representation). Set $W_b := U(f_b)$. This establishes requirement~(2).
+
+\emph{$C^1$ regularity.} The map $b \mapsto f_b$ is smooth by construction. The strong continuity of the Diff representation ensures that $b \mapsto U(f_b)$ is strongly continuous, and the smoothness of $f_b$ upgrades this to $C^1$ regularity of the pulled-back state family $b \mapsto \omega(W_b A W_b^*)$.
+
+\emph{Tangent compatibility.} The infinitesimal generator of the family $U(f_b)$ at $b = b_0$ is a smeared stress-energy tensor supported in the outer interval. By the relation between stress-energy deformations and modular Hamiltonian variations in conformal field theory~\cite{CasiniHuertaMyers2011}, this generator represents the modular Hamiltonian variation $\dot{K}_{b_0}$ via the Araki correspondence. This establishes requirement~(3).
+
+\emph{Nontriviality.} The diffeomorphisms $f_b$ are not Möbius transformations (they fix boundary points that a Möbius transformation would move). Therefore the pulled-back state family is nonconstant, and the QFIM is nonzero.
+\end{proof}
+
+This theorem upgrades the Virasoro worked example of Section~\ref{worked-example-ii-the-virasoro-net} from a model verification to an instance of a general result: any Diff-covariant conformal net automatically satisfies $(LImp^1)$.
+
+\subsection{Transportability-Based Sufficiency}\label{transportability-sufficiency}
+
+For nets that are not Diff-covariant, a second sufficient condition can be formulated by combining an explicit transportability hypothesis with the injectivity of the outer algebra.
+
+\begin{definition}[Local transportability]\label{def:local-transport}
+The cross-ratio family $\{\mathcal{M}_{\mathrm{in}}(b)\}$ is \emph{locally transportable} inside $\mathcal{M}_{\mathrm{out}}$ if, for each $b_0 \in (0,1)$, there exists a neighborhood $U_{b_0}$ and a family of automorphisms $\alpha_b \in \mathrm{Aut}(\mathcal{M}_{\mathrm{out}})$, $b \in U_{b_0}$, with $\alpha_{b_0} = \mathrm{id}$ and $\alpha_b(\mathcal{M}_*) = \mathcal{M}_{\mathrm{in}}(b)$.
+\end{definition}
+
+\begin{theorem}[Transportability-based sufficiency for $(LImp^1)$]\label{thm:transport-limp}
+Suppose:
+\begin{enumerate}
+\item the cross-ratio family is locally transportable inside $\mathcal{M}_{\mathrm{out}}$;
+\item $\mathcal{M}_{\mathrm{out}}$ is an injective (equivalently, hyperfinite) Type~III$_1$ factor;
+\item the transport family $b \mapsto \alpha_b$ is $C^1$ in the sense that $b \mapsto \omega(\alpha_b(A))$ is $C^1$ for each $A \in \mathcal{M}_*$, with tangent compatible with the modular Hamiltonian variation.
+\end{enumerate}
+Then $(LImp^1)$ holds.
+\end{theorem}
+
+\begin{proof}
+Requirement~(1) of $(LImp^1)$ is exactly hypothesis~(1). For requirement~(2): by hypothesis~(2) and the Connes theorem~\cite{Takesaki2003} ($\mathrm{Out}(\mathcal{M}) = \{e\}$ for injective Type~III$_1$ factors), every automorphism of $\mathcal{M}_{\mathrm{out}}$ is inner. Hence $\alpha_b = \mathrm{Ad}(W_b)$ for some $W_b \in \mathcal{U}(\mathcal{M}_{\mathrm{out}})$. Requirement~(3) is hypothesis~(3).
+\end{proof}
+
+\begin{remark}
+If the inclusion $\mathcal{M}_{\mathrm{in}}(b) \subset \mathcal{M}_{\mathrm{out}}$ additionally satisfies the split property, then the Type~I interpolation allows $W_b$ to be chosen with support localized in the annular region between the two algebras. This localization can improve the analytic control needed for the $C^1$ regularity of hypothesis~(3), but it is not required for the theorem as stated.
+\end{remark}
+
+It is important to be clear about what this theorem does and does not achieve. Hypotheses~(1) and~(3) — transportability and $C^1$ tangent compatibility — are already the two main substantive components of $(LImp^1)$ itself. The theorem's contribution is to identify the precise algebraic condition (injectivity of the outer factor) that bridges the gap between ``transport exists as an automorphism'' and ``transport is unitarily implemented inside the outer algebra.'' For nets whose local algebras are known to be injective Type~III$_1$ factors — which includes all local algebras in standard AQFT models — this bridge is automatic.
+
+\subsection{Status of the Three Phase 2 Conditions}\label{status-phase2-conditions}
+
+The results of this section change the status of $(LImp^1)$ as follows:
+
+\begin{itemize}
+\item For Diff-covariant nets, $(LImp^1)$ is fully discharged by Theorem~\ref{thm:diff-limp}. No additional assumptions are needed.
+\item For non-Diff-covariant nets with injective Type~III$_1$ local algebras, $(LImp^1)$ reduces to local transportability plus $C^1$ regularity (Theorem~\ref{thm:transport-limp}). The remaining burden is to verify that the cross-ratio family admits a smooth transport, which is a geometric property of the net rather than an abstract axiom.
+\item $(CR\text{-}nd)$ and $(SFa)$ remain model-level verifications. They depend on dynamical and spectral properties (positivity of the stress-tensor two-point function, injectivity of the scale map) that are not captured by structural regularity conditions.
+\end{itemize}
+
+The net effect is that, for Diff-covariant nets, the Phase~2 conditionality is reduced from three independent axioms to two model-level verifications. For non-Diff-covariant nets, the situation is more modest: $(LImp^1)$ is decomposed and partially discharged, but the transportability and regularity inputs remain substantive.
+
+\section{Verification: Two Worked
+Examples}\label{verification-two-worked-examples}
+
+The abstract Phase 2 result is deliberately conditional. Of the three
+conditions, $(LImp^1)$ now has abstract sufficient conditions
+(Section~\ref{sufficient-conditions-limp}): it is fully discharged for
+Diff-covariant nets, and for other nets the remaining burden is isolated
+to transportability and regularity. The remaining conditions $(CR\text{-}nd)$ and $(SFa)$
+are verified in concrete models. This section provides that
+verification in two structurally distinct examples.
+
+The examples are chosen to do different kinds of work. The
+Rindler/free-field chiral half-line model shows that the Phase 2 package
+is realized in the same physical family that motivated much of the
+original HAFF intuition. The Virasoro-net example then shows that the
+construction is not a free-field accident and, in particular, that the
+chart axiom becomes especially natural once Diff\((S^1)\) covariance is
+built in.
+
+\subsection{Worked Example I: Rindler / Free-Field Chiral
+Half-Line}\label{worked-example-i-rindler-free-field-chiral-half-line}
+
+The first example must be formulated carefully. The correct Phase 2
+object is not the family of translated Rindler wedges. That family is
+useful as a sanity check for the Phase 1 half-sided modular structure,
+but it is the wrong object for the cross-ratio construction because
+global translations leave the vacuum invariant and thus produce a
+constant pulled-back state family. The correct model is the chiral
+half-line realization associated with the Rindler horizon.
+
+We therefore take: \[
+\mathcal{M}_{\mathrm{out}}=\mathcal{A}(0,\infty),
+\qquad
+\mathcal{M}_{\mathrm{in}}(b)=\mathcal{A}(b,1),
+\qquad
+b\in(0,1),
+\] in the vacuum representation of a chiral free-field net. The
+canonical modular scale datum is then \[
+K_b:=-\ln\Delta_{\mathcal{M}_{\mathrm{in}}(b),\Omega}.
+\]
+
+\subsubsection{\texorpdfstring{Verification of
+\((LImp^1)\)}{Verification of (LImp\^{}1)}}\label{verification-of-limp1}
+
+In this model, the required local chart is supplied by the local
+diffeomorphism covariance of the free-field chiral net. Specifically, we
+assume covariance under orientation-preserving diffeomorphisms of the
+half-line that fix the boundary, implemented by unitaries in the
+corresponding local algebras. Fix a reference point
+\(b_0\in(0,1)\) and set \[
+\mathcal{M}_*:=\mathcal{A}(b_0,1).
+\] Choose a smooth local family of diffeomorphisms \[
+f_b:(0,\infty)\to(0,\infty),
+\qquad
+b\in U_{b_0},
+\] such that
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \(f_{b_0}=\mathrm{id}\);
+\item
+  \(f_b(1)=1\);
+\item
+  \(f_b(b_0)=b\);
+\item
+  the support of \(f_b\) is contained in the outer half-line.
+\end{enumerate}
+
+This covariance gives unitaries \[
+W_b:=U(f_b)\in\mathcal{U}(\mathcal{M}_{\mathrm{out}})
+\] with \[
+W_b\mathcal{M}_*W_b^*=\mathcal{M}_{\mathrm{in}}(b).
+\] Because the deformation is genuinely boundary-fixed rather than
+Möbius, the family is nontrivial; because \(b\mapsto f_b\) is smooth,
+the pulled-back state family is \(C^1\); and because the infinitesimal
+generator is represented by the stress tensor, the tangent of the state
+family is compatible with the modular Hamiltonian variation. Thus
+\((LImp^1)\) holds in the model.
+
+\subsubsection{\texorpdfstring{Verification of
+\((CR\text{-}nd)\)}{Verification of (CR\textbackslash text\{-\}nd)}}\label{verification-of-crtext-nd}
+
+In a vacuum chiral conformal theory, the modular Hamiltonian of an
+interval \((a,b)\) has the local CHM form~\cite{CasiniHuertaMyers2011} \[
+K_{(a,b)}
+=
+2\pi\int_a^b
+\frac{(x-a)(b-x)}{b-a}\,
+T_{00}(x)\,dx.
+\] Specializing to the present family gives \[
+K_b
+=
+2\pi\int_b^1
+\frac{(x-b)(1-x)}{1-b}\,
+T_{00}(x)\,dx,
+\] and differentiation yields \[
+\partial_b K_b
+=
+-2\pi\int_b^1
+\frac{(1-x)^2}{(1-b)^2}\,
+T_{00}(x)\,dx.
+\] The corresponding Araki-Hessian quadratic form is positive and
+nonzero, so the scale shadow is non-degenerate. More explicitly, one
+obtains \[
+h_b
+=
+C_R(1-b)^{-2}db^2,
+\qquad
+C_R>0.
+\] Hence \((CR\text{-}nd)\) is satisfied.
+
+\subsubsection{\texorpdfstring{Verification of
+\((SFa)\)}{Verification of (SFa)}}\label{verification-of-sfa}
+
+In this model, faithfulness reduces to a one-dimensional injectivity
+statement. Since \[
+h_b=C_R(1-b)^{-2}db^2
+\] is strictly monotone in \(b\), the metric profile determines the
+parameter \(b\), and hence determines the corresponding modular datum
+\(K_b\) up to the trivial equivalences already allowed in the definition
+of \((SFa)\). Therefore the scale map is faithful in the required sense.
+
+The upshot is that the entire Phase 2 package is realized in the
+Rindler/free-field chiral half-line model: \[
+(\mathrm{LImp}^1),\quad
+(\mathrm{CR\text{-}nd}),\quad
+(\mathrm{SFa}).
+\]
+
+\subsection{Worked Example II: The Virasoro
+Net}\label{worked-example-ii-the-virasoro-net}
+
+The second example shows that the preceding mechanism is not tied to
+free fields. Let \[
+I\longmapsto \mathcal{A}_{\mathrm{Vir},c}(I)
+\] be the Virasoro net at central charge \(c\), with vacuum vector
+\(\Omega\). As in the first example, we work in the standard half-line
+gauge: \[
+\mathcal{M}_{\mathrm{out}}=\mathcal{A}_{\mathrm{Vir},c}(0,\infty),
+\qquad
+\mathcal{M}_{\mathrm{in}}(b)=\mathcal{A}_{\mathrm{Vir},c}(b,1).
+\]
+
+\subsubsection{\texorpdfstring{Verification of
+\((LImp^1)\)}{Verification of (LImp\^{}1)}}\label{verification-of-limp1-1}
+
+What was model-dependent in the first example becomes built in here. The
+Virasoro net is Diff\((S^1)\)-covariant, so \((LImp^1)\) follows
+directly from Theorem~\ref{thm:diff-limp}. Concretely, one can choose a
+smooth boundary-fixed family \[
+f_b\in\mathrm{Diff}(S^1),
+\qquad
+b\in U_{b_0},
+\] with \[
+f_{b_0}=\mathrm{id},
+\qquad
+f_b(b_0)=b,
+\qquad
+f_b(1)=1,
+\] and support contained in the outer half-line. The positive-energy
+Diff\((S^1)\) representation yields unitaries \[
+W_b:=U(f_b)\in\mathcal{U}(\mathcal{M}_{\mathrm{out}})
+\] such that \[
+W_b\mathcal{A}(b_0,1)W_b^*=\mathcal{A}(b,1).
+\] The nontriviality, smoothness, and tangent compatibility required by
+\((LImp^1)\) follow immediately from the non-Möbius character of
+\(f_b\), the smoothness of the Diff\((S^1)\) action, and the fact that
+the infinitesimal action is generated by the Virasoro stress tensor.
+Thus \((LImp^1)\) holds here in a cleaner and more canonical way than in
+the free-field model.
+
+\subsubsection{\texorpdfstring{Verification of
+\((CR\text{-}nd)\)}{Verification of (CR\textbackslash text\{-\}nd)}}\label{verification-of-crtext-nd-1}
+
+The interval modular Hamiltonian again has the CHM form \[
+K_b
+=
+2\pi\int_b^1
+\frac{(x-b)(1-x)}{1-b}\,
+T(x)\,dx,
+\] where \(T\) is now the Virasoro stress tensor. Differentiating gives
+the same structural formula as before: \[
+\partial_b K_b
+=
+-2\pi\int_b^1
+\frac{(1-x)^2}{(1-b)^2}\,
+T(x)\,dx.
+\] Using the Virasoro two-point function \[
+\langle T(x)T(y)\rangle\sim \frac{c/2}{(x-y)^4},
+\] one obtains, after standard regularization, a positive finite
+coefficient \[
+\mathbf{Q}_{\omega,b}(\partial_b K_b,\partial_b K_b)
+=
+\frac{C_{\mathrm{Vir}}(c)}{(1-b)^2},
+\qquad
+C_{\mathrm{Vir}}(c)>0.
+\] Hence \[
+h_b
+=
+C_{\mathrm{Vir}}(c)(1-b)^{-2}db^2,
+\] and \((CR\text{-}nd)\) holds.
+
+\subsubsection{\texorpdfstring{Verification of
+\((SFa)\)}{Verification of (SFa)}}\label{verification-of-sfa-1}
+
+Exactly as in the first example, the scale profile is strictly injective
+in the cross-ratio parameter. Therefore the full scale family determines
+\(b\), and hence determines the local modular datum up to the same
+trivial equivalences. Thus \((SFa)\) is satisfied in the Virasoro model
+as well.
+
+\subsection{Comparison and Universal
+Scaling}\label{comparison-and-universal-scaling}
+
+The significance of the two examples lies less in their individual
+computations than in what they share.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Both models realize the same abstract Phase 2 package: \[
+  (\mathrm{LImp}^1)+(\mathrm{CR\text{-}nd})+(\mathrm{SFa}).
+  \]
+\item
+  Both produce the same scale profile: \[
+  h_b=C(1-b)^{-2}db^2.
+  \]
+\item
+  The model dependence enters only through the coefficient:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    in the free-field model through the normalization of the
+    stress-tensor sector;
+  \item
+    in the Virasoro model through the central charge \(c\).
+  \end{itemize}
+\end{enumerate}
+
+This is the strongest available evidence, within the present paper, that
+the scale shadow is not a model-specific artifact. What appears to be
+universal is the cross-ratio scaling law itself, which is fixed by the
+CHM structure of interval modular Hamiltonians. What remains
+model-sensitive is only the overall constant.
+
+From the point of view of the paper's philosophical thesis, this matters
+because it shows that the full inseparability mechanism is not tied to
+one special solvable example. The rigidity claim is abstract; the
+examples show that the additional Phase 2 inputs are concretely
+realizable in more than one structural setting, and that the theorem's
+conditions arise naturally where one would most expect them to arise.
+
+\section{Implications for the Hard
+Problem}\label{implications-for-the-hard-problem}
+
+For the purposes of this section, we take the mathematical results of
+the previous sections as given. At the conformal level, Theorem 4.8
+already shows that conformal geometry and conformal modular data are not
+independently deformable. The later Phase 2 results strengthen this to
+the full scale-sensitive level by tying the metric scale to the
+canonical modular scale datum. The philosophical question is therefore no longer
+whether one can attach a speculative interpretation to a formal analogy.
+It is whether the standard formulation of the hard problem survives once
+its key presupposition is written in mathematically precise terms.
+
+\subsection{The Failure of the
+Presupposition}\label{the-failure-of-the-presupposition}
+
+Section 1 identified the hidden presupposition of the hard problem:
+independent describability. Section 2 translated it into independent
+deformability. The inseparability theorems of Sections 4 and 5 now
+supply the answer.
+
+At the Phase 1 level, Theorem 4.8 shows that conformal geometry and
+conformal modular data are already locked together. At the full level,
+Theorem 5.7 shows that, under \((LImp^1)\), \((CR\text{-}nd)\), and
+\((SFa)\), the full geometric datum and the extended modular
+data cannot be independently varied. Conditional on the identifications
+defended in Section 2, the presupposition is not available at either
+level.
+
+The strongest claim justified by the theorem is therefore not that the
+hard problem has been ``solved'' in the ordinary sense. It is that its
+canonical production form is ill-posed. The question ``how does matter
+produce mind?'' asks for a derivation across a divide that, in the
+present framework, is not mathematically available as an independent
+divide. One cannot first specify the geometric-physical side and only
+afterwards ask how the first-person side appears. They are two
+structurally inseparable readings of the same algebraic datum
+\((\mathcal{A},\omega)\).
+
+\subsection{Relocating the Explanatory
+Gap}\label{relocating-the-explanatory-gap}
+
+Once the production picture is rejected, a residual question remains.
+Even if geometry and modular flow are inseparable, why should a given
+modular invariant correspond to a given phenomenal quality? This is
+legitimate, but it is not the original hard problem. It concerns the
+interpretive reach of an observer embedded in the very structure being
+described.
+
+The proper location of the remaining gap is not between physical and
+experiential structure as two externally juxtaposed domains. It lies
+within the self-description limits of a finite agent modeled by
+\((\mathcal{A},\omega)\). The incompleteness result of Paper G~\cite{Liu2026PaperG}
+(which proves that no accessibility-based framework can fully
+internalize its own accessibility conditions without either regress or
+collapse, because the self-referential fixed point
+\(\mathcal{A}^*\in\mathrm{Acc}(\mathcal{A}^*)\) generically does not
+exist) shows
+that a finite self-model cannot be fully closed under its own
+self-referential demands. The agent cannot, from within the same
+structure, provide a fully transparent answer to why one particular
+modular pattern is lived as this particular qualitative articulation.
+
+The explanatory gap thereby becomes structural rather than
+technical~\cite{Levine1983}. It
+is not a hole waiting for a better neuroscientific mechanism. It is a
+horizon effect generated by self-reference and embedding, closer to a
+Gödelian limitation than to pre-Newtonian ignorance of gravity.
+
+This changes what counts as philosophical success. The goal is no longer
+to show how an independently specified physical world outputs
+experience. It is to understand why an embedded agent necessarily
+encounters a limit in its attempt to completely internalize the relation
+between structural invariants and lived articulation. The residual gap
+is relocated and reclassified, not removed.
+
+\subsection{Comparison with Existing
+Positions}\label{comparison-with-existing-positions}
+
+The closest philosophical relatives of the present framework are
+positions that deny a brute separation between mind and world. Even so,
+the relation is exact only up to a point. The following comparison is
+necessarily compressed; each position listed has significant internal
+diversity, and the characterizations below refer to the canonical or
+most common formulation.
+
+\begin{center}
+\begin{tabularx}{0.98\linewidth}{@{}P{0.23\linewidth}Y@{}}
+\toprule
+Position & Relation to the present paper \\
+\midrule
+Physicalism / functionalism & Shares the desire for structural rigor,
+but typically preserves an explanatory asymmetry: physical facts are
+taken as independently specifiable, and consciousness must be shown to
+follow. The present theorem denies that asymmetry in its standard
+form. \\
+Panpsychism & Avoids emergence by treating experience as basic, but
+inherits the combination problem. The present framework does not posit
+basic micro-experiences; it treats modular structure and geometry as
+co-emergent readings of one algebraic organization. \\
+Dual-aspect monism & The nearest metaphysical relative. The decisive
+difference is that here the dual-aspect claim is not left at the level
+of metaphysical slogan; it is tied to a concrete inseparability
+theorem. \\
+IIT & Also seeks a mathematically articulated bridge, but introduces an
+additional quantity \(\Phi\) as a privileged measure. The present route
+instead treats inseparability as internal to modular and geometric
+structure, not as the effect of an extra consciousness functional. \\
+Illusionism & Rejects the hard problem by denying that phenomenal
+consciousness needs the explanatory role usually assigned to it. The
+present framework does not deny experience. It denies the independent
+specification presupposition that makes experience look like a
+separately generated add-on. \\
+Russellian monism & Very close in spirit insofar as it challenges the
+exhaustiveness of third-person structure. But Russellian monism often
+speaks of an intrinsic categorical basis behind structural physics. The
+present framework is more austere: both geometry and first-person time
+are readings of one algebraic structure, without appeal to a hidden
+intrinsic substrate beyond that structure. \\
+\bottomrule
+\end{tabularx}
+\end{center}
+
+The upshot is that the present work should not be advertised as a simple
+algebraic version of any single existing position. It is closest to a
+theorem-backed dual-aspect view, but even that label is only
+approximate. The real novelty lies in replacing a metaphysical balance
+claim with a rigidity statement.
+
+A structural correspondence with the Yogacara fourfold analysis is
+recorded in Appendix~\ref{app:yogacara}.
+
+\section{Broader Significance}\label{broader-significance}
+
+The philosophical argument of the preceding sections is the primary
+contribution of this paper. The mathematical and physical content,
+however, has independent interest that is worth recording briefly.
+
+\subsection{Mathematical Significance}\label{mathematical-significance}
+
+The Wiesbrock-GLW programme~\cite{Wiesbrock1993,GLW1998} established that half-sided modular
+inclusions reconstruct conformal symmetry. What remained open was the
+passage from conformal skeleton to metric scale using only modular data.
+The present paper isolates a precise conditional route to a full
+geometric datum in 1+1 dimensions: the cross-ratio modular scale datum
+\(\{K_b\}\) serves as the canonical non-gauge geometric modulus, and the
+Araki relative entropy Hessian~\cite{Araki1976} serves as the Type III-compatible
+QFIM that converts it into a Riemannian scale shadow. The route is
+conditional on \((LImp^1)\), \((CR\text{-}nd)\), and \((SFa)\), all
+three of which are verified in two structurally distinct models.
+For Diff-covariant nets, Section~\ref{sufficient-conditions-limp}
+further shows that \((LImp^1)\) is automatic, leaving only
+\((CR\text{-}nd)\) and \((SFa)\) as model-level verifications.
+In the
+worked examples, where the cross-ratio parameter naturally parametrizes
+the spatial slice, this datum assembles into the Lorentzian metric.
+
+The universal scaling law \(h_b \sim (1-b)^{-2}db^2\), shared by both
+worked examples, is a structural consequence of the Casini-Huerta-Myers
+form~\cite{CasiniHuertaMyers2011} of interval modular Hamiltonians. It is not a free-field accident.
+The model-dependent information enters only through the overall
+constant, which encodes data such as the central charge.
+
+\subsection{Physical Significance}\label{physical-significance}
+
+The slogan ``it from qubit'' and the ER=EPR programme assert that
+entanglement structure determines spacetime geometry~\cite{Maldacena1999,RyuTakayanagi2006,VanRaamsdonk2010,Maldacena2013}. These claims have
+so far been tied to the AdS/CFT correspondence. The present result
+establishes a version of the same thesis without assuming holographic
+duality. The axiom package
+selected by \((U3)\), together with the axiom package
+\((U1)+(C)+(Amb)+(CN_\exists)+(LImp^1)+(CR\text{-}nd)+(SFa)\), makes
+no reference to anti-de Sitter space, conformal field theory on a
+boundary, or bulk-boundary correspondence. Inseparability is a property
+of Type III\(_1\) algebraic structure under appropriate
+regularity~\cite{Witten2018}, not
+a special consequence of holography.
+
+This also resolves two open issues from the earlier HAFF programme
+(Paper D)~\cite{Liu2026PaperD}. The non-uniqueness of the map from algebraic deformations to
+state deformations is absorbed by the cross-ratio datum and the chart
+axiom, which together fix the relevant deformation direction. The
+signature mismatch between the positive-definite QFIM and the Lorentzian
+metric is resolved by restricting the QFIM to spatial slices and letting
+the conformal skeleton supply the causal structure.
+
+\section{Explicit Non-Claims and Open
+Problems}\label{explicit-non-claims-and-open-problems}
+
+\subsection{What This Paper Does Not
+Claim}\label{what-this-paper-does-not-claim}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  It does not claim to have solved the hard problem of consciousness. It
+  claims to have shown that the standard production formulation rests on
+  a presupposition that is not available in the relevant mathematical
+  framework.
+\item
+  It does not claim that modular flow ``is'' consciousness. The
+  identification in Section 2 is a structural correspondence: modular
+  flow plays the mathematical role that first-person temporal structure
+  plays in the philosophical debate.
+\item
+  It does not claim that the inseparability theorem holds
+  unconditionally for all Type III\(_1\) factors. Phase 1 is
+  unconditional within the stated axiom class. Phase 2 is conditional on
+  \((LImp^1)\), \((CR\text{-}nd)\), and \((SFa)\). For Diff-covariant nets,
+  \((LImp^1)\) is discharged by Theorem~\ref{thm:diff-limp}; the remaining
+  two conditions are verified in two models but not proved in full generality.
+\item
+  It does not claim that the Buddhist correspondence in Section 7.4
+  participates in any proof. It is included as a structural comparison,
+  not as evidence.
+\item
+  It does not claim that the results extend to dimensions higher than
+  1+1. The GLW construction produces a Möbius net on \(S^1\).
+  Higher-dimensional generalizations require additional HSMI directions
+  and remain open.
+\item
+  It does not claim that consciousness is a quantum effect. The argument
+  concerns the structural relationship between geometry and modular flow
+  at the level of algebraic quantum theory, not a physical mechanism
+  involving quantum coherence in biological systems.
+\end{enumerate}
+
+\subsection{Open Problems}\label{open-problems}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  Abstract sufficient conditions for \((CR\text{-}nd)\)
+  and \((SFa)\). Section~\ref{sufficient-conditions-limp} provides sufficient conditions for \((LImp^1)\) (Diff-covariance or split-assisted transportability), but the remaining two conditions are still verified only in specific models. A general criterion for \((CR\text{-}nd)\), perhaps in terms of spectral properties of the stress-energy tensor, would further reduce the conditionality.
+\item
+  Foliation compatibility beyond 1+1 dimensions. In the present 1+1
+  dimensional setting, the cross-ratio family is a single-parameter
+  family and the assembly is straightforward. In higher dimensions, the
+  scale data from different cross-ratio slices must satisfy nontrivial
+  mutual consistency conditions. Formulating and verifying these
+  conditions is an open problem tied to the higher-dimensional
+  extension.
+\item
+  Higher-dimensional extension. In \(d > 1+1\), the conformal group is
+  larger and the cross-ratio construction must be replaced by a
+  higher-dimensional analogue. Whether the inseparability mechanism
+  survives this extension is the most important structural open
+  question.
+\item
+  Quantitative Paper G. The incompleteness result invoked in Section 7.2
+  is currently qualitative. A quantitative version, bounding the
+  self-description capacity of a finite observer in terms of modular
+  invariants, would sharpen the relocation of the explanatory gap.
+\item
+  The relationship between the present framework and Integrated
+  Information Theory. Both seek mathematically articulated accounts of
+  consciousness. Whether the inseparability theorem implies constraints
+  on \(\Phi\) or vice versa is unexplored.
+\end{enumerate}
+
+\appendix
+
+\section{Yogacara Fourfold Correspondence}\label{app:yogacara}
+
+The Yogacara fourfold analysis provides a structural correspondence for
+the architecture that emerges in this paper. The correspondence does not
+enter any proof; it is included as a disciplined interpretive comparison
+that becomes newly intelligible once the mathematical theorem is in
+place. Each position listed below has significant internal diversity
+within the Buddhist philosophical tradition; the characterizations refer
+to the canonical formulation.
+
+{\def\LTcaptype{none}
+\hbadness=10000
+\begin{longtable}{P{0.14\linewidth}P{0.24\linewidth}P{0.54\linewidth}}
+\toprule\noalign{}
+Layer & Phenomenological role & Mathematical counterpart \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+相分 & the presented object-side & emergent geometry
+\(\mathrm{Geom}\) \\
+见分 & the act-side of cognition & modular flow \(\sigma_t^\omega\) \\
+自证分 & reflexive awareness & the self-calibrating informational loop
+of T-DOME Paper~III~\cite{Liu2026TDOME_III} \\
+证自证分 & the boundary of reflexivity & the incompleteness limit of
+Paper~G~\cite{Liu2026PaperG} \\
+\end{longtable}
+}
+
+The structural fit is that object-side and act-side are not heterogeneous
+substances but internally linked aspects of a single cognitive event;
+reflexivity does not continue indefinitely into an infinite hierarchy,
+but closes through a higher-order boundary condition. This is exactly
+the pattern suggested by the inseparability framework: geometry and
+modular flow are inseparable at the base level, and reflexive closure is
+marked by incompleteness rather than by defect.
+ 
+\newpage
+%
+\addcontentsline{toc}{section}{References}
+
+\begin{thebibliography}{99}
+
+\bibitem{Araki1976}
+H.~Araki,
+\emph{Relative entropy of states of von Neumann algebras},
+Publ.\ Res.\ Inst.\ Math.\ Sci.\ Kyoto Univ.\ \textbf{11}, 809--833 (1976).
+
+\bibitem{Borchers1992}
+H.-J.~Borchers,
+\emph{The CPT theorem in two-dimensional theories of local observables},
+Commun.\ Math.\ Phys.\ \textbf{143}, 315--332 (1992).
+
+\bibitem{CasiniHuertaMyers2011}
+H.~Casini, M.~Huerta, and R.~C.~Myers,
+\emph{Towards a derivation of holographic entanglement entropy},
+JHEP \textbf{1105}, 036 (2011),
+arXiv:1102.0440.
+
+\bibitem{Chalmers1996}
+D.~J.~Chalmers,
+\emph{The Conscious Mind: In Search of a Fundamental Theory},
+Oxford University Press (1996).
+
+\bibitem{GLW1998}
+R.~Guido, R.~Longo, and H.-W.~Wiesbrock,
+\emph{Extensions of conformal nets and superselection structures},
+Commun.\ Math.\ Phys.\ \textbf{192}, 217--244 (1998).
+
+\bibitem{Haag1996}
+R.~Haag,
+\emph{Local Quantum Physics: Fields, Particles, Algebras},
+2nd ed., Springer (1996).
+
+\bibitem{Levine1983}
+J.~Levine,
+\emph{Materialism and qualia: The explanatory gap},
+Pacific Philosophical Quarterly \textbf{64}, 354 (1983).
+
+\bibitem{Liu2026PaperD}
+S.~Liu,
+\emph{Gravitational Phenomena as Emergent Properties of Observable Algebra Selection: A Structural Analysis},
+Zenodo (2026), DOI: 10.5281/zenodo.18388881.
+
+\bibitem{Liu2026PaperG}
+S.~Liu,
+\emph{Structural Limits of Unification: Accessibility, Incompleteness, and the Necessity of a Final Cut},
+Zenodo (2026), DOI: 10.5281/zenodo.18402907.
+
+\bibitem{Liu2026TDOME_III}
+S.~Liu,
+\emph{Fisher Information Geometry and the Thermodynamic Cost of Self-Referential Calibration},
+Zenodo (2026), DOI: 10.5281/zenodo.18591771.
+
+\bibitem{Maldacena1999}
+J.~M.~Maldacena,
+\emph{The large N limit of superconformal field theories and supergravity},
+Int.\ J.\ Theor.\ Phys.\ \textbf{38}, 1113 (1999).
+
+\bibitem{Maldacena2013}
+J.~Maldacena and L.~Susskind,
+\emph{Cool horizons for entangled black holes},
+Fortsch.\ Phys.\ \textbf{61}, 781 (2013),
+arXiv:1306.0533.
+
+\bibitem{RyuTakayanagi2006}
+S.~Ryu and T.~Takayanagi,
+\emph{Holographic derivation of entanglement entropy from AdS/CFT},
+Phys.\ Rev.\ Lett.\ \textbf{96}, 181602 (2006).
+
+\bibitem{Takesaki2003}
+M.~Takesaki,
+\emph{Theory of Operator Algebras II},
+Encyclopaedia of Mathematical Sciences \textbf{125}, Springer (2003).
+
+\bibitem{Unruh1976}
+W.~G.~Unruh,
+\emph{Notes on black-hole evaporation},
+Phys.\ Rev.\ D \textbf{14}, 870 (1976).
+
+\bibitem{VanRaamsdonk2010}
+M.~Van~Raamsdonk,
+\emph{Building up spacetime with quantum entanglement},
+Gen.\ Rel.\ Grav.\ \textbf{42}, 2323 (2010).
+
+\bibitem{Wiesbrock1993}
+H.-W.~Wiesbrock,
+\emph{Half-sided modular inclusions of von Neumann algebras},
+Commun.\ Math.\ Phys.\ \textbf{157}, 83 (1993).
+
+\bibitem{Witten2018}
+E.~Witten,
+\emph{APS Medal for Exceptional Achievement in Research: Invited article on entanglement properties of quantum field theory},
+Rev.\ Mod.\ Phys.\ \textbf{90}, 045003 (2018),
+arXiv:1803.04993.
+
+\end{thebibliography}
+ 
+\end{document}
