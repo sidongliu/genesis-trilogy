@@ -1,0 +1,3105 @@
+\documentclass[12pt]{article}
+
+\usepackage[a4paper, margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{mathtools}
+\usepackage{mathrsfs}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fontspec}
+
+\defaultfontfeatures{Ligatures=TeX}
+\IfFontExistsTF{Times New Roman}
+  {\setmainfont{Times New Roman}}
+  {\setmainfont{TeX Gyre Termes}}
+\IfFontExistsTF{Menlo}
+  {\setmonofont{Menlo}}
+  {\setmonofont{Latin Modern Mono}}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+
+\newcommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+
+\title{%
+  \textbf{Foundation I: From Source to Manifestation}\\
+  \textbf{A Conditional Same-Root Program for Geometry and Modular Flow}%
+}
+
+\author{
+  Sidong Liu, PhD \\
+  \small iBioStratix Ltd \\
+  \small \texttt{sidongliu@hotmail.com}
+}
+
+\date{April 2026}
+
+\begin{document}
+\emergencystretch=2em
+\raggedbottom
+\hbadness=5000
+\vbadness=5000
+
+\maketitle
+
+\begin{abstract}
+Paper~I of the Consciousness Trilogy~\cite{PaperI} begins from an
+admissible accessible algebra \((\mathcal A_c,\omega)\) and derives the
+inseparability of geometry and modular flow. The deeper source-side
+question is how one reaches such an object from the pre-observer
+substrate developed across Genesis, especially the HAFF and T-DOME
+papers. The present paper, Foundation~I of the Consciousness Series,
+does not claim a completed unified-source theorem. Instead, it
+formulates an honest source-side foundation program and pushes its
+currently closed parts into paper form.
+
+We first state the correct conditional target: if a persistent
+Nakajima--Zwanzig projection exists in the source datum, and if the
+foreground-to-algebra transfer can be carried out, then the chain
+\[
+S_{\mathrm{source}} \to \mathcal K_* \to \mathfrak F \to (\mathcal A_c,\omega)
+\to (\mathrm{Geom},\mathrm{Mod})
+\]
+is forced. Within that program, we prove the packaging result that
+budget violation in the persistent record process forces
+symmetry-broken foreground compression, thereby rewriting the T-DOME
+I--II chain as a clean Foundation~I proposition. We then prove a first
+restricted PS2 closure in a product-classical, decoherence-dominated
+pointer regime: pointer coarse-graining yields fragment-local omission
+losses, semigroup decay yields a uniformly bounded coherence remainder,
+and a weight gap larger than the resulting remainder forces exact
+top-\(k^*\) pointer selection. In a first finite-dimensional faithful
+pointer-support regime, the required coherence constants become
+explicit in Hilbert--Schmidt norm. We then define a
+pointer-aligned realization of the foreground frame inside the ambient
+algebra, construct the associated pointer-generated von Neumann
+algebra, and replace the earlier open-ended transfer candidate by a
+minimal modular-decoherence stable hull
+\(\Phi_{\mathfrak F}^{\mathrm{st}}(\mathfrak F)\). This stable-hull
+transfer is well-defined, yields a von Neumann subalgebra, and carries a
+faithful restricted state.
+
+Finally, under the exact fixed-point form of the HAFF accessibility
+condition, we prove the inclusion-level comparison
+\[
+\Phi_{\mathfrak F}^{\mathrm{st}}(\mathfrak F)\subseteq
+\mathcal A_c^{\mathrm{HAFF}},
+\]
+while leaving equality as an open strong-form problem. The upshot is
+deliberately calibrated: Genesis already supplies substantial antecedent
+support for Foundation~I, but the completed deductive source-side
+foundation still depends on two genuinely open interfaces, namely
+persistent projection selection and the model-independent derivation of
+PS2 beyond the restricted product-classical pointer regime treated here.
+\end{abstract}
+
+\clearpage
+\tableofcontents
+\clearpage
+
+\section{Introduction}
+
+Paper~I of the Consciousness Trilogy~\cite{PaperI} starts at the
+manifest layer: one assumes an admissible accessible algebra
+\((\mathcal A_c,\omega)\), proves that geometry and modular flow are not
+independently deformable, and then studies the consequences of that
+inseparability. That was the correct place for the first trilogy paper
+to begin, but it leaves a source-foundation question unresolved. What, in
+the broader Genesis programme, plays the role of the source-side
+antecedent to \((\mathcal A_c,\omega)\)?
+
+The present paper, Foundation~I of the Consciousness Series, addresses
+exactly that question. It does not claim that Genesis already contains a
+completed theorem deriving the trilogy from a single source object. What
+it does claim is narrower and more precise: the relevant source-side
+foundation can now be decomposed cleanly, its nearly closed parts can be
+written as formal propositions, and its actual bottlenecks can be
+localized without conflating vision and theorem.
+
+The philosophical motivation is correspondingly limited. Paper~I showed
+that geometry and modular flow are not independently deformable once one
+is already at the manifest pair \((\mathcal A_c,\omega)\).
+Foundation~I asks the prior structural question: why should those two
+readings belong together at all? In the present paper, the same-root
+idea means only that one seeks a source-side chain from which geometric
+and modular aspects later arise together. This paper treats that
+mathematical bridge from source data to accessible algebra; it does not
+attempt to settle consciousness ontology or the broader philosophy of
+mind.
+
+The correct three-layer structure is
+\[
+S_{\mathrm{source}} \longrightarrow (\mathcal A_c,\omega)
+\longrightarrow (\mathrm{Geom},\mathrm{Mod}),
+\]
+with an important internal refinement:
+\[
+S_{\mathrm{source}}
+\longrightarrow
+\mathcal O_A
+\longrightarrow
+\mathcal O_B
+\longrightarrow
+(\mathcal A_c,\omega).
+\]
+Here \(S_{\mathrm{source}}\) is the pre-observer source datum,
+\(\mathcal O_A\) is a persistent projected record process with
+non-Markovian memory, and \(\mathcal O_B\) is the symmetry-broken
+foreground frame produced when full-rank persistence exceeds the
+available processing budget.
+
+Four claims structure the paper.
+\begin{enumerate}
+\item We state the honest \emph{conditional} Foundation~I target. The
+  two genuine open points are persistent projection selection and the
+  model-independent foreground-alignment step PS2 that makes the
+  transfer construction canonical; the existence of an exact fixed-point
+  pointer sector is treated only as an exact-regime PS1 idealization.
+\item We promote the T-DOME I--II rate chain to a formal proposition:
+  budget violation forces symmetry-broken foreground compression.
+\item We prove a first restricted PS2 closure package: in a
+  product-classical, decoherence-dominated pointer regime, pointer
+  coarse-graining yields fragment-local omission losses, semigroup decay
+  yields a uniformly bounded coherence remainder, and a weight gap
+  larger than the resulting remainder forces exact top-\(k^*\) pointer
+  selection.
+\item We give the paper's main new operator-algebraic construction: a
+  stable-hull realization of the foreground sector. Concretely, we
+  construct a minimal modular-decoherence stable hull, prove that it is
+  a von Neumann subalgebra with faithful restricted state, and prove the
+  first comparison theorem
+  \(\mathcal A_{\mathfrak F}\subseteq
+  \mathcal A_c^{\mathrm{HAFF}}\) under the exact fixed-point
+  accessibility condition.
+\end{enumerate}
+
+This is enough to fix the current calibration. Genesis provides
+substantial antecedent support for Foundation~I. It does not yet
+provide a finished deductive source-side foundation. Equality between the
+foreground-generated algebra and the full HAFF accessible algebra is not
+claimed here and should remain an open strong-form problem.
+
+The paper is organized as follows. Section~\ref{sec:ledger} defines the
+source datum and the stage outputs. Section~\ref{sec:target} states the
+target conditional theorem and isolates the source-selection problem.
+Section~\ref{sec:budget} proves the budget-forced compression
+proposition. Section~\ref{sec:foreground} defines pointer alignment,
+foreground realization, and the PS2 target. Section~\ref{sec:ps2model}
+proves a first restricted PS2 closure package in the
+product-classical, decoherence-dominated pointer regime, and records a
+bookkeeping lemma fixing the diagonal/off-sector split needed for the
+later model-independent PS2 programme.
+Section~\ref{sec:haff} proves the first inclusion-level comparison with
+HAFF accessibility and states a partial Lemma~C.
+Section~\ref{sec:open} records the remaining open problems.
+Appendix~\ref{app:premises} summarizes the external Genesis inputs used
+in the paper in self-contained mathematical form, and
+Appendix~\ref{app:conditional_ledger} collects the
+named conditional interfaces that remain open.
+
+\section{Source Datum and Object Ledger}\label{sec:ledger}
+
+\begin{definition}[Source datum]
+A \emph{source datum} is a quadruple
+\[
+S_{\mathrm{source}}
+:=
+(\mathcal H_U,\mathcal A_U,\Omega,\{\mathcal E_t\}_{t\ge 0}),
+\]
+where:
+\begin{enumerate}
+\item \((\mathcal H_U,\mathcal A_U,\Omega)\) is a Type~III\(_1\) von
+  Neumann algebra in standard form, with \(\Omega\) cyclic and
+  separating for \(\mathcal A_U\);
+\item \(\{\mathcal E_t\}_{t\ge 0}\) is a strongly continuous semigroup
+  of normal completely positive unital maps on \(\mathcal A_U\).
+\end{enumerate}
+\end{definition}
+
+The ambient standard-form side is the HAFF input
+\cite{HAFFD}; the projected open-system side is expressed in
+Nakajima--Zwanzig language \cite{Nakajima1958,Zwanzig1960,
+BreuerPetruccione2002}.
+
+\begin{definition}[Stage outputs]
+Given a source datum \(S_{\mathrm{source}}\), we use the following
+ledger.
+\begin{enumerate}
+\item \textbf{Stage A output}
+  \[
+  \mathcal O_A
+  :=
+  (\mathcal P,\omega_{\mathcal P,t},\mathcal K_*(t,s)),
+  \]
+  where \(\mathcal P:\mathcal A_U\to\mathcal A_U\) is a
+  Nakajima--Zwanzig projection,
+  \(\omega_{\mathcal P,t}:=\mathcal P_*(\omega_t)\) is the projected
+  normal state on the predual, and \(\mathcal K_*(t,s)\) is the dual
+  memory kernel.
+\item \textbf{Stage B output}
+  \[
+  \mathcal O_B
+  :=
+  (\mathcal P,\omega_{\mathcal P,t},\mathcal K_*(t,s),\mathfrak F,\pi_{\mathrm{ego}}),
+  \]
+  where \(\mathfrak F\) is a \(k^*\)-dimensional foreground frame and
+  \(\pi_{\mathrm{ego}}\) is the ego prior carried forward from the
+  broken phase of T-DOME II and into the self-calibration analysis of
+  T-DOME III~\cite{TDOMEII,TDOMEIII}.
+\item \textbf{Stage C output}
+  \[
+  \mathcal O_C
+  :=
+  (\mathcal A_c,\omega),
+  \qquad
+  \omega=\langle\Omega,\cdot\,\Omega\rangle|_{\mathcal A_c}.
+  \]
+\end{enumerate}
+\end{definition}
+
+\begin{remark}[Stage D]
+Once an admissible \((\mathcal A_c,\omega)\) is available, the
+Paper~I chain from accessible algebra to jointly constrained geometry
+and modular flow is already in place~\cite{PaperI}. The present note is
+therefore concerned only with Stages A--C.
+\end{remark}
+
+\section{Target Conditional Theorem and the Source-Selection Problem}\label{sec:target}
+
+The honest Foundation~I target is conditional and should be stated that
+way from the start.
+
+\paragraph{Target conditional theorem.}
+Let
+\[
+S_{\mathrm{source}}
+=
+(\mathcal H_U,\mathcal A_U,\Omega,\{\mathcal E_t\}_{t\ge 0})
+\]
+be a source datum. Assume:
+\begin{enumerate}
+\item there exists a persistent Nakajima--Zwanzig projection
+  \(\mathcal P\) whose projected predual dynamics carries a
+  non-Markovian kernel \(\mathcal K_*(t,s)\);
+\item the induced record process exceeds its full-rank processing budget
+  and therefore forces a compressed foreground frame \(\mathfrak F\);
+\item there exists a foreground embedding
+  \[
+  \iota_{\mathfrak F}:V_{\mathrm{fg}}(\mathfrak F)\hookrightarrow
+  \mathcal A_U^{\mathrm{sa}}
+  \]
+  from which the transfer construction can be carried out and shown to
+  agree, at least at the inclusion level, with the HAFF accessibility
+  construction;
+\item the resulting \((\mathcal A_c,\omega)\) satisfies the
+  admissibility hypotheses needed by Paper~I.
+\end{enumerate}
+Then the chain
+\[
+S_{\mathrm{source}}
+\to
+\mathcal O_A
+\to
+\mathcal O_B
+\to
+(\mathcal A_c,\omega)
+\to
+(\mathrm{Geom},\mathrm{Mod})
+\]
+is forced.
+
+\begin{remark}[What is actually open]
+The conditional theorem is open in exactly two substantive places. The
+first is the existence and selection of a persistent projection
+\(\mathcal P\). The second is the full transfer problem from the
+foreground frame to the operator-algebraic accessibility construction.
+The first is an observer-emergence problem. The second is the main new
+interface problem.
+\end{remark}
+
+\begin{lemma}[Conditional source-to-kernel interface]\label{lem:A}
+Let \(S_{\mathrm{source}}\) be a source datum. Suppose there exists a
+Nakajima--Zwanzig projection \(\mathcal P\) such that the projected
+predual dynamics admits a non-Markovian kernel \(\mathcal K_*(t,s)\)
+and yields a persistent record process. Then
+\[
+\mathcal O_A=(\mathcal P,\omega_{\mathcal P,t},\mathcal K_*(t,s))
+\]
+satisfies the input conditions of Stage~B.
+\end{lemma}
+
+\begin{proof}
+This is the conditional form of the source-side interface. The assumed
+projection already provides the Stage~A output. Within the T-DOME~I
+modeling framework~\cite{TDOMEI}, the persistence assumption is analyzed
+in a non-Markovian Nakajima--Zwanzig regime; the present paper imports
+that framing rather than claiming it as a general open-quantum-systems
+theorem. The point is not to solve the selection problem
+constructively, but to separate that problem from the downstream
+thermodynamic and algebraic consequences.
+\end{proof}
+
+\begin{remark}[Constructive version remains open]
+Lemma~\ref{lem:A} is intentionally conditional. The missing constructive
+question is why a given source datum selects a persistent projection at
+all. Nothing in the present note should be read as claiming that this
+observer-emergence problem has been solved.
+\end{remark}
+
+\section{Budget-Forced Foreground Compression}\label{sec:budget}
+
+We now formalize the part of Foundation~I that is essentially
+already present across T-DOME I and II, but not yet stated in the
+present source-to-accessibility language.
+
+\begin{proposition}[Budget-forced foreground compression]\label{prop:budget}
+Let
+\[
+\mathcal O_A=(\mathcal P,\omega_{\mathcal P,t},\mathcal K_*(t,s))
+\]
+be a persistent record process arising from a source datum
+\(S_{\mathrm{source}}\). Write
+\[
+D:=\operatorname{rank}(\mathcal P)
+\]
+for the effective number of active record components, and let
+\(h_\mu>0\) be the entropy rate per component. Assume:
+\begin{enumerate}
+\item the induced record process satisfies the T-DOME II hypotheses
+  corresponding to the Computational Ceiling and Compression Theorem
+  \cite{TDOMEII};
+\item the ceiling binds in the sense that the symmetric full-rank
+  processing requirement exceeds the available budget,
+  \[
+  h_\mu D>\dot{\mathcal C}_{\mathrm{budget}};
+  \]
+\item the survival-distortion landscape is non-degenerate in the sense
+  required by the T-DOME II symmetry-breaking theorem.
+\end{enumerate}
+Then every survival-optimal strategy is realized by a foreground frame
+\(\mathfrak F\) with
+\[
+k^*
+=
+\Big\lfloor
+\frac{\dot{\mathcal C}_{\mathrm{budget}}}{h_\mu}
+\Big\rfloor
+<D,
+\]
+and the passage from full-rank tracking to the
+\(k^*\)-component foreground/background split is spontaneous symmetry
+breaking.
+\end{proposition}
+
+\begin{proof}
+By the Computational Ceiling of T-DOME~II~\cite{TDOMEII}, any symmetric
+strategy that tracks all \(D\) active components requires processing
+rate at least \(h_\mu D\). Under assumption~(2), this exceeds the
+available budget, so the full-rank symmetric strategy is infeasible. The
+Compression Theorem of T-DOME~II then identifies the survival-optimal
+admissible rank as
+\[
+k^*
+=
+\Big\lfloor
+\frac{\dot{\mathcal C}_{\mathrm{budget}}}{h_\mu}
+\Big\rfloor,
+\]
+with the optimum saturating the budget. Under assumption~(3), the
+Necessity of Symmetry Breaking theorem upgrades this forced compression
+into the selection of a privileged frame \(\mathfrak F\) and a
+corresponding foreground/background decomposition. Since \(k^*<D\), the
+resulting representation is genuinely compressed.
+
+The role of T-DOME~I~\cite{TDOMEI} is to supply the thermodynamic reason
+that persistent non-Markovian processes are driven into the budget
+binding regime in the first place: positive entropy production and
+finite processing resources make indefinite full-rank retention
+unsustainable. Hence budget violation forces symmetry-broken foreground
+compression.
+\end{proof}
+
+\begin{remark}[Status of Proposition~\ref{prop:budget}]
+The proposition is best read as a notation-translation theorem. Its
+substance is already contained in the T-DOME I--II chain; what was
+missing was a clean statement in the present Foundation~I language.
+\end{remark}
+
+\section{Foreground Realization inside the Ambient Algebra}\label{sec:foreground}
+
+Lemma~C requires a genuinely new object: a way to realize the
+foreground frame inside the ambient algebra.
+
+\begin{definition}[Pointer-aligned observable]\label{def:pointer}
+A self-adjoint observable \(O\in\mathcal A_U^{\mathrm{sa}}\) is called
+\emph{pointer-aligned} with respect to the decoherence semigroup
+\(\{\mathcal E_t\}_{t\ge 0}\) if it is asymptotically fixed:
+\[
+\lim_{t\to\infty}\|\mathcal E_t(O)-O\|=0.
+\]
+In the strong form one requires exact invariance,
+\[
+\mathcal E_t(O)=O
+\qquad
+\forall\, t\ge 0.
+\]
+\end{definition}
+
+\begin{remark}
+The operator-norm asymptotic notion is the working definition used in
+this paper's exact dephasing-dominated regime. It is not claimed to be
+the most natural decoherence notion in general: for a generic
+Heisenberg-picture semigroup, weak*, strong, or predual-level
+convergence criteria may be more appropriate. The exact version is used
+when comparing with the HAFF fixed-point algebra. This is also the point
+where Foundation~I touches the pointer-state and quantum Darwinism
+literature \cite{Zurek2003,Zurek2009}; the exact fixed-point condition
+should be understood as an idealization of the approximate einselection
+described there.
+\end{remark}
+
+Let
+\[
+V_{\mathrm{fg}}(\mathfrak F)=\operatorname{span}\{f_1,\dots,f_{k^*}\}
+\]
+be an orthonormal foreground basis selected by the T-DOME II
+rate-distortion optimum. Guided by the pointer basis selected in the
+broken phase \cite{TDOMEII}, choose self-adjoint ambient observables
+\[
+O_1,\dots,O_{k^*}\in\mathcal A_U^{\mathrm{sa}}
+\]
+and define
+\[
+\iota_{\mathfrak F}(f_i):=O_i,
+\qquad
+\iota_{\mathfrak F}\Big(\sum_{i=1}^{k^*} a_i f_i\Big)
+:=
+\sum_{i=1}^{k^*} a_i O_i.
+\]
+Write
+\[
+\mathfrak S_{\mathfrak F}
+:=
+\operatorname{span}\{1,O_1,\dots,O_{k^*}\}
+\subset\mathcal A_U
+\]
+for the resulting operator system and
+\[
+\mathcal A_{\mathfrak F}:=W^*(\mathfrak S_{\mathfrak F})
+\]
+for its von Neumann envelope.
+
+\begin{proposition}[Pointer realization of the foreground sector]\label{prop:pointer}
+Let \(\mathfrak F\) be a T-DOME foreground frame with
+\[
+V_{\mathrm{fg}}(\mathfrak F)
+=
+\operatorname{span}\{f_1,\dots,f_{k^*}\}.
+\]
+Assume there exists a family of self-adjoint ambient observables
+\[
+O_1,\dots,O_{k^*}\in\mathcal A_U^{\mathrm{sa}}
+\]
+such that:
+\begin{enumerate}
+\item \(O_1,\dots,O_{k^*}\) are linearly independent;
+\item each \(O_i\) is pointer-aligned under \(\{\mathcal E_t\}\);
+\item the ordering of their survival relevance matches the ordering
+  selected by the T-DOME foreground optimization.
+\end{enumerate}
+Then the linear extension \(f_i\mapsto O_i\) defines an injective map
+\[
+\iota_{\mathfrak F}:V_{\mathrm{fg}}(\mathfrak F)\hookrightarrow
+\mathcal A_U^{\mathrm{sa}}.
+\]
+Moreover,
+\[
+\mathfrak S_{\mathfrak F}
+=
+\operatorname{span}\{1,O_1,\dots,O_{k^*}\}
+\]
+is a finite-dimensional operator system, and
+\[
+\mathcal A_{\mathfrak F}
+=
+W^*(\mathfrak S_{\mathfrak F})
+\]
+is a von Neumann subalgebra of \(\mathcal A_U\).
+\end{proposition}
+
+\begin{proof}
+Linear independence of \(O_1,\dots,O_{k^*}\) makes the linear extension
+of \(f_i\mapsto O_i\) injective. Since the \(O_i\) are self-adjoint,
+\(\mathfrak S_{\mathfrak F}\) is self-adjoint and contains the
+identity, hence is an operator system. By definition,
+\(W^*(\mathfrak S_{\mathfrak F})\) is the von Neumann algebra generated
+by that operator system inside \(\mathcal A_U\). Therefore
+\(\mathcal A_{\mathfrak F}\) is a von Neumann subalgebra of
+\(\mathcal A_U\).
+\end{proof}
+
+The next refinement is to replace the bare existence assumption on the
+ambient observables \(O_i\) by a more structured compatibility package
+that points directly back to T-DOME I and II.
+
+\paragraph{The PS1--PS3 package.}
+The structured foreground-realization input naturally separates into
+three pieces:
+\begin{enumerate}
+\item[(PS1)] in the exact dephasing-dominated regime, the decoherence
+  semigroup admits a commuting exact fixed-point pointer sector inside
+  \(\mathcal A_U\);
+\item[(PS2)] the T-DOME sufficient-statistic coordinates agree with the
+  coordinates induced by that pointer sector;
+\item[(PS3)] the T-DOME rate-distortion optimum selects an ordered
+  subset of pointer channels by survival relevance.
+\end{enumerate}
+In this decomposition, PS1 is an exact-regime idealization of the
+decoherence-side input (not a consequence of generic decoherence or
+quantum Darwinism alone, but of the noiseless-sector limit in which
+pointer projections are exactly fixed rather than approximately
+einselected), whereas PS2 is the genuine model-independent bridge
+bottleneck and PS3 is downstream from it.
+
+\begin{proposition}[Conditional pointer-sector realization]\label{prop:pointersector}
+Assume:
+\begin{enumerate}
+\item[(PS1)] in the exact dephasing-dominated regime, the decoherence
+  semigroup admits a commuting family of nonzero exact fixed-point
+  projections
+  \(\{P_1,\dots,P_D\}\subset \operatorname{Fix}(\mathcal E)\)
+  generating a classical pointer sector
+  \[
+  \mathcal A_{\mathrm{ptr}}:=W^*(P_1,\dots,P_D)\subseteq \mathcal A_U;
+  \]
+\item[(PS2)] the sufficient-statistic record coordinates used in T-DOME II are
+  the coordinates induced by this pointer sector through the T-DOME I
+  coarse-graining map to the classical sector;
+\item[(PS3)] the T-DOME II rate-distortion optimum selects an ordered subset
+  \(I^*=\{i_1,\dots,i_{k^*}\}\subseteq \{1,\dots,D\}\) by survival
+  relevance.
+\end{enumerate}
+Let
+\[
+V_{\mathrm{fg}}(\mathfrak F)=\operatorname{span}\{f_1,\dots,f_{k^*}\}
+\]
+be ordered compatibly with \(I^*\), and define
+\[
+\iota_{\mathfrak F}(f_j):=P_{i_j}.
+\]
+Then:
+\begin{enumerate}
+\item \(\iota_{\mathfrak F}:V_{\mathrm{fg}}(\mathfrak F)\hookrightarrow
+  \mathcal A_U^{\mathrm{sa}}\) is injective;
+\item the image lies in the exact decoherence fixed-point algebra;
+\item the induced pointer-generated algebra satisfies
+  \[
+  \mathcal A_{\mathfrak F}\subseteq \mathcal A_{\mathrm{ptr}}.
+  \]
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+By assumption~(1), each \(P_i\) is self-adjoint and satisfies
+\(\mathcal E_t(P_i)=P_i\) for all \(t\ge 0\). Distinct nonzero
+orthogonal projections are linearly independent, so the assignment
+\(f_j\mapsto P_{i_j}\) extends to an injective linear map
+\(\iota_{\mathfrak F}\). Exact fixedness gives the second claim. Since
+the \(P_{i_j}\) lie in the commuting pointer sector
+\(\mathcal A_{\mathrm{ptr}}\), the von Neumann algebra generated by
+\(1,P_{i_1},\dots,P_{i_{k^*}}\) is contained in
+\(\mathcal A_{\mathrm{ptr}}\).
+\end{proof}
+
+\begin{remark}[Status of PS1]
+PS1 is the least problematic part of the package. In decoherence theory
+and quantum Darwinism, robust classical records are carried by a
+commuting pointer sector selected by the environment
+\cite{Zurek2003,Zurek2009}. In the exact fixed-point regime used here,
+this is precisely the statement that the decoherence semigroup admits a
+commuting family of exact fixed-point projections generating a classical
+pointer algebra. HAFF Paper~D realizes this exactly in the
+dephasing-dominated finite-dimensional model, where the diagonal
+fixed-point algebra is the pointer basis algebra \cite{HAFFD}. The real
+model-independent unresolved content is therefore PS2, with PS3
+following once PS2 is established.
+\end{remark}
+
+\paragraph{The PS2 alignment problem.}
+Proposition~\ref{prop:pointersector} sharpens the existence assumption
+on \(\iota_{\mathfrak F}\), but it does not yet derive the compatibility
+package from the broken-phase output itself in full generality.
+Section~\ref{sec:ps2model} closes a first restricted version in a
+product-classical pointer regime. The real unresolved content is
+therefore the model-independent form of the middle condition: the claim
+that the T-DOME sufficient-statistic coordinates and the pointer-sector
+coordinates are the same optimization problem written in two languages.
+That is the full PS2 problem.
+
+\paragraph{Target lemma (PS2 alignment; open).}
+Let
+\[
+\mathcal A_{\mathrm{ptr}}=W^*(P_1,\dots,P_D)
+\]
+be the pointer sector from Proposition~\ref{prop:pointersector}, and
+define the pointer-coordinate process
+\[
+p_i(t):=\omega_t(P_i),\qquad i=1,\dots,D.
+\]
+For an ordered subset
+\[
+I=\{i_1,\dots,i_k\}\subseteq \{1,\dots,D\},
+\]
+write \(\mathcal F_I\) for the pointer-adapted frame retaining those
+channels. A natural target theorem is the following.
+
+Assume:
+\begin{enumerate}
+\item the T-DOME sufficient statistics \(\{c_i(t)\}_{i=1}^D\) agree,
+  after reindexing, with the pointer-coordinate process
+  \(\{p_i(t)\}_{i=1}^D\);
+\item there exist nonnegative weights \(w_1,\dots,w_D\) and a constant
+  \(D_0\) such that for every pointer-adapted frame \(\mathcal F_I\),
+  \[
+  D(\mathcal F_I)=D_0+\sum_{i\notin I} w_i;
+  \]
+\item admissible frames satisfy \(|I|=k^*=
+  \lfloor \mathcal C_{\mathrm{budget}}/h_\mu\rfloor\).
+\end{enumerate}
+Then every survival-distortion minimizer retains exactly the
+\(k^*\) channels of largest weight, up to ties. In particular, the
+T-DOME foreground directions coincide with the top-ranked pointer
+directions, and the ordered subset \(I^*\) of
+Proposition~\ref{prop:pointersector} is selected canonically.
+
+\paragraph{Proof strategy.}
+This target should be attacked by an exchange argument. If an admissible
+subset \(I\) omits some channel \(a\) and retains some channel \(b\)
+with \(w_a>w_b\), then replacing \(b\) by \(a\) changes the distortion
+by
+\[
+D(\mathcal F_{I\setminus\{b\}\cup\{a\}})-D(\mathcal F_I)
+=-w_a+w_b<0,
+\]
+contradicting optimality. Once the distortion has been reduced to such a
+channelwise omission law, alignment is immediate. The real analytic
+burden is therefore to derive the weights \(w_i\) from the T-DOME
+survival functional in a way compatible with the pointer-sector
+coarse-graining.
+
+\paragraph{First realistic route: approximate PS2b in the
+decoherence-dominated regime.}
+The exact separability law above is likely too strong as a first target
+in the fully correlated setting. A more plausible theorem program is to
+prove approximate separability once decoherence has suppressed the
+cross-channel terms strongly enough that the pointer sector is
+approximately classical.
+
+Introduce a decoherence-depth parameter \(\tau_{\mathrm{dec}}\), and let
+\(\varepsilon_{\mathrm{dec}}(\tau_{\mathrm{dec}})\to 0\) measure the
+size of the residual cross-channel distortion after coarse-graining
+beyond that scale. The natural asymptotic target is:
+\[
+D(\mathcal F_I)
+=
+D_0+\sum_{i\notin I} w_i + R_I,
+\qquad
+|R_I|\le \varepsilon_{\mathrm{dec}}(\tau_{\mathrm{dec}}).
+\]
+Under this bound, the same exchange argument gives
+\[
+D(\mathcal F_{I\setminus\{b\}\cup\{a\}})-D(\mathcal F_I)
+\le
+-(w_a-w_b)+2\varepsilon_{\mathrm{dec}}(\tau_{\mathrm{dec}}).
+\]
+Therefore any exchange across a weight gap larger than
+\(2\varepsilon_{\mathrm{dec}}(\tau_{\mathrm{dec}})\) strictly improves
+the objective. In particular, if the threshold gap
+\[
+\Delta_{k^*}:=w_{(k^*)}-w_{(k^*+1)}
+\]
+exceeds \(2\varepsilon_{\mathrm{dec}}(\tau_{\mathrm{dec}})\), then the
+top-\(k^*\) pointer subset is forced, up to ties above the gap.
+
+This is likely the right first Bridge~1 theorem target. It matches the
+physics of decoherence, which suppresses off-diagonal couplings rather
+than eliminating them exactly in full generality.
+Section~\ref{sec:ps2model} closes this target in a first restricted
+product-classical regime. The real analytic task is thus to prove that
+the T-DOME survival distortion admits such a uniform remainder estimate
+in the decoherence-dominated regime.
+
+\paragraph{Analytic source of \(\varepsilon_{\mathrm{dec}}\).}
+The remainder estimate cannot come from abstract operator algebra alone.
+It has to be extracted from the concrete T-DOME I survival identity
+\[
+\beta\,\mathcal S
+=
+-\Delta I(S{:}E)
+-\Delta D_{\mathrm{KL}}
+-\beta\,\Delta\langle H_{\mathrm{ctrl}}\rangle.
+\]
+In the pointer basis, the natural next step is to decompose the record
+process and the induced state into diagonal and off-diagonal parts,
+\[
+X(t)=X^{\mathrm{diag}}(t)+X^{\mathrm{off}}(t),
+\qquad
+\rho(t)=\rho_{\mathrm{diag}}(t)+\rho_{\mathrm{off}}(t),
+\]
+where the diagonal part is generated by the commuting pointer
+projections and the off-diagonal part carries the residual coherences.
+
+The target analytic lemma is then the following: in the
+decoherence-dominated regime, the off-diagonal contribution to the
+survival identity is uniformly bounded by a function
+\(\varepsilon_{\mathrm{dec}}(\tau_{\mathrm{dec}})\to 0\), so that for
+every pointer-adapted frame \(\mathcal F_I\),
+\[
+D(\mathcal F_I)
+=
+D_0+\sum_{i\notin I} w_i + R_I,
+\qquad
+|R_I|\le \varepsilon_{\mathrm{dec}}(\tau_{\mathrm{dec}}).
+\]
+The likely proof route is:
+\begin{enumerate}
+\item use the decoherence semigroup to obtain exponential or
+  semigroup-gap suppression of the off-pointer sector;
+\item propagate that suppression through the three terms in the survival
+  identity;
+\item identify the diagonal leading term as an additive pointer-channel
+  omission loss.
+\end{enumerate}
+This identifies the analytic content that
+Section~\ref{sec:ps2model} closes in a first restricted regime.
+
+\section{A Restricted PS2 Result in the Decoherence-Dominated Pointer Regime}\label{sec:ps2model}
+
+The full PS2 alignment problem remains open. Still, a genuine theorem
+can already be proved in a restricted regime. The point of the present
+section is not to claim a model-independent PS2 theorem, but to show
+that in a product-classical, decoherence-dominated pointer regime, the
+structural reduction to fragment-local omission losses and the estimate
+reduction to a uniformly small coherence remainder can both be closed
+explicitly, after which approximate separability and top-\(k^*\)
+selection follow by a completely explicit argument.
+
+\begin{proposition}[Restricted approximate PS2b in the product-classical pointer regime]\label{prop:ps2_restricted}
+Fix \(k\in\{1,\dots,D-1\}\), and let \(\mathcal F_I\) range over all
+pointer-adapted frames with \(|I|=k\). Assume the T-DOME survival
+distortion uses the squared loss
+\[
+\ell(x)=x^2.
+\]
+Suppose that for each admissible \(I\) there exist random variables
+\[
+L_i=L_i(\xi),
+\qquad
+i=1,\dots,D,
+\]
+and a coherence remainder \(C_I=C_I(\xi)\) such that
+\[
+\mathcal S_{\mathrm{full}}(\xi)-\mathcal S_{\mathcal F_I}(\xi)
+=
+\sum_{i\notin I} L_i(\xi)+C_I(\xi)
+\]
+for almost every environmental realization \(\xi\). Assume further:
+\begin{enumerate}
+\item \textbf{Pairwise diagonal orthogonality:}
+  \[
+  \mathbb E_\xi[L_iL_j]=0
+  \qquad
+  \text{for } i\neq j;
+  \]
+\item \textbf{Uniform coherence bound:}
+  \[
+  \|C_I\|_{L^\infty(\xi)}
+  \le
+  \eta_{\mathrm{dec}}(\tau_{\mathrm{dec}})
+  \qquad
+  \text{for every admissible } I;
+  \]
+\item \textbf{Finite diagonal size:}
+  \[
+  \Lambda_k
+  :=
+  \sup_{|I|=k}
+  \sum_{i\notin I}\|L_i\|_{L^2(\xi)}
+  <
+  \infty.
+  \]
+\end{enumerate}
+Define
+\[
+w_i:=\|L_i\|_{L^2(\xi)}^2
+\]
+and
+\[
+\varepsilon_{\mathrm{dec}}(\tau_{\mathrm{dec}})
+:=
+2\Lambda_k\,\eta_{\mathrm{dec}}(\tau_{\mathrm{dec}})
++\eta_{\mathrm{dec}}(\tau_{\mathrm{dec}})^2.
+\]
+Then for every admissible \(I\),
+\[
+D(\mathcal F_I)
+=
+\sum_{i\notin I} w_i + R_I,
+\qquad
+|R_I|
+\le
+\varepsilon_{\mathrm{dec}}(\tau_{\mathrm{dec}}).
+\]
+Consequently, if
+\[
+\Delta_k:=w_{(k)}-w_{(k+1)}
+>
+2\varepsilon_{\mathrm{dec}}(\tau_{\mathrm{dec}}),
+\]
+then every minimizer of \(D(\mathcal F_I)\) retains exactly the
+top-\(k\) pointer channels, up to ties above the gap.
+\end{proposition}
+
+\begin{proof}
+By definition of the distortion and the squared loss,
+\[
+D(\mathcal F_I)
+=
+\mathbb E_\xi\!\left[
+\left(
+\sum_{i\notin I}L_i + C_I
+\right)^2
+\right].
+\]
+Expanding the square gives
+\[
+D(\mathcal F_I)
+=
+\sum_{i\notin I}\mathbb E_\xi[L_i^2]
++
+2\sum_{\substack{i,j\notin I\\ i<j}}\mathbb E_\xi[L_iL_j]
++
+2\sum_{i\notin I}\mathbb E_\xi[L_iC_I]
++
+\mathbb E_\xi[C_I^2].
+\]
+The pairwise orthogonality assumption cancels the middle sum, so
+\[
+D(\mathcal F_I)
+=
+\sum_{i\notin I} w_i + R_I,
+\]
+where
+\[
+R_I
+:=
+2\sum_{i\notin I}\mathbb E_\xi[L_iC_I]
++
+\mathbb E_\xi[C_I^2].
+\]
+Because the environmental expectation is taken against a probability
+measure, \(\|C_I\|_{L^2(\xi)}\le \|C_I\|_{L^\infty(\xi)}\). Hence
+\[
+|\mathbb E_\xi[L_iC_I]|
+\le
+\|L_i\|_{L^2(\xi)}\|C_I\|_{L^2(\xi)}
+\le
+\|L_i\|_{L^2(\xi)}\eta_{\mathrm{dec}}(\tau_{\mathrm{dec}}),
+\]
+and therefore
+\[
+|R_I|
+\le
+2\eta_{\mathrm{dec}}(\tau_{\mathrm{dec}})
+\sum_{i\notin I}\|L_i\|_{L^2(\xi)}
++
+\eta_{\mathrm{dec}}(\tau_{\mathrm{dec}})^2
+\le
+\varepsilon_{\mathrm{dec}}(\tau_{\mathrm{dec}}).
+\]
+This proves the approximate separability law.
+
+Now let \(I\) be admissible, and suppose \(a\notin I\), \(b\in I\) with
+\(w_a>w_b\). Writing
+\[
+I':=I\setminus\{b\}\cup\{a\},
+\]
+the additive part changes by
+\[
+\sum_{i\notin I'}w_i-\sum_{i\notin I}w_i
+=
+-w_a+w_b.
+\]
+The remainder terms satisfy
+\[
+R_{I'}-R_I
+\le
+|R_{I'}|+|R_I|
+\le
+2\varepsilon_{\mathrm{dec}}(\tau_{\mathrm{dec}}),
+\]
+so
+\[
+D(\mathcal F_{I'})-D(\mathcal F_I)
+\le
+-(w_a-w_b)+2\varepsilon_{\mathrm{dec}}(\tau_{\mathrm{dec}}).
+\]
+Therefore any exchange across a weight gap strictly larger than
+\(2\varepsilon_{\mathrm{dec}}(\tau_{\mathrm{dec}})\) lowers the
+distortion. If
+\(\Delta_k>2\varepsilon_{\mathrm{dec}}(\tau_{\mathrm{dec}})\), no
+minimizer can omit a channel above the threshold while retaining one
+below it. Hence every minimizer is exactly the top-\(k\) pointer subset,
+up to ties above the gap.
+\end{proof}
+
+\begin{lemma}[Product-classical coarse-graining yields fragment-local omission losses]\label{lem:product_classical}
+Assume that after applying the pointer coarse-graining map \(\Phi\), the
+diagonal classical sector is described by \(D\) local channel records
+\[
+\xi=(\xi_1,\dots,\xi_D),
+\qquad
+\xi_i=(z_i,e_i),
+\]
+with full diagonal law
+\[
+P^{\mathrm{full}}(\xi)
+=
+\prod_{i=1}^D P_i(z_i,e_i).
+\]
+Let \(\mathcal F_I\) be an admissible pointer-adapted frame. Assume its
+diagonal projected law is obtained by retaining the full local channel
+law on \(I\) and replacing each omitted channel by a fixed reference
+law:
+\[
+P^{I}(\xi)
+=
+\prod_{i\in I} P_i(z_i,e_i)
+\prod_{i\notin I} Q_i(z_i,e_i).
+\]
+Assume further:
+\begin{enumerate}
+\item the diagonal survival identity is represented pointwise by
+  \[
+  \beta\,\mathcal S^{\mathrm{diag}}(\xi)
+  =
+  -\imath(\xi)-d(\xi)-\beta\,\delta h(\xi),
+  \]
+  where \(\imath\) is the pointwise mutual-information density, \(d\) is
+  the pointwise reference-divergence density, and \(\delta h\) is the
+  pointwise control contribution;
+\item the reference divergence is taken with respect to a product
+  reference law
+  \[
+  \tau(e)=\prod_{i=1}^D \tau_i(e_i);
+  \]
+\item the diagonal control contribution is additive:
+  \[
+  \delta h^{\mathrm{full}}(\xi)
+  =
+  \sum_{i=1}^D \delta h_i^{\mathrm{full}}(\xi_i),
+  \]
+  \[
+  \delta h^{I}(\xi)
+  =
+  \sum_{i\in I}\delta h_i^{\mathrm{full}}(\xi_i)
+  +
+  \sum_{i\notin I}\delta h_i^{\mathrm{ref}}(\xi_i).
+  \]
+\end{enumerate}
+For each channel \(i\), define the local pointwise mutual-information
+density
+\[
+\imath_i^{\mathrm{full}}(\xi_i)
+:=
+\log\frac{P_i(z_i,e_i)}{P_i^Z(z_i)\,P_i^E(e_i)},
+\qquad
+\imath_i^{\mathrm{ref}}(\xi_i)
+:=
+\log\frac{Q_i(z_i,e_i)}{Q_i^Z(z_i)\,Q_i^E(e_i)},
+\]
+and the local reference-divergence density
+\[
+d_i^{\mathrm{full}}(e_i)
+:=
+\log\frac{P_i^E(e_i)}{\tau_i(e_i)},
+\qquad
+d_i^{\mathrm{ref}}(e_i)
+:=
+\log\frac{Q_i^E(e_i)}{\tau_i(e_i)}.
+\]
+Then the diagonal survival deficit is fragment-local:
+\[
+\beta\bigl(
+\mathcal S_{\mathrm{full}}^{\mathrm{diag}}(\xi)
+-
+\mathcal S_{\mathcal F_I}^{\mathrm{diag}}(\xi)
+\bigr)
+=
+\sum_{i\notin I}\lambda_i(\xi_i),
+\]
+where
+\[
+\lambda_i(\xi_i)
+:=
+-\bigl(\imath_i^{\mathrm{full}}(\xi_i)-\imath_i^{\mathrm{ref}}(\xi_i)\bigr)
+-\bigl(d_i^{\mathrm{full}}(e_i)-d_i^{\mathrm{ref}}(e_i)\bigr)
+-\beta\bigl(\delta h_i^{\mathrm{full}}(\xi_i)-\delta h_i^{\mathrm{ref}}(\xi_i)\bigr).
+\]
+Consequently, the centered variables
+\[
+L_i(\xi_i):=\lambda_i(\xi_i)-\mathbb E_\xi[\lambda_i(\xi_i)]
+\]
+are fragment-local omission losses in the sense needed by
+Lemma~\ref{lem:fragment_orth}.
+\end{lemma}
+
+\begin{proof}
+Because the full diagonal law factorizes,
+\[
+P^{\mathrm{full}}(\xi)
+=
+\prod_{i=1}^D P_i(z_i,e_i),
+\quad
+P_Z^{\mathrm{full}}(z)
+=
+\prod_{i=1}^D P_i^Z(z_i),
+\quad
+P_E^{\mathrm{full}}(e)
+=
+\prod_{i=1}^D P_i^E(e_i).
+\]
+Therefore the full pointwise mutual-information density is additive:
+\[
+\imath^{\mathrm{full}}(\xi)
+:=
+\log\frac{P^{\mathrm{full}}(\xi)}
+{P_Z^{\mathrm{full}}(z)\,P_E^{\mathrm{full}}(e)}
+=
+\sum_{i=1}^D \imath_i^{\mathrm{full}}(\xi_i).
+\]
+The same argument for the projected law gives
+\[
+\imath^{I}(\xi)
+=
+\sum_{i\in I}\imath_i^{\mathrm{full}}(\xi_i)
++
+\sum_{i\notin I}\imath_i^{\mathrm{ref}}(\xi_i).
+\]
+
+Since the reference law \(\tau\) is also a product law,
+\[
+d^{\mathrm{full}}(e)
+:=
+\log\frac{P_E^{\mathrm{full}}(e)}{\tau(e)}
+=
+\sum_{i=1}^D d_i^{\mathrm{full}}(e_i),
+\]
+and similarly
+\[
+d^{I}(e)
+=
+\sum_{i\in I} d_i^{\mathrm{full}}(e_i)
++
+\sum_{i\notin I} d_i^{\mathrm{ref}}(e_i).
+\]
+The control contribution is additive by assumption:
+\[
+\delta h^{\mathrm{full}}(\xi)
+=
+\sum_{i=1}^D \delta h_i^{\mathrm{full}}(\xi_i),
+\]
+\[
+\delta h^{I}(\xi)
+=
+\sum_{i\in I}\delta h_i^{\mathrm{full}}(\xi_i)
++
+\sum_{i\notin I}\delta h_i^{\mathrm{ref}}(\xi_i).
+\]
+
+Substituting these three decompositions into the pointwise diagonal
+survival identity gives
+\begin{align*}
+&\beta\bigl(
+\mathcal S_{\mathrm{full}}^{\mathrm{diag}}(\xi)
+-
+\mathcal S_{\mathcal F_I}^{\mathrm{diag}}(\xi)
+\bigr) \\
+&=
+-\bigl(\imath^{\mathrm{full}}(\xi)-\imath^{I}(\xi)\bigr)
+-\bigl(d^{\mathrm{full}}(e)-d^{I}(e)\bigr)
+-\beta\bigl(
+\delta h^{\mathrm{full}}(\xi)-\delta h^{I}(\xi)
+\bigr) \\
+&=
+\sum_{i\notin I}
+\Bigl[
+-\bigl(\imath_i^{\mathrm{full}}(\xi_i)-\imath_i^{\mathrm{ref}}(\xi_i)\bigr)
+-\bigl(d_i^{\mathrm{full}}(e_i)-d_i^{\mathrm{ref}}(e_i)\bigr)
+-\beta\bigl(\delta h_i^{\mathrm{full}}(\xi_i)-\delta h_i^{\mathrm{ref}}(\xi_i)\bigr)
+\Bigr].
+\end{align*}
+This is exactly the stated fragment-local decomposition. Centering each
+\(\lambda_i\) produces the centered fragment-local omission losses
+\(L_i\).
+\end{proof}
+
+\begin{remark}[What Lemma~\ref{lem:product_classical} closes]
+Lemma~\ref{lem:product_classical} is the first theorem-level closure of
+the structure line PS2a. It does not derive the product-classical
+pointer regime from the broken-phase output; it shows that once the
+pointer coarse-graining reaches that regime, fragment-local omission
+losses follow automatically by additivity of information densities,
+reference-divergence densities, and diagonal control terms.
+\end{remark}
+
+\begin{lemma}[Orthogonality from fragment-local centered channel losses]\label{lem:fragment_orth}
+Assume the environmental realization admits a pointer-channel
+factorization
+\[
+\xi=(\xi_1,\dots,\xi_D)
+\]
+with independent coordinates. Suppose the diagonal omission losses of
+Proposition~\ref{prop:ps2_restricted} admit a centered fragment-local
+realization
+\[
+L_i(\xi)
+=
+\lambda_i(\xi_i)-\mathbb E_\xi[\lambda_i(\xi_i)],
+\qquad
+i=1,\dots,D,
+\]
+for measurable functions \(\lambda_i(\xi_i)\in L^2(\xi_i)\). Then
+\[
+\mathbb E_\xi[L_iL_j]=0
+\qquad
+\text{for } i\neq j.
+\]
+In particular, the pairwise orthogonality hypothesis of
+Proposition~\ref{prop:ps2_restricted} is automatic under independent
+pointer channels together with centered fragment-local omission losses.
+\end{lemma}
+
+\begin{proof}
+Because \(L_i\) depends only on \(\xi_i\) and \(L_j\) depends only on
+\(\xi_j\), the independence of \(\xi_i\) and \(\xi_j\) implies
+\[
+\mathbb E_\xi[L_iL_j]
+=
+\mathbb E_\xi[L_i]\,
+\mathbb E_\xi[L_j].
+\]
+The centered form of \(L_i\) and \(L_j\) gives
+\[
+\mathbb E_\xi[L_i]=0=\mathbb E_\xi[L_j],
+\]
+hence \(\mathbb E_\xi[L_iL_j]=0\).
+\end{proof}
+
+\begin{remark}[Why the orthogonality hypothesis is natural in the pointer regime]
+Lemma~\ref{lem:fragment_orth} explains why the first hypothesis of
+Proposition~\ref{prop:ps2_restricted} is not an arbitrary add-on. On
+the T-DOME side, the computational-ceiling analysis already treats the
+active channels as independent rate carriers. On the HAFF/Quantum
+Darwinism side, accessible classical records are carried by independent
+environmental fragments. Once the diagonal omission loss localizes to
+fragment-wise centered channel contributions after coarse-graining,
+pairwise orthogonality becomes a probability identity rather than an
+extra dynamical postulate.
+
+What remains open is exactly the next step: deriving that fragment-local
+centered realization, together with the uniform coherence bound, from
+the full T-DOME survival identity in a model-independent way.
+\end{remark}
+
+\begin{lemma}[Semigroup-decay coherence estimate]\label{lem:semigroup_coherence}
+Let
+\[
+\mathbb E_{\mathrm{ptr}}:\mathcal A_U\to \mathcal A_{\mathrm{ptr}}
+\]
+be a normal conditional expectation onto the pointer algebra, and write
+\[
+Q_{\mathrm{off}}:=\mathrm{id}-\mathbb E_{\mathrm{ptr}}.
+\]
+For each admissible pointer-adapted frame \(\mathcal F_I\) and
+environmental realization \(\xi\), let \(X_\xi\) denote the relevant
+state or record datum entering the survival identity, and decompose the
+coherence remainder as
+\[
+C_I(\xi)
+=
+C_I^{(I)}(\xi)+C_I^{(D)}(\xi)+C_I^{(H)}(\xi),
+\]
+where the three terms correspond respectively to the off-diagonal
+contributions of
+\[
+-\Delta I(S{:}E),
+\qquad
+-\Delta D_{\mathrm{KL}},
+\qquad
+-\beta\,\Delta\langle H_{\mathrm{ctrl}}\rangle.
+\]
+Assume:
+\begin{enumerate}
+\item \textbf{Off-sector semigroup decay:} there exists a non-increasing
+  function \(g:[0,\infty)\to [0,\infty)\) with \(g(\tau)\to 0\) such
+  that
+  \[
+  \sup_{t\ge \tau}
+  \|Q_{\mathrm{off}}\mathcal E_t(X)\|
+  \le
+  g(\tau)\,\|Q_{\mathrm{off}}X\|
+  \]
+  for every relevant datum \(X\);
+\item \textbf{Uniform off-sector size:}
+  \[
+  \sup_\xi \|Q_{\mathrm{off}}X_\xi\|
+  \le
+  B_{\mathrm{off}}
+  <
+  \infty;
+  \]
+\item \textbf{Termwise continuity bounds:} there exist constants
+  \(L_I,L_D,L_H\ge 0\) such that for every admissible \(I\) and every
+  \(\xi\),
+  \[
+  |C_I^{(I)}(\xi)|
+  \le
+  L_I\sup_{t\ge\tau_{\mathrm{dec}}}
+  \|Q_{\mathrm{off}}\mathcal E_t(X_\xi)\|,
+  \]
+  \[
+  |C_I^{(D)}(\xi)|
+  \le
+  L_D\sup_{t\ge\tau_{\mathrm{dec}}}
+  \|Q_{\mathrm{off}}\mathcal E_t(X_\xi)\|,
+  \]
+  \[
+  |C_I^{(H)}(\xi)|
+  \le
+  L_H\sup_{t\ge\tau_{\mathrm{dec}}}
+  \|Q_{\mathrm{off}}\mathcal E_t(X_\xi)\|.
+  \]
+\end{enumerate}
+Then for every admissible \(I\),
+\[
+\|C_I\|_{L^\infty(\xi)}
+\le
+\eta_{\mathrm{dec}}(\tau_{\mathrm{dec}})
+:=
+(L_I+L_D+L_H)\,B_{\mathrm{off}}\,g(\tau_{\mathrm{dec}}).
+\]
+In particular, the uniform coherence bound required in
+Proposition~\ref{prop:ps2_restricted} holds with this choice of
+\(\eta_{\mathrm{dec}}\).
+\end{lemma}
+
+\begin{proof}
+By the triangle inequality,
+\[
+|C_I(\xi)|
+\le
+|C_I^{(I)}(\xi)|+|C_I^{(D)}(\xi)|+|C_I^{(H)}(\xi)|.
+\]
+Applying the termwise continuity bounds gives
+\[
+|C_I(\xi)|
+\le
+(L_I+L_D+L_H)\,
+\sup_{t\ge\tau_{\mathrm{dec}}}
+\|Q_{\mathrm{off}}\mathcal E_t(X_\xi)\|.
+\]
+The off-sector semigroup decay assumption then yields
+\[
+|C_I(\xi)|
+\le
+(L_I+L_D+L_H)\,
+g(\tau_{\mathrm{dec}})\,
+\|Q_{\mathrm{off}}X_\xi\|.
+\]
+Using the uniform off-sector bound,
+\[
+|C_I(\xi)|
+\le
+(L_I+L_D+L_H)\,
+B_{\mathrm{off}}\,
+g(\tau_{\mathrm{dec}}).
+\]
+Taking the essential supremum over \(\xi\) gives the stated
+\(L^\infty\) bound.
+\end{proof}
+
+\begin{remark}[What Lemma~\ref{lem:semigroup_coherence} closes]
+Lemma~\ref{lem:semigroup_coherence} is the abstract translation step
+from standard decoherence-semigroup suppression of the off-pointer
+sector to the exact \(\eta_{\mathrm{dec}}\) object used in
+Proposition~\ref{prop:ps2_restricted}. It does not yet identify the
+best norm or derive the constants \(L_I,L_D,L_H\) from the full
+T-DOME survival identity; those remain the true analytic content.
+
+In concrete pointer-diagonal control models, one often has
+\(L_H=0\), so only the mutual-information and relative-entropy terms
+contribute to the coherence remainder.
+\end{remark}
+
+\begin{corollary}[Hilbert--Schmidt continuity package on a uniformly faithful pointer support]\label{cor:hs_package}
+Assume that, after pointer coarse-graining, the relevant joint
+system--environment states are supported on a finite-dimensional space
+\[
+\mathcal H_S\otimes \mathcal H_E
+\]
+with
+\[
+d_S:=\dim\mathcal H_S,
+\qquad
+d_E:=\dim\mathcal H_E.
+\]
+Assume there exists \(m_*>0\) such that every relevant joint state
+\(\rho_{SE}\), every relevant marginal state \(\rho_S,\rho_E\), and the
+fixed reference state \(\tau_E\) entering the T-DOME
+\(\Delta D_{\mathrm{KL}}\) term satisfy
+\[
+\lambda_{\min}(\rho_{SE}),
+\lambda_{\min}(\rho_S),
+\lambda_{\min}(\rho_E),
+\lambda_{\min}(\tau_E)
+\ge
+m_*.
+\]
+Write \(\|\cdot\|_2\) for the Hilbert--Schmidt norm.
+
+Then:
+\begin{enumerate}
+\item for any two relevant joint states \(\rho_{SE},\sigma_{SE}\),
+  \[
+  \bigl|I(\rho_{SE})-I(\sigma_{SE})\bigr|
+  \le
+  3\sqrt{d_Sd_E}\,\bigl(|\log m_*|+1\bigr)\,
+  \|\rho_{SE}-\sigma_{SE}\|_2;
+  \]
+\item for any two relevant environment states \(\rho_E,\sigma_E\),
+  \[
+  \bigl|D_{\mathrm{KL}}(\rho_E\|\tau_E)
+  -D_{\mathrm{KL}}(\sigma_E\|\tau_E)\bigr|
+  \le
+  \sqrt{d_E}\,\bigl(2|\log m_*|+1\bigr)\,
+  \|\rho_E-\sigma_E\|_2;
+  \]
+  \item for any self-adjoint control Hamiltonian
+  \(H_{\mathrm{ctrl}}\in\mathcal B(\mathcal H_S)\),
+  \[
+  \bigl|\operatorname{Tr}[H_{\mathrm{ctrl}}(\rho_S-\sigma_S)]\bigr|
+  \le
+  \|H_{\mathrm{ctrl}}\|_2\,
+  \|\rho_S-\sigma_S\|_2.
+  \]
+\end{enumerate}
+Consequently, in this restricted finite-dimensional faithful regime, one
+may take Hilbert--Schmidt continuity constants
+\[
+L_I^{\mathrm{HS}}
+:=
+3\sqrt{d_Sd_E}\,\bigl(|\log m_*|+1\bigr),
+\]
+\[
+L_D^{\mathrm{HS}}
+:=
+\sqrt{d_E}\,\bigl(2|\log m_*|+1\bigr),
+\]
+\[
+L_H^{\mathrm{HS}}
+:=
+\|H_{\mathrm{ctrl}}\|_2
+\]
+in Lemma~\ref{lem:semigroup_coherence}, after translating the relevant
+off-sector perturbations into the corresponding Hilbert--Schmidt norms.
+\end{corollary}
+
+\begin{proof}
+Set
+\[
+S(\rho):=-\operatorname{Tr}(\rho\log\rho).
+\]
+On the convex set of density operators with spectrum contained in
+\([m_*,1]\), the Fr\'echet derivative is
+\[
+DS_\rho(H)=-\operatorname{Tr}\bigl(H(\log\rho+\mathbf 1)\bigr).
+\]
+Hence
+\[
+|DS_\rho(H)|
+\le
+\|H\|_2\,\|\log\rho+\mathbf 1\|_2
+\le
+\sqrt{d}\,\bigl(|\log m_*|+1\bigr)\|H\|_2
+\]
+for \(d=\dim\operatorname{supp}\rho\). Applying the mean-value theorem
+along the line segment between two states gives
+\[
+|S(\rho)-S(\sigma)|
+\le
+\sqrt{d}\,\bigl(|\log m_*|+1\bigr)\|\rho-\sigma\|_2.
+\]
+
+For the mutual-information term, use
+\[
+I(\rho_{SE})=S(\rho_S)+S(\rho_E)-S(\rho_{SE}).
+\]
+The partial trace satisfies the Hilbert--Schmidt bound
+\[
+\|\operatorname{Tr}_E A\|_2\le \sqrt{d_E}\,\|A\|_2,
+\qquad
+\|\operatorname{Tr}_S A\|_2\le \sqrt{d_S}\,\|A\|_2.
+\]
+Therefore
+\[
+|S(\rho_S)-S(\sigma_S)|
+\le
+\sqrt{d_S}\,\bigl(|\log m_*|+1\bigr)\|\rho_S-\sigma_S\|_2
+\le
+\sqrt{d_Sd_E}\,\bigl(|\log m_*|+1\bigr)\|\rho_{SE}-\sigma_{SE}\|_2,
+\]
+and similarly for the environment marginal. For the joint entropy term,
+\[
+|S(\rho_{SE})-S(\sigma_{SE})|
+\le
+\sqrt{d_Sd_E}\,\bigl(|\log m_*|+1\bigr)\|\rho_{SE}-\sigma_{SE}\|_2.
+\]
+Summing the three contributions proves part~(1).
+
+For the relative-entropy term with fixed faithful reference \(\tau_E\),
+write
+\[
+D_{\mathrm{KL}}(\rho_E\|\tau_E)
+=
+\operatorname{Tr}(\rho_E\log\rho_E)-\operatorname{Tr}(\rho_E\log\tau_E).
+\]
+Hence
+\begin{align*}
+&\bigl|D_{\mathrm{KL}}(\rho_E\|\tau_E)
+-D_{\mathrm{KL}}(\sigma_E\|\tau_E)\bigr| \\
+&\le
+\bigl|S(\rho_E)-S(\sigma_E)\bigr|
++
+\bigl|\operatorname{Tr}\bigl((\rho_E-\sigma_E)\log\tau_E\bigr)\bigr|.
+\end{align*}
+The entropy term is bounded by
+\[
+\sqrt{d_E}\,\bigl(|\log m_*|+1\bigr)\|\rho_E-\sigma_E\|_2,
+\]
+while
+\[
+\|\log\tau_E\|_2\le \sqrt{d_E}\,|\log m_*|.
+\]
+Cauchy--Schwarz therefore gives part~(2).
+
+Part~(3) is immediate from the Hilbert--Schmidt Cauchy--Schwarz
+inequality.
+\end{proof}
+
+\begin{remark}[Status of Corollary~\ref{cor:hs_package}]
+Corollary~\ref{cor:hs_package} does not close the full estimate track in
+general Type~III form. It closes the first finite-dimensional faithful
+pointer-support regime, where the Hilbert--Schmidt norm is natural and
+all three continuity constants become explicit. For the restricted
+Bridge~1 target developed in the present note, that is enough: the
+estimate line is closed at theorem level. The further question of
+whether an equally clean package survives beyond that regime, or must be
+reformulated in a predual norm, belongs to a later strengthening rather
+than to the current closure claim.
+\end{remark}
+
+\begin{corollary}[Restricted PS2 closure in the product-classical faithful pointer regime]\label{cor:ps2_closure}
+Assume:
+\begin{enumerate}
+\item the hypotheses of Lemma~\ref{lem:product_classical};
+\item the independent pointer-channel factorization hypothesis of
+  Lemma~\ref{lem:fragment_orth};
+\item the off-sector semigroup decay and uniform off-sector size
+  hypotheses of Lemma~\ref{lem:semigroup_coherence};
+\item the finite-dimensional uniformly faithful pointer-support
+  hypotheses of Corollary~\ref{cor:hs_package};
+\item the centered fragment-local omission losses from
+  Lemma~\ref{lem:product_classical} satisfy
+  \[
+  \Lambda_k
+  :=
+  \sup_{|I|=k}
+  \sum_{i\notin I}\|L_i\|_{L^2(\xi)}
+  <
+  \infty.
+  \]
+\end{enumerate}
+Define
+\[
+w_i:=\|L_i\|_{L^2(\xi)}^2,
+\]
+\[
+\eta_{\mathrm{dec}}^{\mathrm{HS}}(\tau_{\mathrm{dec}})
+:=
+\bigl(
+L_I^{\mathrm{HS}}+L_D^{\mathrm{HS}}+L_H^{\mathrm{HS}}
+\bigr)
+B_{\mathrm{off}}\,g(\tau_{\mathrm{dec}}),
+\]
+and
+\[
+\varepsilon_{\mathrm{dec}}^{\mathrm{HS}}(\tau_{\mathrm{dec}})
+:=
+2\Lambda_k\,\eta_{\mathrm{dec}}^{\mathrm{HS}}(\tau_{\mathrm{dec}})
++
+\bigl(\eta_{\mathrm{dec}}^{\mathrm{HS}}(\tau_{\mathrm{dec}})\bigr)^2.
+\]
+Then every admissible pointer-adapted frame \(\mathcal F_I\) satisfies
+\[
+D(\mathcal F_I)
+=
+\sum_{i\notin I} w_i + R_I,
+\qquad
+|R_I|
+\le
+\varepsilon_{\mathrm{dec}}^{\mathrm{HS}}(\tau_{\mathrm{dec}}).
+\]
+Consequently, if
+\[
+\Delta_k:=w_{(k)}-w_{(k+1)}
+>
+2\varepsilon_{\mathrm{dec}}^{\mathrm{HS}}(\tau_{\mathrm{dec}}),
+\]
+then every minimizer of \(D(\mathcal F_I)\) retains exactly the top-\(k\)
+pointer channels, up to ties above the gap.
+\end{corollary}
+
+\begin{proof}
+Lemma~\ref{lem:product_classical} produces centered fragment-local
+omission losses \(L_i\). Lemma~\ref{lem:fragment_orth} upgrades the
+independent pointer-channel factorization to the pairwise orthogonality
+required in Proposition~\ref{prop:ps2_restricted}. By
+Corollary~\ref{cor:hs_package}, the continuity constants appearing in
+Lemma~\ref{lem:semigroup_coherence} may be chosen as
+\(L_I^{\mathrm{HS}},L_D^{\mathrm{HS}},L_H^{\mathrm{HS}}\), so that
+Lemma~\ref{lem:semigroup_coherence} yields the uniform coherence bound
+\[
+\|C_I\|_{L^\infty(\xi)}
+\le
+\eta_{\mathrm{dec}}^{\mathrm{HS}}(\tau_{\mathrm{dec}}).
+\]
+The finiteness hypothesis gives the remaining size bound
+\(\Lambda_k<\infty\). Proposition~\ref{prop:ps2_restricted} therefore
+applies and gives exactly the stated approximate separability law and
+top-\(k\) selection criterion.
+\end{proof}
+
+\begin{corollary}[Pure-dephasing envelope]\label{cor:ps2_pure_dephasing}
+Assume the hypotheses of Proposition~\ref{prop:ps2_restricted}, and
+suppose in addition that the coherence remainder is controlled by the
+omitted pointer-channel coherences in the form
+\[
+|C_I(\xi,t)|
+\le
+\sum_{i\notin I} a_i\,|p_i(t)|
+\qquad
+\text{for all } t\ge \tau_{\mathrm{dec}},
+\]
+where \(a_i\ge 0\) are constants and each \(p_i(t)\) is the exact
+Lorentz--Drude pure-dephasing decoherence function from
+T-DOME~I~\cite{TDOMEI,BreuerPetruccione2002},
+\[
+\gamma_i<4\lambda_i,
+\qquad
+\Omega_i
+:=
+\tfrac{1}{2}\sqrt{4\lambda_i\gamma_i-\gamma_i^2}
+\in \mathbb R_{>0},
+\]
+and
+\[
+p_i(t)
+=
+e^{-\gamma_i t/2}\left[
+\cos(\Omega_i t)
++
+\frac{\gamma_i}{2\Omega_i}\sin(\Omega_i t)
+\right].
+\]
+Define
+\[
+R_i
+:=
+\sqrt{1+\left(\frac{\gamma_i}{2\Omega_i}\right)^2},
+\qquad
+A_k
+:=
+\max_{|I|=k}\sum_{i\notin I} a_iR_i.
+\]
+Then one may take
+\[
+\eta_{\mathrm{dec}}(\tau_{\mathrm{dec}})
+=
+A_k\,e^{-\gamma_* \tau_{\mathrm{dec}}/2},
+\qquad
+\gamma_*
+:=
+\min_{1\le i\le D}\gamma_i,
+\]
+and hence
+\[
+\varepsilon_{\mathrm{dec}}(\tau_{\mathrm{dec}})
+\le
+2\Lambda_k A_k\,e^{-\gamma_* \tau_{\mathrm{dec}}/2}
++
+A_k^2\,e^{-\gamma_* \tau_{\mathrm{dec}}}.
+\]
+In particular, the distortion remainder decays exponentially with the
+decoherence depth.
+\end{corollary}
+
+\begin{proof}
+For each channel,
+\[
+|p_i(t)|
+\le
+e^{-\gamma_i t/2}
+\sqrt{1+\left(\frac{\gamma_i}{2\Omega_i}\right)^2}
+=
+R_i\,e^{-\gamma_i t/2}
+\le
+R_i\,e^{-\gamma_* t/2}
+\]
+because \(|a\cos x+b\sin x|\le \sqrt{a^2+b^2}\). Therefore
+\[
+|C_I(\xi,t)|
+\le
+\sum_{i\notin I} a_iR_i\,e^{-\gamma_* t/2}
+\le
+A_k\,e^{-\gamma_* \tau_{\mathrm{dec}}/2}
+\]
+for all \(t\ge \tau_{\mathrm{dec}}\). This identifies a valid choice of
+\(\eta_{\mathrm{dec}}(\tau_{\mathrm{dec}})\). The stated bound on
+\(\varepsilon_{\mathrm{dec}}(\tau_{\mathrm{dec}})\) is then immediate
+from Proposition~\ref{prop:ps2_restricted}.
+\end{proof}
+
+\paragraph{A bookkeeping split for the model-independent PS2 programme.}
+The restricted results above close the PS2 package only after explicit
+regime assumptions have been imposed. For the later model-independent
+programme, one further lemma is useful already now: it fixes the exact
+place where the off-sector estimates enter the survival deficit.
+
+For \(X\in\{\mathrm{full},\mathcal F_I\}\), write the survival identity
+as
+\[
+\beta\,\mathcal S_X
+=
+-\Delta I_X
+-\Delta D_X
+-\beta\,\Delta H_X,
+\]
+where
+\[
+\Delta D_X:=\Delta D_{\mathrm{KL},X},
+\qquad
+\Delta H_X:=\Delta\langle H_{\mathrm{ctrl}}\rangle_X.
+\]
+Assume each of the three terms admits a pointer-diagonal/off-sector
+decomposition,
+\[
+\Delta I_X
+:=
+\Delta I_X^{\mathrm{diag}}
++
+\Delta I_X^{\mathrm{off}},
+\]
+\[
+\Delta D_X
+:=
+\Delta D_X^{\mathrm{diag}}
++
+\Delta D_X^{\mathrm{off}},
+\]
+\[
+\Delta H_X
+:=
+\Delta H_X^{\mathrm{diag}}
++
+\Delta H_X^{\mathrm{off}}.
+\]
+Define the pointer-diagonal survival functional and off-sector remainder
+by
+\[
+\beta\,\mathcal S_X^{\mathrm{diag}}
+:=
+-\Delta I_X^{\mathrm{diag}}
+-\Delta D_X^{\mathrm{diag}}
+-\beta\,\Delta H_X^{\mathrm{diag}},
+\]
+\[
+R_X^{\mathrm{off}}
+:=
+-\Delta I_X^{\mathrm{off}}
+-\Delta D_X^{\mathrm{off}}
+-\beta\,\Delta H_X^{\mathrm{off}}.
+\]
+
+\begin{lemma}[Diagonal/off-sector split of the survival deficit]\label{lem:diag_off_split}
+Let \(\mathbb E_{\mathrm{ptr}}:\mathcal A_U\to \mathcal A_{\mathrm{ptr}}\)
+be the conditional expectation onto the pointer algebra selected by the
+broken phase, and assume the above termwise decompositions are computed
+with respect to \(\mathbb E_{\mathrm{ptr}}\). Then for every admissible
+pointer-adapted frame \(\mathcal F_I\),
+\[
+\beta\bigl(
+\mathcal S_{\mathrm{full}}
+-
+\mathcal S_{\mathcal F_I}
+\bigr)
+=
+\beta\bigl(
+\mathcal S_{\mathrm{full}}^{\mathrm{diag}}
+-
+\mathcal S_{\mathcal F_I}^{\mathrm{diag}}
+\bigr)
++
+R_I^{\mathrm{off}},
+\]
+where
+\[
+R_I^{\mathrm{off}}
+:=
+R_{\mathrm{full}}^{\mathrm{off}}
+-
+R_{\mathcal F_I}^{\mathrm{off}}.
+\]
+Equivalently,
+\begin{align*}
+R_I^{\mathrm{off}}
+=&
+-\bigl(
+\Delta I_{\mathrm{full}}^{\mathrm{off}}
+-
+\Delta I_{\mathcal F_I}^{\mathrm{off}}
+\bigr) \\
+&
+-\bigl(
+\Delta D_{\mathrm{full}}^{\mathrm{off}}
+-
+\Delta D_{\mathcal F_I}^{\mathrm{off}}
+\bigr) \\
+&
+-\beta\bigl(
+\Delta H_{\mathrm{full}}^{\mathrm{off}}
+-
+\Delta H_{\mathcal F_I}^{\mathrm{off}}
+\bigr).
+\end{align*}
+\end{lemma}
+
+\begin{proof}
+Write the survival identity separately for the full process and the
+frame-adapted process \(\mathcal F_I\), insert the termwise
+diagonal/off-sector decompositions into both identities, and subtract.
+The pointer-diagonal contributions group into
+\[
+\beta\bigl(
+\mathcal S_{\mathrm{full}}^{\mathrm{diag}}
+-
+\mathcal S_{\mathcal F_I}^{\mathrm{diag}}
+\bigr),
+\]
+while the off-sector contributions group into
+\[
+R_{\mathrm{full}}^{\mathrm{off}}
+-
+R_{\mathcal F_I}^{\mathrm{off}}.
+\]
+This is exactly the stated identity.
+\end{proof}
+
+\begin{remark}[What this does and does not close]
+Section~\ref{sec:ps2model} is a restricted theorem-level closure of PS2,
+not a general one. What is now closed is the implication
+\[
+\begin{aligned}
+\text{uniformly small coherence remainder}
+&\Longrightarrow
+\text{approximate separability}
+\\
+&\Longrightarrow
+\text{top-}k \text{ pointer selection}.
+\end{aligned}
+\]
+Corollary~\ref{cor:ps2_closure} packages this as a single restricted
+selection theorem in the product-classical and finite-dimensional
+faithful pointer regime, while
+Corollary~\ref{cor:ps2_pure_dephasing} gives a model-specific
+exponential envelope. Lemma~\ref{lem:diag_off_split} does not enlarge
+that closure claim; it only fixes the bookkeeping split showing that
+the already-controlled semigroup-decay terms belong to the off-sector
+remainder. What remains open is the model-independent derivation of the
+regime assumptions, and in particular control of the diagonal product
+defect, from the full T-DOME survival identity and the broken-phase
+output.
+\end{remark}
+
+\paragraph{A conditional model-independent foreground-background package.}
+The bookkeeping split also makes it possible to state an honest
+conditional version of the next model-independent target. For
+budget-feasible \(I\) with \(|I|=k^*\), define the diagonal-tail
+survival deficit by
+\[
+\Delta_I^{\mathrm{diag}}(\xi,t)
+:=
+\beta\bigl(
+\mathcal S_{\mathrm{full}}^{\mathrm{diag}}(\xi,t)
+-
+\mathcal S_{\mathcal F_I}^{\mathrm{diag}}(\xi,t)
+\bigr),
+\]
+the corresponding tail distortion by
+\[
+D_\tau^{\mathrm{diag}}(I)
+:=
+\sup_{t\ge\tau}
+\mathbb E_{P_t^{\mathrm{diag}}}\!\Bigl[
+\bigl(\Delta_I^{\mathrm{diag}}(\xi,t)\bigr)^2
+\Bigr],
+\]
+and for an exchange pair
+\[
+\mathfrak P:=I^*\times (I^*)^{\mathrm c},
+\qquad
+N_{\mathrm{ex}}:=|\mathfrak P|=k^*(D-k^*),
+\]
+define
+\[
+G_{a\leftrightarrow b}^{\mathrm{diag}}(\xi,t)
+:=
+\beta\bigl(
+\mathcal S_{\mathcal F_{I_{a\leftrightarrow b}}}^{\mathrm{diag}}(\xi,t)
+-
+\mathcal S_{\mathcal F_{I^*}}^{\mathrm{diag}}(\xi,t)
+\bigr),
+\]
+\[
+\gamma_{\mathrm{fb}}^{\mathrm{diag}}(\xi,t)
+:=
+\beta\bigl(
+\mathcal S_{\mathrm{full}}^{\mathrm{diag}}(\xi,t)
+-
+\mathcal S_{\mathrm{ff}}^{\mathrm{diag}}(u,t)
+-
+\mathcal S_{\mathrm{bb}}^{\mathrm{diag}}(v,t)
+\bigr),
+\]
+\[
+\overline{\Gamma}_{\mathrm{fb}}^{\mathrm{diag}}(t)
+:=
+\mathbb E_{P_t^{\mathrm{diag}}}\!\bigl[
+\gamma_{\mathrm{fb}}^{\mathrm{diag}}(\xi,t)
+\bigr].
+\]
+
+\begin{proposition}[Conditional diagonal foreground-background coupling suppression]\label{prop:conditional_b2a}
+Let \(I^*\) be the broken-phase foreground set. Assume:
+\begin{enumerate}
+\item \textbf{Approximate tail optimality.} There exists
+  \(r_{\mathrm{opt}}(\tau)\to 0\) such that
+  \[
+  D_\tau^{\mathrm{diag}}(I^*)
+  \le
+  D_\tau^{\mathrm{diag}}(I)+r_{\mathrm{opt}}(\tau)
+  \qquad
+  \text{for all } |I|=k^*.
+  \]
+\item \textbf{Exchange cover and tail persistence.} There exist
+  \(c_{\mathrm{cov}}>0\), \(M_\gamma<\infty\),
+  \(e_{\mathrm{cov}}(\tau)\to 0\), and
+  \(r_{\mathrm{pers}}(\tau)\to 0\) such that:
+  \[
+  G_{a\leftrightarrow b}^{\mathrm{diag}}(\xi,t)\,
+  \gamma_{\mathrm{fb}}^{\mathrm{diag}}(\xi,t)\ge 0
+  \qquad
+  \text{for all } (a,b)\in\mathfrak P,\ t\ge\tau,
+  \]
+  \[
+  \frac{1}{N_{\mathrm{ex}}}
+  \sum_{(a,b)\in\mathfrak P}
+  \bigl|
+  G_{a\leftrightarrow b}^{\mathrm{diag}}(\xi,t)
+  \bigr|
+  \ge
+  c_{\mathrm{cov}}
+  \bigl|
+  \gamma_{\mathrm{fb}}^{\mathrm{diag}}(\xi,t)
+  \bigr|
+  -
+  e_{\mathrm{cov}}(\tau)
+  \quad
+  \text{for a.e. } \xi,\ t\ge\tau,
+  \]
+  \[
+  \sup_{t\ge\tau}
+  \mathbb E\!\bigl[
+  |\gamma_{\mathrm{fb}}^{\mathrm{diag}}(\cdot,t)|
+  \bigr]
+  \le
+  M_\gamma,
+  \]
+  and for
+  \[
+  \Gamma_{a\leftrightarrow b}^{\mathrm{ex}}(t)
+  :=
+  \mathbb E\!\bigl[
+  G_{a\leftrightarrow b}^{\mathrm{diag}}(\cdot,t)\,
+  \gamma_{\mathrm{fb}}^{\mathrm{diag}}(\cdot,t)
+  \bigr]
+  \]
+  one has
+  \[
+  \sup_{(a,b)\in\mathfrak P}
+  \sup_{s,t\ge\tau}
+  \bigl|
+  \Gamma_{a\leftrightarrow b}^{\mathrm{ex}}(t)
+  -
+  \Gamma_{a\leftrightarrow b}^{\mathrm{ex}}(s)
+  \bigr|
+  \le
+  r_{\mathrm{pers}}(\tau).
+  \]
+\item \textbf{Tail-passive background survival.} There exist
+  \(M_{\mathrm{ex}}(\tau)<\infty\) and
+  \(\eta_{\mathrm{bb}}(\tau)\to 0\) such that
+  \[
+  \sup_{(a,b)\in\mathfrak P}\sup_{t\ge\tau}
+  \bigl\|
+  G_{a\leftrightarrow b}^{\mathrm{diag}}(\cdot,t)
+  \bigr\|_{L^1}
+  \le
+  M_{\mathrm{ex}}(\tau),
+  \]
+  \[
+  \sup_{t\ge\tau}
+  \bigl\|
+  \mathcal S_{\mathrm{bb}}^{\mathrm{diag}}(\cdot,t)
+  \bigr\|_{L^\infty}
+  \le
+  \eta_{\mathrm{bb}}(\tau).
+  \]
+\item \textbf{Exchange efficiency gap.} There exist
+  \(M_G(\tau)<\infty\), \(m_\gamma(\tau)>0\), and a constant
+  \(\delta_Q>0\) such that
+  \[
+  \sup_{(a,b)\in\mathfrak P}\sup_{t\ge\tau}
+  \bigl\|
+  G_{a\leftrightarrow b}^{\mathrm{diag}}(\cdot,t)
+  \bigr\|_{L^\infty}
+  \le
+  M_G(\tau),
+  \]
+  \[
+  \bigl|
+  \gamma_{\mathrm{fb}}^{\mathrm{diag}}(\xi,t)
+  \bigr|
+  \ge
+  m_\gamma(\tau)
+  \quad
+  \text{whenever }
+  G_{a\leftrightarrow b}^{\mathrm{diag}}(\xi,t)\neq 0,
+  \]
+  and the efficiency ratio
+  \[
+  \kappa_Q(\tau):=\frac{M_G(\tau)}{m_\gamma(\tau)}
+  \]
+  satisfies
+  \[
+  \kappa_Q(\tau)\le 2-\delta_Q
+  \qquad
+  \text{for all sufficiently large } \tau.
+  \]
+\end{enumerate}
+Then there exists a function \(\varepsilon_\Gamma(\tau)\to 0\) such
+that
+\[
+\sup_{t\ge\tau}
+\bigl|
+\overline{\Gamma}_{\mathrm{fb}}^{\mathrm{diag}}(t)
+\bigr|
+\le
+\varepsilon_\Gamma(\tau)
+\]
+for all sufficiently large \(\tau\). One may take
+\[
+\varepsilon_\Gamma(\tau)
+:=
+\left[
+\frac{N_{\mathrm{ex}}}{\delta_Q c_{\mathrm{cov}}}
+\left(
+r_{\mathrm{opt}}(\tau)
++
+\frac{2e_{\mathrm{cov}}(\tau)}{N_{\mathrm{ex}}}M_\gamma
++
+2r_{\mathrm{pers}}(\tau)
++
+2\beta M_{\mathrm{ex}}(\tau)\eta_{\mathrm{bb}}(\tau)
+\right)
+\right]^{1/2}.
+\]
+\end{proposition}
+
+\begin{proof}
+The exact exchange expansion gives, for every exchange pair,
+\[
+D_\tau^{\mathrm{diag}}(I_{a\leftrightarrow b})
+-
+D_\tau^{\mathrm{diag}}(I^*)
+\le
+Q_{a\leftrightarrow b}^\tau
++
+2B_{a\leftrightarrow b}^\tau
+-
+2A_{a\leftrightarrow b}^\tau,
+\]
+where
+\[
+Q_{a\leftrightarrow b}^\tau
+:=
+\sup_{t\ge\tau}
+\mathbb E\!\Bigl[
+\bigl(G_{a\leftrightarrow b}^{\mathrm{diag}}(\cdot,t)\bigr)^2
+\Bigr],
+\]
+\[
+B_{a\leftrightarrow b}^\tau
+:=
+\sup_{t\ge\tau}
+\left|
+\beta\,
+\mathbb E\!\Bigl[
+G_{a\leftrightarrow b}^{\mathrm{diag}}(\cdot,t)\,
+\mathcal S_{\mathrm{bb}}^{\mathrm{diag}}(\cdot,t)
+\Bigr]
+\right|,
+\]
+\[
+A_{a\leftrightarrow b}^\tau
+:=
+\inf_{t\ge\tau}
+\Gamma_{a\leftrightarrow b}^{\mathrm{ex}}(t).
+\]
+If
+\[
+\sup_{t\ge\tau}
+\bigl|
+\overline{\Gamma}_{\mathrm{fb}}^{\mathrm{diag}}(t)
+\bigr|
+>
+\varepsilon,
+\]
+then the exchange-cover and tail-persistence assumptions imply the
+existence of \((a,b)\in\mathfrak P\) with
+\[
+A_{a\leftrightarrow b}^\tau
+\ge
+\frac{c_{\mathrm{cov}}}{N_{\mathrm{ex}}}\,\varepsilon^2
+-
+\frac{e_{\mathrm{cov}}(\tau)}{N_{\mathrm{ex}}}M_\gamma
+-
+r_{\mathrm{pers}}(\tau).
+\]
+The tail-passive background assumption gives
+\[
+2B_{a\leftrightarrow b}^\tau
+\le
+2\beta M_{\mathrm{ex}}(\tau)\eta_{\mathrm{bb}}(\tau).
+\]
+The exchange-efficiency gap implies
+\[
+Q_{a\leftrightarrow b}^\tau
+\le
+(2-\delta_Q)\,
+\sup_{t\ge\tau}\Gamma_{a\leftrightarrow b}^{\mathrm{ex}}(t)
+\le
+(2-\delta_Q)\bigl(
+A_{a\leftrightarrow b}^\tau+r_{\mathrm{pers}}(\tau)
+\bigr).
+\]
+Substituting these estimates into the exchange bound gives
+\[
+D_\tau^{\mathrm{diag}}(I_{a\leftrightarrow b})
+-
+D_\tau^{\mathrm{diag}}(I^*)
+\le
+-
+\frac{\delta_Q c_{\mathrm{cov}}}{N_{\mathrm{ex}}}\,\varepsilon^2
++
+\frac{2e_{\mathrm{cov}}(\tau)}{N_{\mathrm{ex}}}M_\gamma
++
+2r_{\mathrm{pers}}(\tau)
++
+2\beta M_{\mathrm{ex}}(\tau)\eta_{\mathrm{bb}}(\tau).
+\]
+Approximate tail optimality of \(I^*\) yields
+\[
+-r_{\mathrm{opt}}(\tau)
+\le
+D_\tau^{\mathrm{diag}}(I_{a\leftrightarrow b})
+-
+D_\tau^{\mathrm{diag}}(I^*).
+\]
+Combining the two inequalities gives the stated bound on
+\(\varepsilon\), hence on
+\(\sup_{t\ge\tau}|\overline{\Gamma}_{\mathrm{fb}}^{\mathrm{diag}}(t)|\).
+\end{proof}
+
+\begin{corollary}[Conditional foreground-background mutual-information decay]\label{cor:conditional_b2b}
+Assume the hypotheses of Proposition~\ref{prop:conditional_b2a}, and in
+addition suppose that the pointwise diagonal foreground-background defect
+admits the block-local decomposition
+\[
+\gamma_{\mathrm{fb}}^{\mathrm{diag}}(\xi,t)
+=
+-\imath_{\mathrm{fb}}(\xi,t)
++
+e_{\mathrm{fb}}^D(\xi,t)
++
+e_{\mathrm{fb}}^H(\xi,t),
+\]
+where
+\[
+\imath_{\mathrm{fb}}(\xi,t)
+:=
+\log\frac{P_t^{\mathrm{diag}}(u,v)}
+{P_t^{\mathrm{diag}}(u)P_t^{\mathrm{diag}}(v)}
+\]
+and the averaged locality defects satisfy
+\[
+\sup_{t\ge\tau}
+\bigl|
+\overline{E}_{\mathrm{fb}}^D(t)
+\bigr|
+\le
+\varepsilon_D(\tau),
+\qquad
+\sup_{t\ge\tau}
+\bigl|
+\overline{E}_{\mathrm{fb}}^H(t)
+\bigr|
+\le
+\varepsilon_H(\tau),
+\]
+with \(\varepsilon_D(\tau),\varepsilon_H(\tau)\to 0\). Then
+\[
+\sup_{t\ge\tau}
+I_t(u:v)
+\le
+\varepsilon_\Gamma(\tau)
++
+\varepsilon_D(\tau)
++
+\varepsilon_H(\tau),
+\]
+hence \(I_t(u:v)\to 0\) uniformly on the tail.
+\end{corollary}
+
+\begin{proof}
+Averaging the assumed pointwise decomposition gives
+\[
+\overline{\Gamma}_{\mathrm{fb}}^{\mathrm{diag}}(t)
+=
+-I_t(u:v)
++
+\overline{E}_{\mathrm{fb}}^D(t)
++
+\overline{E}_{\mathrm{fb}}^H(t).
+\]
+Taking absolute values and applying
+Proposition~\ref{prop:conditional_b2a} gives the stated estimate.
+\end{proof}
+
+\begin{corollary}[Conditional full diagonal product-defect closure]\label{cor:conditional_full_prod}
+Fix orderings
+\[
+B_{\mathrm{fg}}=(i_1,\dots,i_{k^*}),
+\qquad
+B_{\mathrm{bg}}=(j_1,\dots,j_{D-k^*})
+\]
+of the foreground and background indices. For an ordered block
+\(B=(\ell_1,\dots,\ell_r)\), write
+\[
+X_{B,\le m}:=(\xi_{\ell_1},\dots,\xi_{\ell_m}),
+\qquad
+I_{B,m}(t):=I_t\!\bigl(X_{B,\le m}:\xi_{\ell_{m+1}}\bigr).
+\]
+Assume the hypotheses of Corollary~\ref{cor:conditional_b2b}, and in
+addition suppose that for each ordered block
+\(B\in\{B_{\mathrm{fg}},B_{\mathrm{bg}}\}\) and each
+\(m=1,\dots,|B|-1\) there is a pointwise diagonal prefix defect
+\[
+\gamma_{B,m}^{\mathrm{diag}}(x_{B,\le m+1},t)
+=
+-\imath_{B,m}(x_{B,\le m+1},t)
++
+e_{B,m}^D(x_{B,\le m+1},t)
++
+e_{B,m}^H(x_{B,\le m+1},t),
+\]
+where
+\[
+\imath_{B,m}(x_{B,\le m+1},t)
+:=
+\log\frac{
+P_{B,t}^{\le m+1}(x_{B,\le m+1})
+}{
+P_{B,t}^{\le m}(x_{B,\le m})\,P_{\ell_{m+1},t}(x_{\ell_{m+1}})
+},
+\]
+and the averaged defects satisfy
+\[
+\sup_{t\ge\tau}
+\bigl|
+\overline{\Gamma}_{B,m}^{\mathrm{diag}}(t)
+\bigr|
+\le
+\varepsilon_{B,m}^{\Gamma}(\tau),
+\]
+\[
+\sup_{t\ge\tau}
+\left|
+\mathbb E\!\bigl[e_{B,m}^{D}(\cdot,t)\bigr]
+\right|
+\le
+\varepsilon_{B,m}^{D}(\tau),
+\qquad
+\sup_{t\ge\tau}
+\left|
+\mathbb E\!\bigl[e_{B,m}^{H}(\cdot,t)\bigr]
+\right|
+\le
+\varepsilon_{B,m}^{H}(\tau),
+\]
+with all these functions tending to zero as \(\tau\to\infty\). Define
+\[
+\varepsilon_{\mathrm{fg}}^{\mathrm{seq}}(\tau)
+:=
+\sum_{m=1}^{k^*-1}
+\Bigl(
+\varepsilon_{\mathrm{fg},m}^{\Gamma}(\tau)
++
+\varepsilon_{\mathrm{fg},m}^{D}(\tau)
++
+\varepsilon_{\mathrm{fg},m}^{H}(\tau)
+\Bigr),
+\]
+\[
+\varepsilon_{\mathrm{bg}}^{\mathrm{seq}}(\tau)
+:=
+\sum_{m=1}^{D-k^*-1}
+\Bigl(
+\varepsilon_{\mathrm{bg},m}^{\Gamma}(\tau)
++
+\varepsilon_{\mathrm{bg},m}^{D}(\tau)
++
+\varepsilon_{\mathrm{bg},m}^{H}(\tau)
+\Bigr),
+\]
+with the convention that an empty sum is zero. Then
+\[
+\sup_{t\ge\tau}
+D_{\mathrm{KL}}\!\left(
+P_t^{\mathrm{diag}}
+\middle\|
+\prod_{i=1}^D P_{i,t}
+\right)
+\le
+\varepsilon_\Gamma(\tau)
++
+\varepsilon_D(\tau)
++
+\varepsilon_H(\tau)
++
+\varepsilon_{\mathrm{fg}}^{\mathrm{seq}}(\tau)
++
+\varepsilon_{\mathrm{bg}}^{\mathrm{seq}}(\tau).
+\]
+\end{corollary}
+
+\begin{proof}
+The exact block decomposition gives
+\[
+D_{\mathrm{KL}}\!\left(
+P_t^{\mathrm{diag}}
+\middle\|
+\prod_{i=1}^D P_{i,t}
+\right)
+=
+I_t(u:v)
++
+D_{\mathrm{KL}}\!\left(
+P_t^{\mathrm{diag}}(u)
+\middle\|
+\prod_{i\in I^*} P_{i,t}
+\right)
++
+D_{\mathrm{KL}}\!\left(
+P_t^{\mathrm{diag}}(v)
+\middle\|
+\prod_{j\notin I^*} P_{j,t}
+\right).
+\]
+For any ordered block \(B=(\ell_1,\dots,\ell_r)\), the KL chain rule
+gives
+\[
+D_{\mathrm{KL}}\!\left(
+P_{B,t}
+\middle\|
+\prod_{q=1}^r P_{\ell_q,t}
+\right)
+=
+\sum_{m=1}^{r-1} I_{B,m}(t).
+\]
+Averaging the assumed prefix decomposition yields
+\[
+\overline{\Gamma}_{B,m}^{\mathrm{diag}}(t)
+=
+-I_{B,m}(t)
++
+\mathbb E\!\bigl[e_{B,m}^{D}(\cdot,t)\bigr]
++
+\mathbb E\!\bigl[e_{B,m}^{H}(\cdot,t)\bigr],
+\]
+hence
+\[
+I_{B,m}(t)
+\le
+\bigl|\overline{\Gamma}_{B,m}^{\mathrm{diag}}(t)\bigr|
++
+\left|
+\mathbb E\!\bigl[e_{B,m}^{D}(\cdot,t)\bigr]
+\right|
++
+\left|
+\mathbb E\!\bigl[e_{B,m}^{H}(\cdot,t)\bigr]
+\right|.
+\]
+Summing over \(m\) gives the stated bound for each block. Combining
+those two blockwise bounds with
+Corollary~\ref{cor:conditional_b2b} proves the claim.
+\end{proof}
+
+\section{Stable-Hull Transfer and Comparison with HAFF Accessibility}\label{sec:haff}
+
+Let \(\omega(\cdot)=\langle\Omega,\cdot\,\Omega\rangle\) on
+\(\mathcal A_U\), and let \(\sigma_s^{\omega,\mathrm{tot}}\) denote the
+ambient modular flow. Define
+\[
+\mathfrak L_{\mathfrak F}^{\mathrm{st}}
+:=
+\left\{
+\begin{aligned}
+\mathcal M\subseteq \mathcal A_U:\;&
+\mathcal M \text{ is a von Neumann subalgebra},\\
+&
+\mathcal A_{\mathfrak F}\subseteq \mathcal M,\\
+&
+\sigma_s^{\omega,\mathrm{tot}}(\mathcal M)=\mathcal M
+\quad \forall s\in\mathbb R,\\
+&
+\mathcal E_t(\mathcal M)\subseteq \mathcal M
+\quad \forall t\ge 0
+\end{aligned}
+\right\}.
+\]
+This class is nonempty because \(\mathcal A_U\in \mathfrak L_{\mathfrak F}^{\mathrm{st}}\).
+
+\begin{definition}[Stable-hull transfer map]\label{def:stablehull}
+The \emph{stable-hull transfer} of the foreground frame
+\(\mathfrak F\) is
+\[
+\Phi_{\mathfrak F}^{\mathrm{st}}(\mathfrak F)
+:=
+\bigcap_{\mathcal M\in \mathfrak L_{\mathfrak F}^{\mathrm{st}}}\mathcal M.
+\]
+\end{definition}
+
+\begin{proposition}[Preliminary inclusion of the pointer algebra]\label{prop:prelim_inclusion}
+Assume the HAFF standing condition that the accessible algebra is the
+fixed-point algebra of the decoherence semigroup,
+\[
+\mathcal A_c^{\mathrm{HAFF}}
+:=
+\operatorname{Fix}(\mathcal E)
+:=
+\{A\in\mathcal A_U:\mathcal E_t(A)=A\ \forall t\ge 0\}.
+\]
+Let \(\mathfrak F\) be a T-DOME foreground frame, and let
+\(O_1,\dots,O_{k^*}\) be exact pointer-aligned observables realizing
+\(\iota_{\mathfrak F}\) as in
+Proposition~\ref{prop:pointer}. Then
+\[
+\mathcal A_{\mathfrak F}
+=
+W^*(1,O_1,\dots,O_{k^*})
+\subseteq
+\mathcal A_c^{\mathrm{HAFF}}.
+\]
+\end{proposition}
+
+\begin{proof}
+Exact pointer alignment gives
+\[
+O_i\in \operatorname{Fix}(\mathcal E)=\mathcal A_c^{\mathrm{HAFF}}
+\qquad
+\text{for each } i.
+\]
+Since \(\mathcal A_c^{\mathrm{HAFF}}\) is a von Neumann algebra, it
+contains the von Neumann algebra generated by \(1,O_1,\dots,O_{k^*}\).
+Hence
+\[
+W^*(1,O_1,\dots,O_{k^*})\subseteq \mathcal A_c^{\mathrm{HAFF}}.
+\]
+\end{proof}
+
+\begin{proposition}[Minimal stable-hull transfer]\label{prop:stablehull}
+Assume the hypotheses of Proposition~\ref{prop:pointer}. Then
+\[
+\Phi_{\mathfrak F}^{\mathrm{st}}(\mathfrak F)
+=
+\bigcap_{\mathcal M\in \mathfrak L_{\mathfrak F}^{\mathrm{st}}}\mathcal M
+\]
+is a well-defined von Neumann subalgebra of \(\mathcal A_U\) satisfying:
+\begin{enumerate}
+\item \(\mathcal A_{\mathfrak F}\subseteq
+  \Phi_{\mathfrak F}^{\mathrm{st}}(\mathfrak F)\);
+\item
+  \[
+  \sigma_s^{\omega,\mathrm{tot}}
+  \big(\Phi_{\mathfrak F}^{\mathrm{st}}(\mathfrak F)\big)
+  =
+  \Phi_{\mathfrak F}^{\mathrm{st}}(\mathfrak F)
+  \qquad
+  \forall s\in\mathbb R;
+  \]
+\item
+  \[
+  \mathcal E_t\big(\Phi_{\mathfrak F}^{\mathrm{st}}(\mathfrak F)\big)
+  \subseteq
+  \Phi_{\mathfrak F}^{\mathrm{st}}(\mathfrak F)
+  \qquad
+  \forall t\ge 0;
+  \]
+\item it is minimal with these properties: if
+  \(\mathcal N\subseteq\mathcal A_U\) is any von Neumann subalgebra
+  containing \(\mathcal A_{\mathfrak F}\) and stable under both ambient
+  dynamics, then
+  \[
+  \Phi_{\mathfrak F}^{\mathrm{st}}(\mathfrak F)\subseteq \mathcal N.
+  \]
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+The class \(\mathfrak L_{\mathfrak F}^{\mathrm{st}}\) is nonempty
+because \(\mathcal A_U\) belongs to it. An arbitrary intersection of
+von Neumann subalgebras is again a von Neumann subalgebra, so the
+intersection is well-defined and is itself a von Neumann subalgebra of
+\(\mathcal A_U\). Since every element of
+\(\mathfrak L_{\mathfrak F}^{\mathrm{st}}\) contains
+\(\mathcal A_{\mathfrak F}\), so does the intersection.
+
+If \(A\in\Phi_{\mathfrak F}^{\mathrm{st}}(\mathfrak F)\), then
+\(A\in\mathcal M\) for every
+\(\mathcal M\in\mathfrak L_{\mathfrak F}^{\mathrm{st}}\). By definition
+of the class,
+\(\sigma_s^{\omega,\mathrm{tot}}(A)\in\mathcal M\) for every
+\(s\in\mathbb R\), and
+\(\mathcal E_t(A)\in\mathcal M\) for every \(t\ge 0\). Therefore both
+\(\sigma_s^{\omega,\mathrm{tot}}(A)\) and \(\mathcal E_t(A)\) belong to
+the intersection. This proves
+\(\sigma_s^{\omega,\mathrm{tot}}(\Phi_{\mathfrak F}^{\mathrm{st}}(\mathfrak F))
+\subseteq \Phi_{\mathfrak F}^{\mathrm{st}}(\mathfrak F)\). Applying the
+same argument with \(-s\) gives the reverse inclusion, hence equality.
+
+Finally, if \(\mathcal N\) is any von Neumann subalgebra with the same
+containment and stability properties, then
+\(\mathcal N\in\mathfrak L_{\mathfrak F}^{\mathrm{st}}\). Since
+\(\Phi_{\mathfrak F}^{\mathrm{st}}(\mathfrak F)\) is the intersection of
+all members of that class, it is contained in \(\mathcal N\). This is
+exactly the desired minimality.
+\end{proof}
+
+\begin{proposition}[Stable-hull transfer lies in the HAFF modular accessible algebra]\label{prop:stablehull_inclusion}
+Assume:
+\begin{enumerate}
+\item the hypotheses of Proposition~\ref{prop:pointer};
+\item the exact pointer-invariance condition of
+  Proposition~\ref{prop:prelim_inclusion};
+\item there exists a HAFF modular accessible algebra
+  \(\mathcal A_c^{\mathrm{HAFF}}\subseteq \mathcal A_U\) which is
+  invariant under the ambient modular flow and forward-stable under the
+  decoherence semigroup in the sense of HAFF Paper~D~\cite{HAFFD}.
+\end{enumerate}
+Then
+\[
+\Phi_{\mathfrak F}^{\mathrm{st}}(\mathfrak F)\subseteq
+\mathcal A_c^{\mathrm{HAFF}}.
+\]
+\end{proposition}
+
+\begin{proof}
+By Proposition~\ref{prop:prelim_inclusion},
+\(\mathcal A_{\mathfrak F}\subseteq \mathcal A_c^{\mathrm{HAFF}}\).
+Assumption~(3) says that \(\mathcal A_c^{\mathrm{HAFF}}\) is a von
+Neumann subalgebra, invariant under the ambient modular flow, and
+forward-stable under the decoherence semigroup. Hence
+\(\mathcal A_c^{\mathrm{HAFF}}\in \mathfrak L_{\mathfrak F}^{\mathrm{st}}\).
+Since \(\Phi_{\mathfrak F}^{\mathrm{st}}(\mathfrak F)\) is the
+intersection of all members of that class, it is contained in
+\(\mathcal A_c^{\mathrm{HAFF}}\).
+\end{proof}
+
+\begin{corollary}[Partial Lemma~C]\label{cor:partialC}
+Assume the hypotheses of Proposition~\ref{prop:stablehull}. Then
+\(\Phi_{\mathfrak F}^{\mathrm{st}}(\mathfrak F)\) is a von Neumann
+subalgebra of \(\mathcal A_U\), and the restricted vector state
+\[
+\omega_{\mathfrak F}^{\mathrm{st}}
+:=
+\langle\Omega,\cdot\,\Omega\rangle|_{\Phi_{\mathfrak F}^{\mathrm{st}}(\mathfrak F)}
+\]
+is faithful. If, in addition, the hypotheses of
+Proposition~\ref{prop:stablehull_inclusion} hold, then
+\[
+\Phi_{\mathfrak F}^{\mathrm{st}}(\mathfrak F)\subseteq
+\mathcal A_c^{\mathrm{HAFF}}.
+\]
+\end{corollary}
+
+\begin{proof}
+The subalgebra statement is exactly
+Proposition~\ref{prop:stablehull}. Because \(\Omega\) is separating for
+the ambient algebra \(\mathcal A_U\), it is also separating for every
+von Neumann subalgebra of \(\mathcal A_U\); hence the restricted vector
+state is faithful on
+\(\Phi_{\mathfrak F}^{\mathrm{st}}(\mathfrak F)\). The inclusion claim
+is Proposition~\ref{prop:stablehull_inclusion}.
+\end{proof}
+
+\paragraph{Anchored shell existence around the stable hull.}
+The stable-hull output already anchors a Foundation~I shell problem.
+Write
+\[
+\mathcal A_*:=\Phi_{\mathfrak F}^{\mathrm{st}}(\mathfrak F).
+\]
+For \(X\in\operatorname{Ball}(\mathcal A_U)\) and \(q\ge 0\), define
+the \(\mathcal A_*\)-relative defect
+\[
+\delta_q^{\mathcal A_*,\Omega}(X)
+:=
+\operatorname{dist}_{\Omega}^{\sharp}
+\bigl(\mathcal E_q(X),\,\operatorname{Ball}(\mathcal A_*)\bigr),
+\qquad
+\|Y\|_\Omega^\sharp
+:=
+\bigl(\|Y\Omega\|^2+\|Y^*\Omega\|^2\bigr)^{1/2}.
+\]
+For \(\varepsilon\ge 0\) and \(\tau>0\), let
+\[
+\mathfrak R_{\varepsilon,\tau}^{\mathcal A_*,\Omega}
+:=
+\left\{
+\mathcal M\ \middle|\
+\begin{array}{l}
+\mathcal A_*\subseteq \mathcal M\subseteq \mathcal A_U,\ \mathcal M
+\text{ is a unital vN subalgebra},\\[1mm]
+\delta_q^{\mathcal A_*,\Omega}(X)\le \varepsilon,\ \forall
+X\in\operatorname{Ball}(\mathcal M),\
+\forall q\in\mathbb Q\cap[0,\tau]
+\end{array}
+\right\}.
+\]
+
+\begin{proposition}[Anchored relative-shell existence around the stable hull]\label{prop:anchored_shell}
+Assume the hypotheses of Corollary~\ref{cor:partialC}. Then for every
+\(\varepsilon\ge 0\) and \(\tau>0\):
+\begin{enumerate}
+\item the class
+  \(\mathfrak R_{\varepsilon,\tau}^{\mathcal A_*,\Omega}\) is
+  nonempty;
+\item every chain in
+  \(\mathfrak R_{\varepsilon,\tau}^{\mathcal A_*,\Omega}\) has an
+  upper bound;
+\item therefore maximal elements exist.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+By Corollary~\ref{cor:partialC}, \(\mathcal A_*\) is a von Neumann
+subalgebra of \(\mathcal A_U\) and is forward-stable under the
+decoherence semigroup. Hence \(\mathcal A_*\) itself belongs to
+\(\mathfrak R_{\varepsilon,\tau}^{\mathcal A_*,\Omega}\): for
+\(X\in\operatorname{Ball}(\mathcal A_*)\), forward stability gives
+\(\mathcal E_q(X)\in\mathcal A_*\), and contractivity gives
+\(\mathcal E_q(X)\in\operatorname{Ball}(\mathcal A_*)\), so
+\(\delta_q^{\mathcal A_*,\Omega}(X)=0\). Thus the class is nonempty.
+
+Let \(\{\mathcal M_i\}_{i\in I}\) be a chain in
+\(\mathfrak R_{\varepsilon,\tau}^{\mathcal A_*,\Omega}\), and set
+\[
+\mathcal M:=W^*\!\Big(\bigcup_{i\in I}\mathcal M_i\Big).
+\]
+Then \(\mathcal A_*\subseteq \mathcal M\subseteq \mathcal A_U\), and
+\(\mathcal M\) is a unital von Neumann subalgebra. By Kaplansky
+density, every \(X\in\operatorname{Ball}(\mathcal M)\) is a bounded
+strong* limit of a net from the unit ball of the algebraic union
+\(\bigcup_i\mathcal M_i\). Since the chain is totally ordered, each
+approximant lies in some admissible member of the chain, so its
+\(\mathcal A_*\)-relative defect is bounded by \(\varepsilon\) for all
+\(q\in\mathbb Q\cap[0,\tau]\). Passing to the limit in the
+\(\Omega^\sharp\)-seminorm yields the same bound for \(X\), hence
+\(\mathcal M\in\mathfrak R_{\varepsilon,\tau}^{\mathcal A_*,\Omega}\).
+Therefore every chain has an upper bound. Zorn's lemma now gives a
+maximal element.
+\end{proof}
+
+\begin{remark}[Status of anchored shells]\label{rem:anchored_shell_status}
+Proposition~\ref{prop:anchored_shell} does not yet construct the full
+shell family required on the Paper~I side. It closes only the anchored
+existence problem around the theorem-level Foundation~I output
+\(\mathcal A_*\). What remains open is the upgrade to a canonical,
+nontrivial, and calibrated shell family with the correct modular
+transport law.
+\end{remark}
+
+\begin{remark}[Why equality is not the right first target]
+In general, \(\mathcal A_c^{\mathrm{HAFF}}\) may be much larger than the
+minimal modular-decoherence stable hull of finitely many foreground
+pointer observables. The honest first target is therefore the inclusion
+\[
+\Phi_{\mathfrak F}^{\mathrm{st}}(\mathfrak F)\subseteq
+\mathcal A_c^{\mathrm{HAFF}},
+\]
+not the equality
+\[
+\Phi_{\mathfrak F}^{\mathrm{st}}(\mathfrak F)\stackrel{?}{=}
+\mathcal A_c^{\mathrm{HAFF}}.
+\]
+The equality problem should remain open until one proves that the
+foreground realization together with the stable-hull transfer selects
+the same algebra as the HAFF maximality construction.
+\end{remark}
+
+\begin{remark}[Relation to Paper~III]
+One should not identify the foreground complexity \(k^*\) directly with
+the statistical complexity parameter \(n\) of Paper~III~\cite{PaperIII}.
+The safer statement is only that
+\(\Phi_{\mathfrak F}^{\mathrm{st}}(\mathfrak F)\) provides a natural
+algebraic candidate for a later bridge to the finite-observer sector
+studied there.
+\end{remark}
+
+\section{What Remains Open}\label{sec:open}
+
+The bottlenecks are now sharper than they were before this note.
+
+\begin{enumerate}
+\item \textbf{Persistent projection selection.} Lemma~\ref{lem:A} is
+  only conditional. The constructive question of which projection
+  emerges from the source datum remains open.
+\item \textbf{Foreground realization and model-independent PS2.} The
+  stable-hull route closes the transfer-map well-definedness problem
+  once \(\mathcal A_{\mathfrak F}\) exists. Within the restricted
+  product-classical and finite-dimensional faithful pointer regime, the
+  PS2 package is now theorem-backed:
+  Lemma~\ref{lem:product_classical} closes the structural reduction to
+  fragment-local omission losses, Lemma~\ref{lem:fragment_orth} closes
+  orthogonality, and Corollary~\ref{cor:ps2_closure} packages the
+  restricted selection theorem. Lemma~\ref{lem:diag_off_split} now
+  fixes the bookkeeping split of the survival deficit into a
+  pointer-diagonal term and an off-sector remainder. In addition,
+  Proposition~\ref{prop:conditional_b2a} and
+  Corollary~\ref{cor:conditional_b2b} now show that the
+  foreground-background part of the model-independent programme closes
+  conditionally once four tail inputs are granted: approximate tail
+  optimality, exchange-cover plus persistence, tail-passive background
+  survival, and an exchange-efficiency gap, together with the
+  block-locality defects for the KL and control terms. Corollary~
+  \ref{cor:conditional_full_prod} then reduces the remaining diagonal
+  product-defect problem to finitely many ordered within-block prefix
+  couplings. The remaining open issue is therefore to derive those tail
+  hypotheses together with the prefix-level coupling and locality
+  bounds model-independently from the broken-phase output and the full
+  T-DOME survival identity rather than assume them. Beyond the
+  restricted regime, the unresolved analytic obstacles are explicit:
+  cross-channel correlations need not decouple, pointer spectra need
+  not remain finite or discrete, and the Hilbert--Schmidt control used
+  here is not available in general Type~III infinite-dimensional
+  settings, where a predual reformulation may be necessary. The
+  pointer-sector existence input PS1 is treated here only as an
+  exact-regime idealization; what remains genuinely open is the
+  model-independent alignment step PS2 and the induced ordered-selection
+  step PS3.
+\item \textbf{Comparison with HAFF maximality.} The present paper proves
+  inclusion only. Equality with the full HAFF accessible algebra, or any
+  canonical equivalence theorem, remains a separate strong-form problem.
+\item \textbf{Bridge to Paper~I admissibility.} To feed directly into
+  Paper~I, one must still verify that the algebra produced by the lower
+  bridge satisfies the additional admissibility hypotheses used there,
+  beyond the already-closed faithfulness condition. More precisely, the
+  remaining interface is to derive the modular-decoherence scaling axiom
+  \((C)\) together with a Foundation~I shell family
+  \(\{\mathcal A_*(\tau)\}_{\tau>0}\) around the stable-hull output
+  \(\mathcal A_*:=\Phi_{\mathfrak F}^{\mathrm{st}}(\mathfrak F)\), and
+  one-scale cyclicity of the corresponding shell-annulus algebra
+  \[
+  \mathcal D_{\tau}:=\mathcal A_*(\tau)\cap \mathcal A_*'.
+  \]
+  In Paper~I language these are exactly the remaining inputs
+  \((C)+(Amb)+(CN_\exists)\). The shell-family side has now itself been
+  partially internalized: Proposition~\ref{prop:anchored_shell} closes
+  anchored relative-shell existence around \(\mathcal A_*\). What
+  remains open is the canonical and calibrated nontrivial shell family.
+  The naive scalar-threshold route now has an exact blocker: fixed
+  thresholds are compatible with modular transport but not with exact
+  core calibration, vanishing thresholds give exact core calibration but
+  not automatic modular transport, and the only scalar profile with
+  both properties is the trivial zero-threshold profile, which
+  collapses the shells back to \(\mathcal A_*\). More sharply, even the
+  fixed-threshold branch now reduces to finding a scale-invariant
+  nontriviality window between core collapse and ambient collapse,
+  together with uniqueness of maximal shells inside that window; exact
+  calibration is a separate issue beyond that.
+\end{enumerate}
+
+These open problems are real, but they are no longer vague. Foundation~I
+is now separated into one conditional source-selection problem,
+one theorem-level thermodynamic packaging result, one theorem-level
+stable-hull transfer construction, and one remaining
+foreground-realization/comparison problem.
+
+\section{Conclusion}
+
+The purpose of this paper has been calibration, not inflation.
+Foundation~I is neither absent nor complete. It is partially available
+in theorem-level form, partially available as an explicit construction
+problem, and partially still conditional.
+
+The main positive result is that the T-DOME I--II chain can already be
+written as a formal Foundation~I proposition, and that the first
+restricted PS2 bottleneck can now be closed at theorem level in a first
+restricted regime. In the product-classical, decoherence-dominated
+pointer regime, pointer coarse-graining yields fragment-local omission
+losses, independent fragment records force orthogonality, semigroup
+decay plus explicit Hilbert--Schmidt continuity constants bound the
+coherence remainder, and a sufficiently large weight gap forces exact
+top-\(k^*\) pointer selection. On the algebraic side, the first
+operator-algebraic realization of the foreground sector can now be
+extended to a well-defined minimal modular-decoherence stable hull,
+yielding a faithful von Neumann subalgebra together with the inclusion
+\[
+\Phi_{\mathfrak F}^{\mathrm{st}}(\mathfrak F)\subseteq
+\mathcal A_c^{\mathrm{HAFF}}.
+\]
+At the level of future PS2 work, the paper now also fixes the
+bookkeeping split of the survival deficit into a pointer-diagonal term
+and an off-sector remainder, and it closes the first
+foreground-background decoupling step conditionally: if the tail
+distortion localizes, the exchange-weighted defect persists, the
+background diagonal survival becomes tail-passive, the exchange
+efficiency ratio stays below the squared-loss threshold, and the
+remaining KL/control locality defects are small, then the broken phase
+forces tail-small diagonal foreground-background coupling and hence
+tail-small foreground-background mutual information. Corollary~
+\ref{cor:conditional_full_prod} then shows that the unresolved
+product-defect part is no longer a monolithic statement: it is a finite
+family of ordered within-block prefix decoupling problems.
+The remaining model-independent problem is therefore no longer vague: it
+is to derive those tail hypotheses and the ordered prefix-level
+coupling/locality bounds, and thereby to control the full diagonal
+product defect as a theorem-level output of the broken phase.
+On the Paper~I side, the admissibility interface is now sharpened in the
+same way: faithfulness is already closed, ambient scaling covariance
+would transfer the dynamical axiom \((C)\), and the remaining regularity
+burden is exactly the existence of a Foundation~I shell family and one
+cyclic shell-annulus scale. Even the shell-family side is no longer a
+black box: anchored relative shells around \(\mathcal A_*\) exist, but
+their upgrade to a canonical nontrivial shell family currently stops at
+the scalar-threshold trilemma between transport, exact core
+calibration, and nontriviality. Within the fixed-threshold route, this
+has already reduced further to a scale-invariant nontriviality window
+and uniqueness problem, plus a separate calibration theorem.
+The main negative result is equally important: nothing in the present
+note licenses the stronger claim that the source datum has already been
+shown to generate the full accessible algebra uniquely, nor that PS2 has
+been derived model-independently from the broken-phase output. Those
+remain the unfinished parts of the unified-source programme.
+
+In that sense, the current status is simple. The thread can be strung,
+but only honestly: conditional at the source end, inclusion-first at the
+algebra end, and theorem-backed only where the intermediate steps have
+actually been closed.
+
+\appendix
+
+\section{External Genesis Inputs (Self-Contained Statements)}\label{app:premises}
+
+The following list records the external Genesis-side inputs used in the
+paper in a self-contained form. The point is not to reproduce their full
+proofs, but to state exactly what is imported from HAFF and T-DOME.
+
+\begin{enumerate}
+\item \textbf{HAFF ambient datum.}
+The ambient setting is a Type~III\(_1\) von Neumann algebra in standard
+form \((\mathcal H_U,\mathcal A_U,\Omega)\), with \(\Omega\) cyclic and
+separating for \(\mathcal A_U\), together with a strongly continuous
+semigroup of normal completely positive unital maps
+\(\{\mathcal E_t\}_{t\ge 0}\) on \(\mathcal A_U\). This is the source
+datum formalized in Section~\ref{sec:ledger}.
+
+\item \textbf{T-DOME~I projected record dynamics.}
+Given a persistent Nakajima--Zwanzig projection
+\(\mathcal P:\mathcal A_U\to\mathcal A_U\), the projected predual
+dynamics is analyzed in a non-Markovian kernel form
+\[
+\partial_t \omega_{\mathcal P,t}
+=
+\int_0^t \mathcal K_*(t,s)\,\omega_{\mathcal P,s}\,ds
+\;+\; \text{inhomogeneous term},
+\]
+or equivalently in the dual memory-kernel formulation used in
+Section~\ref{sec:ledger}. Foundation~I uses only the existence of such a
+kernel and a persistent record process, not an explicit closed-form
+solution.
+
+\item \textbf{T-DOME~I survival identity and distortion functional.}
+The survival bookkeeping imported into the PS2 analysis is the identity
+\[
+\beta\,\mathcal S
+=
+-\Delta I(S{:}E)
+-\Delta D_{\mathrm{KL}}
+-\beta\,\Delta\langle H_{\mathrm{ctrl}}\rangle,
+\]
+with frame comparisons measured in the squared-loss distortion
+\[
+D(\mathcal F_I)
+:=
+\mathbb E_\xi\!\left[
+\bigl(
+\mathcal S_{\mathrm{full}}(\xi)
+-\mathcal S_{\mathcal F_I}(\xi)
+\bigr)^2
+\right].
+\]
+The diagonal/off-sector split and all restricted PS2 estimates are built
+from this identity rather than assumed independently.
+
+\item \textbf{T-DOME~II symmetry-broken compression.}
+If a persistent record process has effective dimension \(D\) and
+per-component entropy rate \(h_\mu\), then the symmetric full-rank
+processing requirement is
+\[
+R_{\mathrm{full}}=h_\mu D.
+\]
+When
+\[
+R_{\mathrm{full}}
+>
+\dot{\mathcal C}_{\mathrm{budget}},
+\]
+the full-rank symmetric strategy is infeasible. Under the standing
+non-degeneracy hypotheses on the survival-distortion landscape, the
+survival-optimal admissible rank is
+\[
+k^*
+=
+\Big\lfloor
+\frac{\dot{\mathcal C}_{\mathrm{budget}}}{h_\mu}
+\Big\rfloor
+< D,
+\]
+and a symmetry-broken foreground frame
+\(\mathfrak F=\{f_1,\dots,f_{k^*}\}\) emerges, ordered by survival
+relevance.
+
+\item \textbf{Decoherence-side pointer sector (exact-regime idealization).}
+In the exact dephasing-dominated regime, robust classical records are
+carried by a commuting pointer sector. Foundation~I uses this as the
+PS1 input: a commuting family of exact fixed-point projections for
+\(\{\mathcal E_t\}\) generating a classical pointer algebra inside
+\(\mathcal A_U\). This is an idealization of the approximate
+einselection and redundant-record structure described in the quantum
+Darwinism literature~\cite{Zurek2003,Zurek2009}, not a consequence of
+generic decoherence alone.
+
+\item \textbf{HAFF accessible algebra as stable exact sector.}
+In the exact fixed-point version used for the inclusion comparison, the
+HAFF accessible algebra is an ambient von Neumann subalgebra
+\(\mathcal A_c^{\mathrm{HAFF}}\subseteq \mathcal A_U\) that is
+invariant under the ambient modular flow and forward-stable under the
+decoherence semigroup. In the strong exact form,
+\(\mathcal A_c^{\mathrm{HAFF}}=\operatorname{Fix}(\mathcal E)\).
+
+\item \textbf{T-DOME~III / Paper~III calibration distinction.}
+Foundation~I uses T-DOME~III and Paper~III only as contextual support
+for what is \emph{not} claimed: the foreground complexity \(k^*\) is not
+identified with Paper~III's statistical complexity parameter \(n\), and
+the present paper does not attempt a direct derivation of Paper~III's
+self-description bounds from the source-side chain.
+\end{enumerate}
+
+\section{Conditional Input Ledger}\label{app:conditional_ledger}
+
+For ease of reference, the remaining conditional interfaces are listed
+here in one place.
+
+\begin{enumerate}
+\item \textbf{Source selection.}
+Lemma~\ref{lem:A} is conditional on the existence of a persistent
+Nakajima--Zwanzig projection producing the projected record kernel.
+This is the observer-emergence bottleneck.
+
+\item \textbf{Pointer alignment package.}
+The foreground realization problem separates into:
+\begin{enumerate}
+\item[(PS1)] existence of a decoherence-selected exact fixed-point
+  pointer sector (exact dephasing-dominated regime idealization, not a
+  consequence of generic decoherence);
+\item[(PS2)] identification of the T-DOME sufficient-statistic
+  coordinates with the pointer-sector coordinates;
+\item[(PS3)] ordered pointer-channel selection by survival relevance.
+\end{enumerate}
+PS1 is an exact-regime idealization of the decoherence-side input; the
+genuine model-independent open problem is PS2, with PS3 downstream
+from it.
+
+\item \textbf{Fixed-point sector structural inputs.}
+Several results in the paper use the following structural properties of
+the decoherence semigroup, which hold in the exact dephasing-dominated
+regime but are not automatic for a general normal UCP semigroup on a
+Type~III\(_1\) factor:
+\begin{enumerate}
+\item \(\operatorname{Fix}(\mathcal E)\) is a von Neumann subalgebra of
+  \(\mathcal A_U\);
+\item there exists a faithful normal conditional expectation
+  \(\mathbb E_{\mathrm{ptr}}:\mathcal A_U\to
+  \mathcal A_{\mathrm{ptr}}\) preserving \(\omega\);
+\item the pointer algebra \(\mathcal A_{\mathrm{ptr}}\) is contained in
+  \(\operatorname{Fix}(\mathcal E)\).
+\end{enumerate}
+These are standing inputs of the exact-regime framework used throughout
+Foundation~I, not consequences of the source datum
+alone~\cite{Takesaki1972,FrigerioVerri1982}.
+
+\item \textbf{Restricted PS2 regime assumptions.}
+The theorem-level restricted PS2 closure is proved only in the
+product-classical, finite-dimensional faithful pointer regime stated in
+Section~\ref{sec:ps2model}. In particular, the restricted closure does
+not yet treat general cross-channel correlations, continuous pointer
+spectra, or the genuinely infinite-dimensional Type~III estimate
+problem.
+
+\item \textbf{Conditional foreground-background decoupling inputs.}
+Proposition~\ref{prop:conditional_b2a} requires the following named
+inputs on the tail regime: approximate tail optimality, exchange-cover
+plus persistence, tail-passive background survival, and an
+exchange-efficiency gap, together with the KL/control locality defects
+used in Corollary~\ref{cor:conditional_b2b}.
+
+\item \textbf{Conditional full product-defect inputs.}
+Corollary~\ref{cor:conditional_full_prod} adds the ordered within-block
+prefix-chain analogues of the same decoupling/locality inputs. The full
+diagonal product-defect problem is therefore reduced to finitely many
+named prefix couplings rather than left as one undifferentiated gap.
+
+\item \textbf{Paper~I admissibility inputs.}
+The lower output feeds into Paper~I only conditionally on three further
+interfaces: ambient modular-decoherence scaling covariance, a
+Foundation~I shell family around the stable hull, and one-scale
+shell-annulus cyclicity for that family. Proposition~
+\ref{prop:anchored_shell} closes only the anchored existence part of
+this shell problem.
+\end{enumerate}
+
+\newpage
+\addcontentsline{toc}{section}{References}
+
+\begin{thebibliography}{99}
+
+\bibitem{PaperI}
+S.~Liu,
+\emph{The Inseparability of Geometry and Modular Flow: A Structural Inseparability Theorem and Its Implications for the Hard Problem},
+Consciousness Trilogy, Paper~I (2026),
+Zenodo, DOI: 10.5281/zenodo.19607387.
+
+\bibitem{PaperIII}
+S.~Liu,
+\emph{The Structural Horizon of Self-Description: Fisher Bounds, Small-Ball Remainders, and the Quantitative Explanatory Gap},
+Consciousness Trilogy, Paper~III (2026),
+Zenodo, DOI: 10.5281/zenodo.19607724.
+
+\bibitem{HAFFD}
+S.~Liu,
+\emph{Gravitational Phenomena as Emergent Properties of Observable Algebra Selection: A Structural Analysis},
+Zenodo (2026), DOI: 10.5281/zenodo.18388881.
+
+\bibitem{TDOMEI}
+S.~Liu,
+\emph{Non-Markovian Memory and the Thermodynamic Necessity of Temporal Accumulation},
+Zenodo (2026), DOI: 10.5281/zenodo.18574342.
+
+\bibitem{TDOMEII}
+S.~Liu,
+\emph{Spontaneous Symmetry Breaking of Reference Frames as a Computational Cost Minimization Strategy},
+Zenodo (2026), DOI: 10.5281/zenodo.18579703.
+
+\bibitem{TDOMEIII}
+S.~Liu,
+\emph{Fisher Information Geometry and the Thermodynamic Cost of Self-Referential Calibration},
+Zenodo (2026), DOI: 10.5281/zenodo.18591771.
+
+\bibitem{BreuerPetruccione2002}
+H.-P.~Breuer and F.~Petruccione,
+\emph{The Theory of Open Quantum Systems},
+Oxford University Press (2002).
+
+\bibitem{Nakajima1958}
+S.~Nakajima,
+\emph{On quantum theory of transport phenomena},
+Prog.\ Theor.\ Phys.\ \textbf{20}, 948 (1958).
+
+\bibitem{Zurek2003}
+W.~H.~Zurek,
+\emph{Decoherence, einselection, and the quantum origins of the classical},
+Rev.\ Mod.\ Phys.\ \textbf{75}, 715 (2003).
+
+\bibitem{Zurek2009}
+W.~H.~Zurek,
+\emph{Quantum Darwinism},
+Nature Physics \textbf{5}, 181 (2009).
+
+\bibitem{Zwanzig1960}
+R.~Zwanzig,
+\emph{Ensemble method in the theory of irreversibility},
+J.\ Chem.\ Phys.\ \textbf{33}, 1338 (1960).
+
+\bibitem{Takesaki1972}
+M.~Takesaki,
+\emph{Conditional expectations in von Neumann algebras},
+J.\ Funct.\ Anal.\ \textbf{9}, 306--321 (1972).
+
+\bibitem{FrigerioVerri1982}
+A.~Frigerio and M.~Verri,
+\emph{Long-time asymptotic properties of dynamical semigroups on $W^*$-algebras},
+Math.\ Z.\ \textbf{180}, 275--286 (1982).
+
+\end{thebibliography}
+
+\end{document}

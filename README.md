@@ -4,7 +4,7 @@
 
 A unified theoretical framework in three parts — **HAFF**, **Q-RAIF**, and **T-DOME** — investigating how geometry, observers, and irreversible cognition emerge from algebraic structure.
 
-This repository also contains a separate upload package, `consciousness_trilogy/`, for the three-paper **Consciousness Trilogy** on modular flow, higher-dimensional consistency, and self-description limits in AQFT and information geometry.
+This repository also contains a separate upload package under `consciousness_series/Zenodo/` for the paper-level Zenodo uploads associated with the consciousness programme.
 
 ---
 
@@ -69,12 +69,15 @@ genesis-trilogy/
 │   ├── T_DOME_Complete_Collection.*
 │   ├── Genesis_Trilogy.*          # All 13 papers in one volume
 │   └── build_*.py                 # Automated build scripts
-├── consciousness_trilogy/         # Separate Zenodo-ready upload package
-│   ├── Paper_I_*.pdf / .tex
-│   ├── Paper_II_*.pdf / .tex
-│   ├── Paper_III_*.pdf / .tex
-│   ├── Consciousness_Trilogy_Complete_Collection_Zenodo.pdf / .tex
-│   └── community.jpg
+├── consciousness_series/
+│   ├── Zenodo/                    # Paper-level Zenodo upload files only
+│   │   ├── Foundation_I_*.pdf / .tex
+│   │   ├── Paper_I_*.pdf / .tex
+│   │   ├── Paper_II_*.pdf / .tex
+│   │   └── Paper_III_*.pdf / .tex
+│   └── Zenodo_Meta/               # Collection/community assets kept out of upload root
+│       ├── Consciousness_Trilogy_Complete_Collection_Zenodo.pdf / .tex
+│       └── community.jpg
 ├── notes/                         # Companion materials
 │   ├── mapping_en.md / mapping_zh.md   # Theory ↔ Yogacara mapping
 │   ├── reviewer_en.md / reviewer_zh.md # Self-evaluation
@@ -86,18 +89,19 @@ genesis-trilogy/
 
 ---
 
-## Consciousness Trilogy Upload Package
+## Consciousness Upload Package
 
-The `consciousness_trilogy/` folder contains the Zenodo-ready upload files for a separate three-paper programme:
+The paper-level Zenodo upload files live in `consciousness_series/Zenodo/`:
 
 | Item | DOI |
 |------|-----|
+| Foundation I — *From Source to Manifestation* | [10.5281/zenodo.19627786](https://doi.org/10.5281/zenodo.19627786) |
 | Paper I — *The Inseparability of Geometry and Modular Flow* | [10.5281/zenodo.19607387](https://doi.org/10.5281/zenodo.19607387) |
 | Paper II — *Higher-Dimensional Consistency of Geometry and Modular Flow* | [10.5281/zenodo.19607543](https://doi.org/10.5281/zenodo.19607543) |
 | Paper III — *The Structural Horizon of Self-Description* | [10.5281/zenodo.19607724](https://doi.org/10.5281/zenodo.19607724) |
 | Complete collected volume | [10.5281/zenodo.19608174](https://doi.org/10.5281/zenodo.19608174) |
 
-The folder is kept as an archival upload bundle: each paper appears as a same-named `*_Zenodo.tex` / `*_Zenodo.pdf` pair, alongside the complete collection and the Zenodo community image.
+The upload root is intentionally kept minimal: each paper appears only as a same-named `*_Zenodo.tex` / `*_Zenodo.pdf` pair. Collection-level files and the Zenodo community image are kept separately in `consciousness_series/Zenodo_Meta/`.
 
 ---
 
