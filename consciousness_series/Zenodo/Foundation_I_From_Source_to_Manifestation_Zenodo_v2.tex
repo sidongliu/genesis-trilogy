@@ -29,10 +29,17 @@
 \newcommand{\tightlist}{%
   \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
 
-\providecommand{\FISourceContinuityPhrase}{strongly continuous}
-\providecommand{\FIAppendixContinuityPhrase}{strongly continuous}
-\providecommand{\FIHeisenbergContinuityRemark}{}
-\providecommand{\FIDisplayDate}{April 2026}
+\newcommand{\FISourceContinuityPhrase}{pointwise \(\sigma\)-weakly continuous}
+\newcommand{\FIAppendixContinuityPhrase}{pointwise \(\sigma\)-weakly continuous}
+\newcommand{\FIHeisenbergContinuityRemark}{%
+\begin{remark}[Heisenberg-picture continuity convention]
+The semigroup \(\{\mathcal E_t\}\) acts on observables, so the
+continuity assumption in Definition~\ref{sec:ledger} is pointwise
+\(\sigma\)-weak continuity on \(\mathcal A_U\), not norm continuity on
+the ambient algebra. This is the natural continuity regime for the
+Heisenberg-picture QDS language used throughout the paper.
+\end{remark}}
+\newcommand{\FIDisplayDate}{April 2026\\ \small Version 2}
 
 \title{%
   \textbf{Foundation I: From Source to Manifestation}\\

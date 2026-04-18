@@ -4,7 +4,7 @@
 
 A unified theoretical framework in three parts — **HAFF**, **Q-RAIF**, and **T-DOME** — investigating how geometry, observers, and irreversible cognition emerge from algebraic structure.
 
-This repository also contains a separate upload package under `consciousness_series/Zenodo/` for the paper-level Zenodo uploads associated with the consciousness programme.
+This repository also contains a separate upload package under `consciousness_series/Zenodo/` and `consciousness_series/Zenodo_Meta/` for the six-paper **Consciousness Series** and its collected volumes.
 
 ---
 
@@ -72,11 +72,15 @@ genesis-trilogy/
 ├── consciousness_series/
 │   ├── Zenodo/                    # Paper-level Zenodo upload files only
 │   │   ├── Foundation_I_*.pdf / .tex
+│   │   ├── Foundation_II_*.pdf / .tex
+│   │   ├── Foundation_III_*.pdf / .tex
 │   │   ├── Paper_I_*.pdf / .tex
 │   │   ├── Paper_II_*.pdf / .tex
 │   │   └── Paper_III_*.pdf / .tex
 │   └── Zenodo_Meta/               # Collection/community assets kept out of upload root
+│       ├── Foundation_Trilogy_Complete_Collection_Zenodo.pdf / .tex
 │       ├── Consciousness_Trilogy_Complete_Collection_Zenodo.pdf / .tex
+│       ├── Consciousness_Series_Complete_Collection_Zenodo.pdf / .tex
 │       └── community.jpg
 ├── notes/                         # Companion materials
 │   ├── mapping_en.md / mapping_zh.md   # Theory ↔ Yogacara mapping
@@ -91,24 +95,37 @@ genesis-trilogy/
 
 ## Consciousness Upload Package
 
-The paper-level Zenodo upload files live in `consciousness_series/Zenodo/`:
+The paper-level Zenodo upload files live in `consciousness_series/Zenodo/`. Collection-level assets are kept separately in `consciousness_series/Zenodo_Meta/`.
+
+### Paper-Level Uploads
 
 | Item | DOI |
 |------|-----|
 | Foundation I — *From Source to Manifestation* | [10.5281/zenodo.19627786](https://doi.org/10.5281/zenodo.19627786) |
+| Foundation II — *Shared Manifestation* | [10.5281/zenodo.19641372](https://doi.org/10.5281/zenodo.19641372) |
+| Foundation III — *The Perfuming Loop* | [10.5281/zenodo.19642189](https://doi.org/10.5281/zenodo.19642189) |
 | Paper I — *The Inseparability of Geometry and Modular Flow* | [10.5281/zenodo.19607387](https://doi.org/10.5281/zenodo.19607387) |
 | Paper II — *Higher-Dimensional Consistency of Geometry and Modular Flow* | [10.5281/zenodo.19607543](https://doi.org/10.5281/zenodo.19607543) |
 | Paper III — *The Structural Horizon of Self-Description* | [10.5281/zenodo.19607724](https://doi.org/10.5281/zenodo.19607724) |
-| Complete collected volume | [10.5281/zenodo.19608174](https://doi.org/10.5281/zenodo.19608174) |
+
+`Foundation I` appears locally in both the published `v1` text and the interface-harmonized `v2` text; both stay under the same DOI line above.
+
+### Collected Volumes
+
+| Item | DOI |
+|------|-----|
+| Foundation Trilogy | [10.5281/zenodo.19642398](https://doi.org/10.5281/zenodo.19642398) |
+| Consciousness Trilogy | [10.5281/zenodo.19608174](https://doi.org/10.5281/zenodo.19608174) |
+| Consciousness Series — complete six-paper collected volume | [10.5281/zenodo.19643449](https://doi.org/10.5281/zenodo.19643449) |
 
 The upload root is intentionally kept minimal: each paper appears only as a same-named `*_Zenodo.tex` / `*_Zenodo.pdf` pair. Collection-level files and the Zenodo community image are kept separately in `consciousness_series/Zenodo_Meta/`.
 
 ---
 
-## Zenodo DOIs (Concept DOIs — always resolve to latest version)
+## Zenodo DOIs
 
-| Item | Concept DOI |
-|------|-------------|
+| Item | DOI |
+|------|-----|
 | **Genesis Trilogy** | [10.5281/zenodo.18608021](https://doi.org/10.5281/zenodo.18608021) |
 | | |
 | HAFF Paper A — Emergent Geometry | [10.5281/zenodo.18361706](https://doi.org/10.5281/zenodo.18361706) |
@@ -131,6 +148,16 @@ The upload root is intentionally kept minimal: each paper appears only as a same
 | T-DOME Paper II — Reference Frame SSB | [10.5281/zenodo.18579703](https://doi.org/10.5281/zenodo.18579703) |
 | T-DOME Paper III — Self-Referential Calibration | [10.5281/zenodo.18591771](https://doi.org/10.5281/zenodo.18591771) |
 | T-DOME Complete Collection | [10.5281/zenodo.18593180](https://doi.org/10.5281/zenodo.18593180) |
+| | |
+| Foundation I — From Source to Manifestation | [10.5281/zenodo.19627786](https://doi.org/10.5281/zenodo.19627786) |
+| Foundation II — Shared Manifestation | [10.5281/zenodo.19641372](https://doi.org/10.5281/zenodo.19641372) |
+| Foundation III — The Perfuming Loop | [10.5281/zenodo.19642189](https://doi.org/10.5281/zenodo.19642189) |
+| Paper I — Geometry and Modular Flow | [10.5281/zenodo.19607387](https://doi.org/10.5281/zenodo.19607387) |
+| Paper II — Higher-Dimensional Consistency | [10.5281/zenodo.19607543](https://doi.org/10.5281/zenodo.19607543) |
+| Paper III — Structural Horizon of Self-Description | [10.5281/zenodo.19607724](https://doi.org/10.5281/zenodo.19607724) |
+| Foundation Trilogy | [10.5281/zenodo.19642398](https://doi.org/10.5281/zenodo.19642398) |
+| Consciousness Trilogy | [10.5281/zenodo.19608174](https://doi.org/10.5281/zenodo.19608174) |
+| Consciousness Series — complete collection | [10.5281/zenodo.19643449](https://doi.org/10.5281/zenodo.19643449) |
 
 ---
 
@@ -177,7 +204,7 @@ python build_genesis_trilogy.py     # → Genesis_Trilogy.tex
 | Canonical source | **GitHub** | [github.com/sidongliu/genesis-trilogy](https://github.com/sidongliu/genesis-trilogy) |
 | Software Heritage | **SWH** | [`swh:1:snp:76ebc4c8e9cd85e7f9e97a0b7c0237ca17696f83`](https://archive.softwareheritage.org/swh:1:snp:76ebc4c8e9cd85e7f9e97a0b7c0237ca17696f83) |
 
-This repository contains the LaTeX sources, numerical demonstrations, and build scripts needed to reproduce every result in the Genesis Trilogy. The Zenodo DOIs serve as the academic citation entry point; the GitHub repository is the canonical, versioned source; and the Software Heritage archive provides content-addressed, platform-independent long-term preservation.
+This repository contains the LaTeX sources, numerical demonstrations, and build scripts needed to reproduce the Genesis Trilogy together with the associated Consciousness Series upload package. The Zenodo DOIs serve as the academic citation entry point; the GitHub repository is the canonical, versioned source; and the Software Heritage archive provides content-addressed, platform-independent long-term preservation.
 
 ---
 

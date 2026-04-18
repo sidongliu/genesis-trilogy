@@ -1,0 +1,1299 @@
+\documentclass[12pt]{article}
+
+\usepackage[a4paper, margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{mathtools}
+\usepackage{mathrsfs}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fontspec}
+
+\defaultfontfeatures{Ligatures=TeX}
+\IfFontExistsTF{Times New Roman}
+  {\setmainfont{Times New Roman}}
+  {\setmainfont{TeX Gyre Termes}}
+\IfFontExistsTF{Menlo}
+  {\setmonofont{Menlo}}
+  {\setmonofont{Latin Modern Mono}}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+
+\newcommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+
+\title{%
+  \textbf{Foundation III: The Perfuming Loop}\\
+  \textbf{A Conditional One-Step Source-Level Feedback Program}%
+}
+
+\author{
+  Sidong Liu, PhD \\
+  \small iBioStratix Ltd \\
+  \small \texttt{sidongliu@hotmail.com}
+}
+
+\date{April 2026}
+
+\begin{document}
+\emergencystretch=2em
+\raggedbottom
+\hbadness=5000
+\vbadness=5000
+
+\maketitle
+
+\begin{abstract}
+Foundation~I~\cite{FoundationI} constructs a conditional single-source
+chain from a source datum \(S_{\mathrm{source}}\) to an admissible
+manifest pair \((\mathcal A_c,\omega)\). Foundation~II~\cite{FoundationII}
+extends this to two sources, isolating a shared manifest sector. Both
+chains are one-directional: source data produce manifest sectors, but
+the manifest sectors do not feed back to the source. The present paper,
+Foundation~III, addresses the return arrow.
+
+T-DOME~III~\cite{TDOMEIII} establishes a calibration loop at the ego
+level: the observer's prediction-error residuals drive a natural-gradient
+update of the reference-frame parameter~\(\sigma\), with tracking
+stability guaranteed by a Lyapunov bound. Paper~III of the
+Consciousness Trilogy~\cite{PaperIII} proves that the resulting
+self-description deficit \(\varepsilon_{\mathrm{loc}}(n)>0\) is
+non-vanishing. Neither result closes the loop at the source level: the
+ego adjusts its frame, but the decoherence semigroup
+\(\{\mathcal E_t\}\) that generated the manifest sector in the first
+place is left untouched.
+
+Foundation~III defines a \emph{source-level feedback map} that lifts the
+ego-level calibration signal to a controlled perturbation of the
+decoherence semigroup. Under named regularity and coupling conditions,
+we prove a conditional one-step closed-loop foothold with three
+components. First, the feedback-modified semigroup remains a valid
+source datum in the pointwise \(\sigma\)-weak Heisenberg-picture sense
+used by Foundation~I v2. Second, the
+self-description deficit \(\varepsilon_{\mathrm{loc}}\) under the
+closed loop satisfies a modified bound that depends on the feedback
+coupling strength. Third, the one-directional Foundation~I chain
+upgrades only to a conditional one-step closed loop:
+\[
+\begin{aligned}
+S_{\mathrm{source}}
+&\longrightarrow
+\mathcal O_B
+\longrightarrow
+\text{calibration signal}
+\longrightarrow
+S_{\mathrm{source}}[\text{updated}]\\
+&\longrightarrow
+\mathcal O_B[\text{updated}]
+\longrightarrow
+(\mathcal A_c,\omega)[\text{updated}].
+\end{aligned}
+\]
+The paper does not claim that the loop eliminates the self-description
+deficit. It proves only that the loop is well-posed and that the deficit
+transforms in a controlled way. The question of whether iterated
+perfuming converges to a fixed point, and what such a fixed point would
+mean structurally, is left as an open problem.
+\end{abstract}
+
+\clearpage
+\tableofcontents
+\clearpage
+
+\section{Introduction}\label{sec:intro}
+
+Foundation~I~\cite{FoundationI} solved the first source-side bridge in
+the Consciousness Series. Starting from a source datum
+\[
+S_{\mathrm{source}}
+=
+(\mathcal H_U,\mathcal A_U,\Omega,\{\mathcal E_t\}_{t\ge 0}),
+\]
+it isolated a conditional chain
+\[
+S_{\mathrm{source}}
+\to
+\mathcal O_A
+\to
+\mathcal O_B
+\to
+(\mathcal A_c,\omega),
+\]
+where \(\mathcal O_A\) is a persistent projected record process,
+\(\mathcal O_B\) is a budget-forced foreground frame, and
+\((\mathcal A_c,\omega)\) is the manifest accessible pair. The chain is
+one-directional: source data produce a manifest sector, and the series
+then hands that sector to Paper~I of the Consciousness Trilogy
+\cite{PaperI} for the geometry--modular-flow theorem and to
+Paper~II~\cite{PaperII} for the higher-dimensional consistency analysis.
+
+Foundation~II~\cite{FoundationII} extended that source-side analysis to
+the first multi-source setting. There the main result was again
+one-directional. Given two source chains sharing one ambient
+Type~III\(_1\) substrate, one obtains a conditional inclusion theorem
+for a shared admissible manifest sector. What remained absent in both
+papers was any formal return arrow from manifest calibration back to the
+source dynamics that generated the manifest sector in the first place.
+Foundation~II enters the present paper only as programme boundary
+calibration for the later multi-source feedback problem; no theorem
+below imports a Foundation~II result.
+
+The missing input now comes from two already published directions.
+T-DOME~III~\cite{TDOMEIII} supplied a one-step calibration signal at the
+ego level: prediction-residual statistics determine a natural-gradient
+update \(\delta\sigma\), controlled by a Lyapunov tracking estimate and
+penalized by the ego-rigidity term
+\(\mathcal I_{\mathrm{ego}}\). Paper~III of the Consciousness Trilogy
+\cite{PaperIII} supplied a quantitative obstruction on the manifest
+side: the local self-description deficit
+\(\varepsilon_{\mathrm{loc}}(n)\) is bounded away from zero for
+locally bounded \(n\)-dimensional self-models. Neither result, by
+itself, modifies the source semigroup \(\{\mathcal E_t\}\).
+
+The present paper addresses exactly that gap. Its aim is not to prove a
+global convergence theorem for iterative self-modification or a general
+closed-loop theorem. It does not claim that the self-description deficit
+is eliminated by feedback, and it does not claim that one can derive a
+feedback lift from bare multi-scale dynamics without additional
+structure. Its narrower goal is to identify an honest one-step
+theorem-level foothold for \emph{source-level feedback from manifest
+calibration}.
+
+The main design choice is to avoid a formal expression of the type
+\[
+\mathcal E_t \mapsto \mathcal E_t + \eta\,\Gamma(\delta\sigma,\mathcal E_t)
+\]
+as the \emph{definition} of the modified dynamics. Such a first-order
+expression is useful heuristically, but it does not by itself preserve
+the semigroup law or complete positivity. Instead, the paper defines a
+feedback lift through an exact auxiliary semigroup
+\(\{\mathscr F_r^{[\delta\sigma]}\}_{r\ge 0}\) of normal completely
+positive unital maps and then sets
+\[
+\mathcal E_t^{[\eta]}
+:=
+\mathscr F_{\eta t}^{[\delta\sigma]}\circ\mathcal E_t.
+\]
+Once a commutation condition is imposed, the semigroup law is automatic;
+the first-order feedback map \(\Gamma\) then reappears as the
+\(\eta\downarrow 0\) tangent of this exact construction.
+
+This paper therefore contributes four one-step theorem-level items.
+\begin{enumerate}
+\item We define a \emph{source-level feedback lift} from an admissible
+  calibration signal \(\delta\sigma\) to an exact Heisenberg-picture
+  semigroup perturbation on the ambient Type~III\(_1\) algebra.
+\item We prove a preservation theorem: under named regularity and
+  commutation inputs, the modified family
+  \(\{\mathcal E_t^{[\eta]}\}_{t\ge0}\) is again a pointwise
+  \(\sigma\)-weakly continuous semigroup of normal completely positive
+  unital maps on \(\mathcal A_U\), so the ambient datum remains a valid
+  source datum.
+\item We prove a \emph{modified deficit-floor theorem}: if the chosen
+  Foundation~I chain is feedback-stable and the local Paper~III Fisher
+  constants remain controlled, then the Paper~III lower floor deforms by
+  an explicit small-coupling factor \(f(\eta)\) with \(f(0)=1\).
+\item We package the result as a \emph{one-step closed-loop datum},
+  showing that the chain
+  \[
+  S_{\mathrm{source}}
+  \to
+  \mathcal O_B
+  \to
+  \delta\sigma
+  \to
+  S_{\mathrm{source}}^{[\eta]}
+  \to
+  \mathcal O_B^{[\eta]}
+  \to
+  (\mathcal A_c^{[\eta]},\omega^{[\eta]})
+  \]
+  is mathematically well-posed under named inputs.
+\end{enumerate}
+
+The scope is deliberately narrow. The paper does not solve the
+constructive origin of the calibration signal, which is imported from
+T-DOME~III. It does not solve the full persistence problem for the
+Foundation~I chain under arbitrary perturbations, which remains a
+conditional interface. It does not derive explicit optimal coupling
+windows or fixed points for iterated perfuming. Those are precisely the
+open problems recorded later.
+
+The paper also keeps the same Type~III discipline as Foundation~II. No
+tensor-product factorization is assumed. All dynamics are written in the
+Heisenberg picture on a common ambient algebra, and continuity means
+pointwise \(\sigma\)-weak continuity rather than norm continuity. This
+is not cosmetic: the whole point of the paper is to modify the source
+semigroup without importing an external finite-dimensional controller.
+
+The paper is organized as follows. Section~\ref{sec:feedback} defines
+the feedback lift, the regularity package, and the modified source
+datum. Section~\ref{sec:preservation} proves the source-datum
+preservation theorem. Section~\ref{sec:deficit} states the extra
+comparison inputs needed to pass through Foundation~I and then proves
+the modified deficit-floor theorem. Section~\ref{sec:closed} packages
+the resulting one-step closed loop. Section~\ref{sec:open} records the
+open problems. Section~\ref{sec:ledger} collects the named conditional
+inputs. Appendix~\ref{app:interfaces} restates the imported interfaces
+from Foundation~I, T-DOME~III, and Paper~III in theorem-ready form.
+
+\section{Feedback Lift and Regularity Conditions}\label{sec:feedback}
+
+The first task is to isolate the additional object that Foundation~III
+needs and the exact conditions under which it is allowed to act on the
+source semigroup.
+
+\begin{definition}[Admissible calibration signal]\label{def:signal}
+Fix a source datum \(S_{\mathrm{source}}\) together with a chosen
+Foundation~I chain up to Stage~B, so that one has
+\[
+\mathcal O_B
+=
+(\mathcal P,\omega_{\mathcal P,t},\mathcal K_*(t,s),\mathfrak F,\pi_{\mathrm{ego}}).
+\]
+An \emph{admissible calibration signal} is a vector
+\[
+\delta\sigma \in T_\sigma\Sigma
+\]
+in the local calibration parameter space of T-DOME~III such that:
+\begin{enumerate}
+\item \(\delta\sigma\) is obtained from the natural-gradient calibration
+  step imported from T-DOME~III;
+\item \(\sigma+\delta\sigma\) remains inside the Lyapunov neighborhood on
+  which the T-DOME~III tracking estimate is valid;
+\item there exists a bound
+  \(\|\delta\sigma\| \leq R_{\mathrm{cal}}\) for some finite
+  calibration radius \(R_{\mathrm{cal}}>0\).
+\end{enumerate}
+\end{definition}
+
+\begin{remark}[One-step rather than iterative calibration]
+Definition~\ref{def:signal} is intentionally local. The paper treats a
+single feedback step driven by one calibration signal
+\(\delta\sigma\). An iterated sequence
+\(\delta\sigma_0,\delta\sigma_1,\dots\) would require a separate fixed
+point or long-time theory, and nothing in the present paper should be
+read as supplying that theory.
+\end{remark}
+
+\begin{definition}[Feedback regularity package]\label{def:FB}
+Let \(S_{\mathrm{source}}\) be a source datum and let
+\(\delta\sigma\) be an admissible calibration signal. A
+\emph{feedback regularity package} consists of a family
+\[
+\mathscr F^{[\delta\sigma]}
+=
+\{\mathscr F_r^{[\delta\sigma]}\}_{r\ge0}
+\]
+of normal maps on \(\mathcal A_U\) satisfying the following conditions.
+\begin{enumerate}
+\item \textbf{FB-A: CP source lift.}
+  \(\{\mathscr F_r^{[\delta\sigma]}\}_{r\ge0}\) is a pointwise
+  \(\sigma\)-weakly continuous semigroup of normal completely positive
+  unital maps on \(\mathcal A_U\), with
+  \[
+  \mathscr F_0^{[\delta\sigma]}=\mathrm{id}_{\mathcal A_U},
+  \qquad
+  \mathscr F_r^{[0]}=\mathrm{id}_{\mathcal A_U}
+  \quad
+  \forall r\ge0.
+  \]
+\item \textbf{FB-B: small-signal differentiability.}
+  For every \(A\in\mathcal A_U\), the map
+  \(r\mapsto \mathscr F_r^{[\delta\sigma]}(A)\) is
+  \(\sigma\)-weakly differentiable at \(r=0\). We denote the
+  derivative by
+  \[
+  \mathfrak G_{\delta\sigma}(A)
+  :=
+  \left.
+  \frac{d}{dr}\mathscr F_r^{[\delta\sigma]}(A)
+  \right|_{r=0},
+  \]
+  and record the normalization
+  \(\mathfrak G_{\delta\sigma}(\mathbf 1)=0\), which follows from the
+  unitality in FB-A because
+  \(\mathscr F_r^{[\delta\sigma]}(\mathbf 1)=\mathbf 1\) for all
+  \(r\ge0\).
+\item \textbf{FB-C: chain compatibility.}
+  The feedback lift commutes with the ambient source semigroup:
+  \[
+  \mathscr F_r^{[\delta\sigma]}\mathcal E_t
+  =
+  \mathcal E_t\mathscr F_r^{[\delta\sigma]}
+  \qquad
+  \forall r,t\ge0.
+  \]
+  In addition, for the chosen Foundation~I chain, the maps
+  \(\mathscr F_r^{[\delta\sigma]}\) preserve the named structural inputs
+  that are required later to reconstruct Stage~A, Stage~B, and the
+  manifest pair.
+\end{enumerate}
+\end{definition}
+
+\begin{remark}[Why the feedback acts through an exact semigroup]
+The exact feedback semigroup in Definition~\ref{def:FB} is not an
+ornament. A first-order perturbation
+\(\mathcal E_t+\eta\,\Gamma(\delta\sigma,\mathcal E_t)\) does not
+automatically preserve the semigroup property or complete positivity.
+The exact semigroup lift is the cleanest way to keep those properties in
+the Heisenberg-picture Type~III setting. The first-order map
+\(\Gamma\) reappears only after the exact object has been defined.
+\end{remark}
+
+\begin{remark}[Meaning of the strict commutation input]
+The commutation requirement in FB-C is strong and should be read
+carefully. It does \emph{not} say that feedback is dynamically trivial.
+For \(\eta>0\),
+\[
+\mathcal E_t^{[\eta]}
+=
+\mathscr F_{\eta t}^{[\delta\sigma]}\circ \mathcal E_t
+\]
+generally differs from \(\mathcal E_t\) unless the calibration signal is
+zero or the coupling is turned off. The role of strict commutation is
+only to keep the algebra-level time ordering unchanged, so that the
+modified dynamics remains an exact semigroup without entering a more
+delicate generator-level perturbation problem. Relaxing FB-C to an
+approximate-commutation condition is left open.
+\end{remark}
+
+\begin{definition}[Small-coupling regime and modified semigroup]
+\label{def:modified}
+Fix a feedback regularity package
+\(\mathscr F^{[\delta\sigma]}\). A coupling strength \(\eta\ge0\) is in
+the \emph{small-coupling regime} if \(0\le \eta < \eta_*\) for some
+window \(\eta_*>0\) on which the later comparison inputs remain valid.
+For such \(\eta\), define the \emph{feedback-modified semigroup} by
+\[
+\mathcal E_t^{[\eta]}
+:=
+\mathscr F_{\eta t}^{[\delta\sigma]}\circ \mathcal E_t
+\qquad
+(t\ge0).
+\]
+The corresponding \emph{modified source datum} is
+\[
+S_{\mathrm{source}}^{[\eta]}
+:=
+(\mathcal H_U,\mathcal A_U,\Omega,\{\mathcal E_t^{[\eta]}\}_{t\ge0}).
+\]
+\end{definition}
+
+\begin{remark}[Heisenberg-picture convention]
+As in Foundation~II, all semigroups in Definition~\ref{def:modified}
+act on observables. Pointwise continuity therefore means
+\(\sigma\)-weak continuity on \(\mathcal A_U\), not norm continuity.
+Nothing in the present paper uses or claims a norm-continuous
+generator-level perturbation theorem.
+\end{remark}
+
+\begin{definition}[First-order feedback map]\label{def:Gamma}
+Under FB-B, define the \emph{first-order feedback map} by
+\[
+\Gamma(\delta\sigma,\mathcal E_t)(A)
+:=
+t\,\mathfrak G_{\delta\sigma}(\mathcal E_t(A)),
+\qquad
+A\in\mathcal A_U.
+\]
+Equivalently, for each fixed \(t\ge0\),
+\[
+\mathcal E_t^{[\eta]}(A)
+=
+\mathcal E_t(A)
++
+\eta\,\Gamma(\delta\sigma,\mathcal E_t)(A)
++
+o(\eta)
+\]
+in the \(\sigma\)-weak topology as \(\eta\downarrow 0\).
+\end{definition}
+
+\begin{proof}[Verification of the expansion]
+By Definition~\ref{def:modified},
+\[
+\mathcal E_t^{[\eta]}(A)
+=
+\mathscr F_{\eta t}^{[\delta\sigma]}(\mathcal E_t(A)).
+\]
+Applying the \(r=0\) derivative from FB-B at \(r=\eta t\) gives
+\[
+\mathscr F_{\eta t}^{[\delta\sigma]}(\mathcal E_t(A))
+=
+\mathcal E_t(A)
++
+\eta t\,\mathfrak G_{\delta\sigma}(\mathcal E_t(A))
++
+o(\eta),
+\]
+which is exactly the stated formula.
+\end{proof}
+
+\begin{remark}[What Definition~\ref{def:Gamma} does not prove]
+The first-order map \(\Gamma\) is merely the tangent of the exact
+feedback lift. Definition~\ref{def:Gamma} does not claim that an
+arbitrary bounded normal map \(\Gamma\) integrates to a completely
+positive semigroup, nor does it characterize the most general
+generator-level perturbations compatible with Type~III dynamics. Those
+questions are left open.
+\end{remark}
+
+\section{Source-Datum Preservation}\label{sec:preservation}
+
+We now prove the first of the paper's three main results.
+
+\begin{lemma}[Semigroup law]\label{lem:semigroup}
+Assume FB-A--FB-C. Then the family
+\(\{\mathcal E_t^{[\eta]}\}_{t\ge0}\) from
+Definition~\ref{def:modified} satisfies
+\[
+\mathcal E_t^{[\eta]}\mathcal E_s^{[\eta]}
+=
+\mathcal E_{t+s}^{[\eta]}
+\qquad
+\forall s,t\ge0.
+\]
+\end{lemma}
+
+\begin{proof}
+For \(A\in\mathcal A_U\),
+\begin{align*}
+\mathcal E_t^{[\eta]}\mathcal E_s^{[\eta]}(A)
+&=
+\mathscr F_{\eta t}^{[\delta\sigma]}\,
+\mathcal E_t
+\Bigl(
+\mathscr F_{\eta s}^{[\delta\sigma]}\,
+\mathcal E_s(A)
+\Bigr) \\
+&=
+\mathscr F_{\eta t}^{[\delta\sigma]}
+\mathscr F_{\eta s}^{[\delta\sigma]}
+\mathcal E_t\mathcal E_s(A),
+\end{align*}
+where FB-C is used to commute
+\(\mathcal E_t\) past \(\mathscr F_{\eta s}^{[\delta\sigma]}\). Since
+\(\{\mathscr F_r^{[\delta\sigma]}\}\) and \(\{\mathcal E_t\}\) are both
+semigroups,
+\[
+\mathscr F_{\eta t}^{[\delta\sigma]}
+\mathscr F_{\eta s}^{[\delta\sigma]}
+\mathcal E_t\mathcal E_s
+=
+\mathscr F_{\eta(t+s)}^{[\delta\sigma]}
+\mathcal E_{t+s}
+=
+\mathcal E_{t+s}^{[\eta]}.
+\]
+\end{proof}
+
+\begin{lemma}[Pointwise \(\sigma\)-weak continuity and positivity]
+\label{lem:continuity}
+Assume FB-A--FB-C. Then for every \(A\in\mathcal A_U\),
+\[
+t\longmapsto \mathcal E_t^{[\eta]}(A)
+\]
+is pointwise \(\sigma\)-weakly continuous. Moreover, each
+\(\mathcal E_t^{[\eta]}\) is normal, completely positive, and unital.
+\end{lemma}
+
+\begin{proof}
+Fix \(A\in\mathcal A_U\) and a normal functional
+\(\varphi\in(\mathcal A_U)_*\). By Definition~\ref{def:modified},
+\[
+\varphi(\mathcal E_t^{[\eta]}(A))
+=
+\varphi\!\left(
+\mathscr F_{\eta t}^{[\delta\sigma]}(\mathcal E_t(A))
+\right).
+\]
+The map \(t\mapsto \mathcal E_t(A)\) is \(\sigma\)-weakly continuous by
+the source-datum assumption, and
+\(r\mapsto \mathscr F_r^{[\delta\sigma]}(B)\) is
+\(\sigma\)-weakly continuous for every fixed \(B\in\mathcal A_U\) by
+FB-A. To prove continuity of the composition, fix \(t_0\ge0\) and write
+\begin{align*}
+&\left|
+\varphi\bigl(\mathscr F_{\eta t}^{[\delta\sigma]}(\mathcal E_t(A))\bigr)
+-
+\varphi\bigl(\mathscr F_{\eta t_0}^{[\delta\sigma]}(\mathcal E_{t_0}(A))\bigr)
+\right| \\
+&\qquad \le
+\left|
+\varphi\bigl(\mathscr F_{\eta t}^{[\delta\sigma]}(\mathcal E_t(A))\bigr)
+-
+\varphi\bigl(\mathscr F_{\eta t}^{[\delta\sigma]}(\mathcal E_{t_0}(A))\bigr)
+\right| \\
+&\qquad\quad +
+\left|
+\varphi\bigl(\mathscr F_{\eta t}^{[\delta\sigma]}(\mathcal E_{t_0}(A))\bigr)
+-
+\varphi\bigl(\mathscr F_{\eta t_0}^{[\delta\sigma]}(\mathcal E_{t_0}(A))\bigr)
+\right|.
+\end{align*}
+For the second term, \(\mathcal E_{t_0}(A)\) is fixed, so pointwise
+\(\sigma\)-weak continuity of
+\(\{\mathscr F_r^{[\delta\sigma]}\}_{r\ge0}\) gives convergence to
+zero as \(t\to t_0\).
+
+For the first term, use the predual semigroup
+\(\{\mathscr F_{r,*}^{[\delta\sigma]}\}_{r\ge0}\). Since
+\(\{\mathscr F_r^{[\delta\sigma]}\}\) is a pointwise
+\(\sigma\)-weakly continuous semigroup of normal maps, the predual
+family is norm-continuous on \((\mathcal A_U)_*\). Thus
+\begin{align*}
+&\left|
+\varphi\bigl(\mathscr F_{\eta t}^{[\delta\sigma]}(\mathcal E_t(A))\bigr)
+-
+\varphi\bigl(\mathscr F_{\eta t}^{[\delta\sigma]}(\mathcal E_{t_0}(A))\bigr)
+\right| \\
+&\qquad =
+\left|
+\mathscr F_{\eta t,*}^{[\delta\sigma]}(\varphi)
+\bigl(\mathcal E_t(A)-\mathcal E_{t_0}(A)\bigr)
+\right| \\
+&\qquad \le
+\left|
+\bigl(\mathscr F_{\eta t,*}^{[\delta\sigma]}(\varphi)
+-
+\mathscr F_{\eta t_0,*}^{[\delta\sigma]}(\varphi)\bigr)
+\bigl(\mathcal E_t(A)-\mathcal E_{t_0}(A)\bigr)
+\right| \\
+&\qquad\quad +
+\left|
+\mathscr F_{\eta t_0,*}^{[\delta\sigma]}(\varphi)
+\bigl(\mathcal E_t(A)-\mathcal E_{t_0}(A)\bigr)
+\right|.
+\end{align*}
+The first summand tends to zero because
+\(\mathscr F_{\eta t,*}^{[\delta\sigma]}(\varphi)\to
+\mathscr F_{\eta t_0,*}^{[\delta\sigma]}(\varphi)\) in predual norm,
+while \(\mathcal E_t(A)-\mathcal E_{t_0}(A)\) is norm-bounded by
+\(2\|A\|\). The second summand tends to zero because
+\(\mathcal E_t(A)\to\mathcal E_{t_0}(A)\) \(\sigma\)-weakly and
+\(\mathscr F_{\eta t_0,*}^{[\delta\sigma]}(\varphi)\) is a fixed normal
+functional. Hence the first term also tends to zero.
+
+Hence \(\{\mathcal E_t^{[\eta]}\}\) is pointwise \(\sigma\)-weakly
+continuous.
+
+Normality and complete positivity are preserved under composition of
+normal completely positive maps, and unitality is preserved under
+composition of unital maps. Since both
+\(\mathscr F_{\eta t}^{[\delta\sigma]}\) and \(\mathcal E_t\) have
+those properties, so does \(\mathcal E_t^{[\eta]}\).
+\end{proof}
+
+\begin{theorem}[Source-datum preservation]\label{thm:preserve}
+Let
+\[
+S_{\mathrm{source}}
+=
+(\mathcal H_U,\mathcal A_U,\Omega,\{\mathcal E_t\}_{t\ge0})
+\]
+be a source datum in the sense imported from Foundation~I, let
+\(\delta\sigma\) be an admissible calibration signal, and assume that a
+feedback regularity package FB-A--FB-C is given. Then for every
+\(\eta\in[0,\eta_*)\), the modified datum
+\[
+S_{\mathrm{source}}^{[\eta]}
+=
+(\mathcal H_U,\mathcal A_U,\Omega,\{\mathcal E_t^{[\eta]}\}_{t\ge0})
+\]
+is again a valid source datum: the family
+\(\{\mathcal E_t^{[\eta]}\}_{t\ge0}\) is a pointwise
+\(\sigma\)-weakly continuous semigroup of normal completely positive
+unital maps on \(\mathcal A_U\), and \(\Omega\) remains cyclic and
+separating for \(\mathcal A_U\).
+\end{theorem}
+
+\begin{proof}
+Lemma~\ref{lem:semigroup} gives the semigroup law and
+Lemma~\ref{lem:continuity} gives pointwise \(\sigma\)-weak continuity,
+normality, complete positivity, and unitality.
+
+The ambient standard-form triple
+\((\mathcal H_U,\mathcal A_U,\Omega)\) is not changed by the feedback
+step. In particular, \(\Omega\) remains cyclic and separating for the
+same von Neumann algebra \(\mathcal A_U\). Therefore
+\(S_{\mathrm{source}}^{[\eta]}\) satisfies the same source-datum format
+as \(S_{\mathrm{source}}\).
+\end{proof}
+
+\begin{remark}[What Theorem~\ref{thm:preserve} does not prove]
+The theorem proves only that the feedback-modified dynamics remains in
+the theorem domain of the Foundation~I source-datum definition. It does
+not prove that the modified datum automatically reproduces the same
+persistent projection, the same foreground frame, or the same manifest
+algebra. Those are downstream interface questions and require additional
+inputs.
+\end{remark}
+
+\begin{corollary}[Exact CP lift with first-order tangent]
+\label{cor:firstorder}
+Under the hypotheses of Theorem~\ref{thm:preserve}, the map
+\(\Gamma(\delta\sigma,\mathcal E_t)\) from
+Definition~\ref{def:Gamma} is the \(\eta\downarrow 0\) tangent of an
+exact Heisenberg-picture completely positive perturbation.
+\end{corollary}
+
+\begin{proof}
+This is immediate from Theorem~\ref{thm:preserve} together with the
+first-order expansion of Definition~\ref{def:Gamma}.
+\end{proof}
+
+\section{Modified Deficit Floor}\label{sec:deficit}
+
+The preservation theorem keeps the modified dynamics inside the
+source-datum domain, but it does not yet produce a manifest pair. For
+that we need the chosen Foundation~I chain to survive the perturbation
+and the local Paper~III constants to remain controlled.
+
+\begin{definition}[Deficit-comparison package]\label{def:DFA}
+Fix a source datum \(S_{\mathrm{source}}\), a chosen Foundation~I chain
+from \(S_{\mathrm{source}}\) to \((\mathcal A_c,\omega)\), and a
+feedback-modified datum \(S_{\mathrm{source}}^{[\eta]}\). We say that
+\emph{DF-A} holds on the coupling window \([0,\eta_*)\) if:
+\begin{enumerate}
+\item \textbf{DF-A(1): feedback-stable Foundation~I chain.}
+  For every \(\eta\in[0,\eta_*)\), the named conditional inputs used in
+  the chosen Foundation~I chain remain available for
+  \(S_{\mathrm{source}}^{[\eta]}\). Hence one obtains a modified manifest
+  pair
+  \[
+  (\mathcal A_c^{[\eta]},\omega^{[\eta]}).
+  \]
+\item \textbf{DF-A(2): Fisher control.}
+  There exist continuous functions
+  \(\alpha_F,\beta_{\mathrm{ego}}:[0,\eta_*)\to(0,\infty)\) with
+  \[
+  \alpha_F(0)=\beta_{\mathrm{ego}}(0)=1
+  \]
+  such that
+  \[
+  \mathcal I_F^{[\eta]}
+  \ge
+  \alpha_F(\eta)\,\mathcal I_F,
+  \qquad
+  \mathcal I_{\mathrm{ego}}^{[\eta]}
+  \le
+  \beta_{\mathrm{ego}}(\eta)\,\mathcal I_{\mathrm{ego}},
+  \]
+  where \(\mathcal I_F\) and
+  \(\mathcal I_{\mathrm{ego}}\) are the baseline manifest-side Fisher
+  sensitivity and ego-rigidity constants, and
+  \(\mathcal I_F^{[\eta]}\),
+  \(\mathcal I_{\mathrm{ego}}^{[\eta]}\) are the corresponding modified
+  quantities.
+\item \textbf{DF-A(3): local Paper~III control.}
+  The modified manifest pair
+  \((\mathcal A_c^{[\eta]},\omega^{[\eta]})\) satisfies the local
+  Paper~III hypotheses on a controlled neighborhood, with quadratic-loss
+  parameter \(\rho(\eta)\in[0,\tfrac12)\) continuous in \(\eta\), and
+  baseline value \(\rho(0)=:\rho_0\).
+\end{enumerate}
+\end{definition}
+
+\begin{proposition}[Passage from the modified source datum to the modified manifest pair]
+\label{prop:chain}
+Assume the hypotheses of Theorem~\ref{thm:preserve} and DF-A(1). Then
+for every \(\eta\in[0,\eta_*)\), the modified source datum
+\(S_{\mathrm{source}}^{[\eta]}\) admits a conditional Foundation~I chain
+\[
+S_{\mathrm{source}}^{[\eta]}
+\to
+\mathcal O_A^{[\eta]}
+\to
+\mathcal O_B^{[\eta]}
+\to
+(\mathcal A_c^{[\eta]},\omega^{[\eta]}).
+\]
+\end{proposition}
+
+\begin{proof}
+Theorem~\ref{thm:preserve} puts
+\(S_{\mathrm{source}}^{[\eta]}\) inside the theorem domain of the
+Foundation~I source-datum definition. DF-A(1) states exactly that the
+named conditional inputs used by the chosen Foundation~I chain remain
+available after the feedback perturbation. The Foundation~I conditional
+theorem can therefore be re-run with the modified datum, yielding the
+stated outputs.
+\end{proof}
+
+\begin{definition}[Baseline and modified local floors]
+\label{def:floor}
+Under DF-A, define the baseline Paper~III local floor by
+\[
+\underline{\varepsilon}_{\mathrm{loc}}(n)
+:=
+\frac{(1-2\rho_0)\,\mathcal I_F}
+{2\bigl(\mathcal I_F+\mathcal I_{\mathrm{ego}}\bigr)},
+\]
+and the modified local floor by
+\[
+\underline{\varepsilon}_{\mathrm{loc}}^{[\eta]}(n)
+:=
+\frac{(1-2\rho(\eta))\,\mathcal I_F^{[\eta]}}
+{2\bigl(\mathcal I_F^{[\eta]}+\mathcal I_{\mathrm{ego}}^{[\eta]}\bigr)}.
+\]
+These are the theorem-level lower-floor quantities imported from
+Paper~III for the baseline and modified manifest pairs.
+\end{definition}
+
+\begin{theorem}[Modified local deficit floor]\label{thm:deficit}
+Assume the hypotheses of Proposition~\ref{prop:chain} and the full
+package DF-A(1)--DF-A(3). Then for every \(\eta\in[0,\eta_*)\),
+\[
+\underline{\varepsilon}_{\mathrm{loc}}^{[\eta]}(n)
+\ge
+f(\eta)\,
+\underline{\varepsilon}_{\mathrm{loc}}(n),
+\]
+where
+\[
+f(\eta)
+:=
+\frac{1-2\rho(\eta)}{1-2\rho_0}\,
+\frac{\alpha_F(\eta)
+\bigl(\mathcal I_F+\mathcal I_{\mathrm{ego}}\bigr)}
+{\alpha_F(\eta)\mathcal I_F
++\beta_{\mathrm{ego}}(\eta)\mathcal I_{\mathrm{ego}}}.
+\]
+In particular, \(f(0)=1\), and by continuity \(f(\eta)>0\) for all
+sufficiently small \(\eta\).
+\end{theorem}
+
+\begin{proof}
+By Proposition~\ref{prop:chain}, the modified datum yields a manifest
+pair \((\mathcal A_c^{[\eta]},\omega^{[\eta]})\). By DF-A(3), that pair
+lies in the local theorem domain of Paper~III, so the Paper~III local
+drift-floor theorem gives
+\[
+\varepsilon_{\mathrm{loc}}^{[\eta]}(n)
+\ge
+\underline{\varepsilon}_{\mathrm{loc}}^{[\eta]}(n)
+=
+\frac{(1-2\rho(\eta))\,\mathcal I_F^{[\eta]}}
+{2\bigl(\mathcal I_F^{[\eta]}+\mathcal I_{\mathrm{ego}}^{[\eta]}\bigr)}.
+\]
+Using DF-A(2),
+\[
+\mathcal I_F^{[\eta]}
+\ge
+\alpha_F(\eta)\mathcal I_F,
+\qquad
+\mathcal I_{\mathrm{ego}}^{[\eta]}
+\le
+\beta_{\mathrm{ego}}(\eta)\mathcal I_{\mathrm{ego}},
+\]
+so
+\[
+\underline{\varepsilon}_{\mathrm{loc}}^{[\eta]}(n)
+\ge
+\frac{(1-2\rho(\eta))\,\alpha_F(\eta)\mathcal I_F}
+{2\bigl(\alpha_F(\eta)\mathcal I_F
++\beta_{\mathrm{ego}}(\eta)\mathcal I_{\mathrm{ego}}\bigr)}.
+\]
+Now factor out the baseline floor from
+Definition~\ref{def:floor}:
+\begin{align*}
+\underline{\varepsilon}_{\mathrm{loc}}^{[\eta]}(n)
+&\ge
+\frac{1-2\rho(\eta)}{1-2\rho_0}\,
+\frac{\alpha_F(\eta)
+\bigl(\mathcal I_F+\mathcal I_{\mathrm{ego}}\bigr)}
+{\alpha_F(\eta)\mathcal I_F
++\beta_{\mathrm{ego}}(\eta)\mathcal I_{\mathrm{ego}}}
+\cdot
+\frac{(1-2\rho_0)\mathcal I_F}
+{2(\mathcal I_F+\mathcal I_{\mathrm{ego}})} \\
+&=
+f(\eta)\,
+\underline{\varepsilon}_{\mathrm{loc}}(n).
+\end{align*}
+The formula for \(f(0)\) follows from
+\(\rho(0)=\rho_0\) and \(\alpha_F(0)=\beta_{\mathrm{ego}}(0)=1\).
+Continuity then gives positivity for sufficiently small \(\eta\).
+\end{proof}
+
+\begin{remark}[No monotonicity claim for \(f(\eta)\)]
+The theorem asserts only that \(f(0)=1\) and that \(f(\eta)\) remains
+positive for sufficiently small coupling. No monotonicity statement is
+claimed. Depending on the detailed response of the manifest Fisher
+sensitivity and the ego-rigidity term, one may have \(f(\eta)<1\) or
+\(f(\eta)>1\). In particular, a feedback step that increases
+\(\mathcal I_F^{[\eta]}\) or decreases
+\(\mathcal I_{\mathrm{ego}}^{[\eta]}\) can raise the lower floor rather
+than lower it.
+\end{remark}
+
+\begin{corollary}[Comparison with the actual local deficit under saturation]
+\label{cor:saturation}
+Assume, in addition to the hypotheses of
+Theorem~\ref{thm:deficit}, that the baseline Paper~III lower floor is
+attained by an optimal locally bounded self-model, so that
+\[
+\varepsilon_{\mathrm{loc}}(n)
+=
+\underline{\varepsilon}_{\mathrm{loc}}(n).
+\]
+Then
+\[
+\varepsilon_{\mathrm{loc}}^{[\eta]}(n)
+\ge
+f(\eta)\,\varepsilon_{\mathrm{loc}}(n).
+\]
+\end{corollary}
+
+\begin{proof}
+By Theorem~\ref{thm:deficit},
+\[
+\varepsilon_{\mathrm{loc}}^{[\eta]}(n)
+\ge
+\underline{\varepsilon}_{\mathrm{loc}}^{[\eta]}(n)
+\ge
+f(\eta)\,\underline{\varepsilon}_{\mathrm{loc}}(n).
+\]
+Under the saturation hypothesis,
+\(\underline{\varepsilon}_{\mathrm{loc}}(n)=
+\varepsilon_{\mathrm{loc}}(n)\), which yields the claim.
+\end{proof}
+
+\begin{remark}[Status of the saturation hypothesis]
+The saturation assumption in Corollary~\ref{cor:saturation} is a genuine
+extra hypothesis. Paper~III proves the lower floor, but it does not in
+general prove that the lower floor is attained by an optimal locally
+bounded self-model. The corollary is therefore only an optional bridge
+from the theorem-level lower-floor comparison to a comparison of the
+actual minimax deficit.
+\end{remark}
+
+\begin{remark}[What Theorem~\ref{thm:deficit} does not prove]
+The theorem gives a controlled deformation of the \emph{Paper~III lower
+floor}. It does not prove that the true minimax deficit is monotone in
+\(\eta\), it does not prove that feedback reduces the deficit, and it
+does not prove that the deficit can be driven to zero. Those stronger
+claims would require a full transport theory for optimal self-models,
+not just control of the lower-floor constants.
+\end{remark}
+
+\begin{remark}[Why the comparison factor is the right theorem target]
+The factor \(f(\eta)\) isolates exactly what feedback changes at theorem
+level:
+\begin{enumerate}
+\item the local quadratic-loss constant \(\rho(\eta)\) from the
+  Paper~III local entropy expansion;
+\item the manifest Fisher sensitivity
+  \(\mathcal I_F^{[\eta]}\);
+\item the ego-rigidity contribution
+  \(\mathcal I_{\mathrm{ego}}^{[\eta]}\).
+\end{enumerate}
+No stronger conclusion is claimed. In particular, the theorem does not
+say that a better calibration signal necessarily increases
+\(\mathcal I_F^{[\eta]}\) or decreases
+\(\mathcal I_{\mathrm{ego}}^{[\eta]}\); it only says that if those
+quantities remain controlled, then the local deficit floor remains
+controlled as well.
+\end{remark}
+
+\section{Closed-Loop Well-Posedness}\label{sec:closed}
+
+We can now state the paper's final theorem.
+
+\begin{definition}[Closed-loop datum]\label{def:closed}
+Under the hypotheses of Theorem~\ref{thm:deficit}, the
+\emph{closed-loop datum at coupling \(\eta\)} is the tuple
+\[
+\mathfrak C_\eta
+:=
+\bigl(
+S_{\mathrm{source}},
+\mathcal O_B,
+(\mathcal A_c,\omega),
+\delta\sigma,
+S_{\mathrm{source}}^{[\eta]},
+\mathcal O_B^{[\eta]},
+(\mathcal A_c^{[\eta]},\omega^{[\eta]})
+\bigr),
+\]
+where \(\mathcal O_B\) and \((\mathcal A_c,\omega)\) are the baseline
+Stage~B and Stage~C outputs of the chosen Foundation~I chain,
+\(\delta\sigma\) is the admissible calibration signal extracted from the
+retained Stage~B data, and
+\(\mathcal O_B^{[\eta]}\) together with
+\((\mathcal A_c^{[\eta]},\omega^{[\eta]})\) are the corresponding
+modified outputs after the feedback step.
+\end{definition}
+
+\begin{theorem}[Closed-loop well-posedness]\label{thm:closed}
+Let \(S_{\mathrm{source}}\) be a source datum, let
+\(\delta\sigma\) be an admissible calibration signal, and assume the
+packages FB-A--FB-C and DF-A(1)--DF-A(3). Then for every sufficiently
+small \(\eta\in[0,\eta_*)\), the closed-loop datum
+\(\mathfrak C_\eta\) of Definition~\ref{def:closed} is well-defined.
+Equivalently, the diagram
+\[
+S_{\mathrm{source}}
+\longrightarrow
+ \mathcal O_B
+\longrightarrow
+\delta\sigma
+\longrightarrow
+S_{\mathrm{source}}^{[\eta]}
+\longrightarrow
+ \mathcal O_B^{[\eta]}
+ \longrightarrow
+ (\mathcal A_c^{[\eta]},\omega^{[\eta]})
+\]
+is conditionally closed at the one-step level.
+\end{theorem}
+
+\begin{proof}
+The baseline arrow
+\[
+S_{\mathrm{source}}\to \mathcal O_B \to (\mathcal A_c,\omega)
+\]
+is the chosen Foundation~I chain. The arrow
+\[
+\mathcal O_B \to\delta\sigma
+\]
+is the imported T-DOME~III calibration interface. By
+Theorem~\ref{thm:preserve}, the feedback step
+\[
+\delta\sigma \to S_{\mathrm{source}}^{[\eta]}
+\]
+is well-defined at the source-datum level. By
+Proposition~\ref{prop:chain}, the same conditional Foundation~I chain
+can then be run again on \(S_{\mathrm{source}}^{[\eta]}\), yielding
+\[
+S_{\mathrm{source}}^{[\eta]}
+\to
+\mathcal O_B^{[\eta]}
+\to
+(\mathcal A_c^{[\eta]},\omega^{[\eta]}).
+\]
+Thus every component of \(\mathfrak C_\eta\) is defined. The modified
+deficit-floor comparison is given by Theorem~\ref{thm:deficit}, so the
+closed loop is not only diagrammatically defined but also quantitatively
+controlled at the Paper~III lower-floor level.
+\end{proof}
+
+\begin{corollary}[One-step closed-loop map]
+\label{cor:map}
+Under the hypotheses of Theorem~\ref{thm:closed}, there is a well-defined
+map
+\[
+\mathscr L_\eta:
+\bigl(S_{\mathrm{source}},\delta\sigma\bigr)
+\longmapsto
+\bigl(
+S_{\mathrm{source}}^{[\eta]},
+\mathcal O_B^{[\eta]},
+(\mathcal A_c^{[\eta]},\omega^{[\eta]}),
+\underline{\varepsilon}_{\mathrm{loc}}^{[\eta]}(n)
+\bigr).
+\]
+\end{corollary}
+
+\begin{proof}
+This is just a repackaging of Theorem~\ref{thm:closed} and
+Theorem~\ref{thm:deficit}.
+\end{proof}
+
+\begin{remark}[What Theorem~\ref{thm:closed} does not prove]
+The theorem is a one-step well-posedness statement only. It does not
+claim that repeated application of \(\mathscr L_\eta\) converges, that a
+fixed point exists, that a fixed point would be unique, or that the
+closed loop is thermodynamically optimal. It also does not address the
+multi-source feedback problem in which several manifest sectors update a
+shared ambient semigroup simultaneously.
+\end{remark}
+
+\section{Open Problems}\label{sec:open}
+
+The present note closes only the smallest honest loop. The actual
+programme still leaves several substantive gaps.
+
+\begin{enumerate}
+\item \textbf{Constructive origin of the feedback lift.} The paper takes
+  the source-level semigroup lift
+  \(\mathscr F^{[\delta\sigma]}\) as named input. A future result would
+  need to derive that lift from the calibration signal itself, rather
+  than postulate it.
+\item \textbf{Generator-level perturbation theory.} The present paper
+  works with an exact auxiliary semigroup because it preserves complete
+  positivity and the semigroup law cleanly. A sharper generator-level
+  perturbation theorem on \(W^*\)-algebras, closer to the existing
+  structural theory of dynamical semigroups on \(W^*\)-algebras
+  \cite{FrigerioVerri1982}, would have to control densely defined
+  predual generators, domain stability, closability, and resolvent
+  bounds in a regime where pointwise \(\sigma\)-weak continuity is the
+  natural topology and norm continuity is usually unavailable. Naive
+  first-order generator perturbations may fail to preserve complete
+  positivity, unitality, or even semigroup well-posedness.
+\item \textbf{Weakening the commutation input.} FB-C requires strict
+  algebra-level commutation between the feedback lift and the source
+  semigroup. A weaker theorem based on approximate commutation,
+  asymptotic commutation, or commutation only on the relevant stable
+  subalgebras would be more flexible and physically more natural, but it
+  would need a replacement for the exact time-ordering argument used in
+  Section~\ref{sec:preservation}.
+\item \textbf{Quantitative coupling thresholds.} The small-coupling
+  window \([0,\eta_*)\) is left abstract. The programme still lacks an
+  explicit estimate of \(\eta_*\) in terms of Lyapunov constants,
+  semigroup norms, and the local BKM/Fisher geometry.
+\item \textbf{Persistence of the Foundation~I chain.} DF-A(1) is a real
+  interface burden. One needs a theorem stating when persistent
+  projections, foreground frames, and stable-hull inputs are robust
+  under source-side feedback.
+\item \textbf{Actual minimax deficit transport.} Theorem~\ref{thm:deficit}
+  controls only the Paper~III lower floor. A full transport theorem for
+  the actual minimax optimizer would be needed to compare
+  \(\varepsilon_{\mathrm{loc}}^{[\eta]}(n)\) and
+  \(\varepsilon_{\mathrm{loc}}(n)\) without a saturation hypothesis.
+\item \textbf{Iterated perfuming and fixed points.} Once
+  \(\mathscr L_\eta\) is applied repeatedly, one faces an entirely new
+  dynamical question: do the semigroups converge, cycle, or wander? The
+  present paper does not address that long-time behavior.
+\item \textbf{Thermodynamic cost of the source-level loop.} T-DOME~III
+  quantified the thermodynamic cost of the calibration loop at the
+  manifest/ego level. Foundation~III has not yet integrated that cost
+  with the source-side semigroup perturbation.
+\item \textbf{Multi-source feedback.} Foundation~II handled the
+  two-source shared-sector problem at inclusion level, but it did not
+  address simultaneous feedback from multiple manifest sectors onto one
+  common ambient source dynamics. Cross-source feedback remains open.
+\item \textbf{Type~III modular obstacles.} Even if a feedback lift is
+  available, one still faces the usual Type~III issues: modular
+  invariance of the relevant subalgebras, possible non-uniqueness of
+  conditional expectations, central-decomposition effects in
+  non-factorial regimes, and the absence of a canonical bounded
+  algebra-side generator picture that could be perturbed by finite-rank
+  feedback data.
+\end{enumerate}
+
+\section{Conditional Input Ledger}\label{sec:ledger}
+
+The theorem chain depends on the following named inputs.
+
+\begin{enumerate}
+\item \textbf{FI-A: Foundation~I source-to-manifest interface.}
+  The single-source conditional chain from a source datum to a manifest
+  pair is available in the sense restated in
+  Appendix~\ref{app:interfaces}.
+\item \textbf{TD3-A: admissible calibration signal.}
+  A one-step natural-gradient update signal \(\delta\sigma\) exists and
+  lies inside the T-DOME~III Lyapunov neighborhood.
+\item \textbf{FB-A: CP source lift.}
+  The calibration signal admits a pointwise \(\sigma\)-weakly continuous
+  semigroup lift by normal completely positive unital maps on
+  \(\mathcal A_U\).
+\item \textbf{FB-B: small-signal differentiability.}
+  The lifted feedback semigroup is differentiable at zero coupling so
+  that the first-order map \(\Gamma\) is defined; its normalization
+  \(\mathfrak G_{\delta\sigma}(\mathbf 1)=0\) is inherited from
+  unitality.
+\item \textbf{FB-C: chain compatibility.}
+  The feedback lift commutes with the ambient source semigroup and
+  preserves the named structural inputs needed to rerun the chosen
+  Foundation~I chain.
+\item \textbf{DF-A(1): feedback-stable Foundation~I chain.}
+  The chosen Foundation~I conditional inputs remain valid for
+  \(S_{\mathrm{source}}^{[\eta]}\) on a nontrivial coupling window.
+\item \textbf{DF-A(2): manifest Fisher control.}
+  The modified manifest-side Fisher sensitivity and ego-rigidity terms
+  satisfy the comparison inequalities controlled by
+  \(\alpha_F(\eta)\) and \(\beta_{\mathrm{ego}}(\eta)\).
+\item \textbf{DF-A(3): local Paper~III control.}
+  The modified manifest pair remains inside the local theorem domain of
+  Paper~III, with quadratic-loss parameter \(\rho(\eta)<\tfrac12\).
+\end{enumerate}
+
+\appendix
+\section{Imported Interfaces}\label{app:interfaces}
+
+This appendix records the external results used by the body in a
+self-contained theorem-ready form. The statements are imported
+interfaces, not re-proved results.
+
+\begin{remark}[What is and is not imported]
+Foundation~III imports theorem-level interfaces only from
+Foundation~I, T-DOME~III, and Paper~III. Foundation~II is cited in the
+Introduction solely to locate the later multi-source feedback problem
+and does not enter any proof or named input in the present paper.
+\end{remark}
+
+\begin{proposition}[Imported Foundation~I interface]\label{prop:A1}
+Let
+\[
+S_{\mathrm{source}}
+=
+(\mathcal H_U,\mathcal A_U,\Omega,\{\mathcal E_t\}_{t\ge0})
+\]
+be a source datum, where
+\((\mathcal H_U,\mathcal A_U,\Omega)\) is a Type~III\(_1\) standard-form
+von Neumann algebra and
+\(\{\mathcal E_t\}_{t\ge0}\) is a pointwise \(\sigma\)-weakly
+continuous semigroup of normal completely positive unital maps on
+\(\mathcal A_U\). Suppose:
+\begin{enumerate}
+\item there exists a persistent Nakajima--Zwanzig projection
+  \(\mathcal P\) whose projected predual dynamics admits a memory kernel
+  \(\mathcal K_*(t,s)\)~\cite{Nakajima1958,Zwanzig1960,BreuerPetruccione2002};
+\item the resulting record process exceeds its processing budget and
+  forces a compressed foreground frame \(\mathfrak F\);
+\item the foreground transfer/stable-hull construction closes so as to
+  produce a von Neumann algebra \(\mathcal A_c\subseteq\mathcal A_U\)
+  with faithful restricted state
+  \(\omega=\langle\Omega,\cdot\,\Omega\rangle|_{\mathcal A_c}\);
+\item the admissibility input needed to feed Paper~I~\cite{PaperI} is
+  available.
+\end{enumerate}
+Then the conditional chain
+\[
+S_{\mathrm{source}}
+\to
+\mathcal O_A
+\to
+\mathcal O_B
+\to
+(\mathcal A_c,\omega)
+\]
+is defined.
+\end{proposition}
+
+\begin{remark}
+Foundation~III uses only the existence of the manifest pair produced by
+Proposition~\ref{prop:A1}. It does not revisit the internal stable-hull
+construction of Foundation~I. The source-datum continuity imported here
+is pointwise \(\sigma\)-weak continuity, matching Foundation~I v2. The
+published Foundation~I v1 uses the stronger phrase ``strongly
+continuous''; the downstream Foundation~I chain used here does not
+depend on that stronger condition.
+\end{remark}
+
+\begin{proposition}[Imported T-DOME~III calibration interface]
+\label{prop:A2}
+Let \(\mathcal O_B\) be a Stage~B output in the sense of
+Foundation~I. In the local calibration regime of T-DOME~III there exist:
+\begin{enumerate}
+\item a natural-gradient update signal
+  \(\delta\sigma\in T_\sigma\Sigma\);
+\item a Lyapunov neighborhood \(\mathcal U_{\mathrm{cal}}\) on which the
+  one-step update stays controlled;
+\item a prior Fisher term \(\mathcal I_{\mathrm{ego}}\ge0\), interpreted
+  as ego rigidity, entering the van Trees bound for local drift
+  estimation.
+\end{enumerate}
+These data determine the one-step manifest-side calibration step used in
+the body of the present paper.
+\end{proposition}
+
+\begin{remark}
+Proposition~\ref{prop:A2} is a one-step interface only. It does not
+assert global convergence of repeated calibration updates.
+\end{remark}
+
+\begin{proposition}[Imported Paper~III local deficit floor]
+\label{prop:A3}
+Let \((\mathcal A_c,\omega)\) be a manifest accessible pair and let
+\((\mathcal A_{\mathrm{obs}},\omega_{\mathrm{obs}},\mathfrak M_n)\) be a
+finite observer carried by \((\mathcal A_c,\omega)\). Assume that the
+local Paper~III hypotheses hold on a BKM neighborhood around
+\(\omega_{\mathrm{obs}}\), with quadratic-loss parameter
+\(\rho\in[0,\tfrac12)\). Then the local self-description deficit
+\(\varepsilon_{\mathrm{loc}}(n)\) satisfies
+\[
+\varepsilon_{\mathrm{loc}}(n)
+\ge
+\frac{(1-2\rho)\,\mathcal I_F(\omega_{\mathrm{obs}})}
+{2\bigl(
+\mathcal I_F(\omega_{\mathrm{obs}})
++
+\mathcal I_{\mathrm{ego}}
+\bigr)}.
+\]
+\end{proposition}
+
+\begin{remark}
+The present paper imports Proposition~\ref{prop:A3} as a manifest-side
+comparison theorem. The parameter \(\rho\) is written with a new symbol
+here to avoid clash with the source-level coupling strength
+\(\eta\) used in the body.
+\end{remark}
+
+\newpage
+\addcontentsline{toc}{section}{References}
+
+\begin{thebibliography}{99}
+\sloppy
+
+\bibitem{FoundationI}
+S.~Liu,
+\emph{Foundation I: From Source to Manifestation: A Conditional Same-Root Program for Geometry and Modular Flow},
+Consciousness Series (2026),
+Zenodo, DOI:~10.5281/zenodo.19627786.
+
+\bibitem{FoundationII}
+S.~Liu,
+\emph{Foundation II: Shared Manifestation: A Conditional Two-Source Program for Shared Accessible Sectors},
+Consciousness Series (2026),
+Zenodo, DOI:~10.5281/zenodo.19641372.
+
+\bibitem{PaperI}
+S.~Liu,
+\emph{The Inseparability of Geometry and Modular Flow: A Structural Inseparability Theorem and Its Implications for the Hard Problem},
+Consciousness Trilogy, Paper~I (2026),
+Zenodo, DOI:~10.5281/zenodo.19607387.
+
+\bibitem{PaperII}
+S.~Liu,
+\emph{Higher-Dimensional Consistency of Geometry and Modular Flow: Small-Ball Modular Data and Linearized Gravity},
+Consciousness Trilogy, Paper~II (2026),
+Zenodo, DOI:~10.5281/zenodo.19607543.
+
+\bibitem{PaperIII}
+S.~Liu,
+\emph{The Structural Horizon of Self-Description: Fisher Bounds, Small-Ball Remainders, and the Quantitative Explanatory Gap},
+Consciousness Trilogy, Paper~III (2026),
+Zenodo, DOI:~10.5281/zenodo.19607724.
+
+\bibitem{TDOMEIII}
+S.~Liu,
+\emph{Fisher Information Geometry and the Thermodynamic Cost of Self-Referential Calibration},
+Zenodo (2026), DOI:~10.5281/zenodo.18591771.
+
+\bibitem{BreuerPetruccione2002}
+H.-P.~Breuer and F.~Petruccione,
+\emph{The Theory of Open Quantum Systems},
+Oxford University Press (2002).
+
+\bibitem{Nakajima1958}
+S.~Nakajima,
+\emph{On quantum theory of transport phenomena},
+Prog.\ Theor.\ Phys.\ \textbf{20}, 948--959 (1958),
+DOI:~10.1143/PTP.20.948.
+
+\bibitem{Zwanzig1960}
+R.~Zwanzig,
+\emph{Ensemble method in the theory of irreversibility},
+J.\ Chem.\ Phys.\ \textbf{33}, 1338--1341 (1960),
+DOI:~10.1063/1.1731409.
+
+\bibitem{FrigerioVerri1982}
+A.~Frigerio and M.~Verri,
+\emph{Long-time asymptotic properties of dynamical semigroups on \(W^*\)-algebras},
+Math.\ Z.\ \textbf{180}, 275--286 (1982),
+DOI:~10.1007/BF01318911.
+
+\end{thebibliography}
+
+\end{document}

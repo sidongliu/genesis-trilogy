@@ -1,0 +1,1575 @@
+\documentclass[12pt]{article}
+
+\usepackage[a4paper, margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{mathtools}
+\usepackage{mathrsfs}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fontspec}
+
+\defaultfontfeatures{Ligatures=TeX}
+\IfFontExistsTF{Times New Roman}
+  {\setmainfont{Times New Roman}}
+  {\setmainfont{TeX Gyre Termes}}
+\IfFontExistsTF{Menlo}
+  {\setmonofont{Menlo}}
+  {\setmonofont{Latin Modern Mono}}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+
+\newcommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+
+\title{%
+  \textbf{Foundation II: Shared Manifestation}\\
+  \textbf{A Conditional Two-Source Program for Shared Accessible Sectors}%
+}
+
+\author{
+  Sidong Liu, PhD \\
+  \small iBioStratix Ltd \\
+  \small \texttt{sidongliu@hotmail.com}
+}
+
+\date{April 2026}
+
+\begin{document}
+\emergencystretch=2em
+\raggedbottom
+\hbadness=5000
+\vbadness=5000
+
+\maketitle
+
+\begin{abstract}
+Foundation~I of the Consciousness Series~\cite{FoundationI} constructs a
+conditional chain from a single source datum
+\(S_{\mathrm{source}}=(\mathcal H_U,\mathcal A_U,\Omega,\{\mathcal E_t\})\)
+to an admissible accessible pair \((\mathcal A_c,\omega)\), which then
+feeds into the inseparability theorem of Paper~I~\cite{PaperI}. That
+chain is single-source: it produces one observer's manifest sector. The
+present paper, Foundation~II, asks the next structural question: when two
+source chains share the same ambient substrate, under what conditions
+does a non-trivial \emph{shared} manifest sector emerge?
+
+We define a multi-source datum as a family of source data sharing a
+common ambient triple \((\mathcal H_U,\mathcal A_U,\Omega)\), each
+equipped with its own decoherence semigroup. No global tensor-product
+decomposition is assumed; the multi-source structure is encoded entirely
+through subalgebra inclusions, following the non-canonicality of
+tensor-product factorizations in the Type~III\(_1\) setting established
+in~\cite{HAFFA}. We then introduce joint-stability conditions under
+which a candidate shared sector \(\mathcal A_{\mathrm{sh}}\) is
+simultaneously stable for both sources.
+
+The paper's main result is a conditional two-source foothold, not a
+general multi-source closure theorem. Under named joint-stability and
+compatible-projection conditions, we construct a
+shared stable hull
+\(\Phi_{\mathrm{sh}}^{\mathrm{st}}(\mathfrak F_{\mathrm{sh}})\) from
+the overlap of the two foreground frames, prove that it is a von Neumann
+subalgebra carrying a faithful restricted state, and show that, under an
+additional admissibility input, the resulting pair
+\((\Phi_{\mathrm{sh}}^{\mathrm{st}}(\mathfrak F_{\mathrm{sh}}),
+\omega_{\mathrm{sh}}^{\mathrm{st}})\) lies in the theorem domain of
+Paper~I. The
+shared sector therefore inherits the
+geometry--modular-flow inseparability of the single-source case.
+
+After the main theorem, we analyze a regime-dependent common/private
+structure: under a shared/private regime assumption, the shared sector
+is the locus on the overlap algebra where the two manifest states agree,
+while observer-dependent discrepancy can only appear outside that shared
+sector. Finally, we state a conditional \(N\)-source extension under
+pairwise-threshold and exchangeability assumptions, and record the open
+problems that remain, including the quantitative relationship between
+consensus strength and geometric stability.
+
+This paper treats only the mathematical bridge from multi-source data to
+shared accessible sectors. It does not claim a general \(N\)-source
+theorem, does not provide a quantitative consensus--stability bound, and
+does not derive the candidate shared sector from bare multi-source
+dynamics alone. It also does not attempt to settle questions of
+intersubjective ontology.
+\end{abstract}
+
+\clearpage
+\tableofcontents
+\clearpage
+
+\section{Introduction}\label{sec:intro}
+
+Foundation~I of the Consciousness Series~\cite{FoundationI} addressed
+the single-source problem. Starting from a source datum
+\[
+S_{\mathrm{source}}
+=
+(\mathcal H_U,\mathcal A_U,\Omega,\{\mathcal E_t\}_{t\ge 0}),
+\]
+it isolated a conditional chain
+\[
+S_{\mathrm{source}}
+\to
+\mathcal O_A
+\to
+\mathcal O_B
+\to
+(\mathcal A_c,\omega),
+\]
+where \(\mathcal O_A\) is a persistent projected record process,
+\(\mathcal O_B\) is a budget-forced foreground frame, and
+\((\mathcal A_c,\omega)\) is the manifest accessible pair that then
+feeds into the geometry--modular-flow inseparability theorem of
+Paper~I~\cite{PaperI}. That was the correct scope for the first
+foundation paper: it explained how one observer-facing manifest sector
+could arise from one source chain.
+
+The present paper asks the next structural question. If two source
+chains share the same ambient substrate, under what conditions does a
+non-trivial \emph{shared} manifest sector arise? This is the minimum
+multi-source problem behind any later discussion of a shared world. The
+paper does not attempt to settle the full intersubjective problem in one
+step. It does not claim a general \(N\)-source theorem, does not derive
+a quantitative consensus-strength/stability law, and does not aim to
+settle questions of ontology. Its narrower aim is to identify a
+theorem-level foothold for \emph{shared manifestation existence}.
+
+That calibration matters. In the current programme there are two
+separate bridges beyond the already-written Consciousness Trilogy
+results. The first concerns whether entangled or correlated source
+chains can support a common manifest sector at all. The second concerns
+how the strength of that commonality controls the quantitative stability
+of the resulting geometry. Foundation~II addresses only the first. The
+second remains a separate Bridge~3 problem and should not be smuggled
+into the present paper under vague language about ``consensus'' or
+``robustness''.
+
+The paper therefore adopts the smallest honest target. Its main theorem
+is proved in the two-source case. The theorem does not directly state
+that a full shared geometry has been derived. Its first conclusion is
+weaker and mathematically safer: under named compatibility and
+joint-stability inputs, one can construct a
+\emph{shared admissible manifest sector}
+\[
+(\mathcal A_{\mathrm{sh}},\omega_{\mathrm{sh}})
+\subseteq
+(\mathcal A_c^{(1)},\omega_1)\cap(\mathcal A_c^{(2)},\omega_2),
+\]
+which is stable under the relevant source-side dynamics and can then be
+fed into the already-existing Paper~I machinery. Geometry enters only as
+a corollary once that admissible shared sector is in hand.
+The main result should therefore be read as a conditional inclusion
+theorem and theorem-level foothold, not as a full emergence theorem for
+shared worlds.
+
+At the heuristic level, this shared-sector question is related to the
+quantum Darwinism and spectrum-broadcast-structure literature, where the
+objective part of a quantum description is identified with redundantly
+accessible pointer information carried across multiple environment
+fragments~\cite{Zurek2003,Zurek2009,BrandaoPianiHorodecki2015,KorbiczHorodeckiHorodecki2014}.
+The present paper does not translate those frameworks into a theorem
+about Type~III\(_1\) ambient algebras. It only records the
+operator-algebraic analogue needed here: a shared foreground overlap
+together with a shared stable hull.
+
+Three design choices govern the whole paper.
+\begin{enumerate}
+\item \textbf{Two sources first.} The paper starts at \(N=2\), because
+  the two-source case is the minimum non-trivial setting in which one
+  can ask whether a shared manifest sector exists at all. General
+  \(N\)-source statements are postponed to a conditional extension
+  section.
+\item \textbf{No tensor-product starting point.} The multi-source datum
+  is formulated inside a common ambient algebra rather than from a
+  canonical tensor decomposition. This follows the HAFF viewpoint that
+  physically relevant subsystem structure is selected by stability and
+  accessibility rather than fixed in advance~\cite{HAFFA,HAFFD}.
+\item \textbf{Common/private decomposition is secondary.} After the main
+  theorem, we analyze how each observer's full manifest algebra may be
+  written, under a regime assumption, as a shared sector plus a private
+  complement. That decomposition is treated as a structural consequence,
+  not as a competing main theorem.
+\end{enumerate}
+
+The paper's mathematical contributions are correspondingly limited and
+explicit.
+\begin{enumerate}
+\item We define a \emph{multi-source datum} as a common ambient
+  Type~III\(_1\) standard-form algebra together with a family of
+  source-specific decoherence semigroups.
+\item We separate the new inputs into three named
+  joint-stability conditions: shared-sector invariance,
+  shared-state existence with faithfulness, and projection/kernel
+  compatibility.
+\item In the two-source case, we define the shared foreground overlap
+  and the associated shared stable hull, and prove the abstract
+  minimality properties of that hull.
+\item Under an explicit candidate shared-sector input, we prove an
+  inclusion theorem showing that the shared stable hull lies inside the
+  common manifest carrier, and therefore yields a shared admissible
+  manifest sector.
+\item Under a shared/private regime assumption, we analyze the resulting
+  common/private structure by identifying the shared sector as the locus
+  of agreement on the overlap algebra and by localizing overlap-level
+  discrepancy outside that sector.
+\end{enumerate}
+
+The role of conditional language is exactly the same as in
+Foundation~I. Wherever a piece can be internalized cleanly, we
+internalize it. Wherever it cannot, we isolate it and keep it explicit.
+The present theorem does not derive the existence of a candidate shared
+sector from bare multi-source dynamics or entanglement alone. It starts
+from such a sector as named input and analyzes the stable closure that
+follows from it.
+The main open points here are not hidden: model-independent joint
+stability, compatible Nakajima--Zwanzig projections, and the
+well-definedness of common/private decomposition in the Type~III\(_1\)
+setting.
+
+The paper is organized as follows. Section~\ref{sec:datum} defines the
+multi-source datum and the joint-stability package. Section~\ref{sec:two}
+states and proves the two-source main theorem. Section~\ref{sec:cp}
+analyzes the common/private structure under a regime assumption.
+Section~\ref{sec:nsource} gives a conditional \(N\)-source extension.
+Section~\ref{sec:open} records the open problems. Section~\ref{sec:ledger}
+collects the named conditional inputs. Appendix~\ref{app:premises}
+summarizes the imported Genesis and Consciousness results used by the
+paper.
+
+\section{Multi-Source Datum and Joint-Stability Inputs}\label{sec:datum}
+
+The first task is to define the source-side object language without
+overloading it with later conditional interface data.
+
+\begin{definition}[Multi-source datum]
+A \emph{multi-source datum} is a tuple
+\[
+S_{\mathrm{multi}}
+:=
+(\mathcal H_U,\mathcal A_U,\Omega,\{\mathcal E_t^{(i)}\}_{i=1}^N),
+\]
+where:
+\begin{enumerate}
+\item \((\mathcal H_U,\mathcal A_U,\Omega)\) is a Type~III\(_1\) von
+  Neumann algebra in standard form, with \(\Omega\) cyclic and
+  separating for \(\mathcal A_U\);
+\item for each \(i\in\{1,\dots,N\}\),
+  \(\{\mathcal E_t^{(i)}\}_{t\ge 0}\) is a pointwise
+  \(\sigma\)-weakly continuous semigroup of normal completely positive
+  unital maps on \(\mathcal A_U\).
+\end{enumerate}
+\end{definition}
+
+\begin{remark}[Heisenberg-picture convention]
+The semigroups \(\{\mathcal E_t^{(i)}\}\) act on observables, so the
+paper uses the Heisenberg-picture convention throughout. The continuity
+assumption in Definition~2.1 is therefore pointwise \(\sigma\)-weak
+continuity on \(\mathcal A_U\), not norm continuity.
+\end{remark}
+
+\begin{remark}[A deliberately thin datum]
+The multi-source datum contains only the common ambient standard-form
+triple and the family of source-side dynamical semigroups. It does
+\emph{not} include Nakajima--Zwanzig projections, foreground frames,
+accessible algebras, or any private/shared decomposition. Those are not
+primitive data; they are interface or output objects that may or may not
+be obtainable from the datum under additional assumptions.
+\end{remark}
+
+\begin{remark}[Why no tensor-product factorization]\label{rem:notensor}
+The present paper does not assume a global tensor-product decomposition
+\[
+\mathcal H_U \cong \bigotimes_{i=1}^N \mathcal H_i
+\qquad \text{or} \qquad
+\mathcal A_U \cong \bar\otimes_{i=1}^N \mathcal A_i.
+\]
+This is deliberate. In the HAFF programme, the physically relevant
+subalgebras are selected by accessibility and stability rather than by a
+canonical prior factorization~\cite{HAFFA,HAFFD}. In the Type~III
+setting, treating the subsystem split as primitive would import exactly
+the kind of structure the Genesis programme is designed to derive rather
+than presuppose.
+\end{remark}
+
+The single-source outputs from Foundation~I are now imported only as
+downstream conditional objects.
+
+\begin{definition}[Individual manifest outputs]
+Let \(S_{\mathrm{multi}}\) be a multi-source datum. For each source
+index \(i\), an \emph{individual manifest output} means a pair
+\[
+(\mathcal A_c^{(i)},\omega_i)
+\]
+obtained from the Foundation~I chain for the \(i\)-th source, where
+\(\mathcal A_c^{(i)}\subseteq \mathcal A_U\) is a von Neumann
+subalgebra and \(\omega_i\) is a faithful normal state on
+\(\mathcal A_c^{(i)}\).
+\end{definition}
+
+\begin{remark}
+Nothing in Definition~2.3 claims that every source in a multi-source
+datum automatically produces an individual manifest output. That is
+already the conditional content of Foundation~I~\cite{FoundationI}.
+Foundation~II takes those single-source outputs as antecedent material
+when the two-source main theorem is stated.
+\end{remark}
+
+\begin{definition}[Candidate shared sector]
+Given individual manifest outputs
+\((\mathcal A_c^{(i)},\omega_i)_{i=1}^N\), a
+\emph{candidate shared sector} is a von Neumann subalgebra
+\[
+\mathcal A_{\mathrm{sh}}^{\mathrm{cand}}
+\subseteq
+\bigcap_{i=1}^N \mathcal A_c^{(i)}.
+\]
+\end{definition}
+
+The new source-side content begins with the joint-stability package. We
+state it in three layers so that later failures can be localized
+cleanly.
+
+\begin{definition}[JS-A: shared-sector invariance and semigroup compatibility]
+\label{def:JSA}
+Let \(S_{\mathrm{multi}}\) be a multi-source datum and let
+\(\mathcal A_{\mathrm{sh}}^{\mathrm{cand}}\subseteq\mathcal A_U\) be a
+candidate shared sector. We say that
+\((\mathcal A_{\mathrm{sh}}^{\mathrm{cand}},\{\mathcal E_t^{(i)}\})\)
+satisfies \emph{JS-A} if:
+\begin{enumerate}
+\item \(\mathcal E_t^{(i)}(A)\in \mathcal A_{\mathrm{sh}}^{\mathrm{cand}}\)
+  for every \(A\in\mathcal A_{\mathrm{sh}}^{\mathrm{cand}}\), every
+  \(i\), and every \(t\ge 0\);
+\item the ambient modular flow
+  \(\sigma_s^{\omega,\mathrm{tot}}\) of
+  \(\omega(\cdot)=\langle\Omega,\cdot\,\Omega\rangle\) satisfies
+  \[
+  \sigma_s^{\omega,\mathrm{tot}}
+  (\mathcal A_{\mathrm{sh}}^{\mathrm{cand}})
+  =
+  \mathcal A_{\mathrm{sh}}^{\mathrm{cand}}
+  \qquad
+  \forall s\in\mathbb R;
+  \]
+\item the restricted semigroups commute on the candidate shared sector:
+  \[
+  \mathcal E_t^{(i)}\mathcal E_u^{(j)}(A)
+  =
+  \mathcal E_u^{(j)}\mathcal E_t^{(i)}(A)
+  \qquad
+  \forall A\in \mathcal A_{\mathrm{sh}}^{\mathrm{cand}},
+  \ \forall t,u\ge 0.
+  \]
+\end{enumerate}
+\end{definition}
+
+\begin{remark}[Status of the JS-A commutativity clause]
+The exact commutativity requirement in Definition~\ref{def:JSA} is a
+strong regime assumption. The present paper does not claim that it
+follows model-independently from the bare multi-source datum. A weaker
+variant would replace strict commutativity by asymptotic commutativity
+in the long-time limit, or by commutativity only on the shared
+fixed-point algebra. The stronger form is used here because it makes the
+shared stable-carrier construction transparent; the weaker variants are
+left open.
+\end{remark}
+
+\begin{definition}[JS-B: shared-state existence and faithfulness]
+\label{def:JSB}
+Let \(\mathcal A_{\mathrm{sh}}^{\mathrm{cand}}\subseteq \mathcal A_U\)
+be a candidate shared sector. We say that \(\mathcal A_{\mathrm{sh}}^{\mathrm{cand}}\)
+satisfies \emph{JS-B} if there exists a faithful normal state
+\[
+\omega_{\mathrm{sh}}
+\in
+(\mathcal A_{\mathrm{sh}}^{\mathrm{cand}})_*
+\]
+such that:
+\begin{enumerate}
+\item \(\omega_{\mathrm{sh}}\circ\mathcal E_t^{(i)}=\omega_{\mathrm{sh}}\)
+  on \(\mathcal A_{\mathrm{sh}}^{\mathrm{cand}}\) for every
+  \(i\) and every \(t\ge 0\);
+\item \(\omega_{\mathrm{sh}}\) is compatible with the individual
+  manifest states in the sense that
+  \[
+  \omega_i|_{\mathcal A_{\mathrm{sh}}^{\mathrm{cand}}}
+  =
+  \omega_{\mathrm{sh}}
+  \qquad
+  \forall i\in\{1,\dots,N\}.
+  \]
+\end{enumerate}
+\end{definition}
+
+\begin{lemma}[Vector-state simplification of JS-B]\label{lem:vectorJSB}
+Assume the common ambient vector-state regime:
+\[
+\omega(\cdot)=\langle\Omega,\cdot\,\Omega\rangle
+\qquad
+\text{on } \mathcal A_U.
+\]
+If \(\mathcal M\subseteq \mathcal A_U\) is any von Neumann subalgebra,
+then the restricted state
+\[
+\omega|_{\mathcal M}
+\]
+is faithful on \(\mathcal M\).
+\end{lemma}
+
+\begin{proof}
+Because \(\mathcal M\subseteq \mathcal A_U\subseteq B(\mathcal H_U)\),
+both algebras act on the same Hilbert space \(\mathcal H_U\). Since
+\(\Omega\) is separating for \(\mathcal A_U\), the set
+\(\mathcal A_U'\Omega\) is dense in \(\mathcal H_U\). The inclusion
+\(\mathcal M\subseteq \mathcal A_U\) implies \(\mathcal A_U'\subseteq
+\mathcal M'\), hence \(\mathcal M'\Omega\supseteq \mathcal A_U'\Omega\)
+is dense. Therefore \(\Omega\) is separating for \(\mathcal M\).
+Hence if \(A\in\mathcal M_+\) and
+\(\omega(A)=\langle\Omega,A\Omega\rangle=0\), then
+\(A^{1/2}\Omega=0\), so \(A^{1/2}=0\) and therefore \(A=0\).
+\end{proof}
+
+\begin{remark}[Why JS-B is still kept explicit]
+Lemma~\ref{lem:vectorJSB} shows that in the strict common-vector-state
+regime, faithfulness on a shared subalgebra is automatic. We keep JS-B
+explicit nevertheless, for two reasons. First, later variants may allow
+source-dependent faithful normal states not all induced by the same
+ambient vector. Second, even in the common-vector regime, one still
+wants a named place where state compatibility across sources is recorded
+explicitly rather than silently assumed.
+\end{remark}
+
+\begin{remark}[Strength of the JS-B stationarity clause]
+The stationarity requirement in Definition~\ref{def:JSB} is strong. It
+amounts to asking that the shared state lie in the common fixed-state
+sector of all source semigroups when restricted to
+\(\mathcal A_{\mathrm{sh}}^{\mathrm{cand}}\). The present paper does not
+claim that such a common stationary state is generic. A weaker variant
+would replace exact stationarity by long-time convergence or approximate
+stationarity on the shared sector; those relaxations are left open.
+\end{remark}
+
+\begin{definition}[JS-C: compatible persistent projections]\label{def:JSC}
+Let \(S_{\mathrm{multi}}\) be a multi-source datum, and fix a candidate
+shared sector \(\mathcal A_{\mathrm{sh}}^{\mathrm{cand}}\). A pair of
+Nakajima--Zwanzig projections
+\[
+\mathcal P^{(1)},\mathcal P^{(2)}:\mathcal A_U\to\mathcal A_U
+\]
+is called \emph{\(\mathcal A_{\mathrm{sh}}^{\mathrm{cand}}\)-compatible}
+if:
+\begin{enumerate}
+\item each \(\mathcal P^{(i)}\) is a normal idempotent projection used
+  in the Stage~A output of the \(i\)-th source chain;
+\item they commute,
+  \[
+  \mathcal P^{(1)}\mathcal P^{(2)}
+  =
+  \mathcal P^{(2)}\mathcal P^{(1)}
+  =:\mathcal P_{\mathrm{sh}};
+  \]
+\item \(\mathcal P_{\mathrm{sh}}(\mathcal A_U)\) is a von Neumann
+  subalgebra containing
+  \(\mathcal A_{\mathrm{sh}}^{\mathrm{cand}}\), and
+  \(\mathcal P_{\mathrm{sh}}|_{\mathcal A_{\mathrm{sh}}^{\mathrm{cand}}}
+  = \mathrm{id}\);
+\item the projected predual dynamics induced by the pair admit a common
+  dual memory kernel
+  \[
+  \mathcal K_{\mathrm{sh},*}(t,s)
+  \]
+  on the shared projected sector, meaning that there exists a single
+  kernel governing the shared projected dynamics on that sector; the
+  definition does not require literal equality of the two individual
+  source kernels before projection to the shared sector.
+\end{enumerate}
+\end{definition}
+
+\begin{remark}[Status of JS-C]
+Definition~\ref{def:JSC} is not imported from a standard open-systems
+textbook. It is a new named compatibility condition introduced for the
+present paper. The point is not to pretend that a model-independent
+notion of compatible Nakajima--Zwanzig projections is already standard.
+The point is to isolate exactly what later proofs need from such a
+notion. The background projection formalism is still the standard
+Nakajima--Zwanzig one~\cite{Nakajima1958,Zwanzig1960}; what is new here
+is only the multi-source compatibility layer. A weaker variant would
+require only that the long-time asymptotic behaviour of the two
+projected kernels agree on the shared sector, rather than demanding a
+common kernel at all times. The present paper uses the stronger form
+because it simplifies the Stage~A construction; the weaker variant is
+left as an open relaxation.
+\end{remark}
+
+\section{The Two-Source Shared Manifest Sector}\label{sec:two}
+
+We now specialize to \(N=2\). The paper's main theorem is entirely
+two-source.
+
+\subsection{Joint source interface}
+
+Let
+\[
+S_{\mathrm{multi}}^{(2)}
+=
+(\mathcal H_U,\mathcal A_U,\Omega,\{\mathcal E_t^{(1)}\},\{\mathcal E_t^{(2)}\})
+\]
+be a two-source datum. Assume that each source separately satisfies the
+named Foundation~I hypotheses required to produce a Stage~A output,
+Stage~B output, and manifest pair
+\[
+(\mathcal A_c^{(i)},\omega_i),
+\qquad
+i=1,2.
+\]
+
+\begin{lemma}[Joint Stage~A output from compatible persistent projections]
+\label{lem:jointA}
+Let \(S_{\mathrm{multi}}^{(2)}\) be a two-source datum. Assume there
+exists a candidate shared sector
+\(\mathcal A_{\mathrm{sh}}^{\mathrm{cand}}\subseteq
+\mathcal A_c^{(1)}\cap\mathcal A_c^{(2)}\) satisfying JS-C. Then the
+commuting product
+\[
+\mathcal P_{\mathrm{sh}}
+:=
+\mathcal P^{(1)}\mathcal P^{(2)}
+\]
+defines a shared projected record object
+\[
+\mathcal O_A^{\mathrm{sh}}
+:=
+(\mathcal P_{\mathrm{sh}},\omega_{\mathrm{sh},t},\mathcal K_{\mathrm{sh},*}(t,s)),
+\]
+where \(\omega_{\mathrm{sh},t}\) is the projected normal state on the
+shared sector and \(\mathcal K_{\mathrm{sh},*}(t,s)\) is the common dual
+memory kernel from Definition~\ref{def:JSC}.
+\end{lemma}
+
+\begin{proof}
+Commutativity of \(\mathcal P^{(1)}\) and \(\mathcal P^{(2)}\) implies
+that \(\mathcal P_{\mathrm{sh}}\) is again an idempotent projection.
+Because both \(\mathcal P^{(1)}\) and \(\mathcal P^{(2)}\) are normal
+and they commute, their composition is again normal. By JS-C,
+\(\mathcal P_{\mathrm{sh}}(\mathcal A_U)\) is a von Neumann subalgebra
+containing \(\mathcal A_{\mathrm{sh}}^{\mathrm{cand}}\), and the common
+dual kernel \(\mathcal K_{\mathrm{sh},*}(t,s)\) is part of the named
+input. This is exactly the shared Stage~A object required for later
+stages.
+\end{proof}
+
+\subsection{Joint foreground overlap}
+
+For each source \(i=1,2\), let
+\(\mathfrak F^{(i)}\) denote the foreground frame produced by the
+Foundation~I budget-forced compression step, with foreground realization
+\[
+\iota_i:V_{\mathrm{fg}}(\mathfrak F^{(i)})\hookrightarrow
+\mathcal A_U^{\mathrm{sa}}.
+\]
+
+\begin{definition}[Shared foreground overlap]
+\label{def:sharedfg}
+The \emph{shared foreground overlap} is the operator-side intersection
+\[
+V_{\mathrm{fg}}(\mathfrak F_{\mathrm{sh}})
+:=
+\iota_1\bigl(V_{\mathrm{fg}}(\mathfrak F^{(1)})\bigr)
+\cap
+\iota_2\bigl(V_{\mathrm{fg}}(\mathfrak F^{(2)})\bigr)
+\subseteq
+\mathcal A_U^{\mathrm{sa}}.
+\]
+Whenever this intersection is non-zero and finite-dimensional, we choose
+a basis
+\[
+O_1^{\mathrm{sh}},\dots,O_{k_{\mathrm{sh}}}^{\mathrm{sh}}
+\in
+V_{\mathrm{fg}}(\mathfrak F_{\mathrm{sh}})
+\]
+and write
+\[
+\mathcal A_{\mathfrak F_{\mathrm{sh}}}
+:=
+W^*(1,O_1^{\mathrm{sh}},\dots,O_{k_{\mathrm{sh}}}^{\mathrm{sh}}).
+\]
+\end{definition}
+
+\begin{proposition}[Dimension bound for the shared foreground]
+\label{prop:sharedfgdim}
+Assume \(\mathfrak F^{(1)}\) and \(\mathfrak F^{(2)}\) have effective
+dimensions \(k_1^*\) and \(k_2^*\), respectively, and that the shared
+foreground overlap of Definition~\ref{def:sharedfg} is finite
+dimensional. Then
+\[
+k_{\mathrm{sh}}
+\le
+\min\{k_1^*,k_2^*\}.
+\]
+\end{proposition}
+
+\begin{proof}
+The shared foreground overlap is a subspace of each individual
+foreground image. Therefore its dimension cannot exceed the dimension of
+either image, hence cannot exceed the minimum of the two.
+\end{proof}
+
+\begin{remark}
+Proposition~\ref{prop:sharedfgdim} is only a bookkeeping result. It
+does not prove that the overlap is non-trivial. Non-triviality of the
+shared foreground remains a separate conditional input.
+\end{remark}
+
+\subsection{Shared stable hull}
+
+Write
+\[
+\omega(\cdot)=\langle\Omega,\cdot\,\Omega\rangle
+\]
+on the ambient algebra \(\mathcal A_U\), and let
+\(\sigma_s^{\omega,\mathrm{tot}}\) be its ambient modular flow.
+
+\begin{definition}[Shared stable-carrier class]
+\label{def:sharedcarrier}
+Let \(\mathfrak F_{\mathrm{sh}}\) be a non-trivial shared foreground
+overlap. Define
+\[
+\mathfrak L_{\mathrm{sh}}^{\mathrm{st}}
+:=
+\left\{
+\begin{aligned}
+\mathcal M\subseteq\mathcal A_U:\;&
+\mathcal M \text{ is a von Neumann subalgebra},\\
+&
+\mathcal A_{\mathfrak F_{\mathrm{sh}}}\subseteq \mathcal M,\\
+&
+\sigma_s^{\omega,\mathrm{tot}}(\mathcal M)=\mathcal M
+\quad \forall s\in\mathbb R,\\
+&
+\mathcal E_t^{(i)}(\mathcal M)\subseteq \mathcal M
+\quad \forall t\ge 0,\ i=1,2
+\end{aligned}
+\right\}.
+\]
+\end{definition}
+
+\begin{definition}[Shared stable hull]
+\label{def:sharedhull}
+Assume \(\mathfrak L_{\mathrm{sh}}^{\mathrm{st}}\neq \varnothing\). The
+\emph{shared stable hull} of the shared foreground is
+\[
+\Phi_{\mathrm{sh}}^{\mathrm{st}}(\mathfrak F_{\mathrm{sh}})
+:=
+\bigcap_{\mathcal M\in\mathfrak L_{\mathrm{sh}}^{\mathrm{st}}}
+\mathcal M.
+\]
+\end{definition}
+
+\begin{proposition}[Minimal shared stable hull]
+\label{prop:sharedhull}
+Assume \(\mathfrak L_{\mathrm{sh}}^{\mathrm{st}}\neq\varnothing\). Then
+\[
+\Phi_{\mathrm{sh}}^{\mathrm{st}}(\mathfrak F_{\mathrm{sh}})
+\]
+is a well-defined von Neumann subalgebra of \(\mathcal A_U\) satisfying:
+\begin{enumerate}
+\item
+  \(\mathcal A_{\mathfrak F_{\mathrm{sh}}}\subseteq
+  \Phi_{\mathrm{sh}}^{\mathrm{st}}(\mathfrak F_{\mathrm{sh}})\);
+\item
+  \[
+  \sigma_s^{\omega,\mathrm{tot}}
+  \bigl(\Phi_{\mathrm{sh}}^{\mathrm{st}}(\mathfrak F_{\mathrm{sh}})\bigr)
+  =
+  \Phi_{\mathrm{sh}}^{\mathrm{st}}(\mathfrak F_{\mathrm{sh}})
+  \qquad
+  \forall s\in\mathbb R;
+  \]
+\item
+  \[
+  \mathcal E_t^{(i)}
+  \bigl(\Phi_{\mathrm{sh}}^{\mathrm{st}}(\mathfrak F_{\mathrm{sh}})\bigr)
+  \subseteq
+  \Phi_{\mathrm{sh}}^{\mathrm{st}}(\mathfrak F_{\mathrm{sh}})
+  \qquad
+  \forall t\ge 0,\ i=1,2;
+  \]
+\item it is minimal with these properties: if
+  \(\mathcal N\subseteq\mathcal A_U\) is any von Neumann subalgebra
+  containing \(\mathcal A_{\mathfrak F_{\mathrm{sh}}}\) and stable
+  under the ambient modular flow and both semigroups, then
+  \[
+  \Phi_{\mathrm{sh}}^{\mathrm{st}}(\mathfrak F_{\mathrm{sh}})
+  \subseteq
+  \mathcal N.
+  \]
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+The argument is identical to the stable-hull construction in
+Foundation~I~\cite{FoundationI}, with the only change that one now
+imposes stability under both source semigroups. An arbitrary
+intersection of von Neumann subalgebras is again a von Neumann
+subalgebra: intersections of \(\sigma\)-weakly closed
+\(*\)-subalgebras remain \(\sigma\)-weakly closed \(*\)-subalgebras.
+Because every member of
+\(\mathfrak L_{\mathrm{sh}}^{\mathrm{st}}\) contains
+\(\mathcal A_{\mathfrak F_{\mathrm{sh}}}\), so does the intersection.
+Stability under the ambient modular flow and both semigroups is
+preserved by intersection: if \(A\in\bigcap_{\alpha}\mathcal M_\alpha\),
+then \(\mathcal E_t^{(i)}(A)\in\mathcal M_\alpha\) for every
+\(\alpha\), \(t\), and \(i\), and similarly for the modular flow, hence
+the image again lies in \(\bigcap_{\alpha}\mathcal M_\alpha\).
+Minimality is immediate from the definition as the intersection of all
+subalgebras with the required properties.
+\end{proof}
+
+\subsection{Main theorem}
+
+\begin{theorem}[Two-source shared admissible manifest sector]
+\label{thm:main}
+Let \(S_{\mathrm{multi}}^{(2)}\) be a two-source datum. Assume:
+\begin{enumerate}
+\item \textbf{Individual source closure.} Each source separately
+  satisfies the named Foundation~I hypotheses needed to produce
+  \[
+  (\mathcal A_c^{(1)},\omega_1),
+  \qquad
+  (\mathcal A_c^{(2)},\omega_2),
+  \]
+  together with foreground frames
+  \(\mathfrak F^{(1)}\) and \(\mathfrak F^{(2)}\).
+\item \textbf{Joint-stability package.} There exists a candidate shared
+  sector
+  \[
+  \mathcal A_{\mathrm{sh}}^{\mathrm{cand}}
+  \subseteq
+  \mathcal A_c^{(1)}\cap\mathcal A_c^{(2)}
+  \]
+  satisfying JS-A, JS-B, and JS-C.
+\item \textbf{Non-trivial shared foreground.} The shared foreground
+  overlap \(\mathfrak F_{\mathrm{sh}}\) is non-zero and admits a
+  realization by exact shared pointer-aligned observables
+  \(O_1^{\mathrm{sh}},\dots,O_{k_{\mathrm{sh}}}^{\mathrm{sh}}\) lying in
+  \(\mathcal A_{\mathrm{sh}}^{\mathrm{cand}}\).
+\item \textbf{Admissibility input for Paper~I.} The pair
+  \[
+  \bigl(
+  \Phi_{\mathrm{sh}}^{\mathrm{st}}(\mathfrak F_{\mathrm{sh}}),
+  \omega_{\mathrm{sh}}|_{\Phi_{\mathrm{sh}}^{\mathrm{st}}(\mathfrak F_{\mathrm{sh}})}
+  \bigr)
+  \]
+  satisfies the admissibility conditions required by
+  Paper~I~\cite{PaperI}.
+\end{enumerate}
+Then:
+\begin{enumerate}
+\item the shared stable hull is well-defined and satisfies
+  \[
+  \Phi_{\mathrm{sh}}^{\mathrm{st}}(\mathfrak F_{\mathrm{sh}})
+  \subseteq
+  \mathcal A_{\mathrm{sh}}^{\mathrm{cand}}
+  \subseteq
+  \mathcal A_c^{(1)}\cap \mathcal A_c^{(2)};
+  \]
+\item the restricted state
+  \[
+  \omega_{\mathrm{sh}}^{\mathrm{st}}
+  :=
+  \omega_{\mathrm{sh}}|_{\Phi_{\mathrm{sh}}^{\mathrm{st}}(\mathfrak F_{\mathrm{sh}})}
+  \]
+  is faithful on
+  \(\Phi_{\mathrm{sh}}^{\mathrm{st}}(\mathfrak F_{\mathrm{sh}})\);
+\item the pair
+  \[
+  \Bigl(
+  \Phi_{\mathrm{sh}}^{\mathrm{st}}(\mathfrak F_{\mathrm{sh}}),
+  \omega_{\mathrm{sh}}^{\mathrm{st}}
+  \Bigr)
+  \]
+  is a shared admissible manifest sector;
+\item therefore the Paper~I inseparability theorem applies to that pair.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+By assumption~(3), the exact shared pointer-aligned observables
+\(O_1^{\mathrm{sh}},\dots,O_{k_{\mathrm{sh}}}^{\mathrm{sh}}\) lie in
+\(\mathcal A_{\mathrm{sh}}^{\mathrm{cand}}\). Since
+\(\mathcal A_{\mathrm{sh}}^{\mathrm{cand}}\) is a von Neumann
+subalgebra by Definition~2.4, it contains the generated shared
+foreground algebra:
+\[
+\mathcal A_{\mathfrak F_{\mathrm{sh}}}
+\subseteq
+\mathcal A_{\mathrm{sh}}^{\mathrm{cand}}.
+\]
+By assumption~(2), the candidate shared sector satisfies JS-A, hence it
+is invariant under the ambient modular flow and under both source
+semigroups. Therefore
+\[
+\mathcal A_{\mathrm{sh}}^{\mathrm{cand}}
+\in
+\mathfrak L_{\mathrm{sh}}^{\mathrm{st}}.
+\]
+In particular, the class \(\mathfrak L_{\mathrm{sh}}^{\mathrm{st}}\) is
+nonempty. Hence
+Definition~\ref{def:sharedhull} and
+Proposition~\ref{prop:sharedhull} apply, so the shared stable hull is a
+well-defined von Neumann subalgebra of \(\mathcal A_U\).
+
+Because \(\mathcal A_{\mathrm{sh}}^{\mathrm{cand}}\) is a member of the
+shared stable-carrier class, minimality gives
+\[
+\Phi_{\mathrm{sh}}^{\mathrm{st}}(\mathfrak F_{\mathrm{sh}})
+\subseteq
+\mathcal A_{\mathrm{sh}}^{\mathrm{cand}}.
+\]
+By assumption~(2), the candidate shared sector is already contained in
+\(\mathcal A_c^{(1)}\cap\mathcal A_c^{(2)}\), so
+\[
+\Phi_{\mathrm{sh}}^{\mathrm{st}}(\mathfrak F_{\mathrm{sh}})
+\subseteq
+\mathcal A_c^{(1)}\cap\mathcal A_c^{(2)}.
+\]
+This proves part~(1).
+
+By JS-B, \(\omega_{\mathrm{sh}}\) is faithful on
+\(\mathcal A_{\mathrm{sh}}^{\mathrm{cand}}\). The restriction of a
+faithful normal state to a von Neumann subalgebra is again faithful.
+Therefore
+\[
+\omega_{\mathrm{sh}}^{\mathrm{st}}
+=
+\omega_{\mathrm{sh}}|_{\Phi_{\mathrm{sh}}^{\mathrm{st}}(\mathfrak F_{\mathrm{sh}})}
+\]
+is faithful on the shared stable hull. This proves part~(2).
+
+Parts~(1) and~(2), together with the stability properties from
+Proposition~\ref{prop:sharedhull}, show that the pair
+\[
+\Bigl(
+\Phi_{\mathrm{sh}}^{\mathrm{st}}(\mathfrak F_{\mathrm{sh}}),
+\omega_{\mathrm{sh}}^{\mathrm{st}}
+\Bigr)
+\]
+is a shared manifest sector in the sense intended by the present paper.
+Assumption~(4) is the external admissibility input that upgrades it to a
+shared \emph{admissible} manifest sector, so Paper~I applies. This
+proves parts~(3) and~(4).
+\end{proof}
+
+\begin{corollary}[Shared inseparability]
+\label{cor:sharedinseparability}
+Under the hypotheses of Theorem~\ref{thm:main}, geometry and modular
+flow on the shared sector
+\[
+\Bigl(
+\Phi_{\mathrm{sh}}^{\mathrm{st}}(\mathfrak F_{\mathrm{sh}}),
+\omega_{\mathrm{sh}}^{\mathrm{st}}
+\Bigr)
+\]
+are not independently deformable in the sense of Paper~I. In
+particular, any geometric reading
+\(\mathrm{Geom}(\Phi_{\mathrm{sh}}^{\mathrm{st}}(\mathfrak F_{\mathrm{sh}}),
+\omega_{\mathrm{sh}}^{\mathrm{st}})\)
+defined within the Paper~I theorem domain is a \emph{shared} geometric
+sector.
+\end{corollary}
+
+\begin{proof}
+This is exactly the conclusion of the Paper~I theorem applied to the
+pair isolated by Theorem~\ref{thm:main}.
+\end{proof}
+
+\begin{remark}[What the main theorem does \emph{not} prove]
+Theorem~\ref{thm:main} does not prove a general shared-world theorem.
+It proves something narrower: if a two-source datum already admits a
+candidate shared sector satisfying the named compatibility and
+admissibility inputs, then the overlap of the two source chains carries
+an honest theorem-level manifest sector to which the Paper~I machinery
+may be applied. It also does not derive the candidate shared sector from
+multi-source entanglement or source dynamics alone. This is a foothold,
+not the full Bridge~2 closure.
+\end{remark}
+
+\begin{remark}[Where the theorem's new content lies]
+The genuine new content of Theorem~\ref{thm:main} is the conditional
+inclusion chain
+\[
+\text{shared foreground inclusion}
+\;+\;
+\text{JS-A}
+\Longrightarrow
+\mathcal A_{\mathrm{sh}}^{\mathrm{cand}}
+\in
+\mathfrak L_{\mathrm{sh}}^{\mathrm{st}}
+\Longrightarrow
+\Phi_{\mathrm{sh}}^{\mathrm{st}}(\mathfrak F_{\mathrm{sh}})
+\subseteq
+\mathcal A_c^{(1)}\cap\mathcal A_c^{(2)}.
+\]
+The Paper~I admissibility package is not derived here. It is a named
+external input specifying when the isolated shared stable hull lies in
+the theorem domain of Paper~I.
+\end{remark}
+
+\section{Common/Private Decomposition}\label{sec:cp}
+
+The main theorem isolates a shared admissible manifest sector. We now
+ask how each observer's full manifest algebra relates to that shared
+sector. In the Type~III\(_1\) setting, one should not treat this as a
+canonical factorization problem. The correct formulation is
+regime-dependent and uses a conditional expectation language.
+
+\begin{definition}[Shared/private regime assumption]
+\label{def:regime}
+Let
+\[
+\mathcal A_{\mathrm{sh}}
+\subseteq
+\mathcal A_c^{(i)}
+\subseteq
+\mathcal A_U,
+\qquad
+i=1,2.
+\]
+We say that the pair
+\((\mathcal A_c^{(i)},\mathcal A_{\mathrm{sh}})\) satisfies the
+\emph{shared/private regime assumption} if for each \(i\) there exist:
+\begin{enumerate}
+\item a von Neumann subalgebra
+  \(\mathcal A_{\mathrm{priv}}^{(i)}\subseteq \mathcal A_c^{(i)}\);
+\item a faithful normal conditional expectation
+  \[
+  E_{\mathrm{sh}}^{(i)}:\mathcal A_c^{(i)}\to \mathcal A_{\mathrm{sh}}
+  \]
+  preserving the individual manifest state in the sense that
+  \[
+  \omega_i\circ E_{\mathrm{sh}}^{(i)}=\omega_i;
+  \]
+\item a generating relation
+  \[
+  \mathcal A_c^{(i)}
+  =
+  W^*\!\bigl(\mathcal A_{\mathrm{sh}}\cup
+  \mathcal A_{\mathrm{priv}}^{(i)}\bigr).
+  \]
+\end{enumerate}
+\end{definition}
+
+\begin{remark}
+Definition~\ref{def:regime} does not assert uniqueness of the private
+complement, and it does not assert a tensor-product or free-product
+factorization. It only says that, under a regime assumption, the full
+manifest algebra can be generated from the shared sector together with a
+private complement, with a faithful conditional expectation projecting
+back to the shared sector.
+\end{remark}
+
+\begin{remark}[Minimal package for common/private language]
+Definition~\ref{def:regime} is the minimal package needed before
+common/private language can even be used honestly in the present paper.
+Without a private complement, a faithful conditional expectation onto
+the shared sector, and a generating relation for the full manifest
+algebra, the phrase ``private part'' remains interpretive rather than
+mathematical.
+\end{remark}
+
+\begin{proposition}[Shared agreement and overlap-level discrepancy]
+\label{prop:cpdiscrepancy}
+Assume the hypotheses of Theorem~\ref{thm:main}, and suppose the
+shared/private regime assumption holds with
+\[
+\mathcal A_{\mathrm{sh}}
+:=
+\Phi_{\mathrm{sh}}^{\mathrm{st}}(\mathfrak F_{\mathrm{sh}}).
+\]
+Let
+\[
+\mathcal A_{\mathrm{ov}}
+:=
+\mathcal A_c^{(1)}\cap \mathcal A_c^{(2)}.
+\]
+Define the overlap discrepancy functional
+\[
+\delta_{12}
+:=
+\omega_1|_{\mathcal A_{\mathrm{ov}}}
+-
+\omega_2|_{\mathcal A_{\mathrm{ov}}}
+\in
+(\mathcal A_{\mathrm{ov}})_*.
+\]
+Then:
+\begin{enumerate}
+\item the two restricted manifest states agree on the shared sector:
+  \[
+  \omega_1|_{\mathcal A_{\mathrm{sh}}}
+  =
+  \omega_2|_{\mathcal A_{\mathrm{sh}}}
+  =
+  \omega_{\mathrm{sh}}^{\mathrm{st}}|_{\mathcal A_{\mathrm{sh}}};
+  \]
+\item equivalently,
+  \[
+  \delta_{12}|_{\mathcal A_{\mathrm{sh}}}=0;
+  \]
+\item if \(A\in\mathcal A_{\mathrm{ov}}\) satisfies
+  \(\delta_{12}(A)\neq 0\), then \(A\notin\mathcal A_{\mathrm{sh}}\);
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+For \(A\in\mathcal A_{\mathrm{sh}}\), Theorem~\ref{thm:main} gives
+\[
+\omega_1(A)
+=
+\omega_{\mathrm{sh}}^{\mathrm{st}}(A)
+=
+\omega_2(A).
+\]
+Therefore
+\[
+\delta_{12}(A)=0
+\qquad
+\forall A\in\mathcal A_{\mathrm{sh}}.
+\]
+This proves the first two claims. The third is the contrapositive of the
+second.
+\end{proof}
+
+\begin{corollary}[Shared manifest content]
+\label{cor:sharedcontent}
+Under the hypotheses of Proposition~\ref{prop:cpdiscrepancy}, every
+observable in the shared sector carries common manifest content.
+Observer-dependent discrepancy, insofar as it is jointly accessible on
+\(\mathcal A_{\mathrm{ov}}\), can only appear outside the shared
+sector.
+\end{corollary}
+
+\begin{proof}
+Proposition~\ref{prop:cpdiscrepancy} shows that the two restricted
+manifest states agree on the shared sector and that any jointly
+accessible disagreement must be detected off that sector. That is the
+formal meaning of ``shared manifest content'' used in the present paper.
+\end{proof}
+
+\begin{remark}[Shared/private reading of Proposition~\ref{prop:cpdiscrepancy}]
+Under the shared/private regime assumption, Proposition~\ref{prop:cpdiscrepancy}
+may be read as saying that any overlap-level disagreement is detected
+only outside the common manifest sector, i.e.\ on the observer-dependent
+side of the decomposition language introduced in this section.
+\end{remark}
+
+\begin{remark}[What Section~\ref{sec:cp} does \emph{not} prove]
+Section~\ref{sec:cp} does not prove existence of a canonical private
+factor, nor does it derive the shared/private regime assumption from the
+bare two-source datum. Its role is narrower: once a shared manifest
+sector has been isolated and a regime assumption is granted, it makes
+precise where observer agreement must hold and where observer-dependent
+discrepancy may still appear.
+\end{remark}
+
+\begin{remark}[No canonical factorization claim]
+Corollary~\ref{cor:sharedcontent} should not be read as a theorem that
+\[
+\mathcal A_c^{(i)}
+\cong
+\mathcal A_{\mathrm{sh}}\bar\otimes
+\mathcal A_{\mathrm{priv}}^{(i)}
+\]
+or any analogous canonical factorization holds. The paper makes no such
+claim. It uses only the weaker and safer statement that, under a regime
+assumption, a shared sector and a private complement jointly generate
+the full manifest algebra.
+\end{remark}
+
+\section{Conditional \texorpdfstring{$N$}{N}-Source Extension}\label{sec:nsource}
+
+The two-source theorem is the paper's main result. The natural next step
+is a conditional \(N\)-source extension. This section records the
+generalization in the same honest style as Foundation~I: whatever can be
+internalized immediately is internalized, and the genuinely new input is
+kept explicit.
+
+\begin{definition}[Auxiliary \(N\)-source conditions]
+\label{def:Nconds}
+Let
+\[
+S_{\mathrm{multi}}
+=
+(\mathcal H_U,\mathcal A_U,\Omega,\{\mathcal E_t^{(i)}\}_{i=1}^N)
+\]
+be a multi-source datum with individual manifest outputs
+\((\mathcal A_c^{(i)},\omega_i)_{i=1}^N\). We use the following
+auxiliary conditions.
+\begin{enumerate}
+\item \textbf{Exchangeability:} the source family is invariant, at the
+  level relevant to the theorem, under finite permutations of the
+  labels.
+\item \textbf{Pairwise threshold condition:} for every pair
+  \(i\neq j\), the two-source hypotheses of
+  Theorem~\ref{thm:main} hold relative to the same candidate shared
+  sector \(\mathcal A_{\mathrm{sh}}^{\mathrm{cand}}\).
+\item \textbf{Graph-compatibility condition:} the source labels are
+  vertices of a connected graph \(G\), and every edge
+  \((i,j)\in E(G)\) satisfies the two-source hypotheses relative to the
+  same candidate shared sector.
+\item \textbf{Global consensus functional:} there exists a functional
+  \(C_N\) whose only role in the present paper is to define the domain
+  on which the previous conditions are asserted. No quantitative bound
+  involving \(C_N\) is derived here.
+\end{enumerate}
+\end{definition}
+
+\begin{theorem}[Conditional \(N\)-source shared manifest sector]
+\label{thm:N}
+Let \(S_{\mathrm{multi}}\) be an \(N\)-source datum with individual
+manifest outputs \((\mathcal A_c^{(i)},\omega_i)_{i=1}^N\). Assume:
+\begin{enumerate}
+\item there exists a candidate shared sector
+  \[
+  \mathcal A_{\mathrm{sh}}^{\mathrm{cand}}
+  \subseteq
+  \bigcap_{i=1}^N \mathcal A_c^{(i)}
+  \]
+  satisfying JS-A and JS-B for all sources;
+\item the pairwise-threshold condition of
+  Definition~\ref{def:Nconds} holds, with a compatible family of shared
+  foreground overlaps generating a common foreground algebra
+  \(\mathcal A_{\mathfrak F_{\mathrm{sh}}}\);
+\item the \(N\)-source stable-carrier class
+  \[
+  \mathfrak L_{\mathrm{sh},N}^{\mathrm{st}}
+  :=
+  \left\{
+  \mathcal M\subseteq\mathcal A_U:
+  \begin{array}{l}
+  \mathcal M \text{ is a von Neumann subalgebra},\\
+  \mathcal A_{\mathfrak F_{\mathrm{sh}}}\subseteq \mathcal M,\\
+  \sigma_s^{\omega,\mathrm{tot}}(\mathcal M)=\mathcal M,\ \forall s,\\
+  \mathcal E_t^{(i)}(\mathcal M)\subseteq\mathcal M,\ \forall t,\forall i
+  \end{array}
+  \right\}
+  \]
+  is nonempty and contains
+  \(\mathcal A_{\mathrm{sh}}^{\mathrm{cand}}\);
+\item the resulting \(N\)-source shared stable hull satisfies the
+  admissibility hypotheses needed by Paper~I.
+\end{enumerate}
+Then the \(N\)-source shared stable hull is a shared admissible manifest
+sector contained in
+\(\bigcap_{i=1}^N\mathcal A_c^{(i)}\).
+\end{theorem}
+
+\begin{proof}
+The proof is the same minimality argument as in the two-source case,
+with the only change that one now intersects over all source labels
+rather than over two. The candidate shared sector is, by assumption, a
+member of the \(N\)-source stable-carrier class. Therefore the
+intersection defining the \(N\)-source shared stable hull is
+well-defined and lies inside the candidate sector. The remaining steps
+repeat the proof of Theorem~\ref{thm:main}.
+\end{proof}
+
+\begin{remark}[What Theorem~\ref{thm:N} does not contain]
+Theorem~\ref{thm:N} does not provide:
+\begin{enumerate}
+\item a uniqueness or maximality theorem for the \(N\)-source shared
+  sector;
+\item a quantitative relationship between the number/strength of sources
+  and geometric stability;
+\item a proof that the auxiliary conditions of
+  Definition~\ref{def:Nconds} follow from the bare multi-source datum.
+\end{enumerate}
+All three belong to later work.
+\end{remark}
+
+\section{Open Problems}\label{sec:open}
+
+The conditional inputs of Foundation~II are not cosmetic. They isolate
+the genuinely unfinished parts of the programme.
+
+Heuristically, the present two-source theorem is closer to a
+mean-field foothold than to a full correlated treatment: it isolates a
+shared effective manifest sector in a restricted regime, while genuinely
+cross-source structure remains the central open problem for any future
+multi-source closure.
+
+\begin{enumerate}
+\item \textbf{Model-independent joint stability.} The present paper
+  names JS-A, JS-B, and JS-C. It does not derive them model-independently
+  from a bare multi-source datum. The analogue of Foundation~I's
+  observer-emergence bottleneck therefore persists in multi-source form.
+
+\item \textbf{Compatible Nakajima--Zwanzig projections.} The present
+  notion of compatible persistent projections is a new definition, not a
+  standard theorem. A general existence theory for such compatible
+  projections remains open.
+
+\item \textbf{Shared-foreground non-triviality.} The paper proves that
+  if a non-trivial shared foreground overlap exists, then its dimension
+  is bounded by the individual budget ceilings. It does not prove that
+  the overlap must be non-zero.
+
+\item \textbf{Quantitative consensus versus stability.} The paper
+  deliberately avoids a bound of the form
+  \[
+  \text{consensus strength}
+  \Longrightarrow
+  \text{geometric fluctuation bound}.
+  \]
+  That is the separate Bridge~3 problem.
+
+\item \textbf{\(N\)-source non-conditional closure.} The present
+  \(N\)-source theorem is conditional. A truly non-conditional closure
+  would require deriving the pairwise-threshold, graph, or
+  exchangeability inputs from source-side dynamics.
+
+\item \textbf{Uniqueness and maximality of the shared sector.} Even in
+  the two-source case, the present theorem proves only existence of a
+  minimal shared stable hull inside a candidate shared carrier. It does
+  not prove that this sector is unique among all plausible shared
+  manifest sectors, or maximal in any global sense.
+
+\item \textbf{Relation to Paper~II.} Paper~II constrains higher-order
+  geometry by multi-directional consistency~\cite{PaperII}. The present
+  paper does not yet prove how the shared manifest sector of
+  Foundation~II interacts with the Paper~II small-ball remainder
+  structure. That interface remains open.
+
+\item \textbf{Type~III and infinite-dimensional obstacles.} The
+  common/private regime assumption is not automatic in the Type~III
+  setting. Conditional expectations, complements, and generating
+  decompositions all become more delicate in infinite dimensions. In
+  particular, existence of a faithful normal conditional expectation
+  onto a candidate shared sector typically interacts with modular
+  invariance in the sense of Takesaki and may fail outside suitable
+  invariant regimes. Even when such expectations exist, complements and
+  generating relations need not be unique, and non-factorial or
+  center-bearing sectors may force a central decomposition before any
+  shared/private language becomes well behaved.
+\end{enumerate}
+
+\section{Conditional Input Ledger}\label{sec:ledger}
+
+This section records the named inputs that remain conditional in the
+present paper.
+
+\begin{enumerate}
+\item \textbf{I1: Individual source closure.} Each source separately
+  satisfies the named Foundation~I hypotheses needed to produce an
+  individual manifest pair \((\mathcal A_c^{(i)},\omega_i)\).
+
+\item \textbf{JS-A: Shared-sector invariance and semigroup
+  compatibility.} The candidate shared sector is stable under all
+  relevant semigroups and under the ambient modular flow, and the
+  restricted semigroups commute there.
+
+\item \textbf{JS-B: Shared-state existence and faithfulness.} A common
+  faithful normal state exists on the candidate shared sector and is
+  compatible with the source-specific manifest states.
+
+\item \textbf{JS-C: Compatible persistent projections.} The pair of
+  source-side Nakajima--Zwanzig projections commute and admit a common
+  projected kernel on the shared sector.
+
+\item \textbf{F1: Non-trivial shared foreground with exact pointer
+  realization.} The overlap of the two source-side foreground
+  realizations is non-zero, finite dimensional, and admits an exact
+  pointer-aligned realization inside the candidate shared sector.
+
+\item \textbf{A1: Admissibility input for Paper~I.} The shared stable
+  hull satisfies the admissibility package needed for the
+  geometry--modular-flow inseparability theorem.
+
+\item \textbf{SP1: Shared/private regime assumption.} Each individual
+  manifest algebra admits a faithful conditional expectation onto the
+  shared sector together with a private complement that generates the
+  full algebra jointly with the shared sector.
+
+\item \textbf{N1: \(N\)-source auxiliary conditions.} Exchangeability,
+  pairwise threshold, graph compatibility, or a global consensus
+  functional are available when one moves beyond the two-source case.
+\end{enumerate}
+
+\appendix
+
+\section{Imported Interfaces}
+\label{app:premises}
+
+This appendix records, in theorem-ready form, the external interfaces
+imported from Genesis, Foundation~I, and the Consciousness Trilogy. They
+are not reproved here, but they are restated explicitly so that the
+present paper can be read without reconstructing its dependencies from
+the earlier series papers. What is \emph{not} imported should also be
+kept clear: the multi-source notions of candidate shared sector, JS-A,
+JS-B, JS-C, shared stable hull, and shared/private regime are defined
+internally in Foundation~II itself.
+
+\begin{proposition}[Foundation~I single-source closure package]
+\label{prop:appF1}
+Foundation~I~\cite{FoundationI} isolates a conditional chain
+\[
+S_{\mathrm{source}}
+\to
+\mathcal O_A
+\to
+\mathcal O_B
+\to
+(\mathcal A_c,\omega),
+\]
+where:
+\begin{enumerate}
+\item Stage~A supplies a projected record object
+  \[
+  \mathcal O_A=(\mathcal P,\omega_t,\mathcal K_*(t,s)),
+  \]
+  where \(\mathcal P:\mathcal A_U\to\mathcal A_U\) is a normal
+  idempotent projection and \(\mathcal K_*(t,s)\) is a dual
+  non-Markovian memory kernel;
+\item Stage~B supplies a foreground frame \(\mathfrak F\) with a
+  finite-dimensional foreground space
+  \(V_{\mathrm{fg}}(\mathfrak F)\) and an operator realization
+  \[
+  \iota:V_{\mathrm{fg}}(\mathfrak F)\hookrightarrow \mathcal A_U^{\mathrm{sa}};
+  \]
+\item Stage~C supplies a manifest pair
+  \[
+  (\mathcal A_c,\omega)
+  =
+  \bigl(\Phi_{\mathfrak F}^{\mathrm{st}}(\mathfrak F),\omega\bigr),
+  \]
+  where \(\Phi_{\mathfrak F}^{\mathrm{st}}(\mathfrak F)\subseteq
+  \mathcal A_U\) is a minimal modular-decoherence stable hull, hence a
+  von Neumann subalgebra carrying a faithful normal restricted state;
+\item in the exact fixed-point comparison regime imported from
+  Foundation~I, one has the inclusion
+  \[
+  \Phi_{\mathfrak F}^{\mathrm{st}}(\mathfrak F)
+  \subseteq
+  \mathcal A_c^{\mathrm{HAFF}}.
+  \]
+  (not used in the present paper; recorded for later reference).
+\end{enumerate}
+\end{proposition}
+
+\begin{proposition}[Imported single-source interfaces used in Foundation~II]
+\label{prop:appinterfaces}
+Whenever Foundation~II invokes the \(i\)-th source chain, the only
+external single-source objects it uses are:
+\begin{enumerate}
+\item a Stage~A projection
+  \(\mathcal P^{(i)}\), projected normal states
+  \(\omega_t^{(i)}\), and dual memory kernel
+  \(\mathcal K_{*,i}(t,s)\);
+\item a Stage~B foreground frame \(\mathfrak F^{(i)}\) with realized
+  finite-dimensional foreground image
+  \[
+  \iota_i\bigl(V_{\mathrm{fg}}(\mathfrak F^{(i)})\bigr)
+  \subseteq
+  \mathcal A_U^{\mathrm{sa}};
+  \]
+\item a Stage~C manifest pair
+  \[
+  (\mathcal A_c^{(i)},\omega_i)
+  =
+  \bigl(\Phi_{\mathfrak F^{(i)}}^{\mathrm{st}}(\mathfrak F^{(i)}),
+  \omega_i\bigr).
+  \]
+\end{enumerate}
+No multi-source compatibility theorem is imported at this stage.
+Foundation~II introduces the multi-source compatibility layer itself.
+\end{proposition}
+
+\begin{proposition}[Paper~I manifest inseparability theorem]
+\label{prop:appP1}
+Paper~I~\cite{PaperI} proves that for an admissible manifest pair
+\((\mathcal A_c,\omega)\), geometry and modular flow are not
+independently deformable. In particular, once a pair
+\((\mathcal A_c,\omega)\) in the theorem domain is given, the geometry
+and modular sectors should be treated as two constrained readings of one
+underlying algebraic datum. Foundation~II uses this result only through
+its admissibility interface: whenever a shared stable hull is shown, by
+named external input, to belong to the Paper~I theorem domain, the
+inseparability conclusion becomes available.
+\end{proposition}
+
+\begin{proposition}[Paper~II as a consistency constraint]
+\label{prop:appP2}
+Paper~II~\cite{PaperII} shows that in the CHM small-ball setting,
+multi-directional consistency of geometry and modular data forces the
+linearized Einstein equation. The present paper uses this only as a
+boundary calibration: it does not import the Paper~II theorem as a
+formal input to the shared-sector existence proof.
+\end{proposition}
+
+\begin{proposition}[T-DOME source-side ingredients]
+\label{prop:appTDOME}
+The T-DOME papers provide the three single-source ingredients used
+upstream of the present paper:
+\begin{enumerate}
+\item T-DOME~I: persistent far-from-equilibrium subsystems require
+  non-Markovian memory and thereby motivate the Stage~A projected record
+  process with kernel \(\mathcal K_*(t,s)\)~\cite{TDOMEI,BreuerPetruccione2002};
+\item T-DOME~II: finite processing budgets force foreground/background
+  partition, symmetry-broken frame selection, and a finite effective
+  foreground dimension \(k^*\)~\cite{TDOMEII};
+\item T-DOME~III: self-calibration enters through a Fisher-information
+  prior carried by the foreground structure, but no direct theorem from
+  T-DOME~III is used in the operator-algebraic proofs below beyond this
+  source-side calibration role~\cite{TDOMEIII}.
+\end{enumerate}
+\end{proposition}
+
+\begin{proposition}[HAFF ambient setting]
+\label{prop:appHAFF}
+The HAFF programme supplies the ambient structural setting used here:
+\begin{enumerate}
+\item geometry is read from accessible algebraic structure rather than
+  supplied as a background container~\cite{HAFFA};
+\item accessible algebras are selected by stability under the relevant
+  dynamics rather than by subjective choice~\cite{HAFFD};
+\item in the exact fixed-point regime used for Foundation~I and imported
+  here, the HAFF accessible algebra
+  \[
+  \mathcal A_c^{\mathrm{HAFF}}\subseteq \mathcal A_U
+  \]
+  is a von Neumann subalgebra stable under the relevant semigroup and
+  the ambient modular flow;
+\item fixed-point and stability ideas for completely positive semigroups
+  motivate the use of stable carrier classes and exact pointer sectors
+  in restricted regimes~\cite{FrigerioVerri1982,Zurek2003}.
+\end{enumerate}
+\end{proposition}
+
+\begin{remark}[What earlier papers do and do not supply]
+The earlier Genesis and Consciousness papers supply only single-source
+objects and single-source comparison statements of the kind listed above.
+They do \emph{not} supply a multi-source theorem asserting that two
+projections commute, that two foreground frames overlap nontrivially, or
+that two source chains admit a common stationary state. Those are the
+precise new conditional interfaces named JS-A, JS-B, and JS-C in the
+main text.
+\end{remark}
+
+\begin{remark}[Conditional expectations]
+The common/private regime assumption uses faithful normal conditional
+expectations in the sense of Takesaki~\cite{Takesaki1972}. No claim is
+made here that such expectations always exist onto the shared sector in
+the Type~III\(_1\) setting; their existence is part of the regime
+assumption itself.
+\end{remark}
+\newpage
+\addcontentsline{toc}{section}{References}
+
+\begin{thebibliography}{99}
+\sloppy
+
+\bibitem{FoundationI}
+S.~Liu,
+\emph{Foundation I: From Source to Manifestation: A Conditional Same-Root Program for Geometry and Modular Flow},
+Consciousness Series (2026),
+Zenodo, DOI:~10.5281/zenodo.19627786.
+
+\bibitem{PaperI}
+S.~Liu,
+\emph{The Inseparability of Geometry and Modular Flow: A Structural Inseparability Theorem and Its Implications for the Hard Problem},
+Consciousness Trilogy, Paper~I (2026),
+Zenodo, DOI:~10.5281/zenodo.19607387.
+
+\bibitem{PaperII}
+S.~Liu,
+\emph{Higher-Dimensional Consistency of Geometry and Modular Flow: Small-Ball Modular Data and Linearized Gravity},
+Consciousness Trilogy, Paper~II (2026),
+Zenodo, DOI:~10.5281/zenodo.19607543.
+
+\bibitem{PaperIII}
+S.~Liu,
+\emph{The Structural Horizon of Self-Description: Fisher Bounds, Small-Ball Remainders, and the Quantitative Explanatory Gap},
+Consciousness Trilogy, Paper~III (2026),
+Zenodo, DOI:~10.5281/zenodo.19607724.
+
+\bibitem{HAFFA}
+S.~Liu,
+\emph{Emergent Geometry from Coarse-Grained Observable Algebras: The Holographic Alaya-Field Framework},
+Zenodo (2026), DOI:~10.5281/zenodo.18361706.
+
+\bibitem{HAFFD}
+S.~Liu,
+\emph{Gravitational Phenomena as Emergent Properties of Observable Algebra Selection: A Structural Analysis},
+Zenodo (2026), DOI:~10.5281/zenodo.18388881.
+
+\bibitem{TDOMEI}
+S.~Liu,
+\emph{Non-Markovian Memory and the Thermodynamic Necessity of Temporal Accumulation},
+Zenodo (2026), DOI:~10.5281/zenodo.18574342.
+
+\bibitem{TDOMEII}
+S.~Liu,
+\emph{Spontaneous Symmetry Breaking of Reference Frames as a Computational Cost Minimization Strategy},
+Zenodo (2026), DOI:~10.5281/zenodo.18579703.
+
+\bibitem{TDOMEIII}
+S.~Liu,
+\emph{Fisher Information Geometry and the Thermodynamic Cost of Self-Referential Calibration},
+Zenodo (2026), DOI:~10.5281/zenodo.18591771.
+
+\bibitem{BreuerPetruccione2002}
+H.-P.~Breuer and F.~Petruccione,
+\emph{The Theory of Open Quantum Systems},
+Oxford University Press (2002).
+
+\bibitem{Nakajima1958}
+S.~Nakajima,
+\emph{On quantum theory of transport phenomena},
+Prog.\ Theor.\ Phys.\ \textbf{20}, 948--959 (1958), DOI:~10.1143/PTP.20.948.
+
+\bibitem{Zwanzig1960}
+R.~Zwanzig,
+\emph{Ensemble method in the theory of irreversibility},
+J.\ Chem.\ Phys.\ \textbf{33}, 1338--1341 (1960), DOI:~10.1063/1.1731409.
+
+\bibitem{Takesaki1972}
+M.~Takesaki,
+\emph{Conditional expectations in von Neumann algebras},
+J.\ Funct.\ Anal.\ \textbf{9}, 306--321 (1972).
+
+\bibitem{FrigerioVerri1982}
+A.~Frigerio and M.~Verri,
+\emph{Long-time asymptotic properties of dynamical semigroups on \(W^*\)-algebras},
+Math.\ Z.\ \textbf{180}, 275--286 (1982), DOI:~10.1007/BF01318911.
+
+\bibitem{Zurek2003}
+W.~H.~Zurek,
+\emph{Decoherence, einselection, and the quantum origins of the classical},
+Rev.\ Mod.\ Phys.\ \textbf{75}, 715--775 (2003), DOI:~10.1103/RevModPhys.75.715.
+
+\bibitem{Zurek2009}
+W.~H.~Zurek,
+\emph{Quantum Darwinism},
+Nature Phys.\ \textbf{5}, 181--188 (2009). DOI:~10.1038/nphys1202.
+
+\bibitem{BrandaoPianiHorodecki2015}
+F.~G.~S.~L.~Brand\~ao, M.~Piani, and P.~Horodecki,
+\emph{Generic emergence of classical features in quantum Darwinism},
+Nat.\ Commun.\ \textbf{6}, 7908 (2015), DOI:~10.1038/ncomms8908.
+
+\bibitem{KorbiczHorodeckiHorodecki2014}
+J.~K.~Korbicz, P.~Horodecki, and R.~Horodecki,
+\emph{Objectivity in a noisy photonic environment through quantum state information broadcasting},
+Phys.\ Rev.\ Lett.\ \textbf{112}, 120402 (2014), DOI:~10.1103/PhysRevLett.112.120402.
+
+\end{thebibliography}
+\end{document}
