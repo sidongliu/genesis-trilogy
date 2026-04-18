@@ -2,9 +2,34 @@
 
 **Author:** Sidong Liu, PhD — iBioStratix Ltd
 
-A unified theoretical framework in three parts — **HAFF**, **Q-RAIF**, and **T-DOME** — investigating how geometry, observers, and irreversible cognition emerge from algebraic structure.
+A unified research programme in operator-algebraic quantum theory.
 
-This repository also contains a separate upload package under `consciousness_series/Zenodo/` and `consciousness_series/Zenodo_Meta/` for the six-paper **Consciousness Series** and its collected volumes.
+The core repository is the **Genesis Trilogy**: thirteen papers across
+**HAFF**, **Q-RAIF**, and **T-DOME** that ask how geometry, observer
+architecture, and irreversible self-reference can emerge from algebraic
+structure.
+
+This repository also contains the six-paper **Consciousness Series**,
+which uses that infrastructure to build one continuous chain:
+
+`source formation → shared manifestation → feedback → geometry/modular inseparability → gravity → structural horizon of self-description`
+
+So the repo is not just an archive of separate papers. It contains both:
+
+- the foundational trilogy that develops the mathematical
+  infrastructure; and
+- the follow-on consciousness programme that pushes that infrastructure
+  into a single six-step arc.
+
+## At a Glance
+
+- **Genesis Trilogy**: 13 papers across HAFF, Q-RAIF, and T-DOME.
+- **Consciousness Series**: 6 papers across Foundations I--III and
+  Papers I--III.
+- **Fastest entry point for the consciousness programme**:
+  [Consciousness Series complete collection DOI](https://doi.org/10.5281/zenodo.19643449)
+- **Repo location for upload-ready consciousness files**:
+  `consciousness_series/Zenodo/` and `consciousness_series/Zenodo_Meta/`
 
 ---
 
