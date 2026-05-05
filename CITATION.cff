@@ -75,3 +75,6 @@ identifiers:
   - type: doi
     value: "10.5281/zenodo.18593180"
     description: "T-DOME Complete Collection"
+  - type: doi
+    value: "10.5281/zenodo.20044329"
+    description: "The Brain as a Plastic Observable-Algebra Network"
