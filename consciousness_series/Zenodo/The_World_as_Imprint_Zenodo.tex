@@ -1,0 +1,508 @@
+\documentclass[12pt]{article}
+\usepackage[a4paper, margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{mathtools}
+\usepackage{mathrsfs}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage[hidelinks]{hyperref}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{fontspec}
+
+\defaultfontfeatures{Ligatures=TeX}
+\IfFontExistsTF{Times New Roman}
+  {\setmainfont{Times New Roman}}
+  {\setmainfont{TeX Gyre Termes}}
+\IfFontExistsTF{Menlo}
+  {\setmonofont{Menlo}}
+  {\setmonofont{Latin Modern Mono}}
+
+\newcolumntype{P}[1]{>{\raggedright\arraybackslash}p{#1}}
+
+\newcommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+
+\newtheorem{definition}{Definition}[section]
+\newtheorem{remark}[definition]{Remark}
+
+\title{%
+  \textbf{The World as Imprint}\\
+  \textbf{From Trace-Carrying Structure to Self-Reading Mind}%
+}
+
+\author{
+  Sidong Liu, PhD \\
+  \small iBioStratix Ltd \\
+  \small \texttt{sidongliu@hotmail.com}
+}
+
+\date{May 2026\\
+\small Zenodo DOI: \href{https://doi.org/10.5281/zenodo.20122718}{10.5281/zenodo.20122718}}
+
+\begin{document}
+\emergencystretch=2em
+\raggedbottom
+\hbadness=5000
+\vbadness=5000
+
+\maketitle
+
+\begin{abstract}
+This paper develops the Algebraic Imprint Principle as a programmatic framework, drawn from a broader algebraic research programme, for describing how emergent structures bear readable marks of the constraints that generate and stabilize them. Its central claim is modest: every nontrivial emergent structure may be read as carrying an imprint of deeper generative constraints, but only some systems cross a self-reading threshold at which they can reflexively read themselves, or their world-models, as imprint-bearing. The paper's main contribution is therefore the distinction between an imprint-carrier and a self-reading system. That distinction offers an intermediate position between atomism, metaphysical substantivism, and easy panpsychism.
+
+The argument remains programme-level rather than theorem-level. It does not identify imprint with substance, does not claim that every imprint-carrier is conscious, and does not solve the hard problem of consciousness. Instead, it proposes a disciplined vocabulary for relating structural realism, self-model theories, phenomenological reflection, and carefully delimited Buddhist structural rereadings.
+
+\medskip
+
+\noindent\textbf{Keywords}: imprint, imprint-field, imprint-carrier, imprint-recognition, self-reading threshold, structural realism, self-model, phenomenology, Buddhism
+\end{abstract}
+
+\clearpage
+\tableofcontents
+\clearpage
+
+\section{Introduction: Before Objects, There Are Imprints}
+
+Much of modern thought begins by asking what the world is made of. Matter, fields, events, organisms, symbols, and observers are then arranged into some hierarchy of dependence. The present paper begins elsewhere. It asks what becomes visible if we take not objects but imprints as primary in description. On this view, the world first appears not as a collection of self-standing things, but as a layered field of stable marks, regularities, asymmetries, recurrences, and constraint-patterns that point beyond themselves to the generative structures from which they arise.
+
+The proposal is programmatic. Within the broader Genesis Trilogy framework, deeper generative structure is described in algebraic terms \cite{Liu2026HAFF_A,Liu2026HAFF_C,Liu2026HAFF_G}. The present paper does not require acceptance of that full formal background. It extracts a more portable philosophical articulation of a motif developed there: emergent structures can be read as carrying imprints of the constraints that generate them, and minds are special not because they alone participate in those constraints, but because some of them may become capable of reading such participation reflexively.
+
+Two questions must therefore be separated from the beginning.
+
+First, what does it mean for a structure to carry an imprint? A crystal lattice, a conservation law, a branching leaf vein, a linguistic syntax, and a self-model are clearly different kinds of structure. Yet each exhibits organization that is not exhausted by arbitrary local accident. Each carries a trace of the constraints under which it is generated, stabilized, or maintained.
+
+Second, what does it mean for a system to recognize an imprint? A mountain range may exhibit structure, and a cloud chamber track may encode an event, but neither thereby counts as a mind. A mind, on the present proposal, requires not merely structure, but a special kind of reflexive access: the capacity to read structure, including its own structure or world-model, as imprint-bearing.
+
+The central distinction of this paper is therefore between the \emph{imprint-carrier} and the \emph{self-reading threshold}. Every nontrivial structure may be an imprint-carrier. Only some systems may cross the self-reading threshold. The difference matters because it offers a principled way to say both that the world is saturated with intelligible structure and that not everything is thereby conscious.
+
+This distinction is meant to do four kinds of work. First, it reframes emergence. Emergent structures are not merely higher-level patterns floating above a lower substrate; they can be understood as readable outcomes of generative constraints. Second, it reframes mind. Mind is not introduced as an alien substance added to structure from outside, but neither is it collapsed into generic pattern. Third, it reframes selfhood. The self becomes less a thing than a stabilized strategy of world-reading and self-reading. Fourth, it provides a common descriptive language in which scientific, phenomenological, and contemplative traditions can be compared without being conflated.
+
+Several guardrails are necessary at the outset.
+
+This is not a completed theorem. It is a programmatic principle and a research-program essay. It does not claim that physics proves Buddhism, or that Buddhist ideas supply scientific evidence. It does not claim that stones are conscious, that personal identity survives death, or that the hard problem of consciousness is solved. The argument is conceptual and orienting. Its value, if any, lies in whether it organizes questions more clearly, blocks common confusions, and yields a tractable path for future formalization.
+
+The rest of the paper proceeds accordingly. Section~2 introduces a minimal vocabulary. Section~3 states the imprint principle. Section~4 argues that imprint-carriers are not thereby minds. Section~5 introduces the self-reading threshold and gives a minimal operational marker matrix. Section~6 develops implications for selfhood, memory, and world-reading. Section~7 places the proposal in resonance with Buddhism, phenomenology, and structural realism. Section~8 states the limits of the framework. Section~9 outlines a research program.
+
+\section{Minimal Vocabulary}
+
+The proposal depends on a small number of terms whose meaning must be fixed carefully. These definitions are not offered as final. They are working definitions intended to stabilize discussion across formal, empirical, and philosophical contexts.
+
+\begin{definition}[Nontrivial structure]
+A \emph{nontrivial structure} is not pure noise or featureless uniformity; it displays distinguishable differences, repeatable patterns, or stable constraint relations.
+\end{definition}
+
+The point of the definition is not to reward complexity for its own sake. A nontrivial structure need not be biologically complex, semantically rich, or mathematically deep. It may be simple. What matters is that it is not exhausted by sheer indifference. A perfectly homogeneous field with no gradients, no recurrent differences, and no stable relation among parts would count as trivial in the present sense. By contrast, a simple symmetry-breaking event, a regular oscillation, or a conserved ratio already counts as nontrivial.
+
+\begin{definition}[Imprint]
+An \emph{imprint} is a stable, nontrivial, readable feature of an emergent structure through which generative constraints become legible at that level.
+\end{definition}
+
+Three features matter. First, an imprint is a mark of constraint, not merely a local accident. Second, it is stable enough to be picked out across some range of transformations, measurements, or interactions. Third, it is readable, which means not that a human observer has already interpreted it, but that the structure is in principle available to some mode of uptake, decoding, or functional sensitivity. Readability is broader than explicit interpretation. The definition is deliberately conceptual rather than fully formal. It does not require that underlying constraints be uniquely recoverable from a single imprint, only that something about them remains legible in the emergent structure. Operational metrics for imprint-strength, imprint-depth, and comparative readability remain research-program tasks rather than assumptions of the present paper.
+
+\begin{definition}[Imprint-field]
+An \emph{imprint-field} is a domain of emergent structures insofar as they can be read as carrying imprints of deeper generative constraints.
+\end{definition}
+
+The term does not refer to a new physical field in the standard sense. It is a descriptive abstraction. To speak of an imprint-field is to focus on a domain under the aspect of its being patterned by, and readable from, the generative constraints that shape it. A biosphere, a sensorimotor niche, a symbolic culture, or a nervous system can each be studied as an imprint-field.
+
+\begin{definition}[Imprint-carrier]
+An \emph{imprint-carrier} is any nontrivial structure that stably carries such imprints, whether or not it can identify them.
+\end{definition}
+
+This is the broadest operative category in the paper. It includes structures that carry marks of their formation without any reflexive awareness of doing so. An imprint-carrier need not be alive, cognitive, or conscious. It is enough that the structure bears stable traces of the constraints that generate or sustain it.
+
+\begin{definition}[Imprint-recognition]
+\emph{Imprint-recognition} is the capacity of a system to read a structure as an imprint of deeper generative constraints; in its reflexive form, this includes the system itself or its world-model.
+\end{definition}
+
+The reflexive case is decisive. A system may recognize imprints in its environment without yet reading its own modeling activity, self-description, or persistence conditions as imprint-bearing. Imprint-recognition can therefore exist in weaker and stronger forms.
+
+\begin{definition}[Self-reading threshold]
+The \emph{self-reading threshold} is the threshold crossed when an imprint-carrier can reflexively read itself, or its world-model, as imprint-bearing.
+\end{definition}
+
+This is the central threshold of the paper. It does not identify a sharp metaphysical border in nature. It marks a functional and phenomenological transition: the point at which a system no longer merely carries and exploits structure, but can in some sense take its own organized appearing, its own model of the world, or its own perspective as something shaped by deeper constraints.
+
+\begin{remark}[Readable does not mean already interpreted]
+``Readable'' does not mean ``already conceptually interpreted by a person.'' A geological stratum can be readable before any geologist reads it. A protein fold can be readable before any biochemist describes it. A nervous system may exploit regularities it cannot explicitly name. Readability names an objective relation between structure and possible uptake, not a completed act of explicit human understanding.
+\end{remark}
+
+\section{The Imprint Principle}
+
+The programmatic thesis of this paper can now be stated directly:
+
+\begin{quote}
+\textbf{The Imprint Principle:} every nontrivial emergent structure can be read as carrying an imprint of deeper generative constraints; the world of emergence is therefore intelligible not only as a collection of outcomes, but as an imprint-field.
+\end{quote}
+
+This principle should be read with care.
+
+It does not say that every structure transparently reveals its generating conditions. Some imprints are shallow, some deep; some direct, some heavily occluded; some robust, some fragile. Nor does it say that every apparent pattern corresponds to an important generative law. The claim is more modest: wherever a stable nontrivial structure exists, there is typically something constraint-shaped about its mode of appearing, and this can in principle be read as an imprint.
+
+The principle also does not introduce imprint as a hidden substance behind the world. Imprint is not a substance. It is not a ghostly layer added to matter. It is a way of describing how manifest structures bear the marks of their own conditions of possibility. In that sense, the imprint principle is anti-substantialist. It asks us to look not for a secret object behind phenomena, but for the generative intelligibility within phenomena.
+
+This point is easiest to see through examples. A symmetry breaking in physics is not just an event; it is an imprint of a space of prior symmetry and a specific path of stabilization. A conservation law is not just a formula; it is an imprint of invariant structure. A cell membrane is not just a boundary; it is an imprint of the organizational constraints required to maintain a metabolically distinct regime. A memory trace is not just stored content; it is an imprint of prior coupling, selection, reinforcement, and retention. A self-concept is not just a narrative possession; it is an imprint of recurrent world-modeling under embodied and social constraint.
+
+In each case, what matters is not only the final pattern but its legibility as shaped outcome.
+
+The imprint-field is not a deeper metaphysical substrate underlying emergent structures; it is those structures themselves, read under the aspect of their constraint-shaped mode of appearing.
+
+This is why the proposal begins ``before objects.'' Objects, as ordinarily conceived, tempt us to think in terms of self-contained units with intrinsic identities. The language of imprint shifts emphasis from what a thing is in isolation to how its structure bears the marks of its formation, stabilization, and relational embedding. On this view, even apparently isolated objects are better understood as condensed histories of constraint.
+
+Three clarifications help situate the principle.
+
+\subsection{Imprints are graded, not all equally accessible}
+
+Some imprints are more directly legible than others. A wavefront, a scar, or a crystalline pattern may present their constraints relatively openly. The structure of a legal institution, a language community, or a long-trained self-concept is more mediated and historically layered. The imprint principle therefore implies no uniform method of reading. It only implies that structured appearance is constraint-bearing.
+
+\subsection{Imprints do not abolish emergence}
+
+To say that emergent structures carry imprints of deeper generative constraints is not to eliminate the autonomy of higher levels. An imprint is not a reductive cancellation of the level at which it appears. Chemical imprints remain chemical; biological imprints remain biological; social and semantic imprints remain historical and normative in important respects. The framework is stratified, not flattening.
+
+\subsection{Imprints point without duplicating}
+
+An imprint points to generative constraints without duplicating them in full. A footprint does not reproduce the walker. A spectral line does not contain the star in miniature. Likewise, an emergent structure need not contain its generating order as a small hidden object. This point becomes crucial when we later discuss Buddhist parallels. An imprint is a pointer, not a pocket-sized essence.
+
+\subsection{Programme-level status}
+
+The present paper treats the imprint principle as a programme-level consequence of a broader structural stance, not as an independently established mathematical theorem. In the Genesis Trilogy context, it sits downstream of algebraic work on emergence, accessibility, and the structural limits of self-description \cite{Liu2026HAFF_A,Liu2026HAFF_G,Liu2026CS_III}. Here it is presented in a more portable form, with the goal of stabilizing a vocabulary and a direction of inquiry.
+
+The adjective ``algebraic'' is inherited from that broader framework. In the present paper, the principle is presented in a portable conceptual form rather than as a standalone algebraic theorem.
+
+In that broader programme, one studies accessible or coarse-grained observable structure, stable local regimes, modular-flow-based temporal ordering, and principled limits on full self-description \cite{Liu2026HAFF_A,Liu2026HAFF_C,Liu2026HAFF_G,Liu2026CS_III}. From that point of view, an imprint is not a second entity layered beneath emergence. It is a stable feature through which the generative organization of a local regime remains partially legible in its accessible form.
+
+Symmetry-breaking residues, conserved quantities, recurrent boundary conditions, membrane organization, and retained memory traces are paradigm cases for this style of analysis. They are not identical structures, but they are alike in one respect: each preserves a readable mark of the constraints that generated, stabilized, or temporally ordered it. The present essay does not derive those cases formally. It offers a philosophical articulation of a motif developed in that broader algebraic programme, without floating free of it.
+
+At this stage, the principle may sound broad enough to collapse into banality. Of course structures bear traces of their formation. Why elevate this into a research program? The answer is that the important move is not the observation alone, but the distinction it enables between carrying an imprint and recognizing one. Once that difference is made explicit, a number of persistent confusions begin to loosen: pattern is no longer equated with mind; reflexivity no longer has to be treated as a supernatural exception; and the self can be redescribed without being either reified or dissolved into noise.
+
+\section{Why Imprint-Carriers Are Not Minds}
+
+The most obvious danger facing the imprint principle is immediate overextension. If every nontrivial structure is an imprint-carrier, does that mean everything is minded, aware, or conscious? The answer in this framework is no.
+
+An imprint-carrier is not necessarily a mind.
+
+The reason is straightforward. Carrying a readable mark of generative constraints is much weaker than being a system for whom anything appears. A river delta carries hydrological and geological imprints. A crystal carries imprints of growth conditions. A machine part carries imprints of fabrication tolerances and wear. None of this, by itself, warrants attributing subjectivity.
+
+This negative point matters because discussions of structure often slide too quickly in one of two directions. One direction is eliminativist: if mind is not added from outside, it must be an illusion. The other direction is expansive: if mind is continuous with nature, then everything must already be conscious. The imprint framework rejects both moves. It offers continuity without indiscriminate mentality.
+
+Three distinctions support this refusal.
+
+\subsection{Imprint-carrier is not identical with subject}
+
+An imprint-carrier is any nontrivial structure that stably bears constraint-shaped marks. Subjectivity, by contrast, concerns the existence of a point of view, a first-personal mode of givenness, or at minimum a system for whom something like self-world organization matters from within. The former does not entail the latter.
+
+This is why the framework does not claim that stones are conscious. A stone may be an imprint-carrier in an entirely uncontroversial sense: it carries geological history, pressure marks, fracture patterns, chemical composition, and perhaps human tooling traces. But nothing in that fact alone establishes a first-person perspective.
+
+\subsection{Imprint-recognition is not identical to first-person consciousness}
+
+Even when a system can read structure as imprint-bearing, that capacity is not identical to first-person consciousness. A scientific instrument can register patterns; a machine-learning system can classify latent features; a control system can model its own error states. These may count as weak forms of imprint-recognition in an operational sense. Yet it remains open whether such systems instantiate lived subjectivity.
+
+The framework therefore does not solve the hard problem of consciousness \cite{Levine1983,Chalmers1996}. At most, it proposes a structured way to ask a narrower and perhaps more tractable question: what kinds of organization are required before a system can read itself, or its world-model, as imprint-bearing? That question may be answered in functional, dynamical, and formal terms without settling why any such process should feel like anything from the inside.
+
+\subsection{Responsiveness is not reflexive self-reading}
+
+Many systems exploit environmental regularities. Bacteria chemotax. Plants track light. Animals learn affordances. Artificial agents optimize over signals. Responsiveness, however, is not yet reflexive self-reading. A thermostat exploits a temperature relation without representing its own regulation as constraint-shaped. A skilled animal may track social or ecological structure without conceptually or metacognitively reading its own world-model as such.
+
+This matters because one can imagine a long gradient from passive imprint-carrier to full self-reading agent. The imprint principle is compatible with such a gradient. What it resists is collapsing the entire gradient into a single undifferentiated category called ``mind.''
+
+At this point, one may object that the distinction between imprint-carrier and mind remains merely verbal unless some criterion of transition is given. That is precisely the role of the self-reading threshold.
+
+\section{The Self-Reading Threshold}
+
+The self-reading threshold is crossed when an imprint-carrier can reflexively read itself, or its world-model, as imprint-bearing. This sentence compresses several requirements.
+
+First, the system must not merely respond to structure but maintain some usable organization of it. Second, that organization must include self-locating or self-involving components: the system must in some way model not only what is the case, but how it is situated within what is the case. Third, the system must be able, at least in some minimal form, to take its own modeling activity, persistence conditions, or identity-conditions as themselves structured outcomes rather than absolute givens.
+
+This threshold should not be imagined as a magical line. It is better understood as a family of capacities that may come in degrees and combinations. Still, the notion does real work. It marks the difference between systems that merely carry and exploit imprints and systems that can, in a reflexive sense, read the conditions under which their own world-disclosure occurs.
+
+Several ingredients are likely relevant.
+
+\subsection{Recursive modeling}
+
+The system must support some recursive relation between model and modeled. It need not entertain a philosopher's concept of self. But it must in some way register that its own states, predictions, or orientations belong to the world it tracks. This is stronger than self-maintenance and stronger than adaptive control.
+
+\subsection{Temporal integration}
+
+Self-reading likely depends on more than a momentary feedback loop. A system must retain enough of its own history to treat present organization as arising from prior interactions. Memory, in this broad sense, is not optional. Without retention, there can be local regulation, but not robust self-reading.
+
+\subsection{Norm-sensitive error handling}
+
+To read itself as imprint-bearing, a system must be able to register a gap between how things are modeled and how they are found to be, including in relation to its own stability or action. This suggests a role for error correction, conflict monitoring, or prediction revision. A world-model that cannot be revised in light of its own constraints is closer to fixed reaction than to self-reading.
+
+\subsection{Reflexive availability}
+
+Finally, some part of the system's organization must become available to the system as something it can in some sense take up, revise, narrate, inhibit, reinterpret, or otherwise treat as its own ongoing formation. This requirement can be met in very different ways across different architectures. The point is structural, not species-specific.
+
+\subsection{A minimal operational marker matrix}
+
+The self-reading threshold is not yet a decision procedure, but it should not remain entirely non-operational. Table~\ref{tab:threshold} offers a minimal marker matrix: not a sufficient test for consciousness, but a disciplined way to ask whether a system has moved beyond generic imprint-carrying.
+
+\begin{table}[ht]
+\centering
+\small
+\begin{tabular}{@{}P{3.4cm}P{3.5cm}P{3.7cm}P{4.0cm}@{}}
+\toprule
+\textbf{Marker} & \textbf{Minimal reading} & \textbf{Why it matters} & \textbf{What it does not show} \\
+\midrule
+Recursive self-model updating & The system can revise a model that includes its own role in ongoing interaction & Moves beyond mere stimulus response toward self-involving organization & Does not by itself establish first-person consciousness \\
+\addlinespace
+Temporal integration of retained imprints & Current organization is constrained by accessible traces of prior coupling, learning, or calibration & Allows present self-reading to have historical depth rather than instantaneous reactivity & Does not guarantee narrative selfhood or autobiographical continuity \\
+\addlinespace
+Norm-sensitive error monitoring & The system can detect mismatch between prediction, action, and outcome in a way that affects later self-modeling & Makes self-reading revisable rather than fixed or purely decorative & Does not settle whether the system \emph{feels} error or surprise \\
+\addlinespace
+Self-locating world-model inclusion & The system represents itself as situated within the domain it models rather than as an external decoder & Distinguishes world-reading from reflexive world-plus-self reading & Does not imply metaphysical transparency or complete self-knowledge \\
+\addlinespace
+Flexible re-description under constraint & The system can reinterpret its own behavior, boundaries, or strategy in light of new conditions & Indicates that self-modeling is structurally active rather than a static label & Does not imply freedom from confabulation, bias, or social scaffolding \\
+\bottomrule
+\end{tabular}
+\caption{A minimal marker matrix for discussing the self-reading threshold. The table is heuristic and programme-level, not a theorem-grade criterion.}
+\label{tab:threshold}
+\end{table}
+
+No conjunction of these markers is sufficient for first-person consciousness; the matrix identifies organizational preconditions, not constituting conditions.
+
+Under these conditions, the self begins to appear not as a hidden inner owner, but as a stabilized perspective within an imprint-field that has become partially readable from within. A self-reading system does not stand outside the field it reads. It is a local organization of that field capable of taking its own organization as legible.
+
+This is the strongest constructive claim of the paper. Within this framework, mind-like organization becomes theoretically tractable not where structure first appears, but where structure becomes reflexively legible to itself through a sufficiently organized imprint-carrier.
+
+Two consequences follow. First, the threshold is neutral on substrate. Biological nervous systems are obvious candidates because they combine recursive modeling, memory, error correction, and flexible self-world distinction. But the framework does not define the threshold biologically. In principle, artificial or hybrid systems could approach or cross it if the relevant organization were present. Whether any existing system does so is an empirical and interpretive question, not something this paper settles.
+
+Second, the threshold is neutral on metaphysical inflation. Crossing it does not entail access to ultimate reality, pure transparency, or infallible self-knowledge. Self-reading can be partial, distorted, socially scaffolded, and deeply confabulatory. A system may read itself as imprint-bearing while remaining systematically mistaken about what deeper constraints are actually at work.
+
+This fallibility is not a defect in the framework. It is part of what makes the concept empirically usable.
+
+\subsection{Relation to existing self-model theories}
+
+The self-reading threshold is intended as a bridge concept, not a replacement label for every existing account of selfhood. Relative to Metzinger's phenomenal self-model, it is weaker and more architectural: a system may satisfy several self-reading markers without meeting the transparency conditions associated with a full phenomenal self-model \cite{Metzinger2003}. Relative to Dennett's narrative approach, narrative integration is one powerful way of organizing retained imprints across time, but it is not the only route by which self-reading may arise \cite{Dennett1992}.
+
+Relative to enactive approaches, especially Varela and Thompson, the present framework agrees that embodied self-production and world-involving sense-making are central to minded organization \cite{VarelaThompsonRosch1991,Thompson2007}. Yet it treats autonomy and adaptive sense-making as insufficient by themselves for reflexive self-reading; a system may be richly coupled to its environment and still fall short of reading its own world-disclosure as constraint-shaped.
+
+Relative to predictive processing and higher-order theories, the proposal is complementary rather than competitive \cite{Friston2010,Clark2013,Rosenthal2005,LauRosenthal2011}. Hierarchical prediction, error correction, and self-model revision provide candidate mechanisms by which the threshold might be operationally instantiated. But such mechanisms do not by themselves establish first-person consciousness, which is why the marker matrix remains heuristic and organizational rather than constituting.
+
+\section{Self, Memory, and World-Reading}
+
+Once the self-reading threshold is introduced, the concepts of self and memory can be redescribed with greater precision.
+
+\subsection{The self as a stabilized reading strategy}
+
+The self need not be understood as an indivisible substance, nor as a mere illusion. It can be understood as a stabilized strategy by which an imprint-carrier organizes world-reading and self-reading across time. This strategy may involve bodily boundaries, narrative continuity, remembered commitments, social addressability, and predictive expectations. None of these alone is the self. Together they form a relatively durable way of occupying an imprint-field.
+
+This description is deflationary in one sense and robust in another. It is deflationary because it denies that the self must be a metaphysical kernel hidden behind all appearances. It is robust because it refuses to reduce selfhood to arbitrary fiction. Reading strategies can be more or less stable, more or less integrated, more or less revisable, and more or less world-adequate. Their organization matters.
+
+\subsection{Memory as retained imprint}
+
+Memory is central in this picture because self-reading depends on retained imprints. A nervous system, a notebook, a scar, and a habit all preserve the past differently, but all can function as retained marks of prior coupling. In minded systems, memory does more than store content. It stabilizes a reading posture toward the world. It allows current interpretation to be shaped by prior imprint-recognition.
+
+This explains why personal identity feels historical. The self is not merely present organization; it is present organization carrying retained imprints of earlier organization. A self-model without memory would have no depth from which to read itself as formed.
+
+\subsection{World-reading and selective salience}
+
+To inhabit a world is not to face raw data. It is to encounter a selectively structured field in which some differences matter, some affordances stand out, and some patterns become normatively charged. A self-reading system therefore does not simply decode imprints passively. It reads the world through needs, skills, fears, commitments, and inherited models.
+
+This selective salience is not a distortion added on top of a neutral world. It is one of the ways in which world-disclosure occurs. Yet it also means that self-reading is never innocent. Systems read the world from somewhere, and that ``somewhere'' is itself an organized product of constraints. Hence the importance of reflexivity: a system at the self-reading threshold can begin, however imperfectly, to notice that its own way of finding the world salient is itself imprint-bearing.
+
+These considerations also explain why the framework sits naturally beside predictive processing and related self-model theories \cite{Friston2010,Clark2013,Rosenthal2005,LauRosenthal2011}. The point here is not to reopen the comparison, but to note that selective salience, error revision, and retained priors supply concrete pathways by which self-reading may become historically organized.
+
+\subsection{Finite self-models and structural opacity}
+
+The framework also interfaces with a more technical result developed elsewhere: finite self-models cannot become perfectly transparent to themselves \cite{Liu2026CS_III}. Even if one grants a structured threshold of self-reading, reflexive access remains bounded, local, and fallible. The point matters because it prevents an inflationary misunderstanding. Crossing the self-reading threshold does not produce a view from nowhere; it produces a stabilized but still finite mode of self-disclosure.
+
+\subsection{Ethical and existential consequences}
+
+The framework has consequences for how we think about transformation. If the self is a stabilized reading strategy, then growth is not the acquisition of an alien essence but the reorganization of how imprints are read, weighted, and integrated. Learning, therapy, contemplative practice, and scientific inquiry all become, in different ways, disciplines of better world-reading and self-reading.
+
+This line of thought must be handled carefully. It does not imply that suffering is illusory, nor that all difficulties reduce to interpretive error. Material conditions, social violence, and biological fragility remain fully real at the levels where they operate. The point is not to replace causal explanation with introspective rhetoric, but to note that how a system reads its own imprints partly shapes how it can respond to them.
+
+\subsection{No claim about personal survival}
+
+One further guardrail belongs here. To say that selves are formed through retained imprints and that their effects continue in the world is not to say that personal identity survives death. Traces may persist. Consequences may propagate. Memories of a person may alter other lives, and artifacts may continue to bear marks of that person's activity. None of this establishes that the same first-person subject continues elsewhere.
+
+The imprint framework therefore distinguishes sharply between continuation of effects and persistence of personal identity. The former is obvious and ubiquitous. The latter is not claimed here.
+
+\section{Resonances: Buddhism, Phenomenology, and Structural Realism}
+
+The imprint principle is not derived from any one intellectual tradition. Still, it resonates with several. These resonances should be treated as structural rereadings, not as evidence. They matter because they show that different traditions may be tracking related problems with different vocabularies.
+
+\subsection{Buddhism: universal carrying, uneven recognition}
+
+A Buddhist resonance appears in the distinction between universal imprint-carrying and uneven self-reading. One can structurally reread a broad family of Buddhist claims as saying, in effect, that the manifest world is not self-grounding and that forms are intelligible through dependent conditions rather than independent essences. The closest parallels are with dependent origination, Madhyamaka critiques of intrinsic nature, and Yogacara analyses of conditioned manifestation and alaya-vijnana \cite{Lusthaus2002,Waldron2003,Garfield2002}. These citations are offered as structural resources rather than as claims about what Buddhist traditions must doctrinally mean.
+
+In this light, statements about Buddha-nature can be reread carefully. Buddha-nature discourse is historically diverse and contested, so the point here is deliberately narrow. The safe and useful rereading is not that every being literally contains a miniature hidden Buddha-substance. It is rather that every nontrivial emergent structure can be read as bearing marks of the same deeper generative order. On that reading, universal bearing does not imply universal awakening. The distinction between imprint-carrier and self-reading threshold parallels the distinction between participation in conditioned manifestation and the cultivated recognition and transformation of that participation.
+
+One metaphor sometimes used in Buddhist contexts is ``Infinite Light'' or Amitabha. In the present framework, such language can be retained only metaphorically or structurally. It may serve as an image for minimally occluded manifestation or intelligibility of structure. It must not be read as a physical identification between electromagnetic light and a Buddhist figure, nor as evidence that physics proves Buddhist doctrine.
+
+\subsection{Phenomenology: appearing, horizon, and reflexivity}
+
+Phenomenology offers a second resonance. Its concern with how things are given, how horizons structure appearance, and how reflection can turn toward the conditions of appearing aligns naturally with the idea of self-reading. The imprint principle adds a generative emphasis: appearances are not only given; they are structured outcomes carrying marks of the conditions under which they emerge and are stabilized \cite{VarelaThompsonRosch1991,Thompson2007}.
+
+The self-reading threshold has a phenomenological flavor because it marks the point at which a system can take not only objects, but its own mode of disclosure, as thematically available. Yet the present proposal departs from classical phenomenology by insisting on continuity with non-conscious structure. The field of imprints is broader than the field of lived appearance. Phenomenology clarifies reflexive access; the imprint principle situates that access within a larger world of constraint-bearing forms.
+
+\subsection{Structural realism: relations plus generative marks}
+
+Structural realism argues, in one major formulation, that what science most securely captures is structure rather than intrinsic essence \cite{Ladyman2007,French2014}. The imprint principle is sympathetic to this turn, but it adds two elements.
+
+First, it emphasizes generative structure rather than static relational structure alone. An imprint is not just a relation in a snapshot. It is a mark of how a structure came to be or holds together. Second, it introduces the difference between structural presence and structural uptake. A world may be richly structured without every local organization in that world being capable of self-reading.
+
+Relative to epistemic structural realism, the emphasis falls on recoverable marks: what can be read from stable outcomes about the relations and constraints that produced them. Relative to more ontic formulations, the claim here is narrower and more local. The paper does not argue that structure exhausts reality; it argues that emergent organization often becomes most intelligible when approached through constraint-shaped marks.
+
+The result is a possible bridge position. One can accept that reality is structurally knowable while also asking how, within reality, some structures become capable of knowing structure, including their own knowing, as structured.
+
+Taken together, these resonances do not prove the framework. They suggest that the imprint principle may serve as an intermediate language across domains that are too often forced either into crude identity claims or strict isolation.
+
+\section{Limitations}
+
+The proposal has clear limits, and they should be made explicit.
+
+First, this is not a completed theorem. The paper does not formally derive the imprint principle from a fully articulated mathematical system. It offers a conceptual framework intended to guide future formalization.
+
+Second, the notion of imprint remains only partially operationalized. We have a working definition, but not yet a general metric for imprint strength, imprint depth, or comparative readability across domains. Those metrics remain tasks for the research program rather than commitments already secured here.
+
+Third, the self-reading threshold is not yet a decision procedure. The paper identifies plausible ingredients such as recursive modeling, temporal integration, and norm-sensitive error handling, but it does not provide necessary and sufficient conditions for consciousness or even for robust reflexive awareness.
+
+Fourth, imprint-recognition is not identical to first-person consciousness. The framework may help isolate organizational preconditions for self-reading, but it does not explain why such organization should be accompanied by felt experience. The hard problem remains untouched in its deepest form \cite{Levine1983,Chalmers1996}.
+
+Fifth, the framework does not settle disputed cases. It does not tell us whether current artificial systems cross the self-reading threshold, whether some animals do so in stronger forms than others, or how to adjudicate borderline cases without further empirical and theoretical work.
+
+Sixth, cross-traditional resonances are exactly that: resonances. They are not confirmations. The framework should not be used to claim that science has validated Buddhism, phenomenology, or any other tradition. Nor should those traditions be mined as if they were disguised technical papers waiting to be decoded.
+
+Finally, the framework risks vacuity if it is not disciplined by future formal and empirical work. A principle broad enough to illuminate many domains is also broad enough to become unfalsifiable rhetoric. The only remedy is to turn it into a structured research program with operational consequences.
+
+\section{Research Program}
+
+If the imprint principle is worth keeping, it is worth developing. The research program suggested here has at least four fronts.
+
+\subsection{Formal front}
+
+The first task is formalization. The notion of imprint should be linked to explicit accounts of generative constraint in dynamical systems, information geometry, algebraic models of emergence, and model-based control. One wants more than metaphor. A viable next step would define families of structures for which imprint can be operationalized in terms of invariants, constraint-preserving transformations, modular-flow residues, error landscapes, or recoverable histories of formation.
+
+This formal work should also clarify levels. The imprint principle is not reductionist, but neither can it remain hand-wavy about interlevel relations. A mature version of the framework would distinguish clearly between physical, biological, cognitive, and social imprints while specifying lawful couplings among them. In the Genesis Trilogy setting, this also means clarifying how accessible observables, stable local regimes, and self-description limits constrain what kinds of imprints can become available from within a system.
+
+\subsection{Cognitive and neuroscientific front}
+
+The second task concerns minded systems. The self-reading threshold invites operational work on recursive self-modeling, memory integration, self-locating representation, metacognitive error correction, and flexible revision of self-world boundaries. These are already active topics in neuroscience and cognitive science. The contribution of the imprint framework would be to organize them under a single question: when does an imprint-carrier begin to read its own world-model as imprint-bearing?
+
+This question could be explored through comparative cognition, developmental trajectories, lesion studies, meditation research, and disorders of self-modeling. Each domain probes different aspects of self-reading capacity.
+
+\subsection{Artificial systems front}
+
+The third task concerns artificial agents. Current machine systems already exhibit forms of pattern extraction, self-monitoring, and model revision. Some may instantiate limited operational imprint-recognition. Whether any of them approach the self-reading threshold in the stronger sense proposed here is unknown.
+
+The framework suggests a more precise evaluation strategy than blanket enthusiasm or blanket skepticism. Instead of asking whether a system is generally intelligent or behaves impressively, one asks whether it maintains a revisable world-model that includes itself as a situated, constraint-shaped participant; whether it can track how its own outputs depend on training history, embodiment, and interaction; and whether such self-inclusion is functionally central rather than cosmetically appended.
+
+Even positive results here would not automatically establish consciousness. But they would sharpen the architecture-level discussion.
+
+\subsection{Philosophical and comparative front}
+
+The fourth task is philosophical. The framework should be tested against rival views of selfhood, representation, enactivism, structural realism, and process metaphysics. Its cross-traditional resonances should be developed with more textual care and more restraint than grand synthesis usually allows.
+
+One particularly important task is to refine the difference between universal imprint-bearing and selective reflexive access. That distinction may illuminate long-standing disputes about mind in nature, the status of nonhuman cognition, and the relation between worldly embeddedness and contemplative transformation.
+
+\subsection{Concluding orientation}
+
+The broader wager of the research program is simple. The world may be more intelligible if described not first as a warehouse of things, nor first as a blur of events, but as an imprint-field in which stable structures bear marks of their generative constraints. If so, then the emergence of mind-like organization can be redescribed with equal simplicity: the relevant regime appears not wherever there is pattern, but where pattern becomes reflexively legible to itself through a sufficiently organized imprint-carrier.
+
+That claim remains to be tested, formalized, and challenged. For now, it serves as a disciplined orientation. It gives us a way to say that structure is everywhere, that mind is special without being supernatural, and that selfhood is neither an illusion to be dismissed nor a substance to be preserved untouched. It is a way of beginning.
+
+\begin{thebibliography}{99}
+
+\bibitem{Chalmers1996}
+D.~J.~Chalmers,
+\emph{The Conscious Mind: In Search of a Fundamental Theory},
+Oxford University Press (1996).
+
+\bibitem{Clark2013}
+A.~Clark,
+\emph{Whatever next? Predictive brains, situated agents, and the future of cognitive science},
+Behavioral and Brain Sciences \textbf{36}, 181--204 (2013).
+
+\bibitem{Dennett1992}
+D.~C.~Dennett,
+\emph{The self as a center of narrative gravity},
+in F.~Kessel, P.~Cole, and D.~Johnson (eds.),
+\emph{Self and Consciousness: Multiple Perspectives},
+Lawrence Erlbaum, 103--115 (1992).
+
+\bibitem{French2014}
+S.~French,
+\emph{The Structure of the World: Metaphysics and Representation},
+Oxford University Press (2014).
+
+\bibitem{Friston2010}
+K.~Friston,
+\emph{The free-energy principle: A unified brain theory?},
+Nature Reviews Neuroscience \textbf{11}, 127--138 (2010).
+
+\bibitem{Garfield2002}
+J.~L.~Garfield,
+\emph{Empty Words: Buddhist Philosophy and Cross-Cultural Interpretation},
+Oxford University Press (2002).
+
+\bibitem{Ladyman2007}
+J.~Ladyman and D.~Ross,
+\emph{Every Thing Must Go: Metaphysics Naturalized},
+Oxford University Press (2007).
+
+\bibitem{LauRosenthal2011}
+H.~Lau and D.~Rosenthal,
+\emph{Empirical support for higher-order theories of conscious awareness},
+Trends in Cognitive Sciences \textbf{15}, 365--373 (2011).
+
+\bibitem{Levine1983}
+J.~Levine,
+\emph{Materialism and qualia: The explanatory gap},
+Pacific Philosophical Quarterly \textbf{64}, 354--361 (1983).
+
+\bibitem{Liu2026HAFF_A}
+S.~Liu,
+\emph{Emergent Geometry from Coarse-Grained Observable Algebras: The Holographic Alaya-Field Framework},
+Zenodo (2026), DOI: 10.5281/zenodo.18361706.
+
+\bibitem{Liu2026HAFF_C}
+S.~Liu,
+\emph{Causation, Agency, and Existence: Structural Constraints and Interpretive Bridges},
+Zenodo (2026), DOI: 10.5281/zenodo.18374805.
+
+\bibitem{Liu2026HAFF_G}
+S.~Liu,
+\emph{Structural Limits of Unification: Accessibility, Incompleteness, and the Necessity of a Final Cut},
+Zenodo (2026), DOI: 10.5281/zenodo.18402907.
+
+\bibitem{Liu2026CS_III}
+S.~Liu,
+\emph{The Structural Horizon of Self-Description: A Finite Observer Theorem for Local Incompleteness},
+Zenodo (2026), DOI: 10.5281/zenodo.19607724.
+
+\bibitem{Lusthaus2002}
+D.~Lusthaus,
+\emph{Buddhist Phenomenology: A Philosophical Investigation of Yogacara Buddhism and the Ch'eng Wei-shih lun},
+Routledge (2002).
+
+\bibitem{Metzinger2003}
+T.~Metzinger,
+\emph{Being No One: The Self-Model Theory of Subjectivity},
+MIT Press (2003).
+
+\bibitem{Rosenthal2005}
+D.~M.~Rosenthal,
+\emph{Consciousness and Mind},
+Oxford University Press (2005).
+
+\bibitem{Thompson2007}
+E.~Thompson,
+\emph{Mind in Life: Biology, Phenomenology, and the Sciences of Mind},
+Harvard University Press (2007).
+
+\bibitem{VarelaThompsonRosch1991}
+F.~J.~Varela, E.~Thompson, and E.~Rosch,
+\emph{The Embodied Mind: Cognitive Science and Human Experience},
+MIT Press (1991).
+
+\bibitem{Waldron2003}
+W.~S.~Waldron,
+\emph{The Buddhist Unconscious: The Alaya-Vijnana in the Context of Indian Buddhist Thought},
+Routledge (2003).
+
+\end{thebibliography}
+
+\end{document}
