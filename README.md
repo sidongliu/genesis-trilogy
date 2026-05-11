@@ -106,6 +106,7 @@ genesis-trilogy/
 │   │   ├── Paper_II_*.pdf / .tex
 │   │   ├── Paper_III_*.pdf / .tex
 │   │   └── Brain_as_Plastic_Observable_Algebra_Network_*.pdf / .tex
+│   │   └── The_World_as_Imprint_*.pdf / .tex
 │   └── Zenodo_Meta/               # Collection/community assets kept out of upload root
 │       ├── Foundation_Trilogy_Complete_Collection_Zenodo.pdf / .tex
 │       ├── Consciousness_Trilogy_Complete_Collection_Zenodo.pdf / .tex
@@ -137,6 +138,7 @@ The paper-level Zenodo upload files live in `consciousness_series/Zenodo/`. Coll
 | Paper II — *Higher-Dimensional Consistency of Geometry and Modular Flow* | [10.5281/zenodo.19607543](https://doi.org/10.5281/zenodo.19607543) |
 | Paper III — *The Structural Horizon of Self-Description* | [10.5281/zenodo.19607724](https://doi.org/10.5281/zenodo.19607724) |
 | Interface Paper — *The Brain as a Plastic Observable-Algebra Network* | [10.5281/zenodo.20044329](https://doi.org/10.5281/zenodo.20044329) |
+| Programmatic Essay — *The World as Imprint* | [10.5281/zenodo.20122718](https://doi.org/10.5281/zenodo.20122718) |
 
 `Foundation I` appears locally in both the published `v1` text and the interface-harmonized `v2` text; both stay under the same DOI line above.
 
@@ -186,6 +188,7 @@ The upload root is intentionally kept minimal: each paper appears only as a same
 | Paper II — Higher-Dimensional Consistency | [10.5281/zenodo.19607543](https://doi.org/10.5281/zenodo.19607543) |
 | Paper III — Structural Horizon of Self-Description | [10.5281/zenodo.19607724](https://doi.org/10.5281/zenodo.19607724) |
 | Interface Paper — Brain as Plastic Observable-Algebra Network | [10.5281/zenodo.20044329](https://doi.org/10.5281/zenodo.20044329) |
+| Programmatic Essay — The World as Imprint | [10.5281/zenodo.20122718](https://doi.org/10.5281/zenodo.20122718) |
 | Foundation Trilogy | [10.5281/zenodo.19642398](https://doi.org/10.5281/zenodo.19642398) |
 | Consciousness Trilogy | [10.5281/zenodo.19608174](https://doi.org/10.5281/zenodo.19608174) |
 | Consciousness Series — complete collection | [10.5281/zenodo.19643449](https://doi.org/10.5281/zenodo.19643449) |
