@@ -28,7 +28,8 @@ So the repo is not just an archive of separate papers. It contains both:
 
 - **Genesis Trilogy**: 13 papers across HAFF, Q-RAIF, and T-DOME.
 - **Consciousness Series**: 6 papers across Foundations I--III and
-  Papers I--III, plus one biological anchoring interface paper.
+  Papers I--III, plus one biological anchoring interface paper, one
+  programmatic essay, and three `Imprint Interlude` bridge papers.
 - **Fastest entry point for the consciousness programme**:
   [Consciousness Series complete collection DOI](https://doi.org/10.5281/zenodo.19643449)
 - **Repo location for upload-ready consciousness files**:
@@ -106,7 +107,10 @@ genesis-trilogy/
 │   │   ├── Paper_II_*.pdf / .tex
 │   │   ├── Paper_III_*.pdf / .tex
 │   │   └── Brain_as_Plastic_Observable_Algebra_Network_*.pdf / .tex
-│   │   └── The_World_as_Imprint_*.pdf / .tex
+│   │   ├── The_World_as_Imprint_*.pdf / .tex
+│   │   ├── Renormalization_as_Imprint_Filtering_*.pdf / .tex
+│   │   ├── Stable_Hulls_as_Imprint_Integration_*.pdf / .tex
+│   │   └── The_Imprint_Chain_*.pdf / .tex
 │   └── Zenodo_Meta/               # Collection/community assets kept out of upload root
 │       ├── Foundation_Trilogy_Complete_Collection_Zenodo.pdf / .tex
 │       ├── Consciousness_Trilogy_Complete_Collection_Zenodo.pdf / .tex
@@ -139,8 +143,13 @@ The paper-level Zenodo upload files live in `consciousness_series/Zenodo/`. Coll
 | Paper III — *The Structural Horizon of Self-Description* | [10.5281/zenodo.19607724](https://doi.org/10.5281/zenodo.19607724) |
 | Interface Paper — *The Brain as a Plastic Observable-Algebra Network* | [10.5281/zenodo.20044329](https://doi.org/10.5281/zenodo.20044329) |
 | Programmatic Essay — *The World as Imprint* | [10.5281/zenodo.20122718](https://doi.org/10.5281/zenodo.20122718) |
+| Bridge Paper I — *Renormalization and Imprint Filtering* | [10.5281/zenodo.20151451](https://doi.org/10.5281/zenodo.20151451) |
+| Bridge Paper II — *Stable Hulls as Imprint Integration* | [10.5281/zenodo.20151508](https://doi.org/10.5281/zenodo.20151508) |
+| Roadmap Paper — *The Imprint Chain* | [10.5281/zenodo.20151594](https://doi.org/10.5281/zenodo.20151594) |
 
 `Foundation I` appears locally in both the published `v1` text and the interface-harmonized `v2` text; both stay under the same DOI line above.
+
+The three `Imprint Interlude` papers are deposited in the same consciousness-facing upload root as bridge companions to *The World as Imprint* rather than as a separate series.
 
 ### Collected Volumes
 
@@ -189,6 +198,9 @@ The upload root is intentionally kept minimal: each paper appears only as a same
 | Paper III — Structural Horizon of Self-Description | [10.5281/zenodo.19607724](https://doi.org/10.5281/zenodo.19607724) |
 | Interface Paper — Brain as Plastic Observable-Algebra Network | [10.5281/zenodo.20044329](https://doi.org/10.5281/zenodo.20044329) |
 | Programmatic Essay — The World as Imprint | [10.5281/zenodo.20122718](https://doi.org/10.5281/zenodo.20122718) |
+| Bridge Paper I — Renormalization and Imprint Filtering | [10.5281/zenodo.20151451](https://doi.org/10.5281/zenodo.20151451) |
+| Bridge Paper II — Stable Hulls as Imprint Integration | [10.5281/zenodo.20151508](https://doi.org/10.5281/zenodo.20151508) |
+| Roadmap Paper — The Imprint Chain | [10.5281/zenodo.20151594](https://doi.org/10.5281/zenodo.20151594) |
 | Foundation Trilogy | [10.5281/zenodo.19642398](https://doi.org/10.5281/zenodo.19642398) |
 | Consciousness Trilogy | [10.5281/zenodo.19608174](https://doi.org/10.5281/zenodo.19608174) |
 | Consciousness Series — complete collection | [10.5281/zenodo.19643449](https://doi.org/10.5281/zenodo.19643449) |

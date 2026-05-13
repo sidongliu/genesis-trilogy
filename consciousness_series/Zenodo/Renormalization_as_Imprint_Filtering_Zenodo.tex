@@ -1,0 +1,297 @@
+\documentclass[12pt]{article}
+\usepackage[a4paper, margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{mathtools}
+\usepackage{mathrsfs}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage[hidelinks]{hyperref}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{fontspec}
+
+\defaultfontfeatures{Ligatures=TeX}
+\IfFontExistsTF{Times New Roman}
+  {\setmainfont{Times New Roman}}
+  {\setmainfont{TeX Gyre Termes}}
+\IfFontExistsTF{Menlo}
+  {\setmonofont{Menlo}}
+  {\setmonofont{Latin Modern Mono}}
+
+\newcolumntype{P}[1]{>{\raggedright\arraybackslash}p{#1}}
+
+\newcommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+
+\newtheorem{definition}{Definition}[section]
+\newtheorem{remark}[definition]{Remark}
+
+\title{%
+  \textbf{Renormalization and Imprint Filtering}\\
+  \textbf{An Interpretive Bridge from Algebraic Emergence to Scale-Stable Traces}%
+}
+
+\author{
+  Sidong Liu, PhD \\
+  \small iBioStratix Ltd \\
+  \small \texttt{sidongliu@hotmail.com}
+}
+
+\date{May 2026\\
+\small Zenodo DOI: \href{https://doi.org/10.5281/zenodo.20151451}{10.5281/zenodo.20151451}}
+
+\begin{document}
+\emergencystretch=2em
+\raggedbottom
+\hbadness=5000
+\vbadness=5000
+
+\maketitle
+
+\begin{abstract}
+This paper develops a programme-level bridge between the Algebraic Imprint Principle and the renormalization-group vocabulary of coarse-graining, relevant structure, fixed points, and universality. Its claim is deliberately limited. The paper does not propose new renormalization-group techniques, new effective-field-theory results, or a new microscopic theory. Instead, it argues that existing renormalization language can be read as a disciplined answer to a question left only partially operationalized in \emph{The World as Imprint}: what makes an imprint stable across changes of scale?
+
+The proposed answer is that an imprint is scale-stable not because it is eternally unchanged, but because it leaves a readable residue under coarse-graining, observable selection, or effective redescription. Relevant operators, symmetry-breaking residues, universality-class signatures, and robust effective constraints can therefore be interpreted as paradigmatic scale-stable imprints. This yields a semantic bridge between the Genesis Trilogy's algebraic emergence programme and the philosophical imprint vocabulary without collapsing either into the other. The contribution is internal architectural clarification for an existing multi-paper programme, not a new result in renormalization theory.
+
+\medskip
+
+\noindent\textbf{Keywords}: renormalization, coarse-graining, imprint, emergence, effective theory, universality, scale stability
+\end{abstract}
+
+\clearpage
+\tableofcontents
+\clearpage
+
+\section{Introduction: Why Imprints Need a Scale Mechanism}
+
+\emph{The World as Imprint} introduced the claim that every nontrivial emergent structure can be read as carrying an imprint of the generative constraints that shape it \cite{WorldImprint}. That paper also kept a deliberate limitation in place: imprint was defined conceptually rather than fully operationally. In particular, the term \emph{stable} was left only partly sharpened. This was appropriate there. The paper's task was to separate imprint-carrying from self-reading and to establish a careful programme-level philosophical vocabulary. But once that separation is in place, one operational question becomes unavoidable. What, exactly, makes an imprint stable across changing scales of description?
+
+This paper offers one answer. The answer is not a new theorem in renormalization theory, and it is not a replacement for existing effective-field-theory practice. It is a bridge claim: the renormalization-group vocabulary already tells us, in a disciplined way, which features of a lower-level description survive coarse-graining and continue to matter at higher levels. The imprint vocabulary then tells us how to read the philosophical significance of that survival. Read together, the two vocabularies suggest a compact thesis:
+
+\begin{quote}
+Scale-stable imprints are those readable residues of generative constraint that survive, reappear, or continue to organize description under coarse-graining and effective redescription.
+\end{quote}
+
+The point is semantic but not empty. If correct, it blocks two opposite confusions. On one side lies a naive microscopic reductionism according to which only the finest-level description is fully real and higher-level pattern is merely decorative. On the other side lies a loose emergentism in which macrostructure is acknowledged but not connected rigorously enough to the filtering conditions that let it survive. Renormalization offers a language for saying why higher-level structure is neither arbitrary nor a complete duplicate of its source conditions. The imprint vocabulary gives a compact way to say what this means: the emergent world is not a full copy of its source, but neither is it detached from it; it is a filtered record of it.
+
+The present paper stands between two existing bodies of work. From the Genesis side, coarse-grained observable selection, stable sectors, and algebraic emergence already play a central role \cite{HAFFA,HAFFD}. From the imprint side, \emph{The World as Imprint} already argued that emergent structures may be read as trace-carrying rather than merely outcome-like \cite{WorldImprint}. What is missing is a direct scale bridge: a disciplined account of how the language of renormalization, fixed points, universality, and effective constraints can be reread as the physics-side answer to the question of stable imprinting.
+
+Several guardrails must be stated immediately. This paper does not develop new renormalization-group techniques. It does not derive specific standard-model parameters. It does not explain the particle spectrum, baryogenesis, dark matter identity, or the values of coupling constants. It does not claim that the Genesis Trilogy is required in order to understand ordinary renormalization practice. And it does not identify imprint with a new physical object hidden behind fields or observables. The claim is narrower. Existing renormalization machinery can be interpreted as a programme-level filter that selects which marks of deeper generative structure remain readable after changes of scale. It should therefore be read as an interpretive companion to \emph{The World as Imprint}, not as an independent technical contribution to renormalization theory or effective field theory.
+
+The rest of the paper is organized accordingly. Section~2 fixes a minimal vocabulary for coarse-graining and scale-stable imprinting. Section~3 states the bridge thesis and clarifies what kind of correspondence is being proposed. Section~4 develops the notion of imprint filtering using relevant operators, fixed points, symmetry breaking, and effective constraints. Section~5 gives an algebraic reading of coarse-grained observability. Section~6 develops four examples. Section~7 explains how this paper connects Genesis-style emergence claims to \emph{The World as Imprint}. Section~8 states the limits of the proposal and its research-program value.
+
+\section{Minimal Vocabulary}
+
+The present bridge uses ordinary renormalization language, but it must connect that language to the imprint vocabulary with some care.
+
+\begin{definition}[Coarse-graining]
+\emph{Coarse-graining} is any controlled passage from a finer description to a reduced or effective description in which some degrees of freedom are averaged over, integrated out, neglected, compressed, or rendered inaccessible at the target scale.
+\end{definition}
+
+This definition is intentionally broad. It includes Wilsonian integration of high-energy modes, block-spin transformations, effective observable restriction, and other scale-changing redescriptions. What matters is not the exact mathematical device, but the structural fact that a description at one scale is being converted into a description at another with information loss and stability selection.
+
+\begin{definition}[Scale-stable imprint]
+A \emph{scale-stable imprint} is a readable feature of a structure that continues to constrain, organize, or reappear in effective description after coarse-graining or scale change.
+\end{definition}
+
+The phrase ``continues to constrain'' matters as much as ``reappears.'' Some structure is not literally preserved pointwise, but continues to govern the admissible form of effective behavior. A scale-stable imprint need not be microscopically transparent. It need only remain legible in the effective organization.
+
+\begin{definition}[Imprint filtering]
+\emph{Imprint filtering} is the selective survival of readable residues of generative constraint under coarse-graining.
+\end{definition}
+
+This term is not introduced as a rival formalism. It names the bridge interpretation developed here. Renormalization machinery tells us \emph{which} features survive or matter; imprint filtering says that such survivors can be interpreted as readable marks of the deeper generative regime.
+
+\begin{definition}[Effective readability]
+\emph{Effective readability} is the availability of a feature to stable uptake, prediction, or constraint-sensitive redescription at the effective scale, whether or not the microscopic source is reconstructible in detail.
+\end{definition}
+
+The point is to avoid a false demand. An imprint does not cease to be an imprint merely because it underdetermines its microscopic history. Geological strata remain readable without uniquely reconstructing every grain's past. Likewise, universality-class behavior remains informative without reproducing full microdynamics.
+
+\section{Guardrail: No New RG Technique Is Proposed}
+
+This paper does not develop new renormalization-group techniques. It proposes a programme-level semantic correspondence between existing renormalization machinery and the imprint-carrier concept.
+
+That sentence is not perfunctory. Without it, the paper would be misread from the first page. Renormalization theory is already a mature technical field with multiple distinct formulations and uses. The goal here is not to improve its mathematics. Nor is it to derive novel numerical outputs from the Genesis programme. The goal is to articulate a disciplined philosophical bridge: the stability selection already tracked by renormalization provides an answer to what \emph{The World as Imprint} called the problem of stable, readable mark-bearing.
+
+The distinction between theorem-level and programme-level work is therefore essential. Theorem-level claims in renormalization theory concern specific flows, operator classes, beta functions, fixed points, critical exponents, scaling laws, or effective actions. The present paper does none of that. It instead offers a semantic mapping:
+
+\begin{center}
+\begin{tabular}{P{0.42\linewidth}P{0.48\linewidth}}
+\toprule
+\textbf{Renormalization vocabulary} & \textbf{Imprint-language rereading} \\
+\midrule
+relevant operator & scale-persistent readable residue \\
+irrelevant operator & filtered-away residue at the target scale \\
+fixed points and attractor basins & stable organizational signature of a regime \\
+universality class & shared imprint profile across distinct microrealizations \\
+symmetry-breaking residue & macroscopic mark of underlying generative tension \\
+effective constraint & readable surviving structure in reduced description \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+Nothing in this table changes standard renormalization practice. Its purpose is simply to say, with more precision than a metaphor alone would permit, what kind of survival should count as imprint stability.
+
+\section{Imprint Filtering: What Survives Scale Change}
+
+The intuitive picture is straightforward. A lower-level regime contains far more detail than any higher-level description can retain. Coarse-graining therefore functions like a filter. But it is not an arbitrary filter. What survives is not whatever we happen to like. Survival is controlled by structural relevance to the target regime.
+
+\subsection{Relevant and irrelevant features}
+
+The first lesson of renormalization is selective persistence. Some couplings, asymmetries, or operator families remain dynamically important at larger scales, while others fade, average out, or become negligible. In imprint language, this means that not every lower-level feature leaves a stable readable mark at the effective level. Many microscopic details are filtered out. Only a subset survives as imprints.
+
+At the schematic level, this is the content of an RG flow
+\[
+\frac{d g_i}{d \ln b} = \beta_i(\{g\}),
+\]
+where coarse-graining changes the effective couplings and separates growing, marginal, and decaying directions. The present paper does not analyze a specific beta function, but the bridge depends on this minimal structural fact: scale stability is tied to the persistence of some directions under flow rather than to microscopic detail taken one by one.
+
+This point matters philosophically because it blocks a crude picture in which the emergent world simply ``contains'' its lower level in complete detail. It does not. The effective world is thinner. But it is not arbitrary. The filtered residues still carry organized information about the constraints that produced them. This is exactly the kind of relation the imprint vocabulary was designed to describe.
+
+\subsection{Fixed points and regime signatures}
+
+The second lesson is that whole classes of microscopic difference may flow toward shared large-scale behavior. Fixed points and their neighborhoods define regime signatures. At a fixed point \(g^\ast\), one has \(\beta_i(g^\ast)=0\); around it, the linearized flow distinguishes the directions that feed into an attractor basin from those that drive the system away. What matters at that level is not every microscopic distinction, but the stable form of organization that remains once irrelevant perturbations are removed.
+
+In imprint language, fixed points and their attractor basins are paradigmatic scale-stable imprints. They are not hidden essences. They are stable modes of appearing under scale change. The imprint is therefore not a copy of the microscopic story, but a controlled residue of it.
+
+\subsection{Universality as shared imprint profile}
+
+Universality is especially important for the present paper because it gives a clean answer to a natural objection. One might worry that if an imprint points to deeper generative constraints, then each distinct microhistory should yield a wholly distinct imprint. But near a critical regime, universality shows otherwise. Different microscopic systems may converge on the same large-scale critical behavior. What survives is not full microhistory, but a shared profile of effective organization.
+
+This is not a problem for imprint language; it is a clarification. An imprint need not encode every detail of its source. It need only preserve some readable consequence of source constraint. Universality therefore becomes one of the clearest examples of imprint filtering: the filter preserves a regime-signature while discarding many source-specific details.
+
+\subsection{Symmetry breaking as macroscopic residue}
+
+Symmetry breaking provides another key case. A broken symmetry leaves a readable mark at the effective level: orientation, ordering, phase selection, or structured asymmetry. Such marks are not accidental decorations. They are precisely the kind of stable residues through which a deeper generative history becomes legible without being fully reproduced.
+
+This is why symmetry-breaking residues deserve explicit mention in any imprint-based redescription of renormalization. They show that imprint stability is compatible with qualitative change. A broken phase is not a frozen picture of the symmetric phase, yet it remains a readable consequence of it.
+
+\section{An Algebraic Reading of Coarse-Grained Observability}
+
+The renormalization vocabulary becomes especially useful once paired with the Genesis-style idea that effective worlds are organized not simply by ``what exists'' but by what remains accessible under constrained observability \cite{HAFFA,FoundationI}. On that reading, coarse-graining is not merely a computational convenience. It is a selection of which observables, regularities, and sectors remain available to a finite descriptive regime.
+
+The present paper does not reconstruct the full operator-algebraic machinery of Genesis or Foundation~I. But it does import one lesson from that line of work: effective manifestation is inseparable from selection. The relevant import here is conceptual rather than formal: the paper borrows the accessibility lesson, not the machinery itself. If a world is known only through a restricted observable algebra, then scale stability should be understood relative to the features that remain legible in that algebra.
+
+This lets us refine the notion of imprint filtering:
+
+\begin{quote}
+An imprint is scale-stable when it survives not necessarily as full microscopic content, but as a persistent readable constraint-profile within the coarse-grained observable regime.
+\end{quote}
+
+That reformulation matters because it links physical scale change to epistemic access without collapsing them. Effective observability is not merely subjective ignorance. It is part of the structural regime in which certain residues become stable, reportable, and usable. The imprint vocabulary captures the consequence: the effective world is not raw lower-level reality diminished, but lower-level generative structure rendered legible through a filtered observable sector.
+
+\section{Examples}
+
+The present bridge stands or falls by whether it makes sense across familiar cases. Four examples are enough to show the intended force.
+
+\subsection{Phase transitions}
+
+At a phase transition, coarse-grained description tracks collective behavior rather than microscopic trajectory-by-trajectory detail. Critical exponents, order parameters, and scaling relations survive as readable features of the effective regime. This is the familiar setting in which microscopically different Hamiltonians can share the same critical exponents near criticality. In imprint language, these are scale-stable imprints. They remain legible under drastic redescription and reveal something real about the underlying organization without uniquely encoding the full microstate.
+
+\subsection{Symmetry breaking}
+
+A broken phase exhibits stable asymmetries that are absent in the fully symmetric description. The effective order is neither a literal microscopic duplicate nor an arbitrary overlay. It is a residue of generative tension and resolution. Calling it an imprint is therefore not ornamental. It emphasizes that the effective asymmetry points back to the constraints that made this phase selection possible.
+
+\subsection{Effective field theory}
+
+Effective field theory is perhaps the cleanest bridge case. An EFT deliberately forgets ultraviolet detail while preserving the low-energy structures that matter for prediction and organization. In imprint language, the EFT does not merely hide the microscopic world; it presents a filtered record of which source-side constraints remain operationally legible at the target scale.
+
+This is one reason the imprint perspective should not be confused with a demand for microreconstruction. The effective description is valuable precisely because it is selective. Its explanatory success comes from preserving what remains readable and discardable in a controlled way.
+
+\subsection{Memory traces}
+
+The fourth example looks less like physics and more like the later consciousness papers. Memory is not the total preservation of a past state. It is a selective retained trace. Biological memory, perceptual salience, and cognitive updating all depend on filtering. What persists is not everything that happened, but those residues that remain writable, stabilizable, and retrievable in the later regime.
+
+This example is valuable because it shows continuity with \emph{The World as Imprint}. The language of retained imprint in memory becomes much sharper once one sees that selective persistence under constrained updating is not a special case invented for minds. It is a general structural pattern already familiar from coarse-graining.
+
+\section{From Genesis to Imprint}
+
+This paper is best read as a bridge between two kinds of claim already present elsewhere. Genesis-style work provides a source-side picture in which accessible sectors, coarse-grained observability, and stable effective structures are central \cite{HAFFA,HAFFD,FoundationI}. \emph{The World as Imprint} provides a philosophical vocabulary for saying that emergent structure carries readable marks of its generative conditions \cite{WorldImprint}. What was missing was an explicit scale bridge.
+
+The bridge can now be stated succinctly:
+
+\begin{enumerate}
+\item Genesis says that emergent structure appears through coarse-grained or accessibility-constrained selection.
+\item Renormalization says that some features survive scale change while others wash out.
+\item The imprint vocabulary says that such survivors can be read as the legible residues of generative constraint.
+\end{enumerate}
+
+Taken together, these three claims yield a more exact sense in which the world may be called an imprint-field. The phrase no longer means only that structures ``point back'' vaguely to their conditions. It means that emergence itself is already filtered, and that the survivors of that filtering are what count as stable imprints.
+
+This is also the place to state a nontrivial consequence. If the bridge is correct, then imprint-carrying is not a mystical property added to the world after the fact. It is the philosophical reading of a physical fact: the emergent world is composed of structures whose stability already depends on scale-selective survival. The imprint-field is therefore not an occult layer. It is the emergent world under the aspect of filtered legibility.
+
+\section{Limitations and Research Programme}
+
+The limitations of the proposal are as important as its positive claims.
+
+First, the paper does not propose or prove any new renormalization result. It is not a technical RG paper.
+
+Second, it does not tell us how to calculate imprint-strength or imprint-depth in a general formal way. Those remain research-program tasks. What this paper does is explain which family of physical ideas should guide that formalization: persistence under coarse-graining, stability under observable restriction, and continued effective readability.
+
+Third, it does not explain consciousness. The bridge developed here stops at scale-stable imprinting. It does not answer how filtered residues become integrated into accessible stable hulls, self-models, or self-reading regimes. Those are tasks for later bridge work and for the existing consciousness papers.
+
+Fourth, it does not claim that all macrostructure is equally informative. Some effective residues are deep, some shallow; some discriminate among source regimes better than others. Imprint language should therefore remain graded rather than indiscriminate.
+
+Fifth, the paper is best treated as an interpretive companion inside the larger imprint programme. Its value lies in clarifying where the ``stable'' in ``scale-stable imprint'' comes from, not in competing with standard RG or EFT literature on their own technical terrain.
+
+The research-program value of the paper is nonetheless substantial. It sharpens the ``stable'' in the imprint definition. It connects the Genesis algebraic programme to a familiar physical vocabulary rather than leaving the bridge implicit. And it suggests a disciplined way to move from source-side emergence claims to later questions about accessible worldhood and mind.
+
+In that sense the paper does not close a chain. It clarifies one segment of it:
+
+\begin{quote}
+source algebra $\to$ coarse-graining $\to$ scale-stable imprint $\to$ imprint-field.
+\end{quote}
+
+That segment is not the whole road from emergence to self-reading mind. But without it, the road remains too vague at the point where lower-level structure becomes stably legible at all. Renormalization, read as imprint filtering, is what makes that legibility precise enough to matter.
+
+\begin{thebibliography}{99}
+
+\bibitem{WorldImprint}
+S.~Liu,
+\emph{The World as Imprint: From Trace-Carrying Structure to Self-Reading Mind},
+Zenodo (2026), DOI: 10.5281/zenodo.20122718.
+
+\bibitem{HAFFA}
+S.~Liu,
+\emph{Emergent Geometry from Coarse-Grained Observable Algebras: The Holographic Alaya-Field Framework},
+Zenodo (2026), DOI: 10.5281/zenodo.18361706.
+
+\bibitem{HAFFD}
+S.~Liu,
+\emph{Gravitational Phenomena as Emergent Properties of Observable Algebra Selection: A Structural Analysis},
+Zenodo (2026), DOI: 10.5281/zenodo.18388881.
+
+\bibitem{FoundationI}
+S.~Liu,
+\emph{Foundation I: From Source to Manifestation: A Conditional Same-Root Program for Geometry and Modular Flow},
+Zenodo (2026), DOI: 10.5281/zenodo.19627786.
+
+\bibitem{Wilson1975}
+K.~G.~Wilson,
+\emph{The renormalization group: Critical phenomena and the Kondo problem},
+Reviews of Modern Physics \textbf{47}, 773--840 (1975).
+
+\bibitem{Kadanoff1966}
+L.~P.~Kadanoff,
+\emph{Scaling laws for Ising models near $T_c$},
+Physics \textbf{2}, 263--272 (1966).
+
+\bibitem{Goldenfeld1992}
+N.~Goldenfeld,
+\emph{Lectures on Phase Transitions and the Renormalization Group},
+Addison-Wesley (1992).
+
+\bibitem{Polchinski1984}
+J.~Polchinski,
+\emph{Renormalization and effective Lagrangians},
+Nuclear Physics B \textbf{231}, 269--295 (1984).
+
+\bibitem{Batterman2002}
+R.~W.~Batterman,
+\emph{The Devil in the Details: Asymptotic Reasoning in Explanation, Reduction, and Emergence},
+Oxford University Press (2002).
+
+\end{thebibliography}
+
+\end{document}
