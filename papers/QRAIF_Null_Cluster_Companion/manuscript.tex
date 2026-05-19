@@ -1,0 +1,873 @@
+
+\documentclass[12pt,a4paper]{article}
+
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{mathtools}
+\usepackage[hidelinks]{hyperref}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage{fontspec}
+
+\defaultfontfeatures{Ligatures=TeX}
+\IfFontExistsTF{Times New Roman}
+  {\setmainfont{Times New Roman}}
+  {\setmainfont{TeX Gyre Termes}}
+\IfFontExistsTF{Menlo}
+  {\setmonofont{Menlo}}
+  {\setmonofont{Latin Modern Mono}}
+
+\newcolumntype{P}[1]{>{\raggedright\arraybackslash}p{#1}}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{assumption}[theorem]{Assumption}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+
+\newcommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+
+\title{%
+  \textbf{The Null Cluster as Structural Imprint}\\
+  \textbf{Recurring Null-Boundary Convergence}\\
+  \large A Programme Note after Q-RAIF A%
+}
+
+\author{
+  Sidong Liu, PhD \\
+  \small iBioStratix Ltd \\
+  \small \texttt{sidongliu@hotmail.com}
+}
+
+\date{May 2026\\
+\small Zenodo DOI: \href{https://doi.org/10.5281/zenodo.20283057}{10.5281/zenodo.20283057}}
+
+\begin{document}
+\emergencystretch=2em
+\raggedbottom
+\hbadness=5000
+\vbadness=5000
+
+\maketitle
+
+\begin{abstract}
+Several major structures in relativistic physics are organized at or near null boundaries: causal cones, event and Rindler horizons, horizon thermality, covariant entropy bounds, asymptotic symmetries, soft theorems, memory effects, and the propagation of massless fields. These facts are well known separately. The present note proposes a programme-level unification: these phenomena form a null cluster, a repeated convergence pattern in which causal reachability, thermal response, entropy localization, infrared memory, modular structure, and symmetry constraints co-localize at the null boundary of Lorentzian read-out.
+
+The claim is not that any one of these phenomena is newly derived here. Nor is it that photon or graviton masslessness, BMS symmetry, Unruh thermality, or holographic entropy are new predictions. The contribution is structural: within the Q-RAIF A programme, where admissible finite read-out from algebraic data induces an effective Lorentzian geometry, the null boundary is read as the thinnest interface of the emergent geometry. It is the place where finite access, causal boundary, state restriction, entropy accounting, and asymptotic imprint most tightly meet.
+
+This note therefore functions as a programme note rather than a proof. It identifies the null cluster, explains why its repeated appearance is not a trivial observation, places it within the Q-RAIF A and mass-energy recovery setting, and states failure modes that would weaken the proposed reading.
+
+\medskip
+\noindent\textbf{Keywords}: Q-RAIF A, null boundaries, Lorentzian read-out, horizon thermality, BMS symmetry, soft theorems, memory effect, modular flow, structural imprint
+\end{abstract}
+
+\clearpage
+\tableofcontents
+\clearpage
+\section{Introduction}
+\label{sec:introduction}
+
+This note has a narrow purpose.
+
+It does not introduce a new field equation, a new particle, or a new
+quantum-gravity model. It does not claim to derive special relativity,
+the Standard Model mass spectrum, black-hole entropy, soft theorems, or
+the cosmological constant. It also does not replace ordinary general
+relativity, quantum field theory, algebraic QFT, or scattering theory.
+
+Its purpose is different:
+
+\begin{quote}
+to identify a repeated structural convergence around null boundaries and
+to propose that this convergence is naturally read, within Q-RAIF A, as
+a structural imprint of Lorentzian read-out.
+\end{quote}
+
+The central term is \textbf{null cluster}.
+
+By the null cluster I mean the recurring co-localization of the
+following features:
+
+\begin{enumerate}[leftmargin=*]
+\tightlist
+\item
+  causal reachability,
+\item
+  horizon or boundary structure,
+\item
+  thermal response under restricted access,
+\item
+  entropy localization on null or near-null sheets,
+\item
+  infrared memory and asymptotic symmetry,
+\item
+  modular flow with geometric meaning in special cases,
+\item
+  massless or near-massless propagation as a kinematic locking to the
+  null cone.
+\end{enumerate}
+
+Not every feature appears in every physical situation. The claim is
+weaker and more useful:
+
+\begin{quote}
+whenever a physical regime is organized by a null boundary, several of
+these features tend to reappear together.
+\end{quote}
+
+This is not a theorem. It is a programme-level organizing principle.
+
+\section{What Is Already Known}\label{what-is-already-known}
+
+The individual ingredients of the null cluster are standard.
+
+The causal cone of Lorentzian geometry is defined by the null
+directions. Event horizons are null hypersurfaces. Rindler horizons
+produce observer-dependent thermality. Black-hole entropy scales with
+horizon area. Bousso's covariant entropy bound uses null light-sheets.
+Asymptotically flat gravity has null infinity, BMS symmetries, soft
+graviton theorems, and gravitational memory. In algebraic QFT, the
+Bisognano-Wichmann theorem connects modular flow for wedge algebras with
+Lorentz boosts. In high-energy or massless limits, propagation is locked
+to the null cone.
+
+None of that is new.
+
+The useful question is different:
+
+\begin{quote}
+Why do these structures repeatedly meet at null boundaries?
+\end{quote}
+
+Mainstream literature usually studies partial clusters. The references
+in the table are representative anchors, not exhaustive bibliographies.
+
+\begin{center}
+\begin{tabular}{P{0.21\linewidth}P{0.20\linewidth}P{0.23\linewidth}P{0.20\linewidth}}
+\toprule
+\textbf{Line of work} & \textbf{Representative anchor} & \textbf{Null phenomena emphasized} & \textbf{Usually outside its main focus} \\
+\midrule
+BMS / infrared triangle & Strominger 2018 & Asymptotic symmetry, soft theorems, memory & Horizon thermality, entropy bounds, modular flow \\
+Thermodynamic gravity & Jacobson 1995 & Local horizons, heat, Einstein equation & BMS, soft theorems, memory \\
+Covariant entropy bounds & Bousso 1999 & Null light-sheets, entropy limits & Modular theory, BMS, massless protection \\
+Algebraic QFT / modular theory & Bisognano--Wichmann 1975; Haag 1996 & Wedge modular flow, Rindler thermality & BMS, covariant entropy bounds \\
+Conformal / twistor approaches & Penrose 2010 & Null geometry, conformal structure & Horizon thermality, entropy localization \\
+Gauge and diffeomorphism protection & Weinberg 1965; Wald 1984 & Massless propagation, constraint structure & Horizon thermality, entropy bounds, soft memory \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+The present note proposes that these partial clusters are not merely
+parallel accidents. They are different faces of a broader null cluster.
+
+\section{Why the Observation Is Not
+Trivial}\label{why-the-observation-is-not-trivial}
+
+It is tempting to say: ``Of course these things involve light cones.
+This is just relativity.''
+
+That response misses the point.
+
+The nontrivial point is not that light cones exist. The nontrivial point
+is that multiple independent-looking structures concentrate at the same
+kind of boundary:
+
+\begin{itemize}
+\tightlist
+\item
+  causal structure says what can influence what;
+\item
+  horizon thermality says restricted access to a wedge or exterior
+  region produces a thermal state;
+\item
+  entropy bounds say information is controlled by area or null sheets,
+  not by naive volume;
+\item
+  soft theorems and memory say radiation leaves persistent boundary data
+  at null infinity;
+\item
+  modular theory says, in important cases, state-dependent algebraic
+  flow can acquire geometric boost meaning;
+\item
+  massless propagation says protected gauge or diffeomorphism structures
+  lock certain excitations to the null cone.
+\end{itemize}
+
+These are not the same statement in different notation.
+
+They come from different parts of physics:
+
+\begin{itemize}
+\tightlist
+\item
+  Lorentzian geometry,
+\item
+  general relativity,
+\item
+  quantum field theory,
+\item
+  algebraic QFT,
+\item
+  black-hole thermodynamics,
+\item
+  scattering theory,
+\item
+  asymptotic symmetry,
+\item
+  gauge theory.
+\end{itemize}
+
+The priority value of this note is to draw these lines on one map and
+ask whether their common null locus is a structural clue.
+
+\section{The Null Cluster}\label{the-null-cluster}
+
+\subsection{Core Cluster}\label{core-cluster}
+
+The core cluster consists of phenomena that directly occur on, or are
+defined by, null boundaries.
+
+\begin{center}
+\begin{tabular}{P{0.19\linewidth}P{0.25\linewidth}P{0.19\linewidth}P{0.22\linewidth}}
+\toprule
+\textbf{Node} & \textbf{Standard meaning} & \textbf{Null locus} & \textbf{Programme reading} \\
+\midrule
+Causal cone & Boundary between timelike and spacelike separation & $ds^2=0$ & Basic boundary of effective read-out \\
+Event horizon & Boundary of causal access & Null hypersurface & Finite access boundary in geometry \\
+Rindler horizon & Acceleration horizon & Null planes & Restricted wedge access yields thermality \\
+Horizon thermality & Unruh / Hawking type thermal response & Horizon-local & State restriction at null boundary \\
+Entropy bounds & Area or light-sheet control of entropy & Null sheets / horizons & Finite read-out closes on boundary data \\
+BMS / soft / memory & Asymptotic symmetry and persistent radiation imprint & Null infinity & Null boundary stores scattering imprint \\
+Modular geometry & Modular flow becomes boost in special QFT settings & Wedge / horizon structure & Algebraic flow can carry geometric boundary meaning \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+These are the strongest candidates for the null cluster proper.
+
+\subsection{Adjacent Node: Massless
+Protection}\label{adjacent-node-massless-protection}
+
+Massless protection should not be treated as identical to the core
+cluster.
+
+Photon masslessness is protected by gauge structure. Graviton
+masslessness, in the usual low-energy picture, is tied to diffeomorphism
+structure and massless spin-2 consistency. These are not the same
+mechanisms as horizon thermality, entropy bounds, or BMS memory.
+
+Still, they belong near the cluster.
+
+The reason is \textbf{kinematic locking}:
+
+\begin{quote}
+gauge and diffeomorphism structures protect the absence of mass terms,
+and the absence of mass locks propagation to the Lorentzian null cone.
+\end{quote}
+
+Thus massless protection is not a core null-boundary phenomenon in the
+same sense as a horizon or null infinity. It is an adjacent node: a
+symmetry-protected route by which field propagation becomes null.
+
+This distinction matters. If massless protection is placed inside the
+core cluster too quickly, the note overclaims. If it is excluded
+completely, the relation between symmetry protection and null
+propagation is lost.
+
+The correct placement is second ring, not first ring.
+
+\subsection{Inclusion and Exclusion
+Criteria}\label{inclusion-and-exclusion-criteria}
+
+The cluster is not meant to include every use of null geometry.
+
+A phenomenon belongs to the \textbf{core cluster} only if it is defined
+on, defined by, or operationally localized at a null boundary: an event
+horizon, a Rindler horizon, a null light-sheet, null infinity, or a
+wedge/null-plane structure whose algebraic meaning depends on that
+boundary.
+
+A phenomenon belongs to the \textbf{adjacent ring} if it is not itself a
+null-boundary phenomenon, but is locked to the null cone by a symmetry
+or kinematic mechanism. Massless protection is the main example: gauge
+and diffeomorphism structures do not equal horizon thermality or BMS
+memory, but they constrain propagation to the null cone.
+
+A phenomenon is \textbf{outside the cluster} if it merely uses null
+structure as a technical tool without making a null boundary carry
+causal, thermal, entropic, asymptotic, modular, or imprint data. Twistor
+methods, conformal techniques, causal-set discretizations, and generic
+light-cone coordinates may become relevant in later work, but they are
+not automatically part of the null cluster as defined here.
+
+This criterion is meant to block cherry-picking. The cluster is not
+``everything involving light cones''; it is the narrower convergence of
+boundary, access, entropy, memory, modular, and symmetry-locking
+structures around null loci.
+
+\section{The Structural-Imprint
+Claim}\label{the-structural-imprint-claim}
+
+The programme-level claim can now be stated.
+
+\begin{quote}
+The null cluster is a structural imprint of Lorentzian read-out: it
+marks the boundary where finite causal access, state restriction,
+entropy accounting, asymptotic radiation data, and symmetry-protected
+massless propagation most tightly meet.
+\end{quote}
+
+In Q-RAIF A, the effective Lorentzian metric is not taken as a brute
+background. It is treated as a read-out structure induced under
+admissibility constraints from the algebraic source pair. The
+mass-energy companion paper then shows, conditionally, that once this
+Lorentzian read-out and an admissible four-momentum bridge are in place,
+the standard mass-energy relation is recovered inside the read-out.
+
+The present note takes a further programme-level step:
+
+if Lorentzian read-out is the arena, then its null boundary should be
+where the most compressed structural traces appear.
+
+This is why the same class of features keeps recurring:
+
+\begin{itemize}
+\tightlist
+\item
+  causal closure,
+\item
+  horizon restriction,
+\item
+  thermal response,
+\item
+  entropy localization,
+\item
+  soft boundary data,
+\item
+  memory,
+\item
+  modular-geometric flow,
+\item
+  massless propagation.
+\end{itemize}
+
+The null boundary is not merely the path of light. It is the boundary
+grammar of Lorentzian manifestation.
+
+\section{Pairwise Structural Links}\label{pairwise-structural-links}
+
+The null cluster becomes more visible when the pairwise links are made
+explicit.
+
+\subsection{Causal Boundary and
+Horizon}\label{causal-boundary-and-horizon}
+
+A horizon is not a material wall. It is a causal boundary. Its
+definition depends on which signals can reach which region, and this is
+organized by null curves or null hypersurfaces.
+
+Thus the causal cone and horizon structure are not separate topics. A
+horizon is what the causal cone becomes when access is globally or
+regionally restricted.
+
+\subsection{Horizon and Thermality}\label{horizon-and-thermality}
+
+The Unruh and Hawking effects show that horizon-related access
+restrictions are tied to thermal response.
+
+In a Rindler wedge, the restriction of the vacuum to the wedge is
+thermal with respect to boost time. In black-hole settings, the horizon
+is tied to Hawking temperature. The details differ, but the repeated
+pattern is the same: restricted access at a horizon gives a thermal
+reading.
+
+Programme reading:
+
+\begin{quote}
+thermal response is not added on top of a horizon; it is one of the
+signatures of finite access to a null-bounded region.
+\end{quote}
+
+\subsection{Horizon and Entropy}\label{horizon-and-entropy}
+
+Black-hole entropy and covariant entropy bounds indicate that entropy is
+controlled by boundary geometry, especially null or horizon-like
+structure.
+
+The important shift is from volume to boundary.
+
+Programme reading:
+
+\begin{quote}
+when finite read-out closes a region, the entropy-relevant data are
+organized at the boundary of access, not throughout a naive container
+volume.
+\end{quote}
+
+The quantum focusing conjecture and related quantum Bousso-bound work
+sharpen this line by replacing purely classical area focusing with
+generalized entropy and quantum expansion along null congruences. This
+does not prove the present note's imprint reading, but it reinforces the
+point that entropy constraints and null deformation data are not
+separate bookkeeping devices.
+
+\subsection{Null Infinity and
+Memory}\label{null-infinity-and-memory}
+
+In scattering theory, radiation reaches null infinity. Soft theorems,
+BMS symmetries, and memory effects show that null infinity is not empty
+bookkeeping. It carries persistent imprint.
+
+Programme reading:
+
+\begin{quote}
+null infinity is where scattering leaves boundary-readable memory.
+\end{quote}
+
+This is the asymptotic analogue of the horizon claim. Both cases treat
+null boundaries as places where finite read-out becomes constrained by
+persistent boundary data.
+
+Recent work on BMS charge algebras, double-soft theorems, BMS fluxes,
+and celestial holography makes this point more concrete: null infinity
+is not merely a formal endpoint of radiation, but a boundary arena where
+flux, symmetry, memory, and candidate celestial operator data are
+organized.
+
+\subsection{Modular Flow and Null
+Boundaries}\label{modular-flow-and-null-boundaries}
+
+The Bisognano-Wichmann theorem shows that, in relativistic QFT under
+suitable assumptions, the modular flow of a wedge algebra is implemented
+by Lorentz boosts.
+
+This does not mean modular flow is always physical time, nor that
+modular flow directly defines momentum.
+
+The narrower lesson is enough:
+
+\begin{quote}
+in important cases, state-dependent algebraic flow knows about geometric
+wedge and horizon structure.
+\end{quote}
+
+This is precisely the kind of link Q-RAIF A treats as structurally
+significant, while still avoiding the overclaim that modular flow alone
+derives all spacetime dynamics.
+
+The limitation is important. The Bisognano-Wichmann result is a
+statement about wedge algebras in relativistic QFT under specific
+structural assumptions; it is not a generic theorem about arbitrary null
+surfaces, arbitrary states, or curved spacetime. Interacting theories,
+Haag duality issues, Type III factors, and the detailed role of Connes
+spectrum belong to a deeper AQFT analysis that this note does not
+attempt.
+
+There is, however, targeted recent work closer to the present boundary
+language: studies of modular operators for null-plane algebras in free
+fields decompose the one-particle structure into lightlike fibres and
+relate null cuts, relative entropy, and QNEC-type statements. This
+supports the limited claim made here: modular data can have genuine
+null-boundary content, but the technical domain of validity must be
+stated explicitly.
+
+\subsection{Massless Propagation and Null
+Cone}\label{massless-propagation-and-null-cone}
+
+A massless excitation propagates on the null cone. In gauge theory, the
+absence of a photon mass is protected by gauge invariance. In gravity,
+the masslessness of the low-energy spin-2 mode is tied to diffeomorphism
+structure and consistency constraints.
+
+Programme reading:
+
+\begin{quote}
+massless propagation is the field-theoretic way a symmetry-protected
+degree of freedom is locked to the Lorentzian boundary.
+\end{quote}
+
+This is adjacent to, but not identical with, the horizon and entropy
+parts of the cluster.
+
+\section{Placement after Q-RAIF A}\label{placement-after-q-raif-a}
+
+Q-RAIF A supplies the prior claim used here:
+
+\begin{quote}
+admissible finite read-out induces effective Lorentzian geometry under
+the stated algebraic constraints.
+\end{quote}
+
+The mass-energy companion paper adds:
+
+\begin{quote}
+once admissible four-momentum is defined on the effective read-out
+sector, the standard mass-energy relation is recovered as a conditional
+theorem.
+\end{quote}
+
+This note adds a programme-level map:
+
+\begin{quote}
+once Lorentzian read-out is available, the null boundary becomes the
+natural interface where causal, thermal, entropic, asymptotic, modular,
+and massless-propagation features repeatedly concentrate.
+\end{quote}
+
+The three statements have different epistemic status.
+
+\begin{center}
+\begin{tabular}{P{0.44\linewidth}P{0.46\linewidth}}
+\toprule
+\textbf{Claim} & \textbf{Status} \\
+\midrule
+Q-RAIF A Lorentzian read-out & Prior theorem in the programme \\
+Mass-energy recovery & Conditional theorem given Lorentzian read-out and momentum bridge \\
+Null cluster as structural imprint & Programme-level unifying note \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+This separation is essential. The present note should not be cited as
+proving the null cluster. It proposes the null cluster as a structural
+reading and a research map.
+
+\section{What Is New}\label{what-is-new}
+
+The note does not claim novelty for the following:
+
+\begin{itemize}
+\tightlist
+\item
+  light cones,
+\item
+  event horizons,
+\item
+  Hawking or Unruh thermality,
+\item
+  black-hole entropy,
+\item
+  covariant entropy bounds,
+\item
+  BMS symmetry,
+\item
+  soft theorems,
+\item
+  memory effects,
+\item
+  massless photon or graviton propagation,
+\item
+  modular theory in AQFT.
+\end{itemize}
+
+The novelty is the cross-domain placement.
+
+The note says:
+
+\begin{enumerate}[leftmargin=*]
+\tightlist
+\item
+  these are not merely isolated null-related facts;
+\item
+  they form a repeated cluster around null boundaries;
+\item
+  Q-RAIF A gives a natural programme-level reason to expect such
+  clustering, because null boundaries are the thinnest boundary of
+  Lorentzian read-out;
+\item
+  the cluster suggests specific failure modes and future directions.
+\end{enumerate}
+
+This is a perspective contribution, not a new calculation.
+
+\section{Failure Modes}\label{failure-modes}
+
+The following would weaken or falsify the proposed reading.
+
+\subsection{F1. Fundamental vacuum
+dispersion}\label{f1.-fundamental-vacuum-dispersion}
+
+If future observations establish a fundamental, non-environmental,
+energy-dependent speed of massless propagation in vacuum, then the idea
+of a single effective Lorentzian null cone would be weakened.
+
+This would not automatically refute every algebraic-emergence programme,
+but it would force Q-RAIF A to be modified toward multi-cone,
+Finsler-like, Lorentz-violating, or energy-dependent read-out geometry.
+
+The relevant target is not ordinary plasma dispersion, gravitational
+Shapiro delay, source-intrinsic time lag, or effective propagation in
+matter. The dangerous signal would be a vacuum law of the form
+
+\[
+v(E)=c\left[1+O\!\left(\left(\frac{E}{E_{\mathrm{QG}}}\right)^n\right)\right]
+\]
+
+or another non-environmental Lorentz-violating dispersion that survives
+multi-messenger and multi-frequency controls. In such a case the note's
+single-null-cone reading would have to be weakened or replaced.
+
+\subsection{F2. Basic photon mass}\label{f2.-basic-photon-mass}
+
+If the photon is found to have a fundamental nonzero rest mass, not
+merely an effective mass in a medium or plasma, then the role of the
+photon as the cleanest electromagnetic null pointer would fail.
+
+The broader null cluster could survive, but its most familiar massless
+representative would be downgraded.
+
+\subsection{F3. Basic graviton mass}\label{f3.-basic-graviton-mass}
+
+If gravitational waves are shown to arise from a fundamentally massive
+spin-2 mode, rather than a massless geometric perturbation or an
+effective modification, then the placement of gravitational waves as
+direct null-boundary geometry would fail.
+
+\subsection{F4. Mass-shell failure inside a valid Lorentzian
+sector}\label{f4.-mass-shell-failure-inside-a-valid-lorentzian-sector}
+
+If a system has:
+
+\begin{itemize}
+\tightlist
+\item
+  a valid effective Lorentzian geometry,
+\item
+  a well-defined four-momentum,
+\item
+  and ordinary energy-momentum read-out,
+\end{itemize}
+
+but violates the standard mass-shell relation in a way that cannot be
+attributed to medium effects, interactions, curved-background
+corrections, or bad variable choice, then the mass-energy companion
+bridge would be undermined.
+
+\subsection{F5. No deep relation among horizon thermality, entropy,
+memory, and modular
+structure}\label{f5.-no-deep-relation-among-horizon-thermality-entropy-memory-and-modular-structure}
+
+If future work showed that horizon thermality, entropy localization,
+infrared memory, and modular geometry are only unrelated special-case
+coincidences, then the null cluster would lose its unifying force.
+
+This is the most likely soft failure mode. It would not be a single
+experimental refutation, but a gradual failure of the programme to
+generate useful connections.
+
+\section{Open Directions}\label{open-directions}
+
+\subsection{Null Boundary as Imprint
+Interface}\label{null-boundary-as-imprint-interface}
+
+The most publishable next technical direction is to connect BMS
+symmetry, soft theorems, memory effects, and imprint language.
+
+The guiding idea:
+
+\begin{quote}
+null infinity is not only where radiation escapes; it is where
+scattering leaves boundary-readable imprint.
+\end{quote}
+
+This can potentially be written as a technical essay with standard
+references and without extending Q-RAIF machinery.
+
+\subsection{Cosmological Constant as Global Read-out
+Curvature}\label{cosmological-constant-as-global-read-out-curvature}
+
+A second direction is the cosmological constant.
+
+The cautious claim:
+
+\begin{quote}
+the cosmological constant problem may be partly a category problem if
+one treats global read-out curvature as ordinary local vacuum energy
+density.
+\end{quote}
+
+This is not a replacement for Lambda-CDM. It is not a solution to the
+numerical problem. It is a programme-level reframing.
+
+\subsection{Black-Hole Information as Read-out Sector
+Reallocation}\label{black-hole-information-as-read-out-sector-reallocation}
+
+The black-hole information problem can be cautiously read as a mismatch
+between sector-limited external read-out and global algebraic
+accounting.
+
+Modern island and replica-wormhole results already suggest that the
+accessible description of entropy depends on how the gravitational and
+radiation sectors are assigned.
+
+The programme-level reading:
+
+\begin{quote}
+the question is not simply where information goes, but which read-out
+sector can access which imprint.
+\end{quote}
+
+\subsection{Neutrinos near the Null
+Boundary}\label{neutrinos-near-the-null-boundary}
+
+Neutrino masses are extremely small compared with other known fermion
+masses. This makes them natural candidates for a ``near-null''
+structural reading.
+
+This should remain a weak direction. Seesaw mechanisms, Majorana versus
+Dirac mass, sterile neutrino constraints, and mass ordering are concrete
+physics questions. The programme should not replace them with metaphor.
+
+The only safe statement is:
+
+\begin{quote}
+neutrinos may be an example where a tiny timelike thickness sits very
+close to the null class.
+\end{quote}
+
+\subsection{Dark Sector as Limited Observable
+Access}\label{dark-sector-as-limited-observable-access}
+
+The dark sector is the riskiest direction.
+
+It is tempting to say that dark matter is not a particle but a read-out
+effect. That is too strong.
+
+The publishable version is narrower:
+
+\begin{quote}
+some dark-sector phenomena may be usefully interpreted as effects of
+limited observable access, where gravitational read-out is broader than
+electromagnetic read-out.
+\end{quote}
+
+This remains an open conjecture. It requires quantitative modelling
+before it can become a prediction.
+
+\section{Limits}\label{limits}
+
+This note has strict limits.
+
+\begin{enumerate}[leftmargin=*]
+\tightlist
+\item
+  It does not derive the null cluster.
+\item
+  It does not derive BMS symmetry, soft theorems, memory effects,
+  horizon entropy, or modular flow.
+\item
+  It does not claim that all null-related phenomena have the same
+  physical mechanism.
+\item
+  It does not treat gauge invariance and diffeomorphism invariance as
+  the same mechanism.
+\item
+  It does not claim that dark matter is not a particle.
+\item
+  It does not solve the cosmological constant problem.
+\item
+  It does not solve black-hole information.
+\item
+  It does not introduce religious or metaphysical terminology into the
+  physics note.
+\end{enumerate}
+
+The correct label is:
+
+\begin{quote}
+structural programme note.
+\end{quote}
+
+\section{Minimal Claim}\label{minimal-claim}
+
+The minimal claim is this:
+
+Null boundaries repeatedly gather causal limits, horizon restriction,
+thermal response, entropy localization, asymptotic memory, modular
+geometry, and symmetry-protected massless propagation.
+
+Q-RAIF A gives this recurrence a programme-level placement: the null
+boundary is the thinnest interface of Lorentzian read-out, where finite
+access and boundary data meet.
+
+This is not a new equation; it is a map.
+
+% ============================================================
+\begin{thebibliography}{99}
+
+\bibitem{Einstein1905}
+A.~Einstein, \emph{On the Electrodynamics of Moving Bodies} (1905).
+
+\bibitem{Wald1984}
+R.~M.~Wald, \emph{General Relativity}, University of Chicago Press (1984).
+
+\bibitem{Hawking1975}
+S.~W.~Hawking, \emph{Particle creation by black holes}, Communications in Mathematical Physics \textbf{43}, 199--220 (1975).
+
+\bibitem{Bekenstein1973}
+J.~D.~Bekenstein, \emph{Black holes and entropy}, Physical Review D \textbf{7}, 2333--2346 (1973).
+
+\bibitem{Unruh1976}
+W.~G.~Unruh, \emph{Notes on black-hole evaporation}, Physical Review D \textbf{14}, 870--892 (1976).
+
+\bibitem{Bousso1999}
+R.~Bousso, \emph{A covariant entropy conjecture}, Journal of High Energy Physics \textbf{07}, 004 (1999).
+
+\bibitem{BoussoFisherLeichenauerWall2016}
+R.~Bousso, Z.~Fisher, S.~Leichenauer, and A.~C.~Wall, \emph{Quantum focusing conjecture}, Physical Review D \textbf{93}, 064044 (2016).
+
+\bibitem{BoussoFisherKoellerLeichenauerWall2016}
+R.~Bousso, Z.~Fisher, J.~Koeller, S.~Leichenauer, and A.~C.~Wall, \emph{Proof of the quantum null energy condition}, Physical Review D \textbf{93}, 024017 (2016).
+
+\bibitem{Jacobson1995}
+T.~Jacobson, \emph{Thermodynamics of spacetime: The Einstein equation of state}, Physical Review Letters \textbf{75}, 1260--1263 (1995).
+
+\bibitem{BondiMetznerSachs1962}
+H.~Bondi, M.~G.~J.~van der Burg, and A.~W.~K.~Metzner, \emph{Gravitational waves in general relativity VII}, Proceedings of the Royal Society A \textbf{269}, 21--52 (1962).
+
+\bibitem{Sachs1962}
+R.~K.~Sachs, \emph{Gravitational waves in general relativity VIII}, Proceedings of the Royal Society A \textbf{270}, 103--126 (1962).
+
+\bibitem{Weinberg1965}
+S.~Weinberg, \emph{Infrared photons and gravitons}, Physical Review \textbf{140}, B516--B524 (1965).
+
+\bibitem{Strominger2018}
+A.~Strominger, \emph{Lectures on the Infrared Structure of Gravity and Gauge Theory}, Princeton University Press (2018).
+
+\bibitem{CampigliaLaddha2021}
+M.~Campiglia and A.~Laddha, \emph{BMS algebra, double soft theorems, and all that}, arXiv:2106.14717.
+
+\bibitem{DonnayFiorucciHerfrayRuzziconi2021}
+L.~Donnay, A.~Fiorucci, Y.~Herfray, and R.~Ruzziconi, \emph{BMS flux algebra in celestial holography}, arXiv:2108.11969.
+
+\bibitem{Pasterski2021}
+S.~Pasterski, \emph{Lectures on celestial amplitudes}, arXiv:2108.04801.
+
+\bibitem{BisognanoWichmann1975}
+J.~J.~Bisognano and E.~H.~Wichmann, \emph{On the duality condition for a Hermitian scalar field}, Journal of Mathematical Physics \textbf{16}, 985--1007 (1975).
+
+\bibitem{Haag1996}
+R.~Haag, \emph{Local Quantum Physics: Fields, Particles, Algebras}, Springer-Verlag (1996).
+
+\bibitem{Takesaki2003}
+M.~Takesaki, \emph{Theory of Operator Algebras II}, Springer (2003).
+
+\bibitem{MorinelliTanimotoWegener2021}
+V.~Morinelli, Y.~Tanimoto, and B.~Wegener, \emph{Modular operator for null plane algebras in free fields}, arXiv:2107.00039.
+
+\bibitem{Penrose2010}
+R.~Penrose, \emph{Cycles of Time}, Bodley Head (2010).
+
+\bibitem{Liu2026MassEnergy}
+S.~Liu, \emph{Recovering Mass--Energy Equivalence within Algebraic Lorentzian Read-out: A Conditional Theorem in Q-RAIF A}, Zenodo (2026), DOI: 10.5281/zenodo.20280951.
+
+\end{thebibliography}
+
+\end{document}

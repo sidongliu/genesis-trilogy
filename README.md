@@ -88,6 +88,8 @@ genesis-trilogy/
 │   ├── HAFF_Postscript/
 │   ├── QRAIF_A/ … QRAIF_C/      # Individual Q-RAIF papers
 │   ├── QRAIF_Mass_Energy_Companion/
+│   ├── QRAIF_Null_Cluster_Companion/
+│   ├── QRAIF_No_View_from_Nowhere/
 │   ├── TDOME_I/ … TDOME_III/     # Individual T-DOME papers
 │   │   ├── manuscript.tex
 │   │   ├── manuscript.pdf
@@ -187,6 +189,8 @@ The upload root is intentionally kept minimal: each paper appears only as a same
 | Q-RAIF Paper B — Operator Algebra Stability | [10.5281/zenodo.18525890](https://doi.org/10.5281/zenodo.18525890) |
 | Q-RAIF Paper C — Realizability Bridge | [10.5281/zenodo.18528934](https://doi.org/10.5281/zenodo.18528934) |
 | Q-RAIF Companion — Mass-Energy Conditional Theorem | [10.5281/zenodo.20280951](https://doi.org/10.5281/zenodo.20280951) |
+| Q-RAIF Programme Note — Null Cluster as Structural Imprint | [10.5281/zenodo.20283057](https://doi.org/10.5281/zenodo.20283057) |
+| Q-RAIF Predictive Note — No View from Nowhere | [10.5281/zenodo.20284454](https://doi.org/10.5281/zenodo.20284454) |
 | Q-RAIF Complete Collection | [10.5281/zenodo.18548704](https://doi.org/10.5281/zenodo.18548704) |
 | | |
 | T-DOME Paper I — Non-Markovian Memory | [10.5281/zenodo.18574342](https://doi.org/10.5281/zenodo.18574342) |
