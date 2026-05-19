@@ -1,0 +1,747 @@
+\documentclass[12pt,a4paper]{article}
+
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{mathtools}
+\usepackage[hidelinks]{hyperref}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage{fontspec}
+
+\defaultfontfeatures{Ligatures=TeX}
+\IfFontExistsTF{Times New Roman}
+  {\setmainfont{Times New Roman}}
+  {\setmainfont{TeX Gyre Termes}}
+\IfFontExistsTF{Menlo}
+  {\setmonofont{Menlo}}
+  {\setmonofont{Latin Modern Mono}}
+
+\newcolumntype{P}[1]{>{\raggedright\arraybackslash}p{#1}}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{assumption}[theorem]{Assumption}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+
+\newcommand{\AU}{\mathcal{A}_U}
+\newcommand{\Ac}{\mathcal{A}_c}
+\newcommand{\Meff}{M_{\mathrm{eff}}}
+\newcommand{\Omegastate}{\Omega}
+\newcommand{\Rout}{\mathcal{R}_{\mathrm{adm}}}
+\newcommand{\Peff}{P}
+\newcommand{\Eobs}{E_u}
+\newcommand{\pobs}{\mathbf{p}}
+\newcommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+
+\title{%
+  \textbf{Recovering Mass--Energy Equivalence}\\
+  \textbf{within Algebraic Lorentzian Read-out}\\
+  \large A Conditional Theorem in Q-RAIF A%
+}
+
+\author{
+  Sidong Liu, PhD \\
+  \small iBioStratix Ltd \\
+  \small \texttt{sidongliu@hotmail.com}
+}
+
+\date{May 2026\\
+\small Zenodo DOI: \href{https://doi.org/10.5281/zenodo.20280951}{10.5281/zenodo.20280951}}
+
+\begin{document}
+\emergencystretch=2em
+\raggedbottom
+\hbadness=5000
+\vbadness=5000
+
+\maketitle
+
+\begin{abstract}
+This paper establishes a conditional recovery theorem for mass--energy equivalence within the Q-RAIF A programme. The prior Q-RAIF A result is taken as a background theorem: admissible finite read-out from $(\AU,\Omegastate)$ induces an effective Lorentzian geometry with signature $(-,+,+,+)$ under the stated algebraic constraints. The present paper does not reprove that result, but it gives a self-contained summary of the assumptions and conclusion used here. The bridge input is formulated on the effective read-out representation rather than on the global source algebra: an admissible local translation action is a strongly continuous unitary representation $U(a)$ of local spacetime translations on the read-out sector, and admissible four-momentum is the self-adjoint Stone generator $\hat P_\mu$ of this representation, with $U(a)=\exp(-i a^\mu\hat P_\mu/\hbar)$. A c-number four-momentum $P^\mu$ is then obtained as a spectral, semiclassical, or sharply supported read-out of these generators. Under this bridge assumption and its consistency requirements, the standard Lorentzian mass--energy relation follows as a theorem: $m^2c^2=-g_{\mu\nu}P^\mu P^\nu$, $E_u=-c\,g_{\mu\nu}P^\mu u^\nu$ for a dimensionless unit observer direction $u$, $E_u^2=m^2c^4+|\mathbf p_u|^2c^2$, and, in the rest frame, $E=mc^2$.
+
+The theorem-level claim is intentionally narrow. It is a recovery result, not a derivation of special relativity from nothing and not a derivation of Standard Model masses, the Higgs mechanism, QCD confinement, or the numerical value of $c$. Its contribution is structural: once Lorentzian signature has been placed downstream of algebraic emergence, mass--energy equivalence need not be reinstated as an independent postulate but is recovered as a consequence of the emergent momentum read-out. Programme-level readings of $c^2$, Higgs/QCD mass contributions, and vacuum sectors are isolated in a separate part of the paper and do not extend the theorem-level claim.
+
+\medskip
+\noindent\textbf{Keywords}: Q-RAIF A, Lorentzian emergence, mass--energy relation, four-momentum, modular flow, admissible read-out, Higgs mechanism, QCD, structural imprint
+\end{abstract}
+
+\clearpage
+\tableofcontents
+\clearpage
+
+% ============================================================
+\section{Introduction}
+\label{sec:introduction}
+
+The formula $E=mc^2$ is often introduced as a slogan about conversion: mass can become energy, and energy can become mass. That slogan is useful pedagogically, but it hides the more precise geometric statement. In relativistic mechanics, mass and energy are not two independent substances tied together by an arbitrary conversion factor. They are related readings of a single four-momentum object in a Lorentzian geometry. The invariant mass is the Lorentzian norm of four-momentum; the energy is the component of that same four-momentum relative to an observer's time direction. The constant $c$ is not merely a numerical convenience. It is the scale relating temporal and spatial units in the Lorentzian metric, and the same scale fixes the light cone.
+
+Within the Q-RAIF A programme, this observation has a natural but delicate status. Q-RAIF A argues that admissible finite read-out from a source pair $(\AU,\Omegastate)$ induces an effective Lorentzian geometry under specified algebraic constraints \cite{Liu2026QRAIFA}. Once that Lorentzian geometry is available, the standard mass--energy relation follows by ordinary relativistic geometry, provided an admissible four-momentum is defined in the effective read-out. The present paper formalizes exactly that step.
+
+The claim is \emph{conditional theorem-level}. More precisely, it is a conditional recovery theorem. It is theorem-level because, given the prior Q-RAIF A Lorentzian read-out theorem and the Stone-generator bridge assumption for admissible four-momentum, the mass--energy relation follows as a short Lorentzian theorem. It is conditional because the theorem depends on those inputs. It is a recovery theorem because the standard special-relativistic relation is recovered inside the emergent Q-RAIF A setting rather than introduced as a separate postulate. It is not a theorem deriving four-momentum directly from Tomita--Takesaki modular theory, nor a theorem deriving the Standard Model mass spectrum.
+
+The distinction matters. A stronger but unsafe claim would be that modular flow alone forces four-momentum, particle spectra, Higgs/Yukawa couplings, and QCD binding energies. That is not established here. The safer and more accurate claim is that Q-RAIF A supplies the effective Lorentzian arena; this paper defines the admissible momentum object inside that arena and proves that the usual mass--energy relation is recovered as a conditional theorem.
+
+\subsection{The epistemic split}
+
+The paper separates three levels.
+
+\begin{center}
+\begin{tabular}{P{0.18\linewidth}P{0.48\linewidth}P{0.24\linewidth}}
+\toprule
+\textbf{Level} & \textbf{Content} & \textbf{Status} \\
+\midrule
+A & Q-RAIF A induces effective Lorentzian geometry from admissible finite read-out of $(\AU,\Omegastate)$ & Prior theorem, summarized and cited, not reproved \\
+B & Admissible four-momentum is the Stone-generator read-out of a strongly continuous admissible local translation representation on the effective sector & Bridge assumption with consistency checks \\
+C & $m^2c^2=-g(P,P)$, $E_u=-c\,g(P,u)$, $E_u^2=m^2c^4+|\mathbf p_u|^2c^2$, and rest-frame $E=mc^2$ & Theorem in Lorentzian geometry \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+Only Level C is proved in this paper in the ordinary theorem/proof sense. Level A is inherited from Q-RAIF A and summarized in Section~\ref{sec:qraif-background} to make the conditional structure externally legible. Level B is the load-bearing bridge assumption. It is not hidden as a derivation from modular flow. It is stated explicitly in terms of local translation unitaries and Stone generators on the effective read-out sector, and the paper lists the consistency checks required for it to function as an admissible momentum concept.
+
+\subsection{What the paper does not claim}
+
+The scope is deliberately narrow.
+
+\begin{itemize}[leftmargin=*]
+\tightlist
+\item It does not derive special relativity from nothing.
+\item It does not replace the standard Lorentzian derivation of the mass--energy relation.
+\item It does not derive the existence of the Standard Model, the Higgs mechanism, QCD confinement, or numerical particle masses.
+\item It does not claim that $c^2$ is literally identical with a substance, object, or hidden field.
+\item It does not allow $\Omegastate$ to split into multiple actual states or to be replaced by $\Omegastate'$.
+\item It does not identify Higgs/Yukawa mass and QCD binding energy as the same physical mechanism.
+\end{itemize}
+
+The contribution is architectural: it shows how the mass--energy relation sits inside the Q-RAIF A Lorentzian-emergence chain without overextending that chain. In this respect, the paper does not alter the numerical content of special relativity; it relocates the epistemic status of the relation. Once Lorentzian signature is treated as an algebraic-emergence result, mass--energy equivalence becomes a downstream corollary of that emergence plus admissible four-momentum, not an independent axiom added beside it.
+
+% ============================================================
+\section{Background: Q-RAIF A Lorentzian Read-out}
+\label{sec:qraif-background}
+
+The present paper assumes the following prior result from Q-RAIF A.
+
+\begin{theorem}[Q-RAIF A Lorentzian read-out theorem, prior result]
+\label{thm:qraif-prior}
+Under the admissibility constraints of Q-RAIF A, a finite effective read-out from the source pair $(\AU,\Omegastate)$ induces an effective Lorentzian geometry with signature $(-,+,+,+)$ on the accessible read-out sector.
+\end{theorem}
+
+This theorem is quoted as a background theorem, not reproved. Its role is to supply the effective Lorentzian geometry in which the present paper's mass--energy theorem is stated.
+
+\begin{remark}[No hidden reproof]
+Nothing in the proof of Theorem~\ref{thm:mass-energy} below establishes Theorem~\ref{thm:qraif-prior}. Conversely, Theorem~\ref{thm:qraif-prior} alone does not automatically supply a four-momentum object. This paper therefore introduces admissible four-momentum as a separate bridge definition in Section~\ref{sec:momentum}.
+\end{remark}
+
+\subsection{Self-contained summary of the Q-RAIF A input}
+\label{sec:qraif-summary}
+
+For external readability, we record the portion of Q-RAIF A used in this paper. The summary is not a substitute for the full Q-RAIF A proof; it states the dependency chain on which the present conditional theorem rests.
+
+\begin{enumerate}[label=(Q\arabic*), leftmargin=*]
+\item \textbf{Source data.} The starting data are a source algebraic domain $\AU$ and a single faithful normal state $\Omegastate$. In the broader programme, the pair $(\AU,\Omegastate)$ supplies the algebraic environment in which finite read-out sectors are selected.
+\item \textbf{Modular asymmetry.} Under standard Tomita--Takesaki hypotheses, the state $\Omegastate$ determines a modular automorphism group $\sigma_t^\Omegastate$. Q-RAIF A uses this as the algebraic marker of a distinguished direction in the read-out construction. The present paper does not use modular flow to define momentum.
+\item \textbf{Admissibility.} A finite read-out is admissible only if it preserves compositional consistency, metric compatibility, and causal-channel distinguishability in the effective sector. Q-RAIF A formulates these as algebraic constraints on the read-out rather than as background spacetime assumptions.
+\item \textbf{Signature selection.} Positive-definite effective geometry cannot encode the required distinction between timelike, spacelike, and null causal channels. The admissible read-out therefore carries an effective indefinite metric. With the observed local dimensionality input, the signature is $(-,+,+,+)$.
+\item \textbf{Effective geometry.} The output used here is a local effective Lorentzian read-out $(\Meff,g)$ on the accessible sector. This output supplies the metric structure for the theorem below, but it does not by itself supply particle spectra, translation generators, or Standard Model mass mechanisms.
+\end{enumerate}
+
+The present paper uses only item (Q5) as a theorem-level input and introduces the momentum structure separately in Section~\ref{sec:momentum}. This separation is essential: the Lorentzian read-out theorem and the momentum bridge are logically distinct.
+
+\subsection{Single global state}
+
+The notation $(\AU,\Omegastate)$ is used throughout in the same sense as the broader programme. $\AU$ denotes the source algebraic domain and $\Omegastate$ denotes a single faithful normal state used to define the relevant algebraic read-out structure. The present paper never introduces multiple actual $\Omegastate$'s. In particular, changes of effective vacuum sector, phase, or low-energy spectrum are not written as $\Omegastate\to\Omegastate'$.
+
+\begin{assumption}[Effective read-out sector]
+\label{ass:sector}
+Let $\Rout$ be an admissible finite read-out sector of $(\AU,\Omegastate)$ satisfying the hypotheses of Q-RAIF A. The sector carries an effective Lorentzian manifold description $(\Meff,g)$ with signature $(-,+,+,+)$ on the domain where the finite read-out approximation is valid.
+\end{assumption}
+
+The phrase ``effective Lorentzian manifold description'' is not meant to erase the algebraic origin of the geometry. It means only that, at the read-out scale under discussion, the accessible variables admit a Lorentzian geometric representation adequate for the usual local tensorial constructions.
+
+\subsection{Locality and the finite-read-out regime}
+
+The mass--energy theorem below is local. It is stated in a domain where a local orthonormal frame can be chosen and where effective translation generators make sense within the admissible read-out. This is the same modesty present in ordinary relativistic physics: four-momentum is local or asymptotic unless additional global symmetries are supplied.
+
+For curved effective geometries, the theorem should be read in a local inertial frame or in a region admitting the relevant approximate translation symmetry. The theorem does not require global Minkowski spacetime.
+
+% ============================================================
+\section{Admissible Four-Momentum}
+\label{sec:momentum}
+
+The step from effective Lorentzian geometry to a mass--energy relation requires an object that can be called four-momentum. Q-RAIF A supplies the Lorentzian arena; it does not, by itself, force a particle momentum structure. The present paper therefore introduces the bridge explicitly.
+
+\begin{definition}[Admissible local translation action]
+\label{def:translation-generators}
+Within an admissible effective read-out sector $\Rout$, an \emph{admissible local translation action} is a local action
+\[
+\alpha_a:\Rout\to\Rout,\qquad a\in\mathcal{O}\subset\mathbb{R}^{1,3},
+\]
+where $\mathcal{O}$ is a sufficiently small neighbourhood of the origin in the effective tangent chart, such that:
+\begin{enumerate}[label=(\roman*), leftmargin=*]
+\tightlist
+\item $\alpha_a$ acts within the finite read-out domain to the order of approximation used;
+\item $\alpha_a$ preserves the effective Lorentzian structure and admissibility conditions to that order;
+\item $\alpha_{a+b}=\alpha_a\circ\alpha_b$ whenever $a,b,a+b\in\mathcal{O}$;
+\item in a local inertial or large-system limit, $\alpha_a$ reduces to the usual local spacetime translation action of relativistic mechanics.
+\end{enumerate}
+\end{definition}
+
+\begin{assumption}[Unitary implementation on the read-out representation]
+\label{ass:unitary-implementation}
+The admissible local translation action is assumed to be implemented on the effective read-out representation Hilbert space $\mathcal{H}_{\Rout}$ by a strongly continuous local unitary representation
+\[
+U(a):\mathcal{H}_{\Rout}\to\mathcal{H}_{\Rout},
+\qquad
+\alpha_a(A)=U(a)AU(a)^*
+\]
+for read-out observables $A$ in the represented sector. The representation is local or approximate in the same sense as the effective Lorentzian chart; no global translation symmetry of $\AU$ is assumed.
+\end{assumption}
+
+\begin{definition}[Admissible four-momentum]
+\label{def:admissible-momentum}
+Given Assumption~\ref{ass:unitary-implementation}, the \emph{admissible four-momentum operators} $\hat P_\mu$ are the self-adjoint Stone generators of the strongly continuous local translation unitaries:
+\[
+U(a)=\exp\!\left(-\frac{i}{\hbar}a^\mu \hat P_\mu\right)
+\]
+on the common invariant domain where the expression is defined. A c-number four-momentum $P^\mu$ used in the mass--energy theorem is a spectral, semiclassical, expectation-value, or sharply supported read-out of these generators in a local Lorentzian frame, transforming as a Lorentz vector under admissible local frame changes.
+\end{definition}
+
+This definition is intentionally conservative. It does not claim that $\hat P_\mu$ has been derived directly from modular flow or that global translation generators exist on $\AU$. It states the momentum object required to formulate relativistic dynamics inside an effective Q-RAIF A Lorentzian read-out once a local translation representation is available.
+
+\subsection{Consistency requirements}
+
+Definition~\ref{def:admissible-momentum} is acceptable only if four requirements are met.
+
+\begin{assumption}[Well-posedness of admissible four-momentum]
+\label{ass:well-posed}
+The admissible four-momentum definition is required to satisfy the following conditions. These requirements are non-trivial because the effective read-out sector is finite, local, or approximate; they are not automatically guaranteed by the abstract Stone theorem.
+\begin{enumerate}[label=(\alph*), leftmargin=*]
+\item \textbf{Existence}: an admissible local translation action and its strongly continuous unitary implementation exist in the read-out sector or in the local/asymptotic regime under discussion;
+\item \textbf{Stone-generator well-posedness}: the self-adjoint generators $\hat P_\mu$ exist on a common invariant domain adequate for the local read-out calculation;
+\item \textbf{Covariance up to admissible frame transformation}: the generator read-outs transform as four-vector components under the Lorentz transformations allowed by the effective geometry;
+\item \textbf{Standard-limit recovery}: when the admissibility restriction is relaxed to the standard local relativistic regime, $P^\mu$ agrees with the usual special-relativistic four-momentum.
+\end{enumerate}
+\end{assumption}
+
+These are not cosmetic requirements. Without them, the symbol $P^\mu$ would be an unsupported import from ordinary physics. With them, it becomes a controlled bridge object: defined in the Q-RAIF A read-out, constrained by the effective Lorentzian geometry, and checked against the standard relativistic limit.
+
+\begin{remark}[Why this is a definition rather than a lemma]
+One could try to prove that admissible translation unitaries and their Stone generators are forced directly by the deeper algebraic data of Q-RAIF A. That stronger route may be possible in a future extension, but it is not needed for the present recovery theorem. The present paper chooses the safer route: the local translation representation is introduced as a bridge assumption on the effective read-out sector, and the theorem proves what follows once that assumption is admitted.
+\end{remark}
+
+\begin{remark}[Why the construction is not made on the global Type III source algebra]
+\label{rem:typeIII}
+The global source algebra $\AU$ may be Type III and need not carry a trace, a global position operator, or a global translation representation. The present construction therefore does not define momentum as a global conjugate variable inside $\AU$. It defines momentum only after an admissible effective read-out representation has been selected and only in the local/asymptotic regime where translation unitaries are part of the effective Lorentzian description. This is the same level at which ordinary relativistic four-momentum is meaningful.
+\end{remark}
+
+\subsection{Relation to modular flow}
+
+Tomita--Takesaki theory supplies, under standard hypotheses, a modular automorphism flow associated with a faithful normal state. In the broader programme, this modular structure contributes to the emergence of a distinguished effective time direction. The present paper uses only the downstream result: an effective Lorentzian geometry is already available by Theorem~\ref{thm:qraif-prior}. It does not claim that modular flow alone determines the full four-momentum object or the particle content of the effective theory.
+
+% ============================================================
+\section{The Conditional Mass--Energy Theorem}
+\label{sec:theorem}
+
+This section states and proves the theorem-level content of the paper.
+
+\subsection{Conventions}
+
+Let $(\Meff,g)$ be an effective Lorentzian read-out with signature $(-,+,+,+)$. In local orthonormal coordinates we write
+\begin{equation}
+g_{\mu\nu}=\mathrm{diag}(-1,1,1,1),
+\end{equation}
+when using $x^0=ct$, and equivalently
+\begin{equation}
+ds^2=-c^2dt^2+d\mathbf{x}^2
+\end{equation}
+when using the coordinate time $t$. The four-momentum is written
+\begin{equation}
+P^\mu=\left(\frac{E}{c},\mathbf p\right)
+\end{equation}
+in a local inertial frame.
+
+For an observer, we use a dimensionless future-directed unit timelike vector $u^\mu$ satisfying
+\begin{equation}
+g_{\mu\nu}u^\mu u^\nu=-1.
+\end{equation}
+The energy measured by that observer is
+\begin{equation}
+E_u \equiv -c\,g_{\mu\nu}P^\mu u^\nu .
+\end{equation}
+With this convention, an observer at rest in the local frame has $u^\mu=(1,0,0,0)$ and $E_u=E$.
+
+\begin{definition}[Invariant mass]
+\label{def:mass}
+For an admissible four-momentum $P^\mu$ in the effective Lorentzian read-out, define the invariant mass $m$ by
+\begin{equation}
+m^2c^2 \equiv -g_{\mu\nu}P^\mu P^\nu .
+\end{equation}
+\end{definition}
+
+\begin{definition}[Observer energy and spatial momentum]
+\label{def:observer-energy}
+For a dimensionless unit observer direction $u^\mu$, define
+\begin{equation}
+E_u \equiv -c\,g(P,u).
+\end{equation}
+The observer-relative spatial momentum $\mathbf p_u$ is the projection of $P^\mu$ onto the spacelike hypersurface orthogonal to $u^\mu$.
+\end{definition}
+
+\begin{theorem}[Conditional mass--energy relation]
+\label{thm:mass-energy}
+Assume the Q-RAIF A Lorentzian read-out theorem, an admissible effective read-out sector $\Rout$, an admissible local translation representation satisfying Assumption~\ref{ass:unitary-implementation}, and an admissible c-number four-momentum read-out $P^\mu$ obtained from the Stone generators of Definition~\ref{def:admissible-momentum}. Then, in any local orthonormal frame of the effective Lorentzian geometry,
+\begin{equation}
+E^2=m^2c^4+|\mathbf p|^2c^2 .
+\end{equation}
+Equivalently, relative to an observer direction $u$,
+\begin{equation}
+E_u^2=m^2c^4+|\mathbf p_u|^2c^2 .
+\end{equation}
+In the rest frame, where $\mathbf p=0$, this reduces to
+\begin{equation}
+E=mc^2 .
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+In a local orthonormal frame with signature $(-,+,+,+)$, write
+\[
+P^\mu=\left(\frac{E}{c},p^1,p^2,p^3\right).
+\]
+Then
+\[
+g_{\mu\nu}P^\mu P^\nu
+=-\left(\frac{E}{c}\right)^2+|\mathbf p|^2 .
+\]
+By Definition~\ref{def:mass},
+\[
+m^2c^2=-g_{\mu\nu}P^\mu P^\nu
+=\left(\frac{E}{c}\right)^2-|\mathbf p|^2 .
+\]
+Multiplying by $c^2$ gives
+\[
+m^2c^4=E^2-|\mathbf p|^2c^2,
+\]
+hence
+\[
+E^2=m^2c^4+|\mathbf p|^2c^2 .
+\]
+The observer-relative form follows by choosing a local orthonormal frame adapted to $u$, in which $u=(1,0,0,0)$ and the spatial components of $P$ are precisely $\mathbf p_u$. If $\mathbf p=0$ in the rest frame, the relation reduces to $E^2=m^2c^4$. For positive-energy future-directed momentum, $E=mc^2$.
+\end{proof}
+
+\begin{corollary}[Massless read-out]
+\label{cor:massless}
+If $m=0$, then $P^\mu$ is null and
+\begin{equation}
+E=|\mathbf p|c .
+\end{equation}
+\end{corollary}
+
+\begin{proof}
+Set $m=0$ in Theorem~\ref{thm:mass-energy}. Then $E^2=|\mathbf p|^2c^2$, and the positive-energy branch gives $E=|\mathbf p|c$. Equivalently, $g(P,P)=0$, so $P^\mu$ lies on the null cone.
+\end{proof}
+
+\begin{remark}[What is theorem-level here]
+The theorem does not claim novelty for the Lorentzian calculation. The calculation is standard. The theorem-level contribution is conditional placement: if Q-RAIF A has induced an effective Lorentzian read-out and if admissible four-momentum is defined as above, the mass--energy relation is not optional. It is forced by the Lorentzian norm structure of the read-out.
+\end{remark}
+
+% ============================================================
+\section{Programme-Level Readings}
+\label{sec:programme-readings}
+
+Sections~\ref{sec:c2}--\ref{sec:vacuum} are programme-level readings of the theorem-level result. They do not enter the proof of Theorem~\ref{thm:mass-energy}, do not extend its mathematical claim, and do not replace the standard physics of special relativity, quantum field theory, the Higgs mechanism, QCD, or vacuum decay. Their purpose is to locate the recovered mass--energy relation within the broader Q-RAIF A and imprint vocabulary.
+
+\subsection{The Role of \texorpdfstring{$c^2$}{c2}}
+\label{sec:c2}
+
+Theorem~\ref{thm:mass-energy} already contains the mathematical role of $c$. This section clarifies what can be said at theorem level and what belongs to programme-level interpretation.
+
+\subsubsection{Theorem-adjacent facts}
+
+In the local form
+\begin{equation}
+ds^2=-c^2dt^2+d\mathbf{x}^2,
+\end{equation}
+the constant $c$ sets the relative scale between coordinate time and spatial distance. The null condition $ds^2=0$ gives
+\begin{equation}
+|\mathrm d\mathbf{x}|=c\,|\mathrm dt|,
+\end{equation}
+so the same constant fixes the light-cone slope. In the rest-frame mass--energy relation,
+\begin{equation}
+E=mc^2,
+\end{equation}
+the same scale appears squared because energy and mass are related through the squared norm of four-momentum.
+
+Thus three familiar appearances of $c$ are mathematically connected:
+
+\begin{center}
+\begin{tabular}{P{0.27\linewidth}P{0.52\linewidth}}
+\toprule
+\textbf{Appearance} & \textbf{Lorentzian role} \\
+\midrule
+Metric coefficient & $ds^2=-c^2dt^2+d\mathbf{x}^2$ fixes temporal-spatial scaling \\
+Null cone & $ds^2=0$ gives $|\mathrm d\mathbf{x}|/|\mathrm dt|=c$ \\
+Rest energy & $E=mc^2$ follows from the Lorentzian norm of $P^\mu$ in the rest frame \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+This is not a claim that $c^2$ is a substance or a hidden object. It is a statement about the role of a scale parameter in Lorentzian geometry.
+
+\subsubsection{Programme-level reading of \texorpdfstring{$c^2$}{c2}}
+
+The following discussion provides programme-level structural readings of Theorem~\ref{thm:mass-energy}'s content. These readings are interpretive and do not extend the theorem-level claim.
+
+Within the Q-RAIF A programme, the effective Lorentzian metric is not assumed as a brute background. It is a read-out structure induced under admissibility constraints from $(\AU,\Omegastate)$. On that reading, $c^2$ may be viewed as the scale at which the emergent read-out distinguishes temporal from spatial directions while still placing them in a single quadratic form. It is the same scale that allows timelike, spacelike, and null directions to be compared within one geometry.
+
+This gives the main structural angle of the paper. The appearances of $c$ in mass--energy equivalence, null propagation, and causal-cone aperture are not treated here as three unrelated constants that happen to have the same value. Under the single effective Lorentzian metric assumed in this paper, they are three attestations of the same metric scale. This statement should not be overread as an independent phenomenological prediction: if one allows multi-metric, dispersive, Lorentz-violating, or non-standard effective structures, the theorem must be restated with those structures made explicit. Within the present single-metric Lorentzian read-out, however, the three roles of $c$ have a common geometric source.
+
+This motivates a disciplined structural sentence:
+
+\begin{quote}
+Mass and energy are not two independent substances connected by an arbitrary conversion factor; they are observer-invariant and observer-relative readings, respectively, of the same admissible four-momentum object in an effective Lorentzian read-out.
+\end{quote}
+
+More precisely, mass is the invariant norm reading of $P^\mu$, while energy is the observer-time component reading of $P^\mu$. The phrase ``same object'' refers to $P^\mu$ in the effective geometry. It does not refer to an unobserved metaphysical object behind the mathematics.
+
+\subsubsection{Corrected formulation}
+
+The formulation just given avoids a common inversion. It would be incorrect to say that mass is the timelike projection and energy is the object itself. In standard Lorentzian mechanics, the invariant mass is determined by the norm of $P^\mu$, while energy is a frame-dependent component. The correct reading is: mass is the Lorentzian-invariant norm of admissible four-momentum, while energy is the frame-dependent timelike component relative to an observer direction. The corrected statement is:
+
+\begin{quote}
+The admissible four-momentum $P^\mu$ is the complete Lorentzian momentum read-out. Its invariant norm is called mass. Its component along an observer's timelike direction is called energy. In the rest frame, the component reading exhausts the invariant contribution and yields $E=mc^2$.
+\end{quote}
+
+This correction strengthens the programme. It prevents the interpretive layer from overriding the physical definitions it is meant to clarify.
+
+\subsection{Physical Anchoring: Higgs/Yukawa and QCD Contributions}
+\label{sec:physical-anchoring}
+
+The theorem in Section~\ref{sec:theorem} concerns the Lorentzian relation between four-momentum, invariant mass, and energy. It does not derive the physical origin of the mass values appearing in the effective theory. Those origins belong to quantum field theory and the Standard Model. Still, a physical anchor is useful because it prevents the structural reading from floating free of known physics.
+
+\subsubsection{Two different mechanisms}
+
+In the Standard Model, elementary fermion masses arise through Yukawa couplings to the Higgs field after electroweak symmetry breaking. Schematically, a fermion mass term has the form
+\begin{equation}
+m_f=\frac{y_f v}{\sqrt{2}},
+\end{equation}
+where $y_f$ is the Yukawa coupling and $v$ is the Higgs vacuum expectation value.
+
+By contrast, most of the mass of ordinary baryonic matter is not the sum of elementary quark rest masses. The proton and neutron masses arise predominantly from QCD dynamics: gluon fields, quark kinetic energy, confinement, and the trace anomaly. A common pedagogical summary is that the Higgs/Yukawa contribution accounts for only a small fraction of ordinary nucleon mass, while QCD dynamics accounts for the overwhelming majority. The exact decomposition is scheme-dependent, but the qualitative distinction is robust.
+
+\begin{center}
+\begin{tabular}{P{0.25\linewidth}P{0.34\linewidth}P{0.28\linewidth}}
+\toprule
+\textbf{Contribution} & \textbf{Physical mechanism} & \textbf{Role in this paper} \\
+\midrule
+Elementary rest masses & Higgs vacuum expectation value plus Yukawa couplings & Supplies elementary mass parameters in the effective theory \\
+Nucleon mass bulk & QCD confinement, gluon energy, quark kinetic energy, trace anomaly & Supplies composite mass through strongly interacting field dynamics \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+These mechanisms must not be physically collapsed into one another. Higgs/Yukawa mass and QCD binding contributions are different mechanisms in Standard Model physics.
+
+\subsubsection{Programme-level read-out placement}
+
+The following reading is interpretive and does not extend Theorem~\ref{thm:mass-energy}. Once the physical distinction is kept intact, the two mechanisms can be placed at different depths of the same broad read-out chain. Higgs/Yukawa couplings set elementary mass parameters after electroweak symmetry breaking. QCD dynamics then generates most of the stable mass of ordinary hadronic matter through confinement-scale field dynamics. Both contributions enter the same Lorentzian mass--energy bookkeeping because both contribute to the invariant norm or internal energy content of effective stable structures.
+
+In this limited sense, one may say:
+
+\begin{quote}
+Higgs/Yukawa mass and QCD binding energy are different physical mechanisms, but both become legible as mass contributions inside the same effective Lorentzian read-out.
+\end{quote}
+
+That sentence is weaker than saying they are physically the same. It is also stronger than treating the $1\%/99\%$ pedagogical split as mere trivia. It explains why different physical mechanisms can be read by the same invariant-mass bookkeeping once the effective Lorentzian sector is in place.
+
+\subsubsection{The ``matter is not solid stuff'' lesson}
+
+The familiar popular claim that matter is ``mostly energy'' should be handled carefully. It is not correct to say that matter simply does not exist. A better statement is that ordinary matter is not made of tiny solid pellets whose mass is an intrinsic lump of substance. It is a stable field-theoretic structure whose effective mass includes rest-mass terms, kinetic contributions, field energy, confinement dynamics, and stress-energy structure.
+
+In the vocabulary of this paper, matter is an effective stable read-out carrying invariant mass within a Lorentzian sector. That description is compatible with standard physics. It does not replace it.
+
+\subsubsection{Counterfactual removal of the strong force}
+
+Statements such as ``turning off the strong force would reduce a human body's mass by approximately $99\%$'' should be treated only as informal intuition pumps. If the strong interaction were removed, nuclei and hadrons would not remain as stable objects whose masses could simply be reweighed. The relevant structure would collapse, not merely become lighter. The correct lesson is that the mass of ordinary matter depends deeply on QCD stabilization; it is not that one can subtract a stable component while leaving the rest of the material hierarchy intact.
+
+\subsection{Vacuum Sectors Without Splitting \texorpdfstring{$\Omega$}{Omega}}
+\label{sec:vacuum}
+
+The Higgs mechanism and discussions of vacuum metastability introduce another possible confusion. A change in effective vacuum sector must not be written as a change from $\Omegastate$ to $\Omegastate'$ in the present framework.
+
+\begin{proposition}[Vacuum-sector rewrite under a single global state]
+\label{prop:vacuum-sector}
+Within the present paper's use of Q-RAIF A notation, an effective vacuum transition is represented, if at all, as a phase or sector rewrite inside the same global state $\Omegastate$, not as $\Omegastate\to\Omegastate'$.
+\end{proposition}
+
+\begin{proof}
+The notation $(\AU,\Omegastate)$ fixes the source algebraic domain and the faithful normal state used by the read-out construction. The paper's conditional theorem depends on this fixed pair through the inherited Q-RAIF A Lorentzian read-out theorem. Introducing a second actual state $\Omegastate'$ would change the background data of the theorem rather than describe a transition inside the effective read-out. Therefore effective vacuum transitions must be represented at the level of sectors, phases, or effective potentials within the read-out, not as replacement of the global state.
+\end{proof}
+
+This proposition is a notation and framework guardrail, not a new theorem about cosmological vacuum decay. In ordinary QFT, false-vacuum decay is described through tunneling from a metastable vacuum configuration to a lower-energy configuration in a field-theoretic setting. In the present programme language, the safe translation is:
+
+\begin{quote}
+Vacuum decay is an effective-sector phase rewrite under the same $\Omegastate$, in which the mass spectrum and interaction scales of the accessible hull may cease to be maintained in their prior form.
+\end{quote}
+
+The expanding bubble wall in such a transition is normally described as approaching lightlike propagation in the effective spacetime. That statement belongs to the effective Lorentzian geometry. It does not imply that $\AU$ changes, nor that $\Omegastate$ splits.
+
+% ============================================================
+\section{Layer Separation}
+\label{sec:layers}
+
+This paper deliberately keeps its theorem layer and its programme-level reading layer separate. Section~\ref{sec:programme-readings} is not part of the theorem chain; it is an interpretation layer built on the theorem after the standard Lorentzian result has been recovered.
+
+\begin{center}
+\begin{tabular}{P{0.23\linewidth}P{0.46\linewidth}P{0.22\linewidth}}
+\toprule
+\textbf{Layer} & \textbf{Claim} & \textbf{Status} \\
+\midrule
+Theorem layer & Given effective Lorentzian geometry and admissible $P^\mu$, the mass--energy relation follows & Conditional theorem \\
+Bridge layer & $\hat P_\mu$ is the Stone generator of admissible local translation unitaries on $\Rout$; $P^\mu$ is its c-number read-out & Bridge assumption plus consistency checks \\
+Structural reading layer & $c^2$, mass, energy, Higgs/QCD contributions, and vacuum sectors can be read as read-out or imprint features & Programme-level interpretation \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+The separation is necessary. If all claims were presented as theorem-level, the paper would overstate itself. If all claims were presented as interpretation, the real theorem-level content would be undersold. The correct position is mixed: a narrow theorem supported by an explicitly non-theoremic structural interpretation.
+
+\subsection{Mass as timelike stabilization}
+
+The following statement is interpretive:
+
+\begin{quote}
+Positive invariant mass may be read as a measure of how an admissible stable structure is constrained to carry a timelike momentum norm inside the effective Lorentzian read-out.
+\end{quote}
+
+This reading is compatible with Theorem~\ref{thm:mass-energy}, but it is not a theorem beyond it. It does not say that mass is a substance. It does not say that massive systems are metaphysically inferior to massless ones. It says only that, in a Lorentzian sector, timelike and null read-outs differ in their invariant norm structure.
+
+\subsection{Massless propagation as null read-out}
+
+Corollary~\ref{cor:massless} gives the theorem-level fact: if $m=0$, then $P^\mu$ is null and $E=|\mathbf p|c$. A programme-level reading may say that a massless excitation lies on the boundary where temporal and spatial contributions to the Lorentzian norm cancel. That reading must remain a reading. It does not identify photons with any deeper source object. It does not turn light into a metaphysical first principle inside the paper.
+
+Nor does Lorentzian geometry by itself prove that a particular massless particle species must exist in the effective field theory. The theorem supplies the null kinematic class; whether a physical excitation occupies that class is a dynamical and field-theoretic question. In the Standard Model, the photon's masslessness is tied to gauge structure and electroweak symmetry breaking, not to Lorentzian signature alone.
+
+\subsection{Read-out without identity}
+
+The general guardrail is:
+
+\begin{quote}
+A structure may carry or display an imprint of a deeper constraint without being identical to that constraint.
+\end{quote}
+
+Thus $c^2$ can carry the metric's temporal-spatial scale in the mass--energy relation without being the metric itself. Higgs/Yukawa and QCD mechanisms can contribute to the same invariant-mass bookkeeping without being the same mechanism. A null four-momentum can mark the light-cone structure without being the source algebra. This is the difference between read-out and identity.
+
+% ============================================================
+\section{Discussion}
+\label{sec:discussion}
+
+\subsection{Why this is a recovery theorem}
+
+The most accurate label for Theorem~\ref{thm:mass-energy} is \emph{conditional recovery theorem}. The standard mass--energy relation is recovered inside a Q-RAIF A effective Lorentzian read-out once admissible four-momentum has been defined through local translation unitaries. The theorem is conditional because it depends on the prior Lorentzian read-out theorem and the Stone-generator bridge assumption for $P^\mu$.
+
+This framing avoids two failures. The first failure would be to claim too much: that the present paper independently derives special relativity or all mass-generating physics from the source algebra. It does not. The second failure would be to claim too little: that $E=mc^2$ is merely borrowed from physics and then decorated with programme language. It is not merely decorated. The theorem shows exactly where the relation enters the programme: at the level where admissible read-out has become Lorentzian and has acquired an admissible momentum object. The new perspective is therefore not numerical but structural: mass--energy equivalence is relocated from a standalone special-relativistic postulate to a downstream corollary of algebraic Lorentzian emergence.
+
+\subsection{Why the bridge definition matters}
+
+The definition of admissible four-momentum is the load-bearing step. Without it, one could only say that Q-RAIF A yields Lorentzian geometry. With it, one can state relativistic energy and mass relations inside the read-out. Because the definition is explicit, reviewers can evaluate it directly:
+
+\begin{itemize}[leftmargin=*]
+\tightlist
+\item Is an admissible local translation action available in the sector under discussion?
+\item Is it implemented by a strongly continuous unitary representation on the effective read-out Hilbert space?
+\item Are the Stone generators well-defined on a domain adequate for the local calculation?
+\item Does the object reduce to standard four-momentum in the appropriate limit?
+\end{itemize}
+
+Those are the right questions. They are more precise than asking whether modular flow alone somehow ``is'' momentum.
+
+\subsection{Relation to standard relativity, QFT, and AQFT}
+\label{sec:mainstream-relation}
+
+The theorem-level calculation in this paper is standard special-relativistic kinematics in a local Lorentzian frame. In that respect it is continuous with textbook treatments of mass--energy equivalence and relativistic four-momentum \cite{Einstein1905,Rindler2006,Wald1984}. It also leaves untouched the Standard Model mechanisms that generate elementary and composite mass scales, including Higgs/Yukawa mass generation and QCD contributions to nucleon mass \cite{PeskinSchroeder1995,WeinbergQFT2,Ji1995,Durr2008}.
+
+The algebraic background is closer in spirit to algebraic QFT, where observables are represented by operator algebras and spacetime symmetries, when present, are implemented by automorphism groups and unitary representations \cite{Haag1996}. Tomita--Takesaki modular theory and related results such as the Bisognano--Wichmann theorem show that modular data can carry geometric significance in relativistic quantum theory \cite{Takesaki2003,BisognanoWichmann1975,Witten2018}. The present paper does not identify modular flow with physical momentum. Instead, it assumes Q-RAIF A's Lorentzian read-out result and separately requires local translation unitaries on the effective read-out sector before defining momentum via Stone generators.
+
+This is also the point at which Stone's theorem enters: strong continuity of the local translation unitaries is the technical condition that permits self-adjoint momentum generators \cite{Stone1932,ReedSimon1972}. In curved or locally covariant settings, translation symmetry is generally local, approximate, or replaced by more general covariance data; the present theorem therefore uses only the local inertial-frame structure needed for the mass-shell relation \cite{BrunettiFredenhagenVerch2003}.
+
+Thus the paper's contribution is not a new QFT computation or an alternative to AQFT. It is a conditional placement result: if the Q-RAIF A algebraic read-out yields Lorentzian geometry and if the effective sector admits the usual local translation representation, then the standard mass--energy relation is recovered inside that read-out.
+
+\subsection{Future strengthening}
+
+A future paper could try to upgrade the bridge definition into a derived lemma by proving that Q-RAIF A not only induces Lorentzian geometry but also forces a canonical momentum structure on admissible translation sectors. That would be a stronger result, but it would be a different paper. It would require a direct analysis of translation symmetries, generators, and conjugate variables inside the algebraic read-out construction.
+
+The present paper does not need that stronger claim. Its narrower theorem is already useful because it closes a specific architectural gap: it shows how mass--energy equivalence sits in the programme without smuggling in an unmarked physical object.
+
+% ============================================================
+\section{Limits}
+\label{sec:limits}
+
+The following limits should be read as part of the result, not as afterthoughts.
+
+\begin{enumerate}[leftmargin=*]
+\item \textbf{No new numerical prediction.} The paper does not predict particle masses, coupling constants, or the value of $c$.
+\item \textbf{No replacement of SR/QFT.} The theorem uses standard Lorentzian geometry and is compatible with standard relativistic physics.
+\item \textbf{No derivation of the Higgs mechanism.} Higgs/Yukawa mass generation is used as physical anchoring, not derived from Q-RAIF A.
+\item \textbf{No derivation of QCD confinement.} QCD contributions to nucleon mass are acknowledged as standard physics, not replaced by read-out language.
+\item \textbf{No multi-$\Omegastate$ drift.} Effective phase or vacuum-sector changes are not represented as changes of the global state $\Omegastate$.
+\item \textbf{No identity collapse.} Read-out, imprint, and structural interpretation do not license statements of identity between an emergent trace and its generating condition.
+\item \textbf{Local/curved limitation.} The theorem is stated in local orthonormal frames or local/asymptotic regimes admitting an effective translation representation. In a generic curved effective geometry, global conserved energy requires additional structure such as a Killing symmetry or an asymptotic time translation. The present paper proves only the local mass-shell relation.
+\end{enumerate}
+
+These limits preserve the theorem's usable strength. The paper is strongest when it is read as a controlled compatibility result with a disciplined interpretive layer.
+
+% ============================================================
+\appendix
+\section{Detailed Convention Check}
+\label{app:conventions}
+
+Two equivalent conventions are common.
+
+\subsection{Coordinate-time convention}
+
+Use coordinates $(t,x,y,z)$ and metric
+\[
+ds^2=-c^2dt^2+dx^2+dy^2+dz^2.
+\]
+In this convention the components of the metric carry explicit factors of $c^2$.
+
+\subsection{Length-time convention}
+
+Use $x^0=ct$ and write
+\[
+ds^2=-(dx^0)^2+dx^2+dy^2+dz^2.
+\]
+Then
+\[
+g_{\mu\nu}=\mathrm{diag}(-1,1,1,1),
+\qquad
+P^\mu=\left(\frac{E}{c},\mathbf p\right).
+\]
+This is the convention used in the proof of Theorem~\ref{thm:mass-energy}. It makes the invariant relation
+\[
+m^2c^2=-g(P,P)
+\]
+dimensionally transparent.
+
+\subsection{Observer normalization}
+
+If $u^\mu$ is dimensionless and satisfies $g(u,u)=-1$, then
+\[
+E_u=-c\,g(P,u).
+\]
+If instead $U^\mu$ is a physical four-velocity satisfying $g(U,U)=-c^2$, then
+\[
+E_U=-g(P,U).
+\]
+The two formulas are equivalent under $U=cu$. The main text uses the dimensionless convention.
+
+\section{Standard-Limit Recovery}
+\label{app:standard-limit}
+
+The admissible four-momentum definition must recover ordinary special relativity in the appropriate local or large-system limit. In flat spacetime, translation invariance gives generators
+\[
+\partial_\mu=\frac{\partial}{\partial x^\mu}.
+\]
+The corresponding strongly continuous translation unitaries are
+\[
+U(a)=\exp\!\left(-\frac{i}{\hbar}a^\mu\hat P_\mu\right),
+\]
+so the momentum operators are their self-adjoint Stone generators. In the usual coordinate representation,
+\[
+\hat P_\mu=-i\hbar\,\partial_\mu,
+\]
+with eigenvalues $P_\mu$ for momentum eigenstates. Classically, the corresponding four-momentum is
+\[
+P^\mu=m\frac{dx^\mu}{d\tau}
+\]
+for a massive particle, and a null momentum vector for massless excitations. In both cases the invariant relation is the mass shell condition
+\[
+g(P,P)=-m^2c^2.
+\]
+
+Definition~\ref{def:admissible-momentum} is designed to reduce to this standard structure when the admissible read-out sector becomes the usual local relativistic sector.
+
+% ============================================================
+\begin{thebibliography}{99}
+
+\bibitem{Einstein1905}
+A.~Einstein, \emph{Ist die Tr\"agheit eines K\"orpers von seinem Energieinhalt abh\"angig?}, Annalen der Physik \textbf{18}, 639--641 (1905).
+
+\bibitem{Rindler2006}
+W.~Rindler, \emph{Relativity: Special, General, and Cosmological}, 2nd ed., Oxford University Press (2006).
+
+\bibitem{Wald1984}
+R.~M.~Wald, \emph{General Relativity}, University of Chicago Press (1984).
+
+\bibitem{Haag1996}
+R.~Haag, \emph{Local Quantum Physics: Fields, Particles, Algebras}, Springer-Verlag (1996).
+
+\bibitem{Takesaki2003}
+M.~Takesaki, \emph{Theory of Operator Algebras II}, Springer (2003).
+
+\bibitem{Stone1932}
+M.~H.~Stone, \emph{On one-parameter unitary groups in Hilbert Space}, Annals of Mathematics \textbf{33}, 643--648 (1932).
+
+\bibitem{ReedSimon1972}
+M.~Reed and B.~Simon, \emph{Methods of Modern Mathematical Physics I: Functional Analysis}, Academic Press (1972).
+
+\bibitem{BisognanoWichmann1975}
+J.~J.~Bisognano and E.~H.~Wichmann, \emph{On the duality condition for a Hermitian scalar field}, Journal of Mathematical Physics \textbf{16}, 985--1007 (1975).
+
+\bibitem{Witten2018}
+E.~Witten, \emph{APS Medal for Exceptional Achievement in Research: Invited article on entanglement properties of quantum field theory}, Reviews of Modern Physics \textbf{90}, 045003 (2018).
+
+\bibitem{BrunettiFredenhagenVerch2003}
+R.~Brunetti, K.~Fredenhagen, and R.~Verch, \emph{The generally covariant locality principle: A new paradigm for local quantum physics}, Communications in Mathematical Physics \textbf{237}, 31--68 (2003).
+
+\bibitem{PeskinSchroeder1995}
+M.~E.~Peskin and D.~V.~Schroeder, \emph{An Introduction to Quantum Field Theory}, Westview Press (1995).
+
+\bibitem{WeinbergQFT2}
+S.~Weinberg, \emph{The Quantum Theory of Fields, Volume II: Modern Applications}, Cambridge University Press (1996).
+
+\bibitem{Wilson1974}
+K.~G.~Wilson, \emph{Confinement of quarks}, Physical Review D \textbf{10}, 2445--2459 (1974).
+
+\bibitem{Ji1995}
+X.-D.~Ji, \emph{Breakup of hadron masses and energy-momentum tensor of QCD}, Physical Review D \textbf{52}, 271--281 (1995).
+
+\bibitem{Durr2008}
+S.~D\"urr et al., \emph{Ab initio determination of light hadron masses}, Science \textbf{322}, 1224--1227 (2008).
+
+\bibitem{Coleman1977}
+S.~Coleman, \emph{The fate of the false vacuum. 1. Semiclassical theory}, Physical Review D \textbf{15}, 2929--2936 (1977).
+
+\bibitem{CallanColeman1977}
+C.~G.~Callan and S.~Coleman, \emph{The fate of the false vacuum. 2. First quantum corrections}, Physical Review D \textbf{16}, 1762--1768 (1977).
+
+\bibitem{Liu2026HAFFA}
+S.~Liu, \emph{Emergent Geometry from Coarse-Grained Observable Algebras: The Holographic Alaya-Field Framework}, Zenodo (2026), DOI: 10.5281/zenodo.18361706.
+
+\bibitem{Liu2026QRAIFA}
+S.~Liu, \emph{Algebraic Constraints on the Emergence of Lorentzian Metrics in Entropic Gravity Frameworks}, Zenodo (2026), DOI: 10.5281/zenodo.18525876.
+
+\bibitem{Liu2026FoundationI}
+S.~Liu, \emph{Foundation I: From Source to Manifestation: A Conditional Same-Root Program for Geometry and Modular Flow}, Zenodo (2026), DOI: 10.5281/zenodo.19627786.
+
+\bibitem{Liu2026FoundationII}
+S.~Liu, \emph{Foundation II: Shared Manifestation: A Conditional Two-Source Program for Shared Accessible Sectors}, Zenodo (2026), DOI: 10.5281/zenodo.19641372.
+
+\bibitem{Liu2026Imprint}
+S.~Liu, \emph{The World as Imprint: From Trace-Carrying Structure to Self-Reading Mind}, Zenodo (2026), DOI: 10.5281/zenodo.20122718.
+
+\bibitem{Liu2026RGImprint}
+S.~Liu, \emph{Renormalization and Imprint Filtering: An Interpretive Bridge from Algebraic Emergence to Scale-Stable Traces}, Zenodo (2026), DOI: 10.5281/zenodo.20151451.
+
+\end{thebibliography}
+
+\end{document}
