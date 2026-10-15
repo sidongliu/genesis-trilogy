@@ -34,11 +34,15 @@ Foundation III constructs a finite semiclassical scalar/JT return under one mean
 
 This finite result is distinguished from two stronger targets: sustained thermal renewal on one apparatus, and the joint attainability of sharp complete entropy export with an informative adaptive return. Both remain strong conjectures. Separate quantum receiver-renewal, full-mode source and geometric constructions retain their stated inputs and do not constitute one universal implementation.
 
-The paths linked above identify this edition. Legacy paths from earlier editions, where retained in the repository, are historical copies.
+The paths linked above identify this edition. Earlier manuscript and collection paths have moved to the historical archive; the remaining legacy entry directories contain only current-reading pointers.
 
 ## July edition
 
 The [24 July 2026 archive](archive/2026-07-24/README.md) preserves the 127 files published across the same 36 Zenodo record lines, with their original checksums. It also supplies the original local `arxiv.sty` build dependency. The October documents above are the current edition; historical manuscripts and supplements should not be mixed with them. Cite the exact version used.
+
+## Earlier repository materials
+
+Earlier manuscripts, flat collection files, build scripts and exploratory author notes are preserved in [archive/legacy-pre-october](archive/legacy-pre-october/). They are not part of the current edition and should not be used to interpret its claims or reproduce its revised experiments. The old [consciousness_series](consciousness_series/) and [notes](notes/) entries now point readers to the current papers and the historical copies. The separately dated July publication archive above is unchanged.
 
 ## Sources and citation
 
