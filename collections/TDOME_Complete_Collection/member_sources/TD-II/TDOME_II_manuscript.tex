@@ -1,0 +1,836 @@
+% ============================================================
+% T-DOME Paper II: The Ego
+% T-DOME three-paper series, Paper II
+% ============================================================
+
+\documentclass[12pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage[hidelinks]{hyperref}
+\usepackage{booktabs}
+\usepackage{array}
+\newcolumntype{P}[1]{>{\raggedright\arraybackslash}p{#1}}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{remark}[theorem]{Remark}
+
+\newcommand{\E}{\mathbb E}
+\newcommand{\R}{\mathbb R}
+\newcommand{\tr}{\operatorname{tr}}
+
+\title{Reference Frames Selected by History:\\
+The Capability and Cost of a Bounded Agent's Self-Frame}
+
+\author{Sidong Liu, PhD \\
+\small iBioStratix Ltd \\
+\small \texttt{sidongliu@hotmail.com}}
+
+\date{Revised October 2026}
+
+\hypersetup{pdftitle={Reference Frames Selected by History: The Capability and Cost of a Bounded Agent's Self-Frame},pdfauthor={Sidong Liu}}
+\begin{document}
+\emergencystretch=2em
+\raggedbottom
+\maketitle
+
+% ============================================================
+\begin{abstract}
+With limited access, a system must learn how a task appears through its own channels before it can choose useful reads. We study this retained relation and the foreground it selects as a self-frame. For a Gaussian task with an unknown, isotropically distributed coupling and $b<D$ linear reads per step, the posterior mean determines the optimal reading subspace and prediction. Beating a history-independent foreground requires a calculable amount of information about the coupling. We distinguish the sharp information price of subspace alignment from the signed information needed to use that subspace: perfect alignment alone can leave every prediction uninformative. In-frame evidence has a further blind spot. It cannot locate the omitted direction or, when signal and noise strengths are unknown, distinguish world noise from its own misalignment. Exact drift curves show when a frozen model becomes worse than no memory and when a retained frame loses its advantage. Off-frame probes revise the frame at a cost in reads and storage; for eight channels and three reads, the specified policy lowers static risk from $0.86$ to $0.26$. Weighting predictions by their calculated reliability extends the drift range in which this policy beats the fixed-foreground comparator. These task-specific results supply a formation mechanism within the memory--self--introspection route. A learned protective encoding supplies a separate physical example of history changing the relations used by a body.
+A quantum reference gives a second, finite resource realization of a
+self-frame. Its advantage in any bounded decision problem is bounded
+by its asymmetry. For a single qubit phase token we obtain the exact
+optimal discrimination probability and its loss under dephasing.
+\end{abstract}
+
+% ============================================================
+\section{Introduction}
+\label{sec:intro}
+
+\subsection{The question}
+
+A system that persists by using its records cannot use all of them at once. It reads some channels and not others, keeps some correlations and lets others go. Whatever rule makes that choice embodies a view of where the task lies in the system's own coordinates. If the system's coupling to the world is not known in advance, that view has to be learned, and once learned it decides which evidence the system will see next. This paper asks four questions about such a view. When is it informationally necessary? How can it be formed from the agent's own records? What capability does it buy? What does it cost, including what it prevents the agent from seeing?
+
+The series calls this organized view the ego. The word is used here for a definite object: a retained model of how a task-relevant direction sits in the agent's own channels, together with the foreground of reads that the model selects. We call the pair a self-frame. It is a model of the agent's own coupling, because the direction it describes is the image of a world direction under that coupling.
+
+\subsection{Position within the series}
+
+This paper is the second of the T-DOME (Thermodynamic Dynamics of Observer-Memory Entanglement) series, the third line of a programme whose other lines are HAFF and Q-RAIF.
+
+HAFF-E supplies the actual record protocol~\cite{Liu2026HAFF_E};
+Q-RAIF supplies physical interfaces and their prices~\cite{Liu2026QRAIF_B}.
+Here we ask how the retained history organizes the reader itself.
+
+Paper~I bounds the extra work available from a record by $k_BT\,I(X{:}M)$ in a matched feedback task, explains when that bound is attained, and includes preparation, updates and old correlations in the complete account~\cite{Liu2026TDOME_I}. It leaves open how an agent comes to select what it keeps. Paper~III studies drift detection, the price of tracking a changing instrument, and history-selected repair of body-gated access~\cite{Liu2026TDOME_III}. The present paper sits between them. Its self-frame is formed from records, it decides which records are gathered next, and its blind spot is the reason a calibration loop is needed at all.
+
+The main results progress from the posterior capability
+(Theorem~\ref{thm:capability}) to the information needed to select and
+use a foreground (Theorem~\ref{thm:rate} and
+Proposition~\ref{prop:signed-model}), then to its blind spot and drift.
+Section~\ref{sec:calibration} gives an explicit revision policy with
+exact stationary risk. Section~\ref{sec:quantum-frame} treats supplied
+quantum references separately; Section~\ref{sec:series} connects the
+formation mechanism to learned protection.
+
+\subsection{Related work}
+
+Bounded rationality~\cite{Simon1955}, rate--distortion theory~\cite{Shannon1959,CoverThomas2006}, rational inattention~\cite{Sims2003} and the information bottleneck~\cite{Tishby2000} treat the choice of what to keep as an optimization under an information constraint. Budgeted learning studies learners that may observe only a few attributes of each example; Cesa-Bianchi, Shalev-Shwartz and Shamir show, among other results, that a budget on the attributes available at prediction time can make arbitrary accuracy unattainable even when a perfect linear predictor exists~\cite{CesaBianchi2011} . The present setting is close to theirs, with a different emphasis: the unknown is the agent's own coupling, the foreground is a function of the agent's memory, and the questions are the information that the foreground must carry and the evidence it excludes. Reference frames as physical resources are reviewed by Bartlett, Rudolph and Spekkens~\cite{BRS2007}; Skotiniotis and Gour give the accessible information of frame-alignment protocols an operational role for the $G$-asymmetry~\cite{SkotiniotisGour2012} . Theorem~\ref{thm:rate} is the classical counterpart for a direction on a sphere: an application of the Gibbs variational principle, which we do not claim as new mathematics. Its use here is to price the self-frame of a bounded agent and to connect that price to the agent's capability and blind spot.
+
+% ============================================================
+\section{The budgeted reader}
+\label{sec:model}
+
+\subsection{Channels, task and coupling}
+
+At each step $t$ the agent's $D$ channels register a fresh input $x_t\sim\mathcal N(0,I_D)$, independent of everything before. After the agent responds, the consequence
+\begin{equation}
+\label{eq:task}
+y_t=\rho\,u_t\cdot x_t+\xi_t,\qquad \xi_t\sim\mathcal N(0,s^2),
+\end{equation}
+is revealed, with $\rho>0$ and $|u_t|=1$. Unless stated otherwise the agent knows $\rho$ and $s$; Theorem~\ref{thm:blind}(iii) drops this. The agent is scored by the squared error of its anticipation $\hat y_t$ of $y_t$. More generally the consequence may be a vector $y_t=A_tx_t+\xi_t\in\R^p$ with noise covariance of trace $\nu$; we write $W=A^{\top}A$.
+
+The direction $u_t$ is expressed in the agent's channel coordinates. If $e$ is the task-relevant direction in world coordinates and $R_t\in O(D)$ is the agent's coupling, which maps its channels to the world, then $u_t=R_t^{\top}e$. A model of $u_t$ is therefore a model of the agent's own coupling as far as this task is concerned. The records cannot separate a change of $R_t$ from a change of $e$; only their relation enters. Distinguishing the two requires a reference with a known world direction, the role played by reference reads in Paper~III, or a known push through an actuator that shares the agent's sensing coupling; Paper~III shows that pushes through an independent coupling do not help~\cite{Liu2026TDOME_III}.
+
+\emph{Symmetric ensemble.} The initial coupling is Haar distributed, so $u_0$ is uniform on the sphere $S^{D-1}$, and more generally the law of $A_0$ is invariant under $A_0\mapsto A_0O$ for $O\in O(D)$. Nothing in the task specification prefers any channel.
+
+\subsection{The reading budget}
+
+At each step the agent may make at most $b$ linear reads $w_1\cdot x_t,\dots,w_b\cdot x_t$ with orthonormal $w_j$ chosen from what it retains. The span of the reads used for the response is its \emph{foreground} $P_t$, an orthogonal projection of rank $k\le b$. Everything the agent retains from past steps is its memory $M_t$; it may contain past reads, past outcomes and any summaries of them. The foreground and the response are functions of $M_t$ and of the current reads only.
+
+A full probe reads all $D$ channels. With $b<D$ it cannot be made at every step. The resource protocol charges reads per step, start-up probes and retained numbers or bits; it does not assign a thermodynamic price. Section~\ref{subsec:costs} relates it to the work currency of Paper~I.
+
+\begin{definition}[Self-frame]
+\label{def:frame}
+A self-frame is a retained state from which the agent computes, at each step, an estimate of how the task direction sits in its own channels and the foreground that this estimate selects. Its alignment at step $t$ is $c_t=\E|P_tu_t|^2$ for rank-one tasks.
+\end{definition}
+
+\subsection{Comparators}
+
+All comparisons in this paper charge the same $b$ reads per step and the same start-up probes.
+\begin{itemize}
+\item \emph{No memory}: $\hat y=0$.
+\item \emph{No self-frame}: a foreground fixed independently of the history (for definiteness the first $b$ channels), with in-frame coefficients learned from outcomes.
+\item \emph{Fixed self-frame}: a foreground formed once from the start-up probes, with in-frame coefficients learned afterwards.
+\item \emph{Frozen self-model}: frame and coefficients formed once and never revised.
+\item \emph{Calibratable self-frame}: $b-1$ coordinate probes plus one orthogonal residual read, which together supply the response along the current frame and revise it.
+\end{itemize}
+
+% ============================================================
+\section{What a foreground is worth}
+\label{sec:capability}
+
+\begin{theorem}[Capability of a budgeted reader]
+\label{thm:capability}
+Let $M$ be any memory independent of the current input, let $P$ be a rank-$k$ foreground that is a function of $M$, and let $\hat y$ be any function of $(Px,M)$. For the vector task,
+\begin{equation}
+\label{eq:capability_general}
+\E|y-\hat y|^2\ \ge\ \nu+\E\tr W-\E\tr\bigl(P\,\widehat W_MP\bigr)\ \ge\ \nu+\E\tr W-\E\sum_{i\le k}\lambda_i(\widehat W_M),
+\end{equation}
+where $\widehat W_M=\E[A\mid M]^{\top}\E[A\mid M]$ and $\lambda_1\ge\lambda_2\ge\cdots$ are its eigenvalues. The first bound is attained by $\hat y=\E[A\mid M]Px$; the second by taking $P$ to be a top-$k$ eigenspace of $\widehat W_M$. For the rank-one task~\eqref{eq:task}, with $m=\E[u\mid M]$,
+\begin{equation}
+\label{eq:capability}
+\E(y-\hat y)^2\ \ge\ s^2+\rho^2\bigl(1-\E|Pm|^2\bigr)\ \ge\ s^2+\rho^2\bigl(1-\E|Pu|^2\bigr).
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+Write $x=Px+(I-P)x$. Given $M$, the input $x$ is independent of $(A,M)$, and for fixed $P$ the two Gaussian components are independent of each other. Hence $\E[(A(I-P)x)\mid Px,M]=\E[A\mid M]\,\E[(I-P)x]=0$ and $\E[APx\mid Px,M]=\E[A\mid M]Px$. The Bayes response is therefore $\E[A\mid M]Px$, and its risk is $\E|y|^2-\E|\E[A\mid M]Px|^2=\nu+\E\tr W-\E\tr(P\widehat W_MP)$, using $\E[x x^{\top}]=I$. No other response has smaller risk. Ky Fan's maximum principle gives $\tr(P\widehat W P)\le\sum_{i\le k}\lambda_i(\widehat W)$ for every rank-$k$ projection, with equality on a top-$k$ eigenspace. For the rank-one task $\widehat W=\rho^2mm^{\top}$, which gives the first inequality in~\eqref{eq:capability}. For the second, $\E|Pu|^2=\E\,\E[|Pu|^2\mid M]\ge\E|P\,\E[u\mid M]|^2$ by Jensen's inequality, since $P$ is fixed given $M$.
+\end{proof}
+
+\begin{corollary}[Three limits]
+\label{cor:limits}
+\begin{enumerate}
+\item[(a)] \emph{No history.} If $M$ is independent of the coupling, then $\E[A\mid M]=0$ in the symmetric ensemble and every response has risk at least $\nu+\E\tr W$, the risk of $\hat y=0$.
+\item[(b)] \emph{Known task.} If $M$ determines $A$, the best rank-$k$ risk is $\nu+\sum_{i>k}\lambda_i(W)$, attained by the top-$k$ eigenspace of $W$. Each added dimension strictly helps while $\lambda_{k+1}>0$, and the optimal subspace is unique when $\lambda_k>\lambda_{k+1}$. If $W=\lambda I$, every rank-$k$ subspace is optimal.
+\item[(c)] \emph{Frame-free level.} If the foreground is independent of the coupling, then $\E|Pu|^2=k/D$ and every policy has risk at least $s^2+\rho^2(1-k/D)$ in the rank-one task.
+\end{enumerate}
+\end{corollary}
+
+\begin{proof}
+(a) Invariance gives $\E[A]=\E[A]O$ for all $O\in O(D)$, hence $\E[A]=0$ for $D\ge2$; use~\eqref{eq:capability_general}. (b) Here $\widehat W=W$. (c) For $P$ independent of the uniform $u$, $\E|Pu|^2=\tr P/D$.
+\end{proof}
+
+Theorem~\ref{thm:capability} has the same form as Paper~I's theorem that every feedback protocol assumes a posterior~\cite{Liu2026TDOME_I}: whatever a budgeted policy represents, its performance is bounded by the alignment of the foreground it actually uses. The agent need not store an explicit direction. It does need some retained state from which its foreground is computed, and no response computed from that state can do better than the alignment of its foreground allows.
+
+Part~(b) is the known-task case of rank selection, a spectral variational fact. It locates the source of any preferred subspace. When $W$ is anisotropic with a known eigenbasis, the selection is fixed by the task, an explicit asymmetry. When the ensemble is symmetric, as here, no subspace is preferred before records arrive. A preferred foreground can then come only from the agent's history, which is the subject of the next section.
+
+% ============================================================
+\section{A frame is a record of the coupling}
+\label{sec:rate}
+
+For uniform $u$ and a fixed rank-$k$ projection $P$, the overlap $t=|Pu|^2$ has the Beta law $\beta_{k,D}=\mathrm{Beta}(k/2,(D-k)/2)$ with mean $k/D$ and moment generating function $\E e^{\kappa t}={}_1F_1(k/2;D/2;\kappa)$. Define
+\begin{equation}
+\label{eq:Lstar}
+\Lambda^*_{D,k}(c)=\sup_{\kappa\ge0}\Bigl[\kappa c-\ln{}_1F_1\bigl(\tfrac k2;\tfrac D2;\kappa\bigr)\Bigr]
+\end{equation}
+for $0\le c<1$. It is the upper half of the Legendre transform of the log moment generating function of $\beta_{k,D}$: convex, zero for $c\le k/D$ and increasing above.
+
+\begin{theorem}[The information a self-frame must carry]
+\label{thm:rate}
+In the symmetric rank-one ensemble, let $P$ be a rank-$k$ foreground that is a function of the agent's memory. Then
+\begin{equation}
+\label{eq:rate}
+I(U;P)\ \ge\ \Lambda^*_{D,k}\bigl(\E|PU|^2\bigr).
+\end{equation}
+For $k/D\le c<1$ the bound is attained: if $P$ is Haar distributed and, given $P$, $U$ has density proportional to $e^{\kappa|PU|^2}$ with respect to the uniform measure, with $\kappa\ge0$ chosen so that $\E|PU|^2=c$, then $U$ is uniform and $I(U;P)=\Lambda^*_{D,k}(c)$. (For $\kappa<0$ the same construction gives the lower branch of the Legendre transform, which~\eqref{eq:rate} does not use.) Consequently, a policy whose risk is at most $r<s^2+\rho^2(1-k/D)$ has a foreground with
+\begin{equation}
+\label{eq:rate_risk}
+I(U;P)\ \ge\ \Lambda^*_{D,k}\Bigl(1-\frac{r-s^2}{\rho^2}\Bigr)>0 .
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+Since $U$ is uniform, $I(U;P)=\E_P\,D(\mathcal L(U\mid P)\Vert\mathrm{Unif})$. Fix a value of $P$ and map $u\mapsto|Pu|^2$. Under the uniform law the image is $\beta_{k,D}$; let $Q_P$ be the image of $\mathcal L(U\mid P)$. The data-processing inequality gives $D(\mathcal L(U\mid P)\Vert\mathrm{Unif})\ge D(Q_P\Vert\beta_{k,D})$. The Gibbs variational inequality $D(Q\Vert\beta)\ge\kappa\E_Qt-\ln\E_\beta e^{\kappa t}$ for every $\kappa$ gives $D(Q_P\Vert\beta_{k,D})\ge\Lambda^*_{D,k}(\E_{Q_P}t)$. Averaging over $P$ and using convexity of $\Lambda^*$ (Jensen) proves~\eqref{eq:rate}. In the attaining construction, rotation invariance of the uniform measure and of the Haar law of $P$ makes the marginal of $U$ uniform. Given $P$, the law of $U$ is the exponential tilt of the uniform law by $\kappa|Pu|^2$; its image is the corresponding tilt of $\beta_{k,D}$, both inequalities are equalities, and the relative entropy is $\kappa c-\ln{}_1F_1(k/2;D/2;\kappa)$ with $\kappa$ chosen so that the tilted mean is $c$. For~\eqref{eq:rate_risk}, Theorem~\ref{thm:capability} gives $\E|PU|^2\ge1-(r-s^2)/\rho^2$, and $\Lambda^*$ is increasing on $[k/D,1)$.
+\end{proof}
+
+\begin{proposition}[Information needed to use an aligned frame]
+\label{prop:signed-model}
+Let $U$ be uniform on $S^{D-1}$, $D\ge2$, and let $m_M=\E[U\mid M]$.
+Set
+\[
+ \Psi_D(a)=\sup_{t\ge0}\{ta-\log\E e^{tU_1}\},\qquad 0\le a\le1,
+\]
+with $\Psi_D(1)=+\infty$; the inequalities use extended relative entropy.
+For any memory and any allowed rank-$k$ foreground,
+\begin{equation}\label{eq:signed-price}
+ I(U;M)\ge\E\Psi_D(|m_M|)
+ \ge\frac D2\E|m_M|^2
+ \ge\frac D2\E|Pm_M|^2.
+\end{equation}
+Consequently a predictor with risk at most $r<s^2+\rho^2$ needs
+$I(U;M)\ge \frac D2[1-(r-s^2)/\rho^2]$ nats.
+This bound concerns the signed conditional mean needed for prediction;
+it is not asserted to be sharp.
+\end{proposition}
+\begin{proof}
+For each posterior, the relative-entropy variational inequality applied
+to $t v\cdot U$, with $v=m_M/|m_M|$, gives
+$D(\mathcal L(U\mid M)\Vert\mathrm{Unif})\ge\Psi_D(|m_M|)$.
+At $m_M=0$ take $t=0$. The uniform sphere has odd moments zero and
+\[
+ \E U_1^{2j}
+ =\frac{(2j-1)!!}{D(D+2)\cdots(D+2j-2)}
+ \le\frac{(2j-1)!!}{D^j}.
+\]
+Termwise comparison of the moment-generating series gives
+$\log\E e^{tU_1}\le t^2/(2D)$. Choosing $t=D|m_M|$ gives the second
+inequality in Eq.~\eqref{eq:signed-price}; averaging gives the mutual
+information. Projection contracts the norm. Finally
+Theorem~\ref{thm:capability} implies
+$\E|Pm_M|^2\ge1-(r-s^2)/\rho^2$ for any such predictor.
+\end{proof}
+
+The attaining law in Theorem~\ref{thm:rate} is invariant under
+$U\mapsto-U$ conditional on $P$. Its posterior mean is therefore zero:
+a memory consisting only of that $P$ has no predictive advantage,
+despite its high alignment. At the limit, knowing the unoriented line
+$UU^\top$ gives alignment one and still leaves the sign undetermined.
+Outcome-bearing records, not merely an axis label, supply the signed
+relation required by the response. The alignment table below is an
+information bound for choosing a subspace, not an achievable
+risk--information curve. For a finite memory its entropy bounds both
+the alignment price and the signed price. The step-capacity argument
+below likewise applies to either necessary information bound.
+
+\begin{corollary}[Price of forming a frame]
+\label{cor:price}
+\begin{enumerate}
+\item[(a)] A memory from which a foreground of alignment $c$ is computed holds at least $\Lambda^*_{D,k}(c)/\ln2$ bits.
+\item[(b)] Each step, whatever reads are made, conveys at most $C_1=\tfrac12\ln(1+\rho^2/s^2)$ nats about a static coupling. Forming a foreground of alignment $c$ from scratch therefore takes at least $\Lambda^*_{D,k}(c)/C_1$ outcome-bearing steps.
+\end{enumerate}
+\end{corollary}
+
+\begin{proof}
+(a) $I(U;P)\le I(U;M)\le H(M)$. (b) Let $H_{t-1}$ be the history. The reads at step $t$ are functions of $x_t$ and $H_{t-1}$, so $I(U;\text{reads}_t,y_t\mid H_{t-1})\le I(U;y_t\mid x_t,H_{t-1})$. Given $(x_t,H_{t-1})$ the outcome has variance at most $\rho^2x_t^{\top}\Sigma x_t+s^2$, with $\Sigma$ the posterior covariance of $u$, and given $U$ as well its entropy is that of $\mathcal N(\cdot,s^2)$. The Gaussian maximum-entropy bound and Jensen's inequality give at most $\tfrac12\ln(1+\rho^2\tr\Sigma/s^2)\le C_1$, since $\E x_t^{\top}\Sigma x_t=\tr\Sigma\le1$. The chain rule sums the steps, and $I(U;P)\le I(U;H_n)$.
+\end{proof}
+
+\begin{table}[t]
+\centering
+\small
+\begin{tabular}{rrrrc}
+\toprule
+$D$ & $c=0.5$ & $c=0.9$ & $c=0.99$ & ratio to $\tfrac D2\log_2\frac1{1-c}$ at $c=0.9$\\
+\midrule
+2 & 0 & 1.18 & 2.92 & 0.354 \\
+3 & 0.21 & 2.80 & 6.19 & 0.561 \\
+8 & 2.46 & 11.07 & 22.76 & 0.833 \\
+16 & 6.45 & 24.35 & 49.33 & 0.916 \\
+64 & 30.49 & 104.07 & 208.78 & 0.979 \\
+256 & 126.50 & 422.97 & 846.58 & 0.995 \\
+\bottomrule
+\end{tabular}
+\caption{Minimum frame information $\Lambda^*_{D,1}(c)$ in bits for a one-dimensional foreground (Theorem~\ref{thm:rate}). For $D=2$, $c=1/2$ is the frame-free alignment.}
+\label{tab:rate}
+\end{table}
+
+Table~\ref{tab:rate} lists $\Lambda^*_{D,1}$. For $D=2$ the transform is $\sup_\kappa[\kappa(2c-1)-\ln I_0(\kappa)]$, the von Mises form on the doubled angle; the two expressions agree to $10^{-15}$ in the check. A Laplace evaluation of the moment generating function for large $D$ gives $\Lambda^*_{D,1}(c)=\tfrac D2\ln\frac1{1-c}\,(1+o(1))$ at fixed $c$, and the last column shows the approach. A self-frame thus costs about half a natural logarithm of the inverse misalignment per channel, the same per-direction precision cost that appears in finite self-models generally~\cite{Liu2026CIII}.
+
+\begin{remark}[Symmetry broken by the record]
+\label{rem:history}
+If the agent's update rule is equivariant, so that rotating all channel coordinates rotates its records, memory and foreground alike, then the marginal law of the foreground over histories is Haar: the ensemble prefers no subspace. Conditional on one history the foreground is concentrated, and $I(U;P)$ measures how far. This is the precise sense in which a reference frame is selected spontaneously here. The symmetry of the task ensemble is intact; each history breaks it, and the frame is the trace that the history leaves. The reading budget makes a selection valuable (Corollary~\ref{cor:limits}(c)); the records decide which frame is selected.
+\end{remark}
+
+\begin{remark}[Group-theoretic and quantum settings]
+\label{rem:clifford}
+Nothing above uses the full orthogonal group beyond its transitivity on directions. If the channels carry a representation of a smaller group acting transitively on the sphere, for example $SO(3)$ acting on the pure quaternions of $Cl(0,2)\cong\mathbb H$, the overlap law and Theorem~\ref{thm:rate} are unchanged. In quantum settings an agent without a frame is restricted to group-averaged operations, and alignment resources are quantified by asymmetry measures~\cite{BRS2007,SkotiniotisGour2012}. The next section gives a quantum task bound and an exact finite reference. The spherical information price is not identified with quantum asymmetry.
+\end{remark}
+
+\section{A quantum reference changes the available reading}
+\label{sec:quantum-frame}
+
+The classical foreground is a policy selected by memory. A retained quantum
+reference changes what a symmetry-restricted policy can measure. This is an
+operational bridge to a fixed-point algebra, rather than an identification
+of that algebra with a classical subspace.
+
+\begin{proposition}[Bounded task value of a retained reference]
+\label{prop:reference-value}
+Let a compact group $G$ act on a finite reference system, with twirling
+$\mathcal G$. In a specified task the reference starts in $\tau$, independent
+of the hidden task label; target states and permissions are unchanged when
+the reference is replaced by $\mathcal G(\tau)$. The same class of physical
+protocols is allowed in both experiments. If losses lie in $[0,L]$, their
+optimal Bayes risks satisfy
+\begin{equation}\label{eq:asymmetry-risk}
+ |R^*(\tau)-R^*(\mathcal G(\tau))|
+ \le\frac L2\|\tau-\mathcal G(\tau)\|_1
+ \le L\sqrt{\frac{\mathcal A_G(\tau)}2},
+\end{equation}
+where $\mathcal A_G(\tau)=D(\tau\Vert\mathcal G(\tau))$
+uses natural logarithms. For jointly $G$-invariant measurement permissions,
+an invariant reference induces only invariant effects on the target.
+\end{proposition}
+\begin{proof}
+For each hidden label and each allowed protocol, the input trace distance
+is $\|\tau-\mathcal G(\tau)\|_1/2$. Contractivity bounds the total variation
+of its outcome laws by the same number. A loss in $[0,L]$ changes by at
+most $L$ times that variation. Averaging and taking the infimum over the
+unchanged protocol class gives the first bound. Quantum Pinsker gives
+the second. The twirled-state relative entropy equals the entropy increase
+under twirling~\cite[Proposition~2 and Theorem~3]{Gour2009}; the task bound
+is its combination with distinguishability. If a joint effect commutes
+with $U_S(g)\otimes U_R(g)$ and $\tau$ is invariant, partial expectation
+over $R$ gives an effect commuting with $U_S(g)$.
+\end{proof}
+
+\begin{proposition}[One finite phase reference and its passive lifetime]
+\label{prop:phase-reference}
+Two equiprobable target states are $\rho_\pm=(I\pm X)/2$.
+The retained reference $\tau_r=(I+rX)/2$, $0\le r\le1$, is prepared
+relative to their source phase. Allowed joint effects commute with
+$Z_S+Z_R$. The exact optimal success probability is
+\begin{equation}\label{eq:phase-reference}
+ P^*(r)=\frac12+\frac r4.
+\end{equation}
+With independent phase-dephasing of the unused reference,
+$r(t)=r_0e^{-\kappa t}$. A required advantage $\Delta>0$ above chance
+can persist without renewal only until
+$t\le\kappa^{-1}\ln[r_0/(4\Delta)]$, for $4\Delta\le r_0$.
+\end{proposition}
+\begin{proof}
+The optimum invariant measurement is the Helstrom measurement of the two
+jointly twirled input states. Their difference is
+\[
+ \mathcal G_{SR}(\rho_+\otimes\tau_r-\rho_-\otimes\tau_r)
+ =\frac r4(X\otimes X+Y\otimes Y).
+\]
+Its nonzero eigenvalues are $r/2$ and $-r/2$, in the common-charge
+space spanned by $|01\rangle,|10\rangle$. The trace norm is $r$,
+giving Eq.~\eqref{eq:phase-reference}; its eigenprojections are permitted.
+Dephasing multiplies the reference's transverse Bloch vector by
+$e^{-\kappa t}$, and substitution proves the lifetime.
+\end{proof}
+
+\begin{corollary}[One noisy carrier as a record and a frame]
+\label{cor:record-frame}
+Use $X_S+X_R$ as the conserved charge and $(I\pm Z)/2$ as the
+equiprobable target states. A retained reference with Bloch vector
+$(0,y,z)$ gives optimal invariant-measurement success
+\[
+ P_{\rm frame}^*=\frac12+\frac{\sqrt{y^2+z^2}}4.
+\]
+Take the reference to be the initially positive record in HAFF-B's
+transverse-qubit model~\cite{Liu2026HAFF_B}, with known elapsed time
+and known generator. If $E_{\rm record}^*(t)$ is the optimal error for
+reading its two possible initial signs directly, then
+\begin{equation}\label{eq:record-frame}
+ P_{\rm frame}^*(t)=\frac34-\frac12E_{\rm record}^*(t).
+\end{equation}
+Thus the same physical carrier loses its record distinguishability
+and its one-use reference advantage on the same slow decay scale,
+even though its exact fixed algebra is scalar.
+\end{corollary}
+\begin{proof}
+A rotation about the charge axis brings the transverse reference vector
+to one axis without changing its length. It commutes with the symmetry
+and maps allowed effects to allowed effects. The calculation of
+Proposition~\ref{prop:phase-reference}, with the Pauli axes relabelled,
+therefore gives the first equation. The two noisy record states have
+opposite Bloch vectors of length $\sqrt{y^2+z^2}$, so their Helstrom
+error is $(1-\sqrt{y^2+z^2})/2$, proving
+Eq.~\eqref{eq:record-frame}.
+\end{proof}
+
+The baseline reference $r=0$ permits only diagonal target effects and
+cannot distinguish $\rho_+$ from $\rho_-$. Retaining $r>0$ makes a
+phase-sensitive reading possible without a non-invariant joint
+measurement. It does not create an absolute phase: the entire input may
+be jointly twirled with no change of the reading probabilities. This is
+the established relational-reference mechanism~\cite{BRS2007}, here used
+to connect task capability and passive noise. A fresh symmetric history
+cannot create $r>0$ by covariant operations alone; each conditional
+output of an invariant-outcome covariant instrument is still invariant.
+The source-relative preparation is therefore a priced input, not a frame
+created from an uninformative record.
+
+The lifetime concerns an unused token followed by one reading. Repeated
+measurement can disturb it further and requires a reuse account. If a
+protocol must keep its advantage in this drifting task, it must obtain
+new phase information, protect that information or refresh the reference;
+renaming a stale token a self-model does not change its capability.
+This is a finite quantum counterpart of the self-frame's calibration
+problem, not a sufficient condition for experience or a theorem that
+all tasks need asymmetry. Charge-label tasks, for example, can be solved
+with invariant effects.
+
+% ============================================================
+\section{The frame shapes its own evidence}
+\label{sec:blind}
+
+Once a foreground is chosen, the agent's next records are read through it. The following theorem says what those records can and cannot reveal.
+
+\begin{theorem}[In-frame identifiability and its blind spot]
+\label{thm:blind}
+Fix a rank-$k$ foreground $P$ and consider in-frame records $(Px_t,y_t)$ from a static coupling.
+\begin{enumerate}
+\item[(i)] Their joint law depends on $(\rho,s,u)$ only through $b=\rho Pu\in\operatorname{ran}P$ and $V=\rho^2+s^2$.
+\item[(ii)] With $\rho$ and $s$ known, the likelihood is constant on each fibre $\{u:Pu=w\}$, a sphere of dimension $D-k-1$ in the background. The posterior law of the background direction $(I-P)u/|(I-P)u|$ is not updated by any number of in-frame records.
+\item[(iii)] With $\rho$ and $s$ unknown, every triple $(\rho',s',u')$ with $\rho'Pu'=b$, $\rho'^2+s'^2=V$ and $|b|\le\rho'\le\sqrt V$ produces the same law. The risk reduction available by reorienting the frame, $\rho'^2-|b|^2$, ranges over $[0,V-|b|^2]$ within this family: the unexplained variance may be entirely world noise or entirely the agent's own misalignment.
+\item[(iv)] No rule using only in-frame records and the frame achieves risk below $V-|b|^2=s^2+\rho^2(1-|Pu|^2)$, and in-frame regression attains it asymptotically.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+$(Px,y)$ is Gaussian with mean zero, $\operatorname{Cov}(Px)=P$, $\operatorname{Cov}(Px,y)=\rho Pu$ and $\operatorname{Var}y=\rho^2+s^2$, which proves (i). Parts (ii) and (iii) follow, since the likelihood of any sample is a function of $(b,V)$; with $\rho,s$ known, $b$ fixes $Pu$ and nothing else, and the conditional law of the background direction given $Pu$ is therefore unchanged by the data. For (iv), given $u$ the part $\rho(I-P)u\cdot x+\xi_t$ of $y_t$ has variance $V-|b|^2$ and is independent of $Px_t$ and of all earlier records, so no rule based on them removes it; regression of $y$ on $Px$ estimates $b$ consistently and attains $V-|b|^2$.
+\end{proof}
+
+Theorem~\ref{thm:blind} states the cost side of a self-frame. A frame that serves the agent well also decides which evidence it will receive, and that evidence cannot show where the missing part of the task has gone. Part~(iii) adds a second limitation: from its own in-frame records the agent cannot know whether anything is missing. A large residual is compatible with a well-aligned frame in a noisy world and with a misaligned frame in a quiet one. Separating the two requires either a known noise level or reads outside the frame. This is the agent-level form of the distinction between a change of the world and a change of the agent's own coupling.
+
+\begin{corollary}[The two-channel case: an even residual]
+\label{cor:even}
+Let $D=2$, $k=1$, foreground $v$ and $u=\cos\theta\,v+\sin\theta\,v_\perp$. The in-frame law depends on $\theta$ only through $\cos\theta$, so $\theta$ and $-\theta$ are indistinguishable, and the in-frame residual variance $s^2+\rho^2\sin^2\theta$ is even in $\theta$. The Fisher information of one in-frame record about $\theta$ is
+\begin{equation}
+\label{eq:fisher_even}
+F(\theta)=\frac{\rho^2\sin^2\theta\,\bigl(\rho^2+s^2+\rho^2\cos^2\theta\bigr)}{\bigl(s^2+\rho^2\sin^2\theta\bigr)^2}
+=\frac{\rho^2(2\rho^2+s^2)}{s^4}\,\theta^2+O(\theta^4).
+\end{equation}
+One off-frame read along $v_\perp$ gives $\operatorname{Cov}(v_\perp\cdot x,y)=\rho\sin\theta$, which is odd in $\theta$ and resolves the sign.
+\end{corollary}
+
+\begin{proof}
+The covariance of $(v\cdot x,y)$ is $\Sigma=\begin{pmatrix}1&a\\a&V\end{pmatrix}$ with $a=\rho\cos\theta$. For a Gaussian family with parameter-dependent covariance, $F=\tfrac12\tr(\Sigma^{-1}\Sigma'\Sigma^{-1}\Sigma')$; with $a'=-\rho\sin\theta$ and $\det\Sigma=V-a^2$ this equals $a'^2(a^2+V)/(V-a^2)^2$, which is~\eqref{eq:fisher_even}.
+\end{proof}
+
+Paper~III takes this even residual law as its detection model, proves that it cannot identify the sign of the mismatch, and shows that a regular even record law with a nonzero quadratic leading perturbation has Fisher information quadratic and relative entropy quartic in the mismatch near calibration, which fixes the time needed to detect drift~\cite{Liu2026TDOME_III}. Corollary~\ref{cor:even} derives the structure from a budgeted self-frame: the residual is even because the frame reads only one of two channels, and the sign is the unobservable fibre of Theorem~\ref{thm:blind}. A single off-frame read is the minimal probe that breaks the symmetry. The derivation fixes the structure (evenness, a two-point fibre, quadratic information), not the Gaussian mean model used in Paper~III's computations.
+
+% ============================================================
+\section{Drift: fixed and frozen frames}
+\label{sec:drift}
+
+Let the coupling drift. In continuous time we take $u_t$ to be Brownian motion on $S^{D-1}$ with generator $\sigma\Delta_{S^{D-1}}$. A time-homogeneous discrete Markov step equivariant under $O(D)$, including reflections, has the corresponding scalar structure: $\E[u_{t+1}\mid u_t]=\lambda_1u_t$, and the degree-two harmonics have multiplier $\lambda_2$. Equivariance under $SO(D)$ suffices for $D\ge3$, but not for a directed drift on the circle.
+
+\begin{theorem}[Fixed and frozen frames under drift]
+\label{thm:drift}
+For spherical Brownian motion with generator $\sigma\Delta$,
+\begin{equation}
+\label{eq:harmonics}
+\E[u_t\cdot v]=e^{-(D-1)\sigma t}\,u_0\cdot v,\qquad
+\E[(u_t\cdot v)^2]-\tfrac1D=e^{-2D\sigma t}\bigl((u_0\cdot v)^2-\tfrac1D\bigr).
+\end{equation}
+\begin{enumerate}
+\item[(a)] A frozen self-model with response $\hat y=g\cdot x$, $g=\rho u_0$ fixed, has risk $s^2+2\rho^2\bigl(1-e^{-(D-1)\sigma t}\bigr)$. It is worse than having no memory after $t^*=\ln2/((D-1)\sigma)$, and worse than the frame-free level once $2(1-e^{-(D-1)\sigma t})>1-b/D$. If $g$ is estimated from $n_0$ full probes, the risk is $s^2+2\rho^2+\epsilon_0-2\rho^2e^{-(D-1)\sigma t}$ with $\epsilon_0=(D(\rho^2+s^2)+\rho^2)/n_0$.
+\item[(b)] A fixed foreground spanned by $u_0$ and $b-1$ orthonormal directions orthogonal to it, with exact in-frame coefficients, has risk $s^2+\rho^2(1-b/D)\bigl(1-e^{-2D\sigma t}\bigr)$. It never rises above the frame-free level and approaches it at rate $2D\sigma$.
+\end{enumerate}
+For an $O(D)$-equivariant discrete step the same formulas hold with $e^{-(D-1)\sigma}$ and $e^{-2D\sigma}$ replaced by $\lambda_1$ and $\lambda_2$ per step. The discrete risks need not be monotone when these multipliers are negative.
+\end{theorem}
+
+\begin{proof}
+The functions $u\mapsto u\cdot v$ and $u\mapsto(u\cdot v)^2-1/D$ are spherical harmonics of degrees one and two, with Laplace--Beltrami eigenvalues $-(D-1)$ and $-2D$; their expectations decay accordingly. For an $O(D)$-equivariant step the stabilizer of $u$ forces $\E[u'\mid u]=\lambda_1u$ and $\E[u'u'^{\top}\mid u]=aI+\lambda_2uu^{\top}$, with $Da+\lambda_2=1$. Iteration gives the same first- and second-moment formulas with the corresponding powers of $\lambda_1$ and $\lambda_2$. (a) The risk is $s^2+\E|\rho u_t-g|^2=s^2+\rho^2+|g|^2-2\rho\,g\cdot\E u_t$. With $g$ the mean of $y_ix_i$ over $n_0$ probes, $\E[g\mid u_0]=\rho u_0$ and $\E|g-\rho u_0|^2=\epsilon_0$ by the Isserlis identity $\E[(u\cdot x)^2x_i^2]=1+2u_i^2$. (b) The risk is $s^2+\rho^2(1-\E|Pu_t|^2)$, and~\eqref{eq:harmonics} gives $\E(u_t\cdot u_0)^2=\tfrac1D+(1-\tfrac1D)e^{-2D\sigma t}$ and $\E(u_t\cdot w)^2=\tfrac1D(1-e^{-2D\sigma t})$ for $w\perp u_0$; summing over the $b$ directions gives the stated curve.
+\end{proof}
+
+The two Brownian curves separate two failure modes that a single visibility angle cannot tell apart. A self-model that keeps both its frame and its coefficients becomes confidently wrong: its predictions remain as large as before while their direction decorrelates, and after $t^*$ it does worse than predicting nothing. A frame that keeps learning its in-frame coefficients cannot become worse than the frame-free reader, because in-frame regression shrinks the coefficient on a stale direction, but it loses its whole advantage. Neither can recover the advantage without information from outside the frame, by Theorem~\ref{thm:blind}. Paper~III compares these curves with the time needed to detect drift and finds that a residual-variance test detects slow drift long before $t^*$~\cite{Liu2026TDOME_III}.
+
+% ============================================================
+\begin{proposition}[Directed drift of a planar frame]
+\label{prop:planar-drift}
+Let $D=2$ and $u_t=(\cos\varphi_t,\sin\varphi_t)$, with
+$\varphi_{t+1}=\varphi_t+\Delta_t$ modulo $2\pi$, where the increments are
+independent with one common law. Write $\mu_j=\E e^{ij\Delta_t}$.
+For a known initial direction, a frozen predictor $g=\rho u_0$ has risk
+\[
+ R_{\rm frozen}(t)=s^2+2\rho^2[1-\operatorname{Re}(\mu_1^t)].
+\]
+A fixed one-dimensional foreground along $u_0$, using its exact
+current regression coefficient, has risk
+\[
+ R_{\rm axis}(t)=s^2+\frac{\rho^2}{2}
+                    [1-\operatorname{Re}(\mu_2^t)].
+\]
+These laws are $SO(2)$-equivariant. Reflection symmetry makes both
+multipliers real and recovers the scalar discrete formulas.
+\end{proposition}
+\begin{proof}
+Independence gives
+$\E e^{ij(\varphi_t-\varphi_0)}=\mu_j^t$.
+The two risks are respectively
+$s^2+2\rho^2\E[1-\cos(\varphi_t-\varphi_0)]$ and
+$s^2+\rho^2\E\sin^2(\varphi_t-\varphi_0)$.
+Taking real parts proves both identities. For deterministic increments
+$\Delta_t=\phi$, they involve $\cos(t\phi)$ and $\cos(2t\phi)$,
+not $(\cos\phi)^t$ and $(\cos2\phi)^t$.
+\end{proof}
+
+A directed rotation can repeatedly return a stale frame to alignment.
+The Brownian crossing time is therefore a property of that diffusion,
+not a universal lifetime inferred from rotational symmetry.
+
+\section{A calibratable frame and its price}
+\label{sec:calibration}
+
+\subsection{The policy and its exact stationary risk}
+
+The calibratable agent stores a vector $g_t\in\R^D$, its estimate of $\theta_t=\rho u_t$. Before the input arrives it chooses a set $S_t$ of $b-1$ channel indices uniformly without replacement, independently of the world. It reads those coordinate directions and, as its last read, the normalized component of $g_t$ orthogonal to their span. If this component vanishes it fills the slot with any unused orthogonal direction. These are exactly $b$ orthonormal reads. From them it computes $g_t\cdot x_t$ and responds $\hat y_t=\gamma g_t\cdot x_t$, with $\gamma\in[0,1]$. No repeated or additional read is required: coordinate values and the orthogonal residual reconstruct the noiseless linear functional algebraically. Each coordinate is probed with probability $p=(b-1)/D$. For each probed channel $i$ it updates $g_{t+1,i}=g_{t,i}+\alpha(y_tx_{t,i}-g_{t,i})$; unprobed coordinates are kept. The frame-free comparator stores coefficients $\beta_t$ on the fixed channels $S=\{1,\dots,b\}$, reads them every step, updates them by the same rule with $p=1$, and responds $\gamma\,\beta_t\cdot x_{t,S}$.
+
+\begin{proposition}[Exact stationary risk]
+\label{prop:stationary}
+Assume $1<b<D$, $0<\alpha<2$, $u_0$ uniform, a drift step with $\E[u_{t+1}\mid u_t]=\lambda_1u_t$ and a uniform invariant marginal, with factor $\lambda_1=1-\kappa\in[0,1]$, fresh inputs and noise, and probe choices independent of the world (correlations among the probe indicators of different channels do not matter). Let $m$ be the number of tracked coordinates ($m=D$ for the calibratable frame, $m=b$ for the frame-free reader), $p$ the probe probability ($p=1$ for the frame-free reader), $T=\rho^2m/D$ and $a=p\alpha(2-\alpha)$. The tracking error $e_t$ of the tracked coordinates has stationary moments
+\begin{equation}
+\label{eq:stationary}
+\begin{aligned}
+c_\infty&=\E[e\cdot\theta]=-\frac{\kappa T}{1-\lambda_1(1-p\alpha)},\\
+A_\infty&=\E|e|^2=\frac{p\alpha^2m\bigl(\rho^2+s^2+\rho^2/D\bigr)+2\kappa T+2\kappa(1-p\alpha)c_\infty}{a},
+\end{aligned}
+\end{equation}
+and the stationary risk with weight $\gamma$ is
+\begin{equation}
+\label{eq:risk_gamma}
+R(\gamma)=s^2+\rho^2-2\gamma\,(T+c_\infty)+\gamma^2\,(T+2c_\infty+A_\infty).
+\end{equation}
+In particular $R(1)=s^2+(\rho^2-T)+A_\infty$, and the reliability weight $\gamma^*=(T+c_\infty)/(T+2c_\infty+A_\infty)$ gives $R(\gamma^*)=s^2+\rho^2-(T+c_\infty)^2/(T+2c_\infty+A_\infty)\le s^2+\rho^2$; the weight lies in $[0,1]$ under the stated nonnegative first-harmonic assumption.
+\end{proposition}
+
+\begin{proof}
+Coordinate $i$ is probed with indicator $\chi_i$, $\E\chi_i=p$. The probe value $y x_i$ has conditional mean $\theta_i$ given the past and the current coupling, and conditional variance $\rho^2+s^2+\rho^2u_i^2$ by the Isserlis identity; its average over the uniform marginal of $u_t$, which holds at every $t$, is $\rho^2+s^2+\rho^2/D$. After the update the error is $e'_i=(1-\alpha\chi_i)e_i+\alpha\chi_in_i$ with $n_i$ conditionally centred, so $\E|e'|^2=(1-a)\E|e|^2+p\alpha^2m(\rho^2+s^2+\rho^2/D)$ and $\E[e'\cdot\theta]=(1-p\alpha)\E[e\cdot\theta]$. The drift step then replaces $\theta$ by $\theta+\Delta$ and $e'$ by $e'-\Delta$, where $\Delta$ is independent of $e'$ given $u_t$, $\E[\Delta\mid u_t]=-\kappa\theta$ on the tracked coordinates, $\E|\Delta|^2=2\kappa T$ and $\E[\Delta\cdot\theta]=-\kappa T$. Hence
+\[
+\E|e_{t+1}|^2=\E|e'|^2+2\kappa(1-p\alpha)\E[e_t\cdot\theta_t]+2\kappa T,\qquad
+\E[e_{t+1}\cdot\theta_{t+1}]=\lambda_1(1-p\alpha)\E[e_t\cdot\theta_t]-\kappa T .
+\]
+Both recursions are affine with contraction factors $1-a$ and $\lambda_1(1-p\alpha)$ of modulus less than one, so the moments converge to the fixed point~\eqref{eq:stationary} from any start. The response $\gamma\,g\cdot x$ has risk $s^2+\E|\theta-\gamma g|^2$ with $g$ supported on the tracked coordinates; expanding with $g=\theta_m+e$ gives~\eqref{eq:risk_gamma}. The minimizing weight follows by completing the square, and $R(\gamma^*)\le R(0)=s^2+\rho^2$.
+\end{proof}
+
+Only the one-step correlation $\lambda_1=\E[u_{t+1}\cdot u_t]$ of the drift enters. For spherical Brownian motion sampled at unit time, $\kappa=1-e^{-(D-1)\sigma}$. The weight $\gamma^*$ is a property of the agent's own tracking error. An agent that knows its drift factor and noise level can compute it from~\eqref{eq:stationary}; an agent that knows only its residuals cannot, because by Theorem~\ref{thm:blind}(iii) its in-frame residual mixes its tracking error with world noise. The reliability weight is thus a small self-assessment, and its effect is measurable.
+
+\subsection{Capability and benefit threshold}
+
+\begin{table}[t]
+\centering
+\small
+\setlength{\tabcolsep}{3.5pt}
+\begin{tabular}{rcccccccc}
+\toprule
+$\kappa$ & Frozen & No frame & Fixed & Calib.\ & Calib.\ (th.) & Calib.\ $\gamma^*$ & No frame $\gamma^*$ & Alignment \\
+\midrule
+0 & 0.414 & 0.863 & 0.340 & 0.2608 & 0.2610 & 0.2607 & 0.863 & 0.991\\
+$1.40\times10^{-5}$ & 0.812 & 0.872 & 0.559 & 0.2856 & 0.2848 & 0.2852 & 0.872 & 0.967\\
+$8.75\times10^{-5}$ & 1.934 & 0.897 & 0.856 & 0.3367 & 0.3361 & 0.3350 & 0.897 & 0.921\\
+$3.50\times10^{-4}$ & 2.448 & 0.915 & 0.920 & 0.4188 & 0.4190 & 0.4116 & 0.914 & 0.849\\
+$1.40\times10^{-3}$ & 2.426 & 0.938 & 0.941 & 0.5743 & 0.5742 & 0.5477 & 0.935 & 0.718\\
+$5.54\times10^{-3}$ & 2.464 & 0.994 & 0.995 & 0.8411 & 0.8396 & 0.7568 & 0.985 & 0.506\\
+$1.23\times10^{-2}$ & 2.449 & 1.049 & 1.049 & 1.0383 & 1.0402 & 0.8969 & 1.030 & 0.353\\
+$2.15\times10^{-2}$ & 2.430 & 1.095 & 1.096 & 1.1740 & 1.1736 & 0.9944 & 1.064 & 0.238\\
+$4.61\times10^{-2}$ & 2.423 & 1.169 & 1.169 & 1.2516 & 1.2518 & 1.1043 & 1.116 & 0.128\\
+\bottomrule
+\end{tabular}
+\caption{Time-averaged risk in the closed loop ($D=8$, $b=3$, $\rho=1$, $s=0.5$, start-up $n_0=64$ full probes, 24\,000 steps, first 8\,000 discarded, 200 trajectories with common random numbers). No memory gives $1.25$. ``Calib.\ (th.)'' is $R(1)$ from Proposition~\ref{prop:stationary}; learning rates are set from the formulas, not tuned on the simulation. Alignment is $\E(u\cdot g/|g|)^2$ of the calibratable frame. Standard errors are at most $0.016$ for the frame-free and fixed columns (dominated by the sample of couplings), at most $0.05$ for the frozen column, and at most $0.0015$ for the calibratable columns; the paired difference between the calibratable and frame-free readers has standard error at most $0.016$.}
+\label{tab:loop}
+\end{table}
+
+Table~\ref{tab:loop} compares the five policies of Section~\ref{sec:model} under one protocol. The exact stationary risk agrees with the simulation to within the Monte Carlo error at every drift level, including levels where the calibratable frame loses. With a static coupling the calibratable frame reaches alignment $0.991$ and risk $0.261$, against $0.863$ for the frame-free reader and $0.340$ for the frame fixed after start-up. The frozen self-model is worse than no memory from $\kappa=8.75\times10^{-5}$ on. The fixed frame becomes indistinguishable from the frame-free reader at moderate drift, as Theorem~\ref{thm:drift}(b) predicts.
+
+Without the reliability weight the calibratable frame loses to the frame-free reader between $\kappa=1.23\times10^{-2}$ and $2.15\times10^{-2}$: it keeps responding at full strength along a direction it can no longer track. With $\gamma^*$ for both readers it remains better through $\kappa=4.61\times10^{-2}$. Table~\ref{tab:threshold} gives the crossing drift $\kappa_c$ from the exact formulas for other dimensions and budgets. Weighting by self-assessed reliability raises $\kappa_c$ by factors from $2.1$ ($D=4$, $b=3$) to $13.8$ ($D=32$, $b=3$). Without weighting, $\kappa_cD^2/(b-1)$ stays between $0.14$ and $0.94$ over the computed cases: the sampled scaling is $\kappa_c\propto(b-1)/D^2$, or $D^{-2}$ at fixed $b$, rather than $[(b-1)/D]^2$.
+
+\begin{table}[t]
+\centering
+\small
+\begin{tabular}{rrcc}
+\toprule
+$D$ & $b$ & $\kappa_c$, weight $1$ & $\kappa_c$, weight $\gamma^*$ \\
+\midrule
+4 & 2 & $1.47\times10^{-2}$ & $3.82\times10^{-2}$\\
+4 & 3 & $1.73\times10^{-2}$ & $3.68\times10^{-2}$\\
+8 & 2 & $7.66\times10^{-3}$ & $3.49\times10^{-2}$\\
+8 & 3 & $1.29\times10^{-2}$ & $5.78\times10^{-2}$\\
+8 & 5 & $1.85\times10^{-2}$ & $7.19\times10^{-2}$\\
+16 & 2 & $2.85\times10^{-3}$ & $2.23\times10^{-2}$\\
+16 & 3 & $5.07\times10^{-3}$ & $4.00\times10^{-2}$\\
+16 & 5 & $8.45\times10^{-3}$ & $6.44\times10^{-2}$\\
+32 & 2 & $9.16\times10^{-4}$ & $1.26\times10^{-2}$\\
+32 & 3 & $1.68\times10^{-3}$ & $2.31\times10^{-2}$\\
+32 & 5 & $2.93\times10^{-3}$ & $3.93\times10^{-2}$\\
+\bottomrule
+\end{tabular}
+\caption{Drift $\kappa_c=1-\lambda_1$ at which the calibratable frame and the frame-free reader have equal stationary risk, each with learning rate optimized from Proposition~\ref{prop:stationary} ($\rho=1$, $s=0.5$). Below $\kappa_c$ the calibratable frame is better.}
+\label{tab:threshold}
+\end{table}
+
+\begin{corollary}[Static limit]
+\label{cor:static}
+With $\kappa=0$ the stationary risk of the calibratable frame is $s^2+\alpha D(\rho^2+s^2+\rho^2/D)/(2-\alpha)$ at weight $1$, which tends to $s^2$ as $\alpha\to0$, while the frame-free reader stays at or above $s^2+\rho^2(1-b/D)$. Under a reading budget $2\le b<D$, a calibratable self-frame is therefore strictly better than every frame-free policy for all sufficiently slow drift.
+\end{corollary}
+
+\begin{proof}
+Set $\kappa=0$ in~\eqref{eq:stationary}. The frame-free bound is Corollary~\ref{cor:limits}(c). Continuity of~\eqref{eq:stationary} in $\kappa$ at fixed $\alpha$ extends the strict inequality to small $\kappa$.
+\end{proof}
+
+\subsection{What the agent pays}
+\label{subsec:costs}
+
+The exact curves use noiseless linear reads and real-valued coefficients.
+Orthonormalizing the probe span is a computation on retained $g$ and
+chosen indices before the input arrives. It needs arithmetic and working
+storage, not another observation. These resources are counted separately
+from the $b$ reads. If the implemented response coefficient differs by
+a vector with mean squared norm at most $\epsilon^2$, the squared-risk
+increase is bounded by
+$2\epsilon\sqrt{R-s^2}+\epsilon^2$, by Cauchy--Schwarz.
+Thus a strict benefit margin survives sufficiently precise finite
+arithmetic; precision is an additional paid input. Independent noisy
+hardware reads require their own covariance and calibration account.
+
+All readers above use $b$ reads per step and the same $n_0D$ start-up reads. They differ in retained state. The frame-free reader keeps $b$ coefficients. The fixed frame keeps $b$ coefficients and its $b$ directions. The calibratable frame keeps the $D$ numbers of $g$, and Theorem~\ref{thm:rate} says that some such growth is unavoidable: alignment $0.991$ in eight channels requires at least $\Lambda^*_{8,1}(0.991)$ nats in its foreground, $23.3$ bits. In time the calibratable frame spends $b-1$ of its $b$ reads off its own frame. Paper~I prices these resources when they are implemented thermodynamically. In Paper~I's matched task, a record adds at most $k_BT$ times its task mutual information. Isothermal erasure of independent unbiased degenerate bits without usable side information costs at least $k_BT\ln2$ per bit; general updates instead require the conditional-entropy and free-energy ledger (a known bit need not cost that amount). Reference preparation requires the free-energy difference for its specified Hamiltonian and initial state~\cite{Liu2026TDOME_I}. A pure degenerate one-bit reference has price $k_BT\ln2$; an arbitrary reference does not have that universal price. The present paper keeps reads, probes and stored numbers as separate entries and does not convert them into a single price, because the conversion depends on the implementation.
+
+% ============================================================
+\section{Connections within the theory}
+\label{sec:series}
+
+\subsection{A frame can change the body's protective relations}
+
+Foundation~III gives a finite body implementation~\cite{Liu2026FIII}.
+A diagnostic record of an unknown noise sign selects and later decodes
+an odd or even protective code on two body bits holding an unknown
+logical qubit and its inaccessible old reference. The controller sees
+the record, never the sign. In that protocol the learned code beats
+both fixed codes when $p>.51430317693$; at $p=.9$ its ideal loss is
+$.0527213975$, with early damage included. The full gate program,
+paid ports and source/return construction belong to Foundation~III.
+This is a separate implementation, not an identification of Gaussian
+subspace alignment with quantum protection. The available encoders and
+diagnostic coupling remain inputs; Paper~III studies history-selected
+maintenance when body access becomes unreliable. The positive
+subject-formation criterion proposed here is that learned relations
+organize the same system's future access, protection and revision,
+rather than merely naming a preferred basis. Paper~III's body-gated
+repair gives this criterion an acting interpretation: the acquired
+model selects which future access is worth restoring. This is an
+interpretive connection between the models, not a theorem of general
+subject formation.
+
+\paragraph{Paper~I.} Paper~I establishes the task value of correlations and the conditions under which their preparation and maintenance pay~\cite{Liu2026TDOME_I}. Its feedback protocols imply a posterior; a record is not valuable independently of its task and implementation. Theorem~\ref{thm:capability} is the reading-side counterpart: every budgeted policy implies a frame, and its capability is the alignment of that frame. Theorem~\ref{thm:rate} prices the frame in information, as Paper~I prices the record in work.
+
+\paragraph{Paper~III.} Corollary~\ref{cor:even} derives the even residual model that Paper~III assumes, including the sign ambiguity and the quadratic Fisher signal. Paper~III's reference reads play the role of the known world direction in Section~\ref{sec:model}: they separate a change of the agent's coupling from a change of the world, which in-frame records cannot do (Theorem~\ref{thm:blind}(iii)). Its memory-under-drift proposition and Proposition~\ref{prop:stationary} have the same structure, one for a scalar instrument parameter and one for a frame in $D$ channels; the second shows that the cost of tracking a frame grows with the number of channels the frame excludes.
+
+\paragraph{Consciousness~III.} Theorem~\ref{thm:blind} is an instance of a self-shaped unobservable fibre: what the agent cannot learn about itself is set by its own current frame and moves when the frame moves. Consciousness~III develops the general theory of such fibres for finite self-models, including a floor for self-knowledge under drift~\cite{Liu2026CIII}.
+
+\paragraph{Imprint and Brain Anchor.} The reader of \emph{The World as Imprint} learns which of two instrument axes it has and retains the corresponding information~\cite{Liu2026IMPW}. The self-frame here is its continuous, budgeted generalization, with the added feature that the learned model controls which records arrive. Brain Anchor's learned relation weights are another case of a frame formed from records and selecting later use~\cite{Liu2026BRAIN}.
+
+% ============================================================
+\section{Discussion}
+\label{sec:discussion}
+
+\subsection{What is established}
+
+Within the budgeted reader, a self-frame is informationally necessary for any risk below $s^2+\rho^2(1-b/D)$ (Corollary~\ref{cor:limits} and Theorem~\ref{thm:rate}); it can be formed from the agent's own records, at a price of at least $\Lambda^*_{D,k}(c)/C_1$ outcome-bearing steps and $\Lambda^*_{D,k}(c)/\ln2$ bits (Corollary~\ref{cor:price}); it buys the capability computed in Theorem~\ref{thm:capability} and Proposition~\ref{prop:stationary}; and it has a blind spot that only reads outside the frame can repair (Theorem~\ref{thm:blind}). The necessity is created by the reading budget. With $b=D$ the frame-free level falls to $s^2$ and selecting a foreground gains nothing, although the agent still needs memory of its coefficients.
+
+For the memory--self--introspection route, this gives the self link a definite content. Task-relevant memory becomes a self-frame here when it selects reads through a learned model of the system's own coupling. The blind spot then gives a reason for acquiring new relations outside that frame. A system may implement this calibration function without representing a human-like self. Each statement concerns this task class. It is not claimed that every persistent system needs a self-frame; a system that can read everything it needs, or whose coupling is known, does not.
+
+The self-frame is a functional object. Nothing here shows that holding one is, or produces, experience. The Consciousness series treats the relation between such functional self-models and first-person organization with its own arguments.
+
+\subsection{Drift boundaries and two conjectures}
+
+\begin{proposition}[A drift factor does not determine the tracking problem]
+\label{prop:flip-boundary}
+Let $U_t=S_t V$ with $V$ initially uniform on the sphere and fixed,
+while $S_t\in\{-1,1\}$ flips independently with probability $\kappa/2$
+each step. This rotation-invariant Markov law has the same
+$\lambda_1=1-\kappa$ as a spherical diffusion with that first harmonic.
+Given a retained exact axis $V$, a legal reader of that axis has excess
+risk at most
+\begin{equation}\label{eq:flip-risk}
+ R-s^2\le 4\rho^2\left(\frac{w\kappa}{2}
+             +e^{-w C_1}\right),\qquad
+ C_1=\frac12\ln(1+\rho^2/s^2),
+\end{equation}
+using only the last $w$ outcome-bearing reads. In particular it has
+$O(\kappa\log(1/\kappa))$ excess risk at fixed signal-to-noise ratio.
+\end{proposition}
+\begin{proof}
+Read $z_j=V\cdot x_j$ and estimate the current sign by the sign of
+$\sum_{j=t-w}^{t-1}z_j y_j$. Predict
+$\rho\widehat S_t V\cdot x_t$. A flip in the $w$ transitions joining
+these outcomes to the current step has probability at most $w\kappa/2$.
+On the no-flip event, relabel the common sign positive. For one sample,
+$y=\rho z+s\eta$, with $z,\eta$ independent standard normals.
+At $a=\rho/s^2$,
+\[
+ \E e^{-a z y}
+ =\E e^{-a\rho z^2+a^2s^2z^2/2}
+ =(1+\rho^2/s^2)^{-1/2}.
+\]
+Chernoff's inequality bounds a wrong sign by $e^{-wC_1}$.
+A sign error costs $4\rho^2$ in squared prediction loss; the current
+Gaussian input is independent of the sign estimate. Taking
+$w=\lceil\log(1/\kappa)/C_1\rceil$ proves the order.
+\end{proof}
+
+An exact axis is a supplied resource in this statement. A paid
+initialization with sufficiently small axis error adds a corresponding
+prediction error; finite precision is not free. The axis can also be
+learned without access to $S_t$: for $i\ne j$,
+$\E[y_t^2x_{t,i}x_{t,j}]=2\rho^2 V_iV_j$, while
+$\E[y_t^2x_{t,i}^2]=\rho^2+s^2+2\rho^2V_i^2$.
+Cycling through coordinate pairs uses two legal reads per training
+step. These expectations are unchanged by sign flips and identify
+$VV^\top$ as training grows. Training time, stored moments and
+the sign window are resources. This law preserves an axis rather than
+diffusing $D-1$ independent tangent directions. Thus $\lambda_1$
+suffices for the moment formula of Proposition~\ref{prop:stationary},
+but cannot justify a universal diffusion tracking lower bound.
+
+\begin{conjecture}[Rate optimality of probe calibration]
+\label{conj:rate}
+For the rank-one task with $2\le b<D$ noiseless linear reads per step,
+let $U_t$ be spherical Brownian motion sampled at unit intervals, with
+generator $\sigma\Delta$ and
+$\kappa=1-e^{-(D-1)\sigma}$. Policies may retain their paid observed
+history and randomize, but receive no external coupling truth or
+additional drift reference. Their long-run average risk is at least
+$s^2+c_0\rho^2\min\{1,\,
+D\sqrt{\kappa(\rho^2+s^2)/(\rho^2(b-1))}\}$
+for a constant $c_0>0$ independent of $D,b,\kappa$, in the local
+diffusion regime. Initialization is charged and does not supply future
+increments.
+\end{conjecture}
+
+The mechanism is that each off-frame read informs one background direction, and $D-1$ directions drift independently. For a single coordinate observed with probability $p$ per step under a random walk with increment variance $q$, the posterior Cram\'er--Rao recursion gives a stationary error of order $\sqrt{q/(pF)}$, with $F$ the Fisher information per observation; summing over $D-1$ coordinates with $p=(b-1)/D$, $q\simeq2\rho^2\kappa/D$ and $F\simeq(\rho^2+s^2)^{-1}$ gives the stated scaling, which Proposition~\ref{prop:stationary} attains with optimized $\alpha$ for small $\kappa$. The strongest objection is that the coordinates are not independent: an adaptive policy can probe the directions in which its uncertainty is largest, and the response read itself carries information about the magnitude of the misalignment (Corollary~\ref{cor:even}). These could improve the constant; the conjecture would fail if they changed the exponent of $\kappa$ or the power of $D$.
+
+\begin{conjecture}[Sharp quantum counterpart of the frame price]
+\label{conj:algebra}
+For a specified quantum direction-estimation task and a compact group acting
+transitively on its directions, the minimum retained reference resource
+needed for a given capability admits a sharp task-dependent variational
+bound whose classical direction limit is Theorem~\ref{thm:rate}.
+\end{conjecture}
+
+Proposition~\ref{prop:reference-value} supplies a general bounded-risk inequality,
+and Proposition~\ref{prop:phase-reference} supplies an exact quantum task.
+What remains is sharpness and the classical limit, not the existence of
+any risk bound. Equal asymmetry need not give equal capability in different
+tasks, so the task family cannot be omitted. The noise-selected algebra of
+Consciousness~I is a symmetry-fixed algebra; the present reference enlarges
+effective measurement permissions through a state, not by claiming that
+every fixed algebra becomes a larger abstract algebra.
+
+\subsection{Open problems}
+
+The task class is linear and Gaussian with a rank-one or fixed-rank target. Several competing frames and structured non-Gaussian inputs remain open. Paper~III joins a binary self-frame to a world-changing loop: acting cannot identify parameters moved by its record-law symmetry, while explicit experiments in its stationary nondegenerate model identify persistence, squared gain and flip reliability~\cite{Liu2026TDOME_III}. Symmetry invariance is therefore a necessary condition, not a general identification theorem. A continuous frame with matrix-valued loop gains, and a thermodynamic implementation of the reading and retention budgets, are next steps.
+
+% ============================================================
+\appendix
+\section{Simulation protocol for Table~\ref{tab:loop}}
+\label{app:protocol}
+
+Parameters: $D=8$, $b=3$, $\rho=1$, $s=0.5$. The coupling starts uniform and moves by the rotation-invariant step $u\mapsto(u+\eta g_\perp)/|u+\eta g_\perp|$ with $g_\perp$ the projection of a standard Gaussian vector orthogonal to $u$, for $\eta\in\{0,0.002,0.005,0.01,0.02,0.04,0.06,0.08,0.12\}$; $\lambda_1=\E(1+\eta^2\chi^2_{D-1})^{-1/2}$ is computed by quadrature. Each agent receives the same $n_0=64$ start-up probes, from which $g_0$ is the mean of $y_ix_i$. The frozen agent responds $g_0\cdot x$. The frame-free agent reads channels $1$--$3$; the fixed agent reads $g_0/|g_0|$ and two fixed random orthonormal directions orthogonal to it; both learn their three coefficients by the update of Section~\ref{sec:calibration} with $p=1$. The calibratable agent chooses two coordinate probes uniformly without replacement and reads those axes plus the normalized component of $g$ orthogonal to them. It reconstructs $g\cdot x$ from these three orthonormal reads and updates only the probed coordinates. The recorded noiseless simulation used the algebraically equivalent nonorthogonal functionals; this equivalence need not hold for hardware with independent read noise. Learning rates and weights are set by minimizing the risks of Proposition~\ref{prop:stationary} over $\alpha\in[10^{-4},0.999]$ (floor $0.002$). Risks are evaluated exactly given the state, $s^2+|\rho u-c|^2$ with $c$ the agent's effective coefficient vector, and averaged over steps 8\,000--23\,999 and over 200 trajectories that share the world's random numbers across agents. The code is \texttt{td2\_loop.py}; the thresholds of Table~\ref{tab:threshold} are computed by \texttt{td2\_threshold.py}, and the analytic checks of Theorems~\ref{thm:capability}--\ref{thm:drift} by \texttt{td2\_checks.py}.
+
+% ============================================================
+\begin{thebibliography}{99}
+
+\bibitem{Liu2026HAFF_B}
+S.~Liu, \emph{Coupling, Records, and Stable Relations: Formation, Protected Content and the Lifetime of a Geometry}, 2026; series record DOI: 10.5281/zenodo.18367060.
+
+\bibitem{Gour2009}
+G.~Gour, I.~Marvian and R.~W.~Spekkens,
+\emph{Measuring the quality of a quantum reference frame: the relative entropy
+of frameness}, Phys.\ Rev.\ A \textbf{80}, 012307 (2009), arXiv:0901.0943.
+
+\bibitem{Liu2026TDOME_I}
+S.~Liu, \emph{Memory as a Usable Resource: Correlations, Records and Complete Endpoint Accounting} (T-DOME~I), 2026; July 2026 record DOI: 10.5281/zenodo.18574342.
+
+\bibitem{Liu2026TDOME_III}
+S.~Liu, \emph{Keeping a Self-Model Calibrated: Drift Detection, the Price of Keeping Up, and Reliability in a Closed Loop} (T-DOME~III), 2026; July 2026 record DOI: 10.5281/zenodo.18591771.
+
+\bibitem{Liu2026HAFF_E}
+S.~Liu, \emph{Measurement as Accessibility: Measurement Permissions, Stable Records and Public Readout} (HAFF Paper~E), 2026.
+
+\bibitem{Liu2026QRAIF_B}
+S.~Liu, \emph{Thermodynamic Stability Constraints on Persistent Open Quantum Subsystems: Control Algebra, Physical Actuation and Energy Cost}, Zenodo (2026), DOI: 10.5281/zenodo.18525890.
+
+\bibitem{Liu2026CIII}
+S.~Liu, \emph{Finite Self-Models and the Explanatory Gap: What a Continuing Observer Can Know About Itself} (Consciousness~III), 2026; July 2026 record DOI: 10.5281/zenodo.19607724.
+
+\bibitem{Liu2026IMPW}
+S.~Liu, \emph{The World as Imprint: From Trace-Carrying Structure to Self-Reading Mind}, 2026.
+
+\bibitem{Liu2026BRAIN}
+S.~Liu, \emph{The Brain as a Plastic Observable-Algebra Network: Learning Shared Access from Sensorimotor History}, 2026.
+
+\bibitem{Liu2026FIII}
+S.~Liu, \emph{Foundation III: The Perfuming Loop. Held Content, Learned Frames and Physical Return}, 2026.
+
+\bibitem{Simon1955}
+H.~A.~Simon,
+\emph{A behavioral model of rational choice},
+Quarterly J.\ of Economics \textbf{69}, 99 (1955).
+
+\bibitem{Shannon1959}
+C.~E.~Shannon,
+\emph{Coding theorems for a discrete source with a fidelity criterion},
+IRE Nat.\ Conv.\ Rec., Part~4, pp.~142--163 (1959).
+
+\bibitem{CoverThomas2006}
+T.~M.~Cover and J.~A.~Thomas,
+\emph{Elements of Information Theory},
+2nd ed., Wiley (2006).
+
+\bibitem{Sims2003}
+C.~A.~Sims,
+\emph{Implications of rational inattention},
+J.\ Monetary Economics \textbf{50}, 665 (2003).
+
+\bibitem{Tishby2000}
+N.~Tishby, F.~C.~Pereira, and W.~Bialek,
+\emph{The information bottleneck method},
+in Proc.\ 37th Allerton Conf.\ on Communication, Control, and Computing (1999); arXiv:physics/0004057 (2000).
+
+\bibitem{CesaBianchi2011}
+N.~Cesa-Bianchi, S.~Shalev-Shwartz, and O.~Shamir,
+\emph{Efficient learning with partially observed attributes},
+J.\ Mach.\ Learn.\ Res.\ \textbf{12}, 2857--2878 (2011).
+
+\bibitem{BRS2007}
+S.~D.~Bartlett, T.~Rudolph, and R.~W.~Spekkens,
+\emph{Reference frames, superselection rules, and quantum information},
+Rev.\ Mod.\ Phys.\ \textbf{79}, 555--609 (2007).
+
+\bibitem{SkotiniotisGour2012}
+M.~Skotiniotis and G.~Gour,
+\emph{Alignment of reference frames and an operational interpretation for the $G$-asymmetry},
+New J.\ Phys.\ \textbf{14}, 073022 (2012).
+
+\end{thebibliography}
+
+\end{document}

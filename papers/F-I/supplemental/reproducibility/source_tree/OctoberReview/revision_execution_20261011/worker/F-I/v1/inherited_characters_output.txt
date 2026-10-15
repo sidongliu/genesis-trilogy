@@ -1,0 +1,38 @@
+[PASS] orders T=12, O=24, I=60
+[PASS] m_j(C1) = 2j+1
+[PASS] first nontrivial invariant: T at j=3, O at j=4, I at j=6
+[PASS] chi_SO(2) = 1/phi (U(1) current Fock space): p(n)
+[PASS] chi_{trivial} = theta_3/phi (SU(2)_1 vacuum character)
+[PASS] chi_SO(3) = (1-q)/phi (Vir_1 vacuum); levels 0..9 = 1,0,1,1,2,2,4,4,7,8 as in C-I
+[PASS] chi_O(2) at level 4 = 3 (even Fock space, C-I Prop. U1)
+[PASS] chi_O(2) = partitions into an even number of parts
+[PASS] chi_C2 = theta_(nZ)/phi (rank-one lattice extension)
+[PASS] chi_C3 = theta_(nZ)/phi (rank-one lattice extension)
+[PASS] chi_C5 = theta_(nZ)/phi (rank-one lattice extension)
+[PASS] multiplicity sequences (j <= 60) pairwise distinct over 85 conjugacy classes
+  first level where chi_SO(2) and chi_O(2) differ: 1
+  first level where chi_O(2) and chi_SO(3) differ: 4
+  first level where chi_C2 and chi_D2 differ: 1
+  first level where chi_D6 and chi_T differ: 4
+  first level where chi_T and chi_O differ: 9
+  first level where chi_O and chi_I differ: 16
+  first level where chi_I and chi_SO(3) differ: 36
+  first level where chi_C12 and chi_D6 differ: 1
+  mass at angle pi:  T 1/4  O 3/8  I 1/4  D6 7/12  C12 1/12
+
+hull characters, levels 0..16
+  SO(3)  [1, 0, 1, 1, 2, 2, 4, 4, 7, 8, 12, 14, 21, 24, 34, 41, 55]
+  O(2)   [1, 0, 1, 1, 3, 3, 6, 7, 12, 14, 22, 27, 40, 49, 69, 86, 118]
+  SO(2)  [1, 1, 2, 3, 5, 7, 11, 15, 22, 30, 42, 56, 77, 101, 135, 176, 231]
+  C2     [1, 1, 2, 3, 7, 9, 15, 21, 32, 44, 64, 86, 121, 161, 219, 288, 387]
+  C3     [1, 1, 2, 3, 5, 7, 11, 15, 22, 32, 44, 60, 83, 111, 149, 198, 261]
+  D2     [1, 0, 1, 1, 4, 4, 8, 10, 17, 21, 33, 42, 62, 79, 111, 142, 196]
+  T      [1, 0, 1, 1, 2, 2, 4, 4, 7, 9, 13, 16, 24, 29, 41, 52, 70]
+  O      [1, 0, 1, 1, 2, 2, 4, 4, 7, 8, 12, 14, 21, 24, 34, 41, 56]
+  I      [1, 0, 1, 1, 2, 2, 4, 4, 7, 8, 12, 14, 21, 24, 34, 41, 55]
+  C1     [1, 3, 4, 7, 13, 19, 29, 43, 62, 90, 126, 174, 239, 325, 435, 580, 769]
+
+z-axis dephasing noise: closed subgroups containing SO(2)_z are SO(2), O(2), SO(3);
+  their hulls have characters [1, 1, 2, 3, 5, 7, 11, 15, 22] [1, 0, 1, 1, 3, 3, 6, 7, 12] [1, 0, 1, 1, 2, 2, 4, 4, 7]
+
+ALL PASS

@@ -1,0 +1,2293 @@
+\documentclass[12pt]{article}
+
+\usepackage[a4paper, margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{mathtools}
+\usepackage{enumitem}
+\usepackage{booktabs}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fontspec}
+
+\defaultfontfeatures{Ligatures=TeX}
+\IfFontExistsTF{Times New Roman}
+  {\setmainfont{Times New Roman}}
+  {\setmainfont{TeX Gyre Termes}}
+\IfFontExistsTF{Menlo}
+  {\setmonofont{Menlo}}
+  {\setmonofont{Latin Modern Mono}}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+
+\newcommand{\Khat}{\widehat K}
+\newcommand{\Glin}{G^{\mathrm{lin}}}
+\newcommand{\dT}{\delta\langle T\rangle}
+\newcommand{\ev}[1]{\langle #1\rangle}
+
+\title{%
+  \textbf{Higher-Dimensional Consistency of Geometry and Modular Flow:}\\
+  \textbf{Physical Source Identification and a Second-Order Extension}%
+}
+
+\author{
+  Sidong Liu, PhD \\
+  \small iBioStratix Ltd \\
+  \small \texttt{sidongliu@hotmail.com}
+}
+
+\date{October 2026}
+\hypersetup{
+  pdftitle={Higher-Dimensional Consistency of Geometry and Modular Flow: Physical Source Identification and a Second-Order Extension},
+  pdfauthor={Sidong Liu}
+}
+
+\begin{document}
+\emergencystretch=2em
+\raggedbottom
+\hbadness=5000
+\vbadness=5000
+
+\maketitle
+
+\begin{abstract}
+An observer reads ball algebras at different positions, sizes and rest
+frames. We ask when those readings agree with one geometry. In a conformal
+theory on Minkowski space, the first variation of the geodesic ball's
+boundary area minus $(d-1)/R$ times its volume equals minus the
+CHM-weighted linearized Einstein tensor at every radius. The conditional
+law $\eta\,\delta F_B+\delta\langle K_B\rangle=0$ is therefore equivalent
+to $G^{\mathrm{lin}}=(2\pi/\eta)\delta\langle T\rangle$.
+
+A nonzero-frequency source identifies this intrinsic linear response up
+to normalization even when internal length scales are allowed. Local
+coherent and neutral scalar preparations provide smooth finite-energy
+Radon witnesses; a bounded pulse inside a permitted shared hull supplies
+a more general positive-energy test, with local source regularity still
+required. A scalar's physical modular energy includes a boundary charge.
+Its subtraction, or the matched Wald density, is essential: raw energy
+cannot satisfy the pure-area bulk law on all small balls.
+
+One frame fixes only the normal constraint. Boost comparisons determine
+the sourced tensor, with small-rapidity stress noise amplified as
+$\beta^{-2}$. Free Weyl curvature is invisible at linear order.
+Stress-containing selected algebras give the same sourced tensor but
+different relative entropies. Under the supplied radial readout model,
+conditional multipole information falls as $e^{-4k\log k}$.
+
+We extend the local conditional law to second order. A quadratic
+extrinsic-curvature correction gives the full second-order Einstein
+residual from all small boosted balls. A bent slice of flat spacetime
+shows why the correction or a geodesic-slice prescription is necessary.
+For the prepared conformal scalar, changed propagation, metric variation
+and $\xi G\Phi^2$ supply explicit nonzero next-order source terms.
+The common cone, area density and consistency mechanism remain inputs.
+Curved stress readings are not assumed to be curved modular Hamiltonians;
+the common quantum source and nonlinear modular response form a strong,
+testable extension rather than an established consequence of the linear law.
+\end{abstract}
+
+\clearpage
+\tableofcontents
+\clearpage
+
+\section{Introduction}\label{sec:intro}
+
+Consciousness~I asks whether a physical description can be fixed before
+any perspective is specified~\cite{PaperI}. In its chiral conformal net,
+the geometry and modular data of a standard Cut determine each other.
+Transverse directions change the question. A higher-dimensional observer
+has a family of ball algebras, with different centres, radii and rest
+frames. Can one geometry account for all their readings?
+
+For conformal matter in Minkowski spacetime these regions carry the
+bulk Casini--Huerta--Myers (CHM) stress charge~\cite{CasiniHuertaMyers2011}.
+We first construct its geometric partner rather than postulating a
+two-derivative conserved tensor. For every smooth perturbation the
+area--volume variation of a geodesic ball equals the weighted integral
+of the linearized Einstein tensor. The Gauss equation and intrinsic
+gauge invariance explain why that tensor appears. Comparing it with the
+CHM charge gives a conditional same-spacetime Einstein law, without a
+holographic dictionary. Its coefficient is supplied, and its physical
+consistency mechanism remains to be explained.
+
+The next question is whether an experiment identifies the response law.
+A homogeneous source does not. A source with nonzero-frequency weight
+and an open set of boost directions identifies the entire compact
+intrinsic response at one tested radius, up to normalization. We retain
+the proof for tempered Radon Fourier measures, and provide actual scalar
+preparations with finite positive energy. A neutral pulse belongs to a
+proper stable hull; a shared non-scalar hull with translation permission
+can also supply a bounded positive-energy pulse. Control permission,
+smooth local source readings and source-apparatus costs are distinct inputs.
+
+The physical one-sided scalar energy includes a surface charge. Keeping
+it in the ledger yields a raw-energy obstruction and a matched Wald
+coefficient; dropping it would falsely identify a geometric response.
+The resulting tensor is common to stress-containing selected algebras.
+Their relative entropies differ, not the emitted stress. A single rest
+frame leaves momentum and spatial stresses underdetermined, and no
+linear ball reading fixes free gravitational radiation.
+
+Second order is not just a finer version of the same construction.
+Slice extrinsic curvature, changed source propagation, quantum reference
+stress and curved modular flow become relevant. We derive an
+extrinsic-corrected leading small-ball law and prove its two-jet
+equivalence to the second-order Einstein equation. A flat bent-slice
+counterexample and an explicit next-order scalar source test it.
+Section~\ref{sec:secondorder} states the remaining common-geometry
+extension with its source, readout and intervention conditions.
+
+The linear results require a conformal net, the bulk CHM datum, and a
+common Minkowski cone. Q-RAIF~A studies conditions for common propagation
+cones~\cite{QRA}; this paper does not derive the cone of its boosted family.
+Its exact conformal net is a supplied fixed-point theory. Approximate
+cones in a lattice realization do not by themselves establish the
+exact CHM modular flow used here; nonconformal corrections require a
+separate limit estimate \cite{CGM2016}.
+The area density $\eta$ and modular consistency are also inputs.
+Additional edge energy must be unchanged, separately read and subtracted,
+or directly bypassed by bulk stress readings. At second order we supply
+a corrected local \emph{stress} consistency condition, not a curved CHM
+formula. Neither the Gauss identity nor stress conservation makes that
+condition physically true by itself.
+
+Sections~\ref{sec:modular}--\ref{sec:einstein} establish the linear law.
+Sections~\ref{sec:access}--\ref{sec:selection} supply preparations,
+identification and partial-observer limits; Section~\ref{sec:secondorder}
+extends the geometry and source. Section~\ref{sec:multipoles} prices
+radial resolution, and the conclusion returns to the series' question
+of access and a common world. Indexed appendices retain the coefficient,
+spectral-measure, source and entropy calculations.
+
+\section{The modular family of balls}\label{sec:modular}
+
+\subsection{Balls, diamonds and their modular Hamiltonians}\label{subsec:chm}
+
+Work in Minkowski space \(\mathbb R^{1,d}\), \(d\ge2\), with
+\(\eta=\mathrm{diag}(-1,1,\dots,1)\). A ball \(B=B(x_0,R,u)\) is fixed by a centre \(x_0\), a
+radius \(R\) and a future unit timelike vector \(u\): it is the set of points \(x\) with
+\(u\cdot(x-x_0)=0\) and \(|x-x_0|<R\), an open ball in the hyperplane \(\Sigma_u(x_0)\)
+orthogonal to \(u\). Its causal diamond is \(D(B)\). We write
+\[
+w_R(y)=\frac{R^2-|y-x_0|^2}{2R},\qquad T_{uu}=T_{\mu\nu}u^\mu u^\nu ,
+\]
+and \(\Delta_u\) for the Laplacian of \(\Sigma_u\).
+
+Let \(\mathcal A\) be a conformal net on \(\mathbb R^{1,d}\) with vacuum \(\Omega\). The
+modular group of \((\mathcal A(D(B)),\Omega)\) acts geometrically, by the flow of the
+conformal Killing vector that preserves \(D(B)\)~\cite{HislopLongo1982,BGL1993}. In
+coordinates with \(x_0=0\) and \(u=\partial_t\),
+\begin{equation}\label{eq:zeta}
+\zeta_B=\frac1{2R}\Big[(R^2-t^2-r^2)\,\partial_t-2t\,x^i\partial_i\Big],
+\end{equation}
+normalized so that its surface gravity at the edge \(\partial B\) is one; the modular period
+is then \(2\pi\), as for the boost of a wedge. The one-sided CHM modular energy is the stress charge
+\begin{equation}\label{eq:chm}
+K_B=2\pi\int_\Sigma T_{\mu\nu}\zeta_B^\mu n^\nu\,dV
+=2\pi\int_B w_R T_{uu}\,d^dx .
+\end{equation}
+Here \(\Sigma\) is a Cauchy surface of the diamond and the second expression uses its
+central ball. In a theory without an additional edge charge, a faithful type~I
+regulator identifies it with \(H_B=-\log\rho_B\), up to the additive normalization
+constant \cite{CasiniHuertaMyers2011}. For a free conformal scalar the physical
+one-sided energy includes a surface term \cite{CasiniMazzitelliTeste2015};
+Section~\ref{subsec:prepared} keeps that term separate. In the continuum \(K_B\)
+denotes the bulk charge and its
+vacuum-subtracted expectations, with the required stress-smearing limits assumed finite.
+
+The full modular generator is a different object:
+\(\Khat_B=-\log\Delta_B\). It annihilates the vacuum and implements modular covariance.
+At a regulated bipartition,
+\[
+\Khat_B=H_B\otimes1-1\otimes H_{B^c}^{\mathsf T}.
+\]
+Thus it agrees with the physical one-sided energy in expectation differences for a
+unitary local to \(D(B)\), whose complement state is unchanged. It agrees with the
+bulk charge as well when any boundary contribution is unchanged. Arbitrary state variations need not
+have this property. Throughout, \(\delta\ev{K_B}\) means the vacuum-subtracted CHM charge,
+and modular covariance uses \(\Khat_B\).
+
+\subsection{Two kinds of variation}\label{subsec:variations}
+
+HAFF-D separates two ways in which a modular Hamiltonian can change~\cite{HAFFD}, and both
+occur in the ball family.
+
+A \emph{state variation} keeps the region and changes the state:
+\(\delta\ev{K_B}=2\pi\int_Bw_R\,\dT_{uu}\). For a unitary \(W\in\mathcal A(D(B))\)
+with unchanged boundary charge, Araki's
+relative entropy of \(\omega_W=\ev{W\Omega,\cdot\,W\Omega}\) is
+\begin{equation}\label{eq:relent-unitary}
+S_B(\omega_W\Vert\omega)=\ev{W\Omega,\Khat_BW\Omega}=\delta\ev{K_B}_{\omega_W},
+\end{equation}
+which Consciousness~I uses in \(1+1\) dimensions~\cite{PaperI,Araki1976}. For a first-order
+perturbation \(\rho=\sigma+\epsilon\,\delta\rho\) of a regulated (type~I) version, the
+first law is \(\delta S=\delta\ev{H_B}\); it equals the bulk
+\(\delta\ev{K_B}\) when the boundary variation is zero.
+
+A \emph{region variation} keeps the state and moves the ball. The family of all diamonds
+is one orbit of the conformal group, of dimension \(2(d+1)\): \(d+1\) for the centre, one
+for the radius and \(d\) for the rest frame. A one-parameter conformal group
+\(e^{-iaP_\xi}\) moves \(D(B)\) to \(D(B_a)\) and
+\(\Khat_{B_a}=e^{-iaP_\xi}\Khat_Be^{iaP_\xi}\), so
+\begin{equation}\label{eq:regionmove}
+\delta\Khat_B=-i\,\delta a\,[P_\xi,\Khat_B],\qquad \ev{\Omega,\delta\Khat_B\,\Omega}=0 ,
+\end{equation}
+because \(P_\xi\Omega=0\) and \(\Khat_B\Omega=0\). This is the variation formula of HAFF-D for a
+half-sided modular family. Null translations of a wedge give half-sided modular
+inclusions~\cite{Wiesbrock1993,Borchers1992}, and balls are conformal images of wedges, so
+the supplied ball family has the region interface required by HAFF-D's conditional holographic matching. Vacuum covariance concerns the full generator.
+
+This transitivity concerns a single diamond, not an arbitrary pair.
+A nested pair of balls carries the inversive-distance modulus; it is not
+determined by a dimension count for the orbit of one ball.
+
+\subsection{Conservation from the diamond}\label{subsec:conservation}
+
+The algebra of the diamond is the same for every Cauchy surface of \(D(B)\).
+For its bulk stress charge, independence of the first form of~\eqref{eq:chm}
+from \(\Sigma\) is exactly conservation and
+tracelessness.
+
+\begin{proposition}[Conservation from the diamond]\label{prop:conservation}
+Let \(T_{\mu\nu}\) be a smooth symmetric tensor field on an open set
+\(U\subset\mathbb R^{1,d}\). The charge \(Q_\Sigma(B)=\int_\Sigma T_{\mu\nu}\zeta_B^\mu n^\nu
+dV\) is the same for all Cauchy surfaces \(\Sigma\) of \(D(B)\), for every diamond with
+\(\overline{D(B)}\subset U\), if and only if \(\partial^\mu T_{\mu\nu}=0\) and
+\(T^\mu{}_\mu=0\) in \(U\).
+\end{proposition}
+
+\begin{proof}
+\(\zeta_B\) is a conformal Killing vector,
+\(\partial_\mu\zeta_\nu+\partial_\nu\zeta_\mu=\frac{2}{d+1}(\partial\cdot\zeta_B)\eta_{\mu\nu}\),
+with \(\partial\cdot\zeta_B=-(d+1)t/R\) in the coordinates of~\eqref{eq:zeta}. Hence
+\[
+\partial^\mu\big(T_{\mu\nu}\zeta_B^\nu\big)
+=\zeta_B^\nu\,\partial^\mu T_{\mu\nu}+\frac{\partial\cdot\zeta_B}{d+1}\,T^\mu{}_\mu .
+\]
+Two Cauchy surfaces of \(D(B)\) share the edge \(\partial B\) and bound a region of
+\(D(B)\); if the right side vanishes, Stokes' theorem gives equal charges. Conversely,
+deforming \(\Sigma\) near an interior point \(x\) shows that the left side vanishes at
+every \(x\in D(B)\), for every diamond. As \(B\) varies over diamonds containing a fixed
+\(x\), the pairs \((\zeta_B(x),\partial\cdot\zeta_B(x))\) span
+\(\mathbb R^{d+1}\times\mathbb R\), so both terms vanish separately.
+\end{proof}
+
+For the anomaly-free flat conformal stress both properties hold.
+The proposition identifies what slice-independent stress-charge representation requires: a modular datum is attached to a region's algebra, not
+to a slice; provided this same bulk stress charge represents it on every
+Cauchy surface, the stated equality forces conservation and a vanishing trace. Conservation is therefore not an observation to be placed beside the Bianchi
+identity; it is a property of the modular family.
+
+The finite-radius charge has a controlled expansion with leading
+coefficient $c_0=V_d/(d+2)$; its exact Fourier transfer and all radial
+coefficients are given in Appendix~\ref{subsec:series}. In particular,
+an open set of normals recovers a smooth source tensor from its leading
+small-ball charges (Corollary~\ref{cor:recovery}).
+
+\section{The geometric functional of a ball}\label{sec:functional}
+
+\subsection{What a ball functional may read}\label{subsec:balldef}
+
+Let \(h_{\mu\nu}\) be a smooth metric perturbation of Minkowski space, and \(h_{ij}\) the
+perturbation of the metric induced on \(\Sigma_u(x_0)\).
+
+\begin{definition}[Ball functional]\label{def:ballfunctional}
+A \emph{ball functional} assigns to every ball \(B=B(x_0,R,u)\) and every \(h\) a number
+\(\delta F_B[h]\) such that:
+\begin{enumerate}[label=(F\arabic*),leftmargin=3em,itemsep=1pt]
+\item it is linear in \(h\);
+\item it depends only on the induced perturbation \(h_{ij}\) on \(\overline B\);
+\item it is unchanged by \(h_{ij}\mapsto h_{ij}+\partial_i\xi_j+\partial_j\xi_i\) for every
+smooth vector field \(\xi\) on a neighbourhood of \(\overline B\) in \(\Sigma_u\);
+\item it is invariant under the orthogonal group of \(\Sigma_u\) fixing \(x_0\);
+\item it has the same form for every centre and every rest frame, its dependence on \(R\)
+and on any constants being arbitrary;
+\item it is a distribution of finite order supported in \(\overline B\).
+\end{enumerate}
+\end{definition}
+
+No scale covariance is assumed, so the functional may contain any number of length scales
+besides \(R\). The restrictive condition is (F2): the functional reads the intrinsic
+geometry of the ball. Three considerations support it. The region to which the modular
+datum belongs is the ball on its slice, whose geometric data are the induced metric and
+the extrinsic curvature. The extrinsic curvature reverses sign under reflection of time
+about \(\Sigma_u\), while \(\delta\ev{K_B}\) does not change when the state is reflected in
+a theory with that symmetry; a linear functional matched to the modular energy for all
+states cannot depend on it. And second time derivatives of \(h\) are not data of the region
+at all: reading them presupposes an evolution law for the metric, which is what one wants
+to obtain. Proposition~\ref{prop:failures} shows what happens when (F2) is dropped.
+
+\begin{lemma}[Ball functionals see only the Einstein tensor]\label{lem:tau}
+Let \(\delta F\) satisfy (F1)--(F4) and (F6), and let
+\(\tau_u=\partial_i\partial_jh_{ij}-\Delta_uh_{kk}\) be the linearized scalar curvature of
+\(\Sigma_u\).
+\begin{enumerate}[label=(\alph*),leftmargin=2em,itemsep=1pt]
+\item For a plane wave \(h_{ij}=\mathrm{Re}(\varepsilon_{ij}e^{ip\cdot x})\) on \(\Sigma_u\),
+\(\delta F_B[h]=\mathrm{Re}\big(m_B(|p|)\,\hat\tau\,e^{ip\cdot x_0}\big)\) with
+\(\hat\tau=p^2\varepsilon_{kk}-p_ip_j\varepsilon_{ij}\) and \(m_B\) an even entire function,
+the \emph{transfer function} of the functional.
+\item For polynomial \(h\), \(\delta F_B[h]=\sum_k m_k\,\Delta_u^k\tau_u(x_0)\), where
+\(m_B(q)=\sum_km_k(-q^2)^k\).
+\item \(\tau_u=2\,\Glin_{uu}\).
+\item There is a rotation-invariant scalar distribution \(\mu_B\), supported in
+\(\overline B\), such that for every smooth \(h\) on a neighbourhood of that ball,
+\[
+\delta F_B[h]=\langle\mu_B,\tau_u[h]\rangle,
+\qquad \widehat\mu_B(p)=m_B(|p|).
+\]
+No growth condition on \(h\) outside the ball is required.
+\end{enumerate}
+\end{lemma}
+
+The proof is in Appendix~\ref{app:lem:tau}.
+
+
+At linear order about a flat slice, the Gauss equation equates half
+the intrinsic scalar curvature with the normal--normal Einstein component.
+The quadratic extrinsic term is essential beyond that order
+(Section~\ref{sec:secondorder}). The
+Bianchi identity, which makes \(\Glin\) divergence-free, therefore comes with the
+functional; it is not a separate premise.
+
+\begin{corollary}[The Weyl curvature is invisible]\label{cor:weyl}
+If \(h\) is smooth and \(\Glin=0\), every ball functional vanishes on \(h\) for every
+ball. In particular, for \(d\ge3\) a free gravitational wave, whose Riemann tensor is pure
+Weyl curvature, gives zero for every ball, every rest frame and every functional satisfying
+(F1)--(F4) and (F6).
+\end{corollary}
+
+\subsection{The functional}\label{subsec:identity}
+
+For a ball \(B=B(x_0,R,u)\) and a metric \(g=\eta+\epsilon h\), let \(B_\epsilon\) be the
+geodesic ball of radius \(R\) about \(x_0\) in the metric induced on \(\Sigma_u(x_0)\),
+\(A_\epsilon\) the area of its boundary and \(V_\epsilon\) its volume. Define
+\begin{equation}\label{eq:F}
+F_B[g]=A(\partial B_\epsilon)-\frac{d-1}{R}\,V(B_\epsilon),\qquad
+\delta F_B[h]=\frac{d}{d\epsilon}F_B[\eta+\epsilon h]\Big|_{\epsilon=0}.
+\end{equation}
+For \(d=2\) the area is the length of the boundary circle.
+
+\begin{theorem}[Exact identity]\label{thm:identity}
+For every smooth \(h\) and every ball,
+\begin{equation}\label{eq:identity}
+\delta F_B[h]=-\frac12\int_B w_R\,\tau_u\,d^dx=-\int_B w_R\,\Glin_{uu}\,d^dx .
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+Put \(x_0=0\) and write points of \(\Sigma_u\) as \(s\hat n\). To first order the geodesic
+distance from \(0\) to \(s\hat n\) is \(s+\frac12\int_0^sh_{nn}(\sigma\hat n)\,d\sigma\),
+because the length functional is stationary on the straight line. The boundary of
+\(B_\epsilon\) is therefore \(s=R-\epsilon\Phi(\hat n)\) with
+\(\Phi(\hat n)=\frac12\int_0^Rh_{nn}(\sigma\hat n)\,d\sigma\). The area element of a surface
+changes by half the trace of \(h\) over its tangent space, and the volume element by half
+the full trace, so
+\[
+\delta A=\frac12\oint_{S_R}\big(h_{kk}-h_{nn}\big)\,dA-(d-1)R^{d-2}\oint\Phi\,d\Omega,\qquad
+\delta V=\frac12\int_{B}h_{kk}\,d^dx-R^{d-1}\oint\Phi\,d\Omega .
+\]
+In \(\delta A-\frac{d-1}{R}\delta V\) the terms in \(\Phi\) cancel:
+\[
+\delta F_B=\frac12\oint_{S_R}\big(h_{kk}-h_{nn}\big)\,dA-\frac{d-1}{2R}\int_Bh_{kk}\,d^dx .
+\]
+On the other side use \(w_R=0\) and \(\partial_nw_R=-1\) on \(S_R\),
+\(\partial_iw_R=-x_i/R\) and \(\partial_i\partial_jw_R=-\delta_{ij}/R\). Integrating by parts
+twice,
+\(\int_Bw_R\,\partial_i\partial_jh_{ij}=\oint h_{nn}\,dA-\frac1R\int_Bh_{kk}\) and
+\(\int_Bw_R\,\Delta h_{kk}=\oint h_{kk}\,dA-\frac dR\int_Bh_{kk}\). Subtracting gives
+\(\int_Bw_R\tau_u=\oint(h_{nn}-h_{kk})\,dA+\frac{d-1}R\int_Bh_{kk}\), which is
+\(-2\,\delta F_B\). The second equality in~\eqref{eq:identity} is
+Lemma~\ref{lem:tau}(c).
+\end{proof}
+
+The geometric identity can also be evaluated without the linearized formulas, by
+shooting geodesics with their
+Jacobi fields in the metric \(\delta+\epsilon h\) and differencing in \(\epsilon\).
+For a non-conformally-flat perturbation, this evaluation agrees with
+the right side of~\eqref{eq:identity} to
+relative accuracy \(2\times10^{-11}\) in \(d=2\) and \(10^{-10}\) in \(d=3\).
+
+The content of Theorem~\ref{thm:identity} is known: it is the flat-space, linear
+geometric part of the first law of causal diamonds of Jacobson and
+Visser~\cite{JacobsonVisser2019}, there obtained from the covariant phase space of general
+relativity with the Einstein constraint imposed. The proof above uses no field equation.
+That is what the next section needs: \eqref{eq:identity} holds for every perturbation,
+whatever its dynamics.
+
+\subsection{Where the coefficient comes from}\label{subsec:lambda}
+
+The volume term in~\eqref{eq:F} is the fixed-volume prescription of Jacobson's
+entanglement-equilibrium argument~\cite{Jacobson2016}, where it is motivated physically.
+In the modular family it has a structural origin.
+
+\begin{proposition}[The coefficient]\label{prop:lambda}
+Let \(F_\lambda=A-\lambda V\) for geodesic balls.
+\begin{enumerate}[label=(\alph*),leftmargin=2em,itemsep=1pt]
+\item Fix a reference radius \(R_0\) and hold \(\lambda_0\) fixed when varying \(R\).
+Then
+\[
+\left.\frac{d}{dR}\left[\Omega_{d-1}
+ \left(R^{d-1}-\frac{\lambda_0R^d}{d}\right)\right]\right|_{R=R_0}=0
+\quad\Longleftrightarrow\quad \lambda_0=\frac{d-1}{R_0}.
+\]
+Centre and frame moves leave the flat value unchanged for every \(\lambda_0\).
+This fixes the Lagrange multiplier for the variation at \(R_0\).
+\item Write \(\delta F_\lambda=\sum_k\gamma_k(\lambda)\,R^{d+1+2k}\Delta_u^k\tau_u(x_0)\) for
+polynomial \(h\). Then
+\[
+\frac{\gamma_k(\lambda)}{-c_k/2}=\frac{d+2k+2-\lambda R}{2k+3},
+\]
+which is independent of \(k\) if and only if \(\lambda=(d-1)/R\). Thus \(\delta F_\lambda\)
+has the modular weight \(w_R\) at every order in \(R\) exactly for this coefficient.
+\end{enumerate}
+\end{proposition}
+
+The proof is in Appendix~\ref{app:prop:lambda}.
+
+
+Agreement of a geometric functional with the modular data at leading order in \(R\) does
+not fix \(\lambda\); only the coefficient of the Einstein equation would change. Matching the full kernel fixes it to the fixed-reference multiplier.
+The family \(F_R=A_R-(d-1)V_R/R\) itself is not stationary:
+\(F_R[\eta]=\Omega_{d-1}R^{d-1}/d\), so its radius derivative is
+\(\Omega_{d-1}(d-1)R^{d-2}/d\). These two variations must be distinguished.
+
+\section{Modular consistency and the linearized Einstein equation}\label{sec:einstein}
+
+\begin{definition}[Modular consistency]\label{def:MC}
+Let a state have smooth stress-tensor expectation \(\dT\), let \(h\) be a metric
+perturbation, \(\delta F\) a ball functional and \(\eta>0\) a constant. The pair satisfies
+\((\mathrm{MC}_\eta)\) on a family of balls if
+\begin{equation}\label{eq:MC}
+\eta\,\delta F_B[h]+\delta\ev{K_B}=0
+\end{equation}
+for every ball of the family.
+\end{definition}
+
+Here \(K_B\) is the bulk datum defined by~\eqref{eq:chm}. If the physical one-sided
+modular energy is \(H_B=K_B+Q_B\), the same condition uses
+\(\delta\ev{H_B}-\delta\ev{Q_B}\). It uses the raw physical energy only when the
+boundary variation vanishes.
+
+The constant \(\eta\) has the dimension of an inverse area. For first-order perturbations
+with unchanged boundary charge, where \(\delta S_B=\delta\ev{K_B}\), and with
+\(\delta F=\delta F_B\) of~\eqref{eq:F},
+condition~\eqref{eq:MC} says that \(\eta A+S\) is stationary at fixed volume, which is
+Jacobson's entanglement equilibrium~\cite{Jacobson2016}. We keep the modular energy, not
+the entropy, in~\eqref{eq:MC}; Remark~\ref{rem:energy} and Section~\ref{sec:selection}
+explain why. In words, \((\mathrm{MC}_\eta)\) says that the modular energy of every ball is
+balanced by one geometric response of the ball, with one constant.
+If a boundary charge varies, the first-order entropic version uses
+\(\delta S_B-\delta\ev{Q_B}\), not the uncorrected entropy variation.
+
+\subsection{Equivalence}\label{subsec:equivalence}
+
+\begin{theorem}[Equivalence]\label{thm:equivalence}
+Let \(U\subset\mathbb R^{1,d}\) be open, and let \(\dT\) and \(h\) be smooth on \(U\). With
+\(\delta F\) the functional~\eqref{eq:F}, the following are equivalent.
+\begin{enumerate}[label=(\alph*),leftmargin=2em,itemsep=1pt]
+\item \((\mathrm{MC}_\eta)\) holds for all balls \(\overline B\subset U\), in all rest frames and at all
+radii.
+\item \((\mathrm{MC}_\eta)\) holds to leading order in \(R\) at every \(x_0\in U\), for all
+\(u\) in some nonempty open set of rest frames.
+\item \(\Glin_{\mu\nu}=\dfrac{2\pi}{\eta}\,\dT_{\mu\nu}\) in \(U\).
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+(c)\(\Rightarrow\)(a): by Theorem~\ref{thm:identity},
+\(\eta\,\delta F_B=-\eta\int_Bw_R\Glin_{uu}=-2\pi\int_Bw_R\dT_{uu}=-\delta\ev{K_B}\). (a)
+\(\Rightarrow\)(b) is immediate. (b)\(\Rightarrow\)(c): the leading terms of both sides
+of~\eqref{eq:MC} carry the same factor \(V_dR^{d+1}/(d+2)\)
+(Proposition~\ref{prop:series} and Theorem~\ref{thm:identity}), so
+\(\eta\Glin_{uu}(x_0)=2\pi\dT_{uu}(x_0)\) for an open set of \(u\), and
+Corollary~\ref{cor:recovery} gives the tensor equation.
+\end{proof}
+
+\emph{Normalization.} The factor \(V_d/(d+2)\) appears on both sides and cancels, so the
+coupling is \(2\pi/\eta\) in every dimension. With \(\eta=1/4G\) it is \(8\pi G\): the
+\(2\pi\) is the modular period of a ball and the \(1/4\) is the Bekenstein--Hawking area
+density.
+
+\emph{All radii from leading order.} Agreement at leading order already forces the field
+equation, and the field equation makes the two sides agree at every radius. The finite-size
+corrections of the modular side and of the geometric side are therefore identical, term by
+term in~\eqref{eq:series}; for a Fourier mode both have the transfer function \(f\)
+of~\eqref{eq:transfer}. Given the field equation, the full ball-dependent
+functional agrees with the modular data on every ball; this is the converse direction.
+
+\emph{Conservation and trace.} The Einstein tensor is divergence-free by the Bianchi
+identity and \(\dT\) is conserved and traceless by Proposition~\ref{prop:conservation}; the
+equation is consistent with both and requires \(R^{\mathrm{lin}}=0\) in \(U\). Neither
+property is an additional premise.
+
+\emph{Background.} The background is Minkowski space, so no cosmological term appears.
+For diamonds in de~Sitter or anti-de~Sitter space the first law of Jacobson and Visser
+contains the cosmological constant and its variation~\cite{JacobsonVisser2019}; the
+corresponding version of Theorem~\ref{thm:identity} is not derived here.
+
+\subsection{Uniqueness}\label{subsec:uniqueness}
+
+The canonical identity holds for every metric perturbation. Identifying that response
+from data requires a source that excites more than the zero-frequency channel.
+
+\begin{lemma}[Conserved amplitudes under frame variation]\label{lem:quadric}
+Let \(k\ne0\), and let \(t,g\) be symmetric complex tensors with
+\(k^\mu t_{\mu\nu}=k^\mu g_{\mu\nu}=0\), \(t\ne0\).
+On a nonempty open set of future unit timelike vectors suppose
+\(g_{uu}=a(q_u)t_{uu}\), where \(q_u^2=k^2+(u\cdot k)^2\) and \(a\) is analytic
+on an interval of attained momenta. Then \(g=a_0t\) for a constant \(a_0\).
+Tracelessness is not needed.
+\end{lemma}
+
+\begin{proof}
+For timelike \(k\), choose its rest frame. Conservation sets \(g_{0a}=t_{0a}=0\).
+Write \(u=(\sqrt{1+r^2},rn)\). At fixed \(r>0\), equality on an open patch of
+the sphere implies \(g_{ij}=a(q_r)t_{ij}\) by equality of quadratic forms.
+The nonzero tensor \(t\) fixes the same scalar as \(r\) varies.
+
+For spacelike \(k\), put it along the first spatial coordinate. Conservation sets
+\(g_{1a}=t_{1a}=0\). At fixed \(u^1=b\), the remaining coordinates run over the
+timelike hyperboloid of squared norm \(-1-b^2\).
+A homogeneous quadratic form vanishing on an open patch of this hyperboloid vanishes
+on the open timelike cone by analytic continuation and homogeneity, hence identically.
+Thus \(g=a(q_b)t\), with one scalar independent of \(b\).
+
+For null \(k\), take \(k\propto(1,1,0,\ldots)\). Conservation gives
+\(g_{0a}+g_{1a}=t_{0a}+t_{1a}=0\). At fixed \(r=u^0-u^1>0\), the transverse
+coordinates \(v\) vary freely, \(q_u\) is fixed, and
+\[
+g_{uu}=g_{00}r^2+2r g_{0A}v^A+g_{AB}v^Av^B.
+\]
+Equality on an open patch is equality of these polynomials. It gives \(g=a(q_r)t\);
+again \(t\ne0\) fixes the scalar. An open frame set contains patches with an interval
+of \(r\) or \(b\), away from any isolated critical value of \(q_u\).
+\end{proof}
+
+\begin{theorem}[Nonzero-frequency identification]\label{thm:uniqueness}
+Fix \(R>0\) and let \(\delta F\) obey (F1)--(F6), with transfer function \(m_R\).
+Suppose
+\[
+\dT_{ab}(x)=\operatorname{Re}(t_{ab}e^{ik\cdot x}),\qquad
+\Glin_{ab}[h](x)=\operatorname{Re}(g_{ab}e^{ik\cdot x}),
+\]
+where \(k\ne0\), \(t\ne0\), and \(t,g\) are conserved symmetric amplitudes.
+If \((\mathrm{MC}_\eta)\) holds on a nonempty open set of centres and on a nonempty open set of rest
+frames at this radius, then
+\[
+m_R(q)=-\frac c2\widehat w_R(q)\quad\hbox{for every }q,\qquad
+g_{ab}=\frac{2\pi}{c\eta}t_{ab},\qquad c\in\mathbb R\setminus\{0\}.
+\]
+Consequently \(\delta F=c\,\delta F_B\) at this radius on arbitrary smooth metric inputs.
+If the same witness satisfies consistency at further radii, the same \(c\) applies
+at each tested radius. A hypothesis restricted to \(R<R_0\) identifies only that range.
+
+More generally let the spacetime Fourier transforms of \(\dT\) and \(\Glin[h]\) be
+tempered tensor-valued complex Radon measures, meaning that their total variations
+are locally finite and have at most polynomial growth, with the source measure nonzero away
+from \(k=0\). With consistency at all spacetime centres and an open frame set,
+the response is identified at
+this radius and \(\Glin[h]=(2\pi/(c\eta))\dT\) as distributions.
+This includes continuous Fourier densities and sources stationary in one frame with
+a continuous spatial spectrum. General tempered distributions need a separate argument.
+\end{theorem}
+
+The proof is in Appendix~\ref{app:thm:uniqueness}.
+
+
+One radius is enough because changing the rest frame turns a nonzero spacetime
+frequency into an interval of spatial frequencies, and the compact support of the
+response supplies analytic continuation. Exact identification does not imply stable
+identification from finitely many noisy frames. The theorem concerns response laws tested
+by such data, rather than a physical derivation of the modular-consistency hypothesis.
+
+\begin{corollary}[The spectral criterion is necessary and sufficient]\label{cor:spectraliff}
+Let \(d\ge2\), fix a radius, and suppose a nonzero smooth source and a smooth metric
+satisfy \((\mathrm{MC}_\eta)\) for some functional obeying (F1)--(F6), at every centre
+and on an open set of frames. Suppose both tensor Fourier transforms belong to the
+tempered Radon class of Theorem~\ref{thm:uniqueness}. The data identify the canonical
+functional up to normalization if and only if the source measure has nonzero weight
+away from zero. If it is supported at zero, both tensors are constant and the data
+test only \(m_R(0)\).
+\end{corollary}
+
+The proof is in Appendix~\ref{app:cor:spectraliff}.
+
+
+The nonzero-source hypothesis excludes a degenerate experiment: if both source and
+Einstein tensor vanish, every admissible functional fits. Polynomial sources fall
+outside the Radon class; their Fourier transforms contain derivatives of \(\delta_0\).
+A polynomial tensor of degree \(n\) probes only the finitely many coefficients
+\(m_k\) with \(2k\le n\), so it also leaves higher spatial derivatives undetermined.
+
+\begin{example}[A homogeneous source leaves the response open]\label{ex:homogeneous}
+In \(D=d+1\ge3\) spacetime dimensions put
+\(T_{ab}=\operatorname{diag}(d,1,\ldots,1)\), \(\kappa=2\pi/\eta\),
+\(x^2=\eta_{ab}x^ax^b\), and \(Txx=T_{ab}x^ax^b\). The quadratic metric
+\[
+h_{ab}=-\frac{\kappa}{2(D-2)}\bigl(T_{ab}x^2+\eta_{ab}Txx\bigr)
+\]
+has \(R^{\mathrm{lin}}=0\) and \(\Glin_{ab}=\kappa T_{ab}\).
+For every \(\ell\ne0\), the intrinsic functional
+\[
+\delta F^{\mathrm{new}}_B[h]=\delta F_B[h]
++\ell^2\int_Bw_R\Delta_u\tau_u[h]\,d^dx
+\]
+obeys (F1)--(F6) and satisfies exactly the same consistency condition on this
+pair at every centre, radius and frame. Its extra term vanishes because
+\(\Glin\) is constant. It is not a multiple of the canonical functional:
+its transfer function is \((-\tfrac12-\ell^2q^2)\widehat w_R(q)\).
+A homogeneous source tests only the zero-momentum response.
+\end{example}
+
+The Einstein tensor appears through intrinsic slice curvature and the Gauss equation.
+Nonzero-frequency data then identify its two-derivative response: no independent
+assumption excluding internal length scales is needed. Actual source preparation is
+therefore part of what makes a geometric law identifiable.
+
+\subsection{What fails without each hypothesis}\label{subsec:failures}
+
+\begin{proposition}\label{prop:failures}
+\begin{enumerate}[label=(\alph*),leftmargin=2em,itemsep=2pt]
+\item \emph{One order in \(R\) is not enough.} The area of the geodesic sphere at fixed
+radius, \(\lambda=0\) in Proposition~\ref{prop:lambda}, satisfies \((\mathrm{MC}_\eta)\) to
+leading order with \(\Glin=\frac{6\pi}{(d+2)\eta}\dT\), but its coefficient of order
+\(R^{d+3}\) differs from the modular one by the factor \(1-\frac{2(d-1)}{5(d+2)}\)
+(\(-16\%\) for \(d=3\)). Consistency at that order would require \(\Delta_u\dT_{uu}=0\) in
+every frame. For a Fourier mode the two transfer functions differ by \(0.29\%\), \(1.2\%\),
+\(5.2\%\) and \(14\%\) at \(R|k_u|=0.5,1,2,3\) (\(d=3\)).
+\item \emph{Reading off the slice.} The functional
+\(\delta F^{(\ell)}_B=-\int_Bw_R\,(\Glin_{uu}-\ell^2\Box\Glin_{uu})\) satisfies
+(F1) and (F3)--(F6) but not (F2). \((\mathrm{MC}_\eta)\) holds for it at all radii and in all
+frames if and only if \((1-\ell^2\Box)\Glin_{\mu\nu}=(2\pi/\eta)\dT_{\mu\nu}\), a
+fourth-order equation.
+\item \emph{Reading only the trace-free part.} The functional
+\(-\int_Bw_R\,(R^{\mathrm{lin}}_{uu}+R^{\mathrm{lin}}/(d+1))\) gives
+\(R^{\mathrm{lin}}_{\mu\nu}-\frac{1}{d+1}\eta_{\mu\nu}R^{\mathrm{lin}}=(2\pi/\eta)\dT_{\mu\nu}\);
+the Bianchi identity makes \(R^{\mathrm{lin}}\) constant, and the result is
+\(\Glin_{\mu\nu}+\Lambda\eta_{\mu\nu}=(2\pi/\eta)\dT_{\mu\nu}\) with an integration constant
+\(\Lambda=\frac{d-1}{2(d+1)}R^{\mathrm{lin}}\).
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+(a) From Proposition~\ref{prop:lambda}(b) with \(\lambda=0\) the ratios to the modular
+coefficients are \((d+2)/3\) and \((d+4)/5\) at the first two orders; the transfer
+functions are computed from the linearized geodesic ball. (b) and (c) follow as
+in Theorem~\ref{thm:equivalence}, with the operator inside the integral in place of
+\(\Glin_{uu}\); in (c), \(\partial^\mu R^{\mathrm{lin}}_{\mu\nu}=\frac12\partial_\nu
+R^{\mathrm{lin}}\) and \(\partial^\mu\dT_{\mu\nu}=0\) give
+\(\big(\frac12-\frac1{d+1}\big)\partial_\nu R^{\mathrm{lin}}=0\).
+\end{proof}
+
+Part~(b) is the general lesson. Higher-derivative laws arise when the geometric response of
+a region depends on how the geometry evolves away from the region's slice; the analysis of
+higher-curvature entanglement equilibrium by Bueno et al.\ fits this
+pattern~\cite{BMSV2017}. Part~(c) shows where a cosmological constant could enter as an
+integration constant: only through a functional blind to the trace, which the intrinsic one
+is not.
+
+\begin{remark}[Energy, not entropy]\label{rem:energy}
+For a unitary \(W\in\mathcal A(D(B))\) with unchanged boundary charge,
+the entropy of the ball does not change at a
+regulator preserving that local unitary, while
+\(\delta\ev{K_B}=S_B(\omega_W\Vert\omega)\ge0\),
+with strict inequality whenever the local state changes,
+by~\eqref{eq:relent-unitary}. For a coherent excitation strictly local to \(D(B)\), the
+modular energy and the relative entropy of that ball are equal and of second order in
+the amplitude. A condition written with entropy,
+\(\eta\,\delta F_B+\delta S_B=0\), would then require \(\delta F_B=0\) on that ball,
+in conflict with the semiclassical Einstein response to a nontrivial preparation.
+Condition~\eqref{eq:MC} has no such problem. Entanglement equilibrium agrees with it for
+perturbations whose modular energy is of first order, and only for those.
+\end{remark}
+
+\section{What an observer's ball data fix}\label{sec:access}
+
+An observer does not have all balls. It has balls near its worldline, of sizes between a
+resolution and a scale of interest, in the rest frames it can compare. This section asks
+what such data fix through \((\mathrm{MC}_\eta)\), and with what stability.
+
+\subsection{One rest frame}\label{subsec:singleframe}
+
+\begin{proposition}[One rest frame gives the Hamiltonian constraint]\label{prop:singleframe}
+Fix \(u\).
+\begin{enumerate}[label=(\alph*),leftmargin=2em,itemsep=1pt]
+\item \((\mathrm{MC}_\eta)\) for all balls in the frame \(u\), at all centres in \(U\) and all
+radii, is equivalent to \(\Glin_{uu}=(2\pi/\eta)\dT_{uu}\) in \(U\).
+\item Let \(\dT\) be stationary in the frame \(u\), and let \(\dT'\) be its time reverse,
+\(T'_{00}=T_{00}\), \(T'_{0i}=-T_{0i}\), \(T'_{ij}=T_{ij}\). Then \(\dT'\) is conserved,
+traceless and stationary, and the modular energies of all balls at rest in \(u\) are the
+same for both sources. For a ball boosted with rapidity \(\beta\) in the direction \(n\)
+they differ by \(2\pi\int_Bw_R\,2\sinh(2\beta)\,n^iT_{0i}\).
+\item Consequently, if \(h\) satisfies \(\Glin=(2\pi/\eta)\dT\), the pair \((\dT',h)\)
+satisfies \((\mathrm{MC}_\eta)\) for every ball at rest in \(u\), although
+\(\Glin_{0i}=-(2\pi/\eta)T'_{0i}\).
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+(a) is Theorem~\ref{thm:equivalence} with a single frame, where the leading term gives only
+the \(uu\) component. (b) Stationarity and conservation give
+\(\partial_iT_{0i}=-\partial_tT_{00}=0\) and \(\partial_jT_{ij}=-\partial_tT_{0i}=0\), which
+are the conservation equations of \(\dT'\); the trace is unchanged. Balls at rest in \(u\)
+read only \(T_{00}\). For \(u=(\cosh\beta,\sinh\beta\,n)\),
+\(T_{uu}-T'_{uu}=4\cosh\beta\sinh\beta\,n^iT_{0i}\). (c) follows from (a) and
+(b).
+\end{proof}
+
+A body rotating one way and the same body rotating the other way have identical ball data
+in their common rest frame, and opposite frame dragging. The momentum constraint and the
+spatial components of the field equation, which carry the dynamics, are the part of the
+geometry that only comparison of rest frames reveals. In this precise sense the
+multi-directional character of the data is where the gravitational dynamics sits.
+
+\subsection{Several rest frames and their stability}\label{subsec:stability}
+
+By Corollary~\ref{cor:recovery} any open set of rest frames suffices in exact arithmetic.
+With noise and finite balls the question is quantitative.
+
+\begin{proposition}[Rapidity sets the precision]\label{prop:stability}
+Let the observer use its rest frame and boosts of rapidity \(\beta\) in a fixed set of
+directions for which the leading-order readings determine a traceless symmetric tensor,
+and let each normalized reading \(y_a=\dT_{u_au_a}(x_0)+e_a\) carry an independent error of
+variance \(\sigma^2\). As \(\beta\to0\) the least-squares estimate has root-mean-square
+error of order \(\sigma\) in \(T_{00}\), \(\sigma/\beta\) in \(T_{0i}\) and \(\sigma/\beta^2\)
+in \(T_{ij}\).
+\end{proposition}
+
+\begin{proof}
+With \(u_a=(1+\frac{\beta^2}2,\beta n_a)+O(\beta^3)\),
+\(y_a=T_{00}+2\beta\,n_a^iT_{0i}+\beta^2(T_{00}+n_a^in_a^jT_{ij})+O(\beta^3)+e_a\). The columns
+of the design matrix for \((T_{00},T_{0i},T_{ij})\) scale as \(1,\beta,\beta^2\), and for a
+direction set whose leading blocks are nondegenerate the inverse scales as
+\(1,\beta^{-1},\beta^{-2}\).
+\end{proof}
+
+Finite balls add a bias. A reading at radius \(R\) multiplies each Fourier component by
+\(f(R|k_u|)\) (Proposition~\ref{prop:series}), and \(|k_u|\) grows like \(e^\beta\) for
+large boosts. For the stresses the bias then grows like \(R^2e^{2\beta}|k|^2\) while the
+noise falls like \(\sigma e^{-2\beta}\), and the best error obtainable with one radius scales
+as \(\sqrt\sigma\,R\,|k|\). Table~\ref{tab:stability} shows both regimes for one mode in
+\(d=3\), with thirteen frames (the rest frame and boosts along the six coordinate
+half-axes and six face diagonals). A finer scan gives an optimal error proportional to
+\(R^{1.03}\) when noise dominates and to \(\sigma^{0.48}\) between \(\sigma=10^{-4}\) and
+\(10^{-2}\) at \(R=0.02L\); at very small \(\sigma\) the rest-frame bias, proportional to
+\(R^2\), dominates. Since the transfer function is known exactly, readings at
+several radii can remove the finite-size bias. What cannot be removed is the amplification
+of noise by a small range of rapidities.
+
+\begin{table}[ht]
+\centering
+\small
+\begin{tabular}{@{}rcccccc@{}}
+\toprule
+& \multicolumn{3}{c}{\(\sigma=10^{-4}\)} & \multicolumn{3}{c}{\(\sigma=10^{-2}\)}\\
+\cmidrule(lr){2-4}\cmidrule(l){5-7}
+\(\beta\) & \(T_{00}\) & \(T_{0i}\) & \(T_{ij}\) & \(T_{00}\) & \(T_{0i}\) & \(T_{ij}\)\\
+\midrule
+0.05 & \(3.2\times10^{-5}\) & \(1.1\times10^{-3}\) & \(8.8\times10^{-2}\) & \(3.3\times10^{-3}\) & \(1.0\times10^{-1}\) & \(9.3\)\\
+0.2 & \(3.1\times10^{-5}\) & \(2.7\times10^{-4}\) & \(5.8\times10^{-3}\) & \(3.1\times10^{-3}\) & \(2.7\times10^{-2}\) & \(5.8\times10^{-1}\)\\
+0.7 & \(3.0\times10^{-5}\) & \(7.6\times10^{-5}\) & \(4.3\times10^{-4}\) & \(1.9\times10^{-3}\) & \(5.3\times10^{-3}\) & \(3.8\times10^{-2}\)\\
+1.0 & \(5.3\times10^{-5}\) & \(9.5\times10^{-5}\) & \(3.4\times10^{-4}\) & \(1.1\times10^{-3}\) & \(3.1\times10^{-3}\) & \(1.7\times10^{-2}\)\\
+2.0 & \(4.5\times10^{-4}\) & \(7.3\times10^{-4}\) & \(2.2\times10^{-3}\) & \(4.6\times10^{-4}\) & \(8.2\times10^{-4}\) & \(2.7\times10^{-3}\)\\
+\bottomrule
+\end{tabular}
+\caption{Root-mean-square reconstruction error of a unit-norm traceless conserved source
+\(\mathrm{Re}(\varepsilon_{\mu\nu}e^{ik\cdot x})\), \(k=(1,0.6,0.3,-0.2)/L\), from leading-order
+readings of balls of radius \(R=0.05L\) in thirteen frames of rapidity \(\beta\), 200 noise
+draws.}
+\label{tab:stability}
+\end{table}
+
+\subsection{Free radiation}\label{subsec:radiation}
+
+By Corollary~\ref{cor:weyl}, \((\mathrm{MC}_\eta)\) fixes \(h\) only up to solutions of
+\(\Glin=0\). For \(d\ge3\) these include gauge modes and free gravitational waves. This is exactly the
+freedom that the Einstein equation itself leaves. No ball functional registers a free wave
+at linear order, in any frame and at any radius. At second order its quadratic geometry enters
+$G^{(2)}[h,h]$. Moving that term to an effective source is an additional
+convention, not an extra matter stress tensor. Shape-sensitive regions can also
+probe tidal data: a deformed region couples to the tidal part of the curvature. In \(2+1\)
+dimensions the Riemann tensor is algebraically determined by the Ricci tensor, so
+\(\Glin=0\) implies a locally pure-gauge perturbation on a contractible domain.
+Global identifications and boundary conditions can still distinguish metrics.
+
+\subsection{A locally prepared source and its boundary datum}\label{subsec:prepared}
+
+The source witness of Theorem~\ref{thm:uniqueness} can be prepared by a local operation.
+For a free scalar one must also specify which part of its modular energy is being read.
+We use the scalar boundary prescription of Casini, Mazzitelli and
+Test\'e~\cite[Eq.~(58)]{CasiniMazzitelliTeste2015}, with the boundary-condition
+derivation of Herzog and Nishioka~\cite[Secs.~1--2]{HerzogNishioka2016}.
+The prescription agrees with thermal numerical calculations and R\'enyi-entropy
+checks~\cite{Herzog2014,LLPS2015}. For the conformal improved stress tensor it gives
+\begin{equation}\label{eq:scalaredge}
+H_B=K_B+Q_B,\qquad
+Q_B=2\pi\xi\int_{\partial B}\sum_a:\!\phi_a^2\!:\,dA,\qquad
+\xi=\frac{d-1}{4d}.
+\end{equation}
+There is one real component for a real scalar and two for a complex scalar. The formula
+uses vacuum-subtracted expectations. A surface expectation is defined as the limit of
+smooth collar smearings of the normal-ordered field square, whose weights converge to
+surface measure. No sharp boundary operator on arbitrary states is assumed.
+
+\begin{proposition}[Local preparation supplies a nonzero spectral witness]\label{prop:prepared}
+In the free massless complex scalar vacuum, let \(f\) be a real smooth compactly
+supported spacetime function with nonzero one-particle class. Put
+\(W_\theta=\exp[i\theta\phi_1(f)]\), \(\theta\ne0\), and
+\(\varphi_f=\Delta_{\mathrm{PJ}}f\), with the sign convention fixed so that
+\(\omega_{W_\theta}(\phi_1(x))=\theta\varphi_f(x)\).
+Then
+\begin{equation}\label{eq:preparedsource}
+\dT_{\mu\nu}=\theta^2\left[
+\partial_\mu\varphi_f\partial_\nu\varphi_f
+-\frac12\eta_{\mu\nu}(\partial\varphi_f)^2
++\xi(\eta_{\mu\nu}\Box-\partial_\mu\partial_\nu)\varphi_f^2\right].
+\end{equation}
+It is smooth, conserved and traceless, has finite strictly positive total spatial energy,
+and has a finite tensor-valued Radon Fourier measure with nonzero mass away from \(k=0\).
+All polynomial moments of that measure are finite. Its boundary-energy variation is
+\begin{equation}\label{eq:preparededge}
+\delta\ev{Q_B}=2\pi\xi\theta^2\int_{\partial B}\varphi_f^2\,dA.
+\end{equation}
+If \(\operatorname{supp}f\) is compactly contained in \(D(B)\), this term vanishes for
+that ball. It need not vanish for the same state on other balls.
+\end{proposition}
+
+The proof is in Appendix~\ref{app:prop:prepared}.
+
+
+\begin{example}[A common state, source and bulk response]\label{ex:coherent}
+Take the prepared state above and \(\kappa=2\pi/\eta\). A smooth linearized response
+\(\Glin[h]=\kappa\dT\) exists with constraint-compatible initial data. For example,
+write \(\bar h_{\mu\nu}=h_{\mu\nu}-\eta_{\mu\nu}h^\alpha{}_\alpha/2\) and solve
+\(\Box\bar h_{\mu\nu}=-2\kappa\dT_{\mu\nu}\).
+At a fixed time \(t_0\), choose smooth Poisson solutions
+\[
+\Delta a=-2\kappa\dT_{00}(t_0,\cdot),\qquad
+\Delta b_j=2\kappa\dT_{0j}(t_0,\cdot).
+\]
+Set \(\bar h_{00}=a\), all other initial components zero,
+\(\partial_t\bar h_{0\nu}=0\), and
+\(\partial_t\bar h_{ij}=\partial_i b_j+\partial_j b_i-\delta_{ij}\partial_\ell b_\ell\).
+The Lorenz constraint \(C_\nu=\partial^\mu\bar h_{\mu\nu}\) and its first time derivative
+vanish initially. Conservation gives \(\Box C_\nu=0\), so they vanish throughout the
+linear evolution and \(\Glin[h]=\kappa\dT\).
+Compact smooth sources on a slice admit these Poisson solutions; in \(d=2\) logarithmic
+behaviour at spatial infinity is allowed. The construction is smooth and tempered, and
+is perturbatively small on each fixed compact domain as \(\theta\to0\).
+
+For this pair Theorem~\ref{thm:equivalence} gives, for every ball,
+\begin{equation}\label{eq:edgeMC}
+\eta\,\delta F_B[h]
++\delta\ev{H_B}-\delta\ev{Q_B}=0.
+\end{equation}
+Both \(\widehat{\dT}\) and \(\widehat{\Glin[h]}=\kappa\widehat{\dT}\) meet the Radon
+hypotheses. Hence one radius, all centres and an open frame family identify the
+canonical intrinsic response from these edge-subtracted readings.
+The matter state, its physical source and the response law coexist here; the Einstein
+coupling and the constraint-compatible gravitational data were supplied, not generated
+by the Weyl preparation.
+\end{example}
+
+The subtraction has operational content. It requires access to calibrated collar
+readings of \(\sum_a:\!\phi_a^2\!:\), in addition to the modular energy or the bulk stress
+readings. Their limiting expectations are finite in this coherent family, but no finite
+sample, resolution or preparation cost for the collar limit has been derived.
+The total-energy formula counts the prepared radiation, not the switching,
+phase-reference or reset costs of the source apparatus.
+If the bulk stress charge is read directly, the subtraction is unnecessary; calling that
+charge the raw physical \(H_B\) would still be incorrect.
+
+\begin{corollary}[Raw scalar energy cannot obey the bulk law on all small balls]\label{cor:edgeobstruction}
+At every centre \(x_0\) with \(\varphi_f(x_0)\ne0\), and in any one fixed rest frame,
+no smooth metric perturbation satisfies
+\(\eta\,\delta F_B[h]+\delta\ev{H_B}=0\) for all sufficiently small radii.
+Thus the obstruction is visible at each point of a nonempty open set for every
+nonzero coherent preparation.
+\end{corollary}
+
+\begin{proof}
+At a point with \(\varphi_f(x_0)\ne0\),
+\[
+\delta\ev{Q_B}
+=2\pi\xi\theta^2\Omega_{d-1}R^{d-1}\varphi_f(x_0)^2+O(R^{d+1}).
+\]
+The bulk charge and the canonical intrinsic geometric variation are both
+\(O(R^{d+1})\) for smooth source and metric fields. They cannot cancel the nonzero
+\(R^{d-1}\) term at that centre, even without varying the rest frame.
+\end{proof}
+
+\begin{remark}[The same curvature coupling fixes the surface subtraction]\label{rem:waldedge}
+The boundary coefficient has a gravitational counterpart, not merely a readout
+calibration. For the nonminimally coupled scalar Lagrangian
+\[
+\mathcal L=\left(\frac{1}{16\pi G}-\frac{\xi}{2}\Phi^2\right)\mathcal R
+-\frac12\sum_a(\nabla\phi_a)^2,\qquad \Phi^2=\sum_a\phi_a^2,
+\]
+the binormal curvature derivative gives the Wald surface density
+\cite[Eqs.~(53), (93)]{IyerWald1994}
+\[
+S_{\mathrm W}[\Sigma]=\int_\Sigma
+\left(\frac{1}{4G}-2\pi\xi\Phi^2\right)dA.
+\]
+The nonminimal scalar contribution and its relation to the entropy contact term
+are established results; see, for example, Donnelly and Wall~\cite[Eq.~(5),
+Sec.~II.A]{DonnellyWall2012}. Here the same coefficient is used in the ball-family
+consistency law.
+Indeed, for the curvature coefficient \(c\),
+\(\partial\mathcal L/\partial R_{abcd}
+=c(g^{ac}g^{bd}-g^{ad}g^{bc})/2\);
+contraction with a binormal of norm \(-2\) and multiplication by \(-2\pi\)
+give \(4\pi c\). In the coherent witness the vacuum-subtracted quadratic profile is
+\(\delta\ev{\Phi^2}=\theta^2\varphi_f^2\). At the retained order, with
+\(h=O(\theta^2)\), its surface-measure correction is \(O(\theta^4)\).
+For \(\eta=1/(4G)\), the Wald-matched ball quantity, with the same supplied
+volume term as \(F_B\), is consequently
+\[
+\mathcal B_B:=\delta S_{\mathrm W}[\partial B]
+-\eta\frac{d-1}{R}\delta V(B)
+=\eta\,\delta F_B-\delta\ev{Q_B}.
+\]
+Thus \(\mathcal B_B+\delta\ev{H_B}
+=\eta\,\delta F_B+\delta\ev{K_B}\): the bulk consistency law is exactly restored.
+This matches a local surface density and fixes its matter coefficient from the same
+curvature coupling. It is a coefficient identity for the ball consistency law, not
+a thermodynamic first law for arbitrary diamonds.\footnote{An arbitrary ball edge
+is not a Killing horizon; MC, a generalized volume and a nonlinear second law do
+not follow from this density match.}
+The pure-area/raw-energy obstruction above is unchanged.
+\end{remark}
+
+\section{Which algebra the observer has}\label{sec:selection}
+
+Consciousness~I and Foundation~I select an observer's algebra by noise and by a readable
+seed, and the selected algebra is in general smaller than the full local
+algebra~\cite{PaperI,FoundationI}. HAFF-D conjectures that gravitational phenomena are tied
+to the selection of observable algebras~\cite{HAFFD}. In the ball family the question is
+precise: does the geometry fixed by \((\mathrm{MC}_\eta)\) depend on which algebra is
+selected?
+
+For a bounded collection of scalar preparations and tested stress or collar
+smearings, choose a containing diamond \(D_0\). The \(U(1)\) Haar expectation \(E\)
+on this diamond preserves the vacuum and fixes the invariant readings.
+The semigroup \(\mathcal E_t=e^{-\gamma t}\mathrm{id}+(1-e^{-\gamma t})E\) is
+vacuum-stationary. Foundation~I's stationary-source and stable-seed
+theorems~\cite{FoundationI} place the modular hull of any such invariant seed inside
+the proper fixed algebra. The charged coherent preparation above requires a separate
+phase-referenced source. A neutral quadratic seed supplies another preparation,
+entirely inside the same fixed algebra.
+
+\begin{proposition}[A neutral preparation inside a stable hull]\label{prop:neutral}
+In the free complex scalar theory of Proposition~\ref{prop:prepared}, let
+\(X_a=\phi_a(f)\), \(V_f=\omega(X_a^2)>0\), and
+\[
+Q_f=\tfrac12(X_1^2+X_2^2),\qquad U_\theta=e^{i\theta Q_f}.
+\]
+The strongly commuting fields \(X_1,X_2\) define a self-adjoint \(Q_f\) by their
+joint spectral calculus. Both \(Q_f\) and \(U_\theta\) are \(U(1)\)-invariant and
+local to any diamond containing \(\operatorname{supp}f\).
+Include \(\arctan Q_f\), together with the desired bounded stress and collar
+readings, in the stable seed above. Its hull contains \(U_\theta\) for every
+\(\theta\), while remaining inside the proper fixed algebra.
+
+Put \(v_f=\varphi_f\), and define
+\(H_f(x)=\tfrac12\omega(\{X_a,\phi_a(x)\})\) for either fixed component
+\(a=1,2\), with no sum over \(a\); internal symmetry makes the two functions equal.
+Let \(t[v]\) denote the quadratic tensor in brackets in~\eqref{eq:preparedsource},
+and polarize it as \(t[v,z]=(t[v+z]-t[v]-t[z])/2\). The exact source is
+\begin{equation}\label{eq:neutralsource}
+\dT_{\mu\nu}=4\theta\,t_{\mu\nu}[v_f,H_f]
+                 +2\theta^2 V_f\,t_{\mu\nu}[v_f].
+\end{equation}
+For every \(\theta\ne0\), it is smooth, conserved and traceless, has compact support
+on each spatial slice and has a finite Radon Fourier measure with all polynomial
+moments finite and nonzero weight away from zero. Its total energy is
+\[
+\int\dT_{00}\,d^dx
+=\theta^2 V_f\int\big[(\partial_t v_f)^2+|\nabla v_f|^2\big]d^dx>0.
+\]
+Its boundary datum is
+\(\delta\ev{\Phi^2}=4\theta v_fH_f+2\theta^2V_fv_f^2\).
+\end{proposition}
+
+The proof is in Appendix~\ref{app:prop:neutral}.
+
+
+The constraint construction of Example~\ref{ex:coherent} gives
+\(\Glin[h]=(2\pi/\eta)\dT\), so this preparation identifies the canonical response.
+Its inputs are permission to apply the neutral quadratic pulse and the complete
+centre and frame family. Containing the stress tensor need not supply \(Q_f\).
+Nor does neutrality by itself guarantee a nonzero tangent: the local conformal
+Wick square \(:\Phi^2:(g)\) can have zero first-order vacuum stress response.
+The spatially smeared square used here is a different operator, and its positive
+finite-amplitude energy is computed explicitly. The noise fixes the invariant
+readings, although the prepared state need not be stationary.
+
+There is a more general finite-energy route that uses a bounded observable already
+in the selected algebra. It needs no particular quadratic seed. Local source
+regularity remains a separate condition.
+
+\begin{proposition}[A bounded accessible preparation with positive energy]
+\label{prop:bounded-source}
+Let \(H\ge0\) be the translation generator, with
+\(\ker H=\mathbb C\Omega\). Let \(\mathcal N\) be a selected von Neumann algebra
+for which \(\Omega\) is separating. Suppose it contains a bounded non-scalar
+self-adjoint \(C\), together with \(\alpha_t(C)=e^{itH}Ce^{-itH}\) for
+\(0<t<\tau\), where \(\tau>0\). For a sufficiently narrow real nonnegative
+\(f\in C_c^\infty\) in that interval, \(\int f=1\), put
+\[
+ B=\int f(t)\alpha_t(C)dt,\qquad U_\theta=e^{i\theta B}.
+\]
+Then \(B\) is bounded, self-adjoint and non-scalar, \(U_\theta\in\mathcal N\),
+and its vacuum excitation has finite energy for every \(\theta\). For every
+\(\theta\) for which \(U_\theta\) is non-scalar, in particular
+\(0<|\theta|\|B\|<\pi\),
+\[
+ 0<E_\theta:=\langle U_\theta\Omega,H U_\theta\Omega\rangle
+ \le|\theta|\|[H,B]\|.
+\]
+With \(K=[H,B]\), \(\psi=(C-\langle\Omega,C\Omega\rangle)\Omega\) and the
+spectral measure \(\mu_\psi\) of \(H\), the quadratic coefficient is
+\begin{align}
+ E_2&=\langle B\Omega,HB\Omega\rangle
+ =\tfrac12\langle\Omega,[B,[H,B]]\Omega\rangle\nonumber\\
+ &=\int_{(0,\infty)}\lambda|\widehat f(\lambda)|^2\,d\mu_\psi(\lambda)>0,
+ \qquad E_2\le\|B\|\|K\|, \label{eq:bounded-energy}
+\end{align}
+where \(\widehat f(\lambda)=\int f(t)e^{it\lambda}dt\). An explicit remainder is
+\[
+ |E_\theta-\theta^2E_2|
+ \le2|\theta|^3\|B\|^2\|K\|
+       +\tfrac12\theta^4\|B\|^3\|K\|.
+\]
+If the state's vacuum-subtracted energy density is integrable on a time slice
+and its integral is \(E_\theta\), this gives a nonzero integrated source.
+Implementation permission and its cost are additional inputs.
+\end{proposition}
+The proof is in Appendix~\ref{app:prop:bounded-source}.
+
+
+The smoothed operator has bounded iterated commutators
+\(\operatorname{ad}_H^m(B)=i^m\int f^{(m)}(t)\alpha_t(C)dt\).
+Repeated use of the product rule in the exponential series therefore gives
+\(U_\theta\Omega\in\bigcap_m\operatorname{Dom}H^m\); all energy moments are
+finite. If \(\mu_\psi\) has no atoms, narrowness is unnecessary: the nonzero
+entire function \(\widehat f\) has only isolated zeros, which cannot carry
+that spectral measure. With atoms, a broad smearing can cancel an excitation
+exactly, so this refinement requires the stated spectral condition.
+
+\begin{corollary}[A common pulse inside a shared hull]\label{cor:shared-pulse}
+Let several selected algebras \(\mathcal N_j\) act in one vacuum representation
+with one positive generator \(H\), \(\ker H=\mathbb C\Omega\), and \(\Omega\)
+separating for an ambient algebra containing them. Suppose each is invariant
+under \(\operatorname{Ad}e^{itH}\) for \(t\ge0\). If their intersection
+\(\mathcal N_\cap\) is non-scalar, it contains one common bounded pulse
+\(U_\theta\) with finite strictly positive \(H\)-energy.
+\end{corollary}
+\begin{proof}
+The intersection is a von Neumann algebra, inherits separation and forward
+translation invariance, and contains a bounded non-scalar self-adjoint \(C\).
+Apply Proposition~\ref{prop:bounded-source} in \(\mathcal N_\cap\).
+\end{proof}
+
+\begin{proposition}[Finite algebras cannot carry this vacuum permission]
+\label{prop:finite-vacuum-permission}
+Let $\mathcal N$ be finite-dimensional, let $H\ge0$ have
+$\ker H=\mathbb C\Omega$, and suppose $\Omega$ is separating for
+$\mathcal N$. If $\operatorname{Ad}e^{itH}(\mathcal N)\subseteq
+\mathcal N$ for every $t\ge0$, then $\mathcal N=\mathbb C1$.
+The ambient Hilbert space need not be finite-dimensional.
+\end{proposition}
+\begin{proof}
+Injectivity and finite dimension turn each inclusion into equality, so
+the automorphisms extend to negative times. Continuity fixes every
+minimal central projection. On each matrix block choose a self-adjoint
+generator $K$ and matrix units $E_{ab}$ in its eigenbasis:
+$\alpha_t(E_{ab})=e^{it(k_a-k_b)}E_{ab}$.
+Since $H\Omega=0$ and separation makes every nonzero $E_{ab}\Omega$
+nonzero, this vector is an $H$-eigenvector with eigenvalue $k_a-k_b$.
+Positivity applied to $E_{ab}$ and $E_{ba}$ makes all differences zero.
+Thus the automorphisms fix $\mathcal N$, and $C\Omega$ lies in the
+one-dimensional kernel of $H$ for every $C\in\mathcal N$. Separation
+then gives $C=c1$.
+\end{proof}
+
+The common pulse of Corollary~\ref{cor:shared-pulse} consequently uses
+an infinite field algebra when its full forward permission is exact.
+A finite observer can implement a finite-duration pulse or an explicitly
+controlled approximation; its controller Hamiltonian cannot simply be
+identified with the vacuum translation generator. The bounded-pulse
+construction requires only its stated finite interval and is unaffected.
+
+Foundation~I's \(\Gamma_3\)-hulls have precisely this forward translation
+closure~\cite[Theorem on Cut inheritance]{FoundationI}. Thus a non-scalar
+shared intersection of those hulls, with the common representation hypotheses
+above, supplies a common energy-orientation test without adding \(Q_f\).
+The positive generator must be the same for the readers: in a null Cut model it
+is null momentum, not automatically the time-translation Hamiltonian of this
+higher-dimensional theory. A merely modular-stable \(\Gamma_2\)-hull does
+not inherit translation permission. Realizing the pulse and reading its energy
+still require controls and an energy ledger.
+
+There is a common physical-$H$ instance in $3+1$ dimensions.
+For two independent free conformal complex scalar nets, take the
+future-cone algebra $\mathcal A(V_+)$ and the two selected nets
+$\mathcal A_1^{U(1)}\bar\otimes\mathcal A_2$ and
+$\mathcal A_1\bar\otimes\mathcal A_2^{U(1)}$.
+Time translations move $V_+$ into itself, the vacuum is separating
+there, and the physical $H_1+H_2$ has unique zero-energy vacuum
+\cite{HislopLongo1982,BGL1993}. Each fixed algebra is taken on its own
+vacuum-cyclic subspace. The same physical Hamiltonian restricts to it
+because the Haar projection commutes with translations.
+Their intersection contains the neutral preparation of
+Proposition~\ref{prop:neutral}, the total stress and the invariant
+collar readings at each tested diamond. Thus the reference cone
+algebra and the selected ball family coexist in one matter model;
+they are distinct region algebras, not all operators inside one cone.
+The generic bounded pulse keeps its separate source-regularity
+condition. Shared implementation, calibrated collar limits and
+$\mathrm{MC}_\eta$ remain supplied permissions and consistency data.
+
+\begin{corollary}[A positive pulse supplies the spectral witness]
+\label{cor:pulse-witness}
+Suppose a pulse from Proposition~\ref{prop:bounded-source} has a smooth source
+\(\dT\) in the tempered Radon Fourier class, and its vacuum-subtracted energy
+density is integrable on a time slice with integral \(E_\theta>0\).
+Then its source Fourier measure has nonzero weight away from \(k=0\).
+If the response also belongs to that class and the full centre and open-frame
+consistency hypotheses of Theorem~\ref{thm:uniqueness} hold, this source identifies
+the canonical response up to normalization.
+\end{corollary}
+\begin{proof}
+A Radon measure supported only at zero is a multiple of \(\delta_0\);
+the source would be constant. Its energy density is then constant on the
+infinite spatial slice. Integrability forces that component to vanish,
+contradicting \(E_\theta>0\). The identification follows from
+Theorem~\ref{thm:uniqueness}.
+\end{proof}
+
+This witness uses finite amplitude, not necessarily a nonzero first-order
+stress tangent. In fact
+\(\partial_\theta E_\theta|_0=i\langle\Omega,[H,B]\Omega\rangle=0\)
+for every such vacuum pulse. A local tangent depends separately on
+\(-2\operatorname{Im}\langle\Omega,T(x)B\Omega\rangle\).
+Proposition~\ref{prop:neutral} computes both the regularity and a source
+explicitly; the general bounded construction does not supply Radon regularity
+from finite energy moments alone. Neither route establishes finite-resource
+identification of the entire geometric response.
+
+\begin{proposition}[Selection is invisible to bulk modular energy]\label{prop:selection}
+For each ball let \(\mathcal A_{\mathrm{sel}}(B)\subset\mathcal A(D(B))\) be a von Neumann
+subalgebra with a normal conditional expectation \(E_B\) that preserves the vacuum state,
+and suppose \(\mathcal A_{\mathrm{sel}}(B)\) contains the bounded functions of stress-tensor
+smearings in \(D(B)\); fixed-point algebras of a compact internal symmetry are examples.
+Then the modular group of \((\mathcal A_{\mathrm{sel}}(B),\omega)\) is the restriction of that
+of \(\mathcal A(D(B))\), the quantity \(\delta\ev{K_B}=2\pi\int_Bw_R\,\psi(T_{uu})\) is
+determined by the restriction of the state \(\psi\) to \(\mathcal A_{\mathrm{sel}}(B)\), and
+\((\mathrm{MC}_\eta)\) is the same condition for every such choice. Every such selected
+algebra therefore fixes the same matter-sourced Einstein tensor. For \(d\ge3\), the
+metric additionally requires common initial or boundary data and is defined modulo
+gauge; for \(d=2\), it is locally fixed up to gauge on contractible domains.
+If the physical energy has an extra boundary term, the bulk datum must be read directly
+or that term must also be accessible and subtracted.
+\end{proposition}
+
+\begin{proof}
+The first statement is Takesaki's theorem on conditional
+expectations~\cite{Takesaki1972}. The second holds because the stress-tensor smearings are
+affiliated with \(\mathcal A_{\mathrm{sel}}(B)\). The last follows from
+Theorem~\ref{thm:equivalence}.
+\end{proof}
+
+Relative entropy behaves differently, as Foundation~I found for current excitations of the
+SU(2) level-one net~\cite{FoundationI}. The same argument works in any dimension.
+
+
+\begin{proposition}[Selection changes entropy]\label{prop:entropy}
+Let \(\mathcal A\) be the net of a free massless conformally coupled complex scalar
+\(\phi=(\phi_1+i\phi_2)/\sqrt2\) with its internal \(U(1)\), let
+\(\mathcal A_{\mathrm{sel}}(B)\) be the \(U(1)\)-fixed points of \(\mathcal A(D(B))\) and \(E_B\)
+the average over the group, and let \(W=e^{i\theta\phi_1(f)}\), \(\theta\ne0\), where \(f\) is real, supported
+in \(D(B)\), and has nonzero one-particle class. A nonzero test function alone
+would not suffice, since \(f=\Box g\) can represent the zero field.
+\begin{enumerate}[label=(\alph*),leftmargin=2em,itemsep=1pt]
+\item \(S_{\mathcal A_{\mathrm{sel}}(B)}(\omega_W\Vert\omega)<S_{\mathcal A(D(B))}(\omega_W\Vert\omega)
+=\delta\ev{K_B}_{\omega_W}\).
+\item As \(\theta\to0\), the modular energy is quadratic in \(\theta\), and the
+restricted state has vanishing first variation. At a faithful finite-dimensional regulator,
+write \(\rho^{\mathrm{inv}}_\theta=\rho_0+\theta^2\chi+O(\theta^4)\). Then
+\[
+S(\rho^{\mathrm{inv}}_\theta\Vert\rho_0)
+=\frac{\theta^4}{2}g_{\mathrm{BKM},\rho_0}(\chi,\chi)+O(\theta^6).
+\]
+The continuum quartic law additionally requires a finite BKM tangent norm and
+uniform control of the entropy remainder; smooth field smearing and faithfulness
+alone do not establish these conditions.
+\end{enumerate}
+\end{proposition}
+
+The proof is in Appendix~\ref{app:prop:entropy}.
+
+
+A local coherent displacement preserves the regulated entropy of the full algebra.
+Its modular energy equals its relative entropy. The invariant algebra strictly loses
+relative entropy while retaining the stress charge; when the quartic expansion is
+controlled, its entropy increase exhausts that charge to order \(\theta^2\).
+
+Appendix~\ref{app:bkm} computes the invariant mode coefficient and separates the
+exponential same-charge contribution from neutral-pair terms. A bounded BKM tangent
+norm is only one requirement: a continuum quartic entropy law still needs uniform
+control of the remainder as the regulators are removed. The strict entropy inequality
+above is independent of that expansion.
+
+\begin{conjecture}[Selection enters through second-order quantities or through the source]\label{conj:selection}
+In the conformal ball setting, a change of the selected algebra at a fixed state changes the
+geometry reconstructed from ball modular data only through quantities of second order in
+the state perturbation, such as relative entropy, Fisher information and canonical energy,
+or through physical operations that change the stress tensor.
+\end{conjecture}
+
+\emph{Mechanism.} The first-order datum is a function of the restriction of the state to
+stress-tensor observables, which every relevant algebra contains
+(Proposition~\ref{prop:selection}). What sees more of the state is relative entropy, which
+depends on the algebra by monotonicity, and in holographic theories its second-order part
+for balls is the canonical energy that carries the second-order gravitational
+equations~\cite{LashkariVanRaamsdonk2016,FHHPRV2017}.
+
+\emph{Support.} Propositions~\ref{prop:selection} and~\ref{prop:entropy}; Foundation~I's
+strict inequality in \(1+1\) dimensions~\cite{FoundationI}; the result of HAFF-D that a
+record alone does not move a gravitational source, while a preparation
+does~\cite{HAFFD}.
+
+\emph{Strongest objection.} At second order the world still has one metric. The relative
+entropy of a smaller algebra measures what its observer cannot distinguish, so a
+second-order condition built from it may describe a coarser reconstruction rather than a
+different geometry. If so, the conjecture is a statement about the reach of an observer's
+reconstruction, which an observer-relative account of geometry has to quantify anyway,
+and not about a second spacetime.
+
+\emph{Test.} Compute \(S_{\mathcal A(D(B))}-S_{\mathcal A_{\mathrm{sel}}(B)}\) for the charged
+coherent excitation of Proposition~\ref{prop:entropy} through order \(\theta^4\), and compare
+the second-order consistency conditions built from the two relative entropies.
+
+\section{Second-order geometry and a source that follows it}
+\label{sec:secondorder}
+
+The linear identity holds at every radius. At second order two of its
+inputs change: the intrinsic curvature need not equal twice the normal
+Einstein tensor, and the flat CHM charge need not be the modular Hamiltonian
+of the curved theory. We can resolve the first issue and identify the source
+terms needed for the second. This does not supply a nonlinear modular law.
+
+\subsection{A geometric two-jet consistency law}
+
+Put $c_0=V_d/(d+2)$. Let $g_\epsilon$ be a smooth family of Lorentzian
+metrics with $g_0=\eta$. At $p$, choose smooth spacelike hypersurfaces
+$\Sigma_{\epsilon,u}$ whose flat member is the hyperplane normal to $u$.
+Let $n_\epsilon$ be the future unit normal, $q_\epsilon$ its induced
+metric, and $K_\epsilon$ its second fundamental form. The family, including
+its centre and normal prescription, is part of the experiment.
+For the intrinsic geodesic ball of proper radius $R$, define
+\begin{align}
+ \mathfrak F_{R,u}(g_\epsilon)
+ &=A_\epsilon-\frac{d-1}{R}V_\epsilon
+       -\frac{\Omega_{d-1}}d R^{d-1}
+       -\frac{c_0}2R^{d+1}\mathcal Q_\epsilon(p),
+       \label{eq:secondF}\\
+ \mathcal Q_\epsilon&=(\operatorname{tr}_{q_\epsilon}K_\epsilon)^2
+                 -K_{\epsilon,ij}K_\epsilon^{ij}.\nonumber
+\end{align}
+The last term is quadratic about a flat slice. It does not change any of
+the linear results, but it changes the second-order claim. This is a
+geometric correction dictated by the Gauss constraint, not an entropy
+or modular correction derived from a quantum state.
+The proper radius $R$ and its multiplier $(d-1)/R$ are held fixed as
+$\epsilon$ varies. A coordinate sphere of unchanged coordinate radius
+is a different experiment: its geodesic radius and boundary measure
+change. The radial check below explicitly inverts that distance change.
+
+For a smooth symmetric source $T_\epsilon$, define a \emph{stress reading}
+\begin{equation}
+ \mathfrak K_{R,u}(T_\epsilon,g_\epsilon)
+ =2\pi\int_{B_\epsilon}\frac{R^2-r^2}{2R}
+                T_{\epsilon,\mu\nu}n_\epsilon^\mu n_\epsilon^\nu\,dV_\epsilon.
+ \label{eq:secondK}
+\end{equation}
+Here $r$ is intrinsic geodesic distance, and the normal field on the
+slice is used inside the integral. In flat spacetime this is the bulk
+CHM charge. On a general curved metric it is only the specified local
+stress reading. No assertion of geometric modular flow on the curved
+diamond is being made.
+
+\begin{proposition}[Leading nonlinear ball identity]
+\label{prop:nonlinear-leading}
+On a compact family with bounded smooth geometric and source derivatives,
+spacelike slices and radii below their normal injectivity radius,
+\begin{align}
+ \mathfrak F_{R,u}&=-c_0R^{d+1}G_{\mu\nu}(g_\epsilon)(p)
+                         n_\epsilon^\mu n_\epsilon^\nu+O(R^{d+3}),\\
+ \mathfrak K_{R,u}&=2\pi c_0R^{d+1}T_{\epsilon,\mu\nu}(p)
+                         n_\epsilon^\mu n_\epsilon^\nu+O(R^{d+3}).
+ \label{eq:nonlinear-leading}
+\end{align}
+The remainders and their first two $\epsilon$ derivatives are uniform
+when the corresponding mixed derivatives are bounded.
+\end{proposition}
+\begin{proof}
+In intrinsic normal coordinates the volume density is
+$1-\operatorname{Ric}_{ij}x^ix^j/6+O(|x|^3)$. Angular averaging removes
+the odd terms and gives
+\[
+ V=V_dR^d\left(1-\frac{{}^{(d)}\!\mathcal R}{6(d+2)}R^2\right)
+       +O(R^{d+4}),\qquad
+ A=\Omega_{d-1}R^{d-1}\left(1-\frac{{}^{(d)}\!\mathcal R}{6d}R^2\right)
+       +O(R^{d+3}).
+\]
+Thus the area--volume difference minus its flat value is
+$-c_0R^{d+1}{}^{(d)}\!\mathcal R/2+O(R^{d+3})$.
+The exact Gauss equation
+$ {}^{(d)}\!\mathcal R+\mathcal Q=2G_{nn}$ proves the first statement.
+Taylor expansion of the smooth scalar $T_{nn}$ and the volume density
+proves the second; its constant integral is $c_0R^{d+1}$ and its odd
+terms average to zero. Differentiating these local expansions establishes
+the stated uniformity. Sufficient bounded mixed derivatives are assumed,
+rather than inferred from finite energy alone.
+\end{proof}
+
+Write, with no factorial in the second coefficient,
+\begin{align}
+ g_\epsilon&=\eta+\epsilon h+\epsilon^2j+O(\epsilon^3),
+ & T_\epsilon&=\epsilon t_1+\epsilon^2t_2+O(\epsilon^3),\\
+ G(g_\epsilon)&=\epsilon\Glin[h]
+       +\epsilon^2\bigl(\Glin[j]+G^{(2)}[h,h]\bigr)+O(\epsilon^3).
+ \label{eq:twojets}
+\end{align}
+$G^{(2)}$ is the quadratic coefficient of the covariant Einstein tensor
+in this fixed smooth identification of the metrics. Coefficients of the
+source use that same identification and the same renormalization convention.
+Appendix~\ref{app:twojet} gives its explicit coordinate formula and the
+source variation used below.
+
+\begin{theorem}[Second-order small-ball equivalence]
+\label{thm:secondorder}
+Suppose $\Glin[h]=(2\pi/\eta)t_1$ on an open domain and the two-jet
+families above have the regularity of Proposition~\ref{prop:nonlinear-leading}.
+Then the following are equivalent:
+\begin{enumerate}[label=(\alph*),leftmargin=2em,itemsep=1pt]
+\item At every $p$ and for $u$ in a nonempty open frame set,
+\[
+ \lim_{R\to0}R^{-d-1}
+ [\epsilon^2]\bigl(\eta\mathfrak F_{R,u}
+                         +\mathfrak K_{R,u}\bigr)=0.
+\]
+\item The second-order tensor equation is
+\[
+ \Glin[j]+G^{(2)}[h,h]=\frac{2\pi}{\eta}t_2.
+\]
+\end{enumerate}
+Here $[\epsilon^2]$ denotes the quadratic Taylor coefficient. For one
+frame only the corresponding normal constraint follows.
+\end{theorem}
+\begin{proof}
+Set
+\[
+ E(g_\epsilon)=G(g_\epsilon)-(2\pi/\eta)T_\epsilon.
+\]
+Proposition~\ref{prop:nonlinear-leading} gives the leading residual
+$-\eta c_0R^{d+1}E_{n_\epsilon n_\epsilon}$.
+Its zeroth and first coefficients vanish. Consequently changes of the
+normal at order $\epsilon$ multiply the vanishing first residual and do
+not alter the quadratic coefficient. That coefficient is
+$-\eta c_0(\Glin[j]+G^{(2)}[h,h]-(2\pi/\eta)t_2)_{uu}$.
+Tensor recovery from an open frame set proves both directions.
+\end{proof}
+
+This is a second-order conditional law in the same spacetime, not a
+holographic result. Unlike Theorem~\ref{thm:equivalence}, it gives no exact
+finite-radius identity. Terms quadratic in curvature, its derivatives,
+the ball prescription and curved modular flow must be accounted for there.
+Nor does it classify all quadratic response functionals: adding terms
+whose small-ball leading coefficient vanishes leaves this test unchanged.
+
+The extrinsic correction can instead be avoided by a particular physical
+region prescription. The local exponential image at $p$ of
+$n_\epsilon^\perp$ is a spacelike geodesic hypersurface with
+$K_\epsilon(p)=0$. On that family the uncorrected area--volume difference
+has the same leading law. It is not the same region as a ball on an
+arbitrary fixed laboratory slice. Regions, normals and preparations cannot
+be changed while interpreting their readings as the same experiment.
+
+\begin{example}[A bent slice in flat spacetime]
+\label{ex:bent-slice}
+Keep the ambient metric exactly Minkowski and the source zero. Near the
+origin choose $t=\epsilon\alpha |x|^2/2$. Its normal there is $\partial_t$,
+and $K_{ij}=\pm\epsilon\alpha\delta_{ij}+O(\epsilon^2)$, so
+$\mathcal Q=\epsilon^2d(d-1)\alpha^2+O(\epsilon^3)$ and
+$ {}^{(d)}\!\mathcal R=-\mathcal Q$. The raw ball difference is
+\[
+ [\epsilon^2]\left(F_R-\frac{\Omega_{d-1}}dR^{d-1}\right)
+ =\frac{\Omega_{d-1}(d-1)}{2(d+2)}\alpha^2 R^{d+1},
+\]
+although $G=0$. To check the coefficient directly, its radial metric is
+$(1-\epsilon^2\alpha^2s^2)ds^2+s^2d\Omega^2$; invert its proper-radius
+integral and expand its area and volume. The correction in
+Eq.~\eqref{eq:secondF} cancels this term exactly at quadratic order.
+Without a slice prescription or this correction, a nonlinear extension
+would assign a source to flat spacetime merely by bending a slice.
+\end{example}
+
+\subsection{Why the flat prepared source cannot simply be reused}
+
+Even if a quantum stress expectation is smooth, a second-order response
+must use the total source in its perturbed metric. With a common covariant
+renormalization prescription and no gravitational anomaly, its Ward law
+is $\nabla^\mu T_{\mu\nu}=0$. Expanding that identity gives
+\begin{equation}
+ \partial^\mu t_{2,\mu\nu}=-\mathcal D_h[t_1]_\nu,
+ \label{eq:secondward}
+\end{equation}
+where
+\begin{align*}
+ \mathcal D_h[t]_\nu={}&-h^{\mu\alpha}\partial_\alpha t_{\mu\nu}
+ -\eta^{\mu\alpha}\Gamma^{(1)\lambda}_{\alpha\mu}t_{\lambda\nu}
+ -\eta^{\mu\alpha}\Gamma^{(1)\lambda}_{\alpha\nu}t_{\mu\lambda},\\
+ \Gamma^{(1)\lambda}_{\alpha\beta}={}&\tfrac12\eta^{\lambda\rho}
+ (\partial_\alpha h_{\beta\rho}+\partial_\beta h_{\alpha\rho}
+                                  -\partial_\rho h_{\alpha\beta}).
+\end{align*}
+Thus keeping only a conserved flat $t_1$ is generally not a second-order
+source: its curved divergence is $\epsilon^2\mathcal D_h[t_1]$.
+The expanded Bianchi identity demands precisely this correction.
+
+The coherent preparation permits an explicit classical calculation of
+the missing terms. Take the same nonminimal scalar coupling as in
+Remark~\ref{rem:waldedge}, now varied in the curved metric. For one real
+mean field $\Phi$, its stress is
+\begin{equation}
+ T_{\mu\nu}[g,\Phi]=\partial_\mu\Phi\partial_\nu\Phi
+ -\tfrac12g_{\mu\nu}(\nabla\Phi)^2
+ +\xi(g_{\mu\nu}\Box_g-\nabla_\mu\nabla_\nu)\Phi^2
+ +\xi G_{\mu\nu}(g)\Phi^2.
+ \label{eq:curvedscalar}
+\end{equation}
+Its divergence is $(\Box_g\Phi-\xi\mathcal R_g\Phi)\partial_\nu\Phi$;
+the derivative of the last term cancels the curvature derivative from
+the improvement. Its trace vanishes on shell for the conformal value
+$\xi=(d-1)/(4d)$ at the classical level.
+
+Set $\epsilon=\theta^2$ for the Weyl witness, and take
+$g=\eta+\theta^2h_2+\theta^4h_4+\cdots$ and
+$\Phi=\theta v+\theta^3v_3+\cdots$. Then
+\begin{align}
+ \Box v_3&=-\delta\Box_{h_2}v+\xi\mathcal R^{\mathrm{lin}}[h_2]v,
+ \label{eq:scalar-return}\\
+ t_2&=t[v],\qquad
+ t_4=2t[v,v_3]+\delta_g t_{h_2}[v]
+                       +\xi\Glin[h_2]v^2.\label{eq:fourthsource}
+\end{align}
+Here $t_g[v]$ comprises the first three terms of
+Eq.~\eqref{eq:curvedscalar}; $\delta_g t_{h_2}[v]$ varies them with $v$
+fixed, and $t[v,z]$ is their flat polarization used in
+Proposition~\ref{prop:neutral}. In coordinates,
+\[
+ \delta\Box_h v=-h^{\mu\nu}\partial_\mu\partial_\nu v
+ -(\partial_\mu h^{\mu\nu}-\tfrac12\partial^\nu h^\alpha{}_{\alpha})
+                                                  \partial_\nu v.
+\]
+On any fixed finite causal domain with smooth $h_2$, the driven flat
+wave equation for $v_3$ has smooth solutions after its Cauchy data are
+specified. Taking zero correction data is one preparation prescription,
+not the same as keeping the field unchanged through the perturbed evolution.
+Equations~\eqref{eq:scalar-return}--\eqref{eq:fourthsource} obey
+Eq.~\eqref{eq:secondward} at order $\theta^4$. The curvature response,
+changed propagation and metric variation are calculable requirements,
+not optional control overhead. This is an actual two-jet source
+calculation within the supplied classical scalar action; it neither
+derives that action nor proves a quantum source apparatus realizes it.
+
+This calculation has nonempty second-order content. Choose smooth compact
+Cauchy data with $v(p)=B\ne0$, $\partial_t v(p)=A\ne0$ and spatially
+constant data near $p$. They can be represented by a local Weyl preparation
+using a smooth time-slice cutoff. Then $t_{2,00}(p)=A^2/2>0$.
+Choose a constraint-compatible $h_2$ as in Example~\ref{ex:coherent}
+and use a linearized normal-coordinate gauge at $p$, so $h_2(p)=0$
+and $\partial h_2(p)=0$. Prescribe zero $v_3$ and first time derivative
+on that Cauchy slice. Tracefreeness gives
+$\mathcal R^{\mathrm{lin}}[h_2](p)=0$; Eq.~\eqref{eq:scalar-return}
+then gives zero second time derivative of $v_3$ at $p$ as well.
+All second derivatives entering the polarized stress consequently vanish
+there, and $\delta_gt_{h_2}[v](p)=0$. Therefore
+\[
+ t_{4,\mu\nu}(p)=\xi\kappa B^2t_{2,\mu\nu}(p),\qquad
+ t_{4,00}(p)=\xi\kappa B^2A^2/2>0,
+ \quad \kappa=2\pi/\eta.
+\]
+This is one supplied local preparation and coordinate prescription,
+not a gauge-invariant attribution to one separate term on every slice.
+The sum in Eq.~\eqref{eq:fourthsource} is the covariant source.
+
+For a coherent displacement of a Hadamard reference on the \emph{same}
+metric, with unchanged connected two-point function, point splitting
+gives exactly this state-dependent stress difference: the added
+two-point function is $\Phi(x)\Phi(y)$ and the state-independent
+counterterms cancel in the difference. The total gravitational source additionally contains
+the reference's renormalized stress, metric-dependent vacuum response
+and the preparation/control sources. Those terms cannot be declared
+zero by changing the reference independently on every ball. The scalar
+surface expectation and its measure also acquire order-$\theta^4$
+corrections. A Wald coefficient match remains useful, but does not turn
+a generic curved diamond into a Killing horizon or supply its modular
+Hamiltonian.
+
+\subsection{A strong common-geometry extension}
+
+\begin{conjecture}[A causal source and a common second-order geometry]
+\label{conj:secondorder-common}
+There is a physically preparable family in a common positive-energy
+covariant matter theory, with a fixed source reference and supplied
+gravitational data, for which the corrected small-ball stress consistency
+of Theorem~\ref{thm:secondorder} is the local limit of the actual
+modular/Wald response of its selected region family. It has the following
+additional properties:
+\begin{enumerate}[leftmargin=2em,itemsep=1pt]
+\item The renormalized total source and its two-jet Ward identity include
+the controller, old reference, support and changed propagation, rather
+than only the outgoing mean pulse.
+\item The geometric slice prescription and its quadratic extrinsic term
+are common to the observers. Their source readings and boundary
+subtractions identify one $G^{\mathrm{lin}}[j]+G^{(2)}[h,h]$ with one
+normalization; changing a stress-containing algebra alone does not create
+a second sourced spacetime.
+\item Selection changes relative-entropy reconstruction or changes the
+source through an actual intervention. A returned geometric record can
+then change a permitted preparation; deleting the record after emission
+does not undo its stress.
+\item Finite-radius corrections have one causal source/geometry account,
+with separately controlled readout and collar errors. The small-ball
+limit is uniform in the prepared family, rather than obtained by spending
+unbounded resources on each ball independently.
+\end{enumerate}
+\end{conjecture}
+
+The flat Weyl and neutral pulses provide nonzero-frequency source
+witnesses for the first order; the scalar two-jet above provides an
+explicit propagation and Ward test for the next order. HAFF-D provides
+finite source--response--record returns in a supplied JT sector.
+Q-RAIF~C provides an interacting quantum source with retained references
+and a common classical covariant action~\cite{QRC}. These are different
+models and dimensions. None yet proves this conjecture's common
+higher-dimensional quantum source or its actual curved modular response.
+The missing bridge is substantive: flat CHM covariance does not persist
+for arbitrary $g$, quantum reference stress can gravitate, and a finite
+positive regulator does not establish a renormalized covariant Ward law.
+
+The bent-slice example is a geometric falsification test. A second is
+to insert the flat witness unchanged at order $\theta^4$: unless
+$\mathcal D_{h_2}[t_2]=0$ exceptionally, it fails the source Ward identity.
+A third compares charged and invariant-algebra relative entropies on
+one physical preparation while keeping the complete source fixed.
+Any resulting difference is a reconstruction difference unless a new
+source operation is demonstrated. These tests preserve the proposed
+connection between physical access and geometry without assigning
+gravitational stress to information that has merely been forgotten.
+
+\section{Higher multipoles and finite reading}\label{sec:multipoles}
+
+Under a supplied radial Gaussian readout model, the ball coefficients
+give conditional information $\log I_k=-4k\log k+O(k)$.
+The resolved order consequently grows as $\log N/(4\log\log N)$,
+as in Consciousness~III's information-spectrum bound \cite{PaperIII}.
+Appendix~\ref{app:prop:multipoles} retains the normalized directions,
+noise assumptions, exact Schur complement and proof. This is a
+world-source reading model, not a self-description theorem.
+
+\section{Relation to other work, and limits}\label{sec:relation}
+
+\paragraph{Entanglement equilibrium.} Jacobson~\cite{Jacobson2016} compares, in a small
+geodesic ball, the variation of the area at fixed volume with the CHM modular energy, and
+obtains the Einstein equation from all rest frames at leading order; the coefficient
+\(\Omega_{d-1}R^{d+1}/(d(d+2))\) is the \(c_0\) of~\eqref{eq:series}. The present paper adds
+the following: the fixed-volume coefficient is the fixed-reference variational multiplier and
+follows from full-kernel matching (Proposition~\ref{prop:lambda}); the
+comparison is exact at every radius (Theorem~\ref{thm:equivalence}); among functionals of
+the intrinsic geometry, internal scales allowed, nonzero-frequency witnesses identify it up to normalization
+(Theorem~\ref{thm:uniqueness}); the condition has to be written with modular energy
+rather than entropy (Remark~\ref{rem:energy}, Proposition~\ref{prop:entropy}); and the
+results say what an observer's partial data fix (Section~\ref{sec:access}).
+
+\paragraph{The first law of causal diamonds.} Jacobson and Visser~\cite{JacobsonVisser2019}
+derive, from the covariant phase space of general relativity, a first law relating the
+variations of the edge area, the volume of the maximal slice, the cosmological constant and
+the matter Hamiltonian of a diamond in a maximally symmetric space.
+Theorem~\ref{thm:identity} is its flat-space, linear geometric content, proved without a
+field equation.
+
+\paragraph{Holography.} Faulkner et al.~\cite{Faulkner2014} show that the first law for
+all boundary balls of a holographic CFT is equivalent to the linearized Einstein equation of
+the bulk; HAFF-D uses this for a supplied half-sided modular family~\cite{HAFFD}. There the
+geometry is the bulk geometry and the Ryu--Takayanagi formula supplies the geometric
+side~\cite{RyuTakayanagi2006}. Here the geometry is that of the spacetime in which the
+balls live, no dictionary is used, and \((\mathrm{MC}_\eta)\) takes the place of the
+Ryu--Takayanagi formula. The present result is a same-spacetime conditional route, with \((\mathrm{MC}_\eta)\) as its explicit hypothesis.
+
+\paragraph{Non-conformal matter and higher curvature.} For non-conformal fields the
+modular Hamiltonian of a ball is not the CHM charge, and Casini, Galante and Myers showed
+that for relevant deformations of low dimension the corrections dominate the small-ball
+limit~\cite{CGM2016}. The modular results and scalar preparations here use
+conformal matter; the leading two-jet geometric test only requires its
+stated smooth source. Higher-curvature versions
+of entanglement equilibrium use the Wald entropy and a generalized
+volume~\cite{BMSV2017}, consistent with Proposition~\ref{prop:failures}(b).
+
+\paragraph{Limits.} The exact finite-radius results are linear in \(h\) about Minkowski space,
+with conformal matter and the specified bulk modular datum.
+Section~\ref{sec:secondorder} extends the local small-ball law to a geometric
+two-jet, with a separate stress consistency input. A physical boundary charge cannot be
+discarded when it varies; the scalar example makes both its compensating readout and
+the failure of the raw-energy law explicit. The constant \(\eta\) is supplied.
+\((\mathrm{MC}_\eta)\) is a hypothesis:
+the equivalence theorem identifies its field equation, and nonzero-frequency witnesses
+identify its intrinsic response up to normalization. They do not say why the modular energy of a ball should be balanced by
+a geometric response at all. Only balls are used.
+
+\section{Access, common geometry and the remaining mechanism}
+\label{sec:meaning}
+\label{sec:open}
+
+The ball family gives a precise sense in which different perspectives
+must agree with one geometry. Given the linear consistency condition,
+its intrinsic response is the Einstein tensor. A prepared nonzero-frequency
+source identifies that response; homogeneous or zero sources do not.
+The metric additionally needs gauge and common gravitational data.
+Comparison of rest frames recovers components inaccessible to a single
+frame, and finite rapidity or radius sets the precision of that recovery.
+
+Stress-containing selected algebras share this sourced tensor. A coherent
+preparation loses relative entropy when restricted to an invariant algebra,
+while its stress remains. This distinguishes an observer's reach from a
+second physical geometry. The difference matters to Consciousness~III's
+finite self-models without implying that a modular energy or a ball algebra
+is itself experienced~\cite{PaperIII}.
+
+The two-jet extension makes the next step concrete. An intrinsic ball
+alone can confuse a bent slice with a gravitational source; the Gauss
+correction removes that error. All small boosted balls then test one
+second-order residual, including the quadratic first-order geometry.
+The scalar source follows its perturbed propagation and curvature coupling.
+It cannot be held flat while its geometry is evolved. These are necessary
+parts of a causal selection--source--response mechanism, not its full
+derivation.
+
+The central question is why the actual modular data obey the required
+geometric consistency at all. HAFF-D addresses physical selection and
+returned source response~\cite{HAFFD}; the present paper gives their
+higher-dimensional consistency and identification conditions. A common
+renormalized quantum source, curved modular response and controlled
+finite-radius law remain the high-value bridge in
+Conjecture~\ref{conj:secondorder-common}. Curved backgrounds,
+non-conformal matter, the origin of $\eta$ and shape-sensitive tidal
+readings remain further directions.
+
+\appendix
+\section{Linear ball kernels and response identification}
+\label{app:linear-details}
+\subsection{The small-ball series and exact Fourier transfer}\label{subsec:series}
+
+\begin{proposition}[Small-ball series]\label{prop:series}
+Let \(\dT\) be smooth near \(x_0\). For every \(u\) and every \(N\),
+\begin{equation}\label{eq:series}
+\begin{gathered}
+\delta\ev{K_B}=2\pi\sum_{k=0}^{N}c_k\,R^{d+1+2k}\,\Delta_u^k\,\dT_{uu}(x_0)
++O\big(R^{d+3+2N}\big),\\
+c_k=\frac{\Omega_{d-1}}{4^k\,k!\,(d/2)_k\,(d+2k)(d+2k+2)},
+\end{gathered}
+\end{equation}
+with \(\Omega_{d-1}=2\pi^{d/2}/\Gamma(d/2)\) and \((a)_k\) the Pochhammer symbol. For a
+single Fourier component \(\dT_{\mu\nu}=\mathrm{Re}(\varepsilon_{\mu\nu}e^{ik\cdot x})\),
+exactly,
+\begin{equation}\label{eq:transfer}
+\delta\ev{K_B}=\frac{2\pi V_d}{d+2}\,R^{d+1}\,f\big(R\,|k_u|\big)\,
+\mathrm{Re}\big(\varepsilon_{uu}e^{ik\cdot x_0}\big),\qquad
+f(z)=\Gamma\!\big(\tfrac d2+2\big)\Big(\frac2z\Big)^{d/2+1}J_{d/2+1}(z),
+\end{equation}
+where \(|k_u|^2=k\cdot k+(u\cdot k)^2\) is the squared spatial momentum in the frame \(u\),
+\(V_d=\Omega_{d-1}/d\) and \(f(z)=1-z^2/(2(d+4))+O(z^4)\).
+\end{proposition}
+
+The proof is in Appendix~\ref{app:prop:series}.
+
+
+The leading coefficient is \(c_0=V_d/(d+2)\). For smooth inputs this is
+a finite-order asymptotic expansion; an infinite convergent series requires
+additional analyticity. The Fourier formula is exact.
+Section~\ref{sec:multipoles} uses these radial coefficients.
+
+\begin{corollary}[Tensor recovery]\label{cor:recovery}
+The leading terms of~\eqref{eq:series} for all \(u\) in any nonempty open subset of the unit
+hyperboloid determine \(\dT_{\mu\nu}(x_0)\).
+\end{corollary}
+
+\begin{proof}
+If \(A_{\mu\nu}u^\mu u^\nu=0\) on an open subset of the hyperboloid, it vanishes on all of
+it by analyticity, hence on the open cone of timelike vectors by homogeneity, so \(A=0\).
+\end{proof}
+
+A single frame gives only \(\dT_{uu}\) at each point; Section~\ref{subsec:singleframe}
+shows that this is a real loss, not an artefact of the leading order.
+
+
+\subsection{The small-ball coefficients}
+\label{app:prop:series}
+\begin{proof}
+The spherical mean of a smooth function over the sphere of radius \(r\) about \(x_0\) in
+\(\Sigma_u\) is \(\sum_k r^{2k}\Delta_u^k g(x_0)/(4^kk!(d/2)_k)\) up to \(O(r^{2N+2})\)
+(Pizzetti's formula~\cite{Pizzetti1909}), and
+\(\int_0^R\frac{R^2-r^2}{2R}r^{d-1+2k}dr=R^{d+1+2k}/((d+2k)(d+2k+2))\). For the Fourier
+component, \(\int_{|y|<1}(1-|y|^2)e^{ip\cdot y}d^dy=\pi^{d/2}(2/p)^{d/2+1}J_{d/2+1}(p)\), and
+\(e^{ik\cdot x}\) restricted to \(\Sigma_u\) is a plane wave of momentum \(|k_u|\).
+\end{proof}
+\subsection{Intrinsic distributional classification}
+\label{app:lem:tau}
+\begin{proof}
+Translate the centre to zero. By (F6) write
+\(\delta F_B[h]=\sum_{ij}\langle L_{ij},h_{ij}\rangle\), with a symmetric tensor
+distribution \(L\) supported in the closed ball. Gauge invariance gives
+\(\partial_iL_{ij}=0\), and rotation invariance makes
+\(\sigma=\sum_iL_{ii}\) a radial distribution. A constant metric perturbation is
+pure gauge, so \(\langle\sigma,1\rangle=0\).
+
+Let \(\Gamma\) be the radial fundamental solution of the spatial Laplacian,
+\(\Delta\Gamma=\delta_0\), and set
+\(\mu_B=-\Gamma*\sigma/(d-1)\). This distribution is supported in the closed ball.
+Indeed, for \(|x|>R\) the function \(y\mapsto\Gamma(x-y)\) is harmonic on a
+neighbourhood of the ball. Its spherical average in \(y\) is the constant
+\(\Gamma(x)\), by the mean-value property. Pairing with a radial distribution
+therefore gives \((\Gamma*\sigma)(x)=\Gamma(x)\langle\sigma,1\rangle=0\).
+The argument includes the logarithmic fundamental solution in \(d=2\).
+
+For real \(p\ne0\), orthogonal covariance implies
+\(\widehat L_{ij}=a(|p|)\delta_{ij}+b(|p|)p_ip_j\).
+Transversality and the trace then give
+\[
+\widehat L_{ij}(p)
+=(|p|^2\delta_{ij}-p_ip_j)
+ \frac{\widehat\sigma(p)}{(d-1)|p|^2}
+=(|p|^2\delta_{ij}-p_ip_j)\widehat\mu_B(p).
+\]
+Both sides are Fourier transforms of compactly supported distributions, so equality
+extends through zero and identifies the distributions. Thus
+\(L_{ij}=(\partial_i\partial_j-\delta_{ij}\Delta)\mu_B\).
+Distributional integration by parts proves (d) for arbitrary smooth \(h\).
+The compact radial distribution \(\mu_B\) has an even entire Fourier transform
+along any coordinate axis, which proves (a). Differentiation at zero proves (b).
+For (c), the Gauss equation
+\({}^{(d)}\!R+K^2-K_{ij}K^{ij}=2G_{\mu\nu}n^\mu n^\nu\) has \(K_{ij}=O(h)\) about the flat
+slice, so at linear order \(\tau_u=2\Glin_{uu}\).
+\end{proof}
+\subsection{Fixed-reference multiplier and full kernel}
+\label{app:prop:lambda}
+\begin{proof}
+(a) is a one-line differentiation. For (b), the functional depends on \(h\) only through
+\(\tau_u\) (Lemma~\ref{lem:tau}), so it can be evaluated on the conformally flat
+perturbation \(h_{ij}=2\phi\,\delta_{ij}\), for which \(\tau_u=-2(d-1)\Delta\phi\). With the
+spherical means \(\sum_km_ks^{2k}\) of \(\phi\), the linearized geodesic ball gives
+\(\delta A=(d-1)\Omega_{d-1}\sum_km_kR^{d-1+2k}\frac{2k}{2k+1}\) and
+\(\delta V=\Omega_{d-1}\sum_km_kR^{d+2k}\frac{2k(d-1)}{(2k+1)(d+2k)}\); comparison with
+Proposition~\ref{prop:series} gives the ratio.
+\end{proof}
+\subsection{The nonzero-frequency and Radon identification proof}
+\label{app:thm:uniqueness}
+\begin{proof}
+On any open set of centres, the real and imaginary parts of a nonzero plane wave
+are linearly independent. Lemma~\ref{lem:tau}(d) therefore gives
+\[
+2\eta m_R(q_u)g_{uu}+2\pi\widehat w_R(q_u)t_{uu}=0,\qquad
+\widehat w_R(q)=\frac{V_dR^{d+1}}{d+2}f(Rq).
+\]
+The entire function \(\widehat w_R\) is nonzero. The transfer function \(m_R\)
+cannot vanish identically: otherwise \(t_{uu}\) would vanish on an open frame set
+and tensor recovery would give \(t=0\).
+Exclude the isolated zeros of \(m_R\) and \(\widehat w_R\), and restrict to a
+frame patch whose \(q_u\) varies over an interval. There
+\[
+g_{uu}=a(q_u)t_{uu},\qquad
+a(q)=-\frac{\pi\widehat w_R(q)}{\eta m_R(q)}.
+\]
+Lemma~\ref{lem:quadric} gives \(g=a_0t\); the scalar is nonzero on this patch.
+The entire identity
+\(2\eta a_0m_R+2\pi\widehat w_R=0\) follows by analytic continuation.
+Set \(c=2\pi/(\eta a_0)\) to obtain the normalization.
+The real, reflection-invariant functional has a real transfer function on real momenta,
+so \(a_0\) and \(c\) are real.
+A compactly supported tensor distribution is determined by its Fourier transform,
+so equality on plane waves identifies the functional on all smooth inputs.
+The fixed nonzero amplitudes fix \(a_0\), hence the same \(c\), at every other
+tested radius.
+
+For the measure extension, dominate all tensor components by the locally finite measure
+\(\mu=\sum_{a,b}(|\widehat{\dT}_{ab}|+|\widehat G_{ab}|)\), and write their
+Radon--Nikodym densities as \(t_{ab}(k),g_{ab}(k)\).
+Lemma~\ref{lem:tau}(d) represents the centre dependence as convolution with a compact
+distribution on the slice. Its Fourier multiplier is \(m_R(q_u(k))\), a smooth
+function of \(k\) whose real-axis growth is polynomial. Multiplication therefore
+preserves the tempered Radon class. Conservation holds for these
+densities almost everywhere. Fourier-transform consistency for a countable dense set
+of frames in the open frame set. Intersect their full-measure sets: at each remaining
+\(k\), the displayed coefficient equation holds on the dense frame set, hence on
+the entire open set by continuity in \(u\). The source hypothesis supplies one
+such \(k\ne0\) with \(t(k)\ne0\). The amplitude proof at that \(k\) identifies
+\(m_R=-c\widehat w_R/2\).
+
+Substitute this identity back into the measure equation. For almost every \(k\),
+\(\widehat w_R(q_u)[g(k)-(2\pi/(c\eta))t(k)]_{uu}=0\) on the open frame set.
+If \(k\ne0\), \(q_u\) varies over an interval and the entire function
+\(\widehat w_R\) has only isolated zeros. The tensor contraction therefore vanishes
+on an open frame patch and tensor recovery sets the bracket to zero.
+At \(k=0\), \(\widehat w_R(0)>0\) gives the same conclusion directly.
+Thus the tensor measures, and hence the distributions, obey the field equation.
+This uses densities with respect to a common measure, without dividing distributions.
+At any additional tested radius repeat the argument with that radius's own exceptional
+null set. The already established field equation fixes the same constant \(c\), since
+the source is nonzero. No common full-measure set for uncountably many radii is required.
+\end{proof}
+\subsection{The zero-frequency converse}
+\label{app:cor:spectraliff}
+\begin{proof}
+Sufficiency is Theorem~\ref{thm:uniqueness}. A Radon measure supported at zero is a
+multiple of \(\delta_0\), so the remaining nonzero source is constant. In the
+common-measure proof above, its atom forces \(m_R(0)\ne0\). At almost every
+\(k\ne0\) the source density is zero and consistency gives
+\(m_R(q_u)g_{uu}=0\). Since \(m_R\) is nonzero and entire, varying the frame
+forces \(g(k)=0\). The response tensor is therefore constant as well. Adding
+\(\ell^2\int_Bw_R\Delta_u\tau_u\), with \(\ell\ne0\), leaves these data unchanged
+but changes the transfer function by \(-\ell^2q^2\widehat w_R(q)\), which is
+independent of the original transfer function because it vanishes at zero.
+\end{proof}
+\section{Prepared sources, bounded pulses and finite readings}
+\label{app:source-details}
+\subsection{The coherent source and its Radon measure}
+\label{app:prop:prepared}
+\begin{proof}
+The Weyl commutator shifts the field by the classical solution \(\theta\varphi_f\);
+normal ordering therefore gives~\eqref{eq:preparedsource} and
+\(\delta\ev{\sum_a:\!\phi_a^2\!:}=\theta^2\varphi_f^2\).
+Since \(\Box\varphi_f=0\), differentiation gives conservation and zero trace.
+Finite propagation makes its Cauchy data compactly supported on every fixed time slice.
+The improvement in \(T_{00}\) is a spatial divergence, so
+\[
+\int_{\mathbb R^d}\dT_{00}\,d^dx
+=\frac{\theta^2}{2}\int_{\mathbb R^d}
+\big[(\partial_t\varphi_f)^2+|\nabla\varphi_f|^2\big]\,d^dx>0.
+\]
+Zero energy would make \(\varphi_f\) constant and, by compact spatial support, zero,
+contrary to the nonzero one-particle class.
+
+Up to Fourier convention, the spacetime transform of \(\varphi_f\) is
+\(\operatorname{sgn}(k^0)\delta(k^2)\widehat f(k)\,d^{d+1}k\).
+Its two mass-shell sheets carry densities proportional to
+\(\widehat f(\pm|p|,p)\,d^dp/(2|p|)\).
+Near \(p=0\) the radial total-variation integral is \(O(r^{d-2}dr)\), integrable for
+\(d\ge2\); at infinity the restricted Schwartz function decreases faster than any power.
+Thus this is a finite complex measure with every polynomial moment finite.
+Derivatives multiply it by momenta. Products of these smooth fields have Fourier
+measures given by convolution; the improvement differentiates the convolution twice.
+These operations retain finite variation and every polynomial moment, proving the
+assertion for \(\widehat{\dT}\).
+If that measure were supported only at zero, \(\dT\) would be a constant tensor.
+Compact spatial support would force it to vanish, contradicting its positive total energy.
+Finally, a point on the edge of \(B\) is spacelike to every point in a compact subset
+of \(D(B)\), so \(\varphi_f\) vanishes there and~\eqref{eq:preparededge} is zero.
+\end{proof}
+\subsection{The invariant quadratic source}
+\label{app:prop:neutral}
+\begin{proof}
+The CCR and \([X_a,Q_f]=0\) give the exact transformation
+\(U_\theta^*\phi_a(x)U_\theta=\phi_a(x)+\theta v_f(x)X_a\).
+Applying it to the vacuum two-point function and the point-split stress tensor gives
+\eqref{eq:neutralsource} and the boundary formula. Internal rotations preserve
+\(X_1^2+X_2^2\); injectivity of \(\arctan\) on the spectrum implies that its bounded
+functional calculus contains \(U_\theta\). The stable-seed theorem then proves the
+hull assertions.
+
+Both \(v_f\) and \(H_f\) are smooth real massless solutions. Their Fourier measures
+have the same rapidly decreasing mass-shell densities as in
+Proposition~\ref{prop:prepared}, with different phases on the two sheets. For
+\(d\ge2\) they have finite variation and every polynomial moment. The products and
+derivatives in~\eqref{eq:neutralsource} preserve these properties. Every term contains
+\(v_f\) or a derivative of it, so finite propagation gives compact spatial support.
+Polarization of the free-field identities proves conservation and zero trace.
+
+The complex solution \(\omega(X_a\phi_a(x))\) has only one frequency sign.
+Its real and imaginary parts have zero cross term in the integrated classical energy: in spatial Fourier variables
+the two amplitudes differ by multiplication by \(i\). Since \(v_f\) is a real
+multiple of the imaginary part and \(H_f\) is its real part,
+\(\int t_{00}[v_f,H_f]\,d^dx=0\). The remaining energy is the displayed positive
+quadratic term. A Fourier measure supported only at zero would make the source
+constant, which contradicts compact spatial support and positive total energy.
+\end{proof}
+\subsection{The bounded accessible pulse}
+\label{app:prop:bounded-source}
+\begin{proof}
+The weak integral belongs to \(\mathcal N\). Choose normalized nonnegative
+smearings whose supports shrink to a point \(t_0\in(0,\tau)\). Then
+\(B\Omega\to\alpha_{t_0}(C)\Omega=e^{it_0H}C\Omega\).
+Separation keeps \(C\Omega\), hence this limit, off \(\mathbb C\Omega\), so
+sufficiently narrow smearings remain non-scalar.
+Translation smoothing gives a bounded commutator
+\([H,B]=i\int f'(t)\alpha_t(C)dt\).
+Consequently \(U_\theta\) preserves \(\operatorname{Dom}H\), with
+\(\|[H,U_\theta]\|\le |\theta|\|[H,B]\|\), and its vacuum excitation has
+finite energy. For \(0<|\theta|\|B\|<\pi\), the exponential is injective on the
+bounded spectrum of \(B\), hence \(U_\theta\) is non-scalar. If its energy
+were zero, the unique ground vector would give \(U_\theta\Omega=z\Omega\),
+and separation would force \(U_\theta=zI\), a contradiction.
+The upper bound follows from
+\(E_\theta=\langle U_\theta\Omega,[H,U_\theta]\Omega\rangle\).
+The bounded commutator makes the exponential expansion valid in the graph norm
+of \(H\). Since \(H\Omega=0\), the double commutator gives the quadratic term;
+the spectral theorem gives its integral and strict positivity. Put
+\(R_\theta=(U_\theta-I-i\theta B)\Omega\).
+The exponential integral formula gives
+\(\|R_\theta\|\le\theta^2\|B\|^2/2\) and
+\(\|HR_\theta\|\le\theta^2\|B\|\|K\|\).
+Expanding the energy of \(i\theta B\Omega+R_\theta\) gives the stated remainder.
+\end{proof}
+\subsection{Strict entropy loss and the regulated coefficient}
+\label{app:prop:entropy}
+\begin{proof}
+(a) The equality is~\eqref{eq:relent-unitary}; it is finite because a smooth coherent
+excitation has finite modular energy. Here the compactly supported preparation is strictly
+local to \(D(B)\), so its surface variation~\eqref{eq:preparededge} vanishes for this ball.
+Take a real test function \(g\) in \(D(B)\) with
+nonzero commutator function \(\Delta(f,g)\), and \(x=\arctan\phi_1(g)\in\mathcal A(D(B))\). The
+rotation by \(\pi\) maps \(\phi_1\) to \(-\phi_1\) and commutes with \(E_B\), and \(\arctan\)
+is odd, so \(E_B(x)=0\). In \(\omega_W\) the field \(\phi_1(g)\) has the vacuum Gaussian law
+shifted by \(\theta\Delta(f,g)\neq0\), so \(\omega_W(x)\neq0=\omega_W(E_B(x))\). The state does
+not factor through \(E_B\), and by Petz's criterion for sufficient
+subalgebras~\cite{Petz1986} the inequality is strict. (b) The coherent stress expectation is quadratic in its classical displacement.
+Rotation by \(\pi\) makes the restricted state even in \(\theta\).
+For a finite faithful density matrix, differentiating the logarithm gives
+\[
+g_{\mathrm{BKM},\rho_0}(\chi,\chi)=
+\sum_{a,b}|\chi_{ab}|^2
+ \frac{\log p_a-\log p_b}{p_a-p_b},
+\]
+with the diagonal value \(1/p_a\); the first entropy derivative vanishes because
+\(\operatorname{Tr}\chi=0\). This proves the regulated assertion.
+\end{proof}
+\subsection{Radial multipoles and finite reading}
+
+The higher terms of~\eqref{eq:series} are the radial multipoles of the local source, read
+through the modular weight. Consciousness~III states a resolution
+order for any family of directions whose information falls as \(e^{-\alpha j\log j}\), and
+notes that a physical instance needs normalized directions, a fluctuation kernel and a
+permitted measurement~\cite{PaperIII}. The ball family supplies the directions and the
+signal; the noise remains to be supplied.
+
+\begin{proposition}[Fisher spectrum of the multipoles]\label{prop:multipoles}
+Write the normalized reading of a ball as
+\begin{gather*}
+y(R)=\frac{\delta\ev{K_B}}{2\pi V_dR^{d+1}/(d+2)}=\sum_{k\ge0}a_k\Big(\frac RL\Big)^{2k}\theta_k,\\
+\theta_k=L^{2k}\Delta_u^k\dT_{uu}(x_0),\qquad
+a_k=\frac{d(d+2)}{4^kk!\,(d/2)_k\,(d+2k)(d+2k+2)},
+\end{gather*}
+exact when the analytic ball-average series converges on the radius range used.
+Suppose a record consists of \(n\) readings at radii drawn
+independently and uniformly from \((0,\rho L]\), each with an independent Gaussian error of
+variance \(\sigma^2\). The Fisher information per record about \(\theta_k\), with
+\(\theta_0,\dots,\theta_{k-1}\) unknown and all higher coefficients fixed and known
+(or with the series truncated at order \(k\)), is
+\[
+I_k=\frac{n}{\sigma^2}\,a_k^2\rho^{4k}\,\frac1{4k+1}\prod_{j<k}\frac{[2(k-j)]^2}{[2(k+j)+1]^2},
+\qquad \log I_k=-4k\log k+O(k),
+\]
+and \(\rho\) enters only at order \(k\).
+\end{proposition}
+
+\subsection{The radial Fisher Schur complement}
+\label{app:prop:multipoles}
+\begin{proof}
+The Fisher matrix is \(F_{jk}=(n/\sigma^2)a_ja_k\rho^{2j+2k}/(2j+2k+1)\), a diagonally scaled
+Cauchy matrix with entries \(1/(x_j+x_k)\), \(x_j=2j+\frac12\). The information about
+\(\theta_k\) with the lower parameters unknown is the last Schur complement of the leading
+\((k+1)\times(k+1)\) block, for which the Cauchy determinant gives the product. Stirling's
+formula gives \(\log a_k=-2k\log k+O(k)\), and the product is \(e^{O(k)}\).
+\end{proof}
+
+\subsection{Numerical checks and applications}
+The closed form agrees with a Cholesky factorization at eighty-digit precision for
+\(k<14\) and \(d=2,3,4\). A readout weight comparable to a power of \(R\), in
+the radius distribution or in the noise variance, changes the Schur complements by factors
+\(e^{O(k)}\) and leaves the leading term. With Consciousness~III's tolerance \(c\), the
+number of multipoles resolved from \(N\) records is
+\(K(N)\sim\log N/(4\log\log N)\); for \(d=3\), \(\rho=1\) and \(c=1\) one finds \(K=8\) at
+\(\log N=100\) and \(K=55\) at \(\log N=1000\). The factorial suppression is a property of
+the modular weight, so the resolution exponent \(\alpha=4\) has a physical signal behind it.
+The readout model, including its noise, is supplied, and the directions belong to the world
+as read by the observer, not to the observer's model of itself.
+
+\section{Regularity of the quartic entropy law}\label{app:bkm}
+
+For a displaced charged thermal mode, put $z=e^{-b}$,
+$p_n=(1-z)z^n$. Phase averaging gives the tangent
+$\chi_n=|\alpha|^2p_n[(1-z)^2n/z-(1-z)]$.
+The geometric variance $z/(1-z)^2$ yields
+\begin{equation}\label{eq:modebkm}
+ g_{\mathrm{BKM}}(\chi,\chi)
+ =\sum_n\chi_n^2/p_n
+ =|\alpha|^4(1-z)^2/z
+ =4|\alpha|^4\sinh^2(b/2).
+\end{equation}
+Thus finite modular energy $\sum_jb_j|\alpha_j|^2$ does not alone
+control the diagonal BKM coefficient.
+
+For finitely many independent modes of one charge, the invariant
+coherences also contribute. With $m=n+e_j-e_l$, expansion of the
+displacement gives
+\[
+ \chi_{mn}=\alpha_j\overline\alpha_l
+ \sqrt{(n_j+1)n_l}\,p_n(1-z_j)(1-z_l)/z_l.
+\]
+Using $p_m/p_n=z_j/z_l$ in the spectral BKM kernel and averaging
+$(n_j+1)n_l$ gives
+\begin{equation}\label{eq:multimodebkm}
+ g_{\mathrm{BKM}}(\chi,\chi)
+ =\sum_{j,l}|\alpha_j|^2|\alpha_l|^2
+ (1-z_j)(1-z_l)\frac{\log z_j-\log z_l}{z_j-z_l},
+\end{equation}
+with coincident value $(1-z_j)^2/z_j$.
+Opposite charges add the ordered neutral-pair sum with kernel
+$(1-z_j)(1-z_l)(b_j+b_l)/(1-z_jz_l)$.
+The mean-value theorem bounds the same-charge kernel by
+$e^{b_j}+e^{b_l}$; the neutral-pair kernel is at most $b_j+b_l$.
+Consequently, writing
+$A=\sum_j|\alpha_j|^2$, $E=\sum_je^{b_j}|\alpha_j|^2$ and
+$L=\sum_jb_j|\alpha_j|^2$, the full regulated tangent obeys
+$g_{\mathrm{BKM}}\le2A(E+L)$.
+The full mode expansion is retained as
+\nolinkurl{CII_BKM_mode_calculation.tex} in the supplementary source record.
+
+These estimates control the tangent, not the entropy remainder.
+For the continuum ball net, a quartic law still requires its modular
+BKM norm and uniform remainder control as occupation, mode and volume
+regulators are removed. Compact smooth spacetime smearing has not
+been shown here to supply the exponential moment $E$.
+The exact strict relative-entropy inequality is independent of this
+open regularity question.
+
+\section{Explicit two-jet geometry and source bookkeeping}
+\label{app:twojet}
+
+All index moves in the following coefficients use $\eta$, and
+antisymmetrization is written out rather than hidden in a factor.
+For $g=\eta+\epsilon h+\epsilon^2j$, the connection coefficients are
+\begin{align*}
+ \Gamma^{(1)\lambda}_{\mu\nu}[h]
+ &=\tfrac12\eta^{\lambda\rho}
+  (\partial_\mu h_{\nu\rho}+\partial_\nu h_{\mu\rho}
+                               -\partial_\rho h_{\mu\nu}),\\
+ \Gamma^{(2)\lambda}_{\mu\nu}[j,h]
+ &=\Gamma^{(1)\lambda}_{\mu\nu}[j]
+   -h^\lambda{}_{\rho}\Gamma^{(1)\rho}_{\mu\nu}[h].
+\end{align*}
+Define the quadratic part with $j=0$ by $\gamma_2=\Gamma^{(2)}[0,h]$.
+Then
+\begin{align*}
+ r^{(2)}_{\mu\nu}[h,h]
+ ={}&\partial_\lambda\gamma_2^\lambda{}_{\mu\nu}
+       -\partial_\nu\gamma_2^\lambda{}_{\mu\lambda}
+       +\Gamma^{(1)\lambda}_{\lambda\rho}\Gamma^{(1)\rho}_{\mu\nu}
+       -\Gamma^{(1)\lambda}_{\nu\rho}\Gamma^{(1)\rho}_{\mu\lambda},\\
+ G^{(2)}_{\mu\nu}[h,h]
+ ={}&r^{(2)}_{\mu\nu}
+       -\tfrac12\eta_{\mu\nu}
+          (\eta^{\alpha\beta}r^{(2)}_{\alpha\beta}
+                       -h^{\alpha\beta}R^{\mathrm{lin}}_{\alpha\beta}[h])
+       -\tfrac12h_{\mu\nu}R^{\mathrm{lin}}[h].
+\end{align*}
+These coefficients include the inverse-metric correction. The full
+quadratic Einstein coefficient is $\Glin[j]+G^{(2)}[h,h]$, not
+$\Glin[j]$ alone. For a first-order vacuum wave, the second-order
+vacuum equation is $\Glin[j]=-G^{(2)}[h,h]$; interpreting its right
+side as a gravitational energy tensor requires a gauge/averaging convention.
+
+For the scalar define $s=v^2$ and
+\[
+ C_h^\rho=\eta^{\alpha\beta}\Gamma^{(1)\rho}_{\alpha\beta},\qquad
+ \delta\Box_h s=-h^{\alpha\beta}\partial_\alpha\partial_\beta s
+                                      -C_h^\rho\partial_\rho s.
+\]
+Varying the first three terms of Eq.~\eqref{eq:curvedscalar} at fixed $v$
+gives the fully explicit quantity
+\begin{align*}
+ \delta_g t_{h,\mu\nu}[v]={}&-\tfrac12h_{\mu\nu}(\partial v)^2
+       +\tfrac12\eta_{\mu\nu}h^{\alpha\beta}
+                                 \partial_\alpha v\partial_\beta v\\
+ &+\xi\bigl(h_{\mu\nu}\Box s+\eta_{\mu\nu}\delta\Box_hs
+                      +\Gamma^{(1)\rho}_{\mu\nu}\partial_\rho s\bigr).
+\end{align*}
+At a normal-coordinate point this vanishes when $h$ and its first
+derivatives vanish. The remaining $\xi\Glin[h]v^2$ does not, which
+is the nonzero-source calculation in Section~\ref{sec:secondorder}.
+The identity
+$\nabla^\mu[(g_{\mu\nu}\Box-\nabla_\mu\nabla_\nu)s]
+=-R_{\nu\rho}\nabla^\rho s$, together with the Bianchi identity,
+reduces the full scalar stress divergence to its scalar equation times
+$\partial_\nu\Phi$. Its two-jet expansion gives
+Eq.~\eqref{eq:secondward}, including the inverse metric and both connection
+terms. Counterterms cancel between two states only with one common
+metric and renormalization convention; the reference source remains
+in a total gravitational equation.
+
+A finite algebraic check uses
+$g=e^{2\epsilon f}\eta$,
+$\Phi=\sqrt\epsilon e^{-(d-1)\epsilon f/2}v$,
+$f=t^2+x^2/3+tx/5$ and $v=1+2t$.
+Direct rational-polynomial expansion through $\epsilon^2$ in spacetime
+dimensions $3,4,5$ gives the conformal wave equation, vanishing trace
+and covariant divergence. Dropping $\xi G\Phi^2$ fails the divergence
+test. This tests the source identity on a prescribed conformal metric,
+not a solution of the coupled Einstein equations, and does not supply
+quantum renormalization or an actual curved modular Hamiltonian.
+
+\newpage
+\addcontentsline{toc}{section}{References}
+\begin{thebibliography}{99}
+
+\bibitem{PaperI}
+S.~Liu, \emph{Geometry Relative to a Cut: Selection, Generation and Modular Inseparability} (Consciousness~I), (2026), series record DOI:
+10.5281/zenodo.19607387.
+
+\bibitem{PaperIII}
+S.~Liu, \emph{Finite Self-Models and the Explanatory Gap: What a Continuing Observer Can
+Know About Itself} (Consciousness~III), (2026), series record DOI:
+10.5281/zenodo.19607724.
+
+\bibitem{HAFFD}
+S.~Liu, \emph{Selection, Maintenance and Gravitational Response:
+Modular Constraints and a Physical Return}, (2026), series
+record DOI: 10.5281/zenodo.18388881.
+
+\bibitem{FoundationI}
+S.~Liu, \emph{Foundation I: From Source to Manifestation. Accessible Algebras from a
+Source, Its Noise and a Readable Seed}, (2026), series record DOI:
+10.5281/zenodo.19627786.
+
+\bibitem{QRA}
+S.~Liu, \emph{Lorentzian Read-out from Local Unitary Propagation: Clifford Relations, Causal
+Cones and Spectral Mass} (Q-RAIF~A), (2026), series record DOI:
+10.5281/zenodo.18525876.
+
+\bibitem{QRC}
+S.~Liu, \emph{Retained Quantum History, Physical Sources and Receiver Renewal in Q-RAIF} (Q-RAIF~C), (2026), series record DOI:
+10.5281/zenodo.18528934.
+
+\bibitem{CasiniHuertaMyers2011}
+H.~Casini, M.~Huerta and R.~C.~Myers, \emph{Towards a derivation of holographic
+entanglement entropy}, JHEP \textbf{1105} (2011) 036, arXiv:1102.0440.
+
+\bibitem{CasiniMazzitelliTeste2015}
+H.~Casini, F.~D.~Mazzitelli and E.~Test\'e, \emph{Area terms in entanglement entropy},
+Phys.\ Rev.\ D \textbf{91} (2015) 104035, arXiv:1412.6522.
+
+\bibitem{Herzog2014}
+C.~P.~Herzog, \emph{Universal thermal corrections to entanglement entropy for
+conformal field theories on spheres}, JHEP \textbf{1410} (2014) 028,
+arXiv:1407.1358.
+
+\bibitem{LLPS2015}
+J.~Lee, A.~Lewkowycz, E.~Perlmutter and B.~R.~Safdi,
+\emph{R\'enyi entropy, stationarity, and entanglement of the conformal scalar},
+JHEP \textbf{1503} (2015) 075, arXiv:1407.7816.
+
+\bibitem{HerzogNishioka2016}
+C.~P.~Herzog and T.~Nishioka, \emph{The edge of entanglement: getting the boundary
+right for non-minimally coupled scalar fields}, JHEP \textbf{1612} (2016) 138,
+arXiv:1610.02261.
+
+\bibitem{DonnellyWall2012}
+W.~Donnelly and A.~C.~Wall, \emph{Do gauge fields really contribute negatively to
+black hole entropy?}, Phys.\ Rev.\ D \textbf{86} (2012) 064042, arXiv:1206.5831.
+
+\bibitem{HislopLongo1982}
+P.~D.~Hislop and R.~Longo, \emph{Modular structure of the local algebras associated with the
+free massless scalar field theory}, Commun.\ Math.\ Phys.\ \textbf{84} (1982) 71--85.
+
+\bibitem{BGL1993}
+R.~Brunetti, D.~Guido and R.~Longo, \emph{Modular structure and duality in conformal quantum
+field theory}, Commun.\ Math.\ Phys.\ \textbf{156} (1993) 201--219.
+
+\bibitem{Araki1976}
+H.~Araki, \emph{Relative entropy of states of von Neumann algebras}, Publ.\ RIMS
+\textbf{11} (1976) 809--833.
+
+\bibitem{Wiesbrock1993}
+H.-W.~Wiesbrock, \emph{Half-sided modular inclusions of von Neumann algebras}, Commun.\
+Math.\ Phys.\ \textbf{157} (1993) 83--92.
+
+\bibitem{Borchers1992}
+H.-J.~Borchers, \emph{The CPT-theorem in two-dimensional theories of local observables},
+Commun.\ Math.\ Phys.\ \textbf{143} (1992) 315--332.
+
+\bibitem{Pizzetti1909}
+P.~Pizzetti, \emph{Sulla media dei valori che una funzione dei punti dello spazio assume
+alla superficie di una sfera}, Rend.\ Lincei \textbf{18} (1909) 182--185.
+
+\bibitem{Jacobson2016}
+T.~Jacobson, \emph{Entanglement equilibrium and the Einstein equation}, Phys.\ Rev.\ Lett.\
+\textbf{116} (2016) 201101, arXiv:1505.04753.
+
+\bibitem{IyerWald1994}
+V.~Iyer and R.~M.~Wald, \emph{Some properties of Noether charge and a proposal for
+dynamical black hole entropy}, Phys.\ Rev.\ D \textbf{50} (1994) 846--864,
+arXiv:gr-qc/9403028.
+
+\bibitem{JacobsonVisser2019}
+T.~Jacobson and M.~R.~Visser, \emph{Gravitational thermodynamics of causal diamonds in
+(A)dS}, SciPost Phys.\ \textbf{7} (2019) 079, arXiv:1812.01596.
+
+\bibitem{Faulkner2014}
+T.~Faulkner, M.~Guica, T.~Hartman, R.~C.~Myers and M.~Van~Raamsdonk, \emph{Gravitation from
+entanglement in holographic CFTs}, JHEP \textbf{1403} (2014) 051, arXiv:1312.7856.
+
+\bibitem{RyuTakayanagi2006}
+S.~Ryu and T.~Takayanagi, \emph{Holographic derivation of entanglement entropy from
+AdS/CFT}, Phys.\ Rev.\ Lett.\ \textbf{96} (2006) 181602.
+
+\bibitem{CGM2016}
+H.~Casini, D.~A.~Galante and R.~C.~Myers, \emph{Comments on Jacobson's ``Entanglement
+equilibrium and the Einstein equation''}, JHEP \textbf{1603} (2016) 194, arXiv:1601.00528.
+
+\bibitem{BMSV2017}
+P.~Bueno, V.~S.~Min, A.~J.~Speranza and M.~R.~Visser, \emph{Entanglement equilibrium for
+higher order gravity}, Phys.\ Rev.\ D \textbf{95} (2017) 046003, arXiv:1612.04374.
+
+\bibitem{Takesaki1972}
+M.~Takesaki, \emph{Conditional expectations in von Neumann algebras}, J.\ Funct.\ Anal.\
+\textbf{9} (1972) 306--321.
+
+\bibitem{Petz1986}
+D.~Petz, \emph{Sufficient subalgebras and the relative entropy of states of a von Neumann
+algebra}, Commun.\ Math.\ Phys.\ \textbf{105} (1986) 123--131.
+
+\bibitem{LashkariVanRaamsdonk2016}
+N.~Lashkari and M.~Van~Raamsdonk, \emph{Canonical energy is quantum Fisher information},
+JHEP \textbf{1604} (2016) 153, arXiv:1508.00897.
+
+\bibitem{FHHPRV2017}
+T.~Faulkner, F.~M.~Haehl, E.~Hijano, O.~Parrikar, C.~Rabideau and M.~Van~Raamsdonk,
+\emph{Nonlinear gravity from entanglement in conformal field theories}, JHEP \textbf{1708}
+(2017) 057, arXiv:1705.03026.
+
+\end{thebibliography}
+
+\end{document}

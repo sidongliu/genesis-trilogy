@@ -1,0 +1,592 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathrsfs,booktabs}
+\usepackage[hidelinks]{hyperref}
+\hypersetup{pdftitle={Stable Hulls as Imprint Integration: Relations, Anchors and the Cost of Joint Reading},pdfauthor={Sidong Liu}}
+\newtheorem{definition}{Definition}[section]
+\newtheorem{lemma}[definition]{Lemma}
+\newtheorem{proposition}[definition]{Proposition}
+\newtheorem{theorem}[definition]{Theorem}
+\newtheorem{corollary}[definition]{Corollary}
+\newtheorem{hypothesis}[definition]{Hypothesis}
+\newcommand{\E}{\mathbb E}
+\newcommand{\Pp}{\mathbb P}
+\newcommand{\sgn}{\operatorname{sgn}}
+\title{Stable Hulls as Imprint Integration:\\Relations, Anchors and the Cost of Joint Reading}
+\author{Sidong Liu, PhD\\iBioStratix Ltd\\\texttt{sidongliu@hotmail.com}}
+\date{October 2026}
+\begin{document}
+\emergencystretch=2em
+\maketitle
+
+\begin{abstract}
+Several histories become one usable world when their relations change what a reader can distinguish and do. An explicit mixed-port coupling realizes the finite two-instrument model: local calibration and relative orientation each leave a remote reading at chance. Together, three calibration readings reduce its error from $0.5$ to $0.2952$ and determine a physical correction. Separable, composable frame relations yield a group torsor: relational records preserve a common frame symmetry, while anchors fix standards. We derive the resulting composition and calibration-cost laws. Retained calibration posteriors then reduce a branching network to known random-channel broadcasting, with the strict threshold established by Efthymiou and Zampetakis. We give explicit error bounds and a direct proof of non-reconstruction at criticality. Full posterior margins can carry a remote frame where majority-sign memory fails despite identical edge experiments. In the supercritical regime, independently sampled noisy anchors need only grow as $s^{-L}$ at depth $L$, where $s$ is the mean square of the posterior amplitude, rather than anchoring every one of the $b^L$ leaves; the edge-calibration and routing costs remain separate. A retained joint model prices a subsequent reading through the same mixed ports and a corrective pulse, then updates from their outcome. This gives shared reliability a positive action-value interval that sign-only compression loses, subject to the extra memory and inference bill. The proposed form of integration is a self--world organization that maintains relations among its channels, borrows its standards and uses both to govern further participation.
+\end{abstract}
+
+\section{When do several traces become one usable world?}
+
+A reader can know how its own instrument behaves and still be unable to interpret another instrument. It can also know how two instruments are related and have no way to tell which orientation either has. These are two incomplete histories. Used together they can answer a question neither answers alone.
+
+This is the integration problem. A collection of traces becomes a usable world when a system can combine their constraints, keep what the combination makes available, and use it across its activities. The relevant unity is not that all records sit in one container; it is the consequence that one history has for the use of another.
+
+\emph{The World as Imprint} separates carrying a historical difference, accessing it through an interface, and a system's use of a model of its own reading conditions, and it shows what one reader can and cannot learn about itself by acting \cite{WorldImprint}. The present paper asks how several such histories support one organization of reading. Its mixed-port couplings generate the local, relational and subsequent task records in one specified protocol; their preparation and retained joint use have separate prices. Section~\ref{sec:model} gives a complete finite example: a local calibration gives meaning to a relation, the relation makes an otherwise useless instrument informative, and the resulting estimate of reliability guides the next inquiry.
+
+Sections~\ref{sec:structure} and~\ref{sec:cost} show that the example is not special. Two histories are separately useless and jointly useful for a structural reason. When relations between frames carry no information about either frame alone and can be composed under the stated torsor assumptions, a remote frame is the anchor frame transported along a product of relations. The structure gives an all-or-nothing property along chains, a weakest-link bound, a product law for posteriors, a Galois law for remote quantities and a threshold for reading at a distance. T-DOME~III proves that a loop's symmetry hides the parameters it moves \cite{TDOMEIII}; relational records are invariant under that symmetry, and anchors are standards. Foundation~I gives a related stabilizer classification for its specified seed and closure class \cite{FoundationI}. Its operator-algebraic hypotheses and the finite statistical hypotheses here are different.
+
+The phrase \emph{stable hull} is used for the functions of the frames that a family of histories determines as its records accumulate, together with an update that preserves them. It names no new substance, and it is not identified with Foundation~I's hull, Foundation~II's shared sector or Brain Anchor's workspace \cite{FoundationI,FoundationII,BrainAnchor}, which have different mathematical types; Section~\ref{sec:interfaces} states the correspondences. The probability theory is elementary: binary channels, Bayesian updating, decision sufficiency, Fourier analysis on finite groups and a known threshold for broadcasting on trees. What the paper adds to the imprint account is a complete composition of histories with explicit permissions, memory, reading costs and actions, the general law behind it, and its price.
+
+\section{Common memory for a family of tasks}\label{sec:memory}
+
+Let $H$ be a finite record history available to a controller, $\Theta$ a finite latent variable, and $M=f(H)$ the retained classical state; partitions of histories below are restricted to histories of positive probability. Actuator settings and any other retained state that affects later decisions belong to $M$. For a binary target $f_j(\Theta)\in\{-1,+1\}$ write
+\[
+ p_j(H)=\Pp(f_j(\Theta)=+1\mid H).
+\]
+The history, prior, experiment family and task losses are part of the model. An investigator's posterior matters to the controller only if the controller implements the corresponding update and decision.
+
+\begin{definition}[Task memory]
+For a family $\mathcal T$ of binary targets, a memory preserves the task probabilities when each $p_j(H)$ is a function of $M$. The task algebra on the finite history space is
+\begin{equation}\label{eq:taskalgebra}
+ \mathscr D_{\mathcal T}=\sigma\{p_j(H):j\in\mathcal T\},
+\end{equation}
+an algebra of events whose atoms group histories with the same vector of task probabilities. The memory is stable under the declared experiments if these probabilities can be updated from the current memory, the chosen experiment and its next record.
+\end{definition}
+
+Stability here does not mean that the retained values stay fixed; it means the ability to update and act survives. An exact fixed-point algebra under noise is one way to store such a memory, not a definition of integration.
+
+\begin{proposition}[Task closure and decision sufficiency]\label{prop:sufficiency}
+$\mathscr D_{\mathcal T}$ is the smallest history algebra preserving all task probabilities, and $\mathscr D_{\mathcal T\cup\mathcal U}=\mathscr D_{\mathcal T}\vee\mathscr D_{\mathcal U}$. For deterministic finite memory, preserving these probabilities is equivalent to preserving the optimal Bayes risk for every target in $\mathcal T$ and every pair of positive misclassification costs.
+\end{proposition}
+\begin{proof}
+The first statements follow from the definition of a generated algebra. With false-positive cost $u>0$ and false-negative cost $v>0$, the optimal report is positive exactly when $p_j>u/(u+v)$, up to ties, so preserving $p_j$ preserves decision and risk. Conversely, if a memory cell contains two positive-probability histories with different $p_j$, a threshold strictly between them makes their unique optimal reports differ, and any decision based on the cell, randomized or not, incurs a strictly larger average risk.
+\end{proof}
+
+For one task with fixed symmetric costs an answer bit can suffice. The larger obligation appears when the same retained state must support several targets, changing costs, reliability judgments or future updates; in this decision-theoretic sense an integrated map holds more than a list of current answers. Predictive equivalence of histories and minimal sufficient representations are established ideas, developed in computational mechanics for the future distributions of stochastic processes \cite{ShaliziCrutchfield}. Here the task family is finite and closure is checked under the actual calibration experiments; no cognitive workspace is inferred from the existence of a sufficient statistic.
+
+\section{Two histories that only work together}\label{sec:model}
+
+\subsection{Instruments and acquisition permissions}
+
+Two instruments have unknown polarities $A,B\in\{-1,+1\}$, independent and uniform at the start of an episode and fixed through calibration and the task window. Both have known error $0<\eta<1/2$; put $\nu=1-2\eta$. An instrument of polarity $s$ has effects
+\begin{equation}\label{eq:effects}
+ E_{y\mid s}=\tfrac12(I+y\nu sZ),\qquad y=\pm1,
+\end{equation}
+positive and summing to the identity. We implement these effects by a fresh mixed record port, not by granting a sharp measurement of the source. Write $P_\pm=(I\pm Z)/2$ and prepare the port in $\eta_\nu=(I+\nu Z)/2$. The nondemolition coupling $P_+\otimes I+P_-\otimes X$ is followed by an actual port $Z$ reading with the instrument's fixed polarity convention $s$. The complete operation for outcome $y$ is
+\begin{equation}\label{eq:mixedinstrument}
+ \mathcal I_{y\mid s}(\rho)
+ =\frac{1+y\nu s}{2}P_+\rho P_+
+  +\frac{1-y\nu s}{2}P_-\rho P_- .
+\end{equation}
+A $Z$ eigenstate remains that eigenstate after a reading, and on an eigenstate labelled $W=\pm1$ the law is $Y=sWN$ with an independent sign $N$ of mean $\nu$. For a general source this operation removes coherences and is not the square-root instrument of the same effects. Every carrier used in the calibration and world task below is $Z$-diagonal, so the complete operation realizes the declared statistics and repeated access without using a coherent-state preservation permission.
+
+The controller has two calibration experiments. An \emph{anchor reading} prepares a known $+Z$ state and reads instrument $A$; its output $R=AN$ is a noisy record of $A$, at the cost of one preparation and one reading. A \emph{relational experiment} prepares one fresh fair $Z$ bit, reads it with both instruments without an intervening change, and records both outputs, whose product is
+\begin{equation}\label{eq:relation}
+ Z_R=Y_AY_B=ABN_AN_B=CN_AN_B,\qquad C=AB.
+\end{equation}
+Noises are independent between readings and experiments, only classical outcomes are returned, and the calibration qubits are discarded after their declared readings. The relational error and signal are
+\begin{equation}\label{eq:eps}
+ \epsilon_R=2\eta(1-\eta),\qquad 1-2\epsilon_R=\nu^2,
+\end{equation}
+at the cost of one preparation and two readings. The state is classical in the $Z$ basis, so reading its bit twice is compatible with the instrument; this is not cloning of an unknown quantum state. With two independent fresh ports the coupling gives, on this same carrier,
+\[
+ \Pp(Y_A=y_A,Y_B=y_B\mid W=w,A,B)
+ =\frac{1+\nu Aw y_A}{2}\frac{1+\nu Bw y_B}{2}.
+\]
+The joint law and the conditional independence used in~\eqref{eq:relation} therefore follow from the two actual couplings, not from composing marginal effects belonging to different experiments.
+
+Every single relational output is fair. The pair reveals $C$ but no absolute polarity, and since $(A,C)$ is independent and uniform, anchor records and relational records inform independent latent coordinates. The known reference, paired access, noise law, record routing and permitted $X$ correction are supplied. The system learns $A$ and $C$ within that interface, not the interface itself.
+
+Each reading uses one freshly prepared port with purity deficit $\ln2-h(\eta)$ nats, where $h$ is binary entropy in nats. For degenerate ports, preparing these inputs from maximum mixing has ideal free-energy difference $k_BT[\ln2-h(\eta)]$ per port. Thus $n$ anchors and $m$ relations use $n+2m$ such ports and $n+m$ source preparations, before the task's additional source and port. Actual port readout, routing and computing workspace are separate permissions. Retained outcomes and reversible count updates consume storage; their replacement or thermal reset must be priced with the available old references and final joint target, as in HAFF~F and T-DOME~I \cite{HAFFE,HAFFF,TDOMEI}. This input bill is not a universal per-record heat or a proof that the bank renews itself.
+
+\subsection{The retained map and its use}
+
+After $n$ anchor readings with $k$ positive results and $m$ relational experiments with $l$ positive products, the controller stores the counts and forms
+\begin{align}\label{eq:odds}
+ L_A&=\left(\frac{1-\eta}{\eta}\right)^{2k-n},
+ & a&=\frac{L_A-1}{L_A+1},\\
+ L_C&=\left(\frac{1-\epsilon_R}{\epsilon_R}\right)^{2l-m},
+ & c&=\frac{L_C-1}{L_C+1}.
+\end{align}
+The posterior is a product on $(A,C)$, so
+\begin{equation}\label{eq:product}
+ \E[A\mid H]=a,\qquad \E[C\mid H]=c,\qquad \E[B\mid H]=ac.
+\end{equation}
+One retained model serves local, relative and remote calibration, and the last requires composing the first two histories.
+
+For the world task a fresh fair bit $W$ arrives at instrument $B$. Before its single reading the controller applies $I$ if $\widehat B=\sgn(ac)=+1$ and $X$ if $\widehat B=-1$, ties broken either way, and reports the raw outcome as its estimate of $W$. Since $X$ reverses the $Z$ eigenvalue, the corrected instrument has effective polarity $B\widehat B$; the memory changes the physical operation before the reading. A classical sign flip after the reading gives the same risk with the correction in a different place. With $\hbar=1$, $H_{\rm ctl}=uX$ implements the correction up to phase when $u\tau=\pi/2$; under $|u|\le u_{\max}$ a constant pulse needs $\tau\ge\pi/(2u_{\max})$, and a quadratic control charge with coefficient $g_{\rm ctl}>0$ is $g_{\rm ctl}\pi^2/(4\tau)$, incurred only when the pulse is used and separate from reading, preparation and erasure costs.
+
+\begin{theorem}[Joint history risk]\label{thm:risk}
+In this one-reading, two-correction task the optimal conditional error is
+\begin{equation}\label{eq:conditionalrisk}
+ R_B(H)=\frac{1-\nu|ac|}{2}.
+\end{equation}
+Let
+\begin{equation}\label{eq:q}
+ q_j(e)=\frac12\sum_{i=0}^j\min\!\left\{\binom{j}{i}(1-e)^ie^{j-i},\ \binom{j}{i}e^i(1-e)^{j-i}\right\}
+\end{equation}
+be the optimal binary classification error from $j$ independent readings with error $e$. For sample counts $n,m$ fixed before acquisition the average remote error is
+\begin{equation}\label{eq:averagerisk}
+ R_{n,m}=\frac12-\frac\nu2[1-2q_n(\eta)][1-2q_m(\epsilon_R)].
+\end{equation}
+If either history is absent, $R_{n,m}=1/2$ whatever the length of the other; if both contain a record, $R_{n,m}<1/2$.
+\end{theorem}
+\begin{proof}
+Given the history and a correction $b_0$, the correlation between $W$ and its reading is $\nu b_0\E[B\mid H]$; the fresh fair world bit makes the reading's marginal fair, so it cannot reveal the polarity on that trial. Maximizing the correlation chooses $b_0=\sgn(ac)$ and gives~\eqref{eq:conditionalrisk}. Binary Bayes classification gives $\E|a|=1-2q_n(\eta)$ and $\E|c|=1-2q_m(\epsilon_R)$, and the two histories are independent, so $\E|ac|$ factors. With no records the relevant posterior mean is zero; a nonempty binary experiment with error below $1/2$ has a strictly positive expected absolute posterior mean.
+\end{proof}
+
+An arbitrarily long local history cannot replace a missing relation, and an arbitrarily precise relation cannot replace a missing anchor. Erasing either history before action, together with every retained polarity-dependent setting derived from it, restores chance. A history imported from an independent episode is useless for the current episode's latent coordinates, and shuffling records within an episode changes nothing, since the counts are sufficient. Table~\ref{tab:history} gives exact finite sums.
+
+\begin{table}[ht]
+\centering
+\begin{tabular}{rrrrr}
+\toprule
+$n=m$ & Calibration reads & $q_n(0.1)$ & $q_m(0.18)$ & $R_{n,m}$\\
+\midrule
+0 & 0 & 0.500000 & 0.500000 & 0.500000\\
+1 & 3 & 0.100000 & 0.180000 & 0.295200\\
+3 & 9 & 0.028000 & 0.085536 & 0.186997\\
+5 & 15 & 0.008560 & 0.043707 & 0.141215\\
+9 & 27 & 0.000891 & 0.012496 & 0.110692\\
+\bottomrule
+\end{tabular}
+\caption{Joint calibration with $\eta=0.1$. Either history alone leaves the remote error at $0.5$. The terminal world reading is additional to the calibration reads.}\label{tab:history}
+\end{table}
+
+\section{Why the histories are separately useless}\label{sec:structure}
+
+In the model, the remote polarity is $B=AC$ with $A$ and $C$ independent and uniform, so each history alone is to the other what a one-time pad is to a message \cite{Shannon1949}; the product of posterior means in~\eqref{eq:product} is the piling-up lemma of linear cryptanalysis \cite{Matsui1993}; and the information about $B$ is purely synergistic in the sense of partial information decompositions \cite{WilliamsBeer2010}. This section shows that these features are forced by two natural requirements on relations, and derives what follows for chains and networks of histories.
+
+\subsection{Separable relations form a torsor}
+
+Let $X$ be a finite set of frame values for an instrument and $R$ a finite set of relation values with $|R|=|X|$. A \emph{transport rule} $\tau:X\times R\to X$ gives the frame of a second instrument from the frame of the first and the relation between them.
+
+\begin{definition}[Separable and composable relations]\label{def:separable}
+The rule $\tau$ is \emph{separable} if, for a uniformly distributed local frame $x$ and an independent uniformly distributed relation $r$, the remote frame $\tau(x,r)$ is independent of $x$ and independent of $r$, and the relation is a function of the two frames. It is \emph{composable} if for all $r,s\in R$ there is $r\circ s\in R$ with $\tau(\tau(x,r),s)=\tau(x,r\circ s)$ for every $x$.
+\end{definition}
+
+Separability says that the local history and the relational history are each useless for the remote frame, whatever experiments produced them; composability says that relations can be chained.
+
+\begin{theorem}[Separable composable relations form a torsor]\label{thm:torsor}
+If $\tau$ is separable and composable, the maps $\tau_r=\tau(\cdot,r)$ form a group $G$ of permutations of $X$ that acts simply transitively, and $r\mapsto\tau_r$ is a bijection from $R$ onto $G$. Choosing a base point $x_\ast\in X$ identifies every frame with a group element, $x=\tau_g(x_\ast)$, and every relation between frames $g_u$ and $g_v$ with the element that carries one to the other. Conversely, every simply transitive action of a finite group gives a separable composable rule.
+\end{theorem}
+\begin{proof}
+Since the relation is a function of the two frames and $|R|=|X|$, each map $r\mapsto\tau(x,r)$ is injective, hence bijective. Given $x$, a uniform relation therefore makes the remote frame uniform, and summing over $x$ shows that the remote frame is uniform. Independence from $r$ then requires that each $\tau_r$ push the uniform law to the uniform law, so each $\tau_r$ is a bijection of $X$. If $\tau_r=\tau_s$ then $\tau(x,r)=\tau(x,s)$ and $r=s$, so $r\mapsto\tau_r$ is injective. By composability the set $G=\{\tau_r\}$ is closed under composition, and a finite set of permutations closed under composition is a group. For any $x,y$ exactly one $r$ has $\tau_r(x)=y$, so the action is simply transitive. The converse is immediate.
+\end{proof}
+
+Composability is the substantive condition. Of the $576$ Latin squares of order four, $96$ have row permutations closed under composition, and each of these is the regular action of $\mathbb Z_4$ or $\mathbb Z_2\times\mathbb Z_2$ (accompanying check). A torsor is a group that has forgotten its identity: every frame is as good a base point as every other. Relational records can form, transmit and maintain relative standards. They remain invariant under a common change of base point, so they cannot determine that common relabelling \cite{TDOMEIII}. An \emph{anchor}, such as the known preparation of Section~\ref{sec:model}, is an operation whose record law depends on a frame itself; its label fixes the base point relative to that operation.
+
+From here on frames are elements $g_v$ of a finite group $G$, relations are $c_{uv}=g_u^{-1}g_v$, and a common change of base point acts by $g_v\mapsto hg_v$ for all $v$ at once. In Section~\ref{sec:model}, $G=\{\pm1\}$, $A=g_0$, $C=c_{01}$ and $B=g_1=AC$.
+
+\subsection{Chains: all or nothing, the weakest link, and a product law}
+
+Consider a path of instruments $0,1,\dots,k$ with an anchor at $0$. The latent variables are the anchor frame $c_0:=g_0$ and the relations $c_j=c_{j-1,j}$ for $j=1,\dots,k$, independent and uniform on $G$ (frames independent and uniform make the relations along a path independent and uniform). The remote frame is
+\[
+ g_k=c_0c_1\cdots c_k .
+\]
+History $H_0$ consists of anchor records whose law depends only on $c_0$, history $H_j$ of relational records whose law depends only on $c_j$, and the histories are conditionally independent given the latents.
+
+\begin{proposition}[All or nothing]\label{prop:aon}
+Every proper subfamily of $(H_0,\dots,H_k)$ is independent of $g_k$.
+\end{proposition}
+\begin{proof}
+If $H_j$ is missing, $c_j$ is uniform and independent of the remaining latents and histories, and $g_k=Pc_jQ$ with $P,Q$ independent of $c_j$. Left and right translation preserve the uniform law, so $g_k$ is uniform given everything else.
+\end{proof}
+
+\begin{theorem}[Weakest link]\label{thm:weakest}
+$I(g_k;H_0,\dots,H_k)\le\min_jI(c_j;H_j)$.
+\end{theorem}
+\begin{proof}
+Fix $j$, write $H_{-j}$ for the other histories and $g_k=Pc_jQ$. By Proposition~\ref{prop:aon}, $I(g_k;H_{-j})=0$, so $I(g_k;H)=I(g_k;H_j\mid H_{-j})\le I(g_k,P,Q;H_j\mid H_{-j})$. The map $(g_k,P,Q)\mapsto(c_j,P,Q)$ is a bijection, and $(c_j,H_j)$ is independent of $(P,Q,H_{-j})$, so the last quantity equals $I(c_j;H_j)$.
+\end{proof}
+
+\begin{theorem}[Product law]\label{thm:product}
+For every unitary representation $\rho$ of $G$,
+\[
+ \E[\rho(g_k)\mid H]=\E[\rho(c_0)\mid H_0]\,\E[\rho(c_1)\mid H_1]\cdots\E[\rho(c_k)\mid H_k],
+\]
+a product of matrices in path order, and the posterior law of $g_k$ is the convolution of the link posteriors in that order. For abelian $G$ each character factorizes into a product of numbers. For $G=\{\pm1\}$, with $m_j=\E[c_j\mid H_j]$,
+\[
+ \E[g_k\mid H]=\prod_{j=0}^km_j,\qquad
+ R=\frac12-\frac\nu2\prod_{j=0}^k\E|m_j|
+\]
+is the optimal error of a remote reading with sharpness $\nu$ and one correction. In every case $\|\E[\rho(g_k)\mid H]\|\le\prod_j\|\E[\rho(c_j)\mid H_j]\|$ in operator norm.
+\end{theorem}
+\begin{proof}
+The prior is a product and each history depends on its own latent, so the posterior is the product of the link posteriors. Then $\rho(g_k)=\rho(c_0)\cdots\rho(c_k)$ and independence factor the expectation. Fourier inversion on a finite group turns the product of transforms into the convolution. For $G=\{\pm1\}$ the nontrivial character is the identity map; the risk follows as in Theorem~\ref{thm:risk}, with independent histories making $\E|\prod m_j|$ factor. The norm bound is submultiplicativity.
+\end{proof}
+
+For a non-abelian group the order matters. In a random instance with frames in the symmetric group $S_3$, an anchor and two links, reversing the order of the factors changes an entry of the two-dimensional Fourier matrix of the remote posterior by $0.28$ (accompanying check). Integration then depends on how histories are composed, not only on what each contains.
+
+Theorem~\ref{thm:risk} is the case $k=1$. Two consequences hold for any length. A remote reading at relational distance $k$ needs every one of $k+1$ histories, and its quality decays as a product of link qualities, so at fixed link quality it fades exponentially with distance. And by Theorem~\ref{thm:weakest} no improvement of the other links compensates for the worst one.
+
+\subsection{What a network can read: a Galois law}
+
+Now let instruments sit at the vertices of a connected graph. Relational experiments on edges have record laws that depend on $c_{uv}=g_u^{-1}g_v$; anchors at a set $\mathcal A$ of vertices have record laws that depend on $g_v$ only through the coset $K_vg_v$ of a subgroup $K_v$. A full anchor has $K_v=\{e\}$; an anchor that reveals a frame only up to some symmetry has a larger $K_v$. Call the records \emph{informative} if distinct values of these quantities have distinct record laws.
+
+\begin{theorem}[Galois law for networks]\label{thm:galois}
+Let $K=\bigcap_{v\in\mathcal A}K_v$, with $K=G$ if there is no anchor. With noiseless informative records on a spanning tree of edges and at the anchors, a function $F$ of the frames is determined by the records if and only if $F(hg)=F(g)$ for every $h\in K$, where $hg$ multiplies every frame on the left by $h$. The functions of a single remote frame that the records determine are exactly the functions of its coset $Kg_r$, and distinct subgroups $K$ give distinct algebras of such functions. With noisy records, these are the functions that become consistently estimable as the numbers of relational and anchor experiments grow.
+\end{theorem}
+\begin{proof}
+The relations on a spanning tree determine all frames up to a common left factor: the records fix $g$ up to $g\mapsto hg$. The anchors fix $K_vhg_v=K_vg_v$, which holds exactly when $h\in K_v$; so the configurations compatible with the records are $\{hg:h\in K\}$, and $F$ is determined if and only if it is constant on this set. For the converse direction with arbitrary policies, the common left action of $K$ is a symmetry of every record kernel, and the gauge theorem of T-DOME~III gives identical record laws on each orbit \cite{TDOMEIII}. The functions of $g_r$ invariant under left multiplication by $K$ are the functions of $Kg_r$, and $K$ is recovered from them as the set of $h$ leaving them all invariant. With noisy informative records, the latent quantities on the tree and at the anchors are identified by their record laws and estimated consistently from independent repetitions.
+\end{proof}
+
+The theorem has the form of Foundation~I's Galois law \cite{FoundationI}, whose fixed-point identification requires the seed to contain the full group-fixed algebra and the closure operations to preserve the stabilizer-fixed algebra, within its stated compact-group setting. That ideal closure is not an instrument permission: a nonzero unsharp effect can generate the same pointer algebra as a sharp projection without permitting that sharp operation. Here~\eqref{eq:mixedinstrument}, the fresh ports and the allowed correction specify the physical reading menu. The functions determined by the present network of histories are invariant under the subgroup that its anchors leave unbroken. Adding anchors can only shrink $K$ and enlarge this algebra. Anchors that leave $K$ unchanged can still improve finite-record precision; they add no further asymptotically identifiable functions. The objects differ, a von Neumann algebra with modular flow there and functions on a finite configuration space here. The accompanying check verifies the present theorem exhaustively on a path of three instruments with frames in $S_3$, for all $36$ pairs of anchor subgroups.
+
+Several results of the series are cases of Theorem~\ref{thm:galois}. Without anchors only relations are readable, which is T-DOME~III's observation that two agents can identify their relative sign by agreement while a common inversion stays hidden \cite{TDOMEIII}, and a shared orientation error is one source of common error that agreement cannot expose \cite{FoundationII}. Brain Anchor learns the relative orientations of channels in a block and notes that absolute block orientation is a gauge freedom \cite{BrainAnchor}; its missing-readout task asks for another channel's reading, an invariant function, so it needs no anchor, whereas the remote world reading of Section~\ref{sec:model} asks for an absolute value and does. Renormalization and Imprint Filtering separates a source parameter from an unknown reader gain by a ratio of spectral bands \cite{ImprintRG}; the gain group acts by scaling, the ratio is invariant, and known changes of readout noise act as anchors. The proof above uses only the group structure, so it covers that continuous case with noiseless records.
+
+\section{The cost of joint reading}\label{sec:cost}
+
+\subsection{Integration changes the value of inquiry}\label{sec:inquiry}
+
+At posterior mean $a$, an anchor outcome $y$ has probability $(1+\nu ay)/2$ and updates
+\begin{equation}\label{eq:update}
+ a'=\frac{a+\nu y}{1+\nu ay};
+\end{equation}
+a relational outcome updates $c$ in the same way with signal $\nu^2$. These rules close on $(a,c)$, and with the remaining budgets recorded the finite controller can choose another experiment or perform the task. The one-step reductions of conditional remote risk from another anchor reading and from another relational experiment are
+\[
+ \Delta_A(a,c)=\frac\nu2|c|\bigl(\E[|a'|\mid a]-|a|\bigr),\qquad
+ \Delta_C(a,c)=\frac\nu2|a|\bigl(\E[|c'|\mid c]-|c|\bigr),
+\]
+both nonnegative by Jensen's inequality, and each proportional to the other history's information.
+
+\begin{proposition}[Myopic inquiry stalls]\label{prop:complement}
+On a path with an anchor and $k$ relational links, the one-step value of any single further record for the remote task is zero whenever at least two of the $k+1$ histories carry no information. A rule that stops when no single next experiment improves the remote risk therefore never starts, while a plan that acquires one record of each kind lowers the remote error by $\nu^{2k+2}/2$. For $k=1$ and $\eta=0.1$ this is $0.2048$ for three calibration readings.
+\end{proposition}
+\begin{proof}
+By Theorem~\ref{thm:product} the remote advantage is $\nu\prod_j\E|m_j|$, and a record changes one factor; with two factors at zero the product stays zero. One anchor record gives $\E|m_0|=\nu$ and one relational record $\E|m_j|=\nu^2$.
+\end{proof}
+
+The failure belongs to that stopping rule, not to sequential decision theory: a planner that evaluates combinations of experiments sees their value. It is also specific to the remote objective; if local calibration is itself rewarded, the first anchor has immediate value. What counts as a useful imprint depends on the task family and on the horizon over which its use is judged. In a network the horizon grows with relational distance: the first useful record comes only after every other history on the path carries information.
+
+For a fixed allocation chosen before any record is seen, a budget of $b$ calibration reads gives the exact optimization $R^{\rm fixed}_b=\min_{n+2m\le b}R_{n,m}$ (Table~\ref{tab:allocation}, least-read minimizer in case of ties). An unused read in some rows is real: in a symmetric binary majority decision an even observation can tie the preceding odd count. These are optima over fixed allocations, not over adaptive acquisition.
+
+\begin{table}[ht]
+\centering
+\begin{tabular}{rrrrr}
+\toprule
+Budget $b$ & Anchor $n$ & Relation $m$ & Reads used & Error\\
+\midrule
+3 & 1 & 1 & 3 & 0.295200\\
+6 & 3 & 1 & 5 & 0.258336\\
+9 & 3 & 3 & 9 & 0.186997\\
+12 & 5 & 3 & 11 & 0.174105\\
+18 & 7 & 5 & 17 & 0.136957\\
+24 & 5 & 9 & 23 & 0.116674\\
+32 & 9 & 11 & 31 & 0.106181\\
+\bottomrule
+\end{tabular}
+\caption{Exact fixed-allocation optima for the two-instrument task, $\eta=0.1$.}\label{tab:allocation}
+\end{table}
+
+\subsection{Costs add along a path}
+
+For binary frames, write the Chernoff exponents of an anchor reading and of a relational experiment as
+\[
+ C_A=-\tfrac12\ln(1-\nu^2),\qquad C_R=-\tfrac12\ln(1-\nu^4),
+\]
+so that $q_n(\eta)$ and $q_m(\epsilon_R)$ decay as $e^{-nC_A}$ and $e^{-mC_R}$ up to subexponential factors \cite{CoverThomas2006}. A relational experiment costs two readings. Measure the quality of a remote reading by its excess error over the known-frame value $(1-\nu)/2$.
+
+\begin{theorem}[Costs add along a path]\label{thm:budget}
+On a path with an anchor and $k$ relational links, let $B(\delta)$ be the least number of calibration readings in a fixed allocation that brings the remote excess error to at most $\delta$. Then, as $\delta\to0$ with $k$ fixed,
+\[
+ B(\delta)=\ln\frac1\delta\left(\frac1{C_A}+\frac{2k}{C_R}\right)(1+o(1)).
+\]
+\end{theorem}
+\begin{proof}
+By Theorem~\ref{thm:product} the excess is $E=\frac\nu2\bigl(1-\prod_j(1-2q_j)\bigr)$, with $q_0=q_{n_0}(\eta)$ and $q_j=q_{n_j}(\epsilon_R)$. Since $1-\prod_j(1-2q_j)\ge2q_j$ for each $j$, the target requires $q_j\le\delta/\nu$ for every link, and $-\frac1n\ln q_n\to C$ gives $n_j\ge(1-o(1))\ln(1/\delta)/C_j$; summing with costs $1$ and $2$ gives the lower bound. Conversely $q_n\le\frac12e^{-nC}$ by the Bhattacharyya bound, and $1-\prod_j(1-2q_j)\le2\sum_jq_j$, so $n_j=\lceil\ln((k+1)\nu/(2\delta))/C_j\rceil$ achieves $E\le\delta$ at a cost with the same leading term.
+\end{proof}
+
+\begin{table}[ht]
+\centering
+\begin{tabular}{rrrrrr}
+\toprule
+$k$ & $\delta$ & Budget & Anchor reads & Relational experiments per link & Leading term\\
+\midrule
+1 & $10^{-2}$ & 29 & 7 & 11 & 44.0\\
+1 & $10^{-4}$ & 69 & 15 & 27 & 87.9\\
+1 & $10^{-6}$ & 111 & 25 & 43 & 131.9\\
+4 & $10^{-2}$ & 127 & 7 & 15 & 148.8\\
+4 & $10^{-4}$ & 265 & 17 & 31 & 297.7\\
+4 & $10^{-6}$ & 403 & 27 & 47 & 446.5\\
+\bottomrule
+\end{tabular}
+\caption{Smallest budgets found by exhaustive search over allocations with odd counts and a common relational count, giving admissible upper bounds on the unrestricted fixed-allocation optimum, $\eta=0.1$, against the leading term of Theorem~\ref{thm:budget}. The ratio rises from $0.66$ to $0.90$ as $\delta$ falls.}\label{tab:budget}
+\end{table}
+
+Costs add along a path: each link contributes its own term, and a remote reading at distance $k$ costs $k$ times a link plus an anchor, up to logarithmic corrections (Table~\ref{tab:budget}). At weak coupling $1/C_A\approx2/\nu^2$ while $2/C_R\approx4/\nu^4$, so relational links dominate the price. The reason is a symmetry. Relational records are invariant under the common sign change of all frames, so their law is even in $\nu$ and their information starts at fourth order, while an anchor breaks the symmetry and gives second-order information. The same mechanism makes self-reading from a world fourth order in \emph{The World as Imprint} \cite{WorldImprint} and gives Brain Anchor's relational learning its $\nu^{-4}$ scale \cite{BrainAnchor}. Integration is expensive exactly where it is indispensable, in the records that carry no standard.
+
+\subsection{Branching networks: a threshold for reading at a distance}
+
+A single chain cannot carry a remote reading far at fixed link quality, because the quality decays as a product. A network can do better if several paths lead from anchors to the remote instrument. Consider a remote instrument at the root of a tree of relational links in which each vertex has $b$ children and the leaves at depth $L$ are anchored exactly. These exact boundary labels are an additional standard, not the result of finitely many noisy anchor readings in Section~\ref{sec:model}. Proposition~\ref{prop:sparseanchors} replaces them with noisy anchors. Each link's relation is estimated from $m$ relational experiments and summarized by its majority sign, which errs with probability $\varepsilon=q_m(\epsilon_R)$. In this sign-only menu a tie is broken by an independent fair coin, and only the resulting sign is returned to later reconstruction and control. The raw count and the tie coin are not also supplied: either would enlarge the retained information and change the comparison. A spent archive without a permitted route to the decoder remains a storage charge; erasing it instead requires the corresponding reset charge.
+
+\begin{proposition}[Threshold for remote reading]\label{prop:tree}
+As $L\to\infty$, the Bayes error for the remote frame tends to $1/2$ if $b(1-2\varepsilon)^2<1$ and stays bounded away from $1/2$ if $b(1-2\varepsilon)^2>1$. For a chain, $b=1$, it tends to $1/2$ for every $\varepsilon>0$.
+\end{proposition}
+\begin{proof}
+Express every frame relative to the root along the estimated relations. Because relations along the tree are independent and uniform and each estimated sign errs with probability $\varepsilon$ independently of the relation's value, the anchored leaf frames are the root frame broadcast down the tree through binary symmetric channels with flip probability $\varepsilon$. Reconstruction of the root from the leaves at depth $L$ is the broadcasting problem on trees, whose threshold is $(1-2\varepsilon)^2$ against $1/b$ for the regular tree \cite{EKPS2000}.
+\end{proof}
+
+\begin{table}[ht]
+\centering
+\begin{tabular}{rrrrrrrr}
+\toprule
+$b$ & $m$ & $\varepsilon$ & $b(1-2\varepsilon)^2$ & $L=1$ & $L=5$ & $L=20$ & $L=40$\\
+\midrule
+1 & 5 & 0.0437 & 0.833 & 0.0437 & 0.184 & 0.420 & 0.487\\
+2 & 1 & 0.1800 & 0.819 & 0.180 & 0.332 & 0.470 & 0.497\\
+2 & 3 & 0.0855 & 1.374 & 0.0855 & 0.123 & 0.1348 & 0.1348\\
+3 & 1 & 0.1800 & 1.229 & 0.0855 & 0.207 & 0.251 & 0.252\\
+3 & 3 & 0.0855 & 2.061 & 0.0207 & 0.0361 & 0.0366 & 0.0366\\
+\bottomrule
+\end{tabular}
+\caption{Bayes error for the remote frame through a tree of relational links with exactly anchored leaves, $\eta=0.1$, by deterministic density evolution of the belief-propagation message; exact enumeration agrees to $10^{-6}$ for $L\le3$.}\label{tab:tree}
+\end{table}
+
+With one relational experiment per link a binary tree fails, and with three it carries the remote frame at every depth with error near $0.135$; a ternary tree succeeds with one (Table~\ref{tab:tree}). At depth $L$ this uses $b^L$ exactly anchored leaves. The next comparison keeps the same number of experiments on each edge and changes what the memory retains.
+
+\begin{theorem}[Full-posterior threshold]\label{thm:fulltree}
+Keep each link's full relational history $H_e$ and put $A_e=|\E[C_e\mid H_e]|$, $s=\E A_e^2$. Suppose histories on different edges are independent and identically distributed, acquired by the symmetric binary experiment of Section~\ref{sec:model}. Let $r_L$ be the Bayes error for the root frame using these histories and all exactly anchored leaves at depth $L$ of a regular $b$-ary tree. For $bs<1$,
+\[
+ \tfrac12-r_L\le\tfrac12(bs)^{L/2}\longrightarrow0.
+\]
+For $bs>1$, with $b\ge2$, at every depth
+\[
+ r_L\le\frac12\left(1-\frac{bs-1}{(b-1)s}\right)<\frac12.
+\]
+At $bs=1$ with $b\ge2$,
+\[
+ x_L:=\E M_L^2\le\frac1{1+L/b^2},\qquad
+ \tfrac12-r_L\le\frac1{2\sqrt{1+L/b^2}}\longrightarrow0.
+\]
+Thus reconstruction is possible precisely when $bs>1$ for $b\ge2$. The noiseless chain $b=s=1$ is a separate, reconstructible boundary case.
+\end{theorem}
+\begin{proof}
+Choose the posterior sign of each edge, breaking ties by an independent fair coin. Multiply each exactly known leaf frame by the chosen signs along its root path. Conditional on the magnitudes $A_e$, the transformed frames are the root broadcast through independent binary symmetric channels of known edge reliability $A_e$. This follows from the independent uniform edge relations and the symmetry of their experiments: the chosen sign is correct with probability $(1+A_e)/2$ conditional on its magnitude, independently on different edges. The magnitudes have a law independent of the root. All original record information relevant to reconstruction is preserved by this transformation.
+
+Let $M_L$ be the root posterior mean and $x_L=\E M_L^2$. A child subtree with posterior mean $m$ sends its parent mean $A_em$. Two symmetric binary evidence channels, conditionally independent given the root, have posterior means $u,v$ that combine to $(u+v)/(1+uv)$; the joint marginal, relative to their separate marginals, has density $1+uv$. Conditional on their magnitudes $p=|u|$ and $q=|v|$, sign averaging therefore gives combined second moment
+\[
+ \frac{p^2+q^2-2p^2q^2}{1-p^2q^2}\le p^2+q^2.
+\]
+At $p=q=1$ the combined second moment is $1$, so the inequality holds there too. Iterating the merge over the $b$ independent child channels yields $x_L\le bs\,x_{L-1}$ with $x_0=1$. Thus $\E|M_L|\le\sqrt{x_L}\le(bs)^{L/2}$, proving the first assertion.
+
+At criticality keep the loss in the first merge. For $u=p^2$, $v=q^2$,
+\[
+ u+v-\frac{u+v-2uv}{1-uv}
+   =uv\,\frac{2-u-v}{1-uv}\ge uv,
+\]
+because $(1-u)(1-v)\ge0$. At $u=v=1$ the actual loss is $1$, so the same bound holds. The magnitudes of independent symmetric evidence channels are independent: their law is the same for either root sign. Hence the first two child channels have $\E[p^2q^2]=(s x_{L-1})^2$. Merge the other children using only the nonnegative-loss inequality to obtain
+\[
+ x_L\le bs x_{L-1}-s^2x_{L-1}^2.
+\]
+When $bs=1$, either $x_L=0$ or $1/x_L\ge1/x_{L-1}+s^2$. Starting at $x_0=1$ proves the critical bound. This argument requires two children and therefore does not apply to a noiseless single chain.
+
+For the other direction write $T_v$ for the transformed leaf frame and define the observable weighted estimate
+\[
+ Z_L=(bs)^{-L}\sum_{|v|=L}\left(\prod_{e\in[0,v]}A_e\right)T_v.
+\]
+If $U$ is the root frame, $\E[UZ_L]=1$. The diagonal terms of $\E Z_L^2$ contribute $(bs)^{-L}$. Two different leaves with last common ancestor at depth $j$ contribute $s^{2L-j}$ before normalization; there are $(b-1)b^{2L-j-1}$ ordered pairs. Consequently
+\[
+ \E Z_L^2=(bs)^{-L}+\frac{b-1}{b}\sum_{j=0}^{L-1}(bs)^{-j}
+ \le K:=\frac{(b-1)s}{bs-1}.
+\]
+Here $K\ge1$, since $s\le1$. As $Z_L$ is observable, $1=\E[M_LZ_L]\le\sqrt{x_L\E Z_L^2}$, so $\E|M_L|\ge x_L\ge1/K$. The Bayes risk is $(1-\E|M_L|)/2$, giving the bound.
+\end{proof}
+
+For positive integer branching and finite real Ising couplings, the strict threshold agrees with the binary symmetric specialization of Efthymiou and Zampetakis, Theorem~2.1 of their arXiv version \cite{EfthymiouZampetakis2023}. Finite couplings give $A_e<1$ almost surely. The direct proof above supplies this reader's constants and covers the critical case and distributions with an atom at $A_e=1$; these extensions are not attributed to that strict-threshold theorem. A sign-only summary replaces $A_e$ by the constant $\E A_e=1-2q_m(\epsilon_R)$ and hence uses $b(\E A_e)^2$ instead of $b\E A_e^2$. Their difference is $b\operatorname{Var}(A_e)$, the reliability information discarded by compression.
+
+At $\eta=0.1$, put $\rho=\nu^2=0.64$. Two relational experiments give $A=0$ with probability $(1-\rho^2)/2$ and $A=2\rho/(1+\rho^2)$ with probability $(1+\rho^2)/2$. Hence
+\[
+ \E A^2=\frac{2\rho^2}{1+\rho^2}=\frac{512}{881},\qquad
+ 2\E A^2=\frac{1024}{881}>1,\qquad
+ 2(\E A)^2=2\rho^2=0.8192<1.
+\]
+A binary tree with these same two experiments per edge loses its root under sign-only memory and preserves it under full-posterior memory. The latter has error at most $369/1024\simeq0.36035$ at every depth. Retaining margin therefore changes whether distant anchors remain usable, even though it does not improve a single isolated link's symmetric terminal decision.
+
+\begin{proposition}[Sparse noisy anchors]\label{prop:sparseanchors}
+Use the full edge histories above, with $b\ge2$ and $bs>1$. Select each depth-$L$ leaf independently with probability $p_L>0$, independently of all frames and edge records; the chosen locations are known. A selected leaf supplies a binary anchor with known reliability $\vartheta\in(0,1]$, with independent anchor noise. Put $N_L=b^Lp_L$, the expected number of anchors, and
+\[
+ K_L=\frac{b-1}{b}\sum_{j=0}^{L-1}(bs)^{-j}.
+\]
+For the root posterior $M_L$ and $x_L=\E M_L^2$,
+\begin{equation}\label{eq:sparseanchors}
+ \frac1{(\vartheta^2N_Ls^L)^{-1}+K_L}
+ \le x_L\le\min\{1,\vartheta^2N_Ls^L\}.
+\end{equation}
+Consequently $N_Ls^L\to0$ implies chance-level reading, while $\liminf_L N_Ls^L>0$ gives an error uniformly below $1/2$ for all sufficiently large depths. In particular $N_L=C s^{-L}$ suffices for any fixed $C>0$ once $p_L=C/(bs)^L\le1$.
+\end{proposition}
+\begin{proof}
+For the upper bound the leaf experiment has second moment $p_L\vartheta^2$. Apply the merge inequality for $L$ levels. For the lower bound let $I_v$ indicate that leaf $v$ was selected, and let $Y_v$ be its noisy frame after multiplying by the estimated signs along its path. Define
+\[
+ Z_L=\frac1{\vartheta p_L(bs)^L}
+      \sum_{|v|=L} I_v\left(\prod_{e\in[0,v]}A_e\right)Y_v.
+\]
+Then $\E[UZ_L]=1$ for root sign $U$. The diagonal terms of $\E Z_L^2$ give $(bs)^{-L}/(p_L\vartheta^2)$; for different leaves the factors $p_L^2\vartheta^2$ cancel the normalization and the same path-pair calculation as above gives $K_L$. Cauchy--Schwarz gives $x_L\ge1/\E Z_L^2$. Finally $x_L\le\E|M_L|\le\sqrt{x_L}$ translates the bounds into Bayes error. The assertions average over independently sampled locations, edge histories and anchor outcomes.
+\end{proof}
+
+This prices the supply of standards separately from the network carrying them. A selected leaf can realize $\vartheta=\nu$ with one actual anchor reading of the mixed-port model, so this version needs no perfect boundary label. Every edge history used by the estimator must still be acquired and routed; reducing the number of anchors is not a reduction of the whole apparatus to $O(s^{-L})$ resources. Selecting locations after seeing their reliability is a different design problem. For $N_L=C s^{-L}$, let $K=(b-1)s/(bs-1)$ and $\alpha_C=(1/(\vartheta^2C)+K)^{-1}$. The lower bound gives $\E|M_L|\ge\alpha_C$ at the permitted depths. The paid-action argument below therefore applies with $\alpha_C$ in place of the all-leaf constant: a finite density of noisy standards on this scale can support a nonzero range of physical action prices.
+
+\subsection{Shared reliability chooses a paid physical action}\label{subsec:priced}
+
+The posterior at the remote instrument can do more than authorize a report. Let $U=\pm1$ be that instrument's polarity and $W=\pm1$ a physical world bit it reads nondestructively, with $Y=UWN$ and $\E N=\nu$. The calibration history $H$ may come from any network or experiment; it need not have a product posterior. Write
+\[
+ m=\E[U\mid H],\qquad \mu=\E[W\mid H],\qquad t=\E[UW\mid H].
+\]
+The joint law is $\Pp(U=u,W=w\mid H)=(1+um+w\mu+uwt)/4$. The controller can leave the world alone or pay to read it and request an $X$ flip whenever $aY=-1$, with $a=\pm1$ chosen before the reading. A requested flip succeeds independently with probability $\zeta$, after which a symmetric bath multiplies the world's mean by $\chi\in[0,1]$. Both branches include the same bath step. The controller receives only $Y$, not the hidden polarity, the world state or the actuator's success. Use the same mixed-port operation~\eqref{eq:mixedinstrument}, with polarity $U$, for this reading. Its nondemolition population law leaves the old calibration variables in the model, while the retained port outcome controls the actual pulse; no separate perfect observation of $W$ is inserted.
+
+Price an incorrect final world state at $V>0$, a reading opportunity at $w_0\ge0$ and each requested pulse at $w_X\ge0$, all in the same units. The declared charge $w_0$ includes any per-opportunity preparation, measurement and reset charge assigned to this task. Other implementation charges must be added to its ledger. $V$ prices a task loss; it is not work extracted from the world.
+
+\begin{theorem}[Priced action from a retained joint model]\label{thm:priced}
+The conditional net value over leaving the world alone is
+\begin{equation}\label{eq:jointvalue}
+ \Psi(m,\mu,t)=\left[\frac\nu2\bigl|V\chi\zeta m+w_Xt\bigr|
+             -\frac{V\chi\zeta}2\mu-w_0-\frac{w_X}2\right]_+,
+\end{equation}
+where $[x]_+=\max(x,0)$. Operate when the bracket is positive and choose $a=\sgn(V\chi\zeta m+w_Xt)$; otherwise leave the world alone. For any retained compression $M$ of $H$, let $z=(m,\mu,t)$ and $z_M=\E[z\mid M]$. The optimal average values satisfy the exact relation
+\begin{equation}\label{eq:valuecompression}
+ \mathcal J(H)-\mathcal J(M)
+    =\E\Psi(z)-\E\Psi(z_M)\ge0.
+\end{equation}
+The result holds also for a randomized compression whose randomization is independent of the latent variables conditional on $H$.
+\end{theorem}
+\begin{proof}
+For a selected $a$, the post-bath mean is
+$\chi[(1-\zeta)\mu+\zeta\nu am]$, because $\E[WY\mid H]=\nu m$. Leaving the world alone gives $\chi\mu$. The saved expected loss is therefore $V\chi\zeta(\nu am-\mu)/2$. A pulse is requested with probability $(1-\nu at)/2$. Subtracting its charge and $w_0$ gives
+\[
+ a\frac\nu2(V\chi\zeta m+w_Xt)
+   -\frac{V\chi\zeta}2\mu-w_0-\frac{w_X}2.
+\]
+Maximizing over the two signs and the option of no operation proves~\eqref{eq:jointvalue}. The tower property gives the joint moments available from $M$. The function $\Psi$ is the maximum of zero and two affine functions of those moments, hence convex; conditional Jensen inequality proves~\eqref{eq:valuecompression}.
+\end{proof}
+
+Reliability decides whether to operate, while an existing world bias and the reader--world correlation can change which operation pays. The marginal reliability alone need not suffice.
+
+The same three moments also implement the subsequent update. On observing $Y=y$, Bayes' rule gives
+\begin{equation}\label{eq:jointupdate}
+ m^+=\frac{m+y\nu\mu}{1+y\nu t},\qquad
+ \mu^+=\frac{\mu+y\nu m}{1+y\nu t},\qquad
+ t^+=\frac{t+y\nu}{1+y\nu t}.
+\end{equation}
+With $f_y=1-2\zeta\mathbf1_{\{ay=-1\}}$, the next retained moments are
+$(m^+,\chi f_y\mu^+,\chi f_yt^+)$. Thus the controller can update its model of its own polarity, its world and their relation from its actual record, then price its next operation. A finite episode with rational parameters has a finite lookup implementation. For additional queries inside a calibration network, the joint network state must still be retained; the scalar root reliability is sufficient for the present action, not generally for every future edge inquiry.
+
+\begin{corollary}[A reconstruction threshold becomes an action-value threshold]\label{cor:actiontree}
+Suppose a fresh fair world bit is independent of $U,H$ at each task opportunity. Put
+$\gamma=V\chi\zeta\nu/2$ and $\lambda=w_0+w_X/2$. Then
+\[
+ \mathcal J_\lambda(H)=\E(\gamma|m|-\lambda)_+.
+\]
+In the full-posterior tree of Theorem~\ref{thm:fulltree}, with $bs>1$, let
+$\alpha=(bs-1)/((b-1)s)$. At every depth,
+\begin{equation}\label{eq:treevalue}
+ \mathcal J^{\rm full}_{\lambda,L}\ge(\gamma\alpha-\lambda)_+,
+ \qquad
+ \mathcal J^{\rm sign}_{\lambda,L}\le
+        \gamma\bigl[b(\E A)^2\bigr]^{L/2}
+ \quad\text{if }b(\E A)^2<1.
+\end{equation}
+Consequently every price $0<\lambda<\gamma\alpha$ leaves the full-record action value bounded away from zero while the sign-only action value vanishes, under the same calibration-read allowance.
+\end{corollary}
+\begin{proof}
+Independence and fairness give $\mu=t=0$, so~\eqref{eq:jointvalue} reduces to the stated positive part. The full-tree proof gives $\E|m|\ge\alpha$, and convexity of the positive part yields the first bound. Applying the subcritical square-moment argument to the constant link reliability $\E A$ gives $\E|m_{\rm sign}|\le[b(\E A)^2]^{L/2}$. Its value is at most $\gamma\E|m_{\rm sign}|$.
+\end{proof}
+
+For the two-experiment binary tree, $\alpha=143/512$. With $V=1$, $\chi=0.9$, $\zeta=1$, $\nu=0.8$ and $\lambda=0.05$, the full-record value is at least $647/12800=0.050546875$ at every depth. The sign-only upper bound is $0.36(0.8192)^{L/2}$ and is already below that floor at depth $20$. At depth one, exact raw-history enumeration gives values $0.254949808$ and $0.19516$, respectively. The additional distinction is whether an edge has a zero margin: its full posterior has three possible values, whereas a randomized majority sign has two.
+
+The same finite comparison also admits noisy physical anchors. Keep the two relational experiments on each of the two edges, and replace each exact leaf label by one fresh anchor reading with $\vartheta=\nu=0.8$. This uses ten calibration readings and six source preparations, with ten mixed record ports, before the additional world task. Direct enumeration of their common carrier and port inputs gives remote-frame risks $0.1684288$ and $0.244$ and action values $0.198953392$ and $0.1527664$ for full and sign-only edge memories, respectively, at the charges above. Both policies receive the same anchor records and edge experiments; the difference is the retained margin. These values deduct the declared per-operation bill, not the one-time calibration and representation bill.
+
+There is an additional memory and inference bill. Let $C_{\rm full}(L,K)$ and $C_{\rm sign}(L,K)$ include calibration, anchoring, retained representation, computation and reset charges for $K$ fresh task opportunities using one calibration, excluding charges already included in $\lambda$. Their exact total-value difference is
+\[
+ K\bigl(\mathcal J^{\rm full}_{\lambda,L}
+       -\mathcal J^{\rm sign}_{\lambda,L}\bigr)
+       -\bigl[C_{\rm full}(L,K)-C_{\rm sign}(L,K)\bigr].
+\]
+At sufficiently large $L$,~\eqref{eq:treevalue} gives a strictly positive lower bound on the per-use difference. Reuse pays for a fixed extra representation bill when $K$ times that bound exceeds the bill; an extra charge proportional to $K$ must itself lie below the per-use gain. This comparison uses all $b^L$ leaf anchors. The sparse-anchor construction above reduces the required expected anchor count to order $s^{-L}$ for a nonzero advantage; it does not remove the separate routing, edge-calibration and inference bills. The threshold provides a price interval and an amortization condition, not free apparatus.
+
+\section{What has to be retained?}\label{sec:retention}
+
+For the fixed symmetric remote task, one bit $\sgn(ac)$ suffices after calibration, and for the three symmetric tasks concerning $A$, $C$ and $B$, two signs suffice. Neither statement says that two signs preserve the shared model. With $(a,c)=(0.8,0.64)$ the remote error is $0.2952$; with $(a,c)=(364/365,0.64)$ it is $0.244701\ldots$. Both give the same three decisions, but a reliability target of $0.27$ separates them and can change whether the controller seeks more records.
+
+\begin{proposition}[Exact memory for varying tasks]\label{prop:memorysize}
+At fixed $n,m$, an exact deterministic memory supporting all positive misclassification costs for the targets $A$ and $C$ needs at least $(n+1)(m+1)$ states. The count pair $(k,l)$ attains this bound and also supplies the probabilities for $B$. The least fixed-width register therefore has $\lceil\log_2((n+1)(m+1))\rceil$ bits, counting the retained statistical state and not the program, arithmetic, acquisition, control or communication hardware.
+\end{proposition}
+\begin{proof}
+All count pairs have positive probability, and the likelihood ratios in~\eqref{eq:odds} increase strictly in their counts, so different pairs differ in at least one task probability; Proposition~\ref{prop:sufficiency} forbids merging them. Conversely the pair reconstructs both probabilities and their product.
+\end{proof}
+
+On a path with $k$ links the same argument gives $(n_0+1)\prod_j(n_j+1)$ states for all link targets with all costs, while the remote task alone needs the sign of a product. During acquisition the counts and the remaining budget are retained. For the rational noise values used in the tables the likelihood ratios are rational, so a bounded episode admits a finite lookup implementation without real-valued arithmetic. The finite state space is designed; the probability state within it is formed by the episode's records.
+
+The product $ac$ depends on the declared independence. For a general posterior on two binary variables, the moments $a=\E[A\mid H]$, $c=\E[C\mid H]$ and $d=\E[AC\mid H]$ give
+\begin{equation}\label{eq:joint}
+ \Pp(A=s,C=t\mid H)=\tfrac14(1+sa+tc+std),
+\end{equation}
+and the marginals need not supply $d$: a law split equally between $(+,+)$ and $(-,-)$ and one split equally between $(+,-)$ and $(-,+)$ both have $a=c=0$ and opposite certain values of $AC$. A memory for a composite task must keep the relevant relations, not only the constituent answers or marginals.
+
+\begin{proposition}[Loss under memory compression]\label{prop:compression}
+Let $d(H)=\E[B\mid H]$ for any finite history model of the same final binary instrument, and $M=f(H)$. With optimal correction from the retained memory the excess remote error is
+\begin{equation}\label{eq:compression}
+ R(M)-R(H)=\frac\nu2\left(\E|d|-\E|\E[d\mid M]|\right),
+\end{equation}
+and $0\le R(M)-R(H)\le\frac\nu2\E|d-\E[d\mid M]|$.
+\end{proposition}
+\begin{proof}
+The tower property gives $\E[B\mid M]=\E[d\mid M]$. Apply the conditional risk formula to each information state; Jensen's inequality gives nonnegativity and the triangle inequality the upper bound.
+\end{proof}
+
+Equation~\eqref{eq:compression} is a task-level stability criterion that applies even when an exact event algebra changes under a new partition of memory. It vanishes under severe compression when all posterior signs within each cell agree, in which case keeping the whole posterior would preserve more than the terminal task needs. The majority-sign summaries of Proposition~\ref{prop:tree} preserve an isolated link's symmetric decision. Their lost reliability matters when links are combined: Theorem~\ref{thm:fulltree} shows that it can change the reconstruction regime.
+
+Persistence also has a cost when a coupling changes. Suppose the relation changes once before the task, to $C'=JC$ with $J$ independent of the old records and $\Pp(J=-1)=\beta$ known. Then $\E[B'\mid H]=(1-2\beta)ac$, the updated optimal risk is $1/2-|1-2\beta|(1/2-R_{n,m})$, and a controller that keeps the old sign has $1/2-(1-2\beta)(1/2-R_{n,m})$. For a certain reversal the three-plus-three calibration gives error $0.813003\ldots$, and reversing the correction restores $0.186997\ldots$. Here the change probability is supplied. A change of a relation is visible to fresh relational records, whereas a common frame inversion needs an anchor or another symmetry-breaking operation. T-DOME~III proves convergence to chance for its fresh-read, no-standard experiment class under continued common inversions \cite{TDOMEIII}; additional persistent or intervention access can change that class.
+
+\section{From a common map to an integration workspace}\label{sec:interfaces}
+
+The example gives operational content to the stage between accessible imprints and self-reading. Local reference records concern the reader's own instrument; relational records concern how that instrument stands to another; their joint posterior governs what can be learned through the second instrument. One memory supplies answers, reliability estimates and a plan for further evidence. Section~\ref{subsec:priced} then makes that reliability available to the controller as a paid choice about its next physical operation, with the same retained joint model updating after the result. It is a small constructed instance of a self--world map, and Section~\ref{sec:structure} describes what the supplied compositional reading architecture must contain: invariant relations among the reader's channels, at least one borrowed standard, and enough redundancy to carry a frame across distance.
+
+This makes the order less rigid than ``first a world, then a self''. In the model, absolute reading through $B$ becomes possible only through information about the local instrument $A$, and relational experience decides what the local calibration permits elsewhere. The two kinds of content are distinguishable and their use is intertwined. No additional inner reader is needed: the counts, the update and the correction implement the relation.
+
+\begin{hypothesis}[Integrated self--world organization]\label{hyp:integration}
+An observer's usable world is maintained by a reusable organization of distinctions about its environment, its own coupling and the relations among its channels. The relations are invariant under a common change of the channels' frames, and the organization reaches absolute content only through standards it borrows from anchored operations, stored records or other observers. An integration workspace develops when such distinctions become available across a family of activities and are revised in response to the consequences of their joint use; when realized by independent noisy tree transport, its ability to retain a remote frame is controlled by the mean square of the posterior amplitude and the branching redundancy. Reflective self-reading requires the organization to include predictions about the reliability and reach of its own participation.
+\end{hypothesis}
+
+The construction establishes joint use within a supplied architecture. Formation of a workspace requires more: the relations, routing or representational organization must themselves be shaped by interaction, and must be compared with controllers given the same observations and resources but deprived of the relevant history-dependent change. A prewired product rule that updates its parameters is evidence for learned calibration, not for the formation of that architecture. The hypothesis nonetheless predicts concrete dissociations. Disrupting a retained relation should impair coordinated use without abolishing the component readings, and disrupting the borrowed standard should leave relational performance intact while absolute performance falls to chance.
+
+Global-workspace accounts stress recurrent maintenance and availability to many processors \cite{DehaeneChangeux2011}. The analysis here asks which distinctions must stay available for specified joint tasks and what they cost. A biological application must identify the memories and permitted comparisons, test their joint use and locate the plastic process that maintains them. Brain Anchor supplies a learned signed graph of channel relations with the gauge structure of Section~\ref{sec:structure} \cite{BrainAnchor}. Its common-state fixed-workspace theorem applies to a finite family of normal UCP maps preserving one faithful normal state; including the identity makes the equalizer their common fixed algebra. An intersection of chosen carrier algebras requires a separate hypothesis. The task algebra~\eqref{eq:taskalgebra} lives instead on histories. Representing it in a physical workspace requires an encoding, realizable updates and read-outs preserving task risks. The binary controller provides a finite implementation of these statistical functions, not a neural or experiential identification.
+
+The interfaces supply different inputs. Foundation~I's stabilizer classification and Theorem~\ref{thm:galois} link symmetry to readable content under their respective hypotheses \cite{FoundationI}; Foundation~II separates alignment from correct reading \cite{FoundationII}. Foundation~III gives a finite semiclassical mean-action physical return from retained history, while the priced three-moment update here controls the specified world with charged reads and pulses \cite{FoundationIII}. HAFF~C and the same-body diagnostic in \emph{The World as Imprint} instead use learned records for repair; their prepared body and replacement bank are not components of this tree reader \cite{HAFFC,WorldImprint}. T-DOME~III supplies drift and standard-access conditions \cite{TDOMEIII}. The polarized response in \emph{The World as Imprint} writes a sign-dependent world record readable through a second observer's standard; the Imprint Chain gives calibration-driven feedback \cite{WorldImprint,ImprintChain}. The scale reader's gain-free band ratio and older-record prediction advantage give another form of relational retention \cite{ImprintRG}. None of these mappings identifies their distinct carriers or preparation permissions.
+
+These interfaces keep three changes apart. Updating the posterior changes the internal model. Using the product changes the correction applied at the interface. A subsequent action on a persisting world can change a physical state. Conflating them would turn interpretation into an unexplained physical influence.
+
+\section{Conclusion}
+
+A history can become useful through another history. The two-instrument model makes the claim exact, and the structure theorem says why it holds: relations that are separately uninformative and composable turn the frames into a torsor, relational records into invariants and anchors into standards. Along a chain every history is needed, the weakest link bounds the result and the link posteriors multiply in order; on a network the readable content is fixed by the symmetry the anchors leave unbroken. Joint reading costs the sum of its links, relational links cost the fourth power of the inverse coupling, and a remote reading survives at a distance when branching outweighs the mean squared posterior loss on each link. Keeping the margins can move a fixed experiment across that threshold. What is stable in integration is therefore fixed by what the system must continue to do and by where its standards come from. The central proposal is that an observer's world and its way of participating in that world are maintained together through the selective reuse of history, with relations kept and standards borrowed.
+
+The retained reliability can also govern a physical return. A joint model of polarity, world state and their correlation determines whether a reading and corrective pulse are worth their charge, and updates from the resulting record. For a fresh fair world, the full-posterior reconstruction threshold produces a positive action-value interval that sign-only memory loses. Its value must cover the extra representation and inference bill over subsequent uses. This gives the shared map an operational role inside the reader, while leaving the formation of the architecture and of a reflective perspective as distinct questions.
+
+\appendix
+\section{Computations}\label{app:computations}
+
+The finite sums and numerical evolutions below are recorded in archived companion calculations. Tables~\ref{tab:history} and~\ref{tab:allocation} and the values in Sections~\ref{sec:inquiry} and~\ref{sec:retention} are exact rational sums (\texttt{W0\_SH0\_recompute.py}). The structure check (\texttt{SH1\_structure.py}) enumerates the Latin squares of orders three and four, compares exact remote posteriors with convolutions and Fourier products for chains over $\mathbb Z_2$, $\mathbb Z_3$ and $S_3$ (agreement to $3\times10^{-16}$), confirms Proposition~\ref{prop:aon} to $2\times10^{-16}$, finds $I(g_k;H)/\min_jI(c_j;H_j)\le0.55$ in $40$ random instances of Theorem~\ref{thm:weakest}, and verifies Theorem~\ref{thm:galois} for all $36$ pairs of anchor subgroups on a path in $S_3$. The resource script (\texttt{SH2\_resources.py}) computes the budgets of Table~\ref{tab:budget} with binomial sums evaluated in log space and the tree errors of Table~\ref{tab:tree} by density evolution of the log-likelihood message on a grid of spacing $0.02$, renormalized at every level; \texttt{SH2b\_tree\_exact.py} checks the latter by exhaustive enumeration for depths up to three.
+
+The script \texttt{checks.py} evaluates the edge posterior and the tree recursion with exact rational arithmetic through depth three. Raw depth-one enumeration in \texttt{checks\_supp.py} gives risk $2673/31250=0.085536$ and weighted-estimator second moment $1393/1024$; a rational recurrence evaluates that moment through depth twenty. Seeded population evolution through depth forty gives full-posterior risk about $0.246$ and sign-only risk about $0.494$. The script \texttt{priced\_reliability.py} enumerates the raw depth-one experiment and its randomized sign compression, derives rational posterior distributions through depth three and checks~\eqref{eq:jointvalue} and~\eqref{eq:jointupdate} by direct summation over $64$ joint-law/action settings. All physical mean and filter residuals are exactly zero. The accompanying \texttt{check\_physical\_joint.py} checks~\eqref{eq:mixedinstrument} from its port coupling, both outcomes and coherences, and generates the two-edge, two-experiment tree records by enumerating the actual carrier and port inputs. It compares full posterior and randomized sign-only memories with the same readings, then sums the controlled action and subsequent update over their hidden inputs. Finite calculations illustrate the analytic results; the critical and sparse-anchor bounds follow from the displayed merge and second-moment identities.
+
+\begin{thebibliography}{99}
+\raggedright
+\bibitem{HAFFE} S.~Liu, \emph{Measurement as Accessibility: Measurement Permissions, Stable Records and Public Readout} (HAFF Paper~E), 2026; series record DOI: 10.5281/zenodo.18400065.
+\bibitem{HAFFF} S.~Liu, \emph{Records, Dissipation and Intervention: Conditions for a Temporal Direction} (HAFF Paper~F), 2026; series record DOI: 10.5281/zenodo.18400425.
+\bibitem{HAFFC} S.~Liu, \emph{Causation, Agency, and Existence: Historical Control and Maintained Intervention} (HAFF Paper~C), 2026; series record DOI: 10.5281/zenodo.18374805.
+\bibitem{TDOMEI} S.~Liu, \emph{Memory as a Usable Resource: Correlations, Records and Complete Endpoint Accounting} (T-DOME~I), 2026; series record DOI: 10.5281/zenodo.18574342.
+\bibitem{WorldImprint} S.~Liu, \emph{The World as Imprint: From Trace-Carrying Structure to Self-Reading Mind}, 2026; series record DOI: 10.5281/zenodo.20122718.
+\bibitem{TDOMEIII} S.~Liu, \emph{Keeping a Self-Model Calibrated: Drift Detection, the Price of Keeping Up, and Reliability in a Closed Loop} (T-DOME~III), 2026, Section~10; July 2026 record DOI: 10.5281/zenodo.18591771.
+\bibitem{FoundationI} S.~Liu, \emph{Foundation I: From Source to Manifestation. Accessible Algebras from a Source, Its Noise and a Readable Seed}, 2026; earlier version DOI: 10.5281/zenodo.19627786.
+\bibitem{FoundationII} S.~Liu, \emph{Foundation II: Shared Manifestation. Shared Structure, Public Calibration and Different Histories}, 2026; series record DOI: 10.5281/zenodo.19641372.
+\bibitem{FoundationIII} S.~Liu, \emph{Foundation III: The Perfuming Loop. Held Content, Learned Frames and Physical Return}, 2026; July 2026 record DOI: 10.5281/zenodo.19642189.
+\bibitem{BrainAnchor} S.~Liu, \emph{The Brain as a Plastic Observable-Algebra Network: Learning Shared Access from Sensorimotor History}, 2026; series record DOI: 10.5281/zenodo.20044329.
+\bibitem{ImprintRG} S.~Liu, \emph{Renormalization and Imprint Filtering: Source Identification, Memory, and Calibration}, 2026; series record DOI: 10.5281/zenodo.20151451.
+\bibitem{ImprintChain} S.~Liu, \emph{The Imprint Chain: Records, Self-Calibration, and Physical Feedback}, 2026; series record DOI: 10.5281/zenodo.20151594.
+\bibitem{Shannon1949} C.~E.~Shannon, ``Communication theory of secrecy systems,'' \emph{Bell System Technical Journal} \textbf{28}, 656--715 (1949).
+\bibitem{Matsui1993} M.~Matsui, ``Linear cryptanalysis method for DES cipher,'' in \emph{Advances in Cryptology -- EUROCRYPT '93}, Lecture Notes in Computer Science \textbf{765}, 386--397 (1994).
+\bibitem{WilliamsBeer2010} P.~L.~Williams and R.~D.~Beer, ``Nonnegative decomposition of multivariate information,'' arXiv:1004.2515 (2010).
+\bibitem{EKPS2000} W.~Evans, C.~Kenyon, Y.~Peres and L.~J.~Schulman, ``Broadcasting on trees and the Ising model,'' \emph{Annals of Applied Probability} \textbf{10}, 410--433 (2000).
+\bibitem{EfthymiouZampetakis2023} C.~Efthymiou and K.~Zampetakis, ``Broadcasting with random matrices,'' in \emph{ICALP 2023}, LIPIcs \textbf{261}, 55:1--55:14 (2023), \href{https://doi.org/10.4230/LIPIcs.ICALP.2023.55}{doi:10.4230/LIPIcs.ICALP.2023.55}; arXiv:2302.11657v2, Theorem~2.1.
+\bibitem{CoverThomas2006} T.~M.~Cover and J.~A.~Thomas, \emph{Elements of Information Theory}, 2nd ed., Wiley (2006).
+\bibitem{ShaliziCrutchfield} C.~R.~Shalizi and J.~P.~Crutchfield, ``Computational mechanics: Pattern and prediction, structure and simplicity,'' \emph{Journal of Statistical Physics} \textbf{104}, 817--879 (2001), \href{https://arxiv.org/abs/cond-mat/9907176}{arXiv:cond-mat/9907176}.
+\bibitem{DehaeneChangeux2011} S.~Dehaene and J.-P.~Changeux, ``Experimental and theoretical approaches to conscious processing,'' \emph{Neuron} \textbf{70}, 200--227 (2011), \href{https://doi.org/10.1016/j.neuron.2011.03.018}{doi:10.1016/j.neuron.2011.03.018}.
+\end{thebibliography}
+\end{document}

@@ -1,0 +1,368 @@
+{
+  "configuration": {
+    "seed": 610316,
+    "trajectories": 160,
+    "epochs": 1200,
+    "burn_in": 200,
+    "bank_bits": 4096,
+    "identity_weight": 0.65,
+    "control_weight": 0.25,
+    "environment_weight": 0.1,
+    "feedback_gain": 0.8,
+    "reads_per_epoch": 512,
+    "initial_reference_reads_each": 2048,
+    "adaptive_signal_reads": 256,
+    "adaptive_reference_reads_each": 128,
+    "ewma_alpha": 0.25,
+    "quantization_intervals": 1024,
+    "gain_floor": 0.3
+  },
+  "static_reconciliation": {
+    "parameters": {
+      "x": 0.4,
+      "g": 0.5,
+      "b": 0.1,
+      "reads": [
+        400,
+        200,
+        200
+      ],
+      "gain_floor": 0.125
+    },
+    "exact_risk": 0.004347832163629932,
+    "monte_carlo_standard_error_for_50000": 2.8521337633303325e-05
+  },
+  "analytic_guarantee": {
+    "applicable_regimes": [
+      "drift",
+      "static"
+    ],
+    "sensor_per_epoch_drift_bounds": [
+      0.005356560608359569,
+      0.006585167856826978
+    ],
+    "asymptotic_calibration_rms_bounds": [
+      0.04359871138815541,
+      0.047284533133557634
+    ],
+    "asymptotic_estimation_rms_bound": 0.5122540442390435,
+    "closed_loop_contraction": 0.45,
+    "asymptotic_world_normalized_risk_bound": 0.034082466230736984,
+    "improved_asymptotic_world_risk_bound": 0.029150434308471918,
+    "scope": "Expected limsup bound for normal drift or static, NOT fast_drift; not simultaneous all-time confidence; transient terms are in report."
+  },
+  "experiments": [
+    {
+      "regime": "drift",
+      "policies": {
+        "fixed_calibration": {
+          "world_loss": {
+            "mean": 0.005283201823383569,
+            "trajectory_mean_standard_error": 4.1912945455129505e-05
+          },
+          "estimation_loss": {
+            "mean": 0.01109846664443612,
+            "trajectory_mean_standard_error": 4.8418036138069137e-05
+          },
+          "control_square": {
+            "mean": 0.019873783676147477,
+            "trajectory_mean_standard_error": 0.00017016076835323687
+          },
+          "gain_error_square": {
+            "mean": 0.015550928976558654,
+            "trajectory_mean_standard_error": 5.06140117326347e-05
+          },
+          "bias_error_square": {
+            "mean": 0.01053138230600029,
+            "trajectory_mean_standard_error": 2.746122232795029e-05
+          },
+          "read_allocation_signal_plus_minus": [
+            512,
+            0,
+            0
+          ]
+        },
+        "blockwise_calibration": {
+          "world_loss": {
+            "mean": 0.003663898264616728,
+            "trajectory_mean_standard_error": 9.524385343141992e-06
+          },
+          "estimation_loss": {
+            "mean": 0.007445584788173437,
+            "trajectory_mean_standard_error": 2.960359751360487e-05
+          },
+          "control_square": {
+            "mean": 0.028704640548706067,
+            "trajectory_mean_standard_error": 9.248343431795118e-05
+          },
+          "gain_error_square": {
+            "mean": 0.0027106310866346368,
+            "trajectory_mean_standard_error": 9.668508958703e-06
+          },
+          "bias_error_square": {
+            "mean": 0.0027187061990497407,
+            "trajectory_mean_standard_error": 9.61839993622347e-06
+          },
+          "read_allocation_signal_plus_minus": [
+            256,
+            128,
+            128
+          ]
+        },
+        "persistent_calibration": {
+          "world_loss": {
+            "mean": 0.0035985117357224226,
+            "trajectory_mean_standard_error": 9.5022915328797e-06
+          },
+          "estimation_loss": {
+            "mean": 0.0045690679144114255,
+            "trajectory_mean_standard_error": 1.7800005362872346e-05
+          },
+          "control_square": {
+            "mean": 0.020148072799682618,
+            "trajectory_mean_standard_error": 6.393235834373211e-05
+          },
+          "gain_error_square": {
+            "mean": 0.0004464694432725124,
+            "trajectory_mean_standard_error": 3.080261088028871e-06
+          },
+          "bias_error_square": {
+            "mean": 0.00047174493174208243,
+            "trajectory_mean_standard_error": 3.5384755901658836e-06
+          },
+          "read_allocation_signal_plus_minus": [
+            256,
+            128,
+            128
+          ]
+        },
+        "persistent_minus_blockwise_world_loss": {
+          "mean": -6.538652889430524e-05,
+          "trajectory_mean_standard_error": 1.2876901566367677e-05
+        },
+        "persistent_minus_fixed_world_loss": {
+          "mean": -0.001684690087661147,
+          "trajectory_mean_standard_error": 4.1701849369192234e-05
+        }
+      },
+      "conditional_mean_identity_max_residual": 3.885780586188048e-16,
+      "hidden_bank_count_range_at_end": [
+        1777,
+        2398
+      ]
+    },
+    {
+      "regime": "static",
+      "policies": {
+        "fixed_calibration": {
+          "world_loss": {
+            "mean": 0.0034094258237630124,
+            "trajectory_mean_standard_error": 3.7697932320241146e-05
+          },
+          "estimation_loss": {
+            "mean": 0.0017631502557545903,
+            "trajectory_mean_standard_error": 1.8379758377204186e-05
+          },
+          "control_square": {
+            "mean": 0.013123827362060548,
+            "trajectory_mean_standard_error": 0.00017763972317267284
+          },
+          "gain_error_square": {
+            "mean": 0.0001822137832641605,
+            "trajectory_mean_standard_error": 1.96120192856732e-05
+          },
+          "bias_error_square": {
+            "mean": 0.00018489360809326172,
+            "trajectory_mean_standard_error": 2.011485070806518e-05
+          },
+          "read_allocation_signal_plus_minus": [
+            512,
+            0,
+            0
+          ]
+        },
+        "blockwise_calibration": {
+          "world_loss": {
+            "mean": 0.00358589265756309,
+            "trajectory_mean_standard_error": 9.048521603670699e-06
+          },
+          "estimation_loss": {
+            "mean": 0.005688464434072375,
+            "trajectory_mean_standard_error": 2.1844215990743e-05
+          },
+          "control_square": {
+            "mean": 0.023908505355834966,
+            "trajectory_mean_standard_error": 7.68850257988979e-05
+          },
+          "gain_error_square": {
+            "mean": 0.0027259195709228566,
+            "trajectory_mean_standard_error": 1.0320650865724284e-05
+          },
+          "bias_error_square": {
+            "mean": 0.0027169391632080077,
+            "trajectory_mean_standard_error": 9.380790304491434e-06
+          },
+          "read_allocation_signal_plus_minus": [
+            256,
+            128,
+            128
+          ]
+        },
+        "persistent_calibration": {
+          "world_loss": {
+            "mean": 0.0035357172813266515,
+            "trajectory_mean_standard_error": 8.550656867634754e-06
+          },
+          "estimation_loss": {
+            "mean": 0.0035780879940837617,
+            "trajectory_mean_standard_error": 1.2699793788086465e-05
+          },
+          "control_square": {
+            "mean": 0.017749901535034186,
+            "trajectory_mean_standard_error": 4.7775758699478374e-05
+          },
+          "gain_error_square": {
+            "mean": 0.0003924487113952645,
+            "trajectory_mean_standard_error": 3.0189198314565483e-06
+          },
+          "bias_error_square": {
+            "mean": 0.00039343719482421867,
+            "trajectory_mean_standard_error": 2.5543521523503795e-06
+          },
+          "read_allocation_signal_plus_minus": [
+            256,
+            128,
+            128
+          ]
+        },
+        "persistent_minus_blockwise_world_loss": {
+          "mean": -5.017537623643875e-05,
+          "trajectory_mean_standard_error": 1.1634209062546816e-05
+        },
+        "persistent_minus_fixed_world_loss": {
+          "mean": 0.00012629145756363867,
+          "trajectory_mean_standard_error": 3.8391235251194825e-05
+        }
+      },
+      "conditional_mean_identity_max_residual": 3.885780586188048e-16,
+      "hidden_bank_count_range_at_end": [
+        1992,
+        2396
+      ]
+    },
+    {
+      "regime": "fast_drift",
+      "policies": {
+        "fixed_calibration": {
+          "world_loss": {
+            "mean": 0.004588624158501625,
+            "trajectory_mean_standard_error": 3.7489877158565244e-05
+          },
+          "estimation_loss": {
+            "mean": 0.010482652255892753,
+            "trajectory_mean_standard_error": 3.6682648735162654e-05
+          },
+          "control_square": {
+            "mean": 0.022963577392578132,
+            "trajectory_mean_standard_error": 0.00017219747809576582
+          },
+          "gain_error_square": {
+            "mean": 0.015074267283272647,
+            "trajectory_mean_standard_error": 1.5991716441889965e-05
+          },
+          "bias_error_square": {
+            "mean": 0.010253123158091109,
+            "trajectory_mean_standard_error": 1.7162189169264833e-05
+          },
+          "read_allocation_signal_plus_minus": [
+            512,
+            0,
+            0
+          ]
+        },
+        "blockwise_calibration": {
+          "world_loss": {
+            "mean": 0.003622900128364563,
+            "trajectory_mean_standard_error": 8.962078523182678e-06
+          },
+          "estimation_loss": {
+            "mean": 0.006845880416035652,
+            "trajectory_mean_standard_error": 2.840662320208267e-05
+          },
+          "control_square": {
+            "mean": 0.027144913940429692,
+            "trajectory_mean_standard_error": 8.789570582100373e-05
+          },
+          "gain_error_square": {
+            "mean": 0.0026479650847978124,
+            "trajectory_mean_standard_error": 9.851805609921776e-06
+          },
+          "bias_error_square": {
+            "mean": 0.0026352667872447735,
+            "trajectory_mean_standard_error": 9.812167940979801e-06
+          },
+          "read_allocation_signal_plus_minus": [
+            256,
+            128,
+            128
+          ]
+        },
+        "persistent_calibration": {
+          "world_loss": {
+            "mean": 0.0038172577220946546,
+            "trajectory_mean_standard_error": 9.533971912606307e-06
+          },
+          "estimation_loss": {
+            "mean": 0.006004056023433804,
+            "trajectory_mean_standard_error": 2.517344674144892e-05
+          },
+          "control_square": {
+            "mean": 0.021421081008911137,
+            "trajectory_mean_standard_error": 6.459409254964735e-05
+          },
+          "gain_error_square": {
+            "mean": 0.002265594085328917,
+            "trajectory_mean_standard_error": 1.0074753931278668e-05
+          },
+          "bias_error_square": {
+            "mean": 0.002422079941656544,
+            "trajectory_mean_standard_error": 9.138189047098046e-06
+          },
+          "read_allocation_signal_plus_minus": [
+            256,
+            128,
+            128
+          ]
+        },
+        "persistent_minus_blockwise_world_loss": {
+          "mean": 0.00019435759373009204,
+          "trajectory_mean_standard_error": 1.340194317813567e-05
+        },
+        "persistent_minus_fixed_world_loss": {
+          "mean": -0.00077136643640697,
+          "trajectory_mean_standard_error": 3.869950025720762e-05
+        }
+      },
+      "conditional_mean_identity_max_residual": 3.885780586188048e-16,
+      "hidden_bank_count_range_at_end": [
+        1827,
+        2465
+      ]
+    }
+  ],
+  "resources": {
+    "observer_calibration_grid_values_each": 1025,
+    "observer_calibration_bits_each": 11,
+    "actuator_grid_values": 1025,
+    "actuator_index_bits": 11,
+    "classical_counter_bits_peak_sum": 26,
+    "reference_preparations_per_epoch_adaptive": 256,
+    "signal_random_index_choices_per_epoch_adaptive": 256,
+    "physical_world_bits": 4096,
+    "per_epoch_world_channel_applications": 4096,
+    "expected_world_reset_branch_uses": 1433.6,
+    "maximum_world_reset_branch_uses": 4096,
+    "note": "Counters, arithmetic workspace, random-index generator and clock additionally charged as described in report. Not finite total lifetime cost; no heat/work value inferred."
+  },
+  "scope": "One diagonal quantum/classical controlled platform; stationary and drifting calibration comparisons, not workspace formation, consciousness, or a universal self-model necessity theorem."
+}

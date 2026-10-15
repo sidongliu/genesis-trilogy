@@ -1,0 +1,28 @@
+\subsection{What Paper~I supplies}
+\label{subsec:from_I}
+
+Four results of Paper~I are used here~\cite{Liu2026TDOME_I}.
+\begin{itemize}
+\item \emph{Value of a record.} An agent that reads a record into a classical memory $M$ and uses it for feedback on a pointer $X$ gains at most $k_BT\,I(X{:}M)$ of extra work, with full-support posteriors attaining the bound and other cases approaching its supremum.
+\item \emph{Implicit protocol distribution.} A feedback protocol $\Pi$ has a matching distribution $Q_\Pi$ and falls short of the record's value by at least $k_BT$ times the expected relative entropy between the true and matched distributions. This protocol identity alone does not imply an internally represented own-channel model. Such a model is an explicit input to the calibration setting and is formed from acquired records in the body constructions.
+\item \emph{Calibrated loss.} For a smooth readout family $P_\theta(m\mid x)$, a calibration error $\delta$ costs $\tfrac12k_BT\,\delta^{\top}G\delta$ per use to leading order, with $G=J_{XM}-J_M$ the difference between the Fisher information of the joint law of pointer and reading and that of the reading alone. For the gain--bias channel $P(y=+1\mid x)=(1+gx+b)/2$, $x=\pm1$, calibrated from $n$ reference reads per sign by a tail-regularized version of the estimator of Proposition~\ref{prop:reference_reads}, the leading expected loss is $k_BT(1+g^2/(1-b^2))/(4n)$ per use; reference preparation from the thermal state of a degenerate pointer costs at least $k_BT\ln2$ per reference, and calibration pays only if the model is reused often enough.
+\item \emph{Drift law.} Section~\ref{sec:price} proves the all-policy long-run lower bound for scalar Gaussian transitions. With $J_0=0$ and quadratic loss, Corollary~\ref{cor:driftlaw} gives $C-\tfrac12k_BTG\nu^2\le L^*\le C$ in the Gaussian continuous-precision class. Constant precision attains the exact variational optimum; $C$ is its slow-drift leading term. Integer reads retain the relaxed lower bound.
+\end{itemize}
+
+\subsection{What Paper~II supplies}
+\label{subsec:from_II}
+
+Paper~II's budgeted reader has $D$ channels registering $x_t\sim\mathcal N(0,I_D)$ and a consequence $y_t=\rho\,u_t\cdot x_t+\xi_t$, $\xi_t\sim\mathcal N(0,s^2)$, where $u_t=R_t^{\top}e$ is the task direction seen through the agent's coupling $R_t$; at most $b<D$ linear reads are allowed per step~\cite{Liu2026TDOME_II}. A self-frame is a retained state from which the agent computes its estimate of $u_t$ and the foreground $P_t$ of reads that the estimate selects. The results used here are:
+\begin{itemize}
+\item \emph{Capability.} For every memory and foreground the best risk is $s^2+\rho^2(1-\E|P\,\E[u\mid M]|^2)$, so every budgeted policy has an implied frame.
+\item \emph{In-frame blind spot.} Records $(Px_t,y_t)$ read through a fixed frame depend on the coupling only through $\rho Pu$ and $\rho^2+s^2$. They cannot locate the missing part of the task, and they cannot separate world noise from the agent's own misalignment.
+\item \emph{Even residual.} For $D=2$ and a one-dimensional frame at angle $\theta$ to $u$, the in-frame law depends on $\theta$ only through $\cos\theta$, and the Fisher information of one record is
+\begin{equation}
+\label{eq:fisher_even_II}
+F(\theta)=\frac{\rho^2\sin^2\theta\,(\rho^2+s^2+\rho^2\cos^2\theta)}{(s^2+\rho^2\sin^2\theta)^2}.
+\end{equation}
+One read along the orthogonal channel has an odd covariance $\rho\sin\theta$ with $y$ and resolves the sign.
+\item \emph{Drift.} Under spherical Brownian drift with generator $\sigma\Delta$, a frozen self-model becomes worse than having no memory at $t^*=\ln2/((D-1)\sigma)$, and a fixed frame that keeps learning in-frame coefficients decays to the frame-free level.
+\item \emph{Calibratable frame.} A frame revised from off-frame probes has an exact stationary risk, and weighting its use by its own computed reliability extends its useful range of drift.
+\end{itemize}
+Reference reads, with inputs whose world value is known, are what separate a change of the agent's coupling from a change of the world, which in-frame records cannot do.

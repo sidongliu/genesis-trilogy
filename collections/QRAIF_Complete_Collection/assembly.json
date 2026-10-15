@@ -1,0 +1,24 @@
+{
+  "title": "Quantum Reference Algebra for Information Flow",
+  "official_pdf": "QRAIF_Complete_Collection.pdf",
+  "members": [
+    {
+      "id": "QR-A",
+      "pdf": "QR-A.pdf",
+      "title": "Lorentzian Read-out from Local Unitary Propagation: Clifford Relations, Causal Cones and Spectral Mass",
+      "sha256": "56b26183b23d8e3e678719107c6fafea08be84aa27d59f4c2311e2c9dca67e87"
+    },
+    {
+      "id": "QR-B",
+      "pdf": "QR-B.pdf",
+      "title": "Thermodynamic Stability Constraints on Persistent Open Quantum Subsystems: Control Algebra, Physical Actuation and Energy Cost",
+      "sha256": "8c5be28402a9f9bac86918269583592cd21e686de896b9d4b787a7815f25d9ef"
+    },
+    {
+      "id": "QR-C",
+      "pdf": "QR-C.pdf",
+      "title": "Retained Quantum History, Physical Sources and Receiver Renewal in Q-RAIF",
+      "sha256": "376d6ca53ee6d75d671942e4ea686db40575b9f249c55f5b62631bcbf0cbc16e"
+    }
+  ]
+}

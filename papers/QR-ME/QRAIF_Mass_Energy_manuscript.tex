@@ -1,0 +1,679 @@
+\documentclass[12pt,a4paper]{article}
+
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{mathtools}
+\usepackage[hidelinks]{hyperref}
+\hypersetup{pdftitle={Recovering Mass-Energy Equivalence within Algebraic Lorentzian Read-out: Spectral Mass, Lattice Windows and Finite Records},pdfauthor={Sidong Liu}}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{enumitem}
+\usepackage{fontspec}
+
+\defaultfontfeatures{Ligatures=TeX}
+\IfFontExistsTF{Times New Roman}
+  {\setmainfont{Times New Roman}}
+  {\setmainfont{TeX Gyre Termes}}
+\IfFontExistsTF{Menlo}
+  {\setmonofont{Menlo}}
+  {\setmonofont{Latin Modern Mono}}
+
+\newcolumntype{P}[1]{>{\raggedright\arraybackslash}p{#1}}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{assumption}[theorem]{Assumption}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+
+\newcommand{\AU}{\mathcal{A}_U}
+\newcommand{\Meff}{M_{\mathrm{eff}}}
+\newcommand{\Omegastate}{\Omega}
+\newcommand{\Rout}{\mathcal{R}_{\mathrm{adm}}}
+\newcommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+
+\title{%
+  \textbf{Recovering Mass--Energy Equivalence}\\
+  \textbf{within Algebraic Lorentzian Read-out}\\
+  \large Spectral Mass, Lattice Windows and Finite Records%
+}
+
+\author{
+  Sidong Liu, PhD \\
+  \small iBioStratix Ltd \\
+  \small \texttt{sidongliu@hotmail.com}
+}
+
+\date{October 2026}
+
+\begin{document}
+\emergencystretch=2em
+\raggedbottom
+
+\maketitle
+
+\begin{abstract}
+Mass and energy are readings of one four-momentum: its invariant norm and its component along an observer's time direction. We identify the translation, covariance and spectrum conditions under which this reading applies, and distinguish spectral mass from mass inferred through a finite interface. In a continuum forward-cone representation, the mass of mean four-momentum is at least the mean spectral mass; equality requires a single causal ray, allowing a non-sharp massless distribution. Discrete translations admit continuous logarithmic extensions, but do not select a physical generator. For a coined walk we derive the complete finite-angle domain in which a low-momentum Lorentzian mass reading remains real. Outside that domain the reading must be rejected, rather than reported as a smaller real mass. Within the small-angle admissible window, lattice dispersion and packet spread give separately testable biases.
+
+A fresh Gaussian field pulse realizes the mass-setting coin. Its occupation controls the lifetime of a rest resonance without shifting its intended phase. Actual mixed-memory instruments read two quadratures of that resonance. A priced coarse-and-fine protocol resolves phase aliasing and gives a finite-confidence angle certificate. Thus setting, persistence and reading are connected in one supplied device; the device does not derive fundamental particle masses or the origin of its spacetime, clock and controls.
+
+\medskip
+\noindent\textbf{Keywords}: mass--energy relation, spectral mass, lattice dispersion, phase estimation, Gaussian control, Q-RAIF
+\end{abstract}
+
+% ============================================================
+\section{Introduction}
+\label{sec:introduction}
+
+The formula $E=mc^2$ is often introduced as a statement about conversion: mass can become energy, and energy can become mass. In relativistic mechanics the more precise statement is geometric. Mass and energy are readings of a single four-momentum in a Lorentzian geometry. The invariant mass is its Lorentzian norm; the energy is its component relative to an observer's time direction. The constant $c$ relates temporal and spatial units in the metric, and the same constant fixes the light cone.
+
+In the Q-RAIF programme, which studies how systems inside the world read and act on it, this observation needs a Lorentzian arena, a four-momentum object and an actual reading procedure. The conditional identity in Section~\ref{sec:theorem} is elementary. More is required to know whether a finite device reads that identity's mass, a packet-dependent effective mass, or a number outside the dictionary's valid domain.
+
+For the arena, Q-RAIF Paper~A gives a derivation in a definite class of models~\cite{Liu2026QRAIFA}. When all bands of a first-order Hermitian symbol share one nondegenerate quadratic shell, its read-out form has signature $(1,d)$. The equivalent condition is an operator Clifford identity, not merely a quadratic factor somewhere in the characteristic polynomial: constrained systems can have additional bands. Section~\ref{sec:arena} identifies the low-momentum sector; Proposition~\ref{prop:positive-sector} then supplies a covariant positive-energy representation of its exact continuum limit.
+
+For the four-momentum, we keep the definition through Stone generators of local translation unitaries and add the spectrum condition to the requirements (Section~\ref{sec:momentum}). A discrete step admits many strongly continuous logarithmic extensions. It does not select which generator has the physical meaning of energy, nor enforce a relativistic spectrum condition (Section~\ref{sec:lattice}).
+
+For the read-out rule, the distinction between a spectral mass and a mass computed from mean energy and mean momentum turns out to be sharp. The second is at least the first, with equality on a single causal ray (Theorem~\ref{thm:readout}). On a positive massive shell this means sharp momentum; on a null ray it need not. The lattice has a further, dispersion-dependent bias and a genuine rejection domain. We determine its complete finite-angle boundary before comparing the two biases.
+
+Section~\ref{sec:control} places the mass term in the algebra of Paper~A, where it couples two Weyl components. For the supplied walk, one field interaction fixes the coin angle and its resonance lifetime. Section~\ref{sec:finite-read} then uses actual records to certify that angle, paying for the extra time scale needed to resolve phase ambiguity. Section~\ref{sec:readings} gives the programme-level readings of $c^2$, of Higgs/Yukawa and QCD contributions, and of vacuum sectors, and Section~\ref{sec:limits} lists what remains open. The paper does not derive particle masses, the Higgs mechanism, confinement or the value of $c$.
+
+% ============================================================
+\section{The Lorentzian arena}
+\label{sec:arena}
+
+\begin{assumption}[Effective Lorentzian read-out]
+\label{ass:readout}
+An effective read-out sector $\Rout$ carries a local Lorentzian description $(\Meff,g)$ of signature $(-,+,\ldots,+)$ in $1+d$ dimensions on the domain where the read-out approximation is valid. The physical four-dimensional notation means $d=3$; the walk example has $d=1$.
+\end{assumption}
+
+\subsection{Where the arena comes from}
+
+Paper~A studies a particle with internal space $\mathbb C^s$ on a lattice in $\mathbb R^d$, evolving by a translation-invariant unitary step of finite range~\cite{Liu2026QRAIFA}. Near a band point the step has a first-order Hermitian symbol $H(q)=\sum_iq_i\alpha_i+\mu\beta$. Its results, used below, are these.
+\begin{enumerate}[leftmargin=*]
+\tightlist
+\item The characteristic polynomial $\det(\omega-H(q))$ is hyperbolic in the frequency for every Hermitian symbol. This distinguishes a time variable; a quadratic Lorentzian signature requires the further common-shell conditions.
+\item Every band lies on one shell $\omega^2=Q(q)+\mu^2$ if and only if $\{\alpha_i,\alpha_j\}=2Q_{ij}$, $\{\alpha_i,\beta\}=0$ and $\beta^2=1$. Here the common-shell statement is required as an identity in the independent momentum and mass parameters, with a nondegenerate spatial sector. The Clifford relations give $Q$ positive semidefinite; it is positive definite when the $\alpha_i$ are linearly independent. Under that condition the read-out form $\omega^2-Q(q)$ has signature $(1,d)$; the matrices $\beta$ and $\beta\alpha_i$ generate the Lorentzian Clifford algebra.
+\item On the lattice the read-out map, consisting of a band point, a momentum window and an observable that defines the speed, is not fixed by the dynamics.
+\end{enumerate}
+In frequency--wavevector variables the read-out form is $\eta(\omega,q)=\omega^2-c^2|q|^2$ after choosing coordinates with $Q=c^2\mathbf 1$. With $P=\hbar(\omega/c,q)$ the metric of Assumption~\ref{ass:readout} gives $g(P,P)=-\hbar^2\eta/c^2$; the two sign conventions describe the same cone. Assumption~\ref{ass:readout} therefore holds for the low-momentum sector of a single-shell dynamics, and its domain of validity is the momentum window in which the first-order symbol describes the step. The arena is not derived here from Tomita--Takesaki data; modular flow has a boost interpretation for wedge regions in the vacuum~\cite{BisognanoWichmann1975,BisognanoWichmann1976}, which presupposes the Lorentzian structure.
+
+\subsection{Source data}
+
+The programme's notation $(\AU,\Omegastate)$ is used for the source algebra and a single faithful normal state. The source algebra may be of Type~III, so it carries no trace and no density matrices, and no global translation representation is assumed on it~\cite{Haag1996,Witten2018}. Changes of effective vacuum sector, phase or low-energy spectrum are not written as $\Omegastate\to\Omegastate'$ (Section~\ref{sec:vacuum}). Momentum is defined only on an effective read-out representation, as follows.
+
+% ============================================================
+\section{Admissible four-momentum}
+\label{sec:momentum}
+
+\begin{definition}[Admissible local translation action]
+\label{def:translation}
+Within $\Rout$, an \emph{admissible local translation action} is a family $\alpha_a:\Rout\to\Rout$, $a\in\mathcal O\subset\mathbb R^{1,d}$, with $\mathcal O$ a neighbourhood of the origin in the effective tangent chart, such that (i)~$\alpha_a$ acts within the read-out domain to the order of approximation used; (ii)~it preserves the Lorentzian structure to that order; (iii)~$\alpha_{a+b}=\alpha_a\circ\alpha_b$ whenever $a,b,a+b\in\mathcal O$; and (iv)~in a local inertial limit it reduces to the usual spacetime translations.
+\end{definition}
+
+\begin{assumption}[Unitary implementation]
+\label{ass:unitary}
+The action is implemented on the read-out Hilbert space $\mathcal H_{\Rout}$ by a strongly continuous, nonprojective local unitary representation $U(a)$, $\alpha_a(A)=U(a)AU(a)^*$. On the tangent-space representation used for spectral read-out it is the restriction of a strongly continuous representation of $\mathbb R^{1,d}$. This extension is part of the admissibility requirement, not inferred from approximate composition in a curved chart.
+\end{assumption}
+
+\begin{definition}[Admissible four-momentum]
+\label{def:momentum}
+The \emph{admissible four-momentum operators} $\hat P_\mu$ are the strongly commuting self-adjoint Stone generators of $U$,
+\[
+U(a)=\exp\!\left(-\frac i\hbar a^\mu\hat P_\mu\right),
+\]
+on a common invariant domain~\cite{Stone1932,ReedSimon1972}. A c-number four-momentum $P^\mu$ is a read-out of these generators in a state: a point of their joint spectrum (sharp read-out) or the expectation value $p^\mu=\langle\hat P^\mu\rangle$ (mean read-out).
+\end{definition}
+
+\begin{assumption}[Well-posedness]
+\label{ass:wellposed}
+The definition is used only when:
+\begin{enumerate}[label=(\alph*), leftmargin=*]
+\tightlist
+\item \textbf{existence}: the action and its strongly continuous implementation exist in the regime under discussion;
+\item \textbf{domain}: the generators exist on a common invariant domain adequate for the calculation;
+\item \textbf{covariance}: the read-outs transform as four-vectors under the admissible frame changes;
+\item \textbf{standard limit}: in the usual local relativistic regime $P^\mu$ is the special-relativistic four-momentum;
+\item \textbf{spectrum condition}: the joint spectrum of the $\hat P^\mu$ lies in the closed forward cone $\overline V_+=\{P:\ g(P,P)\le0,\ P^0\ge0\}$.
+\end{enumerate}
+\end{assumption}
+
+Condition (e) makes energies positive and masses real. Strong commutation gives the joint spectral measure (the SNAG theorem); commutation of unbounded operators on a common core alone would not suffice. The spectrum condition is that of relativistic quantum theory~\cite{Haag1996}. The following construction verifies the requirements for Paper~A's continuum single-shell sector. A lattice logarithm alone still supplies neither this covariance nor a physical choice of positive energy. A translation representation selected from a general Type~III source remains a separate problem.
+
+\begin{proposition}[Positive-energy sector of a continuum shell]
+\label{prop:positive-sector}
+Use units $\hbar=c=1$ and isotropic coordinates. On $L^2(\mathbb R^d,\mathbb C^s)$ let
+\begin{gather*}
+ H=\sum_i\alpha_i p_i+\mu\beta,\qquad p_i=-i\partial_i,\qquad
+ H^2=(|p|^2+\mu^2)I,\\
+ P_+=\tfrac12(I+H/E),\qquad E=(|p|^2+\mu^2)^{1/2}.
+\end{gather*}
+The value at $p=0$ when $\mu=0$ is immaterial in $L^2$.
+On $P_+L^2$, translations have spectrum $(E(p),p)$ in the future cone.
+They admit the proper orthochronous Lorentz covariance, on its spin cover, of this continuum
+equation. In particular, at time zero their boost generators are the
+self-adjoint closures of $K_i=\{x_i,H\}/2$. Thus the continuum shell,
+together with selection of its positive-energy sector, realizes
+Assumption~\ref{ass:wellposed}. This is not an exact boost symmetry of the
+finite-spacing walk or a derivation of its sector selection.
+\end{proposition}
+\begin{proof}
+Work first on smooth compactly supported momentum spinors, away from zero
+in the massless case. Translations are multiplication by
+$\exp[-i(tH-a\cdot p)]$, with commuting spectral measures. On the core,
+\[
+ [K_i,H]=ip_i,\qquad [K_i,p_j]=i\delta_{ij}H,\qquad
+ [K_i,H/E]=0 .
+\]
+For the last identity write $S=H/E$. Since $[H,S]=0$,
+$[K_i,S]=(i/2)\{H,\partial_iS\}$, which vanishes by differentiating
+$H^2=E^2I$. The rotation generators are
+$J_{ij}=x_ip_j-x_jp_i-i[\alpha_i,\alpha_j]/4$; direct use of the Clifford
+relations gives $[K_i,K_j]=-iJ_{ij}$ and the remaining Lorentz commutators.
+These operators integrate on the positive-energy bundle: the momentum
+flow of a boost is $dp_i/d\eta=E$, $dE/d\eta=p_i$, with transverse
+momenta fixed. It is complete for every finite rapidity and preserves
+$E>0$. The symmetric zeroth-order term supplies the Jacobian half-density
+and unitary spin transport, so its pullback is unitary on $L^2(dp)$.
+The resulting strongly continuous boost group has generator the indicated
+closure and transforms $(H,p)$ as a Lorentz vector. In the massless case
+the flow never reaches the removed node in finite rapidity. For $d=1$
+each occupied chiral ray is separately invariant; one ray is not a full
+two-sided characteristic cone. Restoring units gives
+$K_i=\{x_i,H\}/(2c)$ as rapidity generator and momentum $(H/c,p)$.
+\end{proof}
+
+Momentum is never defined here as a variable inside $\AU$; it is the generator of an implemented translation group on a represented sector. Modular flow of $\Omegastate$ is a one-parameter group with its own generator, and nothing in this paper identifies it with energy or momentum.
+
+% ============================================================
+\section{The conditional mass--energy theorem}
+\label{sec:theorem}
+
+In local orthonormal coordinates with $x^0=ct$ the metric is $g_{\mu\nu}=\mathrm{diag}(-1,1,1,1)$, and a four-momentum is written $P^\mu=(E/c,\mathbf p)$. An observer is a dimensionless future-directed unit timelike vector $u$, $g(u,u)=-1$.
+
+\begin{definition}[Invariant mass, observer energy]
+\label{def:mass}
+For a causal four-momentum $P$ the invariant mass $m\ge0$ is defined by $m^2c^2=-g_{\mu\nu}P^\mu P^\nu$. The energy measured by $u$ is $E_u=-c\,g(P,u)$, and $\mathbf p_u$ is the projection of $P$ orthogonal to $u$.
+\end{definition}
+
+\begin{theorem}[Conditional mass--energy relation]
+\label{thm:mass-energy}
+Under Assumptions~\ref{ass:readout}--\ref{ass:wellposed}, let $P$ be a sharp read-out of the admissible four-momentum, so that $P\in\overline V_+$. Then for every observer $u$
+\begin{equation}
+E_u^2=m^2c^4+|\mathbf p_u|^2c^2,\qquad E_u\ge mc^2\ge0 .
+\end{equation}
+If $P$ is timelike, there is an observer, the rest frame, with $\mathbf p_u=0$, and there $E=mc^2$.
+\end{theorem}
+
+\begin{proof}
+In a local orthonormal frame adapted to $u$, $u=(1,0,0,0)$ and $P=(E_u/c,\mathbf p_u)$, so $-g(P,P)=E_u^2/c^2-|\mathbf p_u|^2=m^2c^2$, which is the first identity. The spectrum condition gives $E_u\ge0$, hence $E_u=(m^2c^4+|\mathbf p_u|^2c^2)^{1/2}\ge mc^2$. For timelike $P$, $u=P/(mc)$ is a future-directed unit vector with $\mathbf p_u=0$.
+\end{proof}
+
+\begin{corollary}[Massless read-out]
+\label{cor:massless}
+If $m=0$ and $P\neq0$, then $P$ is null and $E_u=|\mathbf p_u|c$ for every observer.
+\end{corollary}
+
+Given the inputs, the theorem is a definitional identity: invariant mass is defined as the Lorentzian norm of the supplied four-momentum. It fixes signs and factors of $c$ and shows that the bridge of Section~\ref{sec:momentum} is sufficient. The physical questions are whether the inputs hold and what a finite read-out actually measures, which the next sections take up.
+
+% ============================================================
+\section{Spectral mass and read-out mass}
+\label{sec:readout}
+
+Let $\rho$ be a state on $\mathcal H_{\Rout}$ and $\mu_\rho$ the joint spectral distribution of $\hat P^\mu$ in $\rho$, a probability measure on $\overline V_+$. The \emph{mass operator} $\hat M=c^{-1}(-g_{\mu\nu}\hat P^\mu\hat P^\nu)^{1/2}$ is defined by functional calculus; its distribution is the image of $\mu_\rho$ under $N(P)/c$ with
+\begin{equation}
+N(P)=\bigl(-g(P,P)\bigr)^{1/2},\qquad P\in\overline V_+ .
+\end{equation}
+This is the spectral mass. A read-out that records mean energy and mean momentum obtains $p=\int P\,d\mu_\rho$ and the \emph{read-out mass} $m_{\rm eff}=N(p)/c$.
+
+\begin{theorem}[Read-out mass dominates spectral mass]
+\label{thm:readout}
+If $\mu_\rho$ has finite first moments, then
+\begin{equation}
+m_{\rm eff}\ \ge\ \langle\hat M\rangle_\rho\ \ge\ \inf\operatorname{supp}(\hat M),
+\end{equation}
+and $m_{\rm eff}=\langle\hat M\rangle_\rho$ if and only if $\mu_\rho$ is supported on a single ray of $\overline V_+$.
+\end{theorem}
+
+\begin{proof}
+For $P,P'\in\overline V_+$ the reverse Minkowski inequality $N(P+P')\ge N(P)+N(P')$ holds, with equality only if $P$ and $P'$ are proportional. Together with $N(\lambda P)=\lambda N(P)$ for $\lambda\ge0$ it makes $N$ concave on the convex cone $\overline V_+$. $N$ is continuous, so Jensen's inequality gives $N(\int P\,d\mu_\rho)\ge\int N\,d\mu_\rho$, the first inequality; the second is trivial. If $\mu_\rho$ is supported on a ray, $N$ is linear there and equality holds. If not, the support can be split into two sets $S_1,S_2$ of positive measure whose conditional means $P_1,P_2$ are not proportional, and then $N(p)=N(w_1P_1+w_2P_2)>w_1N(P_1)+w_2N(P_2)\ge\int N\,d\mu_\rho$.
+\end{proof}
+
+\begin{corollary}[Ledger on one mass shell]
+\label{cor:ledger}
+If $\mu_\rho$ is supported on the shell $N(P)=m_0c$ and has finite second moments, then
+\begin{equation}
+m_{\rm eff}^2c^2=m_0^2c^2+\sum_i\operatorname{Var}(p_i)-\frac{\operatorname{Var}(E)}{c^2},\qquad \frac{\operatorname{Var}(E)}{c^2}\le\sum_i\operatorname{Var}(p_i).
+\end{equation}
+\end{corollary}
+
+\begin{proof}
+Since $\langle P^\mu P^\nu\rangle=p^\mu p^\nu+\operatorname{Cov}(P^\mu,P^\nu)$ and $g$ is diagonal, $-g(p,p)=-\langle g(P,P)\rangle+\sum_\mu g_{\mu\mu}\operatorname{Var}(P^\mu)$, with $-\langle g(P,P)\rangle=m_0^2c^2$ and $P^0=E/c$. On the shell $E/c=(m_0^2c^2+|\mathbf p|^2)^{1/2}$ is a $1$-Lipschitz function of $\mathbf p$, and for independent copies $\mathbf p,\mathbf p'$, $\operatorname{Var}(f(\mathbf p))=\tfrac12\langle(f(\mathbf p)-f(\mathbf p'))^2\rangle\le\tfrac12\langle|\mathbf p-\mathbf p'|^2\rangle=\sum_i\operatorname{Var}(p_i)$.
+\end{proof}
+
+On a fixed shell with $m_0>0$, a causal ray intersects the shell at one point, so equality requires sharp momentum. On a massless shell, momenta $(E/c,E\mathbf n/c)$ with several positive energies but one direction $\mathbf n$ give equality at zero mass. The bias measures non-collinearity in the forward cone, rather than spread alone. For an equal mixture of momenta $\pm\mathbf p_0$ on the shell $m_0$, $p=(E_0/c,0)$ and $m_{\rm eff}=E_0/c^2>m_0$. The same inequality, applied to several free constituents, says that the invariant mass of a system exceeds the sum of the constituent masses whenever the constituents move relative to one another. In an interacting system the total four-momentum also contains interaction energy, which can be negative, and the inequality applies only to the free part. The proof supplies the continuum result; the finite calculations below concern its lattice and instrument interfaces.
+
+% ============================================================
+\section{The lattice limit}
+\label{sec:lattice}
+
+\subsection{What a discrete step does not determine}
+
+On a lattice of spacing $a$, $n\mapsto T^n$ represents $\mathbb Z$; a time step $W$ likewise represents discrete time. Quasi-momentum and quasi-energy are defined modulo reciprocal-lattice periods. Every selected self-adjoint logarithm $K$ with $e^{-iaK}=T$ gives a strongly continuous group
+\[
+ U_K(t)=e^{-itK},\qquad U_K(na)=T^n .
+\]
+Existence of such an extension is not the difficulty. Its physical selection is: distinct logarithmic branches have the same integer-step data and different intermediate motion. At $a=1$, $T=\operatorname{diag}(e^{-i.4},e^{-i.7})$ has generators $\operatorname{diag}(.4,.7)$ and $\operatorname{diag}(.4+2\pi,.7)$. Their half-step actions differ by a relative sign, observable on a superposition.
+
+A band point, momentum window and clock convention can select a branch~\cite{Liu2026QRAIFA}. They do not by themselves turn the lattice band into an exact Lorentzian shell. In a scaling limit $a,\tau\to0$, with physical momentum kept in a fixed window and $a/\tau$ fixed, the selected low-energy branch recovers Dirac or Weyl generators~\cite{Strauch2006,BisioDArianoTosini2015,DArianoPerinotti2014}. That limit is a physical correspondence, not the first occasion on which any continuous extension exists.
+
+\subsection{Masses and speeds of the split-step walk}
+
+The walk used in Paper~A applies a coin rotation and then a conditional shift~\cite{Liu2026QRAIFA},
+\begin{equation}
+W_\theta(k)=\begin{pmatrix}e^{-ika}\cos\theta&-e^{-ika}\sin\theta\\ e^{ika}\sin\theta&e^{ika}\cos\theta\end{pmatrix},\qquad 0<\theta<\frac\pi2 ,
+\end{equation}
+with dispersion $\cos(\omega\tau)=\cos\theta\cos(ka)$.
+
+\begin{proposition}[Masses and speeds]
+\label{prop:walk}
+The three-speed calculation in Paper~A~\cite[Proposition on three speeds]{Liu2026QRAIFA} gives
+\[
+ E_0=\hbar\theta/\tau,\qquad m_*=\hbar\tau\tan\theta/a^2,\qquad
+ c_{\rm eff}^2=E_0/m_*=(a/\tau)^2\theta\cot\theta.
+\]
+The largest group speed is $(a/\tau)\cos\theta<c_{\rm eff}<a/\tau$.
+The dispersion's next term is
+$\omega^2\tau^2=\theta^2+\theta\cot\theta\,(ka)^2+b_4(ka)^4+O((ka)^6)$,
+where
+$b_4=\cot^2\theta/4-\theta\cot\theta/12-\theta\cot^3\theta/4
+=-\theta^2/45+O(\theta^4)$.
+\end{proposition}
+
+\begin{proof}
+The mass and speed formulas are the cited result. Expanding
+$\arccos(\cos\theta\cos ka)^2$ to fourth order gives the displayed $b_4$,
+which is needed for the finite window below.
+\end{proof}
+
+Three speeds that coincide in a continuum Lorentzian theory are thus different at finite mass: $c_{\rm eff}$ from rest energy and inertia, $(a/\tau)\cos\theta$ from the fastest wave packets, and $a/\tau$ from the causal front. Their relative deviations from $a/\tau$ are $\theta^2/6$ and $\theta^2/2$ at leading order, and they vanish in the scaling limit $a,\tau\to0$ with $a/\tau$ and $\theta/\tau$ fixed.
+
+\subsection{The complete real read-out window}
+\label{sec:window}
+
+Set $\hbar=a=\tau=1$ in this subsection and write
+\[
+ \omega_\theta(k)=\arccos(\cos\theta\cos k),\qquad
+ C_\theta=\theta\cot\theta,\qquad
+ \mu_{\rm read}^2(k)=\omega_\theta(k)^2-C_\theta k^2 .
+\]
+The last expression applies the rest-and-curvature Lorentzian dictionary to the full band. A negative value is a failure of that dictionary at the chosen momentum, not a real mass with a larger downward error.
+
+\begin{theorem}[Finite-angle real window]\label{thm:window}
+For $0<\theta<\pi/2$, $\omega_\theta(k)/k$ strictly decreases on $(0,\pi)$ from infinity to $1-\theta/\pi$. Put
+\[
+ D(\theta)=\theta\cot\theta-(1-\theta/\pi)^2 .
+\]
+There is a unique $\theta_c\in(0,\pi/2)$ with $D(\theta_c)=0$:
+$\theta_c=1.32251144477855\ldots$.
+If $0<\theta<\theta_c$, there is a unique $k_\theta\in(0,\pi)$ such that $\mu_{\rm read}^2$ is positive for $k<k_\theta$, zero at $k_\theta$ and negative for $k>k_\theta$. If $\theta\ge\theta_c$, it is positive throughout the open Brillouin half-zone. At $\theta=\theta_c$ only its endpoint $k=\pi$ is zero; for $\theta>\theta_c$ that endpoint is positive too.
+\end{theorem}
+\begin{proof}
+Direct differentiation gives
+\[
+ \omega'=\frac{\cos\theta\sin k}{\sin\omega},\qquad
+ \omega''=\frac{\cos\theta\sin^2\theta\cos k}{\sin^3\omega}.
+\]
+For $h=k\omega'-\omega$, $h'=k\omega''$. Thus $h$ increases up to $\pi/2$ and decreases afterwards. Its maximum is
+$h(\pi/2)=(\pi/2)(\cos\theta-1)<0$, proving strict decrease of $\omega/k$. The endpoint is $\omega(\pi)=\pi-\theta$. Comparing that ratio with $\sqrt{C_\theta}$ gives the stated crossing criterion. Finally,
+\[
+ D''(\theta)=2\csc^2\theta(\theta\cot\theta-1)-2/\pi^2<0 .
+\]
+With $D(0+)=0$, $D'(0+)=2/\pi$ and $D(\pi/2)=-1/4$, strict concavity gives exactly one interior zero and the claimed signs.
+\end{proof}
+
+For example, $k_{.1}=2.2067754845\ldots$, $k_{.3}=2.2252950460\ldots$ and $k_1=2.5337771427\ldots$. Real-valuedness does not make the full band Lorentz invariant: beyond the low-momentum window, the three speeds of Proposition~\ref{prop:walk} remain different.
+
+\begin{proposition}[Small-angle bias and breakdown]\label{prop:sharp}
+Uniformly on compact subsets of $0<k<\pi$,
+\[
+ \mu_{\rm read}^2(k)=\theta^2 A(k)+O(\theta^4),\qquad
+ A(k)=k\cot k+k^2/3 .
+\]
+There is a unique $k_*=2.20452539445172\ldots$ where $\cot k_*+k_*/3=0$. On compact subsets of $(0,k_*)$, sufficiently small $\theta$ gives a real reading below the rest value $\theta$; on compact subsets of $(k_*,\pi)$ it gives a negative square. Moreover $k_\theta\to k_*$ as $\theta\to0$.
+\end{proposition}
+\begin{proof}
+Writing $\omega=k+\delta$ gives $\delta=\theta^2\cot k/2+O(\theta^4)$; combine this with $C_\theta=1-\theta^2/3+O(\theta^4)$. The function $\cot k+k/3$ has derivative $-\csc^2k+1/3<0$ and opposite infinite endpoint limits. The partial-fraction expansion of $\cot$ gives
+\[
+ A(k)=1-2k^4\sum_{j\ge1}
+ \frac{1}{j^2\pi^2(j^2\pi^2-k^2)}<1,\qquad 0<k<\pi .
+\]
+Before $k_*$ it is also positive. Compact uniform convergence of $\mu_{\rm read}^2/\theta^2$ brackets the unique finite-angle crossing and proves its limit. Near zero,
+$\sqrt{A(k)}=1-k^4/90-k^6/945+O(k^8)$.
+\end{proof}
+
+\subsection{Packet spread within the window}
+
+A read-out from mean values adds the spread term of Section~\ref{sec:readout}. For a packet concentrated near $k_0$ with small variance $s^2$, $\langle\omega\rangle\simeq\omega(k_0)+\tfrac12\omega''(k_0)s^2$ and $\langle k\rangle=k_0$, so $\mu_{\rm read}^2\simeq\mu_{\rm read}(k_0)^2+\omega(k_0)\omega''(k_0)s^2$; at $k_0=0$ the correction is $c_{\rm eff}^2s^2>0$. Elsewhere its sign is the sign of $\omega''(k_0)$, which reverses beyond $\pi/2$; packet spread is not universally an upward lattice correction. Table~\ref{tab:biases} shows both effects for $\theta=0.2$ with Gaussian quasi-momentum distributions.
+
+\begin{table}[ht]
+\centering
+\begin{tabular}{@{}lcccc@{}}
+\toprule
+ & $s=0.01$ & $s=0.05$ & $s=0.1$ & $s=0.2$ \\
+\midrule
+$k_0=0$ & $+0.0012$ & $+0.0296$ & $+0.1080$ & $+0.3507$ \\
+$k_0=0.2$ & $+0.0006$ & $+0.0159$ & $+0.0675$ & $+0.2764$ \\
+$k_0=0.5$ & $-0.0005$ & $+0.0037$ & $+0.0179$ & $+0.0986$ \\
+$k_0=1.0$ & $-0.0122$ & $-0.0111$ & $-0.0077$ & $+0.0077$ \\
+\bottomrule
+\end{tabular}
+\caption{Relative error $\mu_{\rm read}/\theta-1$ of the mean read-out for the split-step walk at $\theta=0.2$, normalized Gaussian quasi-momentum densities truncated to $[-\pi,\pi]$, with centre $k_0$ and width $s$.}
+\label{tab:biases}
+\end{table}
+
+The lattice bias depends on the mean momentum, with small-angle profile $\sqrt{A(k)}$ only in its real window; the spread bias depends on the width. Read-outs at several mean momenta and widths therefore separate the spectral mass $\theta$, a property of the dynamics, from the two finite read-out errors. The continuum inequality of Theorem~\ref{thm:readout} does not survive on the lattice, because the lattice dispersion is not a common Lorentzian shell; at $k_0=1$ narrow packets read a mass below the gap.
+
+% ============================================================
+\section{The mass term as a coupling and a control setting}
+\label{sec:control}
+
+In the propagation model of Paper~A a mass term is a summand $\mu\beta$ of the symbol, and a single shell requires $\beta^2=1$ and $\{\beta,\alpha_i\}=0$ for every propagation coefficient~\cite{Liu2026QRAIFA}. In three dimensions the three $\alpha_i$ and $\beta$ are four pairwise anticommuting involutions, which exist only when the internal dimension is divisible by four. A qubit carrier in three dimensions with an isotropic single shell is therefore massless, a Weyl particle, and a massive one is a pair of Weyl qubits of opposite chirality coupled by $\beta$, the Dirac particle. The mass is the strength of a chirality-exchanging coupling.
+
+In the Standard Model this algebraic slot is filled by Yukawa couplings. A charged-fermion Dirac mass couples the left- and right-handed Weyl components, and its value $m_f=y_fv/\sqrt2$ is set by a Yukawa coupling $y_f$ to the Higgs condensate $v$~\cite{PeskinSchroeder1995,WeinbergQFT2}. Paper~A explains why a mass term must couple two components; it does not explain the Higgs field, the Yukawa couplings or their values.
+
+In the walk of Section~\ref{sec:lattice} the mass parameter $\theta$ is the angle of a coin pulse. A field-coupled actuator makes that setting physical~\cite{Liu2026QRAIFB}. Fresh ports make its reduced coin a channel, not an uncertain but otherwise isolated Hamiltonian. Its observable resonance can be computed exactly.
+
+\subsection{A finite-energy mass-setting resonance}
+\label{sec:field-coin}
+
+At each step let a fresh oscillator, initially independent of the walker and
+all preceding ports, implement $U=\exp[-i\lambda YQ]$, with
+$Q=b+b^\dagger$, $P=-i(b-b^\dagger)$ and $[Q,P]=2i$.
+The oscillator state is Gaussian with $m_Q=\langle Q\rangle>0$ and variance
+$v_Q$. Choose $\lambda m_Q=\theta$. The same field-mode reduction and switching
+account as in Paper~B applies after rotating its qubit coupling axis from $X$
+to $Y$. The spatial shift is still the permitted shift of the supplied walk.
+
+\begin{proposition}[Rest frequency and linewidth]\label{prop:field-resonance}
+Tracing out each fresh Gaussian port gives
+\begin{equation}\label{eq:gaussian-coin}
+ \mathcal C(\rho)=e^{-i\theta Y}
+ \left[\frac{1+\chi}{2}\rho+\frac{1-\chi}{2}Y\rho Y\right]e^{i\theta Y},
+ \qquad \chi=e^{-2\lambda^2v_Q}.
+\end{equation}
+On a supplied finite periodic ring, prepare its normalized zero mode. A single field oscillator couples uniformly as $I_{\rm ring}\otimes e^{-i\lambda YQ}$ at each step; this spatial support is a supplied control permission, not independent noisy actuators at separate sites. The conditional shift fixes the zero mode, so the coin's Bloch channel has eigenvalues
+$1,\chi e^{2i\theta},\chi e^{-2i\theta}$. Starting with coin state
+$(I+Z)/2$,
+\begin{equation}\label{eq:rest-decay}
+ \langle Z\rangle_n=e^{-\Gamma n\tau}\cos(2n\theta),\qquad
+ \Gamma=\frac{2\theta^2v_Q}{\tau m_Q^2}.
+\end{equation}
+The phase measures the band gap $2\theta$ modulo $2\pi$ after $n$ steps. In the supplied symmetric $\pm\theta$ band convention, resolving the branch gives $E_0=\hbar\theta/\tau$; it does not measure an arbitrary additive energy offset. The finite-drive signature is decay at rate $\Gamma$.
+\end{proposition}
+\begin{proof}
+In the $Y$ eigenbasis the off-diagonal matrix element is multiplied by
+$\langle e^{-2i\lambda Q}\rangle
+=e^{-2i\theta-2\lambda^2v_Q}$. This gives Eq.~\eqref{eq:gaussian-coin}.
+On the normalized zero mode the shift is the identity, so the $XZ$ plane undergoes a
+rotation by $2\theta$ and a contraction by $\chi$ at every step; $Y$ is
+fixed. Iterating gives Eq.~\eqref{eq:rest-decay} and $\langle X\rangle_n=e^{-\Gamma n\tau}\sin(2n\theta)$.
+\end{proof}
+
+\begin{proposition}[Gaussian energy price of resonance persistence]
+\label{prop:gaussian-linewidth}
+For fixed mean input occupation $N=\langle b^\dagger b\rangle>0$ and
+$0<\theta<\pi/2$, every Gaussian drive obeys
+\begin{equation}\label{eq:linewidth-price}
+ \Gamma\ge\frac{\theta^2}{2\tau N(N+1)}.
+\end{equation}
+A pure displaced squeezed state attains equality, with
+\[
+ v_Q=\frac1{2N+1},\quad v_P=2N+1,\quad
+ \frac{m_Q^2}{4}=\frac{N(N+1)}{2N+1},\quad \langle P\rangle=0.
+\]
+An unsqueezed coherent drive gives $\Gamma=\theta^2/(2N\tau)$.
+Maintaining amplitude visibility at least $V\in(0,1)$ for time $t$ therefore
+requires, within this fresh-Gaussian-port model,
+\[
+ N(N+1)\ge\frac{\theta^2t}{2\tau(-\ln V)}.
+\]
+\end{proposition}
+\begin{proof}
+The uncertainty inequality gives $v_P\ge1/v_Q$ even with nonzero
+$QP$ covariance. Since
+$4N=m_Q^2+\langle P\rangle^2+v_Q+v_P-2$, put $x=1/v_Q$ to obtain
+\[
+ \frac{m_Q^2}{v_Q}\le(4N+2)x-x^2-1
+ \le4N(N+1).
+\]
+The specified pure state saturates both inequalities. Substitution into
+Eq.~\eqref{eq:rest-decay} gives the price and its attaining state.
+\end{proof}
+
+For example, $\theta=.3$, $\tau=1$ and $N=16$ give linewidth $.0028125$
+with a coherent drive and $.0001654412$ with the optimal Gaussian drive.
+These are inverse-time quantities, not a spread in the eigenvalues of a
+self-adjoint mass operator. At nonzero momentum the channel's Bloch matrix is
+$R_z(2ka)R_y(2\theta)\operatorname{diag}(\chi,1,\chi)$; propagation and
+dephasing no longer commute. Position transport and a packet's spectral
+read-out need that matrix and the inter-momentum coherences, rather than a
+replacement $\theta\mapsto\theta+i\Gamma\tau/2$ in the unitary dispersion.
+Decoherent-coin walks and their diffusive long-time regimes are established
+subjects~\cite{Brun2002}; the result here relates this particular damping to
+the occupation and squeezing of its physical actuator.
+
+The input bill is $N\hbar\bar\omega$ at each fresh port. If its mean
+conjugate quadrature vanishes, the mean switching work is
+$\lambda^2\hbar\bar\omega$, since
+$U^\dagger bU=b-i\lambda Y$. Preparing the fresh ports, implementing the uniform coupling and conditional shift, and disposing of or renewing spent ports have separate bills. Freshness includes independence from the initial coin, old references and other trials; reusing one noise trajectory across repeated experiments is a different protocol. The all-state
+flip-accuracy bound of Paper~B is not a bound on every non-Gaussian
+resonance: a characteristic function is not fixed by its second moment.
+Nor is the resonance an account of fundamental mass generation. It closes
+the field-coin interface for a definite open walk, where a mass setting and
+its lifetime are outputs of one priced interaction.
+
+\section{Actual records of the rest resonance}
+\label{sec:finite-read}
+
+A channel eigenphase is not yet a reading. The supplied finite-ring zero mode permits a finite protocol using the mixed-memory instrument of HAFF-E~\cite{PaperE}. After $j$ fresh field pulses, choose a calibrated $X$ or $Z$ basis and couple the coin to a fresh memory
+$\eta_v=(I+vZ)/2$, $0<v\le1$, by controlled $X$, then read the memory's $Z$. The induced effects are
+\[
+ F_y^{(J)}=(I+yvJ)/2,\qquad y\in\{-1,1\},\quad J=X,Z .
+\]
+The basis rotation, gain $v$ and clock are physical reference inputs. This is the actual controlled-memory instrument, not an assumption that every spectral function of an effect is implementable.
+
+In $M$ independent trials per quadrature and per time $j$, let
+\[
+ \widehat{\mathbf m}_j=(\overline Y_X/v,\overline Y_Z/v),\qquad
+ \mathbf m_j=A_j(\sin(2j\theta),\cos(2j\theta)),\qquad
+ A_j=e^{-\Gamma j\tau}.
+\]
+All pulses and read memories are fresh across trials. The two quadratures are measured on separately prepared coins, not simultaneously on one coin.
+
+\begin{proposition}[Finite confidence and paid phase unwrapping]\label{prop:records}
+Read at $j=1$ and $j=n>1$, with $M$ trials per quadrature. With probability at least $1-\zeta$, both vector errors are at most
+\[
+ r=\frac2v\sqrt{\frac{\ln(8/\zeta)}{M}} .
+\]
+For either time the amplitude lies in
+$[\max(0,\|\widehat{\mathbf m}_j\|-r),\min(1,\|\widehat{\mathbf m}_j\|+r)]$.
+Suppose a known actuator bound gives $A_1,A_n\ge V>r$. Define
+\[
+ \beta_1=\arcsin(r/V),\qquad
+ \beta_n=\frac{1}{2n}\arcsin\!\frac{r}{V-r},
+ \qquad r<V/2 .
+\]
+If $\beta_1+\beta_n<\pi/(2n)$, a coarse estimate from the positive half-circle at $j=1$, followed by the nearest phase lift at $j=n$, determines $\theta\in(0,\pi/2)$ to error at most $\beta_n$. No externally supplied local branch is needed.
+\end{proposition}
+\begin{proof}
+For each mean of $M$ bits, Hoeffding's inequality~\cite{Hoeffding1963} gives failure at most $2e^{-Mt^2/2}$. Union over four means and divide by $v$: the vector error is at most $\sqrt2t/v=r$ with $t=\sqrt{2\ln(8/\zeta)/M}$. Norm continuity gives the amplitude interval.
+
+The error disk does not contain the origin. Its tangent angle bounds the angular error by $\arcsin(r/A_j)$. At $j=1$, project the estimated direction to the arc $2\theta\in[0,\pi]$ by the nearest circular direction. The projection moves it no farther than the true point would, so a triangle inequality gives at most twice the original angular error. Dividing by two gives the conservative coarse error $\beta_1$. At the fine time, the data-dependent angle radius is $\arcsin(r/\|\widehat{\mathbf m}_n\|)$. The norm is at least $V-r$, giving angle error $\beta_n$ after division by $2n$. Fine lifts are spaced by $\pi/n$. The stated inequality selects exactly one nearest lift. Clipping it to $[0,\pi/2]$ cannot increase its error. This one event covers both times, both quadratures and the branch choice.
+\end{proof}
+
+A single time $n$ determines $\theta$ only modulo $\pi/n$. At $\theta=.3$, the principal angle at $n=10$, divided by $20$, is $-.014159\ldots$. The protocol pays for its coarse reference rather than silently correcting that answer. For acceptance, the fine interval of a lift must intersect the coarse confidence interval; its nominal centre need not lie inside that interval. A run is rejected if a vector disk includes the origin or the intersecting lift is not unique. On the guaranteed event the true lift intersects, and every other lift is excluded by the spacing inequality.
+
+For the optimal Gaussian actuator, $N=16$ gives
+\[
+ A_{10}\ge \exp[-10\pi^2/(8N(N+1))]>.95
+\]
+uniformly over $0<\theta<\pi/2$. Taking $n=10$, $v=.6$, $M=10^4$ and $\zeta=.05$ gives $r=.07509382$, $\beta_1=.07912868$ and $\beta_{10}=.004296823$ with $V=.95$. The branch margin $\pi/20-\beta_1-\beta_{10}$ exceeds $.07365$. Thus this one protocol certifies an angle error below $.004297$ radians at $95\%$ confidence over the entire allowed interval, and a rest-energy error below $.004297\,\hbar/\tau$ in the supplied band convention.
+
+The four record blocks require $4M=40000$ independently prepared zero-mode coins, $40000$ mixed read memories and bits, and $2M(n+1)=220000$ fresh Gaussian field pulses. Each field pulse carries the occupation $N$, rather than one shared stock of $N$ for the whole experiment. Read-memory preparation uses purity $\ln2-h((1+v)/2)$ per port; mode preparation, pure coins, calibrated rotations, gain calibration, clock, switching work, archive and any renewal apparatus are additional inputs. Spent field ports and memories remain in the ledger.
+
+This certifies a mass-setting resonance of a supplied device. The energy conversion uses its clock and symmetric band dictionary. At nonzero momentum, the open-channel Bloch matrix and inter-momentum coherences must be used instead; the rest experiment does not certify the closed walk's full dispersion. When a separately implemented band read-out supplies simultaneous intervals for $\omega^2$, $C_\theta$ and $k^2$, interval arithmetic gives a conservative interval for $\mu_{\rm read}^2$. An entirely negative interval rejects the Lorentzian reading; an interval straddling zero cannot certify a real positive mass. Theorem~\ref{thm:window} gives the exact closed-band boundary against which such a reading is tested.
+
+% ============================================================
+\section{Programme-level readings}
+\label{sec:readings}
+
+The interface makes mass a relational reading without making its value arbitrary. A change of observer changes the energy component, while a valid Lorentzian norm is invariant. A change of dictionary or actuator can change what is being read and must be tested against the dynamics.
+
+\subsection{Mass, energy and the role of \texorpdfstring{$c$}{c}}
+\label{sec:c2}
+
+The admissible four-momentum is the complete Lorentzian momentum read-out. Its invariant norm is the mass and its component along an observer's time direction is the energy; in the rest frame the component exhausts the norm and gives $E=mc^2$. It would be an inversion to call mass the time component and energy the object itself. ``Same object'' refers to $P$ in the effective geometry, not to an entity behind it.
+
+In a single-metric continuum read-out the constant $c$ appears three times: as the metric coefficient in $ds^2=-c^2dt^2+d\mathbf x^2$, as the slope of the null cone, and in the rest energy. These are attestations of one metric scale. The walk of Section~\ref{sec:lattice} shows that this identification is a property of the continuum limit. At finite mass and lattice spacing the speed in $E_0=m_*c_{\rm eff}^2$, the largest transport speed and the speed of the causal front are three different numbers, and their coincidence is approached as $\theta\to0$. Multi-metric, dispersive or birefringent read-outs would separate them further; Paper~A shows that the bands fail to share one shell exactly when the Clifford relations fail.
+
+\subsection{Higgs/Yukawa and QCD contributions}
+\label{sec:physical-anchoring}
+
+Higgs/Yukawa terms and QCD field energy contribute differently to the same invariant-mass account~\cite{Ji1995,Durr2008,Wilson1974}:
+
+\begin{center}
+\begin{tabular}{P{0.25\linewidth}P{0.36\linewidth}P{0.29\linewidth}}
+\toprule
+\textbf{Contribution} & \textbf{Mechanism} & \textbf{Place in this paper} \\
+\midrule
+Elementary rest masses & Higgs condensate and Yukawa couplings & chirality-coupling term $\mu\beta$ (Section~\ref{sec:control}) \\
+Nucleon mass & QCD field energy, quark kinetic energy, confinement, trace anomaly & invariant mass of a composite (Section~\ref{sec:readout}) \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+Theorem~\ref{thm:readout} accounts kinematically for relative motion and binding contributions to a composite momentum. Their dynamical values, and the scheme-dependent QCD decomposition, require the corresponding field theory; the read-out norm does not derive them.
+
+\subsection{Vacuum sectors without splitting \texorpdfstring{$\Omega$}{Omega}}
+\label{sec:vacuum}
+
+The fixed $(\AU,\Omegastate)$ notation permits changes of effective sector, not arbitrary changes of source state. Inequivalent vacuum representations fall outside that convention. Physical vacuum decay~\cite{Coleman1977,CallanColeman1977} is a dynamical process; notation neither derives nor excludes it.
+
+\subsection{Massless propagation}
+
+Corollary~\ref{cor:massless} gives the null kinematic class. Whether a physical excitation occupies it is a dynamical question: in the Standard Model the photon's masslessness follows from gauge structure, not from the signature. In the propagation model of Paper~A, an isotropic single-shell qubit carrier in three dimensions is necessarily massless (Section~\ref{sec:control}), and its null cone is the characteristic cone of the evolution.
+
+% ============================================================
+\section{Limits and open problems}
+\label{sec:limits}
+
+The paper predicts no particle masses, coupling constants or value of $c$, and it derives neither the Higgs mechanism nor confinement. The mass--energy theorem holds in local orthonormal frames; in a curved effective geometry a conserved global energy needs a Killing symmetry or an asymptotic time translation~\cite{Wald1984}. The existence of a strongly continuous local translation representation in an emergent sector selected from a Type~III source is not established; a selected lattice logarithm is continuous, but its Lorentzian interpretation is a low-energy correspondence, not a consequence of discreteness alone.
+
+The remaining physical bridges have concrete targets. Bound states of interacting
+walkers~\cite{Ahlbrecht2012} permit a composite mass to be compared with the
+constituent masses and Theorem~\ref{thm:readout}. Section~\ref{sec:field-coin}
+gives a field-realized rest resonance, its sharp Gaussian price and a finite actual reading with resolved phase aliasing;
+spatial transport, reused rather than fresh drives and general non-Gaussian
+inputs remain to be computed. Paper~A gives conditions for an interacting
+common cone; the fixed point and the permitted interactions still need a
+physical realization. The modular bridge requires computing the modular flow
+of a lattice state and comparing its generator with the low-energy boosts
+and translations. The finite protocol removes an ideal-read-out assumption for the rest setting, not the origin of its clock, mode, spatial support or translation action. A total covariant apparatus and its thermal renewal are further physical obligations when this setting is used as part of a source-and-return construction. Neither the linewidth calculation nor a supplied relativistic shell supplies that missing structure.
+
+% ============================================================
+\appendix
+\section{Conventions}
+\label{app:conventions}
+
+With coordinates $(t,x,y,z)$ the metric is $ds^2=-c^2dt^2+dx^2+dy^2+dz^2$; with $x^0=ct$ it is $g_{\mu\nu}=\mathrm{diag}(-1,1,1,1)$ and $P^\mu=(E/c,\mathbf p)$, the convention of Section~\ref{sec:theorem}. For a dimensionless observer vector with $g(u,u)=-1$, $E_u=-c\,g(P,u)$; for a four-velocity $U=cu$ with $g(U,U)=-c^2$, $E_U=-g(P,U)$. Paper~A uses the frequency--wavevector form $\eta=\omega^2-c^2|q|^2$; with $P=\hbar(\omega/c,q)$, $g(P,P)=-\hbar^2\eta/c^2$.
+
+\section{Standard-limit recovery}
+\label{app:standard-limit}
+
+In flat spacetime $U(a)=\exp(-ia^\mu\hat P_\mu/\hbar)$ has strongly commuting Stone generators and joint spectrum in $\overline V_+$ in a positive-energy Poincar\'e representation. A massive classical trajectory has $P^\mu=m\,dx^\mu/d\tau$; a massless excitation has null momentum. Both give $g(P,P)=-m^2c^2$. Proposition~\ref{prop:positive-sector} supplies this representation for every isotropic single-shell continuum sector of Paper~A, including the punctured massless sector. It does not construct translations for an arbitrary selected Type~III algebra.
+
+% ============================================================
+\begin{thebibliography}{99}
+\raggedright
+
+\bibitem{PaperE}
+S.~Liu, \emph{Measurement as Accessibility: Measurement Permissions, Stable Records and Public Readout}, (2026).
+
+\bibitem{Hoeffding1963}
+W.~Hoeffding, Probability inequalities for sums of bounded random variables,
+\emph{J.~Amer.~Statist.~Assoc.}~\textbf{58}, 13--30 (1963).
+\url{https://doi.org/10.1080/01621459.1963.10500830}.
+
+\bibitem{Brun2002}
+T.~A.~Brun, H.~A.~Carteret and A.~Ambainis,
+\emph{Quantum random walks with decoherent coins}, arXiv:quant-ph/0210180 (2002).
+
+\bibitem{Liu2026QRAIFA}
+S.~Liu, \emph{Lorentzian Read-out from Local Unitary Propagation: Clifford Relations, Causal Cones and Spectral Mass}, (2026), series record DOI: 10.5281/zenodo.18525876.
+
+\bibitem{Liu2026QRAIFB}
+S.~Liu, \emph{Thermodynamic Stability Constraints on Persistent Open Quantum Subsystems: Control Algebra, Physical Actuation and Energy Cost}, (2026), series record DOI: 10.5281/zenodo.18525890.
+
+\bibitem{BisognanoWichmann1975}
+J.~J.~Bisognano and E.~H.~Wichmann, \emph{On the duality condition for a Hermitian scalar field}, J.\ Math.\ Phys.\ \textbf{16}, 985--1007 (1975).
+
+\bibitem{Haag1996}
+R.~Haag, \emph{Local Quantum Physics: Fields, Particles, Algebras}, Springer-Verlag (1996).
+
+\bibitem{Witten2018}
+E.~Witten, \emph{APS Medal for Exceptional Achievement in Research: Invited article on entanglement properties of quantum field theory}, Rev.\ Mod.\ Phys.\ \textbf{90}, 045003 (2018).
+
+\bibitem{Stone1932}
+M.~H.~Stone, \emph{On one-parameter unitary groups in Hilbert space}, Ann.\ Math.\ \textbf{33}, 643--648 (1932).
+
+\bibitem{ReedSimon1972}
+M.~Reed and B.~Simon, \emph{Methods of Modern Mathematical Physics I: Functional Analysis}, Academic Press (1972).
+
+\bibitem{Strauch2006}
+F.~W.~Strauch, \emph{Relativistic quantum walks}, Phys.\ Rev.\ A \textbf{73}, 054302 (2006).
+
+\bibitem{BisioDArianoTosini2015}
+A.~Bisio, G.~M.~D'Ariano, and A.~Tosini, \emph{Quantum field as a quantum cellular automaton: The Dirac free evolution in one dimension}, Ann.\ Phys.\ \textbf{354}, 244--264 (2015).
+
+\bibitem{DArianoPerinotti2014}
+G.~M.~D'Ariano and P.~Perinotti, \emph{Derivation of the Dirac equation from principles of information processing}, Phys.\ Rev.\ A \textbf{90}, 062106 (2014).
+
+\bibitem{Ahlbrecht2012}
+A.~Ahlbrecht, A.~Alberti, D.~Meschede, V.~B.~Scholz, A.~H.~Werner, and R.~F.~Werner, \emph{Molecular binding in interacting quantum walks}, New J.\ Phys.\ \textbf{14}, 073050 (2012).
+
+\bibitem{Wald1984}
+R.~M.~Wald, \emph{General Relativity}, University of Chicago Press (1984).
+
+\bibitem{PeskinSchroeder1995}
+M.~E.~Peskin and D.~V.~Schroeder, \emph{An Introduction to Quantum Field Theory}, Westview Press (1995).
+
+\bibitem{WeinbergQFT2}
+S.~Weinberg, \emph{The Quantum Theory of Fields, Volume II: Modern Applications}, Cambridge University Press (1996).
+
+\bibitem{Wilson1974}
+K.~G.~Wilson, \emph{Confinement of quarks}, Phys.\ Rev.\ D \textbf{10}, 2445--2459 (1974).
+
+\bibitem{Ji1995}
+X.-D.~Ji, \emph{Breakup of hadron masses and energy-momentum tensor of QCD}, Phys.\ Rev.\ D \textbf{52}, 271--281 (1995).
+
+\bibitem{Durr2008}
+S.~D\"urr et al., \emph{Ab initio determination of light hadron masses}, Science \textbf{322}, 1224--1227 (2008).
+
+\bibitem{Coleman1977}
+S.~Coleman, \emph{The fate of the false vacuum. 1. Semiclassical theory}, Phys.\ Rev.\ D \textbf{15}, 2929--2936 (1977).
+
+\bibitem{CallanColeman1977}
+C.~G.~Callan and S.~Coleman, \emph{The fate of the false vacuum. 2. First quantum corrections}, Phys.\ Rev.\ D \textbf{16}, 1762--1768 (1977).
+
+\bibitem{BisognanoWichmann1976}
+J.~J.~Bisognano and E.~H.~Wichmann, \emph{On the duality condition for quantum fields}, J.\ Math.\ Phys.\ \textbf{17}, 303--321 (1976), doi:10.1063/1.522898.
+
+\end{thebibliography}
+
+\end{document}
+

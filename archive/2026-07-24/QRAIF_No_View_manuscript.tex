@@ -1,0 +1,449 @@
+\documentclass[12pt,a4paper]{article}
+
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{mathtools}
+\usepackage[hidelinks]{hyperref}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage{fontspec}
+
+\defaultfontfeatures{Ligatures=TeX}
+\IfFontExistsTF{Times New Roman}
+  {\setmainfont{Times New Roman}}
+  {\setmainfont{TeX Gyre Termes}}
+\IfFontExistsTF{Menlo}
+  {\setmonofont{Menlo}}
+  {\setmonofont{Latin Modern Mono}}
+
+\newcolumntype{P}[1]{>{\raggedright\arraybackslash}p{#1}}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{criterion}[theorem]{Criterion}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+
+\newcommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+
+\title{%
+  \textbf{No View from Nowhere}\\
+  \large Read-out Closure and the Vacuum Curvature Test in Q-RAIF A%
+}
+
+\author{
+  Sidong Liu, PhD \\
+  \small iBioStratix Ltd \\
+  \small \texttt{sidongliu@hotmail.com}
+}
+
+\date{July 2026\\
+\small Zenodo DOI: \href{https://doi.org/10.5281/zenodo.20284454}{10.5281/zenodo.20284454}}
+
+\begin{document}
+\emergencystretch=2em
+\raggedbottom
+\hbadness=5000
+\vbadness=5000
+
+\maketitle
+
+\begin{abstract}
+This paper states a predictive criterion in Q-RAIF A. Its central conjecture is that complete spacetime descriptions may remain conditional on admissible read-out: a read-out system may not be placeable completely inside the spacetime description that its own read-out makes available. This is not a claim about human subjectivity. It is a structural conjecture about closure, not a proof that observer-independent quantum gravity is impossible.
+
+The cosmological constant problem is used as the sharpest test case. The question is not only how vacuum energy is prevented from gravitating, but why sector-internal zero-point bookkeeping was counted as a geometric source in the first place. The proposed read-out curvature criterion is that a vacuum contribution is eligible to source effective curvature only when it changes admissible read-out structure: causal accessibility, boundary or horizon conditions, modular/state-restriction data, stress response under admissible probes, or global read-out curvature conditions.
+
+The framework therefore predicts that gravity couples to read-out-visible vacuum differences, not to absolute zero-point bookkeeping. Pure additive zero-point offsets inside a fixed admissible sector should not curve spacetime by their absolute value. Casimir energy, vacuum phase transitions, and global de Sitter horizon structure are different: they change boundary conditions, accessible modes, sector structure, or global read-out conditions. If a controlled vacuum offset that changes none of these structures nevertheless produces curvature proportional to its absolute zero-point value, the criterion fails.
+
+The criterion addresses only the bookkeeping part of the vacuum-energy problem; it does not explain why read-out-visible Higgs, QCD, or phase-transition contributions fail to curve spacetime at their naive scale.
+
+\medskip
+\noindent\textbf{Keywords}: Q-RAIF A, read-out closure, cosmological constant problem, vacuum energy, emergent spacetime, zero-point energy, Casimir energy, observer independence
+\end{abstract}
+
+\clearpage
+\tableofcontents
+\clearpage
+
+\section{The Blade}
+\label{sec:blade}
+
+The programme conjecture examined here is:
+
+\begin{quote}
+Operational spacetime descriptions may remain conditional on sector, boundary, and read-out data.
+\end{quote}
+
+This is not idealism and does not say that a human mind creates the world.  Revised Q-RAIF A models a Lorentzian read-out once the effective geometric and Clifford data are supplied; it does not prove that no read-out-independent formulation exists.
+
+The proposal concerns structural interfaces rather than psychological observers.  Whether those interfaces can be internalized through a typed fixed point or a stratified formalism remains open.
+
+The usual picture places observers, measuring systems, records, detectors, horizons, and laboratories inside spacetime.  The present note asks which sector and boundary data support that description, without declaring the usual picture fundamentally inconsistent.
+
+The possible regress can be phrased as a question:
+
+\begin{quote}
+Can a read-out system be completely represented inside the read-out it helps define, once object language, encoded syntax, and evaluation maps are typed explicitly?
+\end{quote}
+
+Several foundational puzzles motivate the question: measurement uses subsystem/record structure, black-hole calculations use access boundaries, and cosmological measures use cutoffs or sampling rules.  These facts show interface dependence in current formulations, not a no-go theorem for future closure.
+
+This paper does not solve those problems. It uses vacuum energy to test a separate source-selection postulate. The other examples are heuristic stress tests in Section~\ref{sec:stress}.
+
+\section{Read-out Closure Proposal}
+\label{sec:criterion}
+
+\paragraph{Result-status ledger.}
+Read-out closure is META/HEUR/DOWNGRADE.  The read-out curvature rule is HYBRID/HEUR/DOWNGRADE and is an independent source-selection postulate.  P1 on nonphysical additive constants is standard renormalization bookkeeping, not a new Q-RAIF prediction.  No theorem-level dependency on HAFF Paper~G remains.
+
+\begin{remark}[Heuristic read-out closure proposal]
+A physical description may require specified read-out, sector, or record-selection data.  Revised HAFF Paper~G does not prove that complete observer-independent closure is impossible: observable-algebra elements and meta-descriptions are different types, and typed fixed points or stratified descriptions remain open.  Read-out closure is therefore a philosophy-of-science proposal, not a theorem or exhaustive trilemma.
+\end{remark}
+
+The vacuum-energy rule below is a separate source-selection postulate.  It is not deduced from the closure proposal.
+
+\begin{remark}[Read-out curvature postulate]
+For purposes of this model, a vacuum contribution is classified as source-eligible only if it changes independently specified read-out data.  This postulate must ultimately be compared with the renormalized semiclassical stress tensor and cannot use the resulting curvature change as its own eligibility test.
+\end{remark}
+
+A vacuum contribution is read-out-visible if changing it changes at least one of the following:
+
+\begin{enumerate}[leftmargin=*]
+\tightlist
+\item causal accessibility;
+\item boundary or horizon conditions;
+\item modular or state-restriction data;
+\item stress response under admissible probes;
+\item global sector, asymptotic, or horizon-state data specified before the curvature response is calculated.
+\end{enumerate}
+
+These five entries are not an independent ad hoc list. They are the vacuum-energy specialization of the admissibility structure already used in Q-RAIF A:
+
+\begin{center}
+\begin{tabular}{P{0.22\linewidth}P{0.36\linewidth}P{0.30\linewidth}}
+\toprule
+\textbf{Test item} & \textbf{Read-out meaning} & \textbf{Q-RAIF A source} \\
+\midrule
+A1. Causal accessibility & Which events, channels, or influences are distinguishable in the effective sector & Causal-channel distinguishability \\
+A2. Boundary or horizon conditions & Which finite-access domain and boundary data define the sector & Finite-access domain / admissible boundary \\
+A3. Modular or state-restriction data & How the state restricts to the accessible algebra and whether modular data change & State restriction / modular admissibility \\
+A4. Stress response under admissible probes & Whether finite probes detect a changed stress or force response & Probe-readable observable response \\
+A5. Global sector data & Whether source-independent asymptotic, boundary, representation, or horizon-state labels change & Pre-response sector specification \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+This gives a simple operational test.
+
+\begin{quote}
+\textbf{Read-out Visibility Test.} Fix an admissible sector $\mathcal{R}$ and the data A1--A5 before computing gravitational response. Change the proposed vacuum contribution while holding the remaining inputs fixed as far as the comparison permits. Check whether any independently specified datum changes.
+\end{quote}
+
+If at least one item changes, the postulate classifies the contribution as read-out-visible. If none changes, it classifies the contribution as sector-internal bookkeeping.  This is a proposed classification, not a consequence of the downgraded closure claim.
+
+Equivalently:
+
+\begin{quote}
+Gravity couples to read-out-visible vacuum differences, not to absolute zero-point bookkeeping.
+\end{quote}
+
+The word ``eligible'' is model terminology. The postulate neither computes the observed cosmological constant nor proves that general relativity may omit a physical stress-energy contribution.
+
+\section{The Vacuum Curvature Test}
+\label{sec:vacuum-test}
+
+The standard cosmological constant problem begins with the semiclassical equation
+\[
+G_{\mu\nu}+\Lambda g_{\mu\nu}=8\pi G\,\langle T_{\mu\nu}\rangle .
+\]
+For a Lorentz-invariant vacuum,
+\[
+\langle T_{\mu\nu}\rangle_{\mathrm{vac}}=-\rho_{\mathrm{vac}}g_{\mu\nu},
+\]
+so the vacuum energy looks like a contribution to the cosmological constant. A naive zero-point sum,
+\[
+\rho_{\mathrm{zp}}\sim \frac{1}{2}\sum_{\mathbf{k}}\hbar\omega_{\mathbf{k}},
+\]
+then appears to predict an enormous curvature.
+
+Two meanings of a ``constant shift'' must be separated.  In ordinary quantum mechanics, $H\mapsto H+C\mathbf1$ with no change in stress--energy changes only an overall phase and is nonphysical; its non-gravitation is standard and not a Q-RAIF prediction.  By contrast, a real constant vacuum energy density contributes $T_{\mu\nu}^{\mathrm{vac}}=-\rho_{\mathrm{vac}}g_{\mu\nu}$ and gravitates as a cosmological-constant term in semiclassical gravity.  The read-out postulate cannot relabel the second case as the first without conflicting with the equivalence principle.
+
+The proposed diagnosis therefore applies only to the first, bookkeeping reading unless an independent modified source law is supplied.
+
+A formal zero-point sum inside a fixed QFT sector may be meaningful as bookkeeping, regularization data, or renormalization structure.  Standard renormalization already prevents a bare regulator sum from being a parameter-free prediction.  The read-out terminology restates that limited point; it does not determine the renormalized cosmological constant or remove physical vacuum stress.
+
+The issue is therefore not first how large the vacuum term is, but whether it has entered the class of geometric source terms at all. Eligibility precedes magnitude.
+
+This is the restricted proposal:
+
+\begin{quote}
+Pure sector-internal bookkeeping offsets are not additional physical sources.
+\end{quote}
+
+This is not stronger than the standard distinction between a bare additive convention and renormalized physical stress.  A novel gravitational claim would require specifying a response that differs from semiclassical renormalization and confronting real vacuum energy densities.
+
+\section{What Counts and What Does Not}
+\label{sec:classification}
+
+The postulate proposes the following classification.
+
+\begin{center}
+\begin{tabular}{P{0.27\linewidth}P{0.39\linewidth}P{0.22\linewidth}}
+\toprule
+\textbf{Vacuum contribution} & \textbf{Read-out status} & \textbf{Curvature status} \\
+\midrule
+Nonphysical shift $H\to H+C\mathbf1$ with fixed $T_{\mu\nu}$ & Overall phase only & No additional source (standard QM) \\
+Real constant vacuum density in $T_{\mu\nu}$ & Physical renormalized stress & Gravitates unless dynamics is modified \\
+Formal bare zero-point sum & Regulator/bookkeeping object unless tied to read-out change & Not automatically eligible \\
+Renormalization counterterm & Sector-internal unless tied to physical response & Not automatically eligible \\
+Casimir energy & Changes boundary conditions, mode structure, stress response & Eligible \\
+Vacuum phase transition & Changes spectra, condensates, effective masses, sector response & Eligible \\
+Trace anomaly & Produces a physical renormalized stress response in curved spacetime & Eligible \\
+de Sitter horizon scale & Changes global horizon/read-out conditions & Eligible \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+The Casimir case is the first sanity check. Casimir energy is not a pure absolute zero-point offset. It is a boundary-sensitive energy difference between configurations with different allowed modes. It changes the accessible mode structure and produces stress on the boundary. Therefore it passes the read-out-visible test.
+
+The same distinction applies to phase transitions. Electroweak symmetry breaking and QCD confinement are not merely new constants attached to the same sector. They alter excitation spectra, masses, condensates, and long-distance response. They can be read-out-visible.
+
+The trace anomaly is another positive example. It is not a removable absolute zero-point offset; it is a physical renormalized stress response tied to curved-spacetime structure. In the present language it is read-out-visible through A4.
+
+The observed cosmological constant, if positive, is not a bare local mode sum.  Its relation to horizon or asymptotic data is a physical question for the gravitational model, not an A5 eligibility shortcut.
+
+The excluded class is narrow but decisive:
+
+\begin{quote}
+A vacuum term that changes no admissible read-out structure should not curve spacetime by its absolute value.
+\end{quote}
+
+That is the knife edge.
+
+This does not declare bookkeeping offsets unreal. It says only that a term may be real as sector bookkeeping while failing to change the read-out relations that define effective geometry.
+
+The test can be applied explicitly.
+
+\begin{center}
+\begin{tabular}{P{0.19\linewidth}P{0.15\linewidth}P{0.12\linewidth}P{0.14\linewidth}P{0.11\linewidth}P{0.09\linewidth}}
+\toprule
+\textbf{Case} & \textbf{A1 causal} & \textbf{A2 boundary} & \textbf{A3 modular/state} & \textbf{A4 stress} & \textbf{Class} \\
+\midrule
+$H\to H+C\mathbf1$, fixed $T_{\mu\nu}$ & No & No & Phase only & No & Offset \\
+Real vacuum density in $T_{\mu\nu}$ & Physical source data & Context & State/stress & Yes & Eligible in GR \\
+Bare zero-point sum with fixed sector & No & No & No read-out change & No & Not eligible \\
+Casimir plate separation change & Cone unchanged; modes change & Yes & Restricted modes & Yes & Visible \\
+Vacuum phase transition & Spectrum / channels & Possible & Yes & Yes & Visible \\
+Trace anomaly in curved spacetime & Context-dependent & No local boundary & Renorm. stress data & Yes & Visible \\
+de Sitter horizon-scale condition & Yes & Yes & Horizon restriction & Yes & Visible \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+This table is not a dynamical calculation. It is a source-eligibility classification. The criterion decides whether a vacuum contribution may enter the geometry-source class, not how large the resulting curvature must be.
+
+\section{Relation to Existing Approaches}
+\label{sec:relation}
+
+The proposal differs from several familiar strategies.
+
+\textbf{Unimodular gravity} changes the role of the trace part of Einstein's equation and treats the cosmological constant as an integration constant.
+
+\textbf{Vacuum energy sequestering} introduces global constraints so that vacuum energy does not gravitate in the usual way.
+
+\textbf{Degravitation} modifies the gravitational response to long-wavelength sources.
+
+\textbf{Induced gravity} and related vacuum-response programmes try to obtain gravitational dynamics from quantum vacuum or matter-sector response.
+
+\textbf{Standard QFT in curved spacetime} treats the renormalized stress-energy tensor carefully, including regularization dependence, trace anomaly, state dependence, and cosmological-constant counterterm freedom. This paper does not replace that machinery.
+
+The physical distinction between measurable vacuum differences and bare offsets is already part of axiomatic renormalization, especially Wald's treatment of renormalized stress energy and cosmological-constant freedom.  On its bookkeeping reading, P1 adds no prediction beyond that standard position.  On a physical-vacuum-density reading, P1 would conflict with the standard source equation unless an explicit modified gravitational dynamics were supplied.  No such dynamics is provided here.
+
+The read-out postulate offers a programme vocabulary for the prior question:
+
+\begin{quote}
+Why was sector-internal vacuum bookkeeping counted as a geometric source in the first place?
+\end{quote}
+
+It is not a cancellation mechanism, infrared filter, or trace rearrangement.  Nor does the philosophical closure proposal entail the dynamical source postulate.  The latter is an independent modelling assumption whose only presently supported application is the standard exclusion of nonphysical bookkeeping offsets.
+
+\begin{center}
+\begin{tabular}{P{0.25\linewidth}P{0.30\linewidth}P{0.33\linewidth}}
+\toprule
+\textbf{Approach} & \textbf{Entry question} & \textbf{Difference from the read-out criterion} \\
+\midrule
+Unimodular / trace-free gravity & How should the trace or cosmological-constant part of the field equations be handled? & Assumes an effective geometric equation and changes its trace structure \\
+Sequestering & How can vacuum energy be globally neutralized? & Treats vacuum energy as a source to be constrained or cancelled \\
+Degravitation & How can gravity filter long-wavelength sources? & Modifies the gravitational response rather than the source-eligibility test \\
+Induced gravity & Can geometry arise from quantum vacuum or matter response? & Uses vacuum response constructively; does not by itself separate bookkeeping offsets from read-out-visible differences \\
+Read-out criterion & Why was sector-internal vacuum bookkeeping counted as a geometric source? & Tests source eligibility before inserting a term into emergent curvature \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\section{Three Wider Stress Tests}
+\label{sec:stress}
+
+Related dependence on sector, boundary, or record data appears in three other problems, but the analogy is heuristic and is used only as a stress test.
+
+\paragraph{Measurement.}
+Many-worlds uses branch/decoherence structure, Copenhagen a classical apparatus, and decoherence a system/environment split. Wigner's-friend scenarios require care about which records and consistency rules are compared.  These examples motivate explicit interface data but do not prove a universal closure failure.
+
+This is related to, but distinct from, relational quantum mechanics. RQM relativizes facts to physical systems; the present claim is stronger in a different direction, because it says that the spacetime arena itself is conditional on admissible read-out. Frauchiger--Renner type no-go results sharpen the same pressure by showing that universal quantum theory, single outcomes, and cross-observer consistency cannot all be maintained without qualification.
+
+\paragraph{Black-hole information.}
+Modern Page-curve and island calculations are not read-out-free. They depend on how radiation, interior, exterior, island, and gravitational sectors are assigned. The question is not simply where information goes. It is which sector has access to which imprint.
+
+\paragraph{Cosmological measure.}
+In eternal inflation or multiverse settings, there is no obvious read-out-independent probability measure over all events. Measures introduce cutoffs, slicings, observer classes, or sampling rules. These are read-out choices in mathematical form.
+
+\paragraph{AdS/CFT.}
+AdS/CFT may appear to provide a complete observer-independent description through the boundary CFT. The present reading treats it differently: the boundary state, operator content, and boundary conditions specify the data from which bulk geometry is reconstructed. They therefore function as read-out data rather than as a view from nowhere.
+
+These examples are not claimed as solved. They show the same pattern:
+
+\begin{quote}
+A theory that claims total observer independence must still smuggle in a structure that selects records, sectors, probabilities, or access.
+\end{quote}
+
+\section{Predictions and Falsifiers}
+\label{sec:predictions}
+
+The paper's predictions are exclusionary but sharp.
+
+\paragraph{P1. Bookkeeping-offset non-gravitation (standard, not novel).}
+A nonphysical additive constant $C\mathbf1$ that changes no stress--energy produces no additional curvature.  This is ordinary quantum-mechanical and renormalization bookkeeping.  The note makes no corresponding non-gravitation claim for a real constant vacuum energy density in $T_{\mu\nu}$.
+
+\paragraph{P2. Boundary-sensitive vacuum gravitation.}
+Vacuum differences that change boundary conditions, accessible modes, or stress response, such as Casimir-type configurations, remain eligible to gravitate.
+
+\paragraph{P3. Phase-transition eligibility.}
+Vacuum phase changes can enter geometry because they change the read-out sector, not because every bare vacuum number is automatically a source.
+
+\paragraph{P4. Read-out dependence conjecture.}
+As a philosophy-of-science expectation, a complete quantum-gravity account of records, probabilities, horizons, and cosmological measures may require explicit sector or interface structure.  Revised HAFF Paper~G supplies no theorem excluding typed closure.
+
+The clean falsifier is:
+
+\begin{quote}
+If the source-selection postulate is applied beyond nonphysical bookkeeping, a controlled physical vacuum-density shift with fixed independently specified sector data provides a direct test.  Standard semiclassical gravity predicts curvature; disagreement would require a new dynamical law.
+\end{quote}
+
+The broader falsifier is:
+
+\begin{quote}
+If a complete observer-independent quantum-gravity theory defines spacetime, records, Born probabilities, black-hole information accounting, and cosmological measure without primitive or emergent read-out/sector-selection structure, the read-out-dependence conjecture fails.
+\end{quote}
+
+A nearer-term challenge would be a specific non-perturbative quantum-gravity model, such as a complete string vacuum or comparable construction, that defines bulk spacetime, Born probabilities, and entropy accounting without boundary, state, sector, cutoff, branch, or record-selection data.
+
+For this to count as a failure, the absence of read-out structure must be independently identifiable, not achieved by retroactively declaring every needed sector split, branch rule, cutoff, or record map to be ``not a read-out.'' The criterion is falsified by a genuinely closed construction, not by a change of vocabulary.
+
+These are demanding tests of a conjecture.  The present note does not prove that a ``view from nowhere'' cannot close.
+
+\section{Limits}
+\label{sec:limits}
+
+This paper does not compute the observed cosmological constant. It does not replace semiclassical gravity. It does not deny that Casimir energy, phase transitions, or global vacuum structure can have gravitational significance.
+
+The postulate labels nonphysical bookkeeping separately from sources. It does not explain why physical contributions such as Higgs vacuum structure, QCD condensates, or phase-transition vacuum shifts do not produce curvature at their naive scale. That is the quantitatively dominant problem and may require dynamical cancellation, sequestering, or another mechanism not supplied in this note.
+
+It also does not identify read-out with human consciousness. The read-out is a structural condition for an admissible physical description, not a psychological act.
+
+In this sense, the slogan ``no view from nowhere'' should not be read as a subjectivist claim. It marks the conjecture that a completed spacetime arena may depend on the conditions that make spacetime readable.
+
+The working conjecture is:
+
+\begin{enumerate}[leftmargin=*]
+\tightlist
+\item Spacetime descriptions may be conditional on admissible read-out.
+\item A read-out system may not be fully placeable inside its own read-out without hidden structure.
+\item Vacuum energy sources curvature only when it changes read-out-visible structure.
+\item Pure absolute zero-point bookkeeping is not automatically a source of geometry.
+\end{enumerate}
+
+That is the intended sharp point:
+
+\begin{quote}
+The universe may have no complete spacetime view from nowhere; geometry may begin only where read-out closes.
+\end{quote}
+
+% ============================================================
+\begin{thebibliography}{99}
+
+\bibitem{Weinberg1989}
+S.~Weinberg, \emph{The cosmological constant problem}, Reviews of Modern Physics \textbf{61}, 1--23 (1989).
+
+\bibitem{Carroll2001}
+S.~M.~Carroll, \emph{The cosmological constant}, Living Reviews in Relativity \textbf{4}, 1 (2001).
+
+\bibitem{Nagel1986}
+T.~Nagel, \emph{The View from Nowhere}, Oxford University Press (1986).
+
+\bibitem{Wald1984}
+R.~M.~Wald, \emph{General Relativity}, University of Chicago Press (1984).
+
+\bibitem{Wald1977}
+R.~M.~Wald, \emph{The back reaction effect in particle creation in curved spacetime}, Communications in Mathematical Physics \textbf{54}, 1--19 (1977).
+
+\bibitem{Wald1978}
+R.~M.~Wald, \emph{Trace anomaly of a conformally invariant quantum field in curved spacetime}, Physical Review D \textbf{17}, 1477--1484 (1978).
+
+\bibitem{BirrellDavies1982}
+N.~D.~Birrell and P.~C.~W.~Davies, \emph{Quantum Fields in Curved Space}, Cambridge University Press (1982).
+
+\bibitem{Ford1975}
+L.~H.~Ford, \emph{Quantum vacuum energy in general relativity}, Physical Review D \textbf{11}, 3370--3377 (1975).
+
+\bibitem{Casimir1948}
+H.~B.~G.~Casimir, \emph{On the attraction between two perfectly conducting plates}, Proceedings of the Koninklijke Nederlandse Akademie van Wetenschappen \textbf{51}, 793--795 (1948).
+
+\bibitem{Unruh1976}
+W.~G.~Unruh, \emph{Notes on black-hole evaporation}, Physical Review D \textbf{14}, 870--892 (1976).
+
+\bibitem{Everett1957}
+H.~Everett, \emph{Relative state formulation of quantum mechanics}, Reviews of Modern Physics \textbf{29}, 454--462 (1957).
+
+\bibitem{Rovelli1996}
+C.~Rovelli, \emph{Relational quantum mechanics}, International Journal of Theoretical Physics \textbf{35}, 1637--1678 (1996).
+
+\bibitem{FrauchigerRenner2018}
+D.~Frauchiger and R.~Renner, \emph{Quantum theory cannot consistently describe the use of itself}, Nature Communications \textbf{9}, 3711 (2018).
+
+\bibitem{Zurek2003}
+W.~H.~Zurek, \emph{Decoherence, einselection, and the quantum origins of the classical}, Reviews of Modern Physics \textbf{75}, 715--775 (2003).
+
+\bibitem{Penington2020}
+G.~Penington, \emph{Entanglement wedge reconstruction and the information paradox}, Journal of High Energy Physics \textbf{09}, 002 (2020).
+
+\bibitem{AlmheiriEngelhardtMarolfMaxfield2019}
+A.~Almheiri, N.~Engelhardt, D.~Marolf, and H.~Maxfield, \emph{The entropy of bulk quantum fields and the entanglement wedge of an evaporating black hole}, Journal of High Energy Physics \textbf{12}, 063 (2019).
+
+\bibitem{EllisVanElstMuruganUzan2011}
+G.~F.~R.~Ellis, H.~van Elst, J.~Murugan, and J.-P.~Uzan, \emph{On the trace-free Einstein equations as a viable alternative to general relativity}, Classical and Quantum Gravity \textbf{28}, 225007 (2011).
+
+\bibitem{KaloperPadilla2014}
+N.~Kaloper and A.~Padilla, \emph{Sequestering the standard model vacuum energy}, Physical Review Letters \textbf{112}, 091304 (2014).
+
+\bibitem{ArkaniHamedDimopoulosDvaliGabadadze2002}
+N.~Arkani-Hamed, S.~Dimopoulos, G.~Dvali, and G.~Gabadadze, \emph{Non-local modification of gravity and the cosmological constant problem}, arXiv:hep-th/0209227.
+
+\bibitem{Liu2026QRAIFA}
+S.~Liu, \emph{A Clifford-Encoding Model for Lorentzian Metrics in Entropic Gravity Frameworks}, Zenodo (2026), DOI: 10.5281/zenodo.18525876.
+
+\bibitem{Liu2026MassEnergy}
+S.~Liu, \emph{Recovering Mass--Energy Equivalence within Algebraic Lorentzian Read-out}, Zenodo (2026), DOI: 10.5281/zenodo.20280951.
+
+\bibitem{Liu2026NullCluster}
+S.~Liu, \emph{The Null Cluster as Structural Imprint: Recurring Null-Boundary Convergence}, Zenodo (2026), DOI: 10.5281/zenodo.20283057.
+
+\end{thebibliography}
+
+\end{document}

@@ -1,0 +1,607 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools,booktabs,array,fontspec}
+\usepackage[hidelinks]{hyperref}
+\defaultfontfeatures{Ligatures=TeX}
+\IfFontExistsTF{Times New Roman}{\setmainfont{Times New Roman}}{\setmainfont{TeX Gyre Termes}}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\theoremstyle{definition}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newcommand{\tr}{\operatorname{tr}}
+\newcommand{\ran}{\operatorname{ran}}
+\newcommand{\E}{\mathbb E}
+\hypersetup{pdftitle={No View from Nowhere: Read-out Closure and the Vacuum Curvature Test in Q-RAIF A},pdfauthor={Sidong Liu}}
+\title{\textbf{No View from Nowhere}\\\large Read-out Closure and the Vacuum Curvature Test in Q-RAIF A}
+\author{Sidong Liu, PhD\\\small iBioStratix Ltd\\\small\texttt{sidongliu@hotmail.com}}
+\date{October 2026 working revision\\\small Series record DOI:
+\href{https://doi.org/10.5281/zenodo.20284454}{10.5281/zenodo.20284454}}
+\begin{document}
+\emergencystretch=2em
+\raggedbottom
+\maketitle
+
+\begin{abstract}
+A source can be physical and still be missed by a restricted interface.
+For a finite-dimensional readout channel $\Lambda$ and source observable
+$H$, the operator-norm distance from $H$ to the dual range equals half
+the largest energy difference between states with the same output. It is
+also the smallest worst-case error of any energy estimate based on the
+exact output state, including nonlinear estimates. An actual finite
+instrument adds a separate sampling cost. We exhibit a positive two-part
+source whose hidden interaction gives a nonzero error floor, then remove
+that floor by adding a priced mixed-memory record of the same source.
+
+Complete null stress data have a metric-trace blind direction. A real
+vacuum-density difference therefore cannot be dismissed as a zero-point
+convention merely because null readout misses it. A matched Gaussian
+material supplies a complementary test: changing its contact changes the
+fluctuation operator and its logarithmic vacuum coefficient, with one
+physical calibration required across configurations.
+
+These results turn readout visibility into a source-certification problem.
+They support, without proving, a broader closure conjecture: a spacetime
+description must specify or generate the interfaces that select its
+records and sources. Whether those interfaces can be fully internalized
+is an independent question. Neither interface blindness nor the closure
+conjecture computes the cosmological constant or switches off physical
+vacuum gravitation.
+\end{abstract}
+
+\section{What the reader leaves outside}
+\label{sec:blade}
+
+A laboratory description places its detectors inside spacetime and lets
+their records describe the rest of the world. It also needs a rule for
+what counts as a detector, a record and a relevant source. The question
+behind ``no view from nowhere'' is whether those rules can themselves be
+generated and represented inside the same description, with their physical
+execution accounted for.
+
+This is a question about structural interfaces, not a claim that a human
+mind creates the world. Q-RAIF A obtains a Lorentzian propagation form
+under a common quadratic-shell condition and its independence assumptions;
+the dynamics need not select one readout cone \cite{Liu2026QRAIFA}. The
+construction makes the selection problem concrete. It does not prove
+that an observer-independent formulation is impossible. HAFF G's finite
+programming obstruction likewise distinguishes a programmed target
+operation from its joint executor; it does not prohibit stored
+self-descriptions or typed fixed points.
+
+Vacuum energy supplies a particularly demanding test. A description may
+know how to read radiation while lacking a trace-sensitive source datum.
+Calling the missing datum invisible does not settle its gravitational
+effect. We first determine exactly what a finite interface can certify,
+including how much source can remain hidden. We then apply that distinction
+to null stress, physical vacuum differences and changes of apparatus. The
+closure question returns after these concrete results.
+
+\section{A source certificate for a finite interface}
+\label{sec:source}
+
+Let $\Lambda$ be a trace-preserving quantum channel between
+finite-dimensional matrix algebras and $H=H^*$ a specified source
+observable. The source datum is $\tr H\rho$. It may be an energy or a
+bounded smeared source in a regulated model. Its definition precedes the
+response calculation. The results below do not apply an operator-norm
+bound to arbitrary unbounded continuum stress.
+
+\begin{proposition}[Exact source completeness]
+\label{prop:source-complete}
+For all input states,
+\begin{equation}
+ \Lambda\rho=\Lambda\sigma\ \Longrightarrow\
+ \tr H\rho=\tr H\sigma
+\end{equation}
+if and only if $H=\Lambda^*O$ for a Hermitian output observable $O$.
+For such an $O$,
+\begin{equation}
+ |\tr H(\rho-\sigma)|
+ \leq\inf_{a\in\mathbb R}\|O-aI\|_\infty
+                  \|\Lambda\rho-\Lambda\sigma\|_1.
+ \label{eq:source-stability}
+\end{equation}
+\end{proposition}
+\begin{proof}
+A Hermitian $D\in\ker\Lambda$ has trace zero. For sufficiently small
+$t>0$, $I/d\pm tD$ are states. The implication thus gives $\tr HD=0$.
+Finite-dimensional duality identifies the orthogonal complement of the
+kernel with $\ran\Lambda^*$. Conversely, $H=\Lambda^*O$ makes its
+expectation constant on every output fibre. The final inequality is
+trace/operator-norm duality applied to the trace-zero output difference
+\cite{Watrous2018}.
+\end{proof}
+
+Exact source completeness does not require full state tomography. When
+it fails, the missing source has a sharp quantitative size:
+\begin{equation}
+ \delta_H(\Lambda)
+ =\inf_{O=O^*}\|H-\Lambda^*O\|_\infty.
+ \label{eq:delta}
+\end{equation}
+
+\begin{theorem}[Hidden-source size and minimax error]
+\label{thm:minimax}
+The infimum in \eqref{eq:delta} is attained, and
+\begin{equation}
+ \delta_H(\Lambda)
+ =\frac12\max_{\Lambda\rho=\Lambda\sigma}
+       |\tr H(\rho-\sigma)|
+ =\inf_f\sup_\rho|\tr H\rho-f(\Lambda\rho)|.
+ \label{eq:minimax}
+\end{equation}
+Here $f$ may be any real-valued, nonlinear function of the exact output
+state. Thus no such function improves the worst-case absolute error of
+an optimal affine estimate $f(\tau)=\tr O\tau$.
+\end{theorem}
+
+\begin{proof}
+Work in the real vector space of Hermitian matrices. The range of
+$\Lambda^*$ is a finite-dimensional closed subspace, so a best
+operator-norm approximation to $H$ exists. Norm duality and the
+Hahn--Banach distance formula give
+\begin{equation}
+ \delta_H(\Lambda)
+ =\max\{\tr HD:D=D^*,\ \Lambda D=0,\ \|D\|_1\leq1\}.
+ \label{eq:dual}
+\end{equation}
+The kernel is invariant under sign reversal, so the maximum could also
+use an absolute value. Write $D=D_+-D_-$ and
+$c=\tr D_+=\tr D_-\leq1/2$. For any state $\tau$, the matrices
+\begin{equation}
+ \rho=2D_++(1-2c)\tau,\qquad
+ \sigma=2D_-+(1-2c)\tau
+\end{equation}
+are states with the same output and $\rho-\sigma=2D$. Conversely every
+equal-output state pair gives an admissible $D=(\rho-\sigma)/2$.
+This proves the first equality in \eqref{eq:minimax}, with attainment.
+
+On a common output an estimate $f$ gives the same number for both states.
+At least one of their absolute errors is at least half their source
+difference. This proves the minimax lower bound. A minimizing $O$ in
+\eqref{eq:delta} gives error at most $\delta_H$ on every state, proving
+the upper bound. Trace preservation gives $\Lambda^*I=I$, so the
+approximation space includes constant offsets as well as the nonconstant
+observable components. No missing centering assumption is used.
+\end{proof}
+
+The proof uses standard quotient-norm duality; its consequence here is a
+sharp source uncertainty for a specified physical interface. The theorem
+concerns information in an \emph{exact output state}. It
+does not give a finite observer that state for free. It also does not
+grant a measurement of an arbitrary element of $\ran\Lambda^*$.
+An actual instrument is needed for the next step.
+
+\begin{proposition}[Finite-instrument source interval]
+\label{prop:finite}
+Suppose an allowed output POVM has effects $F_y$ and real scores $c_y$,
+with $O=\sum_y c_yF_y$, score width
+$w=\max_y c_y-\min_y c_y$, and
+$\delta_O=\|H-\Lambda^*O\|_\infty$. Use this same instrument on $n$
+independently acquired outputs of the same input state. With probability
+at least $1-\zeta$, the sample mean $\overline c$ satisfies
+\begin{equation}
+ |\tr H\rho-\overline c|
+ \leq\delta_O+w\sqrt{\frac{\log(2/\zeta)}{2n}}.
+ \label{eq:certificate}
+\end{equation}
+\end{proposition}
+\begin{proof}
+The output score has mean $\tr O\Lambda\rho$. Its bias relative to the
+source is at most $\delta_O$. Hoeffding's bounded-variable inequality
+\cite{Hoeffding1963} bounds the deviation of its sample mean by the
+second term: the centered score moment-generating function is at most
+$\exp(\lambda^2w^2/8)$, and the independent product followed by the
+Chernoff bound gives $2\exp(-2nt^2/w^2)$ for a two-sided deviation $t$.
+Adding the bias proves \eqref{eq:certificate}; for $w=0$ the sampling
+term vanishes directly.
+\end{proof}
+
+The interval is conditional on the source model, the actual effects and
+their stable calibration. Copy preparation, readout, storage and the
+independence of the acquired outputs are inputs, not consequences of
+dual-range membership. Independently producing the copies is not cloning
+an arbitrary unknown state. Existing references and spent ports remain
+part of the physical ledger, even if their measurement is outside the
+declared permission. The certificate may be used in a supplied response
+law: if a response is $L$-Lipschitz in this source datum, its corresponding
+error is bounded by $L$ times \eqref{eq:certificate}. That step does not
+derive the response law itself.
+
+\section{A hidden interaction, then its actual completion}
+\label{sec:completion}
+
+The distinction can be realized on one finite source rather than by
+comparing unrelated channels. Take two source qubits $A,B$, with
+\begin{equation}
+ H=E_0I+\omega P_{1,A}+g Z_AZ_B,
+ \qquad \omega\geq0,\quad E_0\geq|g|.
+ \label{eq:ABsource}
+\end{equation}
+This is a positive energy observable, including the interaction. If only
+$A$ is available, $\Lambda=\tr_B$ and the output observable
+$O_A=E_0I+\omega P_{1,A}$ gives residual norm $|g|$. The two states
+$|00\rangle$ and $|01\rangle$ have the same $A$ output and energy
+difference $2g$. Theorem~\ref{thm:minimax} therefore gives
+\begin{equation}
+ \delta_H(\tr_B)=|g|.
+ \label{eq:ABdelta}
+\end{equation}
+Even complete knowledge of the $A$ state leaves this error floor. It is
+not a lack of data analysis, and it does not remove $gZ_AZ_B$ from $H$.
+
+For an actual record use the partially mixed ports of HAFF E and F
+\cite{Liu2026PaperE,Liu2026PaperF}. A fresh port initially in
+$\eta_v=(I+vZ)/2$, $0<v\leq1$, is coupled by controlled $X$ from its
+source qubit and read in the port's $Z$ basis. With source eigenvalue
+$z=\pm1$, its output obeys
+\begin{equation}
+ \Pr(Y=y\mid z)=\frac{1+yvz}{2},\qquad
+ F_y=\frac{I+yvZ}{2}.
+ \label{eq:port}
+\end{equation}
+The coupling and subsequent readout give this law on the actual joint
+state. They dephase source coherence in the measured basis; they are not
+the L\"uders instrument of the unsharp effect. The source populations,
+and therefore the expectation of the diagonal Hamiltonian
+\eqref{eq:ABsource}, are unchanged.
+
+With only the $A$ port, score the record by
+\begin{equation}
+ c_A(y)=E_0+\frac\omega2(1-y/v).
+\end{equation}
+Its mean is $\tr O_A\rho_A$, its width is $\omega/v$, and the residual
+bias is bounded by $|g|$. Thus the same hidden-source floor is accompanied
+by an attainable finite certificate, not just an abstract optimal
+observable.
+
+Now add a second independent port coupled to $B$ on each \emph{same}
+source pair. The physical joint effects are $F_{y_A}\otimes F_{y_B}$;
+the outcomes are independent conditional on the two source labels, not
+independent after averaging over an arbitrary correlated source. Score
+the paired record by
+\begin{equation}
+ c(y_A,y_B)=E_0+\frac\omega2(1-y_A/v)+g\frac{y_Ay_B}{v^2}.
+ \label{eq:fullscore}
+\end{equation}
+Directly summing the four effects with these scores gives $H$. The
+interaction bias is now zero. A score-width bound is
+$w\leq\omega/v+2|g|/v^2$, so Proposition~\ref{prop:finite} gives a
+finite full-source certificate on every two-qubit state. The extra port
+has supplied the missing relation $Z_AZ_B$, not merely refined the old
+$A$ marginal.
+
+For $E_0=1$, $\omega=2$, $g=1/4$, $v=0.6$, a $95\%$ certificate of
+absolute error at most $0.5$ is guaranteed by $328$ independent source
+pairs and $328$ ports in the one-port protocol, or by $165$ source pairs
+and $330$ ports in the completed protocol. These conservative budgets
+use \eqref{eq:certificate}. They show a tradeoff between source acquisition
+and port stock, not a universal saving in total energy. Each port brings
+purity deficit $\log2-h((1+v)/2)$, where $h$ is binary entropy. The
+known $v$, controlled gates, independent production, readout, paired
+labels and retained archive all count. No thermal reset or perpetual
+copy supply has been implemented by this example.
+
+The source-completion problem is therefore constructive: identify a
+hidden source direction, add a physical read of the missing relation,
+and recalculate both the residual and the statistical budget. The
+algebraic criterion alone would miss the costs and gains of that change.
+
+\section{Algebraic completeness can still be unusable}
+\label{sec:conditioning}
+
+The opposite limit matters as well. Let a qubit dephasing channel obey
+$\Lambda_\eta(I,X,Y,Z)=(I,\eta X,\eta Y,Z)$, $0\leq\eta\leq1$, and
+take the positive observable $H=E(I+X)$, $E>0$. For $\eta>0$ the dual
+range is full, $\delta_H=0$ and $O=E(I+X/\eta)$ reconstructs the energy.
+The coefficient in \eqref{eq:source-stability} is $E/\eta$.
+At $\eta=0$, the states $\rho_\pm=(I\pm X)/2$ have identical outputs
+and energy difference $2E$, so $\delta_H=E$.
+
+For $0<\eta<1$ these two outputs commute. Their relative entropy is
+\begin{equation}
+ d_\eta=\eta\log\frac{1+\eta}{1-\eta}
+        =2\eta^2+O(\eta^4).
+\end{equation}
+With $n$ independent copies it is $nd_\eta$. The standard
+Bretagnolle--Huber testing bound \cite{BretagnolleHuber1978} gives
+$P_e\geq\tfrac14e^{-nd_\eta}$ for equal prior probabilities. For the
+commuting distributions, Jensen bounds their squared Hellinger affinity
+below by $e^{-nd_\eta}$, and Cauchy--Schwarz bounds total variation
+above by $\sqrt{1-e^{-nd_\eta}}$, giving this testing bound. Thus
+$P_e\leq\varepsilon<1/4$ requires
+$n\geq\log(1/(4\varepsilon))/d_\eta$. A joint quantum measurement
+cannot evade the classical bound for these commuting states. Measuring
+$X$ attains an actual informative binary experiment if that measurement
+is permitted; an additional noisy port introduces its own gain and cost.
+Small output gain can make source resolution expensive long before the
+exact range loses a direction. This is a finite-source example, not a
+model of an absolute vacuum-density shift.
+
+\section{The vacuum curvature test}
+\label{sec:vacuum}
+
+\subsection{Null data miss a physical trace}
+
+\begin{lemma}[Complete null-stress kernel]
+\label{lem:null-trace}
+In a Lorentzian vector space of dimension $D\geq2$, a symmetric tensor
+$S$ has $S_{\mu\nu}k^\mu k^\nu=0$ for every null $k$ if and only if
+$S=\alpha g$.
+\end{lemma}
+\begin{proof}
+In an orthonormal frame set $k=(1,\mathbf n)$, $|\mathbf n|=1$.
+Comparing $\mathbf n$ and $-\mathbf n$ gives $S_{0i}=0$. The spatial
+quadratic form is constant on the unit sphere, so
+$S_{ij}=-S_{00}\delta_{ij}$. Hence $S=-S_{00}g$. The two null
+directions give the same result for $D=2$; the converse is immediate.
+\end{proof}
+
+A physical vacuum-density difference
+$-\delta\rho\,g_{\mu\nu}$ lies in this kernel. Null tomography, even
+ideal and complete in its own menu, cannot certify that source component.
+If two smooth stress tensors are separately conserved on a connected
+domain, their blind difference $\alpha(x)g_{\mu\nu}$ must satisfy
+$\nabla^\mu(\alpha g_{\mu\nu})=\partial_\nu\alpha=0$.
+The conserved ambiguity is therefore a constant metric-trace term,
+not an arbitrary position-dependent vacuum profile.
+The closed task in the null-cluster paper \cite{Liu2026NullCluster}
+illustrates both sides: null records estimate a gradient contribution
+efficiently, yet remain exactly blind to a potential-energy difference.
+In HAFF D's supplied JT response, the null components of a constant
+vacuum shift vanish while the dilaton shifts by
+$\kappa L^2\delta\rho$ \cite{Liu2026HAFFD}. Such a shift gives a
+response uncertainty if its source is unmeasured; it is not evidence for
+degravitation. A trace-sensitive datum or independently fixed parameter
+is required.
+
+\subsection{A convention is not a changed stress tensor}
+
+The semiclassical source equation is
+\begin{equation}
+ G_{\mu\nu}+\Lambda g_{\mu\nu}
+       =8\pi G\langle T_{\mu\nu}\rangle_{\rm ren}.
+\end{equation}
+A Lorentz-invariant vacuum contribution has the form
+$\langle T_{\mu\nu}\rangle_{\rm vac}=-\rho_{\rm vac}g_{\mu\nu}$.
+The renormalized parameter and its common calibration matter; a bare
+regulator sum $\tfrac12\sum_{\mathbf k}\hbar\omega_{\mathbf k}$ is not
+a parameter-free prediction of that stress \cite{Weinberg1989,Wald1977}.
+
+Two changes called ``constant shifts'' must be separated. In ordinary
+quantum mechanics, $H\mapsto H+CI$ with the stress tensor held fixed
+changes only an overall phase. A real vacuum-density difference changes
+the stress tensor and enters the semiclassical source equation. The first
+is nonphysical bookkeeping; the second remains physical even if a chosen
+interface cannot see it. The distinction is standard, not a new
+cosmological-constant cancellation mechanism.
+
+The appropriate operational rule is therefore a \emph{source-completion
+principle}: before predicting a response from restricted data, either
+certify the needed source observables or retain their residual uncertainty.
+For finite sectors, Theorem~\ref{thm:minimax} gives the sharp residual
+floor and Proposition~\ref{prop:finite} connects it to records. This rule
+does not prescribe a new gravitational coupling. A stronger law that
+filters a physical source would require its own action, conservation and
+backreaction analysis; philosophical closure cannot supply those equations.
+
+\subsection{One material, one calibration}
+\label{sec:material-vacuum}
+
+The local Gaussian material in HAFF D supplies a positive comparison
+\cite{Liu2026HAFFD}. With a fixed texture, masses and boundaries, its
+active spatial form contains
+\begin{equation}
+ q_a(\phi,\Theta)=\int
+ \bigl(|\phi'+a(x)\Theta|^2+|\Theta'|^2+m^2|\Theta|^2\bigr)dx,
+ \qquad m>0.
+\end{equation}
+On a finite Dirichlet interval, with $a$ smooth and compactly supported
+away from its boundary, the matched operator is
+\begin{equation}
+ K_a=\begin{pmatrix}-\partial^2&-\partial\circ a\\
+                    a\partial&-\partial^2+a^2+m^2\end{pmatrix}.
+\end{equation}
+The off-diagonal entries are adjoints. The positive squares establish
+stability. Reducing to a minimal operator gives a potential-trace
+difference $a^2/2$; the standard heat coefficient
+\cite{Vassilevich2003} then yields
+\begin{equation}
+ \Delta E_\Lambda
+ =\frac1{8\pi}\int a(x)^2dx\log(\Lambda/\mu)+C_\mu[a]+o(1).
+ \label{eq:vacuumlog}
+\end{equation}
+Matched boundaries cancel their coefficient differences. HAFF D gives
+the reduction and the same material action's one-loop counterterm; the
+logarithm is not a universal finite gravitational cost.
+
+Changing $a$ changes the coupled fluctuation operator and a calibrated
+spectrum or force response. Once material couplings and the finite
+normalization are fixed by a common comparison, the response cannot be
+removed by choosing a separate energy zero for each configuration.
+An unchanged profile with a new Hamiltonian label is still bookkeeping.
+An interface that misses the profile-sensitive observable has a
+source-certification problem, not a different physical material.
+
+The counterterm and sensor must be included when varying a common
+renormalized action. Under a covariant material-functional and state
+prescription, its Ward identity includes material equations and any
+compensating dilaton force \cite{Liu2026HAFFD}. A static Euclidean or
+in--out vacuum comparison does not implement causal control. A controller
+that changes $a$ requires work, retained records and an initial-state
+retarded response. Neither \eqref{eq:vacuumlog} nor a visibility label
+already supplies that controller.
+
+\section{Visibility without an eligibility shortcut}
+\label{sec:visibility}
+
+Useful evidence for a vacuum comparison includes causal accessibility,
+boundary conditions, state restriction or modular data, actual probe
+response, and independently specified asymptotic or sector labels. These
+are a menu of tests to be fixed \emph{before} calculating the response,
+not a five-item law derived from Q-RAIF A. A change in one may provide
+evidence of a physical difference. An unchanged restricted output
+establishes indistinguishability in that menu; it cannot classify all
+possible underlying differences as energy conventions.
+
+Casimir configurations change boundaries, modes and stress response
+\cite{Casimir1948}; phase transitions can change spectra, condensates and
+renormalized vacuum parameters. A trace anomaly is a physical
+renormalized stress effect rather than a phase relabeling
+\cite{Wald1978}. Each needs a matched source calculation. Their possible
+gravitational significance does not depend on passing an observer's
+preferred visibility test. Conversely, a counterterm or bare zero-point
+sum cannot be assessed independently of the common renormalization
+condition that fixes the physical stress.
+
+This locates the difference from proposed modifications of gravity.
+Unimodular or trace-free formulations change the role of the trace
+equation; sequestering introduces constraints on vacuum contributions;
+degravitation changes the long-wavelength response
+\cite{Ellis2011,KaloperPadilla2014,ArkaniHamed2002}. The present source
+certificate does none of these. It bounds what data determine about a
+specified source, before that source is inserted into a specified
+response law. Induced-gravity approaches use matter response to construct
+dynamics and must still match the source and its calibration.
+
+The vacuum-curvature test is consequently two-part. First distinguish a
+nonphysical offset from a real changed stress using a common material
+model and calibration. Then ask whether the declared interface certifies
+that stress well enough to discriminate the candidate response laws.
+Here source eligibility precedes a numerical response estimate: it means
+establishing a physical, commonly calibrated source difference, not
+declaring an unobserved source ineligible to gravitate.
+A physical vacuum shift in a null blind direction fails the second part
+until the interface is completed. Computing curvature and using its
+change as the original visibility datum would make the test circular.
+
+This does not explain why physical Higgs, QCD or phase-transition vacuum
+contributions produce no curvature at a naive large scale. That remains
+the cosmological-constant problem. The source certificate prevents a
+spurious solution by access terminology and identifies what a genuine
+source-filtering proposal must measure and predict.
+
+\section{Closure and the location of the reader}
+\label{sec:closure}
+
+The certificate itself assumes a source observable, a readout channel and
+an instrument. Can a more complete theory generate them? The question
+has content even if all three can be represented mathematically. A
+stored description of an instrument is not its physical execution, and
+specifying a channel is not a derivation of the body, coupling and records
+that implement it. An internal model can successfully calibrate some of
+these components without thereby explaining the origin of every supplied
+structure.
+
+\begin{conjecture}[Readout closure]
+A complete physical account of an operational spacetime must specify or
+dynamically generate the interfaces that select its records, sectors and
+source data, including the physical resources that keep them usable.
+An interface may not be fully internalizable within the description it
+makes available without an additional level of structure.
+\end{conjecture}
+
+The first sentence states the explanatory demand; the second is the
+stronger possibility to be tested. A typed fixed point, stratified
+description or dynamically formed executor could meet that demand.
+Finite programming obstructions and the hidden-source theorem do not
+rule those routes out. Nor does an unobserved operator imply that no
+observer-independent world exists. The conjecture concerns whether the
+completed description accounts for the conditions under which its own
+distinctions can be physically made.
+
+Multi-observer descriptions impose record-consistency assumptions
+\cite{Rovelli1996,FrauchigerRenner2018}; island calculations assign
+radiation and interior sectors \cite{Penington2020,Almheiri2019};
+cosmological measures require sampling rules. These are different places
+to test whether the account includes its physical interface. AdS/CFT,
+for example, may provide an internal description of bulk access through
+boundary states and operators. Its success would be evidence for closure,
+not a reason to redefine the goal.
+
+A useful test must freeze the meaning of the interface before examining
+a claimed complete construction. The test should ask which structures
+are primitive, which are generated, how records are physically acquired,
+and whether source uncertainty and executor costs are accounted for.
+If a closed theory supplies these objects internally, that is a positive
+closure result and evidence against the stronger sentence of the
+conjecture. It cannot be excluded by renaming every successful
+construction an external readout. Conversely, leaving the necessary
+instrument as an unpriced oracle does not answer the explanatory demand.
+
+There is a philosophical difference between a world seen incompletely
+and a world made only by seeing. The hidden-source example insists on
+the former: two worlds can differ in energy while the observer receives
+the same record. A new interaction can reveal the difference. The
+interface both limits knowledge and gives a physical route to improve
+it. ``No view from nowhere'' is most useful as a demand to locate that
+route inside the theory, rather than as a prohibition on seeking an
+observer-independent account \cite{Nagel1986}.
+
+\section{Conclusion}
+
+Readout blindness has a quantitative source meaning. In a finite sector,
+the dual-range distance is exactly the unavoidable error of any estimate
+from the ideal output state. An actual instrument adds a separate sample
+budget. The positive two-qubit construction shows how the missing
+interaction can be recovered through a second priced record of the same
+source, with the complete source operator reconstructed by the measured
+joint scores.
+
+Null stress misses the metric trace, including real vacuum-density
+differences. The matched material comparison shows why changing a
+coupling cannot be treated as independently resetting an energy zero.
+Both results require physical source completion before a restricted
+interface can support a curvature prediction. They do not justify a law
+in which whatever a reader misses ceases to gravitate.
+
+The closure conjecture remains broader than these theorems. It asks how
+the interfaces that certify and act on sources come into being, and
+whether a description can account for its own executor. Concrete source
+certificates and completion protocols sharpen that question without
+closing it by definition. A theory that genuinely generates its records,
+source map and usable apparatus would advance the programme even if it
+overturned the conjecture's strongest form.
+
+\begin{thebibliography}{99}
+\raggedright
+\bibitem{Watrous2018} J.~Watrous, \emph{The Theory of Quantum Information}, Cambridge University Press (2018), Chapter 1, Schatten norm duality.
+\bibitem{Hoeffding1963} W.~Hoeffding, Probability inequalities for sums of bounded random variables,
+\emph{Journal of the American Statistical Association} \textbf{58}(301), 13--30 (1963), doi:10.1080/01621459.1963.10500830.
+\bibitem{BretagnolleHuber1978} J.~Bretagnolle and C.~Huber, Estimation des densit\'es: risque minimax,
+\emph{S\'eminaire de Probabilit\'es XII}, Lecture Notes in Mathematics \textbf{649}, 342--363 (1978).
+\bibitem{Liu2026HAFFD} S.~Liu, \emph{Selection, Maintenance and Gravitational Response: Modular Constraints and a Physical Return}, 2026; series record DOI: 10.5281/zenodo.18388881.
+\bibitem{Liu2026PaperE} S.~Liu, \emph{Measurement as Accessibility: Measurement Permissions, Stable Records and Public Readout}, 2026; series record DOI: 10.5281/zenodo.18400065.
+\bibitem{Liu2026PaperF} S.~Liu, \emph{Records, Dissipation and Intervention: Conditions for a Temporal Direction}, 2026; series record DOI: 10.5281/zenodo.18400425.
+\bibitem{Weinberg1989} S.~Weinberg, The cosmological constant problem,
+\emph{Reviews of Modern Physics} \textbf{61}, 1--23 (1989).
+\bibitem{Nagel1986} T.~Nagel, \emph{The View from Nowhere}, Oxford University Press (1986).
+\bibitem{Wald1977} R.~M.~Wald, The back reaction effect in particle creation in curved spacetime,
+\emph{Communications in Mathematical Physics} \textbf{54}, 1--19 (1977).
+\bibitem{Wald1978} R.~M.~Wald, Trace anomaly of a conformally invariant quantum field in curved spacetime,
+\emph{Physical Review D} \textbf{17}, 1477--1484 (1978).
+\bibitem{Vassilevich2003} D.~V.~Vassilevich, Heat kernel expansion: user's manual,
+\emph{Physics Reports} \textbf{388}, 279--360 (2003), arXiv:hep-th/0306138.
+\bibitem{Casimir1948} H.~B.~G.~Casimir, On the attraction between two perfectly conducting plates,
+\emph{Proceedings of the Koninklijke Nederlandse Akademie van Wetenschappen} \textbf{51}, 793--795 (1948).
+\bibitem{Rovelli1996} C.~Rovelli, Relational quantum mechanics,
+\emph{International Journal of Theoretical Physics} \textbf{35}, 1637--1678 (1996).
+\bibitem{FrauchigerRenner2018} D.~Frauchiger and R.~Renner, Quantum theory cannot consistently describe the use of itself,
+\emph{Nature Communications} \textbf{9}, 3711 (2018).
+\bibitem{Penington2020} G.~Penington, Entanglement wedge reconstruction and the information paradox,
+\emph{Journal of High Energy Physics} \textbf{09}, 002 (2020).
+\bibitem{Almheiri2019} A.~Almheiri, N.~Engelhardt, D.~Marolf and H.~Maxfield,
+The entropy of bulk quantum fields and the entanglement wedge of an evaporating black hole,
+\emph{Journal of High Energy Physics} \textbf{12}, 063 (2019).
+\bibitem{Ellis2011} G.~F.~R.~Ellis, H.~van Elst, J.~Murugan and J.-P.~Uzan,
+On the trace-free Einstein equations as a viable alternative to general relativity,
+\emph{Classical and Quantum Gravity} \textbf{28}, 225007 (2011).
+\bibitem{KaloperPadilla2014} N.~Kaloper and A.~Padilla, Sequestering the standard model vacuum energy,
+\emph{Physical Review Letters} \textbf{112}, 091304 (2014).
+\bibitem{ArkaniHamed2002} N.~Arkani-Hamed, S.~Dimopoulos, G.~Dvali and G.~Gabadadze,
+Non-local modification of gravity and the cosmological constant problem, arXiv:hep-th/0209227.
+\bibitem{Liu2026QRAIFA} S.~Liu, \emph{Lorentzian Read-out from Local Unitary Propagation: Clifford Relations, Causal Cones and Spectral Mass}, 2026; series record DOI: 10.5281/zenodo.18525876.
+\bibitem{Liu2026NullCluster} S.~Liu, \emph{The Null Cluster as Structural Imprint: A Closed Source Task and the Null-Boundary Programme}, 2026; series record DOI: 10.5281/zenodo.20283057.
+\end{thebibliography}
+\end{document}

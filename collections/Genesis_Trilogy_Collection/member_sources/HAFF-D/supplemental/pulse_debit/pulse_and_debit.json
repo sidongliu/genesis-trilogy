@@ -1,0 +1,148 @@
+{
+  "drive_lower_bound_in_omega_h": 6.742384545636395,
+  "benchmark": {
+    "0.01": {
+      "Z": {
+        "full_debit": 0.013706574226074254,
+        "F": 0.013988379491596578,
+        "heat": 0.0022263197419328893,
+        "drive_to_heat": 3028.4888637706017,
+        "one_heat_unrecovered_fraction": 0.00033019768108209454
+      },
+      "X": {
+        "full_debit": 0.19851524334587256,
+        "F": 0.2576276961068791,
+        "heat": 0.04100272131278645,
+        "drive_to_heat": 164.4374892632754,
+        "one_heat_unrecovered_fraction": 0.006081338291409529
+      }
+    },
+    "0.1": {
+      "Z": {
+        "full_debit": 0.0877516288384973,
+        "F": 0.09930215138421139,
+        "heat": 0.01580442825245694,
+        "drive_to_heat": 426.61363245381756,
+        "one_heat_unrecovered_fraction": 0.0023440413618480735
+      },
+      "X": {
+        "full_debit": 0.19851524334587256,
+        "F": 0.2576276961068791,
+        "heat": 0.04100272131278645,
+        "drive_to_heat": 164.4374892632754,
+        "one_heat_unrecovered_fraction": 0.006081338291409529
+      }
+    }
+  },
+  "source_information_variance": {
+    "Z": 0.2782109124133276,
+    "X": 0.4118117428466486
+  },
+  "direct_four_by_four_checks": {
+    "0.01_Z": {
+      "spectrum": [
+        0.0,
+        0.0,
+        0.001884551534486136,
+        0.9981154484655138
+      ],
+      "entropy": 0.01370657422607432,
+      "information_variance": 0.07399897315860032
+    },
+    "0.01_X": {
+      "spectrum": [
+        -4.95163388683815e-19,
+        8.766787869532148e-17,
+        0.05000000000000007,
+        0.95
+      ],
+      "entropy": 0.19851524334587273,
+      "information_variance": 0.41181174284664884
+    },
+    "0.1_Z": {
+      "spectrum": [
+        0.0,
+        0.0,
+        0.01740285951945388,
+        0.982597140480546
+      ],
+      "entropy": 0.08775162883849746,
+      "information_variance": 0.27821091241332774
+    },
+    "0.1_X": {
+      "spectrum": [
+        -8.20344121977175e-18,
+        6.572521970800642e-18,
+        0.04999999999999997,
+        0.9499999999999997
+      ],
+      "entropy": 0.19851524334587275,
+      "information_variance": 0.41181174284664857
+    }
+  },
+  "window_scaling_diagnostic_not_device": [
+    {
+      "N": 100000000,
+      "L_cycles": 100.0,
+      "W_cycles": 10000.0,
+      "delay_cycles": 10000.0,
+      "nonoverlap_opportunities": 4999,
+      "X_duty": 0.01,
+      "expected_exploration_windows": 49.99,
+      "sparse_update_gain_bound": 0.01,
+      "phase_Jensen_excess_2piQ_per_cycle": 0.00018218838773626569
+    },
+    {
+      "N": 1000000000000,
+      "L_cycles": 1000.0,
+      "W_cycles": 1000000.0,
+      "delay_cycles": 1000000.0,
+      "nonoverlap_opportunities": 499999,
+      "X_duty": 0.001,
+      "expected_exploration_windows": 499.999,
+      "sparse_update_gain_bound": 0.001,
+      "phase_Jensen_excess_2piQ_per_cycle": 1.8384464580659542e-05
+    },
+    {
+      "N": 10000000000000000,
+      "L_cycles": 10000.0,
+      "W_cycles": 100000000.0,
+      "delay_cycles": 100000000.0,
+      "nonoverlap_opportunities": 49999999,
+      "X_duty": 0.0001,
+      "expected_exploration_windows": 4999.9999,
+      "sparse_update_gain_bound": 0.0001,
+      "phase_Jensen_excess_2piQ_per_cycle": 1.840102716136284e-06
+    }
+  ],
+  "own_deterministic_pulse": [
+    {
+      "nodes": 512,
+      "omega_cutoff": 160,
+      "unit_amplitude_k": 0.04482709068257484,
+      "outer_quad_error": 5.856302951324169e-13,
+      "amplitude": 2.1122470925410393,
+      "moments": [
+        0.4568521562698521,
+        1.3705564688095562,
+        4.321540002987259
+      ],
+      "C_frozen_a1_alpha1p1": 1.0013705324988509,
+      "C_supplied_mismatch_0p04": 1.0002192884213785
+    },
+    {
+      "nodes": 1024,
+      "omega_cutoff": 240,
+      "unit_amplitude_k": 0.04482709068480247,
+      "outer_quad_error": 8.533303544594672e-13,
+      "amplitude": 2.112247092488556,
+      "moments": [
+        0.45685215624714914,
+        1.3705564687414475,
+        4.321540002772505
+      ],
+      "C_frozen_a1_alpha1p1": 1.0013705324987827,
+      "C_supplied_mismatch_0p04": 1.0002192884213676
+    }
+  ]
+}

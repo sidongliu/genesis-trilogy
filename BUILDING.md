@@ -1,0 +1,3 @@
+# Build instructions
+
+The papers directory contains 29 independent manuscripts and their dependencies. Follow BUILDING.md in each paper directory for the appropriate LaTeX engine. The collections directory contains seven volumes, their real introductions, member PDFs and self-contained source dependencies. Follow each collection's BUILDING.md for link-preserving PDF assembly. A TeX Live installation provides LaTeX packages; scientific code dependencies are documented with each supplement. The repository LICENSE applies to the author's work; retain third-party notices supplied in individual dependencies.

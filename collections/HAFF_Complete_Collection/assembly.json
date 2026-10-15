@@ -1,0 +1,54 @@
+{
+  "title": "The Holographic Alaya-Field Framework",
+  "official_pdf": "HAFF_Complete_Collection.pdf",
+  "members": [
+    {
+      "id": "HAFF-A",
+      "pdf": "HAFF-A.pdf",
+      "title": "Physical Access and Correlation Geometry: The Holographic Alaya-Field Framework",
+      "sha256": "2ce1a2949f1626ea1bd756ad765372cda3d743ea1e1e71490c8a259ed938ec49"
+    },
+    {
+      "id": "HAFF-B",
+      "pdf": "HAFF-B.pdf",
+      "title": "Coupling, Records, and Stable Relations: Formation, Protected Content and the Lifetime of a Geometry",
+      "sha256": "b771cb17933fa803c53d7d7707c946f58b7c945690e233c70d94851452ff1ee3"
+    },
+    {
+      "id": "HAFF-C",
+      "pdf": "HAFF-C.pdf",
+      "title": "Causation, Agency, and Existence: Historical Control and Maintained Intervention",
+      "sha256": "e275266c86733fcfddf737fdec950d2e2c0f3cea8c9a989d72bd2dfa8e65c3c2"
+    },
+    {
+      "id": "HAFF-D",
+      "pdf": "HAFF-D.pdf",
+      "title": "Selection, Maintenance and Gravitational Response: Modular Constraints and a Physical Return",
+      "sha256": "d133291d41bdc39ab3a5c6c368603fcda0d093a77136a5e74357040555d22446"
+    },
+    {
+      "id": "HAFF-E",
+      "pdf": "HAFF-E.pdf",
+      "title": "Measurement as Accessibility: Measurement Permissions, Stable Records and Public Readout",
+      "sha256": "eba24a76b4a9ae814aff0510f52c983a0bccde6065b0e5e8b3a2d19caf774b2c"
+    },
+    {
+      "id": "HAFF-F",
+      "pdf": "HAFF-F.pdf",
+      "title": "Records, Dissipation and Intervention: Conditions for a Temporal Direction",
+      "sha256": "9b60b8b063c6281c924ac9289c780415e0958bff8671a46d97d873d9a86139f2"
+    },
+    {
+      "id": "HAFF-G",
+      "pdf": "HAFF-G.pdf",
+      "title": "Internal Selection and Revisable Organization: How History Changes Permissions and Physical Sources",
+      "sha256": "221d71f3b9d75655a03eb7b936c579b8068c8016fcdf19b570de7f6cef580e40"
+    },
+    {
+      "id": "HAFF-PS",
+      "pdf": "HAFF-PS.pdf",
+      "title": "Postscript: Persistence, Participation and an Unfinished Self",
+      "sha256": "2d0c7487b6c00cde82f276b4e8daf991ac4c4602099520ef4ccb53e04b7b11b4"
+    }
+  ]
+}

@@ -1,0 +1,110 @@
+{
+ "reader_kappa_formula": 36.0,
+ "reader_F_over_theta2": {
+  "0.001": 35.99968197536942,
+  "0.01": 35.96842070654768,
+  "0.05": 35.2226932427165,
+  "0.1": 33.0347376091104
+ },
+ "reader_KL_exact_formula_residual": 8.881784197001252e-16,
+ "probe_KL_exact_formula_residual": 2.220446049250313e-16,
+ "reader_KL_over_theta4_vs_kappa_over_8": {
+  "0.01": [
+   4.4986587714724005,
+   4.5
+  ],
+  "0.03": [
+   4.487960103825686,
+   4.5
+  ],
+  "0.1": [
+   4.370035648420741,
+   4.5
+  ]
+ },
+ "probe_F0_numeric": 0.7999999999997334,
+ "probe_F0_formula": 0.8,
+ "reader_kappa_MC_E0_d2logp_sq": 36.35148580922877,
+ "reader_kappa_MC_se": 0.2196104469504812,
+ "gauss_mean_kappa": 47.02040816326531,
+ "gauss_mean_KL_theta4_coeff": 5.877551020408164,
+ "gauss_mean_kappa_over_8": 5.877551020408164,
+ "reader_score_squared_MC_vs_exact": {
+  "0.05": [
+   0.08835368298585564,
+   0.0007257065197022738,
+   0.08805673310679127
+  ],
+  "0.1": [
+   0.3309217351372086,
+   0.002726968694019505,
+   0.33034737609110404
+  ],
+  "0.2": [
+   1.0399639234925822,
+   0.008600068304035454,
+   1.041244061747624
+  ],
+  "0.4": [
+   1.9610508223006822,
+   0.0158060260637911,
+   1.9725278470128613
+  ]
+ },
+ "d_required_alpha_beta_0.05": 2.649995081249796,
+ "linear_drift_detection_lower_bounds": {
+  "0.01": {
+   "T_even_exact": 54.0,
+   "T_even_asym": 49.40836830306045,
+   "T_probe_exact": 58.0,
+   "T_probe_asym": 58.35822987892864
+  },
+  "0.003": {
+   "T_even_exact": 137.0,
+   "T_even_asym": 129.45043313499963,
+   "T_probe_exact": 130.0,
+   "T_probe_asym": 130.22307329808203
+  },
+  "0.001": {
+   "T_even_exact": 324.0,
+   "T_even_asym": 311.74572859598373,
+   "T_probe_exact": 271.0,
+   "T_probe_asym": 270.87490815544277
+  }
+ },
+ "brownian_detection_vs_frozen_failure": {
+  "0.01": {
+   "T_even_exact": 17.0,
+   "T_even_asym": 11.376033289112762,
+   "frozen_failure_tstar": 69.31471805599453
+  },
+  "0.001": {
+   "T_even_exact": 68.0,
+   "T_even_asym": 52.80286908555305,
+   "frozen_failure_tstar": 693.1471805599452
+  },
+  "0.0001": {
+   "T_even_exact": 282.0,
+   "T_even_asym": 245.08920753022042,
+   "frozen_failure_tstar": 6931.471805599453
+  }
+ },
+ "brownian_sigma_threshold_formula": 2.2620584386042024,
+ "LLR_test_eps_0.01_equal_error": {
+  "1.0": {
+   "T": 54.0,
+   "type1": 0.1555,
+   "type2": 0.1555
+  },
+  "1.5": {
+   "T": 81.0,
+   "type1": 0.015,
+   "type2": 0.015
+  },
+  "2.0": {
+   "T": 108.0,
+   "type1": 0.00025,
+   "type2": 0.00025
+  }
+ }
+}

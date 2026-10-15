@@ -1,0 +1,258 @@
+% ============================================================
+% Q-RAIF Paper C: Conditional Image-Level Closure (FINAL)
+% ============================================================
+
+\documentclass[12pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage[hidelinks]{hyperref}
+\usepackage{booktabs}
+\usepackage{array}
+\newcolumntype{P}[1]{>{\raggedright\arraybackslash}p{#1}}
+\usepackage{physics}
+
+% Theorem environments — matching Paper A
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{remark}[theorem]{Remark}
+
+\title{Conditional Image-Level Closure\\
+in the Q-RAIF Framework}
+
+\author{Sidong Liu, PhD \\
+\small iBioStratix Ltd \\
+\small \texttt{sidongliu@hotmail.com}}
+
+\date{July 2026}
+
+\begin{document}
+\emergencystretch=2em
+\raggedbottom
+\hbadness=5000
+\vbadness=5000
+\maketitle
+
+% ============================================================
+\begin{abstract}
+This addendum isolates an algebraic interface between two modelling roles in the \textbf{Q-RAIF (Quantum Reference Algebra for Information Flow)} framework.
+Paper A~\cite{Liu2026QRAIF_A} adopts a $Cl(1,3)$ representation as a Lorentzian-encoding choice under supplied quadratic and generator data.
+Paper B~\cite{Liu2026QRAIF_B} motivates a Cliffordian parameterization $Cl(V,q)$ for a control algebra under its stated compatibility conditions; neither paper uniquely derives Clifford structure.
+
+Given a supplied unital $*$-homomorphism from the control algebra to the environmental algebra, we establish an \textbf{image-level closure result}: its image is a subalgebra, and in the stated even-dimensional Clifford case a nonzero homomorphism is injective.
+The \emph{Same-Clock} statement records an operational co-indexing condition; it is not an input to the image proof and does not by itself ensure thermodynamic potency.
+
+This note does not derive the representation map, select a preferred $Cl(1,3)$ subalgebra, or prove signature preservation.  Physical realizability therefore remains an open interface rather than a completed bridge.
+
+\medskip
+\noindent\textbf{Keywords}: Q-RAIF, realizability, representation, operator algebra, Clifford algebra, open quantum systems, Lyapunov stability, algebraic closure
+\end{abstract}
+
+% ============================================================
+\section{Introduction}
+\label{sec:intro}
+
+\subsection{Context: The Q-RAIF Program}
+
+The Quantum Reference Algebra for Information Flow (Q-RAIF) framework investigates algebraic representations for geometric read-out and subsystem control.  Revised Papers A and B treat Clifford structure as a modelling input rather than a necessary consequence.  The programme builds on the conditional algebra/reconstruction setting of HAFF~\cite{Liu2026PaperA,Liu2026PaperB}.
+
+\begin{center}
+\small
+\begin{tabular}{@{}llll@{}}
+\toprule
+\textbf{Paper} & \textbf{Question} & \textbf{Analogy} & \textbf{Result} \\
+\midrule
+HAFF~\cite{Liu2026PaperA} & How does geometry emerge? & Ocean & Algebra $\to$ Geometry \\
+Q-RAIF A~\cite{Liu2026QRAIF_A} & How encode Lorentzian read-out? & Water & $Cl(1,3)$ model \\
+Q-RAIF B~\cite{Liu2026QRAIF_B} & How parameterize controls? & Fish & $Cl(V,q)$ model \\
+This work & What follows from representation? & Bridge & $\operatorname{Im}\phi\subseteq\mathcal A_{\mathrm{ext}}$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\subsection{The Logical Gap}
+
+Papers A and B both posit Clifford representations for different tasks; they do not independently derive them~\cite{Liu2026QRAIF_A,Liu2026QRAIF_B}.  There is therefore no convergence theorem to close.  This note isolates the tautological algebraic consequence of an explicit representation input and identifies the still-open physical question: what dynamics, if any, supplies that input?
+
+\subsection{Scope}
+
+This addendum explicitly assumes a representation map from an internal model algebra into an external observable algebra.  It does not derive that map from persistence or system--environment coupling.  Its image statement is algebraic; physical realizability remains an interface problem.
+
+\paragraph{Result-status ledger.}
+The representation map is an interface assumption.  Same-clock overlap is an operational remark and does not enter the image proof.  Semisimplicity/injectivity is a standard finite-dimensional Clifford-algebra fact.  The former closure theorem is downgraded to an image-level proposition; all signature compatibility claims require additional quadratic-form-preserving data.
+
+% ============================================================
+\section{Setup and Prerequisites}
+\label{sec:setup}
+
+Let $\mathcal{U}$ be a universe described by the Q-RAIF framework.
+\begin{itemize}
+    \item \textbf{Environment (``water'').} Let $\mathcal{A}_{\mathrm{ext}}$ denote the algebra of observables accessible at the holographic boundary.
+    Paper A~\cite{Liu2026QRAIF_A} uses a $Cl(1,3)$ representation as a model for a supplied Lorentzian read-out; it does not prove that every $\mathcal A_{\mathrm{ext}}$ must contain a preferred copy.
+    \item \textbf{Subsystem (``fish'').} Let $\mathcal{O}_{\mathrm{int}}$ denote the internal control algebra of a persistent subsystem $R\subset\mathcal{U}$.
+    Paper B~\cite{Liu2026QRAIF_B} may parameterize controls by $\mathcal{O}_{\mathrm{int}}\cong Cl(V,q)$, but persistence does not force that choice.
+\end{itemize}
+
+The remaining logical gap is the relationship between $\mathcal{O}_{\mathrm{int}}$ and $\mathcal{A}_{\mathrm{ext}}$: can a stable Clifford control algebra exist while being structurally disjoint from the available environmental observables?
+
+% ============================================================
+\section{Realizability and Same-Clock Co-Indexing}
+\label{sec:realizability}
+
+\begin{definition}[Algebraic Representation Input]
+\label{def:realizability}
+A control algebra $\mathcal{O}_{\mathrm{int}}$ is represented in an environment $\mathcal{A}_{\mathrm{ext}}$ when a unital algebra homomorphism is supplied,
+\begin{equation}
+    \phi: \mathcal{O}_{\mathrm{int}} \to \mathcal{A}_{\mathrm{ext}}
+\end{equation}
+such that $\mathrm{Im}(\phi)$ has non-zero action on the interaction Hamiltonian $H_{\mathrm{int}}$, i.e., $[\mathrm{Im}(\phi), H_{\mathrm{int}}] \neq 0$.
+The commutator checks nontrivial coupling once $\phi$ is given.  The definition does not prove that persistence or coupling produces such a homomorphism; calling it physical realizability is therefore an interface assumption.
+\end{definition}
+
+\begin{remark}[Same-clock operational condition]
+Let $I$ be an operational index set and suppose a model supplies a net $J\mapsto\mathcal A(J)$ for operational windows $J\subseteq I$.  A feedback protocol may require windows $J_{\mathrm{ctrl}},J_{\mathrm{env}}\subseteq I$ with
+\begin{enumerate}
+    \item \textbf{Non-null intersection:} $J_{\mathrm{ctrl}}\cap J_{\mathrm{env}}\neq\emptyset$.
+    \item \textbf{Window integrity:} every critical lookback window $W\subseteq J_{\mathrm{ctrl}}\cap J_{\mathrm{env}}$ has a declared algebra $\mathcal A(W)$ and feedback channel.
+\end{enumerate}
+These are reasonable protocol requirements for discussing entropy export~\cite{Seifert2012}, but they neither imply the existence of $\phi$ nor enter the algebraic image proposition below.  The former Same-Clock lemma is therefore demoted to this operational remark.
+\end{remark}
+
+% ============================================================
+\subsection{Semisimplicity of Clifford Algebras}
+
+\begin{lemma}[Injectivity from Semisimplicity]
+\label{lem:semisimple}
+Let $(V,q)$ be a finite-dimensional real vector space with
+non-degenerate quadratic form.
+Then $Cl(V,q)$ is semisimple.
+If\/ $\dim V$ is even, $Cl(V,q)$ is simple, and every
+non-zero algebra homomorphism
+$\phi: Cl(V,q) \to \mathcal{A}$ is injective.
+\end{lemma}
+
+\begin{proof}
+By the periodicity theorem for real Clifford
+algebras~\cite{ABS1964,LawsonMichelsohn1989}, $Cl(V,q)$
+with non-degenerate~$q$ is isomorphic to a matrix algebra
+$M_n(K)$ or a direct sum $M_n(K) \oplus M_n(K)$,
+where $K \in \{\mathbb{R}, \mathbb{C}, \mathbb{H}\}$
+depends on the signature and dimension modulo~$8$.
+In either case the algebra is semisimple.
+
+When $\dim V$ is even, $Cl(V,q)$ is simple (a single matrix
+block).
+The kernel of any algebra homomorphism is a two-sided ideal;
+a simple algebra admits no proper non-trivial ideals,
+so $\ker\phi = \{0\}$ whenever $\phi \neq 0$.
+\end{proof}
+
+% ============================================================
+\section{The Image Proposition}
+\label{sec:closure}
+
+\begin{proposition}[Image of a represented Clifford algebra]
+\label{prop:image}
+Let $\mathcal{O}_{\mathrm{int}}\cong Cl(V,q)$ be a chosen finite-dimensional Clifford model and let $\phi:\mathcal O_{\mathrm{int}}\to\mathcal A_{\mathrm{ext}}$ be the homomorphism supplied by Definition~\ref{def:realizability}.  Then
+\begin{equation}
+    \mathcal{O}_{\mathrm{eff}} := \mathrm{Im}(\phi) \subseteq \mathcal{A}_{\mathrm{ext}}
+\end{equation}
+is a subalgebra satisfying the induced quotient relations.  If $\dim V$ is even and $\phi\ne0$, then $\phi$ is injective and $\mathcal O_{\mathrm{eff}}\cong Cl(V,q)$.
+\end{proposition}
+
+\begin{proof}
+The image of an algebra homomorphism is a subalgebra, and relations in the source descend to its image.  Lemma~\ref{lem:semisimple} gives injectivity for even $\dim V$ when the homomorphism is nonzero.  No Same-Clock hypothesis is used.
+\end{proof}
+
+\begin{remark}[Scope of the image proposition]
+\label{rem:scope}
+The logical structure of Proposition~\ref{prop:image} is simply: ``the image of a homomorphism is a subalgebra,'' plus the even-dimensional injectivity fact.  Papers A and B no longer supply independent selection theorems.  The physically nontrivial step---deriving a representation $\phi$ from system--environment dynamics---is assumed rather than proved.  Operator-algebra inclusion, virtual-subsystem, split-property, or modular-inclusion techniques may inform a future derivation \cite{Zanardi2001,DoplicherLongo1984,Wiesbrock1993}.
+\end{remark}
+
+\paragraph{Withdrawal of the ``No Ghost Algebra'' corollary.}
+The statement that a non-represented algebra fails Definition~\ref{def:realizability} merely repeats the definition.  Its former signature obstruction is false for ordinary algebra homomorphisms: matrix-algebra embeddings need not preserve a presentation's quadratic form or signature.
+
+To compare signatures one must supply a quadratic-space morphism $j:(V,q)\to(W,Q)$ satisfying
+\begin{equation}
+Q(jv)=q(v)
+\end{equation}
+and, where relevant, require the induced Clifford map to preserve the unit, involution, and grading.  Proposition~\ref{prop:image} assumes no ambient quadratic space $(W,Q)$ and proves no such isometry.  It therefore yields an image in $\mathcal A_{\mathrm{ext}}$, not an embedding into a distinguished $Cl(1,3)$ subalgebra and not a signature-compatibility theorem.
+
+% ============================================================
+\section{Discussion}
+\label{sec:discussion}
+
+\subsection{What This Result Does and Does Not Show}
+
+\textbf{Does show:}
+Given a supplied homomorphism, its image is a subalgebra of $\mathcal A_{\mathrm{ext}}$; for even-dimensional $Cl(V,q)$, a nonzero homomorphism is injective.
+
+\textbf{Does not show:}
+That $\phi$ must be injective in general---however,
+by Lemma~\ref{lem:semisimple}, injectivity \emph{is}
+guaranteed when $\dim V$ is even
+(which includes the physically relevant case $\dim V = 4$).
+For odd $\dim V$, the image $\mathrm{Im}(\phi)$ is
+isomorphic only to the quotient $Cl(V,q)/\ker\phi$; depending on the
+real signature and the representation, this quotient may be the full
+simple algebra or one surviving simple block of a semisimple direct sum.
+No general injectivity or preservation of the full Clifford presentation
+follows in the odd-dimensional case.
+That the image lies in a preferred $Cl(1,3)$ subalgebra or preserves signature.
+That persistence produces $\phi$ or selects Clifford structure.
+
+\subsection{The Bridge Statement}
+
+\begin{remark}[Closing the Loop]
+Papers A and B propose Clifford representations for separate modelling roles.  Proposition~\ref{prop:image} does not lock them together independently; it records what follows after a representation map is supplied.  Deriving that map and any quadratic compatibility is the open bridge problem.
+\end{remark}
+
+\subsection{Connection to HAFF}
+
+Within the HAFF programme~\cite{Liu2026PaperA,Liu2026PaperB}, geometric reconstruction is conditional on selected observable-algebra and dictionary data.  The image proposition adds no independent natural-selection result.  It isolates the representation/interface assumption that a future dynamical construction would have to justify.
+
+% ============================================================
+\begin{thebibliography}{99}
+
+\bibitem{Liu2026QRAIF_A}
+S.~Liu, \emph{A Clifford-Encoding Model for Lorentzian Metrics in Entropic Gravity Frameworks}, Zenodo (2026), DOI: 10.5281/zenodo.18525876.
+
+\bibitem{Liu2026QRAIF_B}
+S.~Liu, \emph{Thermodynamic Stability Constraints on the Operator Algebra of Persistent Open Quantum Subsystems}, Zenodo (2026), DOI: 10.5281/zenodo.18525890.
+
+\bibitem{Liu2026PaperA}
+S.~Liu, \emph{Emergent Geometry from Coarse-Grained Observable Algebras: The Holographic Alaya-Field Framework}, Zenodo (2026), DOI: 10.5281/zenodo.18361706.
+
+\bibitem{Liu2026PaperB}
+S.~Liu, \emph{Accessibility, Stability, and Emergent Geometry: Conceptual Clarifications on the Holographic Alaya-Field Framework}, Zenodo (2026), DOI: 10.5281/zenodo.18367060.
+
+\bibitem{ABS1964}
+M.~F.~Atiyah, R.~Bott and A.~Shapiro,
+\emph{Clifford modules},
+Topology \textbf{3}, Suppl.~1, 3--38 (1964).
+
+\bibitem{Hestenes1966}
+D.~Hestenes, \emph{Space-Time Algebra}, Gordon and Breach (1966).
+
+\bibitem{LawsonMichelsohn1989}
+H.~B.~Lawson and M.-L.~Michelsohn,
+\emph{Spin Geometry},
+Princeton University Press (1989).
+
+\bibitem{Seifert2012}
+U.~Seifert, \emph{Stochastic thermodynamics, fluctuation theorems and molecular machines}, Rep.\ Prog.\ Phys.\ \textbf{75}, 126001 (2012).
+
+\bibitem{Zanardi2001}
+P.~Zanardi, \emph{Virtual Quantum Subsystems}, Phys. Rev. Lett. \textbf{87}, 077901 (2001).
+
+\bibitem{DoplicherLongo1984}
+S.~Doplicher and R.~Longo, \emph{Standard and split inclusions of von Neumann algebras}, Invent. Math. \textbf{75}, 493--536 (1984).
+
+\bibitem{Wiesbrock1993}
+H.-W.~Wiesbrock, \emph{Half-sided modular inclusions of von Neumann algebras}, Commun. Math. Phys. \textbf{157}, 83--92 (1993).
+
+\end{thebibliography}
+
+\end{document}

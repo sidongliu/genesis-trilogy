@@ -1,0 +1,842 @@
+% Paper E: Measurement as Accessibility
+% Measurement permissions, stable records and public readout
+% October 2026 revision
+
+\documentclass[12pt,a4paper]{article}
+\usepackage{amsmath,amssymb,amsfonts,amsthm}
+\usepackage{physics}
+\usepackage{hyperref}
+\hypersetup{pdftitle={Measurement as Accessibility: Measurement Permissions, Stable Records and Public Readout},pdfauthor={Sidong Liu}}
+\usepackage{geometry}
+\usepackage{array}
+\newcolumntype{P}[1]{>{\raggedright\arraybackslash}p{#1}}
+\usepackage{booktabs}
+\geometry{margin=1in}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{constraint}[theorem]{Constraint}
+
+\title{Measurement as Accessibility:\\
+Measurement Permissions, Stable Records and Public Readout}
+
+\author{
+  Sidong Liu, PhD \\
+  iBioStratix Ltd \\
+  \texttt{sidongliu@hotmail.com}
+}
+
+\date{Revised October 2026}
+
+\begin{document}
+\emergencystretch=2em
+\raggedbottom
+\hbadness=5000
+\vbadness=5000
+
+\maketitle
+
+\begin{abstract}
+A measurement context supplies probes, environmental dynamics and physical record ports. These determine different objects: implementable effects, persistent content and readable records. We compute their relations in a fresh-memory collision model. For two pure conditional fragment states of overlap $r$, the exact pointer-effect permission set is $\sqrt{ab}+\sqrt{(1-a)(1-b)}\ge r$; the closest permitted sharp pointer test has error $(1-\sqrt{1-r^2})/2$. Its operator span does not determine this resolution. Holevo and single-measurement information count different numbers of readable records: one environment has 12 Holevo records but only 8 certified readable ones. Conditional product fragments give explicit public-agreement laws, and pooled one-sided local tests attain the joint pure-state discrimination exponent. Recording does not require a pure memory. We derive a purity-deficit budget and exhibit partially mixed qubits whose exact permissions form a parallelogram, whose local measurement saturates Holevo information, and whose reduced source channel is the same complete dephasing for every memory polarization. At zero polarization this channel produces no record. Reusing a spent port can erase its record and restore coherence, so freshness cannot be inferred from a channel label. For a common unknown reader orientation, agreement alone cannot certify correctness; prepared-pointer references give a finite calibration bound and an explicit residual common-error term. The same actual fragment readout supports Paper~A's finite correlation-geometry certificate. The construction accounts for preparation, readout and shared standards without selecting a unique global outcome or deriving the Born rule.
+\end{abstract}
+
+\section{Introduction}
+\label{sec:intro}
+
+\subsection{Three questions about measurement}
+
+Standard quantum mechanics gives rules for outcome probabilities but does not say how definite records arise from states that assign amplitudes to several possibilities. Collapse models change the dynamics, many-worlds accounts deny that one outcome is selected, and decoherence explains the suppression of interference without selecting a result. This paper does not add to that list. It asks a set of narrower questions that every account has to answer in some form, and it answers them inside a declared physical context.
+
+The first question is one of \emph{permission}. A probe is a physical channel. Which effects on the system can the probe actually implement, given its coupling and initial state? The second concerns \emph{stability}: which effects, or which record values, survive the environmental dynamics over the relevant time window? The third concerns \emph{public readout}: when can several readers, each with access to a different part of the environment, obtain the same value, and how often is a shared value wrong?
+
+The three answers are different kinds of object. Each probe's implementable effects form a convex set inside an operator system; a family of probes gives their union, which is convex only if the permitted family also includes the required randomized choices. Exact fixed points of a channel form an operator system, and under further hypotheses a von Neumann algebra. Records concern a classical label and the information that environmental fragments carry about it. Treating the three as one ``accessible algebra'' obtained by intersection loses the information that matters, and the paper keeps them apart.
+
+The central claim of the paper is that measurement, in the operational sense used here, is a property of an interaction context: what a declared probe family can implement, what the declared dynamics leaves fixed, and what declared fragments record. We do not explain why one global outcome occurs, and we assume the Born rule.
+
+\subsection{Results}
+
+Section~\ref{sec:background} fixes the typed data of a context. Section~\ref{sec:tests} states the three tests and separates two notions of redundancy, one based on Holevo information and one based on what a measurement can read. Section~\ref{sec:model} introduces a record model in which fresh memories collide once with a pointer, and computes:
+\begin{itemize}
+\item the exact set of pointer effects that a fragment can implement (Theorem~\ref{thm:lens}) and the distance from a sharp pointer projection to that set (Corollary~\ref{cor:closest});
+\item a nesting of the three tests: fragment effects lie in the pointer algebra, which equals the fixed algebra of the induced dephasing (Proposition~\ref{prop:nesting});
+\item the gap between Holevo and accessible information, with closed-form fragment lengths for both notions of redundancy (Propositions~\ref{prop:acc} and~\ref{prop:lengths});
+\item a purity-deficit budget and exact nonzero readout from partially mixed memories (Propositions~\ref{prop:purity} and~\ref{prop:mixed-records});
+\end{itemize}
+Section~\ref{sec:public} turns to several readers: conditional independence, the error exponents of joint, pooled local and majority readout, and a finite calibrated public-readout bound when the readers share an unknown orientation. Section~\ref{sec:scope} collects the model's conditions and interfaces. Section~\ref{sec:relations} compares the approach with decoherence theory, quantum Darwinism and other frameworks, and Section~\ref{sec:connection} identifies the actual record interface consumed elsewhere.
+
+Several ingredients are standard: the exact Holevo quantity of a branching state, the Helstrom bound, and the role of redundancy in quantum Darwinism \cite{Zurek2003,Zurek2009,ZwolakRiedelZurek2016}. What the paper adds is the typed separation, the exact permission set of a fragment, the nesting of the tests in one dynamics, the counting difference between Holevo and readable records, the mixed-memory realization and a calibration-sensitive public-readout certificate.
+
+\section{Typed accessibility data}
+\label{sec:background}
+
+\subsection{Algebraic background}
+
+In the algebraic formulation of quantum theory a system is described by an algebra of observables, and states are positive normalized functionals on it \cite{Haag1996,Araki1999}. In algebraic quantum field theory local algebras are attached to regions without a global tensor product, and tensor product structures can be induced by the accessible observables \cite{Zanardi2001,Zanardi2004}. HAFF builds on this view and asks which operator structures a physical context selects. Paper~A treats the reduction of a global state by physical channels and shows that two channels can generate the same algebra while resolving different things \cite{Liu2026PaperA}. The present paper applies the same caution to measurement.
+
+\subsection{The objects of a context}
+
+Let $\mathcal M_U$ be the ambient von Neumann algebra. A context $\mathbf c$ specifies allowed probe channels, an environmental dynamics, a record algebra, time scales and resolution thresholds.
+
+\begin{definition}[Probe channel and implementable effects]
+\label{def:probe-effects}
+For each allowed probe $\alpha$, let
+\[
+\mathcal R_{\alpha,\mathbf c}^{*}:\mathcal B(\mathcal K_\alpha)\longrightarrow\mathcal M_U
+\]
+be its normal unital completely positive Heisenberg map. The set of \textbf{implementable effects} of the context is
+\[
+\mathrm{Eff}(\mathbf c):=\{\mathcal R_{\alpha,\mathbf c}^{*}(F):0\le F\le\mathbf 1,\ \alpha\text{ allowed}\},
+\]
+and the \textbf{probe-reachable operator system} is its ultraweakly closed linear span,
+\[
+\mathrm{Eff}_{\mathrm{span}}(\mathbf c):=\overline{\operatorname{span}}^{\,uw}\,\mathrm{Eff}(\mathbf c).
+\]
+The family $\mathfrak R_{\mathrm{probe}}(\mathbf c):=\{\mathcal R_{\alpha,\mathbf c}\}_\alpha$ is part of the context, not an observable algebra.
+\end{definition}
+
+For a single probe $\mathrm{Eff}$ is convex, contains $0$ and $\mathbf 1$, and is closed under $E\mapsto\mathbf 1-E$. The span is the natural object for linear reconstruction of expectation values from many runs. It is not a list of effects that one run of an allowed probe implements: Section~\ref{sec:model} gives probes whose span is the whole pointer algebra while the sharp pointer projections are not implementable. The same distinction appears for reductions in Paper~A, where the effects a channel reads out, $\Phi^*([0,\mathbf 1])$, are in general fewer than the positive contractions in the range of $\Phi^*$ \cite{Liu2026PaperA}.
+
+\begin{definition}[Environmental fixed set]
+\label{def:fixed-set}
+For a normal UCP semigroup $\{\mathcal E_t\}_{t\ge0}$ on $\mathcal M_U$, set
+\[
+\operatorname{Fix}(\mathcal E)
+:=\{O\in\mathcal M_U:\mathcal E_t(O)=O\text{ for every }t\ge0\}.
+\]
+This is always an ultraweakly closed operator system. It is a von Neumann subalgebra, for example, when the semigroup admits a faithful normal invariant state: equality in the Schwarz inequality then places every fixed element in the multiplicative domain. A discrete-time channel is treated in the same way with $t\in\mathbb N$.
+\end{definition}
+
+\begin{definition}[Pointer and record algebra]
+\label{def:pointer-algebra}
+A \textbf{pointer/record algebra} $\mathcal P_{\mathrm{env}}\subset\mathcal M_U$
+is a designated commutative von Neumann algebra generated by a
+classical record PVM $Z(B)$, or by a finite-resolution coarse graining.
+For a finite label set, a fragment record channel acts on label
+states by
+\[
+ \Gamma_{k,*}\bigl((p_x)_x\bigr)=\sum_xp_x\rho_{E_k}^x .
+\]
+Its normal UCP Heisenberg dual is
+\[
+ \Gamma_k^*:\mathcal B(\mathcal H_{E_k})\longrightarrow
+             \mathcal P_{\mathrm{env}},\qquad
+ \Gamma_k^*(F)=\sum_x\operatorname{Tr}(\rho_{E_k}^x F)Z_x .
+\]
+More generally the state map acts on the predual of the commutative
+record algebra. Approximate pointer observables are treated by their
+distance to $\mathcal P_{\mathrm{env}}$.
+\end{definition}
+
+There is no default equality among $\mathrm{Eff}$, $\operatorname{Fix}(\mathcal E)$ and $\mathcal P_{\mathrm{env}}$. The declared maps are the probe maps, the dynamics, the inclusions of chosen subalgebras into $\mathcal M_U$, and the record channels. A model may establish relations among the objects, for example that every implementable effect lies in $\mathcal P_{\mathrm{env}}\cap\operatorname{Fix}(\mathcal E)$; such relations are results or assumptions of that model.
+
+\begin{definition}[Measurement-accessibility profile]
+\label{def:accessible-full}
+The \textbf{measurement-accessibility profile} of a context is the typed datum
+\begin{equation}
+\mathbf{Acc}(\mathbf c)
+:=\bigl(\mathrm{Eff}(\mathbf c),\ \mathrm{Eff}_{\mathrm{span}}(\mathbf c),\
+\mathfrak R_{\mathrm{probe}}(\mathbf c),\
+\mathcal P_{\mathrm{env}}(\mathbf c),\
+\operatorname{Fix}(\mathcal E_{\mathbf c});\
+\Gamma_{k,*},T_{\mathbf c},\epsilon,\delta\bigr).
+\end{equation}
+\end{definition}
+
+The operator-system and fixed-set statements above hold for general von Neumann algebras under the hypotheses shown. Entropic statements are made for finite alphabets or finite-resolution labels and specified states.
+
+\section{Three tests}
+\label{sec:tests}
+
+\subsection{Probe reachability}
+
+\begin{constraint}[Probe reachability]
+\label{const:interaction}
+An effect $M(B)\in\mathcal M_U$ is implementable in context $\mathbf c$ if $M(B)=\mathcal R_{\alpha,\mathbf c}^{*}(F)$ for some allowed probe $\alpha$ and some probe effect $0\le F\le\mathbf1$. A POVM $M$ is implementable if one probe and one probe POVM $F$ give $M(B)=\mathcal R_{\alpha,\mathbf c}^{*}(F(B))$ for every outcome set $B$.
+\end{constraint}
+
+Implementability is a property of a channel and an effect. A probe Hamiltonian may realize the channel, but the condition $[O,H_{\mathrm{probe}}]\ne0$ is neither necessary nor closed under sums and products; ideal nondemolition couplings commute with the measured pointer observable. Effects outside $\mathrm{Eff}(\mathbf c)$ are not ruled out as physical quantities. The context simply supplies no implementation of them, and enlarging the context, for example by allowing more fragments or repeated runs, is a change of context.
+
+\subsection{Dynamical stability}
+
+\begin{constraint}[Stability]
+\label{const:stability}
+An effect $O$ passes the \textbf{finite-window stability test} if
+\begin{equation}
+\sup_{0\le t\le T_{\mathbf c}}\|\mathcal{E}_t(O) - O\| < \epsilon .
+\end{equation}
+Exact stability is the separate statement $O\in\operatorname{Fix}(\mathcal E)$.
+\end{constraint}
+
+In decoherence theory the pointer observables are those left stable by the system--environment interaction \cite{Zurek2003}. The threshold $\epsilon$ and the window $T_{\mathbf c}$ are set by the recording mechanisms and time scales of the context. An implementable effect need not be stable, and an exact fixed point need not be implementable by any allowed probe.
+
+\subsection{Environmental redundancy: Holevo and readable records}
+
+Let $X$ be the classical label of a pointer PVM, or of a finite coarse graining of a POVM, with distribution $(p_x)$. For each environmental fragment $E_k$ form the classical--quantum state $\rho_{XE_k}=\sum_xp_x|x\rangle\langle x|\otimes\rho_{E_k}^{x}$. Two quantities measure what $E_k$ carries about $X$. The Holevo information
+\[
+\chi(X:E_k)=S\Bigl(\sum_xp_x\rho_{E_k}^x\Bigr)-\sum_xp_xS(\rho_{E_k}^x)
+\]
+bounds what any measurement on $E_k$ can extract. The accessible information
+\[
+I_{\mathrm{acc}}(X:E_k)=\sup_{\text{POVM }N\text{ on }E_k}I(X:Y_N)
+\]
+is what a single measurement on the fragment does extract at best, where $Y_N$ is the outcome. Always $I_{\mathrm{acc}}\le\chi$ \cite{Holevo1973}.
+
+\begin{constraint}[Redundancy]
+\label{const:redundancy}
+Fix $0<\delta<1$ and a family of disjoint fragments. The label $X$ has $R$ \textbf{Holevo records} if $R$ disjoint fragments satisfy $\chi(X:E_k)\ge(1-\delta)H(X)$, and $R$ \textbf{readable records} if $R$ disjoint fragments satisfy $I_{\mathrm{acc}}(X:E_k)\ge(1-\delta)H(X)$. For a declared measurement $N_k$ on each fragment one may use $I(X:Y_{N_k})$ in place of $I_{\mathrm{acc}}$.
+\end{constraint}
+
+Readable records are Holevo records, but not conversely, and the two counts can differ (Proposition~\ref{prop:lengths}). For continuous spectra $X$ denotes a declared finite-resolution partition. No von Neumann entropy is assigned to an operator, and no expression such as $I(\hat O:E_k)$ is used.
+
+Redundancy is what allows several observers to read the same label from different fragments without disturbing one another. It does not by itself say how often their common value is wrong, nor which global outcome is realized. Section~\ref{sec:public} computes the former in the model.
+
+\section{A record model in which the three tests can be computed}
+\label{sec:model}
+
+\subsection{Fresh memories colliding once with a pointer}
+
+The system $S$ is a qubit with pointer projections $P_x=|x\rangle\langle x|$, $x\in\{0,1\}$. The environment consists of $n$ memory qubits $E_1,\dots,E_n$, each prepared in $|0\rangle$. The $k$-th memory collides once with $S$ through
+\begin{equation}
+U_k=P_0\otimes\mathbf 1+P_1\otimes R_k,\qquad
+R_k=\begin{pmatrix}c_k&-\sqrt{1-c_k^2}\\ \sqrt{1-c_k^2}&c_k\end{pmatrix},\qquad 0\le c_k\le1,
+\label{eq:collision}
+\end{equation}
+and does not interact again. Starting from $\sqrt p\,|0\rangle+\sqrt{1-p}\,|1\rangle$ with $0<p<1$, the state after $n$ collisions is
+\begin{equation}
+|\Psi_n\rangle=\sqrt p\,|0\rangle|e_0\rangle+\sqrt{1-p}\,|1\rangle|e_1\rangle,\qquad
+|e_x\rangle=\bigotimes_{k=1}^n|e_{x,k}\rangle,
+\label{eq:branching}
+\end{equation}
+with $|e_{0,k}\rangle=|0\rangle$ and $|e_{1,k}\rangle=R_k|0\rangle$, so that $\langle e_{0,k}|e_{1,k}\rangle=c_k$. A fragment $F$ is a declared set of memories; write
+\[
+r_F=\prod_{k\in F}c_k,\qquad
+H_p(r)=h\!\left(\frac{1+\sqrt{1-4p(1-p)(1-r^2)}}2\right),
+\]
+where $h(x)=-x\ln x-(1-x)\ln(1-x)$. All entropies are in nats. The label $X$ is the value a pointer measurement on $S$ would return.
+
+The inputs are explicit: the pointer basis, the split into system and memories, the order of collisions, the fragment partition, and the purity of the memories. None of them is derived here. The model is a version of the standard branching model of quantum Darwinism \cite{Zurek2009,ZwolakRiedelZurek2016}; its role in this paper is to make all components of the profile of Definition~\ref{def:accessible-full} computable at once.
+
+\begin{proposition}[Record quantities]
+\label{prop:records}
+For every fragment $F$,
+\[
+\chi(X:E_F)=H_p(r_F),\qquad
+(\rho_S)_{01}=\sqrt{p(1-p)}\,r_{[n]},
+\]
+\[
+S(\rho_S)=H_p(r_{[n]}),\qquad I(S:E_{[n]})=2H_p(r_{[n]}).
+\]
+\end{proposition}
+
+\begin{proof}
+Given $X=x$ the fragment is in the pure state $|e_x^F\rangle=\bigotimes_{k\in F}|e_{x,k}\rangle$, and $\langle e_0^F|e_1^F\rangle=r_F$. The average state $p|e_0^F\rangle\langle e_0^F|+(1-p)|e_1^F\rangle\langle e_1^F|$ has two nonzero eigenvalues with sum $1$ and product $p(1-p)(1-r_F^2)$, so its entropy is $H_p(r_F)$, and the conditional entropies vanish. Tracing the memories out of \eqref{eq:branching} multiplies the off-diagonal element by $\langle e_1|e_0\rangle=r_{[n]}$, and the global state is pure, so $S(\rho_S)=S(\rho_{E_{[n]}})=H_p(r_{[n]})$ and $I(S:E_{[n]})=2S(\rho_S)$.
+\end{proof}
+
+The reduced dynamics of $S$ is the dephasing channel $\mathcal D_k(\rho)=P_0\rho P_0+P_1\rho P_1+c_k(P_0\rho P_1+P_1\rho P_0)$ at each step. Its fixed algebra, for any $c_k<1$, is the diagonal algebra $\mathcal P=\operatorname{span}\{P_0,P_1\}$, which is also the pointer algebra.
+
+\subsection{Measurement permissions of a fragment}
+
+A reader with access to fragment $F$ implements effects on $S$ through the Heisenberg map
+\begin{equation}
+\Phi_F^*(A)=\langle e_0^F|A|e_0^F\rangle\,P_0+\langle e_1^F|A|e_1^F\rangle\,P_1,
+\qquad A\in\mathcal B(\mathcal H_F),
+\label{eq:fragment-map}
+\end{equation}
+obtained by coupling $S$ to $F$ through the collisions and tracing out the rest. The span of the image is all of $\mathcal P$ as soon as $0<r_F<1$, since it contains $\mathbf 1$ and the operator $\Phi_F^*(|e_0^F\rangle\langle e_0^F|)=P_0+r_F^2P_1$. The implementable effects are fewer.
+
+\begin{theorem}[Permission set of a fragment]
+\label{thm:lens}
+Let $|e_0\rangle,|e_1\rangle$ be unit vectors with $|\langle e_0|e_1\rangle|=r$. Then
+\begin{align*}
+&\bigl\{(\langle e_0|A|e_0\rangle,\langle e_1|A|e_1\rangle):0\le A\le\mathbf 1\bigr\}\\
+&\qquad=L_r:=\bigl\{(a,b)\in[0,1]^2:\ \sqrt{ab}+\sqrt{(1-a)(1-b)}\ge r\bigr\}.
+\end{align*}
+Hence $\mathrm{Eff}_F:=\Phi_F^*([0,\mathbf 1])=\{aP_0+bP_1:(a,b)\in L_{r_F}\}$.
+\end{theorem}
+
+\begin{proof}
+\emph{Inclusion.} For an effect $A$ put $a=\langle e_0|A|e_0\rangle$ and $b=\langle e_1|A|e_1\rangle$. By the Cauchy--Schwarz inequality applied to $A^{1/2}e_0$ and $A^{1/2}e_1$, $|\langle e_0|A|e_1\rangle|\le\sqrt{ab}$, and likewise $|\langle e_0|(\mathbf 1-A)|e_1\rangle|\le\sqrt{(1-a)(1-b)}$. Adding and using the triangle inequality gives $r\le\sqrt{ab}+\sqrt{(1-a)(1-b)}$.
+
+\emph{Equality.} The function $f(a,b)=\sqrt{ab}+\sqrt{(1-a)(1-b)}$ is a sum of geometric means, hence concave, so $L_r$ is a compact convex set. The set of attained pairs is convex as the image of the convex set of effects under an affine map. At $r=0$ the states are orthogonal and all pairs in the square are attained by diagonal effects; at $r=1$ the states are identical up to phase and the attained set is the diagonal. For $0<r<1$, a compact convex subset of the plane is the convex hull of its boundary, so it suffices to attain every boundary point of $L_r$. Choose phases and an orthonormal basis of $\operatorname{span}\{e_0,e_1\}$ with $e_0=(1,0)$ and $e_1=(\cos\theta,\sin\theta)$, $\cos\theta=r$, $0\le\theta\le\pi/2$; effects supported on this span suffice. For $u=(\cos\varphi,\sin\varphi)$ with $\theta-\pi/2\le\varphi\le0$, the projection $|u\rangle\langle u|$ gives $a=\cos^2\varphi$ and $b=\cos^2(\theta-\varphi)$, and since $\cos\varphi\ge0$, $\sin\varphi\le0$, $\cos(\theta-\varphi)\ge0$ and $\sin(\theta-\varphi)\ge0$,
+\[
+f(a,b)=\cos\varphi\cos(\theta-\varphi)-\sin\varphi\sin(\theta-\varphi)=\cos\theta=r .
+\]
+This traces the arc of $\{f=r\}$ from $(1-r^2,0)$ to $(1,r^2)$. The map $A\mapsto\mathbf 1-A$ sends it to the arc from $(r^2,1)$ to $(0,1-r^2)$. The remaining boundary consists of segments of the square: $b=0$ with $0\le a\le1-r^2$, attained by $A=t|e_1^\perp\rangle\langle e_1^\perp|$; $a=1$ with $r^2\le b\le1$, attained by $A=|e_0\rangle\langle e_0|+t|e_0^\perp\rangle\langle e_0^\perp|$, $0\le t\le1$; and their images under $A\mapsto\mathbf 1-A$. On each edge of the square $f$ reduces to $\sqrt{1-a}$, $\sqrt b$, $\sqrt{1-b}$ or $\sqrt a$, so these segments are exactly the parts of the edges in $L_r$. For $r<1$, $f(a,a)=1>r$, so the level set $\{f=r\}$ inside the square consists of the two arcs. Every boundary point is therefore attained.
+\end{proof}
+
+For $0<r<1$ the permission set is bounded by two curved arcs and four square-edge segments. The corners $(0,0)$ and $(1,1)$ lie on those segments, not on the arcs $f=r$. It fills the square when $r=0$ and collapses to the diagonal $\{a=b\}$, the trivial effects $a\mathbf 1$, when $r=1$. For $0<r<1$ it contains no sharp pointer projection: $(1,0)\notin L_r$ because $f(1,0)=0$.
+
+\begin{corollary}[Closest implementable pointer test]
+\label{cor:closest}
+For $0\le r\le1$,
+\[
+\min_{E\in\mathrm{Eff}_F}\|E-P_0\|=\varepsilon(r):=\frac{1-\sqrt{1-r^2}}{2},
+\]
+with $r=r_F$, attained at $E=(1-\varepsilon)P_0+\varepsilon P_1$. The value $\varepsilon(r)$ is the minimal error probability for distinguishing $|e_0^F\rangle$ from $|e_1^F\rangle$ with equal priors.
+\end{corollary}
+
+\begin{proof}
+For $E=aP_0+bP_1$ one has $\|E-P_0\|=\max(1-a,b)$. If $\max(1-a,b)\le t<1/2$, then $a\ge1-t>1/2>t\ge b$. In that region $\partial f/\partial a=\tfrac12\bigl(\sqrt{b/a}-\sqrt{(1-b)/(1-a)}\bigr)<0$ and $\partial f/\partial b=\tfrac12\bigl(\sqrt{a/b}-\sqrt{(1-a)/(1-b)}\bigr)>0$, so $f(a,b)\le f(1-t,t)=2\sqrt{t(1-t)}$. Since $2\sqrt{\varepsilon(1-\varepsilon)}=r$ and $t\mapsto2\sqrt{t(1-t)}$ is increasing on $[0,1/2]$, the region contains points of $L_r$ only if $t\ge\varepsilon(r)$, and $(1-\varepsilon,\varepsilon)\in L_r$. The identification with the Helstrom error is the formula $(1-\sqrt{1-4p(1-p)r^2})/2$ at $p=1/2$ \cite{Helstrom1976}.
+\end{proof}
+
+For a fragment of $m$ memories with equal overlaps $c$, $r_F=c^m$ and $\varepsilon(c^m)=c^{2m}/4+O(c^{4m})$. Measurement permission for the pointer grows with the number of memories a reader controls, and an $\eta$-approximate pointer test becomes available once $c^{2m}\le4\eta(1-\eta)$. Enlarging $F$ is a change of context, in the sense of Constraint~\ref{const:interaction}.
+
+\subsection{The three tests in one dynamics}
+
+\begin{proposition}[Nesting]
+\label{prop:nesting}
+Let a probe act through a pointer-controlled unitary $U=\sum_xP_x\otimes V_x$ on $\mathcal H_S\otimes\mathcal K$ with probe state $|\phi\rangle$. Then for every $A\in\mathcal B(\mathcal K)$
+\[
+\mathcal R^*(A)=\sum_x\langle\phi|V_x^*AV_x|\phi\rangle\,P_x\in\mathcal P_{\mathrm{env}}.
+\]
+In the record model, for every fragment $F$ with $0<r_F<1$ and every $c_k<1$,
+\[
+\mathrm{Eff}_F\subsetneq\mathrm{Eff}_{\mathrm{span},F}\cap[0,\mathbf1]=\mathcal P\cap[0,\mathbf1]=\operatorname{Fix}(\mathcal D_k)\cap[0,\mathbf1].
+\]
+\end{proposition}
+
+\begin{proof}
+$U^*(\mathbf 1\otimes A)U=\sum_{x,x'}P_xP_{x'}\otimes V_x^*AV_{x'}=\sum_xP_x\otimes V_x^*AV_x$, and the partial expectation in $|\phi\rangle$ gives the formula. In the model $\mathrm{Eff}_{\mathrm{span},F}=\mathcal P$ as noted before Theorem~\ref{thm:lens}, the fixed algebra of $\mathcal D_k$ is $\mathcal P$, and $\mathrm{Eff}_F$ is the lens of Theorem~\ref{thm:lens}, which omits $P_0$.
+\end{proof}
+
+In this model every effect that the environment can report is a stable pointer effect, and the stable pointer effects are exactly the positive contractions of the span. The tests still differ. The lens measures resolution, the fixed algebra measures persistence, and redundancy, below, counts how many disjoint readers have access. A probe that is not pointer-controlled, for example one that rotates the system before recording, can reach effects outside $\operatorname{Fix}(\mathcal D_k)$; those effects are then not stable under the environment that produced the records.
+
+\subsection{Holevo records and readable records}
+
+\begin{proposition}[Accessible information of a fragment]
+\label{prop:acc}
+Let
+\[
+P_e(r)=\frac{1-\sqrt{1-4p(1-p)r^2}}{2}
+\]
+be the Helstrom error for two pure states with overlap $r$ and prior $(p,1-p)$. For every fragment,
+\[
+I_{\mathrm{acc}}(X:E_F)=h(p)-h(P_e(r_F))\le\chi(X:E_F)=H_p(r_F).
+\]
+For $p=1/2$,
+\[
+I_{\mathrm{acc}}(X:E_F)=\ln2-h\bigl(\varepsilon(r_F)\bigr),
+\qquad
+\chi(X:E_F)=h\Bigl(\frac{1+r_F}2\Bigr),
+\]
+and the two differ whenever $0<r_F<1$.
+\end{proposition}
+
+\begin{proof}
+This binary pure-state optimum is standard
+\cite[Sec.~3.5.4]{Fuchs1996}; the following argument proves it for all
+POVMs. Write their conditional outcome laws as $a_y,b_y$, put
+$q_y=pa_y+(1-p)b_y$, and omit zero-weight outcomes. Their posterior
+probabilities are $\pi_y=pa_y/q_y$; set
+$C_y=2\sqrt{\pi_y(1-\pi_y)}$ and
+\[
+ E(C)=h\Bigl(\frac{1-\sqrt{1-C^2}}2\Bigr).
+\]
+Then $H(X\mid Y)=\sum_yq_yE(C_y)$.
+For $t=\sqrt{1-C^2}$, $E'(C)=C\operatorname{artanh}(t)/t\ge0$ and
+$E''(C)=(\operatorname{artanh}(t)-t)/t^3\ge0$ for $0<C<1$;
+continuity extends convexity to the endpoints. The outcome-wise Cauchy--Schwarz argument
+of Theorem~\ref{thm:lens} gives
+\[
+ \sum_yq_yC_y
+ =2\sqrt{p(1-p)}\sum_y\sqrt{a_yb_y}
+ \ge2\sqrt{p(1-p)}\,r_F.
+\]
+Jensen and monotonicity imply
+$H(X\mid Y)\ge E(2\sqrt{p(1-p)}r_F)=h(P_e(r_F))$.
+Diagonalizing $p|e_0^F\rangle\langle e_0^F|-
+(1-p)|e_1^F\rangle\langle e_1^F|$ shows that its Helstrom
+measurement has posterior error $P_e(r_F)$ on every nonzero outcome,
+so it attains the bound. The cases $r_F=0,1$ follow directly.
+The Holevo bound and value are those of Proposition~\ref{prop:records}.
+At equal priors the displayed forms agree only at $r_F=0,1$.
+\end{proof}
+
+At $p=1/2$ and $r_F=0.8$, $\chi=0.325083$ while $I_{\mathrm{acc}}=0.192745$. With $\delta=0.6$ the threshold $(1-\delta)\ln2=0.277259$ lies between them: the fragment is a Holevo record and not a readable one. The threshold for a Holevo record and the threshold for a measurement-based record are therefore not equivalent, even when the measurement is optimal; the difference concerns one measurement on one fragment, and joint coding over many independent preparations is a different task.
+
+\begin{proposition}[Fragment lengths]
+\label{prop:lengths}
+Let all $c_k=c\in(0,1)$ and $0<\delta<1$, and let $h^{-1}$ denote the inverse of $h$ on $[0,1/2]$. Put
+\[
+q_\delta=h^{-1}\bigl((1-\delta)h(p)\bigr),\qquad
+a_\chi=\frac{(1-2q_\delta)^2-(2p-1)^2}{4p(1-p)},
+\]
+\[
+e_\delta=h^{-1}\bigl(\delta h(p)\bigr),\qquad
+a_{\mathrm{op}}=\frac{e_\delta(1-e_\delta)}{p(1-p)} .
+\]
+A fragment of $m$ memories is a Holevo record if and only if $c^{2m}\le a_\chi$, and it is a readable record if and only if $c^{2m}\le a_{\mathrm{op}}$. The smallest such lengths are
+\[
+m_\chi=\Bigl\lceil\frac{\ln a_\chi}{2\ln c}\Bigr\rceil,\qquad
+m_{\mathrm{op}}=\Bigl\lceil\frac{\ln a_{\mathrm{op}}}{2\ln c}\Bigr\rceil ,
+\]
+so $m_{\mathrm{op}}$ is the smallest readable length for every $0<p<1$.
+\end{proposition}
+
+\begin{proof}
+$H_p(r)$ is a decreasing function of $r^2$, and $H_p(r)=(1-\delta)h(p)$ exactly when the larger eigenvalue $\lambda=(1+\sqrt{1-4p(1-p)(1-r^2)})/2$ equals $1-q_\delta$, that is when $r^2=a_\chi$. For the readable case, Proposition~\ref{prop:acc} gives $I_{\mathrm{acc}}\ge(1-\delta)h(p)$ exactly when $h(P_e(r))\le\delta h(p)$, that is when $P_e(r)\le e_\delta$, which rearranges to $4p(1-p)r^2\le4e_\delta(1-e_\delta)$. Since $e_\delta\le\min(p,1-p)$, $a_{\mathrm{op}}\le1$.
+\end{proof}
+
+\begin{table}[ht]
+\centering
+\small
+\begin{tabular}{cccc|cc|cc}
+\toprule
+$p$ & $c$ & $n$ & $\delta$ & $m_\chi$ & $m_{\mathrm{op}}$ & Holevo records & certified readable\\
+\midrule
+0.5 & 0.80 & 60 & 0.10 & 5 & 7 & 12 & 8\\
+0.2 & 0.80 & 60 & 0.10 & 5 & 7 & 12 & 8\\
+0.5 & 0.95 & 100 & 0.05 & 27 & 38 & 3 & 2\\
+\bottomrule
+\end{tabular}
+\caption{Fragment lengths and the number of disjoint equal-length records in $n$ memories. The binary pure-state optimum in Proposition~\ref{prop:acc} makes every listed $m_{\mathrm{op}}$ minimal over all POVMs. At $p=0.2$, $I_{\mathrm{acc}}$ is $.439321$ for $m=6$ and $.458263$ for $m=7$, across the threshold $.450362$.}
+\label{tab:lengths}
+\end{table}
+
+When fragments are unequal, the counts depend on the chosen partition. With equal overlaps, $m_\chi$ gives the largest Holevo count. $m_{\mathrm{op}}$ gives the largest readable count for the same pure binary ensemble at every prior.
+
+\subsection{The preparation resource for a record}
+
+\begin{proposition}[Purity-deficit budget]
+\label{prop:purity}
+Replace the memories by systems of dimension $d_k$ in product states $\bigotimes_k\sigma_k$, and let the collisions be pointer-controlled unitaries $P_0\otimes\mathbf 1+P_1\otimes W_k$. Then for every fragment
+\[
+\chi(X:E_F)=S\Bigl(p\bigotimes_{k\in F}\sigma_k+(1-p)\bigotimes_{k\in F}W_k\sigma_kW_k^*\Bigr)-\sum_{k\in F}S(\sigma_k)
+\le\sum_{k\in F}\bigl[\ln d_k-S(\sigma_k)\bigr],
+\]
+while each collision multiplies the off-diagonal element $(\rho_S)_{01}$ by $\operatorname{tr}(\sigma_kW_k^*)$. If $\sigma_k=\mathbf 1/2$ and $W_k=R_k$, no fragment carries any information about $X$, and the coherence of $S$ is still multiplied by $c_k$.
+\end{proposition}
+
+\begin{proof}
+The two conditional states of the fragment are unitarily related products, so both have entropy $\sum_{k\in F}S(\sigma_k)$; the average state has entropy at most $\sum_{k\in F}\ln d_k$. The block $P_0\rho_SP_1\otimes\sigma_k$ is mapped to $P_0\rho_SP_1\otimes\sigma_kW_k^*$, so tracing out the memory multiplies $(\rho_S)_{01}$ by $\operatorname{tr}(\sigma_kW_k^*)$. For $\sigma_k=\mathbf 1/2$ both conditional states equal $\mathbf 1/2$, and $\operatorname{tr}(R_k^*)/2=c_k$.
+\end{proof}
+
+The initial purity deficits bound the information that these unitary
+ports can record. They do not require every memory to be pure.
+Dephasing is not evidence of a readable record: a maximally mixed
+port can generate the same source channel as a pure port and carry
+no label information. Paper~F uses this resource budget as a
+quantitative low-record boundary condition \cite{Liu2026PaperF}.
+Preparation, correlation and renewal must then be accounted for
+separately; this entropy bound alone is not a universal work price.
+
+\subsection{Partially mixed memories: exact permission and readout}
+\label{sec:mixed}
+
+Let each fresh qubit memory start in
+$\eta_\alpha=(I+\alpha Z)/2$, $0\le\alpha\le1$, and use
+\[
+ U=P_0\otimes I+P_1\otimes X .
+\]
+The conditional states are
+$\eta_0=\eta_\alpha$ and
+$\eta_1=X\eta_\alpha X=(I-\alpha Z)/2$.
+Put $\varepsilon_\alpha=(1-\alpha)/2$.
+
+\begin{proposition}[A mixed-memory record]
+\label{prop:mixed-records}
+For one fresh memory, its exact effect permission set is
+\begin{equation}\label{eq:mixed-permission}
+ \operatorname{conv}\{(0,0),(1,1),
+       (1-\varepsilon_\alpha,\varepsilon_\alpha),
+       (\varepsilon_\alpha,1-\varepsilon_\alpha)\}.
+\end{equation}
+For $\alpha>0$ the effect span is the full pointer algebra, but the
+closest permitted $P_0$ test has distance $\varepsilon_\alpha$.
+At equal label priors,
+\begin{equation}\label{eq:mixed-information}
+ \chi(X:E)=I_{\rm acc}(X:E)
+ =\ln2-h((1+\alpha)/2)
+ =\ln2-S(\eta_\alpha).
+\end{equation}
+Measurement of $Z_E$ attains this value and has symmetric error
+$\varepsilon_\alpha$. For every $\alpha$, tracing the memory
+completely dephases the source.
+\end{proposition}
+\begin{proof}
+Only the diagonal entries $u,v\in[0,1]$ of a memory effect matter.
+The reported pair is
+$((1-\varepsilon_\alpha)u+\varepsilon_\alpha v,
+\varepsilon_\alpha u+(1-\varepsilon_\alpha)v)$.
+Diagonal effects attain every such pair, proving the parallelogram.
+For any reported pair $(a,b)$,
+$a-b=\alpha(u-v)\le\alpha$; hence
+$\max(1-a,b)\ge(1-\alpha)/2$, with equality at $u=1,v=0$.
+The conditional states commute, have entropy
+$h((1+\alpha)/2)$ and average to $I/2$.
+Their common eigenbasis measurement attains the Holevo quantity.
+Finally the source coherence multiplier is
+$\operatorname{Tr}(\eta_\alpha X)=0$.
+\end{proof}
+
+Records in partially mixed spin environments are already part of
+quantum Darwinism \cite{ZwolakRiedelZurek2016}. For $0<\alpha<1$
+this construction gives their exact effect permissions and an
+explicit readout saturating the one-port purity-deficit budget.
+At $\alpha=0$ its effects collapse to the trivial diagonal
+$(a,a)$ and it carries no record, although its source channel is
+unchanged. At $\alpha=1$ it records perfectly. Thus neither an
+effect span nor the complete source channel fixes record quality.
+
+After $m$ fresh collisions, the conditional memory states are
+$\eta_x^{\otimes m}$. Measuring every $Z_E$ reads the entire
+commuting ensemble and still saturates Holevo information.
+The reports are binary independent errors conditional on $x$.
+Majority vote has exact error
+\begin{equation}\label{eq:mixed-majority}
+ e_m=\Pr\{\operatorname{Bin}(m,\varepsilon_\alpha)>m/2\}
+       +\tfrac12\Pr\{\operatorname{Bin}(m,\varepsilon_\alpha)=m/2\}
+ \le e^{-m\alpha^2/2}.
+\end{equation}
+The bound is Hoeffding's for the sample mean of signs in $[-1,1]$.
+Fano's inequality then gives a sufficient readable-record length:
+choose $m$ so that the bound is at most $1/2$ and
+$h(e^{-m\alpha^2/2})\le\delta\ln2$.
+This constructive mixed-state extension needs no classification
+of all mixed conditional-state permission sets.
+
+\subsection{A spent port is not a fresh channel input}
+\label{sec:spent}
+
+The same controlled-$X$ unitary also makes the port distinction
+exact. Since $U^2=I$, applying it a second time to the same memory,
+without intervening measurement, export or dynamics, returns the
+complete state to its pre-collision value.
+The first collision dephases the source and writes the
+$\alpha$-dependent record; the second removes that record and
+restores the original source coherence. Two independent fresh
+collisions instead preserve complete source dephasing and leave
+two conditional memory copies. This reversal does not erase an
+external measurement record or a copy already transferred to
+another port.
+
+The one-step reduced channel cannot be applied again to the
+source while silently replacing the spent memory by $\eta_\alpha$.
+After the first collision the source and memory are correlated.
+A second actual interaction acts on that joint state, including
+its old purification. Paper~F studies repeated contact and joint
+memory updating \cite{Liu2026PaperF}; the distinction also applies
+to the retained-port acquisition used by Q-RAIF~C
+\cite{Liu2026QRAIFC}. Storage, overwrite, reset and acquisition
+are different operations even when their isolated channel labels
+are similar.
+
+\section{Public readout}
+\label{sec:public}
+
+\subsection{Agreement, correctness and common error}
+
+\begin{proposition}[Conditional independence of readers]
+\label{prop:independence}
+Let readers $j=1,\dots,J$ apply POVMs $N^{(j)}$ to disjoint fragments $F_j$. Then the joint distribution of the pointer value and the outcomes is
+\[
+\Pr(x,y_1,\dots,y_J)=p_x\prod_{j=1}^J\langle e_x^{F_j}|N^{(j)}_{y_j}|e_x^{F_j}\rangle .
+\]
+For two readers who each report a value $\hat x_j(y_j)\in\{0,1\}$ with error probabilities $\varepsilon_j(x)=\Pr(\hat x_j\ne x\mid x)$, the agreement rate $A$, the correctness rates $C_j$ and the common error rate $E=\Pr(\hat x_1=\hat x_2\ne x)$ are
+\[
+E=\sum_xp_x\varepsilon_1(x)\varepsilon_2(x),\qquad
+A=\sum_xp_x\bigl[(1-\varepsilon_1(x))(1-\varepsilon_2(x))+\varepsilon_1(x)\varepsilon_2(x)\bigr],
+\]
+and $C_1+C_2=1+A-2E$, so that $\Pr(\text{correct}\mid\text{agree})=1-E/A$.
+\end{proposition}
+
+\begin{proof}
+Tracing $S$ out of \eqref{eq:branching} gives $\rho_{E}=\sum_xp_x|e_x\rangle\langle e_x|$ with $|e_x\rangle$ a product over memories. A pointer measurement on $S$ commutes with the fragment measurements and returns $x$ with probability $p_x$, leaving the memories in $|e_x\rangle$. The product form of $|e_x\rangle$ over disjoint fragments gives the factorization. The formulas for $E$ and $A$ follow by summing over the four combinations of right and wrong reports, and the identity $C_1+C_2=1+A-2E$ holds event by event: an agreeing correct pair contributes two correct reports, an agreeing wrong pair none, and a disagreeing pair one.
+\end{proof}
+
+With equal priors, $c=0.8$ and two five-memory fragments read with their Helstrom measurements, each reader errs with probability $\varepsilon(0.8^5)=0.02761$, the readers agree with probability $A=0.94631$, and an agreeing pair is wrong with probability $E/A=8.05\times10^{-4}$. In this model agreement certifies correctness up to the product of private errors. The identity $C_1+C_2=1+A-2E$ and the separation of agreement from correctness are the subject of Foundation~II, where a contamination shared by two instruments raises the common error far above the product of private errors \cite{FoundationII}. Independent private errors already produce a nonzero common error. An excess beyond the conditional-product formula requires an additional shared influence or a failure of that record law, such as shared instrument contamination or calibration error. T-DOME~III makes this precise: under a symmetry acting on all readers at once, their relative sign is detectable from agreement and a common inversion is not, so the error that agreement can never expose is the direction shared by the readers' standards~\cite{Liu2026TDOME_III}.
+
+\subsection{Calibrated public readout with a common orientation}
+\label{sec:calibrated}
+
+Conditional independence is a property of the prepared ports and
+their actual instruments. It is not implied by agreement or
+commuting effects. The mixed-memory family gives an explicit
+calibration problem. Encode the pointer value as $z=(-1)^x$.
+Suppose all readers share an unknown fixed orientation
+$C\in\{-1,1\}$, so each reported elementary sign has conditional
+mean $C\alpha z$. The physical response $\alpha>0$ is supplied
+and stable across reference and target runs. A common inversion
+leaves every agreement rate unchanged. With equal target priors
+and no independently anchored reference, the transformations
+$(C,z)\mapsto(-C,-z)$ give the same observable target-record law,
+so the absolute orientation is unidentifiable. A known asymmetric
+source prior would be additional orientation information and a
+different calibration problem.
+
+The context must supply a preparation of the physical projection
+$P_0$ whose label is anchored independently of the unknown reader
+orientation. Its verification and preparation are resources.
+If the preparation label is itself inverted by the same unknown
+$C$, the reference cannot remove the ambiguity. Given that permission,
+prepare $z=+1$ in $n_{\rm ref}$ independent reference trials and
+measure fresh mixed ports with the same physical $C$ response used
+for target readout. Estimate $C$ by the sign of their mean, breaking a
+tie at random. Hoeffding gives
+\begin{equation}\label{eq:orientation-calibration}
+ \Pr(\widehat C\ne C)\le
+ \delta_{\rm cal}:=\min\{1,e^{-n_{\rm ref}\alpha^2/2}\}.
+\end{equation}
+A change of orientation or response between reference and target
+runs violates the premise; the bound does not detect arbitrary
+shared contamination.
+
+\begin{proposition}[Finite public correctness after calibration]
+\label{prop:calibrated-public}
+Let $J$ readers each control $m$ fresh mixed-memory ports of the
+same target pointer. They measure the memory $Z$ values, take a
+majority with independent fair tie coins, and multiply their
+decision sign by $\widehat C$. The reference trials are independent
+of the target ports. With $e_m$ from \eqref{eq:mixed-majority},
+\begin{equation}\label{eq:calibrated-public}
+ A_J:=\Pr(\text{all readers agree})=(1-e_m)^J+e_m^J,\qquad
+ \Pr(\text{all agree wrongly})\le\delta_{\rm cal}+e_m^J .
+\end{equation}
+Consequently
+\[
+ \Pr(\text{wrong}\mid\text{all agree})
+ \le\min\{1,(\delta_{\rm cal}+e_m^J)/A_J\}.
+\]
+\end{proposition}
+\begin{proof}
+Correcting by a common sign does not change agreement. Conditional
+on the pointer and the true orientation, the fresh ports give
+independent symmetric majority errors of probability $e_m$.
+On the event $\widehat C=C$, all reports are wrong with probability
+$e_m^J$; on its complement this probability is at most one.
+Reference--target independence gives the stated bounds.
+\end{proof}
+
+For $\alpha=0.6$, $m=5$, $J=2$, the exact private error is
+$e_5=0.05792$ and $A_2=0.8908694528$.
+With $n_{\rm ref}=100$ the calibration failure bound is $e^{-18}$.
+Even after calibration, the conditional common-error bound is
+about $0.003766$. Increasing the number of readers suppresses
+their independent mistakes, but a fixed shared calibration error
+does not disappear through agreement.
+
+The protocol consumes $n_{\rm ref}$ prepared-pointer references
+and fresh mixed ports, $Jm$ target ports, all corresponding readout
+bits, access to a common orientation standard, and the communication
+needed for calibration and agreement. These are prepared resources,
+not an inference of correctness from consensus. The preparation
+cost is not identified with the entropy deficit alone.
+T-DOME~III analyzes the remaining common-sign ambiguity
+\cite{Liu2026TDOME_III}; Foundation~II distinguishes a shared
+state or instrument from an independently checked source
+\cite{FoundationII}. Here the reference permission and its finite
+error are part of one explicit record protocol.
+
+\subsection{Many readers: error exponents}
+
+\begin{proposition}[Joint, pooled and majority readout]
+\label{prop:exponents}
+Let $R$ disjoint fragments each have overlap $r\in(0,1)$, and let the prior be $(p,1-p)$.
+\begin{enumerate}
+\item Any measurement on the union of the fragments errs with probability at least $P_e(r^R)=p(1-p)r^{2R}+O(r^{4R})$, and a joint measurement attains this value.
+\item Let each reader measure $\{|e_0^{F_j}\rangle\langle e_0^{F_j}|,\ \mathbf 1-|e_0^{F_j}\rangle\langle e_0^{F_j}|\}$ on its own fragment, and decide $\hat x=1$ if at least one reader obtains the second outcome. This pooled local rule errs with probability $(1-p)\,r^{2R}$.
+\item Let $p=1/2$, let each reader use its single-fragment Helstrom measurement, and let the decision be the majority of the $R$ reports, with ties broken by a fair coin. The error probability is $r^{R+o(R)}$, and no rule that uses only the $R$ reports has a better exponent.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+(1) The conditional states of the union are pure with overlap $r^R$, and the Helstrom bound is attained by the projective measurement onto the positive part of $p|e_0\rangle\langle e_0|-(1-p)|e_1\rangle\langle e_1|$ \cite{Helstrom1976}. (2) Given $x=0$, every reader obtains the first outcome with certainty. Given $x=1$, reader $j$ obtains it with probability $|\langle e_0^{F_j}|e_1^{F_j}\rangle|^2=r^2$, independently by Proposition~\ref{prop:independence}, so all $R$ readers obtain it with probability $r^{2R}$. (3) Each report is wrong with probability $\varepsilon=\varepsilon(r)$ independently. With equal priors and symmetric errors the likelihood ratio of the reports depends only on the number of reports for each value, so the majority rule is optimal among rules that use the reports. Its error is $\Pr(\mathrm{Bin}(R,\varepsilon)>R/2)$ plus half the probability of a tie, which equals $\exp[-R\,D(\tfrac12\Vert\varepsilon)+O(\ln R)]$ with $D(\tfrac12\Vert\varepsilon)=-\ln\bigl(2\sqrt{\varepsilon(1-\varepsilon)}\bigr)$ by the standard large-deviation estimate for binomial tails. Finally $4\varepsilon(1-\varepsilon)=1-(1-r^2)=r^2$.
+\end{proof}
+
+Local readers who only pool their results afterwards thus reach the joint error exponent $2|\ln r|$ per fragment, with a prefactor larger by $1/p$. At $p=1/2$ and $r=0.8$, twenty fragments give a joint error of $3.32\times10^{-5}$, a pooled one-sided error of $6.65\times10^{-5}$, and a majority error of $1.58\times10^{-3}$. Readers who are allowed to choose each measurement after learning the earlier outcomes can attain the joint Helstrom error exactly for pure conditional states \cite{BrodyMeister1996}.
+
+The pooled rule requires a matched implementation of the projector onto $|e_0^{F_j}\rangle$. Knowledge of the coupling is one way to supply it; a trusted prepared reference or a previously calibrated fixed reader is another. An incorrect coupling model generally sets up the wrong test. When that relation is unknown, calibration records can change the actual readout permission. T-DOME~I computes the value of a readout model in a specified thermodynamic task \cite{Liu2026TDOME_I}; the present exponent does not require every successful fixed reader to carry an explicit self-model.
+
+\section{Conditions and interfaces}
+\label{sec:scope}
+\subsection{Preparation and reading permissions}
+
+The carrier, pointer basis, collision order, preparation maps and
+fragment partition enter explicitly. The pure-memory model gives
+a noncommuting two-state permission lens; the mixed-memory model
+gives a commuting parallelogram and readable records without
+complete purity. Both use independent fresh ports. Retained ports
+must instead be evolved with their actual old correlations, as
+Section~\ref{sec:spent} demonstrates.
+
+Reader permissions also matter. A one-sided pure-state test
+requires access to its conditional state vector. The orientation
+protocol requires an independently anchored pointer preparation
+and the same stable response in reference and target trials.
+Neither capability follows from membership of an effect in a
+generated algebra. Arbitrary shared errors and preparation--reader
+co-inversions remain outside that calibration certificate.
+
+The global branching state remains a superposition. Born
+probabilities determine the label distribution used in the
+readout laws; no unique global outcome is selected by these
+calculations. A reader can be any physical device controlling a
+fragment. The model does not privilege a conscious observer.
+
+Einselection and Paper~B's stability analysis address how a given
+interaction chooses a pointer or protected sector
+\cite{Zurek2003,Liu2026PaperB}. Paper~B's formation constructions
+add real shared recording ports and Hamiltonian links. Locality
+and the history of those links must still explain why a particular
+fragment partition is available. Paper~F addresses updating and
+repeated contact \cite{Liu2026PaperF}; Q-RAIF~C supplies finite
+acquisition on a carrier retaining quantum history
+\cite{Liu2026QRAIFC}. These are complementary realizations, not
+permission to replace one model's initial states by another's
+without a physical bridge.
+
+\subsection{Relation to existing approaches}
+\label{sec:relations}
+
+\paragraph{Decoherence and quantum Darwinism.} Decoherence theory explains the suppression of interference through entanglement with an environment and identifies pointer observables by their stability \cite{Zurek2003}. Quantum Darwinism adds that objectivity requires redundant records in many fragments \cite{Zurek2009}, and the exact information content of branching states in spin environments has been analysed in detail \cite{ZwolakRiedelZurek2016}. The present paper uses these results and adds the typed distinctions: the permission set of a fragment, the nesting of permission, stability and redundancy in one dynamics, and the difference between Holevo and readable records.
+
+\paragraph{Spectrum broadcast structures.} The conditional product form used in Proposition~\ref{prop:independence} is one half of a spectrum broadcast structure, the class of states in which many observers can find the same value independently \cite{HorodeckiKorbiczHorodecki2015}. The other half, perfect distinguishability of the conditional fragment states, holds here only in the limit $r_F\to0$. Proposition~\ref{prop:exponents} measures how fast readers approach that limit as fragments are added.
+
+\paragraph{QBism and relational quantum mechanics.} QBism reads quantum states as an agent's degrees of belief \cite{Fuchs2014}, and relational quantum mechanics takes states to be relative to a reference system \cite{Rovelli1996}. Here accessibility is fixed by the interaction structure of a context, and a single objective global state is assumed. The emphasis on relations is shared with relational quantum mechanics; the stable records computed here are candidates for the relata that its relations require.
+
+\paragraph{Algebraic quantum field theory.} AQFT treats observable algebras as primary and states as functionals on them \cite{Haag1996}. The profile of Definition~\ref{def:accessible-full} adds typed selection data to that setting. Its entropic statements are finite-dimensional, and no Type~III version of the redundancy counts is claimed.
+
+\subsection{The actual record interface}
+\label{sec:connection}
+
+Paper~A uses these pure fragments as actual readers of its noisy GHZ
+source \cite{Liu2026PaperA}. Their visibility
+$v_i=\sqrt{1-r_i^2}$ gives the collision-derived law
+\[
+ \mathbb E(Y_iY_j)=v_iv_jc_{ij},\qquad
+ c_{ij}=(1-2p_i)(1-2p_j).
+\]
+The source sites are correlated; no independence of their answers is
+assumed. Calibrated finite samples then certify non-isometric
+shortest-path metrics for two equal-flip-budget noise allocations.
+This supplies the physical interface a dictionary statement alone lacks.
+
+Paper~B's block-constant recorder depends only on sector weights,
+under its specified commuting noise and recording permissions
+\cite{Liu2026PaperB}. Its protected content, fixed algebra and finite
+channel range differ from this fragment-effect set. The mixed-memory
+family sharpens the distinction: one unchanged dephasing channel has
+permissions ranging from trivial to perfect. Paper~D and Q-RAIF~C add
+record-controlled physical sources and retained-port acquisition
+\cite{Liu2026PaperD,Liu2026QRAIFC}; they grant neither free sharp
+effects nor fresh inputs in place of spent ports.
+
+The measured record law is also the output consumed by Paper~F and
+T-DOME~I's joint memory accounts and Foundation~II's distinction between
+agreement and correctness \cite{Liu2026PaperF,Liu2026TDOME_I,FoundationII}.
+Its entropy, preparation cost and action value retain their different
+resource conditions. Shared geometry further requires source preparation,
+site labels, calibrated readers and a reconstruction rule; the finite
+orientation certificate here supplies one of those permissions.
+
+\section{Conclusion}
+\label{sec:conclusion}
+
+Measurement permissions, stable content and public records are
+different physical data. In the fresh pure-memory model, the
+permission lens gives the sharp-test error, while the fixed
+pointer algebra gives persistence and fragment discrimination
+gives readable redundancy. Holevo and single-measurement
+thresholds differ. Pooled local tests attain the joint
+pure-state error exponent when their readers know the
+conditional fragment state.
+
+The mixed-memory construction shows why preparation must be
+accounted for without demanding purity. Its actual readout
+saturates a purity-deficit budget, its exact permissions form
+a parallelogram, and its source channel remains complete
+dephasing even when no record is produced. Reusing the same
+port reverses its record rather than supplying another
+independent sample.
+
+Public correctness additionally needs a physical standard.
+Conditional independence suppresses private common errors,
+but agreement cannot discover a shared orientation inversion.
+Prepared-pointer references calibrate that inversion with a
+finite failure probability; this probability remains in the
+public error bound and its resources remain in the protocol.
+Together with Paper~A's actual record-to-geometry construction,
+these results identify a finite operational route from
+interaction to readable shared structure. They leave outcome
+selection, elementary factorization and general spacetime
+reconstruction as independent explanatory questions.
+
+\begin{thebibliography}{99}
+\small
+
+\bibitem{Liu2026PaperA}
+S.~Liu, \emph{Physical Access and Correlation Geometry: The Holographic Alaya--Field Framework}, 2026; series record DOI: 10.5281/zenodo.18361706.
+
+\bibitem{Liu2026PaperB}
+S.~Liu, \emph{Coupling, Records, and Stable Relations: Formation, Protected Content and the Lifetime of a Geometry}, 2026; series record DOI: 10.5281/zenodo.18367060.
+
+\bibitem{Liu2026PaperD}
+S.~Liu, \emph{Selection, Maintenance and Gravitational Response: Modular Constraints and a Physical Return}, 2026; series record DOI: 10.5281/zenodo.18388881.
+
+\bibitem{Liu2026QRAIFC}
+S.~Liu, \emph{Retained Quantum History, Physical Sources and Receiver Renewal in Q-RAIF}, 2026.
+
+\bibitem{Liu2026PaperF}
+S.~Liu, \emph{Records, Dissipation and Intervention: Conditions for a Temporal Direction}, revised version of \emph{Accessibility Propagation and Temporal Direction}, Zenodo (2026), DOI: 10.5281/zenodo.18400425.
+
+\bibitem{Liu2026TDOME_I}
+S.~Liu, \emph{Memory as a Usable Resource: Correlations, Records and Complete Endpoint Accounting}, revised version of \emph{Non-Markovian Memory and Temporal Accumulation}, Zenodo (2026), DOI: 10.5281/zenodo.18574342.
+
+\bibitem{FoundationII}
+S.~Liu, \emph{Foundation II: Shared Manifestation. Shared Structure, Public Calibration and Different Histories}, 2026; series record DOI: 10.5281/zenodo.19641372.
+
+\bibitem{Haag1996}
+R. Haag, \emph{Local Quantum Physics: Fields, Particles, Algebras}, Springer-Verlag (1996).
+
+\bibitem{Araki1999}
+H. Araki, \emph{Mathematical Theory of Quantum Fields}, Oxford University Press (1999).
+
+\bibitem{Zurek2003}
+W. H. Zurek, \emph{Decoherence, einselection, and the quantum origins of the classical}, Rev. Mod. Phys. \textbf{75}, 715 (2003).
+
+\bibitem{Zurek2009}
+W. H. Zurek, \emph{Quantum Darwinism}, Nature Physics \textbf{5}, 181 (2009).
+
+\bibitem{ZwolakRiedelZurek2016}
+M. Zwolak, C. J. Riedel, and W. H. Zurek, \emph{Amplification, decoherence, and the acquisition of information by spin environments}, Sci. Rep. \textbf{6}, 25277 (2016).
+
+\bibitem{HorodeckiKorbiczHorodecki2015}
+R. Horodecki, J. K. Korbicz, and P. Horodecki, \emph{Quantum origins of objectivity}, Phys. Rev. A \textbf{91}, 032122 (2015).
+
+\bibitem{Holevo1973}
+A. S. Holevo, \emph{Bounds for the quantity of information transmitted by a quantum communication channel}, Probl. Inf. Transm. \textbf{9}, 177 (1973).
+
+\bibitem{Helstrom1976}
+C. W. Helstrom, \emph{Quantum Detection and Estimation Theory}, Academic Press (1976).
+
+\bibitem{Fuchs1996}
+C.~A.~Fuchs, \emph{Distinguishability and Accessible Information in
+Quantum Theory}, doctoral dissertation (1996),
+\href{https://arxiv.org/abs/quant-ph/9601020}{arXiv:quant-ph/9601020},
+Section~3.5.4.
+
+\bibitem{BrodyMeister1996}
+D. Brody and B. Meister, \emph{Minimum decision cost for quantum ensembles}, Phys. Rev. Lett. \textbf{76}, 1 (1996).
+
+\bibitem{Fuchs2014}
+C. A. Fuchs, N. D. Mermin, and R. Schack, \emph{An Introduction to QBism with an Application to the Locality of Quantum Mechanics}, Am. J. Phys. \textbf{82}, 749 (2014).
+
+\bibitem{Rovelli1996}
+C. Rovelli, \emph{Relational Quantum Mechanics}, Int. J. Theor. Phys. \textbf{35}, 1637 (1996).
+
+\bibitem{Zanardi2001}
+P. Zanardi, \emph{Virtual Quantum Subsystems}, Phys. Rev. Lett. \textbf{87}, 077901 (2001).
+
+\bibitem{Liu2026TDOME_III}
+S.~Liu, \emph{Keeping a Self-Model Calibrated: Drift Detection, the Price of Keeping Up, and Reliability in a Closed Loop} (T-DOME~III), 2026; July 2026 record DOI: 10.5281/zenodo.18591771.
+
+\bibitem{Zanardi2004}
+P. Zanardi, D. A. Lidar, and S. Lloyd, \emph{Quantum Tensor Product Structures are Observable Induced}, Phys. Rev. Lett. \textbf{92}, 060402 (2004).
+
+\end{thebibliography}
+
+\end{document}
+

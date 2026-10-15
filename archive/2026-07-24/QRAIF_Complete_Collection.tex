@@ -1,0 +1,1055 @@
+% ============================================================================
+% Quantum Reference Algebra\\for Information Flow
+% Complete Collected Volume
+% ============================================================================
+
+\documentclass[12pt,a4paper,openany]{book}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amssymb,amsfonts,amsthm}
+\usepackage{mathtools}
+\usepackage{mathrsfs}
+\usepackage{physics}
+\usepackage{graphicx}
+\usepackage[hidelinks]{hyperref}
+\usepackage{tikz}
+\usetikzlibrary{shapes,arrows,positioning,calc,decorations.pathmorphing}
+\usepackage{geometry}
+\usepackage{fancyhdr}
+\usepackage{titlesec}
+\usepackage{array}
+\newcolumntype{P}[1]{>{\raggedright\arraybackslash}p{#1}}
+\usepackage{booktabs}
+\usepackage{tcolorbox}
+\usepackage{xcolor}
+\usepackage{caption}
+\usepackage{float}
+\usepackage{enumitem}
+\usepackage{newunicodechar}
+\newunicodechar{आ}{\textit{aa}}
+\newunicodechar{ल}{\textit{la}}
+\newunicodechar{य}{\textit{ya}}
+\newunicodechar{व}{\textit{va}}
+\newunicodechar{ि}{\textit{i}}
+\newunicodechar{ज}{\textit{ja}}
+\newunicodechar{ञ}{\textit{~na}}
+\newunicodechar{न}{\textit{na}}
+\newunicodechar{श}{\textit{sha}}
+\newunicodechar{ू}{\textit{uu}}
+\newunicodechar{ण}{\textit{.na}}
+\newunicodechar{त}{\textit{ta}}
+\newunicodechar{ा}{\textit{aa}}
+\newunicodechar{स}{\textit{sa}}
+\newunicodechar{भ}{\textit{bha}}
+\newunicodechar{ृ}{\textit{.r}}
+\newunicodechar{ह}{\textit{ha}}
+\newunicodechar{्}{}
+\newunicodechar{§}{\S{}}
+\newunicodechar{É}{\'{E}}
+\newunicodechar{ñ}{\~{n}}
+\newunicodechar{Ā}{\={A}}
+\newunicodechar{ā}{\={a}}
+\newunicodechar{ś}{\'{s}}
+\newunicodechar{ū}{\={u}}
+\newunicodechar{ṃ}{\d{m}}
+\newunicodechar{ṅ}{\.{n}}
+\newunicodechar{ṇ}{\d{n}}
+\newunicodechar{—}{---}
+
+
+\geometry{a4paper, margin=1in, headheight=28pt}
+
+\newtheorem{theorem}{Theorem}[chapter]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{constraint}[theorem]{Constraint}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{assumption}[theorem]{Assumption}
+\newtheorem{criterion}[theorem]{Criterion}
+
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[LE,RO]{\thepage}
+\fancyhead[RE]{\textit{Quantum Reference Algebra for Information Flow}}
+\fancyhead[LO]{\textit{\leftmark}}
+\renewcommand{\headrulewidth}{0.4pt}
+
+\title{
+  \vspace{-2cm}
+  {\Huge\textbf{Quantum Reference Algebra\\for Information Flow}}\\[1cm]
+  {\Large\textit{Algebraic Models for Emergent Geometry,\\ Thermodynamic Persistence, and Realizability}}\\[2cm]
+  {\large Complete Collected Volume}\\[0.5cm]
+  {\normalsize Papers A, B, and C}
+}
+
+\author{
+  \textbf{Sidong Liu, PhD}\\[0.5em]
+  iBioStratix Ltd\\[0.3em]
+  \texttt{sidongliu@hotmail.com}
+}
+
+\date{July 2026}
+
+\begin{document}
+\emergencystretch=2em
+\raggedbottom
+\hbadness=10000
+\vbadness=10000
+
+\frontmatter
+\maketitle
+
+\newpage
+\thispagestyle{empty}
+\vspace*{\fill}
+\begin{center}
+\textbf{Publication Record}\\[2em]
+\begin{tabular}{ll}
+Paper A & DOI: 10.5281/zenodo.18525876 \\
+Paper B & DOI: 10.5281/zenodo.18525890 \\
+Paper C & DOI: 10.5281/zenodo.18528934 \\
+\end{tabular}
+\\[3em]
+\textit{This collected volume compiles previously published works\\
+for archival and reference purposes.}
+\\[2em]
+\copyright{} 2026 Sidong Liu. All rights reserved.
+\end{center}
+\vspace*{\fill}
+
+\chapter*{Abstract}
+\addcontentsline{toc}{chapter}{Abstract}
+
+This volume develops a set of conditional algebraic models for relating emergent Lorentzian read-out, subsystem control, and image-level compatibility.
+
+The three papers no longer assert a completed necessity chain.  Paper A adopts Clifford encoding as a modelling choice once quadratic and generator data are supplied.  Paper B treats Clifford control algebra as one compact parameterization for selected channel-discrimination models, not as a unique requirement for persistence.  Paper C proves an image-level algebraic statement once a representation map is supplied; physical realizability remains an open interface.
+
+Together, the papers define a compatibility programme between world, control, and interface algebras without claiming Clifford uniqueness or algebraic natural selection as a theorem.
+
+\bigskip
+\noindent\textbf{Keywords}: emergent geometry, Clifford algebra, entropic gravity, holographic principle, operator algebra, open quantum systems, Lyapunov stability, realizability
+
+\tableofcontents
+
+\mainmatter
+
+% ============================================================================
+% Paper A --- ``The Water''
+% ============================================================================
+\chapter{A Clifford-Encoding Model for Lorentzian Metrics in Entropic Gravity Frameworks}
+\label{chap:paperA}
+
+\begin{center}
+\textit{Paper A --- ``The Water''}\\[0.5em]
+Originally published: Zenodo, DOI: 10.5281/zenodo.18525876
+\end{center}
+
+\bigskip
+
+\section*{Abstract}
+We investigate a modelling route by which an emergent bulk description may be equipped with a Lorentzian signature within the framework of entropic gravity.
+While thermodynamic approaches to gravity~\cite{Jacobson1995,Verlinde2011} and the Ryu--Takayanagi formula~\cite{RyuTakayanagi2006} relate entanglement entropy to geometric data, the specific algebraic mechanism constraining the spacetime signature remains an open question.
+
+Given a supplied quadratic space $(V,q)$ and Clifford generator relations, we adopt the \textbf{Clifford algebra} $Cl(V,q)$ as the universal minimal algebra for that presentation.  Associativity, metric compatibility, and causal-channel encoding are used as compatibility criteria for this modelling choice; they do not independently derive the Clifford relations or select a unique boundary algebra.
+We compare alternative algebraic frameworks (von Neumann factors, $C^*$-algebras, Jordan algebras, Lie algebras) by recording whether they encode the supplied form internally or require additional representation data.  The comparison is not a general exclusion theorem for those frameworks.
+A worked example using a qubit tensor network illustrates how the three constraints operate in a concrete setting.
+
+The analysis complements the conditional algebra-and-reconstruction setting of the Holographic Alaya-Field Framework (HAFF)~\cite{Liu2026PaperA,Liu2026PaperB}.  It studies one compatible Lorentzian encoding after the algebraic and reconstruction data are supplied; it does not characterize constraints that every emergent geometry must satisfy.
+
+\medskip
+\noindent\textbf{Keywords}: emergent geometry, Clifford algebra, entropic gravity, holographic principle, Lorentzian encoding, algebraic quantum gravity
+
+
+% ============================================================
+\section{Introduction}
+\label{A-sec:intro}
+
+\subsection{Context and Motivation}
+
+The AdS/CFT correspondence~\cite{Maldacena1999} and the Ryu--Takayanagi formula~\cite{RyuTakayanagi2006} have established that spacetime geometry can be viewed as an emergent property of quantum entanglement.
+Thermodynamic approaches~\cite{Jacobson1995,Verlinde2011} further suggest that the Einstein equations arise as an equation of state.
+Yet a critical question remains: \textit{What algebraic constraints ensure that the emergent geometry is Lorentzian?}
+
+Most models assume the $(1,3)$ signature \textit{a priori}.
+We argue that this assumption can be partially justified by examining the algebraic consistency conditions on the boundary degrees of freedom.
+
+\subsection{Relation to HAFF}
+
+The Holographic Alaya-Field Framework~\cite{Liu2026PaperA,Liu2026PaperB} studies how selected observable-algebra and reconstruction data can produce coarse-graining-dependent effective geometry.
+The present work asks how a Lorentzian quadratic form could be encoded algebraically once such a read-out and its signature are supplied.
+
+\begin{center}
+\begin{tabular}{ll}
+\textbf{HAFF} & Geometry is coarse-graining-dependent (the ``ocean'') \\
+\textbf{This paper} & A Lorentzian Clifford encoding is modelled (the ``water'')
+\end{tabular}
+\end{center}
+
+\subsection{Scope and Disclaimers}
+
+This work does not propose a new fundamental theory of gravity and does not derive $Cl(1,3)$ from first principles.  It compares algebraic frameworks after a Lorentzian quadratic form is supplied and records why Clifford algebra is a compact universal encoding of the imposed generator relations.  It is a model-choice analysis, not a selection or uniqueness proof.
+
+The specific value $(1,3)$ for the signature requires additional input beyond the algebraic constraints developed here (e.g., observational dimensionality or anomaly cancellation arguments).
+We do not address why spacetime has $3+1$ dimensions.
+
+\paragraph{Result-status ledger.}
+Associativity of operator composition is a general operator-algebra observation.  The information-geometric discussion below is a heuristic bridge from a positive control metric to bulk reconstruction.  Lorentzian signature and Clifford encoding are separate interface/model inputs.  The former ``Clifford Compatibility Theorem'' is retracted as a selection theorem: once the Clifford relation is imposed, the universal-property conclusion is definitional.
+
+% ============================================================
+\section{Candidate Algebraic Structures}
+\label{A-sec:candidates}
+
+Before deriving constraints, we survey the landscape of algebraic structures that could, in principle, describe boundary degrees of freedom in a holographic setting.
+This survey serves as the basis for the exclusion argument in Section~\ref{A-sec:exclusion}.
+
+\begin{definition}[Boundary Algebra]
+Let $\mathcal{A}_\partial$ be the algebra of observables on a holographic boundary.
+We require: (a)~$\mathcal{A}_\partial$ acts faithfully on $\mathcal{H}_\partial$; and (b)~a declared coarse-graining/reconstruction map associates it with an effective bulk description.  Entropic data are regime-dependent.  Finite-dimensional or tracial models may use a normalized trace and density matrices.  A Type~III boundary factor has no faithful normal trace; there one must instead specify faithful normal states, relative entropy, and modular data.  No trace requirement is imposed across both regimes.
+\end{definition}
+
+The following algebraic families are candidates:
+
+\begin{enumerate}
+\item \textbf{von Neumann algebras} (Type I, II, III): Associative, closed under adjoint, weakly closed. Standard in algebraic QFT~\cite{Haag1996}. Type~III$_1$ factors are generic in relativistic QFT.
+\item \textbf{$C^*$-algebras}: Associative Banach algebras with involution. More general than von Neumann algebras. Standard framework for quantum observables.
+\item \textbf{Lie algebras}: Antisymmetric bracket $[A,B] = -[B,A]$, satisfying the Jacobi identity. Encode infinitesimal symmetries. The universal enveloping algebra is associative.
+\item \textbf{Jordan algebras}: Commutative but generally non-associative: $A \circ B = B \circ A$, satisfying the Jordan identity. Proposed for quantum mechanics by Jordan, von Neumann, and Wigner (1934).
+\item \textbf{Octonion algebras}: Non-associative division algebra. Explored in the context of exceptional structures in string theory~\cite{Gunaydin1973}.
+\item \textbf{Clifford algebras} $Cl(V,q)$: Associative, generated by a vector space $V$ with quadratic form $q$, subject to $v^2 = q(v)\mathbf{1}$. Encode both metric and algebraic structure~\cite{Hestenes1966,Doran2003}.
+\end{enumerate}
+
+% ============================================================
+\section{Three Algebraic Constraints}
+\label{A-sec:constraints}
+
+We now organize three physically motivated requirements and compare how candidate algebras represent them.  Only the first is a declared operator-composition boundary; the second is a holographic interface heuristic, and the third is an explicit Lorentzian/Clifford model input.
+
+\subsection{Constraint I: Associativity}
+
+\begin{remark}[Associativity as a structural boundary]
+\label{A-rem:assoc-boundary}
+This paper represents sequential operations by linear maps with ordinary composition, which is associative by definition.  A semigroup of evolution maps consequently obeys
+$(U(t_1)U(t_2))U(t_3)=U(t_1)(U(t_2)U(t_3))$.
+That identity constrains the chosen evolution representation; it does not prove that every possible ambient non-associative product is inconsistent.  Non-associative models require extra bracketing and composition data and lie outside the operator-algebra regime declared here~\cite{Schafer1966,Gunaydin1973}.
+\end{remark}
+
+\begin{remark}[Physical pathologies of non-associative dynamics]
+\label{A-rem:nonassoc}
+Non-associative models do not inherit the ordinary bracketing-independent calculus of sequential linear maps.  Octonionic and Jordan formulations can be studied with additional axioms, but standard tensor products, subsystem composition, and quantum-error-correction constructions are then not automatic~\cite{Gunaydin1973,AlfsenShultz2003}.  This observation explains the present scope restriction; it is not a no-go theorem for every non-associative physical theory.
+\end{remark}
+
+\textbf{Scope consequence}: Jordan and octonion algebras are not candidates within the declared associative operator-composition class unless an associative representation and the required composition data are supplied separately.
+
+\subsection{Constraint II: Metric Compatibility}
+\label{A-sec:constraint2}
+
+\begin{remark}[Information-metric bridge (heuristic)]
+\label{A-rem:metric-bridge}
+Some holographic reconstruction and error-correction models equip a state or code manifold with a positive distinguishability metric.  If one additionally chooses a gradient correction protocol, its local parameter dynamics may take the form
+\begin{equation}
+\dot{\lambda} = -\Gamma\, G^{-1} \nabla_\lambda V,
+\end{equation}
+where $G$ is a supplied positive, non-degenerate metric on the relevant parameter directions.  Neither quantum error correction in general nor the abstract boundary algebra forces this particular protocol.
+
+The metric $G$ is information-geometric or control-theoretic, not the emergent spacetime metric $g_{\mu\nu}$.  In specified holographic dictionaries, relative entropy, modular Hamiltonians, and entanglement first laws constrain linearized bulk reconstruction~\cite{Petz1996,Faulkner2014,Lashkari2014}; those results do not turn a positive information metric into a Lorentzian form or supply a canonical bilinear form for every von Neumann algebra.  The present link is therefore an interface heuristic, not a theorem or an exclusion criterion.
+\end{remark}
+
+\textbf{Comparison}: Lie, $C^*$, and von Neumann algebras can all be paired with model-dependent positive forms or information metrics.  The absence of a unique form intrinsic to the bare algebra does not exclude them; it identifies additional representation data that the model must state.
+
+\begin{remark}[Quantitative cost of external metrics]
+\label{A-rem:metric-cost}
+For an algebra generated by $n$ directions, a generic symmetric bilinear form has $n(n+1)/2$ components in a supplied basis.  Writing the same form in Clifford relations does not erase that information: the anticommutators contain the same matrix $q_{ij}$, and diagonalization also requires the frame transformation.  A fixed canonical signature can reduce recurring description cost only after that frame and form have been selected.
+
+Accordingly, no basis-independent $O(1)$ versus $O(n^2)$ advantage is proved here, and no thermodynamic necessity follows from T-DOME.  At most, a pre-agreed Clifford presentation can package a selected metric together with the multiplication rules used by a particular protocol.
+\end{remark}
+
+\subsection{Constraint III: Causal Channel Encoding}
+
+\paragraph{Lorentzian read-out requirement (interface input).}
+If a reconstruction is required to yield a Lorentzian causal cone, then its spacetime tangent data must carry an indefinite quadratic form of signature $(p,q)$ with $p,q\geq1$.  This statement is a requirement on the intended read-out, not a derivation from the positive information metric in Constraint~II.  Bures and Fisher--Rao metrics remain positive definite because they control distinguishability or descent on state space; they are not candidate spacetime metrics.
+
+Encoding the supplied Lorentzian form by generators satisfying
+\begin{equation}
+\{e_\mu,e_\nu\}=2q_{\mu\nu}\mathbf 1
+\end{equation}
+is the Clifford model choice.  Once this relation is imposed, both the quadratic form and its signature are already present in the premise.  Microcausality of region algebras does not by itself derive these generator relations, and algebraic commutation should not be identified with the sign of a tangent vector.  The value $(1,3)$ additionally requires dimensional and signature input not supplied here.
+
+% ============================================================
+\subsection{Comparison of Alternative Algebraic Encodings}
+\label{A-sec:exclusion}
+
+We now systematically evaluate each candidate from Section~\ref{A-sec:candidates}:
+
+\begin{table}[h]
+\centering
+\scriptsize
+\begin{tabular}{@{}P{0.22\linewidth}P{0.12\linewidth}P{0.13\linewidth}P{0.13\linewidth}P{0.27\linewidth}@{}}
+\toprule
+\textbf{Algebra} & \textbf{I: Assoc.} & \textbf{II: Metric} & \textbf{III: Indef.} & \textbf{Status} \\
+\midrule
+von Neumann (Type III$_1$) & \checkmark & external & external & Compatible, not canonical \\
+$C^*$-algebra (general) & \checkmark & external & external & Compatible, not canonical \\
+Lie algebra & via $U(\mathfrak g)$ & optional & optional & Needs representation data \\
+Jordan algebra & non-assoc. & optional & optional & Outside operator-composition setup \\
+Octonion algebra & non-assoc. & built-in & optional & Outside operator-composition setup \\
+\textbf{Clifford} $Cl(V,q)$ & \checkmark & built-in & chosen in $q$ & \textbf{Minimal encoding choice} \\
+\bottomrule
+\end{tabular}
+\caption{Comparison of candidate encodings.  Type~III and general $C^*$ algebras are not inconsistent with Lorentzian read-out; they simply do not select a preferred quadratic form without additional representation data.}
+\label{A-tab:exclusion}
+\end{table}
+
+Clifford algebras are distinguished by having the chosen quadratic form $q$ built into the defining relation $v^2=q(v)\mathbf1$.  Other associative algebras can contain Clifford representations or be equipped with metric data, but do not select a canonical one in general.  The table therefore identifies a compact encoding choice, not an exclusion or necessity theorem.
+
+% ============================================================
+\subsection{Worked Example: Qubit Tensor Network}
+\label{A-sec:toymodel}
+
+To illustrate how the three constraints operate concretely, consider a tensor network model of holographic bulk reconstruction.
+
+\paragraph{Setup.}
+Take $N$ qubits arranged on a MERA (multiscale entanglement renormalization ansatz) tensor network~\cite{Swingle2012,Vidal2008}.
+The boundary algebra is generated by tensor products of Pauli operators $\{\sigma_x, \sigma_y, \sigma_z\}$ acting on individual qubits.
+
+\paragraph{Constraint I.}
+The Pauli algebra is associative (it consists of $2 \times 2$ matrices).
+If we were to replace the Pauli operators with elements of an octonion algebra (which is non-associative), the isometry conditions defining the MERA network---specifically, $V^\dagger V = \mathbf{1}$, which requires associative composition---would fail.
+
+\paragraph{Constraint II.}
+The Pauli operators satisfy $\{\sigma_i, \sigma_j\} = 2\delta_{ij}\mathbf{1}$, which defines a \emph{positive-definite} quadratic form.
+This is the Clifford algebra $Cl(3,0)$ (since $\sigma_i^2 = +\mathbf{1}$, the quadratic form is positive-definite).
+Note that $Cl(3,0) \cong M_2(\mathbb{C})$ while $Cl(0,3) \cong \mathbb{H} \oplus \mathbb{H}$ as real algebras; these are \emph{not} isomorphic.
+The quadratic form is built into the anticommutation relation.
+
+\paragraph{Constraint III.}
+The Pauli algebra alone encodes a Euclidean signature $(3,0)$.
+There is no operator on $\mathbb C^2$ that anticommutes with all three Pauli matrices, and a generic modular Hamiltonian $K$ satisfies neither $K^2=\mathbf1$ nor $\{K,\sigma_i\}=0$.  The former two-dimensional construction with $iK$ is therefore withdrawn.
+
+A genuine chosen complex representation acts on $\mathbb C^2\otimes\mathbb C^2$.  With
+\begin{equation}
+\gamma_0=\sigma_z\otimes\mathbf1,\qquad
+\gamma_j=i\sigma_y\otimes\sigma_j\quad(j=1,2,3),
+\end{equation}
+one checks $\gamma_0^2=+\mathbf1$, $\gamma_j^2=-\mathbf1$, and $\{\gamma_\mu,\gamma_\nu\}=0$ for $\mu\ne\nu$.  With the convention that $Cl(p,q)$ has $p$ positive and $q$ negative generators, this realizes the imposed $Cl(1,3)$ relations.  It is a model check, not a derivation of the time-like generator from modular data.
+
+\paragraph{Lesson.}
+The example shows that a larger matrix representation can implement a chosen Lorentzian Clifford encoding.  It does not show that MERA dynamics or modular flow selects that encoding.
+
+% ============================================================
+\subsection{The Clifford Universal-Property Observation}
+
+The former Clifford Compatibility Theorem is retracted as a selection theorem.  If a vector space $(V,q)$ and maps of generators satisfying $v^2=q(v)\mathbf1$ are already posited, then the universal property of $Cl(V,q)$ supplies the corresponding factorization through the Clifford algebra \cite{Hestenes1966,Doran2003}.  This is the defining universal property, not an independent physical derivation of the generator relations, the signature, or the preference for a minimal realization.
+
+\begin{remark}[Scope of the model choice]
+\label{A-rem:scope}
+Clifford algebra is a natural minimal framework once Clifford generator relations and a quadratic form are chosen.  Larger structures and Type~III representations remain compatible.  The physical problem is to derive or select the generator map upstream; this paper does not solve it.
+
+The ingredients have distinct status:
+Remark~\ref{A-rem:assoc-boundary} (associativity as a declared operator-composition boundary),
+Remark~\ref{A-rem:metric-bridge} (a heuristic information-metric interface in specified holographic models),
+and the independent Lorentzian/Clifford interface choice above.  The positive information metric in the second item does not produce the indefinite form in the third.
+\end{remark}
+
+% ============================================================
+\section{Entropic Gravity from Algebraic Structure}
+\label{A-sec:entropic}
+
+\subsection{Holographic Screen and Einstein Equations}
+
+Following Jacobson~\cite{Jacobson1995}, a local horizon thermodynamic argument recovers the Einstein equation under specific equilibrium, entropy-area, and local Lorentz assumptions.  Choosing a $Cl(1,3)$ representation supplies an algebraic representation of $\mathrm{Spin}(1,3)$; it does not derive those thermodynamic or reconstruction assumptions.
+
+\subsection{Relation to HAFF Emergence Chain}
+
+Within HAFF, geometry emerges via:
+\[
+\text{Observable Algebra} \to \text{Representation} \to \text{Entanglement} \to \text{Connectivity} \to \text{Geometry}
+\]
+The present work describes one model for the final arrow: when a geometrically admissible coarse-graining~\cite{Liu2026PaperA} is separately required to produce a Lorentzian read-out, a Clifford representation can encode its tangent quadratic form.
+
+\subsection{Relation to Algebraic QFT}
+\label{A-sec:aqft}
+
+In algebraic quantum field theory (AQFT)~\cite{Haag1996}, local observable algebras associated with spacetime regions are generically Type~III$_1$ von Neumann factors.
+These algebras are associative and support rich mathematical structure, but they do not carry a canonical metric of indefinite signature.
+
+The connection to Lorentzian structure emerges through the Tomita--Takesaki theorem: for any cyclic and separating state, the modular operator $\Delta$ generates a one-parameter group (modular flow) that, in the Bisognano--Wichmann theorem, coincides with the boost generator in Rindler spacetime.
+In special settings such as wedges, modular flow has a geometric boost interpretation.  Generic modular flow does not by itself supply a normalized Clifford generator or a complete Lorentzian tangent frame.
+
+In the HAFF framework, the accessible algebra $\mathcal{A}_{\mathbf{c}}$ can be understood as a stable subalgebra of a Type~III$_1$ factor.
+The present analysis uses a $Cl(1,3)$ representation as a possible encoding when a Lorentzian bulk description and a suitable generator map are independently available.  Deriving that map from modular flow and locality remains open.
+
+This perspective connects the present work to Witten's observation~\cite{Witten2018} that Type~III$_1$ algebras are essential in gravitational settings, and to Connes' spectral-triple programme~\cite{Connes1994}, where Dirac/Clifford data encode Riemannian geometry.  Extending spectral triples to Lorentzian signature is itself a nontrivial open structural problem; representative approaches include Barrett and Lorentzian/Krein spectral triples \cite{Barrett2007,PaschkeSitarz2006,VandenDungen2016}.  The present model choice does not resolve those difficulties.
+
+% ============================================================
+\section{Discussion}
+\label{A-sec:discussion}
+
+\subsection{What This Result Does and Does Not Show}
+
+\textbf{Does show:}
+Given a chosen quadratic space and Clifford generator relations, $Cl(V,q)$ is the universal minimal algebra for that presentation.
+Table~\ref{A-tab:exclusion} compares which candidate frameworks encode the chosen form internally and which require external representation data.
+Section~\ref{A-sec:toymodel} gives an explicit $4\times4$ Lorentzian Clifford representation.
+
+\textbf{Does not show:}
+That the Clifford relations or Lorentzian signature follow from the positive information metric.
+Why $3+1$ dimensions rather than some other $(p,q)$---the argument constrains to $Cl(p,q)$ for any $p \geq 1$; the value $(1,3)$ requires additional input.
+That gravity \emph{is} entropic---we derive consistency conditions within the entropic gravity framework.
+That $Cl(1,3)$ is the \emph{unique} boundary algebra---larger algebras containing $Cl(1,3)$ as a subalgebra are also compatible.
+A complete theory of quantum gravity.
+
+\subsection{Convergence with Paper B}
+
+The companion paper~\cite{Liu2026QRAIF_B} also uses $Cl(V,q)$, but its revised stability analysis does not derive an indefinite Clifford form.  Both papers now treat Clifford structure as a modelling input for different read-out roles.
+
+\begin{center}
+\begin{tabular}{@{}lll@{}}
+\toprule
+& \textbf{Paper A (this work)} & \textbf{Paper B} \\
+\midrule
+Question & What algebra does geometry need? & What algebra does persistence need? \\
+Method & Lorentzian encoding choice & Positive-metric stability analysis \\
+Perspective & The world (``ocean'') & The subsystem (``fish'') \\
+Result & $Cl(1,3)$ model representation & $Cl(V,q)$ model parameterization \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+Because both routes posit rather than independently derive Clifford relations, there is no independent convergence result.  The shared choice is a programme-level comparison whose physical selection remains an open problem.
+
+\subsection{Open Problems}
+
+\begin{enumerate}
+\item \textbf{Dimensionality}: What additional constraints (anomaly cancellation, stability of persistent subsystems, observational input) fix $(p,q) = (1,3)$?
+\item \textbf{Constructive derivation}: Can Clifford generators be explicitly constructed from modular Hamiltonians or Tomita--Takesaki data in holographic models?
+\item \textbf{Relation to noncommutative geometry}: How does the present analysis connect to Connes' spectral triples, where Clifford algebras characterize the Dirac operator?
+\item \textbf{Tensor network realization}: Can the qubit toy model of Section~\ref{A-sec:toymodel} be made rigorous in the context of holographic error-correcting codes?
+\end{enumerate}
+
+% ============================================================
+\section{Conclusion}
+
+Within a supplied quadratic space and chosen Clifford generator relations, $Cl(V,q)$ is the universal minimal algebra for that presentation.
+The comparison with von Neumann, $C^*$, Jordan, Lie, and octonionic frameworks identifies where the chosen form is internal and where extra representation data are required; it does not exclude those frameworks in general or derive the Clifford presentation from the compatibility criteria alone.
+
+This model provides a possible Lorentzian encoding within HAFF's conditional selected-algebra and reconstruction setting.
+It is neither a derivation of Lorentzian gravity from first principles nor a proof that every emergent causal geometry must be Clifford-compatible; physical selection of the quadratic data and generator map remains open.
+
+% ============================================================
+
+% ============================================================================
+% Paper B --- ``The Fish''
+% ============================================================================
+\chapter{Thermodynamic Stability Constraints on the Operator Algebra of Persistent Open Quantum Subsystems}
+\label{chap:paperB}
+
+\begin{center}
+\textit{Paper B --- ``The Fish''}\\[0.5em]
+Originally published: Zenodo, DOI: 10.5281/zenodo.18525890
+\end{center}
+
+\bigskip
+
+\section*{Abstract}
+We investigate algebraic modelling choices for open quantum subsystems
+that maintain a non-equilibrium steady state (NESS) under continuous
+environmental interaction.  We formulate persistence as a variational
+and Lyapunov-stability problem, while keeping the scope of the algebraic
+claim explicit.
+
+The analysis isolates two structural desiderata for a control
+parameterization: associativity of the operator product and a supplied
+quadratic generator relation when channel directions and magnitudes are
+to be encoded together.  Clifford algebra $Cl(V,q)$ is a compact way to
+package such a selected quadratic form with control generators, but the
+paper does not prove that Clifford structure is necessary, uniquely
+selected, or forced by persistence.
+
+A worked controlled-qubit example records what a full Lyapunov proof
+would have to check.  The comparison with von Neumann, $C^*$, and Lie
+algebraic frameworks is therefore a modelling audit, not an exclusion
+theorem.
+The analysis complements the Holographic Alaya-Field Framework (HAFF)~\cite{Liu2026PaperA,Liu2026PaperB} and the companion paper on algebraic constraints in entropic gravity~\cite{Liu2026QRAIF_A}.
+
+
+
+
+% ============================================================
+\section{Introduction}
+\label{B-sec:intro}
+
+The interaction of a quantum system with a large environment typically leads to decoherence and thermalization~\cite{Breuer2002,Weiss2012}.
+Maintaining a NESS requires continuous energetic cost~\cite{Seifert2012,Jarzynski2011}, which can be modeled as a feedback control process~\cite{Sagawa2012,Parrondo2015}.
+We address: \textit{What algebraic structures allow the internal control dynamics to remain Lyapunov stable?}
+
+\subsection{Three-Paper Structure}
+
+\begin{center}
+\begin{tabular}{@{}lll@{}}
+\toprule
+\textbf{Paper} & \textbf{Question} & \textbf{Analogy} \\
+\midrule
+HAFF~\cite{Liu2026PaperA} & How does geometry emerge? & Ocean \\
+Q-RAIF A~\cite{Liu2026QRAIF_A} & What algebra does geometry need? & Water \\
+This work & What algebra does survival need? & Fish \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\subsection{Anti-Solipsism Disclaimer}
+
+A potential misreading is that the observer ``creates'' geometry through survival.
+We explicitly reject this.
+The revised claim is model-relative: Pauli/Clifford generators are one convenient parameterization of feedback channels, but persistence does not force an indefinite Clifford algebra.  Within HAFF, geometric reconstruction is itself conditional on selected algebraic and dictionary inputs~\cite{Liu2026PaperB}.
+
+\subsection{Scope}
+
+This work does not derive Clifford algebra from first principles.  The stability calculation requires a positive-definite control metric and a complete closed-loop model.  Clifford relations may be adopted as a modelling choice that packages a selected quadratic form with control generators; indefinite signature is a separate read-out choice, not a Lyapunov consequence.
+
+\paragraph{Result-status ledger.}
+Associativity of standard operator composition is a general observation.  The persistence action below is heuristic motivation.  The former indefinite Metric Constraint and Persistence Compatibility Theorem are retracted.  The qubit section is a model audit showing what a valid Lyapunov proof would have to control, not a proof of Clifford necessity.
+
+% ============================================================
+\section{Variational Bounds on Persistence}
+\label{B-sec:variational}
+
+Consider $\mathcal{H}_{\mathrm{tot}} = \mathcal{H}_R \otimes \mathcal{H}_E$, with reduced dynamics:
+\begin{equation}
+\dot{\rho}_R = -i[H_{\mathrm{eff}}, \rho_R] + \mathcal{D}[\rho_R].
+\end{equation}
+
+\paragraph{Heuristic persistence cost.}
+For a declared control protocol $Q=\{u_k(t)\}_{k=1}^m$, one may compare protocols using
+\begin{equation}
+\mathcal{A}[Q] = \int_0^\tau dt\, D_{KL}(\rho_Q(t) \| \rho_{\mathrm{NESS}}).
+\end{equation}
+No variational domain, endpoint conditions, or Euler--Lagrange calculation is supplied here.  Consequently $\delta\mathcal A=0$ does not derive a control Hamiltonian or an operator algebra.  The functional is motivation only; the actual feedback law must be specified and verified directly in the closed-loop master equation.
+
+\subsection{What Lie Algebras Do Not Encode by Themselves}
+
+Standard quantum control theory uses Lie algebra generators~\cite{WisemanMilburn2009}: the control Hamiltonian $H_{\mathrm{ctrl}} = \sum_k u_k(t) G_k$ where $\{G_k\}$ generate a Lie algebra $\mathfrak{g}$ via commutators $[G_i, G_j] = i f_{ijk} G_k$.
+
+Lie algebras encode \emph{infinitesimal symmetries}---they specify which directions in state space are accessible via control.  A control model normally supplies a positive cost, norm, or information metric separately to quantify correction size.  That separation is standard and does not require the Lie algebra itself to carry a canonical metric.  A Clifford quadratic form can package additional representation data when chosen, but it is not forced by error correction or channel discrimination.
+
+% ============================================================
+\section{Algebraic Constraints on Control Stability}
+\label{B-sec:stability}
+
+\subsection{Constraint I: Associativity as Structural Boundary}
+\label{B-sec:assoc}
+
+\begin{remark}[Associativity as a control-model boundary]
+\label{B-rem:assoc-boundary}
+The present master-equation model represents sequential controls by linear maps with ordinary composition, which is associative by definition~\cite{Breuer2002}.  This is a declared scope condition, not a theorem excluding every non-associative dynamics.  Jordan or octonionic models would need additional bracketing, subsystem, and composition rules before the control calculation could be transferred~\cite{Schafer1966,Gunaydin1973}.  Revised Paper~A~\cite{Liu2026QRAIF_A} makes the same type distinction in its remark ``Physical pathologies of non-associative dynamics.''
+\end{remark}
+
+The substantive constraint is Constraint~II, which discriminates among \emph{associative} algebras.
+
+\subsection{Constraint II: Positive Control Metric for Lyapunov Descent}
+\label{B-sec:metric}
+
+The former lemma asserting that Lyapunov stability requires an indefinite metric is withdrawn.  For an auxiliary gradient controller on parameters $\lambda$, the descent ansatz is
+\begin{equation}
+\dot{\lambda} = -\Gamma\, G^{-1} \nabla_\lambda V,
+\label{B-eq:gradient}
+\end{equation}
+with $G$ positive definite.  Then the controller contribution is
+\begin{equation}
+(\nabla_\lambda V)^T\dot\lambda
+=-\Gamma(\nabla_\lambda V)^TG^{-1}(\nabla_\lambda V)\leq0.
+\end{equation}
+If $G$ is indefinite, a negative-norm gradient direction reverses this sign and is anti-stable under the same rule.  Thus the stated descent mechanism selects positive definiteness, not Lorentzian signature.
+
+Channel labels such as unitary, dephasing, and dissipative may be represented by a discrete type label, a direct-sum decomposition, or externally supplied weights.  Their qualitative difference does not require negative norm.  Any indefinite quadratic form used later for spacetime or read-out representation is a separate modelling input and must not be identified with the control metric $G$.
+
+More importantly, $\lambda$-descent alone is not the physical state equation.  With drift $H_0$, dissipator $\mathcal D$, and controls $H_{\mathrm{ctrl}}(\lambda)=\sum_i u_i(\lambda)G_i$, the closed loop is
+\begin{equation}
+\dot\rho= -i[H_0+H_{\mathrm{ctrl}}(\lambda),\rho]+\mathcal D[\rho],
+\qquad
+\dot\lambda=-\Gamma G^{-1}\nabla_\lambda V.
+\end{equation}
+For a differentiable $V(\rho,\lambda)$,
+\begin{equation}
+\dot V=D_\rho V\!\left[-i[H_0+H_{\mathrm{ctrl}},\rho]+\mathcal D[\rho]\right]
+-\Gamma(\nabla_\lambda V)^TG^{-1}(\nabla_\lambda V).
+\end{equation}
+A stability proof must control the first term as well as the positive-metric controller term.  No general sign follows merely by setting a control amplitude equal to a gradient component.
+
+\subsection{Comparison with Alternative Algebraic Frameworks}
+\label{B-sec:exclusion}
+
+\begin{table}[h]
+\centering
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{@{}lccl@{}}
+\toprule
+\textbf{Algebra} & \textbf{I: Assoc.} & \textbf{Control metric} & \textbf{Status} \\
+\midrule
+von Neumann (III$_1$) & \checkmark & externally chosen positive $G$ & Compatible \\
+$C^*$-algebra & \checkmark & externally chosen positive $G$ & Compatible \\
+Lie/control algebra & via representation & positive cost metric & Standard control setting \\
+Jordan algebra & non-assoc. & model-dependent & Outside operator-composition setup \\
+\textbf{Clifford} $Cl(V,q)$ & \checkmark & $q$ need not equal $G$ & Optional parameterization \\
+\bottomrule
+\end{tabular}
+}
+\caption{Candidate control frameworks after separating the positive Lyapunov metric $G$ from any Clifford/read-out form $q$.}
+\label{B-tab:exclusion}
+\end{table}
+
+The table is no longer an exclusion argument.  Standard dissipative and coherent-control frameworks stabilize target states with positive cost functions and Lie/operator-algebraic controls \cite{Verstraete2009,Diehl2008,TicozziViola2008,Mirrahimi2005}.  They are counterexamples to the claim that indefinite Clifford structure is necessary for persistence.
+
+\subsection{Worked Example: Controlled Qubit Under Lindblad Dynamics}
+\label{B-sec:toymodel}
+
+\paragraph{Setup.}
+Consider a single qubit coupled to a thermal bath at inverse temperature $\beta$, with Lindblad dissipator:
+\begin{equation}
+\mathcal{D}[\rho] = \gamma_\downarrow \mathcal{L}[\sigma_-]\rho + \gamma_\uparrow \mathcal{L}[\sigma_+]\rho + \gamma_\phi \mathcal{L}[\sigma_z]\rho,
+\end{equation}
+where $\mathcal{L}[L]\rho = L\rho L^\dagger - \frac{1}{2}\{L^\dagger L, \rho\}$, and $\gamma_\downarrow$, $\gamma_\uparrow$, $\gamma_\phi$ are decay, excitation, and dephasing rates.
+
+\paragraph{Control algebra.}
+The control Hamiltonian is $H_{\mathrm{ctrl}} = \sum_i u_i(t)\, \sigma_i$ where $\{\sigma_x, \sigma_y, \sigma_z\}$ are Pauli operators.
+These satisfy $\{\sigma_i, \sigma_j\} = 2\delta_{ij}\mathbf{1}$---the defining relation of $Cl(3,0)$.
+
+\paragraph{Lyapunov function.}
+Take $V = D_{KL}(\rho \| \rho_{\mathrm{NESS}})$ where $\rho_{\mathrm{NESS}}$ is the thermal state.
+For full-rank states its derivative along the actual master equation is
+\begin{equation}
+\dot V
+=\operatorname{Tr}\!\left[\dot\rho
+(\log\rho-\log\rho_{\mathrm{NESS}})\right],
+\end{equation}
+with $\dot\rho$ containing the drift, all Lindblad terms, and the controlled commutator.  The former equation $\dot V=-\alpha\sum_i(\partial V/\partial u_i)^2$ is withdrawn: the amplitudes $u_i$ are not state coordinates, and assigning their values does not eliminate the Lindblad/drift contribution.  A concrete feedback law must prove the full derivative nonpositive for its declared target and rates.
+
+\paragraph{Failure mode without built-in metric.}
+An abstract Lie algebra $\mathfrak{su}(2)$ specifies rotation directions; a control design also supplies amplitudes and a positive cost/control metric.  Importing that metric is normal control data, not a consistency failure.  In the Pauli representation the Hilbert--Schmidt form or another positive weight matrix can provide it.
+
+The Pauli anticommutators can package a Euclidean quadratic form, so $Cl(3,0)$ is a convenient model representation.  This convenience neither proves stability nor makes Clifford algebras uniquely necessary for feedback.
+
+\paragraph{No indefinite extension from this mechanism.}
+Under the same gradient-descent law, replacing the positive control metric by an indefinite form creates anti-descent directions.  No stable indefinite example is supplied, so the former extension claim is deleted.  A Lorentzian form may still be used at a separate representation/read-out layer, but it is not the Lyapunov metric of this feedback calculation.
+
+% ============================================================
+\subsection{Clifford Parameterization as a Model Choice}
+
+The former Persistence Compatibility Theorem and its NESS corollary are retracted.  If one separately chooses a quadratic space $(V,q)$ and requires generators to satisfy $v^2=q(v)\mathbf1$, then the universal property identifies $Cl(V,q)$ as the minimal algebra for that presentation \cite{Hestenes1966}.  This definitional observation does not show that persistence, channel discrimination, or Lyapunov descent imposes those relations.
+
+\begin{remark}[Natural Selection, Not Design]
+No algebraic natural-selection theorem is established.  A particular physical feedback model may favour a representation because of its controls and costs, but that preference must be demonstrated by its closed-loop dynamics.
+\end{remark}
+
+\begin{remark}[Content of the Argument]
+\label{B-rem:scope}
+As with the withdrawn selection theorem in Paper~A~\cite{Liu2026QRAIF_A}, invoking the universal property of $Cl(V,q)$ after positing Clifford relations is a standard algebraic identity.
+The surviving ingredients have different status:
+Remark~\ref{B-rem:assoc-boundary} (associativity as the declared operator-composition boundary; see the named non-associative-dynamics remark in Paper~A~\cite{Liu2026QRAIF_A}),
+the positive control-metric calculation in Section~\ref{B-sec:metric}, and the model audit in Section~\ref{B-sec:toymodel}.  The latter does not prove stability until a feedback law controls the full Lindblad derivative.
+\end{remark}
+
+% ============================================================
+\section{Contextual Relations}
+\label{B-sec:context}
+
+\subsection{Convergence with Paper A}
+
+The revised companion paper~\cite{Liu2026QRAIF_A} treats $Cl(1,3)$ as a model representation of a separately supplied Lorentzian form.
+
+\begin{center}
+\begin{tabular}{@{}lcc@{}}
+\toprule
+& \textbf{Paper A} & \textbf{This work} \\
+\midrule
+Starting point & Holographic boundary & Open subsystem \\
+Method & Lorentzian encoding choice & Positive-metric stability audit \\
+Key input & Clifford generator relations & Feedback model and cost metric \\
+Result & $Cl(1,3)$ parameterization & $Cl(V,q)$ parameterization \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+There is no independent convergence theorem: both papers posit Clifford relations for their respective representation tasks.  The shared choice motivates comparison, but neither route currently derives it from its upstream physical premises.
+
+\subsection{Relation to Quantum Control Theory}
+
+Standard quantum control operates within a Lie algebraic framework~\cite{WisemanMilburn2009}: controllability is characterized by the Lie algebra generated by the drift and control Hamiltonians.
+This framework is complete for determining \emph{reachability} of target states.
+
+However, Lie algebras encode symmetries (via commutators) without encoding distances (via quadratic forms).
+When the control objective is not merely reachability but \emph{stabilization against stochastic perturbations}---as in NESS maintenance---both direction and magnitude of corrections must be specified.
+Clifford algebras provide this additional structure through their built-in quadratic form, complementing rather than replacing the Lie algebraic framework.
+
+\subsection{Relation to Decoherence-Free Subspaces}
+
+Decoherence-free subspaces (DFS)~\cite{Zanardi2001,Lidar2003} represent subsystems that are passively protected from environmental noise by symmetry.
+The present analysis addresses the \emph{active} counterpart: subsystems that maintain coherence through continuous feedback.
+In both cases, the algebraic structure of the system-environment interaction determines which subsystems can persist.
+The Clifford parameterization considered here applies to the active model; DFS theory applies to the passive case.
+A unified treatment remains an open problem.
+
+% ============================================================
+\section{Discussion}
+
+\textbf{What this result does show:}
+A positive-definite parameter metric makes the auxiliary gradient contribution nonpositive.  Clifford algebra is a compact parameterization if a quadratic generator relation is separately selected.  Table~\ref{B-tab:exclusion} and Section~\ref{B-sec:toymodel} record modelling options and missing stability conditions, not an exclusion theorem.
+
+\textbf{What this result does not show:}
+That Clifford algebra is necessary or uniquely selected.
+That the displayed qubit feedback stabilizes the target without an explicit full-derivative proof.
+That an indefinite read-out form can serve as the Lyapunov control metric under the same descent rule.
+
+\section{Conclusion}
+
+We have argued for a narrower conclusion: Clifford algebra $Cl(V,q)$ is
+a useful modelling choice when a control model separately supplies a
+quadratic generator relation for channel discrimination and directed
+correction.  Associativity remains a structural boundary condition, and
+the quadratic form remains an additional read-out or modelling input.
+The comparison with alternative algebras identifies missing ingredients
+for this particular package; it does not exclude those frameworks or
+prove Clifford necessity.
+
+Combined with the companion paper's holographic constraints, this
+supports a compatibility programme linking geometric consistency and
+thermodynamic persistence.  It does not show that $Cl(V,q)$ is necessary
+or uniquely selected, as stated in the Discussion above.
+
+% ============================================================
+
+% ============================================================================
+% Paper C --- ``The Bridge''
+% ============================================================================
+\chapter{Conditional Image-Level Closure in the Q-RAIF Framework}
+\label{chap:paperC}
+
+\begin{center}
+\textit{Paper C --- ``The Bridge''}\\[0.5em]
+Originally published: Zenodo, DOI: 10.5281/zenodo.18528934
+\end{center}
+
+\bigskip
+
+\section*{Abstract}
+This addendum isolates an algebraic interface between two modelling roles in the \textbf{Q-RAIF (Quantum Reference Algebra for Information Flow)} framework.
+Paper A~\cite{Liu2026QRAIF_A} adopts a $Cl(1,3)$ representation as a Lorentzian-encoding choice under supplied quadratic and generator data.
+Paper B~\cite{Liu2026QRAIF_B} motivates a Cliffordian parameterization $Cl(V,q)$ for a control algebra under its stated compatibility conditions; neither paper uniquely derives Clifford structure.
+
+Given a supplied unital $*$-homomorphism from the control algebra to the environmental algebra, we establish an \textbf{image-level closure result}: its image is a subalgebra, and in the stated even-dimensional Clifford case a nonzero homomorphism is injective.
+The \emph{Same-Clock} statement records an operational co-indexing condition; it is not an input to the image proof and does not by itself ensure thermodynamic potency.
+
+This note does not derive the representation map, select a preferred $Cl(1,3)$ subalgebra, or prove signature preservation.  Physical realizability therefore remains an open interface rather than a completed bridge.
+
+\medskip
+\noindent\textbf{Keywords}: Q-RAIF, realizability, representation, operator algebra, Clifford algebra, open quantum systems, Lyapunov stability, algebraic closure
+
+
+% ============================================================
+\section{Introduction}
+\label{C-sec:intro}
+
+\subsection{Context: The Q-RAIF Program}
+
+The Quantum Reference Algebra for Information Flow (Q-RAIF) framework investigates algebraic representations for geometric read-out and subsystem control.  Revised Papers A and B treat Clifford structure as a modelling input rather than a necessary consequence.  The programme builds on the conditional algebra/reconstruction setting of HAFF~\cite{Liu2026PaperA,Liu2026PaperB}.
+
+\begin{center}
+\small
+\begin{tabular}{@{}llll@{}}
+\toprule
+\textbf{Paper} & \textbf{Question} & \textbf{Analogy} & \textbf{Result} \\
+\midrule
+HAFF~\cite{Liu2026PaperA} & How does geometry emerge? & Ocean & Algebra $\to$ Geometry \\
+Q-RAIF A~\cite{Liu2026QRAIF_A} & How encode Lorentzian read-out? & Water & $Cl(1,3)$ model \\
+Q-RAIF B~\cite{Liu2026QRAIF_B} & How parameterize controls? & Fish & $Cl(V,q)$ model \\
+This work & What follows from representation? & Bridge & $\operatorname{Im}\phi\subseteq\mathcal A_{\mathrm{ext}}$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\subsection{The Logical Gap}
+
+Papers A and B both posit Clifford representations for different tasks; they do not independently derive them~\cite{Liu2026QRAIF_A,Liu2026QRAIF_B}.  There is therefore no convergence theorem to close.  This note isolates the tautological algebraic consequence of an explicit representation input and identifies the still-open physical question: what dynamics, if any, supplies that input?
+
+\subsection{Scope}
+
+This addendum explicitly assumes a representation map from an internal model algebra into an external observable algebra.  It does not derive that map from persistence or system--environment coupling.  Its image statement is algebraic; physical realizability remains an interface problem.
+
+\paragraph{Result-status ledger.}
+The representation map is an interface assumption.  Same-clock overlap is an operational remark and does not enter the image proof.  Semisimplicity/injectivity is a standard finite-dimensional Clifford-algebra fact.  The former closure theorem is downgraded to an image-level proposition; all signature compatibility claims require additional quadratic-form-preserving data.
+
+% ============================================================
+\section{Setup and Prerequisites}
+\label{C-sec:setup}
+
+Let $\mathcal{U}$ be a universe described by the Q-RAIF framework.
+\begin{itemize}
+    \item \textbf{Environment (``water'').} Let $\mathcal{A}_{\mathrm{ext}}$ denote the algebra of observables accessible at the holographic boundary.
+    Paper A~\cite{Liu2026QRAIF_A} uses a $Cl(1,3)$ representation as a model for a supplied Lorentzian read-out; it does not prove that every $\mathcal A_{\mathrm{ext}}$ must contain a preferred copy.
+    \item \textbf{Subsystem (``fish'').} Let $\mathcal{O}_{\mathrm{int}}$ denote the internal control algebra of a persistent subsystem $R\subset\mathcal{U}$.
+    Paper B~\cite{Liu2026QRAIF_B} may parameterize controls by $\mathcal{O}_{\mathrm{int}}\cong Cl(V,q)$, but persistence does not force that choice.
+\end{itemize}
+
+The remaining logical gap is the relationship between $\mathcal{O}_{\mathrm{int}}$ and $\mathcal{A}_{\mathrm{ext}}$: can a stable Clifford control algebra exist while being structurally disjoint from the available environmental observables?
+
+% ============================================================
+\section{Realizability and Same-Clock Co-Indexing}
+\label{C-sec:realizability}
+
+\begin{definition}[Algebraic Representation Input]
+\label{C-def:realizability}
+A control algebra $\mathcal{O}_{\mathrm{int}}$ is represented in an environment $\mathcal{A}_{\mathrm{ext}}$ when a unital algebra homomorphism is supplied,
+\begin{equation}
+    \phi: \mathcal{O}_{\mathrm{int}} \to \mathcal{A}_{\mathrm{ext}}
+\end{equation}
+such that $\mathrm{Im}(\phi)$ has non-zero action on the interaction Hamiltonian $H_{\mathrm{int}}$, i.e., $[\mathrm{Im}(\phi), H_{\mathrm{int}}] \neq 0$.
+The commutator checks nontrivial coupling once $\phi$ is given.  The definition does not prove that persistence or coupling produces such a homomorphism; calling it physical realizability is therefore an interface assumption.
+\end{definition}
+
+\begin{remark}[Same-clock operational condition]
+Let $I$ be an operational index set and suppose a model supplies a net $J\mapsto\mathcal A(J)$ for operational windows $J\subseteq I$.  A feedback protocol may require windows $J_{\mathrm{ctrl}},J_{\mathrm{env}}\subseteq I$ with
+\begin{enumerate}
+    \item \textbf{Non-null intersection:} $J_{\mathrm{ctrl}}\cap J_{\mathrm{env}}\neq\emptyset$.
+    \item \textbf{Window integrity:} every critical lookback window $W\subseteq J_{\mathrm{ctrl}}\cap J_{\mathrm{env}}$ has a declared algebra $\mathcal A(W)$ and feedback channel.
+\end{enumerate}
+These are reasonable protocol requirements for discussing entropy export~\cite{Seifert2012}, but they neither imply the existence of $\phi$ nor enter the algebraic image proposition below.  The former Same-Clock lemma is therefore demoted to this operational remark.
+\end{remark}
+
+% ============================================================
+\subsection{Semisimplicity of Clifford Algebras}
+
+\begin{lemma}[Injectivity from Semisimplicity]
+\label{C-lem:semisimple}
+Let $(V,q)$ be a finite-dimensional real vector space with
+non-degenerate quadratic form.
+Then $Cl(V,q)$ is semisimple.
+If\/ $\dim V$ is even, $Cl(V,q)$ is simple, and every
+non-zero algebra homomorphism
+$\phi: Cl(V,q) \to \mathcal{A}$ is injective.
+\end{lemma}
+
+\begin{proof}
+By the periodicity theorem for real Clifford
+algebras~\cite{ABS1964,LawsonMichelsohn1989}, $Cl(V,q)$
+with non-degenerate~$q$ is isomorphic to a matrix algebra
+$M_n(K)$ or a direct sum $M_n(K) \oplus M_n(K)$,
+where $K \in \{\mathbb{R}, \mathbb{C}, \mathbb{H}\}$
+depends on the signature and dimension modulo~$8$.
+In either case the algebra is semisimple.
+
+When $\dim V$ is even, $Cl(V,q)$ is simple (a single matrix
+block).
+The kernel of any algebra homomorphism is a two-sided ideal;
+a simple algebra admits no proper non-trivial ideals,
+so $\ker\phi = \{0\}$ whenever $\phi \neq 0$.
+\end{proof}
+
+% ============================================================
+\section{The Image Proposition}
+\label{C-sec:closure}
+
+\begin{proposition}[Image of a represented Clifford algebra]
+\label{C-prop:image}
+Let $\mathcal{O}_{\mathrm{int}}\cong Cl(V,q)$ be a chosen finite-dimensional Clifford model and let $\phi:\mathcal O_{\mathrm{int}}\to\mathcal A_{\mathrm{ext}}$ be the homomorphism supplied by Definition~\ref{C-def:realizability}.  Then
+\begin{equation}
+    \mathcal{O}_{\mathrm{eff}} := \mathrm{Im}(\phi) \subseteq \mathcal{A}_{\mathrm{ext}}
+\end{equation}
+is a subalgebra satisfying the induced quotient relations.  If $\dim V$ is even and $\phi\ne0$, then $\phi$ is injective and $\mathcal O_{\mathrm{eff}}\cong Cl(V,q)$.
+\end{proposition}
+
+\begin{proof}
+The image of an algebra homomorphism is a subalgebra, and relations in the source descend to its image.  Lemma~\ref{C-lem:semisimple} gives injectivity for even $\dim V$ when the homomorphism is nonzero.  No Same-Clock hypothesis is used.
+\end{proof}
+
+\begin{remark}[Scope of the image proposition]
+\label{C-rem:scope}
+The logical structure of Proposition~\ref{C-prop:image} is simply: ``the image of a homomorphism is a subalgebra,'' plus the even-dimensional injectivity fact.  Papers A and B no longer supply independent selection theorems.  The physically nontrivial step---deriving a representation $\phi$ from system--environment dynamics---is assumed rather than proved.  Operator-algebra inclusion, virtual-subsystem, split-property, or modular-inclusion techniques may inform a future derivation \cite{Zanardi2001,DoplicherLongo1984,Wiesbrock1993}.
+\end{remark}
+
+\paragraph{Withdrawal of the ``No Ghost Algebra'' corollary.}
+The statement that a non-represented algebra fails Definition~\ref{C-def:realizability} merely repeats the definition.  Its former signature obstruction is false for ordinary algebra homomorphisms: matrix-algebra embeddings need not preserve a presentation's quadratic form or signature.
+
+To compare signatures one must supply a quadratic-space morphism $j:(V,q)\to(W,Q)$ satisfying
+\begin{equation}
+Q(jv)=q(v)
+\end{equation}
+and, where relevant, require the induced Clifford map to preserve the unit, involution, and grading.  Proposition~\ref{C-prop:image} assumes no ambient quadratic space $(W,Q)$ and proves no such isometry.  It therefore yields an image in $\mathcal A_{\mathrm{ext}}$, not an embedding into a distinguished $Cl(1,3)$ subalgebra and not a signature-compatibility theorem.
+
+% ============================================================
+\section{Discussion}
+\label{C-sec:discussion}
+
+\subsection{What This Result Does and Does Not Show}
+
+\textbf{Does show:}
+Given a supplied homomorphism, its image is a subalgebra of $\mathcal A_{\mathrm{ext}}$; for even-dimensional $Cl(V,q)$, a nonzero homomorphism is injective.
+
+\textbf{Does not show:}
+That $\phi$ must be injective in general---however,
+by Lemma~\ref{C-lem:semisimple}, injectivity \emph{is}
+guaranteed when $\dim V$ is even
+(which includes the physically relevant case $\dim V = 4$).
+For odd $\dim V$, the image $\mathrm{Im}(\phi)$ is
+isomorphic only to the quotient $Cl(V,q)/\ker\phi$; depending on the
+real signature and the representation, this quotient may be the full
+simple algebra or one surviving simple block of a semisimple direct sum.
+No general injectivity or preservation of the full Clifford presentation
+follows in the odd-dimensional case.
+That the image lies in a preferred $Cl(1,3)$ subalgebra or preserves signature.
+That persistence produces $\phi$ or selects Clifford structure.
+
+\subsection{The Bridge Statement}
+
+\begin{remark}[Closing the Loop]
+Papers A and B propose Clifford representations for separate modelling roles.  Proposition~\ref{C-prop:image} does not lock them together independently; it records what follows after a representation map is supplied.  Deriving that map and any quadratic compatibility is the open bridge problem.
+\end{remark}
+
+\subsection{Connection to HAFF}
+
+Within the HAFF programme~\cite{Liu2026PaperA,Liu2026PaperB}, geometric reconstruction is conditional on selected observable-algebra and dictionary data.  The image proposition adds no independent natural-selection result.  It isolates the representation/interface assumption that a future dynamical construction would have to justify.
+
+% ============================================================
+
+
+\backmatter
+
+% ============================================================================
+% UNIFIED BIBLIOGRAPHY
+% ============================================================================
+\begin{thebibliography}{99}
+
+\bibitem{ABS1964}
+M.~F.~Atiyah, R.~Bott and A.~Shapiro,
+\emph{Clifford modules},
+Topology \textbf{3}, Suppl.~1, 3--38 (1964).
+
+\bibitem{AlfsenShultz2003}
+E.~M.~Alfsen and F.~W.~Shultz, \emph{Geometry of State Spaces of Operator Algebras}, Birkh\"auser (2003).
+
+\bibitem{Barrett2007}
+J.~W.~Barrett, \emph{A Lorentzian version of the non-commutative geometry of the standard model of particle physics}, J. Math. Phys. \textbf{48}, 012303 (2007).
+
+\bibitem{Breuer2002}
+H.-P.~Breuer and F.~Petruccione, \emph{The Theory of Open Quantum Systems}, Oxford University Press (2002).
+
+\bibitem{Connes1994}
+A.~Connes, \emph{Noncommutative Geometry}, Academic Press (1994).
+
+\bibitem{Diehl2008}
+S.~Diehl, A.~Micheli, A.~Kantian, B.~Kraus, H.~P.~B\"uchler, and P.~Zoller, \emph{Quantum states and phases in driven open quantum systems with cold atoms}, Nat. Phys. \textbf{4}, 878--883 (2008).
+
+\bibitem{DoplicherLongo1984}
+S.~Doplicher and R.~Longo, \emph{Standard and split inclusions of von Neumann algebras}, Invent. Math. \textbf{75}, 493--536 (1984).
+
+\bibitem{Doran2003}
+C.~Doran and A.~Lasenby, \emph{Geometric Algebra for Physicists}, Cambridge University Press (2003).
+
+\bibitem{Faulkner2014}
+T.~Faulkner, M.~Guica, T.~Hartman, R.~C.~Myers, and M.~Van~Raamsdonk, \emph{Gravitation from Entanglement in Holographic CFTs}, JHEP \textbf{03}, 051 (2014).
+
+\bibitem{Gunaydin1973}
+M.~G\"unaydin and F.~G\"ursey, \emph{Quark structure and octonions}, J.\ Math.\ Phys.\ \textbf{14}, 1651 (1973).
+
+\bibitem{Haag1996}
+R.~Haag, \emph{Local Quantum Physics: Fields, Particles, Algebras}, Springer-Verlag (1996).
+
+\bibitem{Hestenes1966}
+D.~Hestenes, \emph{Space-Time Algebra}, Gordon and Breach (1966).
+
+\bibitem{Jacobson1995}
+T.~Jacobson, \emph{Thermodynamics of Spacetime: The Einstein Equation of State}, Phys.\ Rev.\ Lett.\ \textbf{75}, 1260 (1995).
+
+\bibitem{Jarzynski2011}
+C.~Jarzynski, \emph{Equalities and inequalities: irreversibility and the second law at the nanoscale}, Annu.\ Rev.\ Condens.\ Matter Phys.\ \textbf{2}, 329 (2011).
+
+\bibitem{Lashkari2014}
+N.~Lashkari, M.~B.~McDermott, and M.~Van~Raamsdonk, \emph{Gravitational dynamics from entanglement ``thermodynamics''}, JHEP \textbf{04}, 195 (2014).
+
+\bibitem{LawsonMichelsohn1989}
+H.~B.~Lawson and M.-L.~Michelsohn,
+\emph{Spin Geometry},
+Princeton University Press (1989).
+
+\bibitem{Lidar2003}
+D.~A.~Lidar and K.~B.~Whaley, \emph{Decoherence-free subspaces and subsystems}, in \emph{Irreversible Quantum Dynamics}, Springer, pp.\ 83--120 (2003).
+
+\bibitem{Maldacena1999}
+J.~M.~Maldacena, \emph{The Large N limit of superconformal field theories and supergravity}, Int.\ J.\ Theor.\ Phys.\ \textbf{38}, 1113 (1999).
+
+\bibitem{Mirrahimi2005}
+M.~Mirrahimi, P.~Rouchon, and G.~Turinici, \emph{Lyapunov control of bilinear Schr\"odinger equations}, Automatica \textbf{41}, 1987--1994 (2005).
+
+\bibitem{Parrondo2015}
+J.~M.~R.~Parrondo, J.~M.~Horowitz, and T.~Sagawa, \emph{Thermodynamics of information}, Nat.\ Phys.\ \textbf{11}, 131 (2015).
+
+\bibitem{PaschkeSitarz2006}
+M.~Paschke and A.~Sitarz, \emph{Equivariant Lorentzian spectral triples}, arXiv:math-ph/0611029 (2006).
+
+\bibitem{Petz1996}
+D.~Petz, \emph{Monotone metrics on matrix spaces}, Linear Algebra Appl.\ \textbf{244}, 81 (1996).
+
+\bibitem{RyuTakayanagi2006}
+S.~Ryu and T.~Takayanagi, \emph{Holographic Derivation of Entanglement Entropy from AdS/CFT}, Phys.\ Rev.\ Lett.\ \textbf{96}, 181602 (2006).
+
+\bibitem{Sagawa2012}
+T.~Sagawa and M.~Ueda, \emph{Fluctuation theorem with information exchange}, Phys.\ Rev.\ E \textbf{85}, 021104 (2012).
+
+\bibitem{Schafer1966}
+R.~D.~Schafer, \emph{An Introduction to Nonassociative Algebras}, Academic Press (1966).
+
+\bibitem{Seifert2012}
+U.~Seifert, \emph{Stochastic thermodynamics, fluctuation theorems and molecular machines}, Rep.\ Prog.\ Phys.\ \textbf{75}, 126001 (2012).
+
+\bibitem{Swingle2012}
+B.~Swingle, \emph{Entanglement Renormalization and Holography}, Phys.\ Rev.\ D \textbf{86}, 065007 (2012).
+
+\bibitem{TicozziViola2008}
+F.~Ticozzi and L.~Viola, \emph{Quantum Markovian subsystems: invariance, attractivity, and control}, IEEE Trans. Autom. Control \textbf{53}, 2048--2063 (2008).
+
+\bibitem{VandenDungen2016}
+K.~van den Dungen, \emph{Krein spectral triples and the fermionic action}, Math. Phys. Anal. Geom. \textbf{19}, 4 (2016).
+
+\bibitem{Verlinde2011}
+E.~Verlinde, \emph{On the Origin of Gravity and the Laws of Newton}, JHEP \textbf{04}, 029 (2011).
+
+\bibitem{Verstraete2009}
+F.~Verstraete, M.~M.~Wolf, and J.~I.~Cirac, \emph{Quantum computation and quantum-state engineering driven by dissipation}, Nat. Phys. \textbf{5}, 633--636 (2009).
+
+\bibitem{Vidal2008}
+G.~Vidal, \emph{Class of quantum many-body states that can be efficiently simulated}, Phys.\ Rev.\ Lett.\ \textbf{101}, 110501 (2008).
+
+\bibitem{Weiss2012}
+U.~Weiss, \emph{Quantum Dissipative Systems}, 4th ed., World Scientific (2012).
+
+\bibitem{Wiesbrock1993}
+H.-W.~Wiesbrock, \emph{Half-sided modular inclusions of von Neumann algebras}, Commun. Math. Phys. \textbf{157}, 83--92 (1993).
+
+\bibitem{WisemanMilburn2009}
+H.~M.~Wiseman and G.~J.~Milburn, \emph{Quantum Measurement and Control}, Cambridge University Press (2009).
+
+\bibitem{Witten2018}
+E.~Witten, \emph{APS Medal for Exceptional Achievement in Research: Invited article on entanglement properties of quantum field theory}, Rev.\ Mod.\ Phys.\ \textbf{90}, 045003 (2018).
+
+\bibitem{Zanardi2001}
+P.~Zanardi, \emph{Virtual Quantum Subsystems}, Phys.\ Rev.\ Lett.\ \textbf{87}, 077901 (2001).
+
+\bibitem{Liu2026PaperA}
+S.~Liu, \emph{Emergent Geometry from Coarse-Grained Observable Algebras: The Holographic Alaya-Field Framework}, Zenodo (2026), DOI: 10.5281/zenodo.18361706.
+
+\bibitem{Liu2026PaperB}
+S.~Liu, \emph{Accessibility, Stability, and Emergent Geometry: Conceptual Clarifications on the Holographic Alaya-Field Framework}, Zenodo (2026), DOI: 10.5281/zenodo.18367060.
+
+\bibitem{Liu2026QRAIF_A}
+S.~Liu, \emph{A Clifford-Encoding Model for Lorentzian Metrics in Entropic Gravity Frameworks}, Zenodo (2026), DOI: 10.5281/zenodo.18525876.
+
+\bibitem{Liu2026QRAIF_B}
+S.~Liu, \emph{Thermodynamic Stability Constraints on the Operator Algebra of Persistent Open Quantum Subsystems}, Zenodo (2026), DOI: 10.5281/zenodo.18525890.
+
+\end{thebibliography}
+
+\end{document}

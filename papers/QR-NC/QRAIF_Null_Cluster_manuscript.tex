@@ -1,0 +1,611 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{booktabs,array,enumitem,fontspec}
+\usepackage[hidelinks]{hyperref}
+\hypersetup{pdftitle={The Null Cluster as Structural Imprint: A Closed Source Task and the Null-Boundary Programme},pdfauthor={Sidong Liu}}
+\defaultfontfeatures{Ligatures=TeX}
+\IfFontExistsTF{Times New Roman}{\setmainfont{Times New Roman}}{\setmainfont{TeX Gyre Termes}}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newcommand{\E}{\mathbb E}
+\newcommand{\R}{\mathbb R}
+\newcommand{\clip}{\operatorname{clip}}
+\title{\textbf{The Null Cluster as Structural Imprint}\\
+\large A Closed Source Task and the Null-Boundary Programme}
+\author{Sidong Liu, PhD\\\small iBioStratix Ltd\\\small\texttt{sidongliu@hotmail.com}}
+\date{October 2026 working revision\\\small Series record DOI:
+\href{https://doi.org/10.5281/zenodo.20283057}{10.5281/zenodo.20283057}}
+\begin{document}
+\emergencystretch=2em
+\raggedbottom
+\maketitle
+
+\begin{abstract}
+Null boundaries recur in causal propagation, horizon thermality, entropy
+bounds, asymptotic memory and modular geometry. A common interpretation
+requires more than their appearance in the same list: one must identify
+what a null interface reads, what it omits, and which resources make it
+competitive with other interfaces.
+
+We give a closed comparison on a scalar-source family
+$S=\theta I+\alpha g$ in a supplied Lorentzian laboratory. Equal-gain
+directional probes use the same Gaussian pointers and a common nine-bit
+readout. Null contraction removes the unknown trace term. At the specified
+mean-square target $1.6$ it needs one record, whereas every adaptive scheme
+restricted to either of two non-null causal menus needs at least three;
+an eight-record scheme suffices. In the growing-range analogue benchmark
+the optimal risks differ by a factor of four. The lower bound allows biased
+estimators, analogue access and arbitrary computation. Mixing causal types or allowing
+directions sufficiently close to null removes the relevant obstruction.
+The null record remains blind to a genuine potential contribution to the
+source.
+
+This result establishes a task-specific mechanism for null compression,
+not a universal null-data theorem. It motivates a broader hypothesis:
+null interfaces are economical where causal transport and quotienting
+unwanted source components coincide. We develop that hypothesis against
+the distinct mechanisms behind the null cluster and identify source
+completion, actual detector costs and propagation tails as decisive tests.
+\end{abstract}
+
+\section{The question behind the cluster}
+\label{sec:question}
+
+Light cones, horizons and radiation at null infinity do different jobs.
+Yet each connects an accessible region to information that reaches its
+boundary. This recurrence is worth explaining. The proposed \emph{null
+cluster} consists of causal reachability, horizon restriction, thermal
+response, entropy accounting, infrared memory, geometric modular flow in
+special states, and massless propagation. The facts themselves belong to
+established relativity and quantum field theory; the question here is
+whether their conjunction identifies a useful principle of physical
+readout.
+
+The strongest version would say that null data are the cheapest adequate
+interface for a specified physical task. That statement needs a target,
+a reconstruction law, a detector menu and a loss function. Comparing
+characteristic data reconstructed with the field equation against bulk
+samples reconstructed without it would reward unequal knowledge, rather
+than the causal type of the interface. Counting the dimensions of a
+surface also says little about its bandwidth, sampling or required initial
+and boundary data.
+
+We therefore begin with a comparison in which all readers know the same
+source law and have access to the same elementary meter. The null reader
+wins because its coupling rejects a nuisance source component, not because
+its competitor is denied the equations. This gives the programme an
+explicit positive instance. Its limits matter equally: the component
+discarded as a nuisance for one task is physical source information for
+another.
+
+Q-RAIF A supplies a separate algebraic propagation construction with a
+Lorentzian causal readout under its stated shell and independence
+conditions \cite{Liu2026QRAIFA}. We use a Lorentzian laboratory here as an
+input. The present experiment does not derive that laboratory, nor does
+the propagation construction by itself grant our pointer couplings. Their
+connection is the null contraction and its operational consequences. The
+source-completeness question belongs to the companion no-view analysis
+\cite{Liu2026NoView}.
+
+\section{A common source and a common meter}
+\label{sec:interface}
+
+\subsection{The scalar-source family}
+
+Work in a fixed $1+1$ laboratory with $g=\operatorname{diag}(-1,1)$.
+Choose the two-parameter stress family
+\begin{equation}
+ S=\theta I+\alpha g
+   =\begin{pmatrix}\theta-\alpha&0\\0&\theta+\alpha\end{pmatrix},
+ \qquad (\theta,\alpha)\in\mathcal B=[0,20]\times[-30,0].
+ \label{eq:source}
+\end{equation}
+The target is $\theta=(S_{00}+S_{11})/2$. The trace coefficient $\alpha$
+is unknown and must not be supplied to any estimator.
+
+These tensors have a simple matter realization. For a canonical scalar,
+\begin{equation}
+ \mathcal L=-\tfrac12 g^{\mu\nu}\partial_\mu\phi\partial_\nu\phi-V,
+ \qquad
+ S_{\mu\nu}=\partial_\mu\phi\partial_\nu\phi
+ -g_{\mu\nu}\bigl(\tfrac12(\partial\phi)^2+V\bigr).
+ \label{eq:scalar}
+\end{equation}
+On the observation patch take $\phi=\sqrt{2\theta}\,t$ and the constant
+potential $V=-\alpha\geq0$. The scalar equation is satisfied and
+\eqref{eq:scalar} gives \eqref{eq:source}; at $\theta=0$ the field is
+constant and the potential term remains. This is the usual scalar stress
+formula \cite{Wald1984,Hu2018}, not a new matter equation. Preparation of
+the patch, its boundary conditions and the background geometry are common
+physical inputs. A homogeneous field on an infinite flat background is
+not being claimed as a finite isolated self-gravitating apparatus.
+
+In this family the null energy measures the gradient contribution while
+discarding the constant potential. Positivity of that potential does not
+make it fictitious: the laboratory energy density is
+$S_{00}=\theta+V$. Null sufficiency for $\theta$ is consequently weaker
+than source completeness.
+
+\subsection{Directional permission}
+
+An elementary probe is a laboratory-Euclidean unit vector $w$:
+$w_0^2+w_1^2=1$. Its signal is
+\begin{equation}
+ q=g(w,w)=w_1^2-w_0^2,\qquad
+ s_q=w^\mathsf T S w=\theta+q\alpha .
+ \label{eq:signal}
+\end{equation}
+A null vector $w=(1,1)/\sqrt2$ gives $q=0$. The two non-null menus are
+\begin{equation}
+ \mathcal Q_{\rm T}=[-1,-q_0],\qquad
+ \mathcal Q_{\rm S}=[q_0,1],\qquad q_0=\tfrac13.
+ \label{eq:menus}
+\end{equation}
+The null menu contains $q=0$. Either sign of the null direction gives the
+same signal in this diagonal source family.
+
+The Euclidean normalization describes a calibrated detector gain in this
+laboratory; it is not Lorentz invariant. A proper-unit timelike or
+spacelike vector of rapidity $\eta$, after this normalization, has
+$|q|=\operatorname{sech}(2\eta)$. Thus the non-null menus can be realized
+with a supplied boost bound
+$|\eta|\leq\tfrac12\operatorname{arcosh}3$. A direction reference,
+alignment, gain calibration and this actuator permission are part of the
+experiment. Rescaling a vector to increase its signal is not a free
+operation. The finite rapidity bound will be used in the proof; removing
+it changes the answer.
+
+\subsection{Actual readout and the resource boundary}
+
+Each read uses a fresh independent pointer with canonical coordinates
+$Q,P$, $[Q,P]=i\hbar$, initially in
+\begin{equation}
+ \psi(Q)=(2\pi\sigma^2)^{-1/4}
+           \exp[-Q^2/(4\sigma^2)],\qquad \sigma=1.
+\end{equation}
+The supplied interaction pulse implements
+\begin{equation}
+ U_q=\exp(-i s_q P/\hbar),\qquad
+ H_{\rm int}(t)=\chi(t)s_qP,\qquad\int\chi(t)\,dt=1.
+ \label{eq:gate}
+\end{equation}
+Position measurement of the translated pointer gives
+\begin{equation}
+ Y_j=\theta+q_j\alpha+Z_j,\qquad Z_j\stackrel{\rm iid}{\sim}N(0,1).
+ \label{eq:law}
+\end{equation}
+This is an actual meter coupling for a stable classical source parameter,
+or for a supplied commuting register controlling the translation. It does
+not grant a nondisturbing measurement of arbitrary quantum stress. The
+front end that transduces \eqref{eq:signal} into the pulse, the pulse clock
+and the drive are supplied identically to all menus.
+
+The finite output is a common digitizer. Clip $Y$ to $[-64,64]$, then round
+to the nearest multiple of $\Delta=1/2$. There are $257$ possible labels,
+stored in nine bits. Equivalently, this is a finite position-bin POVM,
+with the two endpoint bins extending to infinity; no intermediate
+infinite-precision record is required. The estimator receives only these
+labels. Retaining a spent pointer does not grant an additional unpriced
+measurement of it. The lower bound below gives its competitors the
+stronger permission of full analogue outcomes, so digitization cannot
+invalidate it.
+
+All source means obey $-30\leq s_q\leq50$. Thus a common bounded
+per-read energy allowance can be assigned to every menu. For example, in
+dimensionless oscillator units $H_P=(P^2+Q^2)/2$ and $\hbar=1$, the initial
+mean energy is $5/8$ and the translated mean is $5/8+s_q^2/2\leq1250+5/8$.
+This allowance is a shared cap, not an assertion that the realized drive
+work is the same for every parameter and direction. Preparing the meters,
+converting their outcomes, communicating the labels and retaining spent
+pointers all cost resources. No reset or autonomous work store is hidden
+in \eqref{eq:gate}.
+
+For the comparison we price the number of reads under this fixed
+per-read interface, with a maximum pathwise stock of $N$ pointers and
+$9N$ output bits. Computation may be arbitrary; it is granted to every
+reader, not counted as a null advantage. Choices of $q_j$ may depend on
+previous actual records and on independent random seeds. Initial registers
+and fresh noise carry no additional information about $\theta,\alpha$.
+These conditions exclude an unpriced source oracle and allow fully
+adaptive competitors.
+
+\section{Sufficiency and a fair lower bound}
+\label{sec:comparison}
+
+\begin{definition}[Closed task]
+The task is to estimate $\theta$ in \eqref{eq:source} with worst-case mean
+squared error at most $\varepsilon_*=1.6$. A protocol is task-sufficient if
+it meets that bound uniformly on $\mathcal B$. Its read cost is the
+maximum number of elementary reads on any branch. Let $C_{\rm N}$,
+$C_{\rm T}$ and $C_{\rm S}$ be the minimum costs in the three menus.
+\end{definition}
+
+This is noisy task sufficiency, rather than exact recovery of the source
+tensor. In the analogue null experiment, the sample mean is a sufficient
+statistic for the normal location parameter $\theta$. Our actual finite
+labels lose some of that information but still meet the task.
+
+\begin{theorem}[Adaptive single-type lower bound]
+\label{thm:lower}
+For either non-null menu \eqref{eq:menus}, every protocol with at most $N$
+reads, including analogue readout, arbitrary randomization and biased
+estimation, has worst-case risk at least
+\begin{equation}
+ \sup_{\mathcal B}\E_{\theta,\alpha}(\widehat\theta-\theta)^2
+ \ \geq\ \frac{1}{4\pi^2/20^2+N/4}.
+ \label{eq:lower}
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+Restrict the spacelike source family to $\alpha=-3\theta/2$, and the
+timelike family to $\alpha=-30+3\theta/2$, with $0<\theta<20$. Both
+subfamilies lie inside $\mathcal B$. Revealing the subfamily to the reader
+can only help it. Its conditional mean is respectively
+\begin{equation}
+ \mu_j(\theta)=\theta(1-3q_j/2),\qquad
+ \mu_j(\theta)=-30q_j+\theta(1+3q_j/2).
+\end{equation}
+For either allowed menu the derivative $a_j=\partial_\theta\mu_j$ lies
+in $[-1/2,1/2]$.
+
+Fix the independent random seed. At a given history the selection rule
+for $q_j$ has no additional dependence on $\theta$. Hence the conditional
+Gaussian score is $a_j(Y_j-\mu_j)$ even when the rule is adaptive. These
+scores have conditional mean zero and conditional second moment
+$a_j^2\leq1/4$. Their cross terms vanish by conditioning on the earlier
+history. The score $\ell'$ of the complete transcript therefore obeys
+$\E_\theta(\ell')^2\leq N/4$. A stopped protocol can be padded to $N$
+reads that the estimator ignores; averaging over the independent seed
+preserves the bound.
+
+Use the prior
+\begin{equation}
+ \pi(\theta)=\frac2{20}\sin^2\frac{\pi\theta}{20},
+ \qquad I_\pi=\int_0^{20}\frac{(\pi')^2}{\pi}
+              =\frac{4\pi^2}{20^2}.
+ \label{eq:prior}
+\end{equation}
+Clip the estimator to $[0,20]$, which cannot increase its risk. The prior
+vanishes at both endpoints. Integration by parts in the joint
+prior--transcript density gives
+\begin{equation}
+ \E\bigl[(\widehat\theta-\theta)(\pi'/\pi+\ell')\bigr]=1.
+\end{equation}
+The clipped error is bounded, the prior Fisher information is finite,
+and the Gaussian score has the square-integrable bound above; the
+integration and boundary terms are consequently justified. The
+prior--likelihood cross term is zero because every likelihood score has
+mean zero. Cauchy--Schwarz yields a Bayes risk of at least
+$(I_\pi+N/4)^{-1}$, and worst-case risk dominates Bayes risk.
+This is the van Trees argument \cite{GillLevit1995,GassiatPollardStoltz},
+applied to the permitted adaptive directional experiment.
+\end{proof}
+
+The lower bound does not compare null data with naive volume sampling.
+Both non-null readers know the two-parameter source law, can cancel its
+trace by combining measurements, and may allocate their reads after
+seeing earlier results. Their disadvantage is the restricted gain for
+separating $\theta$ from $\alpha$ in one causal type.
+
+\begin{proposition}[Finite-record separation]
+\label{prop:finite}
+For the common nine-bit readout,
+\begin{equation}
+ C_{\rm N}=1,\qquad 3\leq C_{\rm T},C_{\rm S}\leq8.
+ \label{eq:cost}
+\end{equation}
+With four reads the null protocol has worst-case risk less than $0.563$,
+whereas either non-null menu has risk at least $0.9101698$.
+\end{proposition}
+
+\begin{proof}
+Let $\varphi(a)$ and $\overline\Phi(a)$ be the standard normal density
+and upper tail, and put
+\begin{equation}
+ B(a)=2\{a\varphi(a)+\overline\Phi(a)\}.
+ \label{eq:tail}
+\end{equation}
+For a signal of absolute value at most $64-a$, clipping contributes an
+$L^2$ error at most $\sqrt{B(a)}$: its squared error is bounded by
+$Z^2\mathbf1_{\{|Z|>a\}}$, whose expectation is \eqref{eq:tail}.
+Rounding adds at most $\Delta/2=1/4$. Thus the per-record digitization
+error has $L^2$ norm at most $1/4+\sqrt{B(a)}$.
+
+At $q=0$, $a=44$ works for every source in $\mathcal B$. The clipped
+average of $N$ digitized null records therefore has risk at most
+\begin{equation}
+ \left(N^{-1/2}+\tfrac14+\sqrt{B(44)}\right)^2.
+ \label{eq:nullupper}
+\end{equation}
+This follows by Minkowski from the undigitized sample mean; it requires
+no assumption that rounding errors are unbiased or independent. For
+$N=1$ the bound is less than $1.563<1.6$; for $N=4$ it is less than
+$0.563$. Without any record the minimax risk on $\theta\in[0,20]$ is
+$100$, attained by the constant estimate $10$. A random estimate cannot
+reduce this value. Hence $C_{\rm N}=1$.
+
+For $N=2$, \eqref{eq:lower} is $1.6702966555\ldots>1.6$; for $N=4$
+it is $0.9101698376\ldots$. To prove finite non-null sufficiency, use six
+reads at $q=1/3$ and two at $q=1$ for the spacelike menu, or six at
+$q=-1/3$ and two at $q=-1$ for the timelike menu. In both cases
+\begin{equation}
+ \widehat\theta_{\rm an}=\tfrac32\overline Y_{\rm low}
+                         -\tfrac12\overline Y_{\rm high}
+ \label{eq:endpoint}
+\end{equation}
+cancels $\alpha$ and has variance $1/2$. All these signals have clipping
+margin at least $14$. Replace each average by its digitized average and
+clip the final estimate to $[0,20]$. Its risk is at most
+\begin{equation}
+ \left(\sqrt{\tfrac12}+\tfrac12+2\sqrt{B(14)}\right)^2
+ <1.458<1.6.
+ \label{eq:nonnullupper}
+\end{equation}
+Here $B(14)=3.08608544\ldots\times10^{-42}$ and
+$B(44)=1.40785656\ldots\times10^{-419}$. This completes the comparison.
+\end{proof}
+
+The one-record datum is minimal under deletion of a complete read: its
+only proper sub-datum in that menu is no record. Nine bits have not been
+proved to be the minimal code length. Further coarsening may still meet
+the error target. Likewise, \eqref{eq:cost} bounds the non-null optimum
+rather than identifying whether three through seven reads suffice.
+
+The read-cost ratio is now well defined:
+\begin{equation}
+ \rho_{\varepsilon_*}
+ =\frac{C_{\rm N}}{\min(C_{\rm T},C_{\rm S})},
+ \qquad \frac18\leq\rho_{\varepsilon_*}\leq\frac13<1.
+\end{equation}
+It prices actual uses of the common interface. It is not a ratio of
+total apparatus energies, preparation costs or optimal detector work.
+
+\section{What produces the advantage, and what removes it}
+\label{sec:boundaries}
+
+The causal distinction acts through a concrete statistical geometry.
+Null contraction annihilates the entire line of tensors $\alpha g$.
+Within either finite-boost non-null menu, the two coefficients are only
+partly separable at fixed gain. This explanation is stronger than calling
+the boundary thin, but also more conditional: a detector menu determines
+which alternatives the word ``cheapest'' covers.
+
+\subsection{The analogue benchmark}
+
+There is a sharp benchmark if the source range is allowed to grow and the
+readout is analogue. Let $\theta\geq0$, $\alpha\leq0$ and
+$|q|\in[q_0,1]$ within one causal type, with $0<q_0<1$. Replace the
+compact prior interval by $[0,L]$. The least-favourable families are
+$\alpha=-2\theta/(1+q_0)$ for spacelike directions and
+$\alpha=-2L/(1+q_0)+2\theta/(1+q_0)$ for timelike directions. Their gains
+are bounded by $r=(1-q_0)/(1+q_0)$. Sending $L$ to infinity gives
+\begin{equation}
+ \inf_{\rm protocols}\sup_{\theta\geq0,\alpha\leq0}
+ \E(\widehat\theta-\theta)^2
+ \geq\frac{(1+q_0)^2}{(1-q_0)^2}\frac{\sigma^2}{N}.
+ \label{eq:ideal}
+\end{equation}
+For $q_0=1/3$ and $N$ divisible by four, allocate $3N/4$ reads to the
+small-magnitude endpoint and $N/4$ to the other. Formula
+\eqref{eq:endpoint} attains $4\sigma^2/N$, so the lower bound is exact
+in that analogue benchmark. Null averaging attains $\sigma^2/N$, with
+the matching location-model lower bound obtained from the same priors.
+The growing-box argument is an ideal statistical benchmark, not an
+additional claim about a bounded-energy laboratory.
+
+\subsection{Mixed types and near-null directions}
+
+Allowing both $q=1$ and $q=-1$ changes the permission. Equal allocation
+and the mean of the two group averages cancel $\alpha$ and give variance
+$\sigma^2/N$, equal to null averaging for even $N$. A physical front end
+that measures the sum of these contractions directly is another change
+of interface. Neither is included in the single-type lower bound.
+
+The boost restriction is also essential. A one-read non-null estimate
+with small $|q|$ has, on $\mathcal B$, digitized root-mean-square error
+bounded by
+\begin{equation}
+ 1+\tfrac14+30|q|+\sqrt{B(14)}.
+\end{equation}
+For $|q|\leq0.0004$ its squared bound is below $1.6$. Thus sufficiently
+near-null non-null probes meet the same one-record task. There is no
+discontinuous universal advantage attached merely to the sign of
+$g(w,w)$. The finite separation is between specified implementable
+menus, while nullity gives exact nuisance rejection.
+
+\subsection{The source that the null record omits}
+
+At fixed $\theta$, every value of $\alpha$ gives exactly the same null
+output law, for any number of reads. Consider instead estimating the
+energy density $S_{00}=\theta-\alpha$. The sources $\alpha=0$ and
+$\alpha=-30$ differ in energy density by $30$ but are indistinguishable
+to this interface. No nonlinear processing, additional null samples or
+more precise null digitizer separates them. Their common output forces
+worst-case absolute energy error at least $15$, and worst-case squared
+error at least $225$ for those two sources.
+
+This is a blind direction, not a gravitational on/off rule. A detector
+that rejects a trace contribution does not remove that contribution from
+the matter action. To obtain a complete source certificate one must add
+a trace-sensitive measurement, calibrate the missing term from independent
+data, or bound it sufficiently for the response task. The companion
+analysis \cite{Liu2026NoView} asks exactly when a readout supports such a
+certificate. The two responsibilities fit together: economical task
+readout and complete physical source accounting need not select the same
+observable algebra.
+
+\section{Reading the established null cluster}
+\label{sec:cluster}
+
+The source task isolates one mechanism. The wider cluster contains others,
+whose distinct assumptions must remain visible. Their conjunction suggests
+a research direction rather than a common derivation already in hand.
+
+\subsection{Causal transport and characteristic data}
+
+A relativistic null cone bounds causal influence; it does not confine
+every Green function to the cone. Characteristic reconstruction needs
+the field equation, gauge constraints and suitable supplementary data
+\cite{Wald1984}. Massive fields and curved backgrounds can have tails.
+This mechanism removes redundant acquisition using a propagation law,
+whereas \eqref{eq:signal} rejects a nuisance at the detector. Combining
+them requires one detector and reconstruction analysis.
+
+\subsection{Restricted access, thermality and entropy}
+
+Hawking and Unruh thermality depend on the state, geometry and observation
+regime \cite{Hawking1975,Unruh1976}. The vacuum wedge has geometric modular
+flow in the Bisognano--Wichmann setting \cite{BisognanoWichmann1975,BisognanoWichmann1976};
+an arbitrary restriction need not \cite{Haag1996}. Horizon entropy,
+light-sheet bounds and quantum null energy inequalities relate particular
+causal boundaries to information \cite{Bekenstein1973,Bousso1999,QNEC2016}.
+Quantum focusing remains a conjecture outside its proved regimes
+\cite{QFC2016}. Neither these results nor Jacobson's thermodynamic argument
+\cite{Jacobson1995} identify finite detector cost with area. Global
+entropy, restricted-state entropy and acquired information remain
+different quantities.
+
+\subsection{Asymptotic memory and symmetry}
+
+Bondi--Sachs radiation, soft relations and memory connect null-infinity
+data to asymptotic charges and persistent detector changes
+\cite{Bondi1962,Sachs1962,Weinberg1965,Strominger2018}. Radiative records
+can retain a travelling source economically, while constraint, Coulombic
+or trace data may still be needed for a complete source certificate.
+A retained displacement is an imprint of the passage, not by itself
+an observer's self-description.
+
+\subsection{Massless propagation and the finite-resolution edge}
+
+Null momentum characterizes relativistic massless dispersion; gauge
+structure can protect masslessness in a specified theory, but does not
+follow from nullness alone. The mass--energy companion distinguishes
+spectral mass from mass inferred through a readout dictionary
+\cite{Liu2026MassEnergy}. Finite resolution near the cone and averaging
+momenta rather than invariant masses can change that reading. Particle
+masses and mixing still require their dynamical model.
+
+\section{A stronger programme and its tests}
+\label{sec:programme}
+
+The finite experiment supplies an answer to a restricted but substantive
+question: given this source, this target and these actual detector menus,
+null data are sufficient and have a strict read-count advantage. The
+larger explanatory claim is that related efficiencies help account for
+the recurrence of null structure in physical descriptions. It can be
+formulated without making null data universally complete.
+
+\begin{conjecture}[Task-adapted null interfaces]
+For important radiation and causal-response tasks, there are physically
+implementable null interfaces that attain lower registered resource cost
+than the admissible non-null interfaces at the same task error, because
+they combine characteristic transport with rejection of source components
+irrelevant to that task. The cost advantage survives a common accounting
+of detector preparation, alignment, bandwidth, clocks, computation and
+any source-completion data required by the target.
+\end{conjecture}
+
+The conjecture has two mechanisms and two ways to fail. Characteristic
+transport can reduce redundant acquisition, but tails or unmeasured
+constraint data can make the chosen boundary inadequate. Nuisance
+rejection can improve conditioning, but a mixed or near-null competitor
+can match it. Adding realistic direction-setting and meter-renewal costs
+could also overturn a sample advantage. These are quantitative competing
+explanations, not exceptions to be excluded after a comparison.
+
+A next experiment should use one field preparation, one causal response
+target and a common menu of finite surface detectors. Every reconstruction
+would receive the same propagation law. The task could be a specified
+outgoing waveform or a smeared response, rather than recovery of all bulk
+degrees of freedom. The null and non-null reconstructions would be judged
+by the same loss and the same resource vector. Their advantage would then
+be attributed separately to propagation redundancy and to coupling
+conditioning. An interacting background or a field with tails would test
+whether source-completion data erase the saving. This extends the present
+mechanism rather than promoting it to a theorem about all hypersurfaces.
+
+An interface can be sufficient for one action and incomplete for another.
+The null record estimates $\theta$ efficiently; its blindness to $\alpha$
+matters when the task becomes total source energy. Thus causal records,
+accessible correlations and complete physical response need not select
+the same data. Q-RAIF's No View analysis makes this source distinction
+explicit \cite{Liu2026NoView}. A trace term unseen by a null instrument
+is not thereby removed from gravity. Applications to vacuum energy,
+black-hole information or dark sectors require their own source and
+retrieval predictions, beyond \eqref{eq:cost}.
+
+\section{Conclusion}
+
+Null contraction can make a physical task cheaper by discarding a source
+component that the task does not need. We exhibited the effect with the
+same scalar-source family, the same actual pointer law and the same
+finite digitizer for all competitors. The proof covers adaptive non-null
+readers and records both a sufficient null protocol and finite sufficient
+non-null protocols. Its advantage depends on the declared direction
+permission and is lost in relevant relaxed menus.
+
+The omitted trace contribution supplies the counterweight: an economical
+null interface is not automatically a complete interface to matter or
+gravity. The wider null cluster is most promising where causal transport,
+restricted access and task-relevant source reduction reinforce one
+another. Establishing that conjunction in a common field experiment,
+including its completion and renewal costs, is the next test of the
+programme.
+
+\begin{thebibliography}{99}
+\raggedright
+\bibitem{Wald1984} R.~M.~Wald, \emph{General Relativity}, University of Chicago Press (1984).
+\bibitem{Hu2018} W.~Hu, \emph{Astro 408: Cosmological Perturbation Theory}, lecture set 2, scalar-field slides, University of Chicago (2018),
+\url{https://background.uchicago.edu/~whu/Courses/Ast408_18/ast4PT_02.pdf}.
+\bibitem{GillLevit1995} R.~D.~Gill and B.~Y.~Levit, Applications of the van Trees inequality: a Bayesian Cram\'er--Rao bound,
+\emph{Bernoulli} \textbf{1}(1/2), 59--79 (1995).
+\bibitem{GassiatPollardStoltz} E.~Gassiat, D.~Pollard and G.~Stoltz,
+\emph{Revisiting the van Trees inequality in the spirit of H\'ajek and Le Cam}, research draft, Sections 4 and 7.2,
+\url{https://stoltz.perso.math.cnrs.fr/Publications/vanTrees-LeCam-TempWeb.pdf}.
+\bibitem{Hawking1975} S.~W.~Hawking, Particle creation by black holes,
+\emph{Communications in Mathematical Physics} \textbf{43}, 199--220 (1975).
+\bibitem{Unruh1976} W.~G.~Unruh, Notes on black-hole evaporation,
+\emph{Physical Review D} \textbf{14}, 870--892 (1976).
+\bibitem{Bekenstein1973} J.~D.~Bekenstein, Black holes and entropy,
+\emph{Physical Review D} \textbf{7}, 2333--2346 (1973).
+\bibitem{Bousso1999} R.~Bousso, A covariant entropy conjecture,
+\emph{Journal of High Energy Physics} \textbf{07}, 004 (1999).
+\bibitem{QFC2016} R.~Bousso, Z.~Fisher, S.~Leichenauer and A.~C.~Wall,
+Quantum focusing conjecture, \emph{Physical Review D} \textbf{93}, 064044 (2016).
+\bibitem{QNEC2016} R.~Bousso, Z.~Fisher, J.~Koeller, S.~Leichenauer and A.~C.~Wall,
+Proof of the quantum null energy condition, \emph{Physical Review D} \textbf{93}, 024017 (2016).
+\bibitem{Jacobson1995} T.~Jacobson, Thermodynamics of spacetime: The Einstein equation of state,
+\emph{Physical Review Letters} \textbf{75}, 1260--1263 (1995).
+\bibitem{BisognanoWichmann1975} J.~J.~Bisognano and E.~H.~Wichmann,
+On the duality condition for a Hermitian scalar field,
+\emph{Journal of Mathematical Physics} \textbf{16}, 985--1007 (1975).
+\bibitem{Haag1996} R.~Haag, \emph{Local Quantum Physics: Fields, Particles, Algebras}, Springer (1996).
+\bibitem{Bondi1962} H.~Bondi, M.~G.~J.~van der Burg and A.~W.~K.~Metzner,
+Gravitational waves in general relativity VII,
+\emph{Proceedings of the Royal Society A} \textbf{269}, 21--52 (1962).
+\bibitem{Sachs1962} R.~K.~Sachs, Gravitational waves in general relativity VIII,
+\emph{Proceedings of the Royal Society A} \textbf{270}, 103--126 (1962).
+\bibitem{Weinberg1965} S.~Weinberg, Infrared photons and gravitons,
+\emph{Physical Review} \textbf{140}, B516--B524 (1965).
+\bibitem{Strominger2018} A.~Strominger,
+\emph{Lectures on the Infrared Structure of Gravity and Gauge Theory}, Princeton University Press (2018).
+\bibitem{Liu2026QRAIFA} S.~Liu,
+\emph{Lorentzian Read-out from Local Unitary Propagation: Clifford Relations, Causal Cones and Spectral Mass},
+2026; series record DOI: 10.5281/zenodo.18525876.
+\bibitem{Liu2026NoView} S.~Liu,
+\emph{No View from Nowhere: Read-out Closure and the Vacuum Curvature Test in Q-RAIF A},
+2026; series record DOI: 10.5281/zenodo.20284454.
+\bibitem{Liu2026MassEnergy} S.~Liu,
+\emph{Recovering Mass--Energy Equivalence within Algebraic Lorentzian Read-out: Spectral Mass, Lattice Windows and Finite Records},
+2026; series record DOI: 10.5281/zenodo.20280951.
+\bibitem{BisognanoWichmann1976}
+J.~J.~Bisognano and E.~H.~Wichmann, \emph{On the duality condition for quantum fields}, J.\ Math.\ Phys.\ \textbf{17}, 303--321 (1976), doi:10.1063/1.522898.
+
+\end{thebibliography}
+\end{document}

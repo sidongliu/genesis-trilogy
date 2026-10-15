@@ -1,0 +1,90 @@
+{
+  "title": "The Genesis Trilogy",
+  "official_pdf": "Genesis_Trilogy_Collection.pdf",
+  "members": [
+    {
+      "id": "HAFF-A",
+      "pdf": "HAFF-A.pdf",
+      "title": "Physical Access and Correlation Geometry: The Holographic Alaya-Field Framework",
+      "sha256": "2ce1a2949f1626ea1bd756ad765372cda3d743ea1e1e71490c8a259ed938ec49"
+    },
+    {
+      "id": "HAFF-B",
+      "pdf": "HAFF-B.pdf",
+      "title": "Coupling, Records, and Stable Relations: Formation, Protected Content and the Lifetime of a Geometry",
+      "sha256": "b771cb17933fa803c53d7d7707c946f58b7c945690e233c70d94851452ff1ee3"
+    },
+    {
+      "id": "HAFF-C",
+      "pdf": "HAFF-C.pdf",
+      "title": "Causation, Agency, and Existence: Historical Control and Maintained Intervention",
+      "sha256": "e275266c86733fcfddf737fdec950d2e2c0f3cea8c9a989d72bd2dfa8e65c3c2"
+    },
+    {
+      "id": "HAFF-D",
+      "pdf": "HAFF-D.pdf",
+      "title": "Selection, Maintenance and Gravitational Response: Modular Constraints and a Physical Return",
+      "sha256": "d133291d41bdc39ab3a5c6c368603fcda0d093a77136a5e74357040555d22446"
+    },
+    {
+      "id": "HAFF-E",
+      "pdf": "HAFF-E.pdf",
+      "title": "Measurement as Accessibility: Measurement Permissions, Stable Records and Public Readout",
+      "sha256": "eba24a76b4a9ae814aff0510f52c983a0bccde6065b0e5e8b3a2d19caf774b2c"
+    },
+    {
+      "id": "HAFF-F",
+      "pdf": "HAFF-F.pdf",
+      "title": "Records, Dissipation and Intervention: Conditions for a Temporal Direction",
+      "sha256": "9b60b8b063c6281c924ac9289c780415e0958bff8671a46d97d873d9a86139f2"
+    },
+    {
+      "id": "HAFF-G",
+      "pdf": "HAFF-G.pdf",
+      "title": "Internal Selection and Revisable Organization: How History Changes Permissions and Physical Sources",
+      "sha256": "221d71f3b9d75655a03eb7b936c579b8068c8016fcdf19b570de7f6cef580e40"
+    },
+    {
+      "id": "HAFF-PS",
+      "pdf": "HAFF-PS.pdf",
+      "title": "Postscript: Persistence, Participation and an Unfinished Self",
+      "sha256": "2d0c7487b6c00cde82f276b4e8daf991ac4c4602099520ef4ccb53e04b7b11b4"
+    },
+    {
+      "id": "QR-A",
+      "pdf": "QR-A.pdf",
+      "title": "Lorentzian Read-out from Local Unitary Propagation: Clifford Relations, Causal Cones and Spectral Mass",
+      "sha256": "56b26183b23d8e3e678719107c6fafea08be84aa27d59f4c2311e2c9dca67e87"
+    },
+    {
+      "id": "QR-B",
+      "pdf": "QR-B.pdf",
+      "title": "Thermodynamic Stability Constraints on Persistent Open Quantum Subsystems: Control Algebra, Physical Actuation and Energy Cost",
+      "sha256": "8c5be28402a9f9bac86918269583592cd21e686de896b9d4b787a7815f25d9ef"
+    },
+    {
+      "id": "QR-C",
+      "pdf": "QR-C.pdf",
+      "title": "Retained Quantum History, Physical Sources and Receiver Renewal in Q-RAIF",
+      "sha256": "376d6ca53ee6d75d671942e4ea686db40575b9f249c55f5b62631bcbf0cbc16e"
+    },
+    {
+      "id": "TD-I",
+      "pdf": "TD-I.pdf",
+      "title": "Memory as a Usable Resource: Correlations, Records and Complete Endpoint Accounting",
+      "sha256": "70564b78e0a58581fbbb10f3764e3aa8b471b4511cf1d88e99be2a9b497d3712"
+    },
+    {
+      "id": "TD-II",
+      "pdf": "TD-II.pdf",
+      "title": "Reference Frames Selected by History: The Capability and Cost of a Bounded Agent's Self-Frame",
+      "sha256": "685c06f055f9eea9ebaa3b73ae016effc3828e49f40687d5b3fb3d6089e66457"
+    },
+    {
+      "id": "TD-III",
+      "pdf": "TD-III.pdf",
+      "title": "Keeping a Self-Model Calibrated: Drift Detection, the Price of Keeping Up, and Reliability in a Closed Loop",
+      "sha256": "c0a6bcd400a36d5cd0327fa6012e3293053ef6c1e4135f508e306dee5754fc99"
+    }
+  ]
+}

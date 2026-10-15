@@ -1,0 +1,804 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{booktabs}
+\usepackage[hidelinks]{hyperref}
+\hypersetup{pdftitle={The World as Imprint: From Trace-Carrying Structure to Self-Reading Mind},pdfauthor={Sidong Liu}}
+\newtheorem{definition}{Definition}[section]
+\newtheorem{lemma}[definition]{Lemma}
+\newtheorem{proposition}[definition]{Proposition}
+\newtheorem{theorem}[definition]{Theorem}
+\newtheorem{corollary}[definition]{Corollary}
+\newtheorem{conjecture}[definition]{Conjecture}
+\newtheorem{hypothesis}[definition]{Hypothesis}
+\newcommand{\E}{\mathbb E}
+\newcommand{\Prb}{\mathbb P}
+\newcommand{\tr}{\operatorname{tr}}
+\newcommand{\sgn}{\operatorname{sgn}}
+\newcommand{\artanh}{\operatorname{artanh}}
+\title{The World as Imprint:\\From Trace-Carrying Structure to Self-Reading Mind}
+\author{Sidong Liu, PhD\\iBioStratix Ltd\\\texttt{sidongliu@hotmail.com}}
+\date{October 2026}
+\begin{document}
+\emergencystretch=2em
+\maketitle
+
+\begin{abstract}
+A trace becomes a self-model when a system uses it to predict and change its own way of reading. We construct a finite quantum reader that learns an unknown instrument, retains task-relevant calibration and uses its estimated reliability to choose another inquiry or a physical action. A second construction makes this learning maintain continued access: records of trusted healthy preparations calibrate an unknown diagnostic, and the retained flag controls repair of the same supplied body. Without references, a persistent world still reveals the reader's matching command, sharpness and actuator reliability. Its absolute sign and the split between instrument axis and command wiring remain hidden under every permitted policy. At weak reading sharpness $\nu$ and fixed world persistence $0<c<1$, the optimal leading rate of distinguishing command assignments is $\nu^4c^2/[2(1-c^2)]$ nats per reading, including feedback and wrong-axis disturbance. The bound gives a finite-time cost of identification. Wrong-axis readings also contract the world's stored distinction by at least the factor $\sqrt{1-\nu^2}$ per reading. Calibration and preservation must therefore be judged together, with the acquisition policy specified. Feedback then writes the reader's sign into the world's polarization: a second reader holding a standard can detect it on matched branches or across independent calibration episodes. This construction makes retained history, self-evaluation and a change of the world parts of one physical loop. We propose that reflective subjectivity develops when such a historically formed model of participation is shared across the activities by which a system maintains itself.
+\end{abstract}
+
+\section{The world leaves traces, but who reads them?}
+
+A record of a measurement says something about its target and something about the instrument that made it: its orientation, gain, noise and previous adjustment. A reader that attributes all of this to the target can learn the wrong world with growing confidence. The difficulty turns reflexive when the reader is also the one who has to find out how it reads.
+
+The problem is one case of a wider one. Stable structures have histories, and their present organization can preserve differences among the processes that produced them after those processes have ended. A material trace, an acquired skill and a remembered conversation preserve very different things; what they share is that formation goes on constraining what can now be distinguished and done. I call such a relation an \emph{imprint}. The notion earns its place only by saying what survives, who can use it, and what the use changes.
+
+The larger claim developed here is that a subject can arise inside such a history-bearing world when its own way of participating becomes an object of its activity. The reader is made of the same processes it reads. Its perspective has a history, and part of that history can become available to it. On this account a self is a relatively stable organization of world-reading and action that can take its own conditions into account.
+
+Calling a system an imprint-carrier does not cover the distance between a physical record and such a subject. The paper therefore starts with a complete small construction. A device receives records through an unknown instrument, forms an estimate of the instrument, uses the estimate to change its next measurement, and judges whether it has reached a required reliability (Sections~\ref{sec:reader} and~\ref{sec:selfevaluation}). Each link can be intervened on separately: the record, its internal use and its physical consequence. Section~\ref{subsec:bodycal} then connects self-reading to the maintenance of that capacity. A controller learns an unknown diagnostic polarity from actual healthy preparations and uses the resulting flag to repair the same body before its next world reading; the body, preparation and finite input bank are charged inputs.
+
+The construction raises a further question: how much of itself can a reader learn in this way? Section~\ref{sec:reach} answers it for a fixed instrument coupled to a persistent world through an explicit pointer. Correlation experiments identify its matching command, sharpness, world persistence and actuator reliability. An exact symmetry leaves its instrument sign and the axis--wiring split inaccessible. A policy-uniform rate bound then quantifies what persistence supplies, including when the reader feeds back on its world. For passive repeated readings, this information is exactly the predictability of a record from the preceding records. Wrong-axis readings also disturb that world. Section~\ref{sec:source} shows how a calibrated reader's feedback makes its own sign visible in the world's polarization to a second reader with an independent orientation, conditional on matching or across independent calibration episodes.
+
+T-DOME~III gives the symmetry argument that parameters on the same observable orbit cannot be distinguished by acting within the loop \cite{TDIII}. Identifying parameters outside those orbits requires additional experiments; we supply them for the present stationary model. HAFF~G relates internal selection to the dispatch map of an executor \cite{HAFFG}. The results here add an explicit readout coupling, an information rate, a disturbance bound and a physical imprint of the reader. Bayesian accounts of self-evaluation already model judgments about one's own decision process \cite{FlemingDaw2017}; the present concern is the formation and use of the records such judgments need. The Imprint Chain returns calibration to a controlled carrier through feedback \cite{ImprintChain}, Stable Hulls treats the integration of several histories \cite{StableHulls}, and Renormalization and Imprint Filtering treats readability across scales \cite{ImprintRG}. Sections~\ref{sec:self} and~\ref{sec:interpretation} develop the wider hypothesis about subjectivity.
+
+\section{Carrying, access and self-reading}\label{sec:carrying}
+
+\subsection{A trace is relative to a source contrast}
+
+Let $\Theta$ label a family of formation conditions and let a carrier $C$ have states $\rho_\theta$. To ask whether $C$ carries an imprint is to ask whether a specified contrast among the values of $\theta$ survives in these states. A history may change many microscopic details and leave the selected carrier unchanged; a single stable binary mark may keep a decisive difference. Visible complexity is no substitute for a source model.
+
+For two equally likely conditions, unrestricted quantum discrimination has error
+\[
+ e_{\rm all}=\frac12\left(1-\frac12\|\rho_0-\rho_1\|_1\right),
+\]
+and $e_{\rm all}<1/2$ is one precise sense of carrying. It says nothing about an observer's actual means. Let $\mathcal D_{\mathbf b}$ be the preparations, instruments, controls and decision rules permitted at a resource vector $\mathbf b$. The accessible error is
+\begin{equation}\label{eq:access}
+ e_{\mathbf b}=\inf_{D\in\mathcal D_{\mathbf b}}\Prb\{D(C)\ne\Theta\}.
+\end{equation}
+The vector keeps preparations, measurements, retained bits, control amplitude and elapsed time apart; there need be no exchange rate among them. A trace can be inaccessible at one interface and useful at another.
+
+The source family needs a causal reading as well. In an experiment, changing $\theta$ means changing a preparation or a coupling while the declared alternatives stay fixed. In historical inference a model of formation supplies this relation. A correlation without such a model does not identify which history produced a mark, and several histories may remain observationally equivalent.
+
+Coarse graining makes the distinctions concrete. In a Gaussian lattice model, block averages keep some source contrasts and erase others, and a coarse zero mode can be exactly blind to selected couplings; a projected stationary process can make an older record useful although the microscopic dynamics is Markovian \cite{ImprintRG}. Those are results about what an interface lets an investigator infer. Self-reading needs a further causal step.
+
+\subsection{The model must operate inside the system}
+
+\begin{definition}[Functional self-reading]\label{def:selfreading}
+A system performs functional self-reading in a task when its retained state specifies a revisable prediction about its own observation or action map, the prediction is updated from records available to the system, and it affects the system's subsequent choice of reading, interpretation or action.
+\end{definition}
+
+An analyst who reconstructs the instrument from its output does not meet this definition, and neither does a stored self-description that never reaches the controller. The difference can be tested: change the records, or disconnect their use, while the instrument and the world task stay fixed.
+
+The prediction need not be in words or stored as a formula; a lookup table or a finite-state controller can implement the same update. What gives it content about the system is its counterfactual role. When the instrument changes, particular records should change particular predictions and actions. This is a modest kind of self-model. It concerns how this system is coupled to its task, not its complete identity or the existence of experience.
+
+Three questions can then have different answers for one object: does the carrier retain a contrast, can the available interface recover it, and does the system use what it recovers to model its own participation? A notebook can preserve a calibration record, an external reader can decode it, and the instrument can go on working without ever using it.
+
+\section{A reader that learns its own instrument}\label{sec:reader}
+
+\subsection{World states and permissions}
+
+An instrument has a hidden fixed label $S\in\{0,1\}$ with equal prior probabilities. Its binary effects are
+\begin{equation}\label{eq:effects}
+ E_{y\mid s}=\frac12(I+y\nu\sigma_s),\qquad
+ y\in\{-1,+1\},\quad
+ \sigma_0=Z,\quad\sigma_1=X,\quad
+ \nu=1-2\eta,\quad 0<\eta<\tfrac12.
+\end{equation}
+Each effect has eigenvalues $\eta$ and $1-\eta$, and their square roots give a legitimate instrument. Section~\ref{subsec:pointer} derives the same effects from an explicit pointer coupling with a different state update; its disturbance is computed from that full instrument. The fresh-world task here uses outcome probabilities only, not a granted sharp measurement or spectral closure of the effects. The label stays fixed through calibration and the following task window and is not given to the controller.
+
+A fresh world bit $W=\pm1$, equally likely, is encoded as $\rho_w=\tfrac12(I+wZ)$, independently from trial to trial. The observer may measure each fresh world qubit once. Before the measurement it may apply one of two controls,
+\begin{equation}\label{eq:controls}
+ U_0=I,\qquad U_1=e^{-i\pi Y/4}.
+\end{equation}
+Since $U_1^\dagger XU_1=Z$ and $U_1^\dagger ZU_1=-X$,
+\begin{equation}\label{eq:law}
+ \Prb(Y=y\mid W=w,S=s,a)=
+ \begin{cases}
+ (1+yw\nu)/2,&a=s,\\
+ 1/2,&a\ne s.
+ \end{cases}
+\end{equation}
+Matching the action to the instrument reads the world bit with error $\eta$; a mismatch tells nothing about it. The action changes the physical measurement basis on the incoming carrier, not the name attached to an outcome.
+
+The instrument family, the two controls, the reference preparation below and the update rule are supplied, and so is the sign convention: $\nu>0$ is known, so an outcome $+1$ on a matched reading favours $W=+1$. What the observer acquires from experience is which instrument it has. Section~\ref{sec:reach} removes the reference and the sign convention and asks what is then left to learn. The outcome statistics admit an ordinary classical decision analysis; the quantum implementation makes the change of access explicit.
+
+\subsection{Records become an internal interface model}
+
+A reference is a reliably prepared $\rho_+=|0\rangle\langle0|$ measured with action $a=0$. Its outcome is $+1$ with probability $p_0=1-\eta$ if $S=0$ and $p_1=\tfrac12$ if $S=1$. References are conditionally independent given $S$ and are counted separately from world measurements; only the classical outcome is kept. Set $\eta=1/10$ for the numerical protocol. After $n$ references with $k$ positive outcomes the observer stores $(n,k)$ and computes
+\begin{equation}\label{eq:posterior}
+ p_{n,k}:=\Prb(S=0\mid n,k)=\frac{9^k}{9^k+5^n},
+\end{equation}
+Bayes' rule with likelihood ratio $9^k/5^n$: a positive record multiplies the ratio by $9/5$, a negative one by $1/5$. The controller chooses $a=0$ if $p_{n,k}\ge1/2$ and $a=1$ otherwise, then reports the world outcome $Y$ as its estimate of $W$.
+
+The same state now has two roles. As a physical record it bears the effects of the unknown instrument; as an active model it predicts which controlled measurement will be informative. No external estimate of $S$ is inserted between them.
+
+\begin{theorem}[Exact risk and retained interface information]\label{thm:risk}
+Let $M$ be the retained classical state containing all information kept from calibration before a fresh world trial, and $p_M=\Prb(S=0\mid M)$. In the two-control, one-measurement protocol the minimum world error is
+\begin{equation}\label{eq:risk}
+ R(M)=\eta+(\tfrac12-\eta)q(M),\qquad
+ q(M)=\E\min(p_M,1-p_M),
+\end{equation}
+attained by choosing the more likely matching action and reporting $Y$. For $n$ complete reference records,
+\begin{equation}\label{eq:q}
+ q_n=\frac12\sum_{k=0}^n
+ \min\!\left\{\binom nk(1-\eta)^k\eta^{n-k},\ \binom nk2^{-n}\right\}.
+\end{equation}
+If a permitted policy achieves error at most $r$ with $\eta\le r\le\eta+(1/2-\eta)/2$, its retained state satisfies
+\begin{equation}\label{eq:information}
+ I(S;M)\ge 1-h_2\!\left(\frac{r-\eta}{1/2-\eta}\right)
+\end{equation}
+bits, with $h_2$ the binary entropy.
+\end{theorem}
+\begin{proof}
+Given $M=m$, action $0$ matches with probability $p_m$ and action $1$ with probability $1-p_m$. Both resulting channels are binary symmetric with nonnegative correlation between $Y$ and $W$, so reporting $Y$ is optimal, and maximizing the matching probability gives conditional error $\eta+(1/2-\eta)\min(p_m,1-p_m)$; randomizing the action cannot help. Averaging gives~\eqref{eq:risk}, and the minimum Bayes error for the two binomial laws gives~\eqref{eq:q}. Finally $H(S\mid M)=\E h_2(\min(p_M,1-p_M))\le h_2(q(M))$ by concavity. An error $r$ requires $q(M)\le(r-\eta)/(1/2-\eta)$; $h_2$ increases on $[0,1/2]$ and $H(S)=1$.
+\end{proof}
+
+Equation~\eqref{eq:information} says what the task requires the system to retain about its own interface without prescribing how. A controller compiled from the posterior rule performs as well as one that displays it. All persistent physical information belongs in $M$: a latched switch, a changed synaptic weight, a stored stopping time or a record fetched from elsewhere can carry the needed dependence on $S$. Clearing a probability register while the correct switch position stays does not remove the memory the task uses.
+
+\begin{table}[ht]
+\centering
+\begin{tabular}{rccc}
+\toprule
+Reference reads $n$ & Interface error $q_n$ & World error $R_n$ & Required $I(S;M)$ at $R_n$\\
+\midrule
+0 & 0.500000 & 0.300000 & 0.000000\\
+2 & 0.220000 & 0.188000 & 0.239832\\
+4 & 0.182400 & 0.172960 & 0.314701\\
+8 & 0.091312 & 0.136525 & 0.559168\\
+16 & 0.027705 & 0.111082 & 0.817250\\
+32 & 0.003398 & 0.101359 & 0.967241\\
+\bottomrule
+\end{tabular}
+\caption{Exact finite sums for $\eta=0.1$, rounded for display. The last column is the information lower bound, not the physical size of the memory. Each task trial uses one further world measurement.}
+\label{tab:fixed}
+\end{table}
+
+\subsection{What the history interventions establish}
+
+\begin{proposition}[Unlabelled fresh samples cannot calibrate this reader]\label{prop:no_reference}
+If the controller starts with no information about $S$ and receives only measurements of independent, equally likely fresh world bits, then even with adaptively chosen controls its record history is independent of $S$, and its minimum error on a further fresh world bit is $1/4+\eta/2$.
+\end{proposition}
+\begin{proof}
+Averaging~\eqref{eq:law} over $W$ makes every outcome fair for either $S$ and either action. Conditional on any past history the next outcome is therefore fair and independent of $S$; induction gives the history claim, and~\eqref{eq:risk} with $q=1/2$ gives the error.
+\end{proof}
+
+Independence and freshness are what matter. Known input labels, correlated world states, or repeated access to one persisting source supply calibration information; the reference supplies a distinction that the unlabelled fresh stream lacks. Section~\ref{subsec:rate} places this proposition at one end of a law: a world that forgets everything between readings ($c=0$ there) teaches the reader nothing about itself.
+
+If all $S$-dependent memory is deleted before action selection, the risk returns to $0.3$ for $\eta=0.1$. Records from an independently drawn donor instrument do the same: the donor's estimate can be excellent for the donor and useless here. Permuting a fixed batch of references changes neither $k$ nor the risk, so a history can be causally necessary without its order being necessary. These interventions establish a learned relation between this instrument, its records and its later access. They do not establish the formation of the observer, whose candidate axes, task, reference source and control permissions were given in advance.
+
+\section{Reading how well one reads}\label{sec:selfevaluation}
+
+\subsection{Reliability selects the next measurement}
+
+An observer that can predict its own reading error can let the prediction govern inquiry. Put
+\[
+ q(n,k)=\min(p_{n,k},1-p_{n,k}),\qquad
+ r(n,k)=\eta+(\tfrac12-\eta)q(n,k).
+\]
+With a target $\delta$ and a maximum reference allowance $N$, the observer reads references until
+\begin{equation}\label{eq:stop}
+ T=\min\{n:q(n,k_n)\le\delta\}\wedge N,
+\end{equation}
+then chooses its world-reading action from $p_{T,k_T}$; if it stops at the cap without meeting the target, it records that fact. On every branch that meets the target the conditional error of the next world reading is at most $\eta+(1/2-\eta)\delta$. The stopping input is the observer's own estimated reliability, not the hidden label or the eventual answer. The stopping event adds no unaccounted likelihood factor, because every reference path ending at $(n,k)$ has the same likelihood ratio~\eqref{eq:posterior}.
+
+\begin{table}[ht]
+\centering
+\begin{tabular}{ccccc}
+\toprule
+Target $\delta$ & Cap $N$ & $\E T$ & World error & Cap reached without target\\
+\midrule
+0.05 & 32 & 7.552528 & 0.112900 & 0.001292\\
+0.02 & 32 & 9.849568 & 0.105660 & 0.008272\\
+\bottomrule
+\end{tabular}
+\caption{Exact forward enumeration of the capped rule. World errors average over all terminal branches, including those that miss the target. Mean and worst-case resource use are different quantities.}
+\label{tab:sequential}
+\end{table}
+
+One action bit can keep the best world-reading action after calibration, but not what is needed to judge further inquiry. For $n=4$, both $k=3$ and $k=4$ select action $0$, with predicted world errors $0.284638$ and $0.134790$; a rule with $\delta=0.1$ goes on reading references in the first state and stops in the second. The same first-order action can rest on very different knowledge of its reliability. One finite state thus supports both a prediction about the device and a rule for changing what the device does next, without an infinite hierarchy of readers, and an external observer can test both roles.
+
+\subsection{Finite implementation and finite uncertainty}
+
+For $N=32$ there are at most $(N+1)(N+2)/2=561$ count states, encodable in ten bits. The comparisons in~\eqref{eq:stop} can be done with the integers $9^k$ and $5^n$, the largest of which has $102$ bits. Neither a real-valued posterior nor an infinite history is needed. These counts leave out the program, phase flags, arithmetic registers, actuator state and reference apparatus.
+
+The physical resources stay separate. Each reference consumes a prepared qubit and a measurement, each task a fresh world qubit and a measurement, and the action $U_1$ a rotation. With $H(t)=A(t)Y$ and $\hbar=1$, a constant pulse $A=\pi/(4\tau)$ realizes $U_1$ in time $\tau$; a quadratic control charge $g_{\rm ctl}\int_0^\tau A^2dt$ is then $g_{\rm ctl}\pi^2/(16\tau)$, and an amplitude limit $|A|\le A_{\max}$ requires $\tau\ge\pi/(4A_{\max})$. A finite reusable record processor must also specify how it resets. Corollary~\ref{cor:energy} gives an erasure charge for a thermal reset architecture with classical retained history and no additional work-recovery resource. Retaining the outcomes instead consumes storage. Tables~\ref{tab:fixed} and~\ref{tab:sequential} compare risks and reference counts.
+
+\begin{proposition}[Uncertainty at a bounded reference allowance]\label{prop:finite}
+For $0<\eta<1/2$ and finite $N$, $q_N>0$. Every stopping and decision rule using at most $N$ references of the specified kind has interface error at least $q_N$, hence world error at least $\eta+(1/2-\eta)q_N>\eta$.
+\end{proposition}
+\begin{proof}
+Both reference laws give positive probability to every finite record, so every summand in~\eqref{eq:q} is positive. A stopped record with independent randomization is a function of the complete $N$-reference experiment and cannot have lower Bayes error than the optimum using all $N$ records. Theorem~\ref{thm:risk} gives the world bound.
+\end{proof}
+
+The incompleteness of self-knowledge here has a specific cause: overlapping reference distributions and a finite chance to sample them. Finiteness alone proves no general opacity. A finite system can read a finite parameter exactly when some allowed record separates the alternatives without overlap. Section~\ref{sec:reach} identifies what no allowed record of the reader separates at all.
+
+\subsection{Changing the permissions changes the bound}\label{subsec:continuous}
+
+The two-switch assumption is a physical permission, not a definition of observers. If every rotation $e^{-i\theta Y/2}$ with $0\le\theta\le\pi/2$ is allowed, then at posterior $p=\Prb(S=0\mid M)$ the world correlation is $\nu[p\cos\theta+(1-p)\sin\theta]$, maximal at $\theta=\arctan((1-p)/p)$, and
+\begin{equation}\label{eq:continuous}
+ R_{\rm rot}(M)=\frac12\left[1-\nu\,\E\sqrt{p_M^2+(1-p_M)^2}\right].
+\end{equation}
+Without calibration this is $(1-\nu/\sqrt2)/2=0.217157$ at $\eta=0.1$, below the two-switch baseline. Every informative record still helps strictly: $\E p_M=1/2$ and $\sqrt{p^2+(1-p)^2}$ is strictly convex. The value of memory survives the larger action class, but the trade-off changes, and arbitrary angles are not free. Selecting among a continuum of axes is internal selection in the sense of HAFF~G. For its target-eigenstate error criterion, selecting every sharp axis on a great circle with error at most $\delta$ requires asymptotic program dimension at least $0.433\,\delta^{-1/2}$, whether pure or mixed programs are allowed: both target errors of any mixed program have an exact pure realization in the same register. This dimension equivalence does not equate preparation costs or full instruments. Two orthogonal program states suffice for the two-switch reader \cite{HAFFG}.
+
+\subsection{A learned diagnostic keeps the same body able to act}
+\label{subsec:bodycal}
+
+The calibrated reader above changes a measurement of a fresh world. The body-maintenance protocol of HAFF~C~\cite{HAFFC} makes continued access itself an action consequence. We extend that same protocol, rather than treating a reliable body as an unchanged input. Its physical damage register is $D\in\{0,1\}$, with $D=0$ healthy. A healthy sensor has effective world error
+\[
+ R_0=q+(1-2q)\bigl(\mu+\nu_{\rm s}-2\mu\nu_{\rm s}\bigr),
+\]
+where $\nu_{\rm s}$ is sensor error, $\mu$ actuator error and $q$ the subsequent world-flip probability. A damaged sensor reads a fair bit. After the task, independently of the world, a healthy body is damaged with probability $d$. Diagnosis precedes repair, and repair precedes that same slot's world reading and action.
+
+The raw diagnostic now has an unknown fixed polarity $u$:
+$Y=D\oplus N\oplus u$, with fresh independent
+$N\sim{\rm Bern}(e)$ and known $0<e<1/2$.
+The controller cannot use $u$ directly. It may swap a fresh healthy blank into the physical $D$ register and then read its actual diagnostic. Repeat this preparation and reading $m$ times, with odd $m$, keeping the spent bodies and all outcomes. Their majority, retained as a decision flag $\hat u$, supplies the correction used thereafter:
+repair exactly when $Y\oplus\hat u=1$.
+The flag is calculated from the raw records within the controller; it is not an externally supplied estimate.
+
+\begin{proposition}[Records calibrate subsequent body maintenance]
+\label{prop:bodycal}
+Suppose all task, damage and diagnostic randomness after calibration is independent of the reference outcomes, and the diagnostic polarity stays fixed. The calibration error is
+\[
+ \delta_m=\Prb(\hat u\ne u)
+ =\sum_{j=(m+1)/2}^{m}\binom mj e^j(1-e)^{m-j}.
+\]
+Conditional on correct calibration, set $a=e$; conditional on a wrong flag, set $a=1-e$. On either branch, starting the task phase with healthy $D$, its damage probabilities satisfy
+\[
+ x_{t+1}=d+(1-d)a x_t,\qquad
+ x_a=\frac{d}{1-(1-d)a},\qquad
+ z_a=a x_a,\qquad
+ r_a=a+(1-2a)x_a .
+\]
+Here $x_a$ is stationary pre-diagnostic damage, $z_a$ post-repair damage and $r_a$ mean repair rate. The branch's stationary world risk is
+$R_a=R_0+(1/2-R_0)z_a$.
+Across independently calibrated runs, the expected limiting risk and repair rate are
+\[
+ \bar R_m=(1-\delta_m)R_e+\delta_m R_{1-e},
+ \qquad
+ \bar r_m=(1-\delta_m)r_e+\delta_m r_{1-e}.
+\]
+A single run has one retained flag and approaches its corresponding branch; the mixture is not that run's common steady state.
+\end{proposition}
+
+\begin{proof}
+Every trusted healthy preparation has $D=0$, so its diagnostic is $u\oplus N$; independence gives the binomial tail. During subsequent maintenance, either flag gives a symmetric diagnostic error $a$. A damaged body remains damaged after repair exactly when its diagnostic decision misses it, of probability $a$, so post-repair damage is $a x_t$. The subsequent independent damage step gives $d+(1-d)a x_t$. Solving this contraction yields $x_a$ and $z_a$. A healthy pre-diagnostic body is unnecessarily repaired with probability $a$ and a damaged one is repaired with probability $1-a$, giving $r_a$. The actual sensor and actuator law of HAFF~C gives $R_a$. Averaging the two fixed branches gives the last display.
+\end{proof}
+
+For $d=e=\nu_{\rm s}=0.1$, $\mu=0.05$, $q=0.02$ and $m=3$,
+$\delta_3=0.028$, $\bar R_3=0.1626752111$ and
+$\bar r_3=0.1960610758$. A balanced repair calendar with this mean frequency, whose dates use no damage-informative records, has world risk $0.2185021685$ by HAFF~C's spacing formula. The comparison concerns long-run average use, not equality of repair counts on every finite branch.
+
+The physical continuation is the reversible diagnosis--repair--sensor--actuator--world--damage circuit of HAFF~C. Only the diagnostic output convention and its retained correction flag have changed. For $n$ task slots its worst-case repair provision is still $n$ blanks, with nine independent fresh input slots per task and every spent output retained. Calibration adds $m$ healthy blank preparations, $m$ fresh diagnostic ports and an initially blank decision flag, as well as the reference clock and reversible computing workspace. For degenerate ports their named input purity deficits total
+$m[2\ln2-h(e)]+\ln2$ nats; this is a preparation free-energy difference, not the heat released by a swap. Reference and task archives consume storage. A healthy preparation is a trusted physical operation with a calibrated meaning of zero; it breaks the raw diagnostic symmetry relative to that operation, not relative to an unprovided absolute standard.
+
+This is functional self-reading with a maintenance consequence. The system learns how its own diagnostic reports its body, retains that relation and uses it to preserve its next intervention capability. The initial body, candidate repair gates, independent input supply and trusted preparation remain supplied. The construction neither produces those inputs nor establishes unlimited sustainable operation, but it turns an initially unknown self-interface into a working body-maintenance permission.
+
+\section{What self-reading can fix}\label{sec:reach}
+
+The reader of Section~\ref{sec:reader} relied on two supplied conventions: a reference whose preparation means ``$+1$'', and a known instrument sign. We now remove both. The reader faces a persistent world through a pointer whose axis, scale orientation and command wiring are unknown, and it has no operation that singles out a world state. What can it learn about itself from its own readings and actions, how fast, at what cost to the world, and what lies out of reach?
+
+\subsection{A persistent world read through a pointer}\label{subsec:pointer}
+
+The world is a qubit whose own environment couples to it through $Z$. Between two readings the environment dephases it completely in the $Z$ basis and then applies the flip channel $\rho\mapsto(1-d)\rho+dX\rho X$ with $0<d<1/2$; write $c=1-2d$. Between readings the world is therefore a classical bit $W_t=\pm1$. Complete dephasing selects the commuting $Z$ population algebra, but the full inter-reading channel also attenuates its contrast: $\Phi^\dagger(Z)=cZ$ and $\Phi^\dagger(X)=\Phi^\dagger(Y)=0$. For $0<d<1/2$ its exactly fixed observables are only scalars. The population algebra is a pointer datum and a finite-lived information carrier, not a fixed algebra of the full channel or a supply of public records. As in HAFF~B \cite{HAFFB}, a claim about records needs an actual record coupling; the one used here is specified next. It starts in $I/2$. All instrument and world parameters in this section remain fixed during the experiment.
+
+At step $t$ the reader issues a command $k_t\in\{0,1\}$, chosen from its past records and private randomness. A fixed wiring $\pi$, a bijection of $\{0,1\}$, sends the command to the control $U_{\pi(k)}$ of~\eqref{eq:controls}, which sets the axis of the coupling: a pointer with momentum $P$ couples through $H=\lambda\,O\otimes P$ for a short time $\tau$, with $O=U_{\pi(k)}^\dagger\sigma_SU_{\pi(k)}$, and free evolution during the coupling is neglected. The pointer starts in a real Gaussian wave function $\psi$ of position standard deviation $\Delta$. The reader records $y=\sigma\operatorname{sgn}(x)$, where $x$ is the pointer position and $\sigma=\pm1$ is the unknown orientation of the scale. Put $g=\lambda\tau/\Delta$ and assume $0<g<\infty$, absorbing a coupling sign into $\sigma$.
+
+\begin{lemma}[Pointer instrument]\label{lem:pointer}
+Let $\nu=\operatorname{erf}(g/\sqrt2)$ and $D=e^{-g^2/2}$. In the eigenbasis $\{|{+}\rangle,|{-}\rangle\}$ of $O$, the operation producing the record $y$ is
+\[
+ \mathcal I_y(\rho)=\tfrac{1+y\sigma\nu}{2}\,\rho_{++}|{+}\rangle\langle{+}|
+ +\tfrac{1-y\sigma\nu}{2}\,\rho_{--}|{-}\rangle\langle{-}|
+ +\tfrac D2\bigl(\rho_{+-}|{+}\rangle\langle{-}|+\rho_{-+}|{-}\rangle\langle{+}|\bigr),
+\]
+with effects $E_y=\tfrac12(I+y\sigma\nu O)$.
+\end{lemma}
+\begin{proof}
+The coupling sends $|{\pm}\rangle\otimes\psi(x)$ to $|{\pm}\rangle\otimes\psi(x\mp\lambda\tau)$, so $\mathcal I_y(\rho)=\int_{\sigma yx>0}K_x\rho K_x^\dagger\,dx$ with $K_x=\psi(x-\lambda\tau)|{+}\rangle\langle{+}|+\psi(x+\lambda\tau)|{-}\rangle\langle{-}|$. The diagonal weights are Gaussian tail integrals, $\Phi(\pm\sigma yg)=(1\pm\sigma y\nu)/2$. The coherence weight is $\int_{\sigma yx>0}\psi(x-\lambda\tau)\psi(x+\lambda\tau)\,dx$; the integrand is even in $x$ and integrates to $D$ over the line, so each half gives $D/2$.
+\end{proof}
+
+A command is \emph{matched} when $\pi(k)=S$; then $O=Z$, because $U_0^\dagger ZU_0=Z$ and $U_1^\dagger XU_1=Z$. A matched reading leaves every $Z$-diagonal state $Z$-diagonal and returns $\sigma W$ with error $\eta=(1-\nu)/2$. A mismatched command has $O=\pm X$. Its record is then a fair coin independent of $W$, and for either record the world's $Z$ component is multiplied by $D$; after the environment's dephasing the world has flipped with probability $(1-D)/2$, independently of the record. Write
+\[
+ \kappa=\pi^{-1}(S)
+\]
+for the command that reads the world's pointer basis. Optionally the reader may also apply $X$ to the world, with success probability $s$, at times and on conditions fixed by its rule; this is the flip of the Imprint Chain and of Q-RAIF~B \cite{ImprintChain,QRAIFB}. These reductions are exact. The accompanying check compares record laws of the qubit model and of its classical reduction for random adaptive rules; they agree to $10^{-15}$.
+
+\subsection{What acting identifies}
+
+\begin{theorem}[Reach of self-reading]\label{thm:reach}
+In the model of Section~\ref{subsec:pointer}, with the world initially $I/2$ and no operation that singles out a world state, let $\theta=(S,\pi,\sigma,g,d,s)$.
+\begin{enumerate}
+\item[(a)] For every rule, the law of the record sequence $(k_1,y_1,k_2,y_2,\dots)$ depends on $\theta$ only through $(\kappa,g,d,s)$. It does not depend on $\sigma$, and it depends on $S$ and $\pi$ only through $\kappa$.
+\item[(b)] The reader can consistently identify $\kappa$, $g$ and $d$ from repeated fixed-command experiments. Without actuation, $\E[Y_{t+1}Y_t]=c\nu^2$ and $\E[Y_{t+2}Y_t]=c^2\nu^2$ if $k=\kappa$, while all correlations vanish if $k\ne\kappa$. If an independently successful flip with fixed success probability $s\in[0,1]$ is requested after every matched reading, the lag-one correlation becomes $c(1-2s)\nu^2$, identifying $s$ as well.
+\item[(c)] Let $L$ be a loss on the world with $L(-w)=1-L(w)$, and let $\bar\theta$ be $\theta$ with $\sigma$ replaced by $-\sigma$. For every rule and every $t$, $\E_\theta L(W_t)+\E_{\bar\theta}L(W_t)=1$. If $\sigma$ is uniformly distributed and unknown, every rule holds the world at $-1$ with probability exactly $1/2$ at every time.
+\end{enumerate}
+\end{theorem}
+\begin{proof}
+(a) By Lemma~\ref{lem:pointer} the record kernel and the world kernel depend on $(S,\pi)$ only through whether $\pi(k_t)=S$, that is, through $\kappa$. For the sign, the map $\gamma:(W,\sigma)\mapsto(-W,-\sigma)$ leaves the record kernel invariant, since matched records depend on $\sigma W$ and mismatched records and their disturbance do not depend on $W$; it commutes with the natural flips, with the actuator and with the initial state $I/2$. It is therefore a symmetry of the loop in the sense of T-DOME~III, whose gauge theorem gives equal record laws under $\theta$ and $\bar\theta$ for every rule, adaptive or randomized \cite{TDIII}. The parameters $\nu$ and $D$ are functions of $g$.
+(b) For $k=\kappa$ without actuation, $Y_t=\sigma W_tN_t$ with independent signs $N_t$ of mean $\nu$, and $W_{t+1}=W_t\xi_t$ with $\E\xi_t=c$, so the stated correlations follow. For $k\ne\kappa$ the records are independent fair coins. Each fixed-command experiment is a finite ergodic hidden Markov model. Since $c\nu^2>0$, consistent correlation estimates identify the matched command, then $c$ by the ratio of the two correlations and $\nu^2$ by the square of the first divided by the second. Inverting the strictly increasing error function identifies $g$. A flip attempt adds an independent sign of mean $1-2s$ to each transition, yielding the additional correlation and $s=\frac12(1-C_{\rm flip}/C_{\rm passive})$.
+(c) $\gamma$ sends $W_t$ to $-W_t$; this is the loss identity of the same gauge theorem.
+\end{proof}
+
+Thus explicit experiments identify $(\kappa,g,d,s)$ in this stationary, nondegenerate family. At $g=0$ every record is fair, and at $c=0$ the passive correlations vanish; those boundaries do not support the same identification. The axis--wiring split and the sign remain hidden even with unlimited records. The Imprint Chain obtains calibration information from a copier and paired readings whose statistics depend on $\nu^2$ \cite{ImprintChain}; Theorem~\ref{thm:reach} establishes the sign obstruction for every permitted rule. The learned quantity is a relation between a command and what it lets the reader see.
+
+\subsection{How fast: the persistence law}\label{subsec:rate}
+
+The rate at which the reader learns about itself is set by how long what it reads persists. Let $h(\nu)$ denote the binary entropy, in nats, of $(1+\nu)/2$.
+
+\begin{theorem}[Persistence law]\label{thm:rate}
+Start the world in $I/2$ and use the fixed-parameter model of Section~\ref{subsec:pointer}, with $0<c<1$ and $0<\nu<1$. The allowed rules choose the supplied two commands and record-controlled, state-independent flip attempts; they supply no reset, reference, variable measurement strength or additional rotation. Let $\theta$ and $\theta'$ differ only in $\kappa$. Represent all private randomization by a random tape $R$ independent of the parameters and initial world, and include $R$ in the reader's history before its first reading. Conditional on that tape a rule is deterministic. Let $P^t_\theta$ be the joint law of $R$ and the first $t$ commands and outcomes, and let $\Delta_t$ be the $t$-th increment of $D(P^t_\theta\Vert P^t_{\theta'})$, or of the reverse divergence.
+\begin{enumerate}
+\item[(a)] For every rule, including rules that actuate the world and disturb it with mismatched commands,
+\[
+ \Delta_t\le-\tfrac12\ln(1-\nu^2\mu^2)\le-\tfrac12\ln(1-\nu^2),\qquad
+ \mu=\tanh\frac{c\artanh\nu}{1-c}.
+\]
+\item[(b)] For every rule allowed in (a), including record-dependent feedback and wrong-axis disturbance,
+\begin{equation}\label{eq:rate}
+ \Delta_t\le\frac{\nu^2c^2\artanh^2\nu}{2(1-\nu^2)(1-c^2)}
+ \le\frac{\nu^4c^2}{2(1-\nu^2)^3(1-c^2)}.
+\end{equation}
+For the $t$-th reading, counted from $1$, the first bound has the additional factor $1-c^{2(t-1)}$.
+\item[(c)] For the passive rule that repeats one command without actuation, the asymptotic forward rate
+\[
+ \mathcal D_c(\nu)=\lim_{n\to\infty}
+ \frac{D(P_{\rm matched}^{\,n}\Vert P_{\rm fair}^{\,n})}{n}
+\]
+equals $\nu^4c^2/[2(1-c^2)]+O(\nu^6)$ as $\nu\to0$ at fixed $c<1$,
+and equals $\ln2-h(\nu)$ at $c=1$. For each fixed finite $n$ and $c<1$,
+the leading term instead is
+\[
+ \frac{D(P_{\rm matched}^{\,n}\Vert P_{\rm fair}^{\,n})}{n}
+ =\frac{\nu^4c^2}{2(1-c^2)}
+  \left[1-\frac{1-c^{2n}}{n(1-c^2)}\right]+O(\nu^6).
+\]
+In particular, the first record is fair under both laws and has zero divergence.
+\end{enumerate}
+\end{theorem}
+\begin{proof}
+Each command is matched under exactly one of the two hypotheses. Under that hypothesis the predicted record is a coin with bias $\nu\tanh(\ell_t/2)$, where $\ell_t$ is the log-likelihood ratio for $\sigma W_t=+1$ given the past under that hypothesis; under the other it is a fair coin. Both divergences between a coin of bias $x$ and a fair coin are at most $-\frac12\ln(1-x^2)$.
+
+(a) A matched record adds $\pm2\artanh\nu$ to $\ell$, a mismatched record adds nothing, and a world step sends $\ell$ to $f(\ell)=2\artanh(c\tanh(\ell/2))$, to $-f(\ell)$ after a known flip, or to something nearer zero after a flip of uncertain success or a disturbance. Since $0\le f'\le c$, $|\ell_{t+1}|\le c(|\ell_t|+2\artanh\nu)$, so $|\ell_t|\le2c\artanh\nu/(1-c)$ and the bias is at most $\nu\mu$.
+
+(b) Expectations in this proof are under $\theta$; private randomization can first be fixed and then averaged. Write $a=\artanh\nu$, $m_t=\E_\theta[\sigma W_t\mid H_{t-1}]$ and $z'_t=\ell'_t/2$, where $\ell'_t$ is the filter log odds under $\theta'$, evaluated on the same actual history. Define
+\[
+ \varphi(m)=\ln2-h(m)=\sum_{j\ge1}\frac{m^{2j}}{2j(2j-1)},\qquad
+ V_t=\E_\theta[2\varphi(m_t)+(z'_t)^2].
+\]
+This is a divergence from the uniform coin, not mutual information; the world's marginal need not be uniform. At a command matched under $\theta$, observing its record increases the conditional expectation of $\varphi(m)$ by $I_\theta(W_t;Y_t\mid H_{t-1})\le C$, where $C=\varphi(\nu)$ is the binary symmetric channel capacity. The other filter has a mismatched observation and acquires no likelihood increment. At a command matched under $\theta'$, the actual record is a conditionally fair coin, $z'$ updates to $z'+aY_t$, and its conditional square increases by exactly $a^2$; the true filter acquires no information. Since $2C\le a^2$, either command increases the conditional expectation of the combined potential by at most $a^2$. To verify this inequality, put $\nu=\tanh a$: the derivative of $a^2-2\varphi(\tanh a)$ is $2a\tanh^2a\ge0$, and the difference vanishes at zero.
+
+The subsequent controls preserve or shrink each term. A known flip changes the sign of each posterior mean; an independently successful flip, with a probability chosen from the record, multiplies that mean by a number in $[-1,1]$. A wrong-axis reading multiplies it by $D$. These operations therefore do not increase $\varphi(m)$ or $\artanh^2(m')$. The natural world step multiplies each mean by $c$, giving $\varphi(cm)\le c^2\varphi(m)$ term by term and $|\artanh(cm')|\le c|\artanh(m')|$. Consequently
+\[
+ V_{t+1}\le c^2(V_t+a^2),\qquad V_1=0,\qquad
+ V_t\le\frac{c^2a^2(1-c^{2(t-1)})}{1-c^2}.
+\]
+If the command is matched under $\theta$, its KL increment is $\varphi(\nu m_t)\le\nu^2m_t^2/[2(1-\nu^2)]$, and $m_t^2\le2\varphi(m_t)$. If it is matched under $\theta'$, the increment is $-\frac12\ln(1-\nu^2\tanh^2z'_t)\le\nu^2(z'_t)^2/[2(1-\nu^2)]$. Averaging either case bounds $\Delta_t$ by $\nu^2V_t/[2(1-\nu^2)]$. Finally $a\le\nu/(1-\nu^2)$ gives the second bound. Exchanging $\theta$ and $\theta'$ proves the reverse direction. The controls used here are exactly the supplied record-controlled, state-independent flips; a state-selective reset would introduce a standard and change the model.
+
+(c) The comparison law is a fair-coin stream. The chain rule gives
+$D(P_{\rm matched}^{\,n}\Vert P_{\rm fair}^{\,n})
+=\sum_{t=1}^n\E_{\rm matched}\varphi(\nu m_t)$, with the filter started at
+$m_1=0$. For fixed $c<1$, (a) gives $\ell_t=O(\nu)$; linearizing the
+filter gives $m_t=\nu\sum_{k=1}^{t-1}c^k y_{t-k}+O(\nu^3)$.
+Since $\E[y_iy_j]=\nu^2c^{|i-j|}$ for $i\ne j$, its leading square
+has expectation $\nu^2\sum_{k=1}^{t-1}c^{2k}$. Expanding $\varphi$ and
+summing these geometric series proves the finite-$n$ formula. The filter
+contracts by $c$ in log odds, so it has a stationary law; its initial
+transient does not change the long-run average. In that law the sum runs
+over all $k\ge1$, giving the stated fourth-order rate. At $c=1$, conditional
+on the fixed fair world sign $W$, the records are iid coins of bias $\nu W$.
+Thus the exact finite identity is
+\[
+ D(P_{\rm matched}^{\,n}\Vert P_{\rm fair}^{\,n})
+ =n[\ln2-h(\nu)]-I(W;Y_1,\ldots,Y_n).
+\]
+The last term lies between zero and $\ln2$, proving the asymptotic rate,
+not finite-$n$ equality. The reverse divergence at $c=1$ has asymptotic
+rate $-\frac12\ln(1-\nu^2)$.
+\end{proof}
+
+An external transcript may omit the reader's private tape. Its cumulative divergence is no larger than the joint divergence, by data processing. Its individual increments need not obey the same bound: a later command can disclose an earlier private coin whose effect on earlier observations was concealed. Thus the theorem bounds the reader's fully informed increments and every transcript's cumulative information, not every marginal increment separately.
+
+\begin{corollary}[Time required to identify the matching command]\label{cor:identificationtime}
+For any allowed rule and any retained transcript $T_n$ formed from at most $n$ readings,
+\[
+ D(P_\theta^{T_n}\Vert P_{\theta'}^{T_n})\le
+ B_n:=\frac{\nu^2c^2\artanh^2\nu}{2(1-\nu^2)(1-c^2)}
+ \left[n-\frac{1-c^{2n}}{1-c^2}\right].
+\]
+The equal-prior error $e_n$ in choosing between the two assignments satisfies $e_n\ge\tfrac14 e^{-B_n}$. In particular, an error at most $\epsilon<1/4$ requires
+\[
+ n\ge\frac{2(1-\nu^2)(1-c^2)}{\nu^2c^2\artanh^2\nu}
+       \ln\frac1{4\epsilon}.
+\]
+\end{corollary}
+\begin{proof}
+Sum the finite-time bound and use data processing, including any independent randomization of the final decoder. For two laws $P,Q$, let $F=\int\sqrt{dP\,dQ}$. Jensen's inequality gives $F\ge e^{-D(P\Vert Q)/2}$, and Cauchy--Schwarz gives $\|P-Q\|_{\rm TV}\le\sqrt{1-F^2}$. Hence $e_n=(1-\|P-Q\|_{\rm TV})/2\ge F^2/4\ge e^{-D(P\Vert Q)}/4$. Finally $B_n$ is no greater than $n$ times the stationary upper bound. A stopped protocol with a deterministic cap $n$ is a data processing of a protocol extended to $n$ readings. The result concerns a cap, not an unproved bound in terms of the expected stopping time.
+\end{proof}
+
+\begin{table}[ht]
+\centering
+\begin{tabular}{rrcccc}
+\toprule
+$\nu$ & $d$ & $\nu^2c^2/(1-c^2)$ & repeated command & bound~\eqref{eq:rate} or ceiling & reference grade\\
+\midrule
+0.1 & 0.2 & 0.006 & $2.78\times10^{-5}$ & $2.90\times10^{-5}$ & $5.01\times10^{-3}$\\
+0.1 & 0.05 & 0.043 & $1.97\times10^{-4}$ & $2.20\times10^{-4}$ & $5.01\times10^{-3}$\\
+0.1 & 0.01 & 0.24 & $8.65\times10^{-4}$ & $1.25\times10^{-3}$ & $5.01\times10^{-3}$\\
+0.1 & 0.001 & 2.5 & $3.02\times10^{-3}$ & $5.03\times10^{-3}$ & $5.01\times10^{-3}$\\
+0.4 & 0.2 & 0.090 & $6.24\times10^{-3}$ & $1.21\times10^{-2}$ & $8.23\times10^{-2}$\\
+0.4 & 0.05 & 0.68 & $2.79\times10^{-2}$ & $8.72\times10^{-2}$ & $8.23\times10^{-2}$\\
+0.4 & 0.001 & 40 & $7.72\times10^{-2}$ & $8.72\times10^{-2}$ & $8.23\times10^{-2}$\\
+\bottomrule
+\end{tabular}
+\caption{Self-information per reading, in nats. ``Repeated command'' is the divergence rate of Theorem~\ref{thm:rate}(c), computed by deterministic density evolution of the filter; the next column uses the looser second bound in~\eqref{eq:rate}, capped by $-\frac12\ln(1-\nu^2)$; ``reference grade'' is $\ln2-h(\nu)$, what a stream of identical references gives. At $\nu=0.05$, $d=0.2$ the repeated command reaches $0.99$ of the looser bound.}
+\label{tab:rate}
+\end{table}
+
+The dimensionless ratio $\nu^2c^2/(1-c^2)$ compares what one reading resolves with how fast the world forgets. When it is small, self-reading is fourth order in the coupling and the bound~\eqref{eq:rate} is attained to leading order, so it cannot be improved to leading order by any allowed rule. When it is large, the world teaches the reader about itself nearly as fast as references would (Table~\ref{tab:rate}). A stream of identical references is, for this purpose, a world with $c=1$: for the axis, a reference is nothing but a persistent object. Proposition~\ref{prop:no_reference} is the other end, $c=0$, where the bound vanishes. The paired blocks of the Imprint Chain, with correlation $c\nu^2$ per pair, are one realization \cite{ImprintChain}. In T-DOME~III, information about an invariant self-parameter can alter the price of keeping up when it remains available at an adequate rate \cite{TDIII}; Theorem~\ref{thm:rate} gives the size of that free information for a discrete self-parameter even in a controlled loop.
+
+Feedback can polarize the world in the reader's frame, but this does not evade the persistence law. Its proof counts polarization and correlation in the same divergence potential. The complementary filters share a budget: each command can feed only one of them. This removes the need for a uniform world marginal and gives the same leading rate for closed-loop policies. Independent branch enumeration checks the finite-time bound with outcome-dependent actuation and wrong-axis disturbance (Appendix~\ref{app:numerics}).
+
+\begin{corollary}[Energy price of gentle self-reading]\label{cor:energy}
+Let a finite classical register $R$ be deterministically updated by each record, after which the outcome is erased isothermally; all register Hamiltonians are degenerate and no additional correlated system or supplied purity resource is available during the update and reset. Over $K$ readings its total update-and-erasure charge is at least $k_BT[K h(\nu)-\ln|R|]$. Its long-run charge per nat of KL distinguishability about $\kappa$ is therefore at least $2k_BT\,h(\nu)(1-\nu^2)(1-c^2)/(\nu^2c^2\artanh^2\nu)$, behaving as $2\ln2\,k_BT(1-c^2)/(c^2\nu^4)$ for small $\nu$. This bounds the specified record-processing charge; net work including other recovery resources requires a separate ledger.
+\end{corollary}
+\begin{proof}
+Entropy balance for the joint update and reset gives $\beta W_t\ge H(Y_t\mid R_t)+H(R_t)-H(R_{t+1})$, as in T-DOME~III's reading-tax proposition \cite{TDIII}. Conditional entropy satisfies $H(Y_t\mid R_t)\ge H(Y_t\mid R_t,W_t,\theta)\ge h(\nu)$, since a matched record has entropy $h(\nu)$ and a mismatched one $\ln2$. Summing telescopes the register terms to at least $-\ln|R|$. Divide the long-run charge rate by the policy-uniform KL rate bound~\eqref{eq:rate}. The finite memory can absorb some initial entropy; an individual reading need not pay the long-run tax.
+\end{proof}
+
+\subsection{Passive self-reading and one-step prediction}\label{subsec:predinfo}
+
+For a repeated command without actuation, matched and mismatched records have
+the same fair one-record law. Their difference lies in the history: matched
+records inherit the world's persistence, whereas mismatched records are
+independent. The information about the command is therefore information
+about whether the records predict one another.
+
+\begin{proposition}[Passive self-reading information]\label{prop:predinfo}
+Let a fixed-command matched record process have stationary law $P$, and let
+the mismatched law be independent records with marginal law $Q$. Assume the
+finite-block divergences below are finite. Then
+\begin{equation}\label{eq:predinfo}
+ D(P_{Y_1^n}\Vert Q^{\otimes n})
+ =nD(P_{Y_1}\Vert Q)+\sum_{t=2}^n I_P(Y_t;Y_1^{t-1}).
+\end{equation}
+If $P_{Y_1}=Q$, the divergence per reading converges to
+\[
+ \lim_{n\to\infty}\frac{D(P_{Y_1^n}\Vert Q^{\otimes n})}{n}
+ =I_P(Y_0;Y_{-\infty}^{-1}),
+\]
+where the stationary process is extended to both time directions and the
+right-hand side is the monotone limit of finite-past mutual information.
+\end{proposition}
+\begin{proof}
+The relative-entropy chain rule gives
+\[
+ D(P_{Y_1^n}\Vert Q^{\otimes n})
+ =\sum_{t=1}^n\E_P D(P_{Y_t\mid Y_1^{t-1}}\Vert Q).
+\]
+Each term equals $I_P(Y_t;Y_1^{t-1})+D(P_{Y_t}\Vert Q)$.
+Stationarity makes the marginal term constant and identifies the mutual
+information with $I_P(Y_0;Y_{-t+1}^{-1})$. These quantities increase with
+the length of the past; their Ces\`aro mean has the same limit.
+\end{proof}
+
+This is one-step predictive information, also called active information
+storage \cite{Bialek2001,Wibral2014}; it differs from the mutual information
+between two entire semi-infinite histories. In the pointer model, both
+marginals are fair, so the passive rate in Theorem~\ref{thm:rate}(c) is
+exactly this quantity. The identity concerns the declared fixed-command
+comparison. Changing the command or feeding back changes the record law;
+the policy-uniform bounds in Theorem~\ref{thm:rate} remain the appropriate
+bounds for those protocols.
+
+The connection extends to stationary Gaussian records. Let $v$ be the
+record variance and $R_k>0$ the minimum squared prediction error from the
+preceding $k$ records. If the comparison law is independent Gaussian
+records of variance $v$, the information supplied by those $k$ records is
+\[
+ I(Y_0;Y_{-k}^{-1})=\frac12\log\frac{v}{R_k}.
+\]
+Consequently the strict improvement $R_2<R_1$ obtained for a coarse
+coordinate mixing relaxation rates in Renormalization and Imprint
+Filtering \cite{ImprintRG} also gives a strict increase of this passive
+discrimination increment. The two tasks use the same retained
+predictability. This comparison does not assert that every physically
+mismatched field interface produces independent records.
+
+\subsection{What a wrong reading does to the world}\label{subsec:disturb}
+
+\begin{proposition}[Wrong readings erase the world's record]\label{prop:disturb}
+Consider readings of the world along the wrong axis.
+\begin{enumerate}
+\item[(a)] Every instrument on a qubit with effects $\frac12(I\pm\nu X)$ maps $|0\rangle\langle0|$ and $|1\rangle\langle1|$ to two states whose trace distance is at most $\sqrt{1-\nu^2}$. The L\"uders instrument attains this bound, and the pointer of Lemma~\ref{lem:pointer} gives $e^{-g^2/2}$, which is strictly smaller for $g>0$.
+\item[(b)] Consequently $n$ mismatched readings leave the world's $Z$ record distinguishable with advantage at most $(1-\nu^2)^{n/2}$, while $n$ steps of the world's own dynamics leave $c^n$. When $\nu^2>1-c^2$, every wrong reading, whatever the instrument, erases more of the record than a step of the world's own forgetting; when $\nu^2<1-c^2$, the gentlest instrument erases less.
+\item[(c)] If the apparatus couples to the world only through unitaries that commute with $Z$, as a controlled-NOT copier does, no reading, matched or not, changes the world's $Z$ statistics.
+\end{enumerate}
+\end{proposition}
+\begin{proof}
+(a) The effects $E_\pm$ are invertible, so every instrument with these effects has the form $\mathcal I_\pm(\rho)=\Phi_\pm(\sqrt{E_\pm}\rho\sqrt{E_\pm})$ with channels $\Phi_\pm$: if $K_j$ are Kraus operators of $\mathcal I_\pm$, the operators $K_jE_\pm^{-1/2}$ are Kraus operators of a channel. Write $\sqrt{E_\pm}=\alpha I\pm\beta X$ with $\alpha^2-\beta^2=\sqrt{1-\nu^2}/2$. Since $XZ=-ZX$, $\sqrt{E_\pm}Z\sqrt{E_\pm}=(\alpha^2-\beta^2)Z$, whose trace norm is $\sqrt{1-\nu^2}$. Channels contract the trace norm, so the two outputs differ by at most $2\sqrt{1-\nu^2}$ in trace norm; with $\Phi_\pm$ the identity this is attained. The pointer outputs are $\frac12(I\pm e^{-g^2/2}Z)$. On a pointer half-line, strict Cauchy--Schwarz gives $D/2<\sqrt{p_+p_-}=\sqrt{1-\nu^2}/2$ for $g>0$, since the displaced Gaussian wave functions are not proportional there.
+(b) After each reading the environment dephases the world, so each mismatched reading acts on the classical bit as a binary channel with contraction coefficient at most $\sqrt{1-\nu^2}$ by (a), and a world step is a binary symmetric channel with coefficient $c$; coefficients multiply.
+(c) Such unitaries preserve every function of $Z$.
+\end{proof}
+
+The rate and disturbance bounds describe two costs of the same inquiry. The ratio $\nu^2c^2/(1-c^2)$ marks the weak-information regime; the separate inequality $\nu^2>1-c^2$ guarantees that each wrong reading destroys more of the stored distinction than a natural world step. At fixed $c<1$, weak readings preserve more of the world but identify the command only at fourth order. A complete acquisition trade-off must also count how often the chosen policy reads along the wrong axis. Part (c) gives the protection used by the Imprint Chain: a copier aligned with the world's pointer basis preserves the world's $Z$ statistics whatever happens downstream \cite{ImprintChain}. The copier's alignment supplies the axis standard in hardware.
+
+Disturbance can make a reader's choice detectable. In this model, a known nonzero earlier polarization evolves differently under matched and mismatched readings, so repetitions can distinguish those choices from the world. Internal selection alone does not imply an environmental record: HAFF~G's record conclusion requires the stated spectral distinguishability of the joint couplings \cite{HAFFG}. Here the pointer calculation supplies the distinguishable physical effect.
+
+\subsection{What self-reading cannot fix}\label{subsec:standard}
+
+\begin{table}[ht]
+\centering
+\small
+\begin{tabular}{@{}lccl@{}}
+\toprule
+Feature of the reader & Symmetry & Own records & What else it takes\\
+\midrule
+Command $\kappa$ that reads the world & invariant & identified & persistence; rate~\eqref{eq:rate}\\
+Sharpness $\nu$, world memory $c$ & invariant & identified & persistence\\
+Instrument sign $\sigma$ & moved by $\gamma$ & never & a standard\\
+Axis $S$ apart from wiring $\pi$ & moved by rewiring & never & calibrated wiring\\
+\bottomrule
+\end{tabular}
+\caption{What a self-reading system can fix by acting on a persistent world (Theorems~\ref{thm:reach} and~\ref{thm:rate}).}
+\label{tab:fix}
+\end{table}
+
+\emph{The sign.} The isolated loop cannot identify $\sigma$. A reference preparation, a reset to a known state or a known asymmetric bath supplies the missing distinction. Such an operation includes a calibrated label for the state it singles out. When world states and those labels are relabelled together, the absolute relabelling remains invisible; their relative orientation can still be learned and retained \cite{TDIII}. Section~\ref{sec:reader} supplied the sign convention and used a reference for the axis. Theorem~\ref{thm:rate} shows how persistence can instead calibrate the command. Keeping a changing sign aligned has a further price. With perfect references of cost $w$, loss $V$ per use and inversion probability $\eta$, the optimal periodic reference cost is asymptotic to $\sqrt{2wV\eta}$ per use. Record-adaptive timing can beat the corresponding finite-parameter periodic optimum when other observations signal an event; the periodic formula is not a lower bound for all policies \cite{TDIII}. In the fresh-read, read/flip model with no sign-bearing standard, the common drifting sign remains inaccessible. Models with persistent bodies, sign-sensitive access or stored standards require their own symmetry test.
+
+\emph{The wiring.} The split of $\kappa$ into $S$ and $\pi$ is observationally unavailable under this reader's permissions. A further register separates them only if it supplies separately calibrated information about the interface. HAFF~G makes a different, structural statement: for a nontrivial finite program register, an operation selected on the target is not a full copy of the executor acting on target and register together. A larger register can select among executors, while its own enlarged interaction must still be specified \cite{HAFFG}. That statement permits stored descriptions and selected component operations; the present axis--wiring obstruction instead follows from the equality of record laws. Acting well requires the identifiable combination $\kappa$.
+
+\emph{Where a standard can come from.} A persistent system without an external controller can take its standard from an external reference, from a stored record whose meaning was fixed earlier, from its own actuator, as in a reset to a known state, or from another reader. Stable records in the world are one kind of stored record. Records of the kind HAFF~F studies \cite{HAFFF}, read again later, compare the sign at two times and so detect inversions, though not the sign itself \cite{TDIII}; the standard then sits in the past. Two readers can identify their relative sign by agreement, while a common inversion stays invisible \cite{TDIII}; Stable Hulls treats the network version of this situation \cite{StableHulls}. Each of these moves the standard. None removes it.
+
+\section{When a reading changes the world}\label{sec:source}
+
+Learning the instrument changes which world distinctions are available; it need not change the world. Changes of the world require an actuator. This section adds one to the reader of Section~\ref{sec:reach} and asks what the world then carries.
+
+\subsection{The reader writes its convention into the world}
+
+After calibration the reader fixes the command it believes reads the world; let $q$ be the probability that this command is not $\kappa$. It then runs the feedback task of the Imprint Chain \cite{ImprintChain}. At each step it reads; with an independent gate of probability $h\in(0,1]$, if the record is $-1$ it applies $X$; then the world takes its step. In its own terms the reader is trying to make its records come out $+1$.
+
+\begin{proposition}[The reader's imprint on its world]\label{prop:imprint}
+Let each requested feedback flip succeed independently with probability $0<s\le1$, and put $\lambda=c(1-hs)$ and $b=chs\nu$. In the stationary regime
+\[
+ \E W=\sigma\,m_\infty,\qquad m_\infty=\frac{(1-q)\,b}{1-\lambda}.
+\]
+The law of the reader's records does not depend on $\sigma$, so the reader cannot tell whether it holds its world near $+1$ or near $-1$. A second reader with its own known sign standard and a nondisturbing matched instrument has ensemble record mean $\sigma\nu'm_\infty$. Conditional on successful command calibration, its long-time record mean is $\sigma\nu'b/(1-\lambda)$ and identifies $\sigma$ almost surely. Conditional on a mismatched command it is zero for either sign. Independent calibration episodes with newly drawn success branches also identify $\sigma$ from their ensemble mean whenever $q<1$.
+\end{proposition}
+\begin{proof}
+In the reader's frame the variable is $\sigma W$. On the branch where the fixed command is $\kappa$, a step sends $\E[\sigma W]$ from $m$ to $c[(1-hs)m+hs\nu]=\lambda m+b$; on the other branch the records are fair, so feedback and any disturbance only shrink $m$, and that branch stays unpolarized. Starting from the unpolarized world and averaging the two fixed branches with weights $1-q$ and $q$ gives $\E[\sigma W]\to(1-q)b/(1-\lambda)$, as in the Imprint Chain. Theorem~\ref{thm:reach}(a) gives the independence of the reader's records from $\sigma$. The second reader's matched records have conditional mean $\nu'W$ given the world. Each fixed calibration branch gives an ergodic finite-state chain because $0<c<1$, so its time average converges to that branch's stationary mean. The mixture over a fixed branch is nonergodic and has no common almost-sure time average. Independent episodes instead recover the ensemble mean by the law of large numbers. The second reader uses a nondisturbing matched reading so that it does not change the feedback dynamics.
+\end{proof}
+
+For ideal flips $s=1$ and the Imprint Chain parameters $\eta=0.1$, $d=0.05$, $h=0.4$ and $32$ two-reading calibration blocks ($q=0.040489$), $m_\infty=0.6007$: the world sits at $+1$ with probability $0.8004$ if $\sigma=+1$ and $0.1996$ if $\sigma=-1$, and the reader's records are the same in both cases. The convention the reader cannot distinguish within its isolated loop has become a measurable polarization. Another reader holding a standard reads it there; two calibrated readers sharing a world can compare their relative sign through it. Proposition~\ref{prop:imprint} establishes this record through a specified feedback coupling. It does not identify every internal choice with a recorded choice.
+
+One quantity is the same in both cases. The feedback actuator fires at the stationary rate $p=(1-q)\,h[1-\nu b/(1-\lambda)]/2+q h/2$, averaging separately over the calibrated and mismatched branches \cite{ImprintChain}; this rate does not depend on $\sigma$. A source term produced by the actuator's activations therefore does not reveal which way the reader's convention points, while the world's polarization does.
+
+\subsection{When shared calibration becomes the reader's own reliability}
+
+An anchored network can supply the orientation the isolated loop lacks. Once a matched command is available, let the reader retain $m=\E[\sigma\mid H]$ from its own routed records of that network. On a fresh fair world bit, the matched law is $Y=\sigma WN$. Interpreting the outcome with $a=\sgn(m)$ and requesting a flip when $aY=-1$ gives post-bath world mean $cs\nu|m|$, for independent flip success $s$. If a wrong world state costs $V$ and the declared reading and expected pulse charge is $w_{\rm op}$, the reader should perform this operation precisely when $Vcs\nu|m|/2>w_{\rm op}$. Its retained reliability must reach the controller that makes this choice.
+
+Stable Hulls proves the action-value and compression comparison for any calibration history, including a joint posterior of the reader's polarity and a previously polarized world \cite{StableHulls}. In its two-experiment binary tree, full posterior margins retain a positive priced action value at every depth for a nonempty interval of charges, whereas majority signs lose that value. The comparison uses the same calibration-read allowance and includes a separate amortization condition for memory and inference charges. This is one route from stable shared content to the reader's actual choice of a paid operation. The additional anchored records break the isolated loop's sign symmetry relative to their standard; joint relabelling of the reader, world and anchors remains invisible.
+
+After a reading and feedback, the joint polarity--world posterior updates from that very outcome. Its three moments, the polarity mean, world mean and their correlation, close under the matched reading, the independently successful flip and the symmetric bath. They suffice to price the next operation in the declared task. If the world bit represents a component required for continued access, the same operation is an elementary maintenance step; identifying and maintaining an entire body or workspace requires its own dynamics and resource ledger. The subject-side gain here is a reliable distinction made usable by the system that depends on it.
+
+\subsection{From calibration to a physical source}
+
+\begin{proposition}[Calibration enters a source linearly]\label{prop:sourcelin}
+Let an actuator apply a unitary $V$ to a separate system, initially in $\tau_0$ and independent of the reader's records, on each activation, and let activations occur with probability $p$ that depends on the reader's calibration. Then the system's state after one opportunity is $\tau_p=(1-p)\tau_0+pV\tau_0V^\dagger$, and for every observable $O$ with finite expectations
+\[
+ \tr(O\tau_p)-\tr(O\tau_0)=p\,\tr\!\left[O(V\tau_0V^\dagger-\tau_0)\right].
+\]
+Erasing the reader's records after the activation does not change $\tau_p$.
+\end{proposition}
+\begin{proof}
+Taking the partial trace over the controlling registers gives the mixture, and linearity gives the observable change. A trace-preserving operation on the discarded registers leaves the system's marginal unchanged.
+\end{proof}
+
+Erasing the records \emph{before} the action has a different effect if it removes every calibration-dependent state of the controller: the activation probability then returns to its uncalibrated value. A change in retained history can change a future source; losing access to a past record does not undo a change already made. Conditioning on a retained outcome changes an observer's assigned state, which is again different from changing the unconditioned physical state.
+
+This is the interface to geometry. If $O$ is an admissible stress observable and $V$ a declared matter excitation, the activation probability fixes an actual stress contribution. In Q-RAIF~B the corrective flip is realized by a field coupling with independent fresh-drive success $s_N=(1+e^{-\pi^2/(8N)})/2<1$, which replaces $s=1$ in Proposition~\ref{prop:imprint}; the coupling that corrects is itself the source, and HAFF~D computes the Jackiw--Teitelboim response to the resulting pulse \cite{QRAIFB,HAFFD}. A gravitational model must still supply its field equation, state prescription and boundary conditions; a choice of decoder supplies none of them, and the costs of the actuator and reference source belong to the total stress or work.
+
+\section{Memory and the formation of a self}\label{sec:self}
+
+\subsection{A conditional chain with a necessary middle}
+
+Memory does not by itself produce a self; a record can steer later dynamics without modelling the process that made it. The constructive claim goes in a narrower and stronger direction. When an unknown feature of a system's own coupling obstructs its task, and evidence about it is available only through history, better performance requires some history-dependent state that carries information about the coupling. Theorem~\ref{thm:risk} says how much. The information can sit in a controller rather than a description.
+
+Functional self-reading adds a role: the system predicts its own performance and lets the prediction govern its next inquiry, as the capped rule of Section~\ref{sec:selfevaluation} does. Its uncertainty concerns how it reads, and that uncertainty decides what it reads next. In this task the sequence from memory through an interface model to self-evaluation is a demonstrable functional chain. Neither the presence of a record nor success at the world task establishes its last stage.
+
+Section~\ref{sec:reach} fixes the chain's reach. The history that can teach a reader about itself is a history of something that persists, whether references or a world that remembers, and distinguishability of the command assignments accrues at a rate set by that persistence (Theorem~\ref{thm:rate}). What the chain can deliver is knowledge of the loop-invariant features of the reader's participation. The isolated persistent-world experiment identifies the matching command $\kappa$, including its effect on later access, but cannot identify an absolute sign or separate the axis from the command wiring. An independently calibrated operation can break a relative orientation symmetry: the healthy preparations of Section~\ref{subsec:bodycal} do so for the diagnostic. These limits concern the stated record laws and permissions, not all possible self-description or learned control.
+
+An episode need not retrace the whole chain. An established controller can use a compressed product of past learning, and autobiographical recall need not be the storage medium; a changed coupling or a persistent skill can hold history. For a claim about historical self-organization, what matters is how present capacities depend on formation and whether those dependencies become available for revision.
+
+\subsection{The self as a maintained way of participating}
+
+A person's self is richer than an estimate of an instrument axis. It organizes bodily boundaries, practical commitments, social relations and expectations that persist while particular contents change. The imprint account treats that continuity as something the system maintains, neither guaranteed by an unchanging inner object nor exhausted by a list of remembered events.
+
+This gives content to the phrase ``a stabilized reading strategy''. A strategy fixes which differences are noticed, how uncertainty is handled, and what is attributed to the world rather than to one's own condition. It is stabilized when it survives ordinary variation and remains open to correction. The same internal state can support a faithful model in one history and a mistaken one in another, as the donor-record intervention shows.
+
+Theorem~\ref{thm:reach} sharpens what such a strategy can know of itself. What the reader learns is which of its commands lets it see its world: a relation between its doing and what the doing discloses. In the isolated persistent-world experiment the axis and wiring cannot be separated, although their actionable combination can be learned; separating them is not needed for that task. Self-knowledge of this kind is knowledge of participation, not inspection of a component. Its most basic convention, which outcome counts as $+1$, is borrowed from an operation, a stored record or another reader.
+
+The self also acts. By selecting encounters, protecting some capacities and abandoning others, it changes the records from which its later model will be formed. Proposition~\ref{prop:imprint} adds that what it cannot see in itself it writes into its world, where others can see it. A subject thus contributes to its own conditions of intelligibility and to the conditions under which others make sense of it. This is a claim about a causal loop, not a claim that intention bypasses physical dynamics; Section~\ref{sec:source} shows that a model changes a source only through a specified coupling.
+
+Personal continuity is not settled by finding one preserved quantity. A record of someone can survive without the organization that used it, and a person can lose many memories while other continuities remain. The imprint perspective asks which capacities and dependencies persist, rather than equating every surviving trace with the survival of a subject.
+
+\subsection{A hypothesis about reflective subjectivity}
+
+The fresh-world reader establishes a component of subject formation without maintaining a body. Section~\ref{subsec:bodycal} supplies the next relation: learned diagnostic records regulate the continued intervention capability of the same given body. It does not form that body or its tasks, nor coordinate competing demands across tasks. Those are further organizing relations for the larger theory.
+
+\begin{hypothesis}[Historically formed reflective organization]\label{hyp:subject}
+In a self-maintaining system, a reflective perspective is organized by a historically formed self--world model whose information about the system's own access, reliability and action consequences is shared across tasks. The system's evaluation of that model causally regulates subsequent inquiry and the maintenance or revision of its own participation.
+\end{hypothesis}
+
+The hypothesis names a candidate organizing process, not a consciousness score. ``Shared across tasks'' requires transfer: information learned about one's own condition must change relevant behaviour outside the routine that learned it. ``Self-maintaining'' requires that the reader's continued operation be among the consequences its actions regulate. For the supplied coupling and controls, Section~\ref{sec:reach} restricts self-knowledge to loop-invariant combinations and sets their acquisition rate by persistence. A more general realization must identify its own symmetries and available standards.
+
+The further phenomenal conjecture is that, in systems with this organization, reflective first-person experience is the lived realization of the same process rather than the report of an additional inner observer. This is a commitment beyond the calibration theorems. Its target is reflective subjectivity, not the claim that all experience requires explicit self-evaluation.
+
+The proposal has consequences for intervention. Manipulating a shared reliability model should transfer to the selection of evidence and action in independently tested tasks while basic stimulus discrimination stays stable. The priced operation above gives a finite instance: compressing reliability can change whether the system acts even when an isolated link's best sign decision is unchanged. Disrupting the model's access to control should spare some first-order capacities while reducing calibration-sensitive transfer. If independently calibrated routines account for all of the transfer, the proposed common organization explains nothing further. If rich reflective reports stay dissociated from every causal role of self-reading, the phenomenal identification needs revision. Biological tests must identify and intervene on actual mechanisms; naming a common latent variable is not enough.
+
+\subsection{Relation to other accounts}
+
+Fleming and Daw formulate self-evaluation as Bayesian inference about a coupled decision process, including cases where decision and confidence draw on different information \cite{FlemingDaw2017}. The present reader learns a hidden property of its own coupling and uses it to change a later physical measurement and its reference budget; its calibrated confidence is a functional construction, not a neural account of confidence judgments.
+
+Metzinger distinguishes the phenomenal self-model from the recognition that a representation is a model; his notion of transparency concerns the unavailability of that representational character in experience \cite{Metzinger2005}. Self-reading here is the capacity to make some conditions of representation available for prediction and correction. The two senses of access differ: a system could revise its calibration without experiencing its world as a model, and a philosophical belief that perception is constructed need not improve a single calibration decision. Theorem~\ref{thm:reach} adds a third point of contact. In this instrument family, functional access identifies only combinations invariant under the allowed transformations; an independent standard is needed to resolve the sign, and a meta-interface is needed to separate the instrument axis from the wiring.
+
+Dennett treats the self as an organizing abstraction with a stable explanatory role and no further inner substance \cite{Dennett1992}. The imprint account stresses the histories and embodied interventions that sustain such a role. Narrative is one way of integrating those histories, not a required format for every functional self-model. The test is how the organization governs a life, not whether it produces a convincing description of one.
+
+\section{Generative structure and lived interpretation}\label{sec:interpretation}
+
+The imprint perspective links structural explanation to the existence of a reader inside what is explained. Relations among physical variables can be real and stable whether or not a given reader accesses them, while the world available to that reader's thought and action depends on its interface. The resulting realism is relational: there is something to be wrong about, and there are physical reasons why different readers succeed or fail at finding it.
+
+The models show both sides. The world bit has a definite preparation independent of the observer's estimate, and changing the estimate changes which measurement the observer can use. The actual world, the observer's access to it and its model of that access are distinguishable parts of one process. A theory that drops the first loses the possibility of error; a theory that ignores the other two leaves the formation of a perspective unexplained. Section~\ref{sec:reach} also makes explicit the standard by which the reader tells one outcome from its opposite. It is physically realized in the preparation, stored calibration, or dispatch of an operation. Records can transfer its meaning; the sign-symmetric loop alone cannot fix its absolute orientation.
+
+The same distinctions bear on a phenomenological question. When reflection turns from what appears to the conditions under which it appears, the object of inquiry changes. Habits of attention, expectations and bodily conditions that had been background can now be examined. Functional self-reading offers a causal vocabulary for part of this turn, and the theorems mark where the turn must stop: some conditions of appearing, the loop-invariant ones, can become objects, while the absolute sign and the axis--wiring split cannot be separated by this loop's records. A phenomenological description of how the turn is lived is evidence of another kind, to be compared with the mechanism rather than read off its equations.
+
+The philosophical reading also keeps the original project's dialogue with Buddhist thought. The point of contact is dependence: the reader, what it takes itself to be and the field it meets all have conditions. On this reading, loosening an identification with a fixed self would mean making some of those conditions available for examination and change. The results here give the idea a definite shape. What a reader can come to know of itself is a pattern of participation, not an object; and its most basic convention is borrowed, from a preparation, a stored record, an actuator or another reader. This is an interpretation of a possible practice, not a derivation of doctrine from an information bound. The language of light can express intelligibility in that interpretation; it supplies no additional physical field or privileged decoder.
+
+Making a reading revisable does not turn suffering into a mistaken description. Injury, deprivation and social constraint can persist under an accurate self-model. The practical implication is narrower and more demanding: some avoidable errors arise when a system takes a feature of its own way of reading for a feature of everything it reads. Changing that relation needs evidence and sometimes material changes in the reader's circumstances, and reflection alone need not supply either.
+
+\section{The place of self-reading in the wider theory}\label{sec:wider}
+
+The shared object is a record whose use changes a later physical operation.
+HAFF~B locates the persistent population contrast in a commuting-label
+model, while the pointer here gives an actual readout of it
+\cite{HAFFB}. HAFF~G distinguishes the selected operation from its
+executor; the inseparable axis--wiring pair here is instead an
+identification limit of the stated experiments \cite{HAFFG}.
+T-DOME~III supplies loop symmetry and priced standards
+\cite{TDIII}. The present persistence law quantifies the information
+available for a discrete self-parameter; sign symmetry with a nonzero
+quadratic record-law change gives the fourth-order divergence also
+used in T-DOME~II and Brain Anchor's $\nu^{-4}$ identification scale
+\cite{TDII,BrainAnchor}. Symmetry alone does not ensure that coefficient.
+
+The Imprint companions add distinct permissions: the gain-free band
+ratio and known noise changes separate source and reader in the scale
+model; a copying port permits axis identification and calibration-driven
+feedback; relational histories and anchors support remote reading
+\cite{ImprintRG,ImprintChain,StableHulls}.
+Proposition~\ref{prop:predinfo} identifies passive self-information with
+the retained-record prediction gain, and
+Proposition~\ref{prop:disturb}(c) exposes the copier as a hardware standard.
+Foundation~II separates agreement from correctness
+\cite{FoundationII}. Foundation~III supplies a finite semiclassical
+mean-action realization in which an acquired record changes the source
+and its response enters an actual later acquisition
+\cite{FoundationIII}; it is not this pointer apparatus.
+Q-RAIF~B's finite-energy actuator enters
+Proposition~\ref{prop:imprint} through its actual success probability
+$s_N$, not an ideal flip \cite{QRAIFB}.
+
+The learned diagnostic in Proposition~\ref{prop:bodycal} instead controls
+repair of the same body, retaining spent bodies, records and finite
+replacement stock \cite{HAFFC}. HAFF~F separates this preparation
+resource from thermal renewal \cite{HAFFF}; neither that repair circuit
+nor the persistent-pointer model supplies one autonomous apparatus.
+Their finite results show what self-reading fixes, how fast, at what
+disturbance cost and with which borrowed standards.
+Consciousness~III addresses finite self-model blind spots, while
+Brain Anchor must establish cross-task causal use in an acquired
+biological organization \cite{CIII,BrainAnchor}. Extending the fixed
+instrument to a continuous axis and explaining how enough such learned
+relations sustain a perspective remain the wider formation questions.
+
+\appendix
+\section{Exact evaluation of the finite protocol}\label{app:exact}
+
+For fixed $n$, evaluate the two binomial laws in~\eqref{eq:q} and take the pointwise minimum; with $\eta=1/10$ every probability is rational. For the sequential protocol, keep at each active state $(n,k)$ a pair of conditional weights $(w_0,w_1)$, starting from $(1,1)$ at $(0,0)$. If~\eqref{eq:stop} holds, move the weights to the terminal state; otherwise send $p_sw_s$ to $(n+1,k+1)$ and $(1-p_s)w_s$ to $(n+1,k)$ for each $s$, adding weights that meet at a common state. Each conditional terminal distribution sums to one.
+
+The interface error is half the sum of the terminal weights belonging to the instrument not selected by the terminal action, and the expected reference count is $\frac12\sum_{n,k}n(w_0+w_1)$. The mixture-weighted posterior error gives the same interface error, an independent check of the update and stopping arithmetic. For the two thresholds of Table~\ref{tab:sequential} the interface errors are $0.0322487730665$ and $0.0141503571971$, and the expected numbers of $U_1$ pulses per subsequent world trial are $0.4975274190$ and $0.4980273976$; references use $U_0$. Exact fixed-$n$ values include
+\[
+ q_8=\frac{570697}{6250000},\qquad
+ q_{16}=\frac{1731574073381}{62500000000000},\qquad
+ q_{32}=0.003397782094727066\ldots.
+\]
+
+\section{Computations for Section~\ref{sec:reach}}\label{app:numerics}
+
+\emph{Pointer and disturbance.} Quadrature of the pointer integrals reproduces $\nu=\operatorname{erf}(g/\sqrt2)$ and $D=e^{-g^2/2}$ for $g=0.3,1,2$. The L\"uders instrument attains $\sqrt{1-\nu^2}$ in Proposition~\ref{prop:disturb}(a) to machine precision, and $300$ random instruments per value of $\nu$, built from random outcome channels after the L\"uders operation, stay below it (largest ratio $0.777$). The pointer value $e^{-g^2/2}$ lies strictly below $\sqrt{1-\nu^2}$ on a grid of $g\in(0,12]$.
+
+\emph{Record laws.} For the qubit model of Section~\ref{subsec:pointer} with $g=1.2$, $d=0.05$ and histories of five steps, record laws were computed exactly by summing over outcome branches with density matrices, for ten random adaptive rules, all four combinations of axis and wiring and both signs, with and without a feedback actuator. Laws related by the sign symmetry or by rewiring agree to $5\times10^{-16}$ in total variation; laws differing in $\kappa$ differ by at least $0.32$; the classical reduction agrees with the qubit model to $8\times10^{-16}$. The lag-one and lag-two correlations of Theorem~\ref{thm:reach}(b) agree with $c\nu^2$ and $c^2\nu^2$.
+
+\emph{Rates.} The divergence rate of Theorem~\ref{thm:rate}(c) is $\ln2$ minus the entropy rate of the records. The entropy rate was computed by iterating the law of the filter's log-likelihood ratio, conditioned on the current world value, on a uniform grid of $6001$ points until the change fell below $10^{-15}$. For the finite-time check, exact divergences between the two hypotheses over seven steps were computed for random, record-dependent and fixed rules, open loop, with disturbing commands ($D=e^{-1/2}$), with feedback ($h=1$, $s=0.95$) and with both ($h=0.6$, $s=0.9$); all stay below the finite-time forms of Theorem~\ref{thm:rate}(a) and~\eqref{eq:rate}, with largest ratios $0.60$ and $0.78$.
+
+\emph{Two-filter checks.} An eight-step forward enumeration of $40$ adaptive rules with outcome-dependent activation and failure probability $0.17$ stays below the finite-time bound of Theorem~\ref{thm:rate}(b); its largest ratio is $0.5843$. A separate implementation tests $64800$ combinations of posterior pairs and controls against the one-step potential recurrence, and compares the quantum pointer map with the classical update to $1.2\times10^{-16}$. The files are \texttt{checks.py} and \texttt{checks\_supp.py}, with JSON outputs.\par
+
+{\raggedright Archived companion calculations are \texttt{W0\_SH0\_recompute.py} for Tables~\ref{tab:fixed} and~\ref{tab:sequential}, \texttt{W1\_pointer\_gauge.py} and \texttt{W2\_persistence\_law.py}. The body-calibration calculation is \texttt{check\_body\_calibration.py}: it checks the complete reversible reference and continuation circuits, enumerates their actual independent inputs with rational probabilities, and evaluates both fixed calibration branches and the equal-mean-rate calendar comparison.\par}
+
+\begin{thebibliography}{99}
+\raggedright
+\bibitem{Bialek2001}
+W.~Bialek, I.~Nemenman and N.~Tishby,
+\emph{Predictability, complexity, and learning},
+Neural Computation \textbf{13}, 2409--2463 (2001),
+\url{https://www.princeton.edu/~wbialek/our_papers/bnt_01a.pdf}.
+
+\bibitem{Wibral2014}
+M.~Wibral, J.~T.~Lizier, S.~V\"ogler, V.~Priesemann and R.~Galuske,
+\emph{Local active information storage as a tool to understand distributed neural information processing},
+Frontiers in Neuroinformatics \textbf{8}, 1 (2014),
+\href{https://doi.org/10.3389/fninf.2014.00001}{doi:10.3389/fninf.2014.00001}.
+
+\bibitem{FlemingDaw2017}
+S.~M.~Fleming and N.~D.~Daw,
+\emph{Self-evaluation of decision-making: A general Bayesian framework for metacognitive computation},
+Psychological Review \textbf{124}, 91--114 (2017),
+\href{https://doi.org/10.1037/rev0000045}{doi:10.1037/rev0000045}.
+
+\bibitem{Metzinger2005}
+T.~Metzinger, \emph{Pr\'ecis: Being No One},
+Psyche \textbf{11}(5) (2005), Sections~1.1--1.3,
+\url{https://journalpsyche.org/files/0xaad5.pdf}.
+
+\bibitem{Dennett1992}
+D.~C.~Dennett, \emph{The self as a center of narrative gravity},
+in F.~S.~Kessel, P.~M.~Cole and D.~L.~Johnson (eds.),
+\emph{Self and Consciousness: Multiple Perspectives},
+Lawrence Erlbaum, 103--115 (1992).
+
+\bibitem{TDIII}
+S.~Liu, \emph{Keeping a Self-Model Calibrated: Drift Detection, the Price of Keeping Up, and Reliability in a Closed Loop} (T-DOME~III), 2026, Sections~5 and~10; July 2026 record DOI: 10.5281/zenodo.18591771.
+
+\bibitem{TDII}
+S.~Liu, \emph{Reference Frames Selected by History: The Capability and Cost of a Bounded Agent's Self-Frame} (T-DOME~II), 2026; July 2026 record DOI: 10.5281/zenodo.18579703.
+
+\bibitem{HAFFG}
+S.~Liu, \emph{Internal Selection and Revisable Organization: How History Changes Permissions and Physical Sources} (HAFF Paper~G), 2026; July 2026 record DOI: 10.5281/zenodo.18402907.
+
+\bibitem{HAFFB}
+S.~Liu, \emph{Coupling, Records, and Stable Relations: Formation, Protected Content and the Lifetime of a Geometry} (HAFF Paper~B), 2026; series record DOI: 10.5281/zenodo.18367060.
+
+\bibitem{HAFFC}
+S.~Liu, \emph{Causation, Agency, and Existence: Historical Control and Maintained Intervention} (HAFF Paper~C), 2026; series record DOI: 10.5281/zenodo.18374805.
+
+\bibitem{HAFFF}
+S.~Liu, \emph{Records, Dissipation and Intervention: Conditions for a Temporal Direction} (HAFF Paper~F), 2026; DOI: 10.5281/zenodo.18400425.
+
+\bibitem{HAFFD}
+S.~Liu, \emph{Selection, Maintenance and Gravitational Response: Modular Constraints and a Physical Return} (HAFF Paper~D), 2026; series record DOI: 10.5281/zenodo.18388881.
+
+\bibitem{QRAIFB}
+S.~Liu, \emph{Thermodynamic Stability Constraints on Persistent Open Quantum Subsystems: Control Algebra, Physical Actuation and Energy Cost} (Q-RAIF~B), 2026; series record DOI: 10.5281/zenodo.18525890.
+
+\bibitem{ImprintRG}
+S.~Liu, \emph{Renormalization and Imprint Filtering: Source Identification, Memory, and Calibration}, 2026; series record DOI: 10.5281/zenodo.20151451.
+
+\bibitem{StableHulls}
+S.~Liu, \emph{Stable Hulls as Imprint Integration: Relations, Anchors and the Cost of Joint Reading}, 2026; series record DOI: 10.5281/zenodo.20151508.
+
+\bibitem{ImprintChain}
+S.~Liu, \emph{The Imprint Chain: Records, Self-Calibration, and Physical Feedback}, 2026; series record DOI: 10.5281/zenodo.20151594.
+
+\bibitem{FoundationII}
+S.~Liu, \emph{Foundation II: Shared Manifestation. Shared Structure, Public Calibration and Different Histories}, 2026; series record DOI: 10.5281/zenodo.19641372.
+
+\bibitem{FoundationIII}
+S.~Liu, \emph{Foundation III: The Perfuming Loop. Held Content, Learned Frames and Physical Return}, 2026, section on finite feedback; July 2026 record DOI: 10.5281/zenodo.19642189.
+
+\bibitem{CIII}
+S.~Liu, \emph{Finite Self-Models and the Explanatory Gap: What a Continuing Observer Can Know About Itself} (Consciousness~III), 2026; July 2026 record DOI: 10.5281/zenodo.19607724.
+
+\bibitem{BrainAnchor}
+S.~Liu, \emph{The Brain as a Plastic Observable-Algebra Network: Learning Shared Access from Sensorimotor History}, 2026; series record DOI: 10.5281/zenodo.20044329.
+\end{thebibliography}
+\end{document}
+

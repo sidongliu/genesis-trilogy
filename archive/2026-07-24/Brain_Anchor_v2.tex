@@ -1,0 +1,1919 @@
+\documentclass[12pt]{article}
+
+\usepackage[a4paper, margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{mathtools}
+\usepackage{mathrsfs}
+\usepackage{array}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{enumitem}
+\usepackage{float}
+\usepackage{xcolor}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fontspec}
+
+\defaultfontfeatures{Ligatures=TeX}
+\IfFontExistsTF{Times New Roman}
+  {\setmainfont{Times New Roman}}
+  {\setmainfont{TeX Gyre Termes}}
+\IfFontExistsTF{Menlo}
+  {\setmonofont{Menlo}}
+  {\setmonofont{Latin Modern Mono}}
+
+\newtheorem{proposition}{Proposition}[section]
+\theoremstyle{definition}
+\newtheorem{definition}[proposition]{Definition}
+\theoremstyle{remark}
+\newtheorem{remark}[proposition]{Remark}
+
+\newcolumntype{P}[1]{>{\raggedright\arraybackslash}p{#1}}
+\newcolumntype{Y}{X}
+
+\newcommand{\AU}{\mathcal A_U}
+\newcommand{\Ac}{\mathcal A_c}
+\newcommand{\Bbrain}{\mathcal B_{\mathrm{brain}}}
+\newcommand{\Wint}{\mathcal W_{\mathrm{int}}}
+\newcommand{\Bint}{\Wint}
+\newcommand{\Ash}{\mathcal A_{\mathrm{sh}}}
+\newcommand{\Kern}{K(t,s)}
+\newcommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+
+\title{%
+  \textbf{The Brain as a Plastic Observable-Algebra Network}\\
+  \textbf{The Conditional Fixed-Point Workspace \(\mathcal W_{\mathrm{int}}\)}%
+}
+
+\author{
+  Sidong Liu, PhD \\
+  \small iBioStratix Ltd \\
+  \small \texttt{sidongliu@hotmail.com}
+}
+
+\date{July 2026\\
+\small Zenodo DOI: \href{https://doi.org/10.5281/zenodo.20044329}{10.5281/zenodo.20044329}}
+
+\begin{document}
+\emergencystretch=2em
+\raggedbottom
+\hbadness=10000
+\vbadness=5000
+
+\maketitle
+
+\begin{abstract}
+The self-model is often treated as a point-like subject, while the brain
+is often described as an information-processing machine. This paper is a
+standalone anchoring interface paper: it gives a structural interface
+between an observable-algebra framework and one biological observer
+regime, without extending the Foundation formal theory and without
+making an empirical neuroscience claim.
+
+The core proposal is that a brain-centered embodied observer regime can
+anchor an accessible algebra \(\Ac\) at biological scale. Neural
+read-out structures are read as idealized local subalgebras
+\(\mathcal B_i\), synaptic and functional couplings are modeled by
+normal unital completely positive maps \(\Phi_{ij}(t)\), coupling
+history is represented by \(K(t,s)\), and the reportable self-model is
+read as the internal fixed-point workspace \(\Wint\). In the Formal
+Core, \(\Wint\) is the exact read-out equalizer and is a von Neumann
+subalgebra only under the stated finite or compact automorphic group
+action; the positive-\(\delta\) tolerance locus is not asserted to be an
+algebra.
+
+All claims are conditional and interface-level. Neuroscience examples
+are used only as compatible re-readings, not as evidence for the
+framework. The finite-dimensional Pauli-qubit witness
+(Proposition~\ref{prop:fd-brain-witness}) verifies a non-trivial
+\(\Wint\) and non-zero private factors in one Type~I model, while the
+general private-complement condition (P) remains open. The object
+\(\Wint\) is type-distinct from \(H_{\mathrm{st}}\) and \(H_{12}\);
+Foundation~II supplies analogy and motivation only. The paper does not
+prove qualia, does not derive an empirically testable construction of
+\(\Bbrain\), and does not authorize consciousness migration, digital
+immortality, or first-person identity transfer.
+\end{abstract}
+
+\clearpage
+\tableofcontents
+\clearpage
+
+\section{Introduction: The Need for a Biological Anchor}
+
+The Genesis and Consciousness papers describe consciousness-adjacent
+structure at the level of accessible algebras, shared sectors, modular
+flow, source-level feedback, and self-description limits. Those papers
+do not, by themselves, specify a concrete biological observer regime. A
+reader can therefore ask a simple anchoring question: if an accessible
+algebra \(\Ac\) is not a free-floating abstraction, how is it anchored in
+the biological case?
+
+This paper answers that question only at the level of a framework
+interface. It does not introduce Foundation IV. It does not extend the
+formal Foundation series. It also does not present an empirical
+neuroscience model with estimated parameters, data fits, or clinical
+predictions.
+
+The proposed interface is that the brain-centered embodied observer
+regime can be read as a biological anchor for an accessible algebra. In
+that regime, the brain is a central plastic algebraic organ, but it is
+not the whole observer regime. The body, sensorimotor loops,
+interoception, affective systems, environmental coupling, tools,
+records, and other agents also constrain what is accessible and
+reportable.
+
+The brain is not the source of consciousness in a reductive sense, nor
+a container of an inner world. Consciousness, in this framework, is not
+a thing that requires a source, but a structural modality of an
+accessible algebra anchored through a biological observer regime. The
+brain is such a central anchoring component: it helps stabilize a
+plastic internal integration workspace \(\Wint\) that can later be
+reported as ``I.''
+
+The guiding contrast is therefore not between a ghostly subject and a
+physical brain. The guiding contrast is between a many-channel,
+plastic, history-dependent observer regime and the later reportable
+self-model that this regime stabilizes. The reportable ``I'' is not
+discarded as unreal. It is read as an effective stable structure within
+\(\Ac\), not as an independent point-subject.
+
+\subsection*{Contribution}
+
+The paper makes three contributions. First, it gives a self-contained
+biological anchoring interface for the observable-algebra framework. A
+reader need not accept any empirical claim about the brain to understand
+the interface: the key question is how an accessible algebra can be
+anchored through an embodied observer regime.
+
+Second, the paper turns the internal self-model into a formal target.
+Instead of treating the ``I'' as either a primitive subject or a mere
+illusion, it asks what kind of stable readable substructure could be
+supported by multiple internal read-out structures. The answer is
+conditional: under a selected coarse-graining, specified conditional
+expectations, specified read-out comparison maps, and specified coupling
+maps, the exact operator equalizer defines an internal integration
+workspace \(\Wint\). A finite-dimensional witness shows that the formal
+conditions are jointly satisfiable
+(Propositions~\ref{prop:readout-equalizer}--\ref{prop:fd-brain-witness}).
+
+Third, the paper separates the algebraic contribution from the
+neuroscience interface. Neuroscience examples are used to show where the
+language might touch existing phenomena, not to validate the framework.
+This separation is essential. Without it, the paper would risk borrowing
+neuroscience authority for a formal structure that has not been derived
+from data. With it, the paper can be read as an algebra-first interface
+proposal whose empirical relevance remains a later research program.
+
+\subsection*{How to read the structural claims}
+
+Most claims in the paper have the form ``\(X\) can be read as \(Y\)''
+rather than ``\(X=Y\).'' This is not rhetorical caution alone. It marks
+the level of the paper. The biological phenomenon is not being reduced
+to an algebraic object, and the algebraic object is not being inferred
+from the biological phenomenon. The paper proposes a partial structural
+reading between the two.
+
+This also explains why the paper uses conditional propositions rather
+than unconditional theorems. The propositions are not claims that brains
+automatically satisfy the hypotheses. They say that, if an embodied
+observer regime is idealized by the specified operator-algebraic datum,
+then the internal workspace and common/private decomposition are well-defined
+within that datum. The formal burden is therefore explicit rather than
+hidden.
+
+\subsection*{What this paper does not do}
+
+\noindent\fbox{%
+\begin{minipage}{0.94\linewidth}
+\begin{itemize}[leftmargin=1.5em]
+\item It does not solve the hard problem.
+\item It does not prove that the brain produces consciousness.
+\item It does not propose that consciousness has a source requiring identification.
+\item It does not derive an empirically testable construction of \(\Bbrain\) from neuroscience data.
+\item It does not replace Global Workspace Theory, predictive processing, higher-order theories, or clinical neuroscience.
+\item It does not authorize consciousness migration, digital immortality, or first-person identity transfer.
+\end{itemize}
+\end{minipage}}
+
+\subsection*{Plan of the paper}
+
+Section~2 gives the minimal self-contained observable-algebra
+vocabulary needed for the paper. Section~3 explains why accessible
+algebras require embodied observer regimes. Section~4 formulates the
+brain-level reading as a plastic observable-algebra network. Section~5
+describes the self-model as an internal integration workspace.
+
+Section~6 gives the formal core: a conditional hull construction, a
+conditional common/private decomposition, and a fragmentation criterion.
+Section~7 gives a limited compatible re-reading of first-person report
+timing. Section~8 compresses the neuroscience interfaces into a table
+and selected discussions. Section~9 separates guardrails from
+limitations. Section~10 states a research program, and Section~11
+restates the core anchor claim. Appendix~A gives the fuller formal
+skeleton.
+
+\section{A Minimal Self-Contained Framework: Imported Vocabulary}
+
+This section gives the imported minimal vocabulary required for the
+present paper. The terms are compatible with Foundation~I, Foundation~II, and
+Foundation~III of the Consciousness Series~\cite{FoundationI,FoundationII,FoundationIII},
+but the definitions below are intended to be readable without consulting
+those papers. Nothing in this section is meant to re-prove the
+Foundation results, and no Foundation theorem is imported into the
+formal core below.
+
+\begin{definition}[Observable algebra]
+An observable algebra \(\mathcal A\) is an algebraic language for
+quantities that can be read, stabilized, transformed, or reported by a
+specified regime. In this paper \(\mathcal A\) is idealized as a von
+Neumann algebra. The von Neumann setting is used because it makes states,
+normal maps, conditional expectations, and weak operator closure
+available in one common language. This is a structural idealization, not
+a claim that neural tissue literally presents a naturally given von
+Neumann algebra.
+\end{definition}
+
+The word ``observable'' should be read structurally rather than
+psychologically. An observable is not necessarily an item that is
+consciously noticed. It is an element of the formal language through
+which a regime can, in principle, stabilize distinctions, update states,
+or support later report. This distinction matters because the paper is
+not trying to identify conscious contents one by one with algebra
+elements. It is specifying the structural level at which access,
+readability, and report can be discussed.
+
+The von Neumann idealization is deliberately stronger than what the
+neuroscience interface can presently justify. It is used because the
+formal questions of this paper require closure, states, and conditional
+expectations. A weaker \(C^*\)-algebraic language would be possible in
+principle, but the present construction repeatedly refers to normal
+states and \(\sigma\)-weak closure. For that reason, the von Neumann
+setting is the cleanest operator-algebraic envelope for a first
+standalone interface paper.
+
+\begin{definition}[Ambient algebra]
+The ambient algebra \(\AU\) denotes the background observable algebra
+relative to which accessible substructures are selected. It is not
+treated here as a collection of already separated objects. It is the
+formal substrate from which finite regimes induce accessible sectors.
+\end{definition}
+
+The ambient algebra is not an empirically specified object in this
+paper. It is a bookkeeping device for the fact that access is partial.
+The biological observer regime does not encounter an already segmented
+world and then add subjective labels to it. Rather, the formal picture
+starts from a broader observable context and asks which substructure is
+available under the constraints of a finite regime.
+
+\begin{definition}[Accessible algebra]
+An accessible algebra \(\Ac\subseteq\AU\) is the observable algebra
+available to a finite observer regime. It is not an arbitrary
+psychological viewpoint. It is the algebraic expression of what can be
+read, stabilized, updated, reported, and acted through under the
+constraints of that regime.
+\end{definition}
+
+This is the main self-contained hinge of the paper. An accessible
+algebra is not a mind, a brain region, or a representation stored in a
+head. It is the formal expression of a regime's accessible observables.
+For the biological case, this means that \(\Ac\) is anchored through the
+brain-centered embodied regime, but it is not identical with the brain.
+The brain is a central anchoring component, while \(\Ac\) is the
+algebraic object whose access conditions are constrained by the whole
+regime.
+
+\begin{definition}[Observer regime]
+An observer regime is the physical, biological, and historical set of
+conditions through which an accessible algebra is anchored. An
+accessible algebra only has operational meaning relative to such a
+regime. In the biological case considered here, the regime is
+brain-centered but embodied: body, sensorimotor loops, interoception,
+environmental coupling, tools, records, and social interaction all
+constrain access.
+\end{definition}
+
+The observer regime is the paper's substitute for a point-like subject.
+It is also the paper's guard against a brain-in-a-vat reading. A finite
+observer regime has sensors, effectors, metabolic constraints, bodily
+states, memory traces, and environmental couplings. These conditions do
+not merely deliver inputs to a detached algebra. They help determine
+which observables can be stabilized and which distinctions can become
+reportable.
+
+This regime language is also meant to avoid a common ambiguity in
+consciousness theory. A theory may speak as if there is a subject to
+whom contents appear, and then ask how the brain generates those
+contents. The present framework reverses that order. It first specifies
+the conditions under which an accessible algebra is available. Only
+then does it ask how a reportable self-model can stabilize inside that
+accessible algebra. The subject is not inserted as a primitive term at
+the beginning.
+
+The approach therefore does not deny first-person structure. It denies
+that first-person structure should be treated as an unanalysed point.
+The reportable first person is a late and effective structure within a
+regime. It has practical and ethical force because the regime can plan,
+remember, repair, and be trained. But its force does not require it to
+be an independent owner of the algebra.
+
+\begin{definition}[Typed hull namespace]
+Three objects previously described with overlapping ``stable hull''
+language are kept type-distinct. \(H_{\mathrm{st}}\) is Foundation~I's
+source-algebraic stable-hull construction, \(H_{12}\) is Foundation~II's
+external shared accessible sector for independent source states
+\cite{FoundationII}, and \(\Wint\) is the internal cognitive integration
+workspace studied in this paper. No equality, functor, or theorem-level
+inheritance among these three objects is asserted.
+\end{definition}
+
+The external sector \(H_{12}\) and the internal workspace \(\Wint\)
+should not be confused. The former concerns agreement between
+independently supplied source states. The latter concerns agreement
+among read-out comparison maps inside one accessible algebra and must
+solve its own non-vacuity problem. Foundation~II is therefore an analogy
+and source of motivation only; its theorem does not establish the
+construction used here.
+
+\begin{definition}[Private complement]
+The private complement is the part of a regime or read-out channel that
+does not enter the shared-readable sector. In external settings it marks
+what does not become public overlap. In the internal setting considered
+here, it marks what remains local to a bodily, affective, memory, or
+report-limited channel.
+\end{definition}
+
+The private complement is not a hidden metaphysical substance. It is a
+formal way of saying that not everything shaping a reportable self-model
+is itself shared-readable across the relevant channels. A bodily state
+may bias report without becoming linguistic. An affective salience
+signal may constrain action without becoming a public reason. The
+private complement records this asymmetry without treating it as a
+separate subject.
+
+\begin{definition}[History-dependent coupling]
+The symbol \(K(t,s)\) denotes a history-dependent coupling object. It is
+not a single neural kernel derived from data. It is a structural
+placeholder for non-Markovian dependence: past interactions change which
+future states are easier to read, synchronize, report, or act through.
+\end{definition}
+
+The notation \(K(t,s)\) is intentionally generic. It can be read as a
+history-dependent kernel, a coupling-history object, or a record of how
+prior interactions constrain later synchronization. At the biological
+interface, synaptic plasticity, network reconfiguration, habit
+formation, and affective conditioning may all provide partial empirical
+interfaces to this role. The paper does not identify \(K(t,s)\) with
+any one of them.
+
+The same caution applies to \(\Phi_{ij}(t)\). A coupling map is not a
+wire carrying a pre-existing message from one component to another. It
+is a structural representation of how one read-out structure can change
+the future readability or stabilization conditions of another. In
+neural language, such coupling may be mediated by synapses, recurrent
+loops, neuromodulation, functional connectivity, or body-mediated
+feedback. In the present paper these are not collapsed into one
+biophysical mechanism. They are placed under one formal heading only at
+the level of structural readability.
+
+The point of the present paper is not to identify the brain with
+\(\Ac\). The point is to describe how a brain-centered embodied regime
+can anchor one biological instance of an accessible algebra. In that
+reading, \(\Ac\) remains the algebraic object, while the biological
+regime is the anchoring condition.
+
+\begin{figure}[H]
+\centering
+\fbox{%
+\begin{minipage}{0.9\linewidth}
+\centering
+\[
+\AU
+\longrightarrow
+\Ac
+\longrightarrow
+\{\mathcal B_i\}_{i\in I}
+\longrightarrow
+\Bint
+\]
+\[
+\text{\small ambient algebra}
+\quad
+\text{\small accessible algebra}
+\quad
+\text{\small read-out structures}
+\quad
+\text{\small internal integration workspace}
+\]
+\end{minipage}}
+\caption{Schematic only. The figure shows the minimal framework used in
+this paper: \(\AU\), \(\Ac\), internal read-out structures
+\(\{\mathcal B_i\}\), and the internal integration workspace \(\Wint\).}
+\end{figure}
+
+\subsection{Translation Conventions}
+
+Because the paper is an interface paper, several terms have two
+readings: an operator-algebraic reading and a biological or
+phenomenological interface reading. The following table fixes the
+translation conventions used throughout the paper.
+
+\begin{table}[H]
+\centering
+\small
+\begin{tabularx}{0.98\linewidth}{P{0.24\linewidth}P{0.35\linewidth}Y}
+\toprule
+\textbf{Term} & \textbf{Formal role} & \textbf{Interface role} \\
+\midrule
+\(\AU\) &
+Ambient observable algebra. &
+Background structural context, not an empirically measured universe. \\
+\(\Ac\) &
+Accessible von Neumann subalgebra. &
+What a finite embodied regime can read, stabilize, update, and report. \\
+\(\mathcal B_i\) &
+Idealized read-out subalgebra at a fixed scale. &
+Neural, bodily, memory, affective, or linguistic channel read as a local structure. \\
+\(E_i\) &
+Faithful normal conditional expectation onto \(\mathcal B_i\). &
+Idealized selection of channel-readable content. \\
+\(R_\alpha\) &
+Normal unital completely positive comparison map. &
+Idealized test of exact or \(\delta\)-approximate internal agreement. \\
+\(\Phi_{ij}^{K}(t)\) &
+Normal unital completely positive coupling map. &
+Plastic coupling between read-out structures. \\
+\(K(t,s)\) &
+History-dependent coupling object. &
+Memory, habit, plasticity, or prior coupling history at structural level. \\
+\((\delta,T)\) &
+Operator-norm tolerance and report-window length. &
+Declared modeling parameters, not quantities inferred from neuroscience. \\
+\(\Wint\) &
+Exact fixed-point equalizer under the Formal Core hypotheses. &
+Stable shared-readable self-model, later reportable as ``I.'' \\
+\bottomrule
+\end{tabularx}
+\caption{Translation conventions. The biological column gives
+compatible interface readings only; it does not identify the biological
+phenomenon with the formal object.}
+\end{table}
+
+The table is also a warning against category mistakes. A cortical
+network is not literally a von Neumann algebra; it is read through one
+when the paper asks about observable access and reportability. A
+synapse is not literally a completely positive map; synaptic and
+functional coupling can be modeled by such maps at a selected structural
+level. The value of the formalism lies in making the conditions of
+shared readability explicit, not in replacing biology with algebra.
+
+\subsection{Why This Minimal Vocabulary Is Enough}
+
+The paper does not require the full machinery of the Foundation series.
+It uses only four structural ideas. First, access is partial and
+regime-dependent. Second, stable overlap can be studied algebraically.
+Third, not everything local to a channel becomes shared-readable.
+Fourth, history changes future readability. These four ideas are enough
+to formulate the brain-level anchor without importing the full source
+chain, modular-flow, or perfuming-loop machinery.
+
+This is why the paper can be standalone. Foundation~I--III provide the
+background motivation and a broader research program, but the argument
+below only needs the self-contained vocabulary introduced here. A reader
+who accepts the definitions in this section can follow the later
+construction even without accepting the whole Consciousness Series.
+
+\section{Accessible Algebras Require Embodied Observer Regimes}
+
+An accessible algebra is specified relative to an observer regime. It is
+not a free-floating abstraction. What can be read, updated, reported,
+and acted through depends on the embodied conditions under which
+accessibility is realized.
+
+For the biological case, the observer regime is brain-centered but not
+brain-only. The brain is the central plastic algebraic organ of the
+regime. The full regime also includes the body, sensorimotor loops,
+interoceptive and affective systems, environmental coupling, tools,
+records, habits, and social interaction.
+
+This distinction prevents a common drift. The paper does not claim that
+the brain is \(\Ac\). It claims that the brain-centered embodied regime
+anchors an accessible algebra. The accessible algebra is constrained by
+the whole embodied regime, even when the brain provides the most
+plastic and integrative component.
+
+\begin{figure}[H]
+\centering
+\fbox{%
+\begin{minipage}{0.9\linewidth}
+\begin{center}
+\textbf{Brain-centered embodied observer regime}
+\end{center}
+\[
+\begin{array}{c}
+\text{brain: central plastic algebraic organ}\\
+\downarrow\\
+\text{body and sensorimotor loops}\\
+\downarrow\\
+\text{interoception and affective subsystems}\\
+\downarrow\\
+\text{environmental coupling: light, sound, gravity, other agents}\\
+\downarrow\\
+\text{long-term inscriptions: habits, tools, records}
+\end{array}
+\]
+\end{minipage}}
+\caption{Schematic only. The brain is central in the biological anchor,
+but it is not the whole observer regime.}
+\end{figure}
+
+The embodied regime also prevents a second drift, namely the
+brain-in-a-vat reading. The accessible algebra is not anchored by an
+isolated neural object floating apart from sensorimotor and
+environmental constraints. It is anchored by a coupled regime whose
+neural component is central but not sufficient by itself.
+
+This paper therefore treats the brain as an anchoring component rather
+than as a container of a world. The world as read by the regime is not
+inside the brain. The readable conditions under which a world is
+stabilized are constrained through the regime.
+
+This regime-level language also explains why the paper does not start
+from an isolated computational brain. A purely neural description may be
+appropriate for many empirical purposes, but the accessible algebra of a
+biological observer is constrained by more than neural tissue. Posture,
+interoceptive load, sensorimotor contingencies, sleep history, tools,
+written records, and social interaction can change what is readable and
+reportable. These factors do not have to be modeled in detail here, but
+they justify treating the brain as central within an embodied regime
+rather than as the whole regime.
+
+The point is not to dilute the role of the brain. The brain remains the
+dominant plastic integration organ of the biological anchor. The point
+is to avoid making the algebraic object \(\Ac\) identical to a neural
+object before the regime of access has been specified. In the notation
+used later, a candidate brain algebra \(\Bbrain\) may be a crucial
+substructure of \(\Ac\), but the embodied regime also constrains the
+state, read-out maps, report windows, and environmental couplings.
+
+\section{The Brain as a Plastic Observable-Algebra Network}
+
+The brain can be read, at a chosen biological coarse-graining scale, as
+a plastic observable-algebra network. This is a structural reading, not
+an empirical derivation of a neural algebra from data. The reading is
+useful because it allows neural plasticity, coupling, memory, and
+self-model stabilization to be discussed in the same language.
+
+Two overstatements must be ruled out at the start. A neural read-out
+unit is not a quantum state. A synapse is not literal quantum
+entanglement. Both claims are too strong, and both would push the paper
+toward a quantum-brain hypothesis that is not being made.
+
+Instead, choose a biological coarse-graining scale. At that scale, a
+read-out unit may be a single neuron, a neural ensemble, a cortical
+column, a functional network, a sensorimotor loop, a memory subsystem,
+an affective subsystem, or a language subsystem. We denote the
+corresponding effective read-out subalgebras by
+\(\{\mathcal B_i\}_{i\in I}\), with \(\mathcal B_i\subseteq\Ac\).
+
+At the biological interface, a neural read-out unit is not a passive
+node but a local integrator. Dendritic inputs, excitatory and inhibitory
+modulation, and thresholded action-potential generation already
+implement a local read-out operation before network-level coupling is
+considered~\cite{StuartSpruston2015}.
+Network-level coupling \(\Phi_{ij}(t)\) then composes such local
+integrations into larger patterns.
+
+The objects \(\{\mathcal B_i\}_{i\in I}\) are called effective
+read-out structures in the main text. In the idealized setting of
+Appendix~A they are assumed to be von Neumann subalgebras of \(\Ac\).
+At the biological interface this idealization is a modeling choice, not
+a claim that every neural ensemble is literally closed under
+multiplication, adjoint, and operator-topology limits.
+
+The choice of coarse-graining is not a cosmetic detail. At a single
+neuron scale, one might emphasize dendritic integration, spike
+thresholds, and local input-output selectivity. At an ensemble scale,
+one might emphasize synchrony, oscillatory coordination, and functional
+connectivity. At a behavioral subsystem scale, one might emphasize
+sensorimotor affordances, affective salience, memory retrieval, or
+language report. The notation \(\mathcal B_i\) is deliberately flexible
+enough to cover these possibilities, but the formal construction in
+Section~6 always fixes one scale before making a statement.
+
+This prevents a common false precision. The paper does not claim that
+there are exactly \(n\) biologically privileged subalgebras, nor that a
+single neuron, cortical column, and language subsystem all belong to the
+same clean algebraic level. It says that, once a scale is selected, the
+relevant read-out structures can be idealized as subalgebras for the
+purpose of asking whether a stable internal overlap can be constructed.
+
+\begin{table}[H]
+\centering
+\small
+\begin{tabularx}{0.98\linewidth}{P{0.22\linewidth}P{0.33\linewidth}Y}
+\toprule
+\textbf{Scale} & \textbf{Possible read-out structure} & \textbf{Reason for caution} \\
+\midrule
+Cellular &
+Single neuron or local dendritic integration. &
+Too fine-grained for report-level self-modeling by itself. \\
+Mesoscopic &
+Neural ensemble, column, or recurrent local circuit. &
+May support stable patterns, but boundaries are model-dependent. \\
+Network &
+Functional network or large-scale integration pattern. &
+Closer to report and action, but farther from cellular mechanism. \\
+Embodied subsystem &
+Sensorimotor loop, affective subsystem, memory system, language system. &
+Useful for self-model analysis, but mathematically idealized as a subalgebra. \\
+\bottomrule
+\end{tabularx}
+\caption{Possible coarse-graining scales for \(\mathcal B_i\). The
+formal construction fixes one scale; it does not assert invariance
+across all scales.}
+\end{table}
+
+\begin{table}[H]
+\centering
+\begin{tabularx}{0.96\linewidth}{P{0.34\linewidth}Y}
+\toprule
+\textbf{Biological structure} & \textbf{Structural reading} \\
+\midrule
+Neural read-out unit \(i\) &
+Local effective read-out subalgebra \(\mathcal B_i\) at a chosen biological coarse-graining scale. \\
+Synaptic or functional coupling \(ij\) &
+Plastic coupling channel or algebraic edge \(\Phi_{ij}(t)\). \\
+Plasticity &
+History-dependent modification of coupling channels. \\
+Memory &
+Coupling history, not a static storage file. \\
+Learning &
+Modification of future readability, synchronization, and action-candidate stabilization. \\
+Self-model &
+Network-stabilized internal integration workspace \(\Wint\). \\
+\bottomrule
+\end{tabularx}
+\caption{A structural reading, not an equality table. Each entry is to be
+read as ``can be modeled as'' at a chosen coarse-graining scale.}
+\end{table}
+
+The key shift is that a coupling is not read as an information wire. The
+wire metaphor is useful in engineering contexts, but it suggests that
+pre-existing information objects travel along edges. The algebraic-edge
+reading is different: a coupling channel changes which future states can
+be jointly stabilized and read.
+
+At the neural interface, this means that synaptic coupling is better
+read as a plastic electrochemical interface than as a fixed information
+line. Chemical synapses convert electrical activity into transmitter
+release and then back into postsynaptic electrical change; the
+structural point is not the biochemical detail itself, but the fact that
+coupling is state-dependent, modulatory, and plastic~\cite{Sudhof2012,Sudhof2013}.
+This supports the use of \(\Phi_{ij}(t)\) as
+a coupling-channel notation rather than a wire notation.
+
+In this sense, a synaptic or functional coupling is a plastic edge in a
+network of local read-out algebras. Each experience modifies the future
+conditions of readability. It changes which channels synchronize, which
+states become easier to stabilize, and which action candidates become
+more likely to enter reportable dynamics.
+
+\paragraph{Why not a standard neural network model?}
+Standard neural network models can describe input-output mappings,
+learned weights, prediction errors, and task performance. The present
+paper is addressing a different structural layer: the algebraic
+conditions of observable access, the conditions under which states are
+readable, the distinction between shared and private sectors, the
+location of the report boundary, and the role of history-dependent
+coupling. This is not a competing neural network model. Rather, a neural
+network model can be read as one possible concrete coupling instance
+inside a broader \(\Phi_{ij}(t)\)-style framework, if the relevant
+coarse-graining and read-out maps are independently specified.
+
+\begin{figure}[H]
+\centering
+\fbox{%
+\begin{minipage}{0.9\linewidth}
+\[
+\mathcal B_1
+\xleftrightarrow{\ \Phi_{12}(t)\ }
+\mathcal B_2
+\xleftrightarrow{\ \Phi_{23}(t)\ }
+\mathcal B_3
+\quad \cdots \quad
+\mathcal B_n
+\]
+\[
+\text{plastic coupling history } K(t,s)
+\quad \leadsto \quad
+\text{future synchronization and stable read-out}
+\]
+\end{minipage}}
+\caption{Schematic only. The figure represents a plastic
+observable-algebra network. It is not a connectome, a data plot, or a
+claim of measured neural coupling.}
+\end{figure}
+
+This reading is compatible with ordinary neuroscience vocabulary, but
+it is not a replacement for it. It does not specify neurotransmitters,
+spike timing, synaptic weights, or network physiology. It gives a
+structural interface in which such details, if independently modeled,
+could potentially constrain a future construction of \(\Bbrain\).
+
+\begin{remark}[Candidate brain algebra]
+Here \(\Bbrain\) denotes a full candidate observable algebra for the
+brain component within the embodied observer regime. If such a
+\(\Bbrain\) exists at a chosen coarse-graining scale, it is understood
+to satisfy \(\Bbrain\subseteq\Ac\) and \(\Bbrain\neq\Ac\): the brain
+component anchors, but does not exhaust, the accessible algebra of the
+embodied regime. The paper does not construct \(\Bbrain\) from
+neuroscience data, and it does not assume that such a construction is
+unique.
+\end{remark}
+
+\section{Internal Integration Workspace and the Self-Model}
+
+The self-model is read here as an internal integration workspace within a
+single accessible algebra. It is not a new independent algebra outside
+\(\Ac\). It is a stable internal substructure produced by overlap,
+coupling, and recurrent calibration among multiple read-out
+subalgebras.
+
+The analogy with Foundation~II is partial. Foundation~II studies an
+external shared sector across independent source states under named
+conditions~\cite{FoundationII}. Here the internal reading concerns
+subalgebras and comparison maps within one embodied accessible algebra.
+The two settings are mechanism-homologous only: no Foundation~II datum,
+theorem, or non-triviality conclusion is inherited here.
+
+The contrast can be stated more explicitly. In the external case, the
+problem is how multiple source chains or regimes can share a stable
+overlap while retaining private complements. In the internal case, the
+problem is how multiple read-out structures inside one embodied
+accessible algebra can support a stable reportable self-model while
+retaining local bodily, affective, memory, or pre-report dynamics. The
+same words ``shared'' and ``private'' are used, but the index sets and
+interpretation differ.
+
+This is why the paper does not simply copy the external construction.
+The internal construction requires its own datum: read-out subalgebras
+\(\mathcal B_i\), conditional expectations \(E_i\), comparison maps
+\(R_\alpha\), \(K\)-dependent coupling maps \(\Phi_{ij}^{K}(t)\), a
+faithful normal state \(\omega\), the tolerance \(\delta\), and the
+report window \(T\). These objects identify the chosen biological
+coarse-graining scale. Without such a datum, ``internal workspace''
+would remain only a metaphor.
+
+At the internal scale, different read-out subalgebras contribute
+different aspects of the reportable self-model. Sensorimotor channels
+stabilize bodily boundary and action affordance. Interoceptive and
+affective channels stabilize urgency, salience, and valence. Memory
+channels stabilize temporal continuity. Language channels stabilize
+reportable narrative.
+
+The reportable self-model is not simply identical with any one of these
+channels. It is the stable overlap generated by their recurrent
+coupling. When the overlap is strong and coordinated, the regime reports
+``I am doing this'' or ``I decided this.'' When the overlap weakens or
+fragments, the reportable structure may become less unified.
+
+This stable overlap is what the paper calls the internal integration
+workspace \(\Bint\equiv\Wint\) at the informal level. Section~6 gives
+the authoritative formalization; Appendix~A only restates its assumptions
+and consequences.
+
+The construction route is simple but conditional. First choose a scale
+at which read-out structures can be idealized as subalgebras. Then
+choose channel expectations, normal read-out comparison maps, and a
+report-window tolerance. Their exact operator equalizer is always an
+operator system. It becomes the von Neumann algebra \(\Wint\) only under
+the additional fixed-point hypotheses stated in Section~6. This
+distinction prevents scalar state agreement from being mistaken for an
+intrinsic shared algebra.
+
+This route also clarifies what the self-model is not. It is not a point
+that owns the channels. It is not the language channel alone. It is not
+the entire accessible algebra. It is a stable readable substructure
+within \(\Ac\), dependent on the selected scale, coupling family, state,
+and report window.
+
+This does not mean that the self-model is merely an illusion. The
+self-model is effective within \(\Ac\). It can plan, report, repair,
+remember, and assume responsibility. What is denied is not its
+effectiveness, but its status as an independent point-subject.
+
+The internal workspace also has a private side. Some bodily, affective, or
+pre-report dynamics may shape the workspace without becoming fully
+shared-readable across internal channels or externally reportable to
+other observers. This is why the paper distinguishes first-person
+report from the full content of experience.
+
+The relation to Paper~I is motivational rather than central. Paper~I
+argues that geometry and modular flow are not independently deformable
+in the relevant algebraic setting~\cite{PaperI}. The present paper uses
+that lesson only as a caution against separating ``objective brain'' and
+``subjective report'' into two independently specified domains.
+
+\section{Formal Core}
+
+\paragraph{Mathematical status of the results.}
+The formal content has four distinct grades. Proposition~\ref{prop:readout-equalizer}
+is an operator-algebraic statement about equalizers of named maps.
+Propositions~\ref{prop:hull-construction-main} and
+\ref{prop:common-private-main} are conditional consequences of explicit
+interface hypotheses. Proposition~\ref{prop:fd-brain-witness} is a
+finite Type~I model check showing that those hypotheses are jointly
+satisfiable and non-vacuous. The interpretation of \(\Wint\) as a
+biological self-model remains an interface reading, not a theorem of
+neuroscience or a consequence imported from Foundation~II.
+
+The exact equalizer below is separated from its tolerance halo. A
+general equalizer of normal unital completely positive maps is a
+\(\sigma\)-weakly closed operator system, but it need not be an algebra.
+The von Neumann conclusion therefore uses an explicit automorphic
+fixed-point hypothesis. Appendix~A defers to this section as the
+authoritative formal statement and records the same assumptions without
+introducing a parallel construction.
+
+\subsection{Setup}
+
+An internal read-out datum is a tuple
+\[
+\mathfrak D_{\mathrm{int}}
+=
+(\Ac,\omega,\{\mathcal B_i\}_{i\in I},\{E_i\}_{i\in I},
+\{R_\alpha\}_{\alpha\in J},
+\{\Phi_{ij}^{K}(t)\}_{i,j\in I},K,\delta,T),
+\]
+where \(\Ac\) is an accessible von Neumann algebra, \(\omega\) is a
+faithful normal state, \(\mathcal B_i\subseteq\Ac\) are read-out von
+Neumann subalgebras, and \(E_i:\Ac\to\mathcal B_i\) are faithful normal
+conditional expectations. The maps \(R_\alpha:\Ac\to\Ac\) are normal
+unital completely positive read-out comparison maps, with a
+distinguished identity map among them. The maps
+\(\Phi_{ij}^{K}(t):\Ac\to\Ac\) are normal unital completely positive
+coupling maps whose declared time dependence is parameterized by the
+history object \(K\). Finally, \(T>0\) is the report-window length and
+\(\delta\geq0\) is the operator-norm agreement tolerance.
+
+Neither \(\delta\) nor any other component of the datum is inferred from
+neuroscience data here. At \(\delta=0\) agreement is exact. For
+\(\delta>0\), define only the unit-ball tolerance locus
+\[
+\Wint^{(\delta)}
+=
+\left\{a\in\operatorname{Ball}(\Ac):
+\sup_{\alpha,\beta\in J}
+\lVert R_\alpha(a)-R_\beta(a)\rVert\leq\delta
+\right\}.
+\]
+The unit-ball restriction prevents a tolerance statement from being
+defeated by scalar rescaling. The exact agreement locus is
+\[
+\operatorname{Eq}(R)
+=
+\bigl\{a\in\Ac:R_\alpha(a)=R_\beta(a)
+\text{ for all }\alpha,\beta\in J
+\bigr\},
+\]
+and the symbol \(\Wint\) is reserved for this exact locus when the
+conditions below make it a non-trivial von Neumann algebra. The
+approximate set \(\Wint^{(\delta)}\) is not asserted to be linear or
+multiplicatively closed.
+
+\begin{proposition}[Read-out equalizer]
+\label{prop:readout-equalizer}
+For any family of normal unital completely positive maps
+\(\{R_\alpha\}_{\alpha\in J}\), the exact equalizer
+\(\operatorname{Eq}(R)\) is a \(\sigma\)-weakly closed operator system.
+If instead \(R_g=\alpha_g\) is a point--\(\sigma\)-weakly continuous
+action of a finite or compact group \(G\) by normal
+\(*\)-automorphisms, with \(R_e=\operatorname{id}\), then
+\[
+\operatorname{Eq}(R)=\Ac^G
+\]
+is a von Neumann subalgebra. Haar averaging gives a normal faithful
+conditional expectation
+\[
+E_{\mathrm{int}}(a)=\int_G\alpha_g(a)\,d\mu(g)
+\quad\text{with}\quad
+\operatorname{Ran}(E_{\mathrm{int}})=\Ac^G.
+\]
+If \(\omega\circ\alpha_g=\omega\) for all \(g\), this expectation is
+\(\omega\)-preserving.
+\end{proposition}
+
+\begin{proof}
+The equalizer is the intersection of the kernels of the normal linear
+maps \(R_\alpha-R_\beta\), hence is \(\sigma\)-weakly closed. Unital
+positive maps preserve adjoints, so the equalizer contains the identity
+and is self-adjoint and linear. It is therefore an operator system. For
+an automorphic group action, the equalizer is the fixed-point set
+\(\Ac^G\), which is also closed under products and is consequently a von
+Neumann subalgebra. The normalized group average is normal, faithful,
+unital, positive, idempotent, and bimodular over \(\Ac^G\), giving the
+claimed conditional expectation and range equality.
+\end{proof}
+
+The proposition deliberately does not promote an arbitrary CP-map
+equalizer to an algebra. The automorphic calibration hypothesis is a
+model choice that is satisfied by the finite witness below; other
+mechanisms for multiplicative closure remain open.
+
+\subsection{Conditional Hull Construction}
+
+Assume the following conditions:
+\begin{enumerate}[label=(H\arabic*)]
+\item[(H0)] \textbf{Channel selection.} The maps
+\(E_i:\Ac\to\mathcal B_i\) are faithful normal conditional expectations
+onto the named read-out subalgebras.
+\item \textbf{Automorphic comparison.} The comparison maps are a finite
+or compact normal automorphic action \(R_g=\alpha_g\), and \(\omega\) is
+invariant under that action.
+\item \textbf{Exact common range and non-triviality.} The fixed-point
+equalizer obeys
+\[
+\mathbb C\mathbf1
+\subsetneq
+\Wint:=\Ac^G
+=
+\bigcap_{i\in I}\mathcal B_i
+\subsetneq\Ac.
+\]
+This equality is a substantive interface hypothesis; scalar equality of
+state expectations would not imply it.
+\item \textbf{History-dependent finite-window stability.} The declared
+coupling family depends on \(K\) and satisfies, for \(0\leq t\leq T\),
+\[
+\Phi_{ij}^{K}(t)
+\bigl(\operatorname{Ball}(\Wint)\bigr)
+\subseteq
+\Wint^{(\delta)}
+\qquad(i,j\in I).
+\]
+At \(\delta=0\) this is exact invariance. Positive \(\delta\) records an
+approximate report regime and does not define a new algebra.
+\end{enumerate}
+
+\paragraph{Interpretation of the hypotheses.}
+Conditions (H0)--(H2) state exactly where algebraic closure and a common
+channel range enter. They are not neuroscience conclusions. Condition
+(H3) is operational and finite-window: it uses the named tolerance,
+coupling family, and history object rather than an undefined phrase
+``up to the regime tolerance.''
+
+\begin{table}[H]
+\centering
+\small
+\begin{tabularx}{0.98\linewidth}{P{0.16\linewidth}P{0.38\linewidth}Y}
+\toprule
+\textbf{Hypothesis} & \textbf{Formal burden} & \textbf{Interface meaning} \\
+\midrule
+(H0) &
+Existence of faithful normal conditional expectations onto selected subalgebras. &
+Channel-readable content can be selected at the chosen scale. \\
+(H1) &
+Automorphic read-out comparisons with an invariant faithful state. &
+Exact agreement has a specified algebraic mechanism. \\
+(H2) &
+The fixed algebra equals the intersection of channel algebras and is proper and non-scalar. &
+The workspace is common to all channels but does not exhaust the accessible algebra. \\
+(H3) &
+\(K\)-parameterized coupling sends the workspace unit ball into the \(\delta\)-locus over \([0,T]\). &
+The candidate remains readable over the declared report window. \\
+\bottomrule
+\end{tabularx}
+\caption{Interpretation of the formal hypotheses. The right column is
+only an interface reading, not an empirical derivation of the
+hypotheses.}
+\end{table}
+
+\begin{proposition}[Conditional Hull Construction]
+\label{prop:hull-construction-main}
+Fix an internal read-out datum \(\mathfrak D_{\mathrm{int}}\) satisfying
+(H0)--(H3). Then the exact read-out equalizer is the non-trivial proper
+von Neumann algebra
+\[
+\Wint=\operatorname{Eq}(R)=\bigcap_{i\in I}\mathcal B_i.
+\]
+The group average in Proposition~\ref{prop:readout-equalizer} is a
+faithful normal \(\omega\)-preserving conditional expectation
+\(E_{\mathrm{int}}:\Ac\to\Wint\), so the equality
+\(\operatorname{Ran}(E_{\mathrm{int}})=\Wint\) is a consequence of the
+stated hypotheses rather than an additional stipulation. Condition (H3)
+gives \(\delta\)-stability over the report window, with exact invariance
+when \(\delta=0\).
+\end{proposition}
+
+\begin{proof}
+Proposition~\ref{prop:readout-equalizer} and (H1) identify the equalizer
+with a fixed-point von Neumann algebra and construct
+\(E_{\mathrm{int}}\). Hypothesis (H2) identifies that algebra with the
+exact intersection of the channel ranges and supplies proper
+non-triviality. Hypothesis (H3) is precisely the asserted finite-window
+stability statement.
+\end{proof}
+
+\subsection{Conditional Common/Private Read-Out Decomposition}
+
+\begin{proposition}[Conditional Common/Private Decomposition]
+\label{prop:common-private-main}
+Suppose Proposition~\ref{prop:hull-construction-main} holds. Then the
+common channel algebra is exactly
+\[
+\bigcap_{i\in I}\mathcal B_i=\Wint,
+\]
+so for every channel
+\[
+\mathcal B_i^{\mathrm{com}}
+:=\mathcal B_i\cap\Wint
+=\Wint.
+\]
+and each channel has the exact linear splitting
+\[
+\mathcal B_i
+=
+\Wint\oplus
+\ker(E_{\mathrm{int}}|_{\mathcal B_i}).
+\]
+The sum is a direct sum of linear spaces, not generally a direct sum of
+algebras. If, in addition, there are von Neumann subalgebras
+\(\mathcal P_i\subseteq\mathcal B_i\) satisfying
+\[
+\mathcal B_i=\Wint\vee\mathcal P_i,
+\qquad
+\mathcal P_i\cap\Wint=\mathbb C\mathbf1,
+\tag{P}
+\]
+then \(\mathcal P_i\) is an exact private algebra relative to the common
+workspace. The existence of such \(\mathcal P_i\) is an explicit extra
+hypothesis in general and is verified in
+Proposition~\ref{prop:fd-brain-witness}.
+\end{proposition}
+
+\begin{proof}
+The common-algebra equality is (H2). Since
+\(E_{\mathrm{int}}|_{\Wint}=\operatorname{id}\), every
+\(b\in\mathcal B_i\) has the unique linear decomposition
+\[
+b=E_{\mathrm{int}}(b)+\bigl(b-E_{\mathrm{int}}(b)\bigr),
+\]
+with the first term in \(\Wint\) and the second in the restricted
+kernel. Their intersection is \(\{0\}\). Under (P), the displayed join
+and scalar intersection give the stronger common/private algebra
+statement by definition of generated von Neumann algebra.
+\end{proof}
+
+\begin{remark}[General private-algebra problem]
+The linear kernel splitting is automatic under the conditional
+expectation constructed above. A private von Neumann algebra satisfying
+(P) is not automatic and remains open for general read-out data. The
+finite witness below proves only that the stronger package is inhabited.
+\end{remark}
+
+\paragraph{Why this decomposition matters.}
+The common/private distinction is not added for mathematical ornament.
+It is the formal place where the paper separates reportable self-model
+from the full range of processes shaping experience and behavior. A
+memory trace, bodily tension, affective bias, or subreport motor
+tendency may influence the self-model without being shared-readable in
+the selected hull. Conversely, what enters
+\(\mathcal B_i^{\mathrm{com}}\) is available to the internal overlap
+relative to the chosen \(E_{\mathrm{int}}\).
+
+This gives a precise sense in which the self-model can be effective
+without being exhaustive. It can guide report and action because it is a
+stable shared-readable structure. It can fail to capture everything
+because each channel may retain a private complement. The framework
+therefore avoids both extremes: it does not treat the self-model as a
+fiction, and it does not treat the self-model as the whole mind.
+
+\subsection{Finite-Dimensional Shared-Factor Witness}
+
+\begin{proposition}[Finite shared-factor witness]
+\label{prop:fd-brain-witness}
+There is a finite Type~I internal read-out datum satisfying (H0)--(H3)
+at \(\delta=0\), with non-trivial proper workspace \(\Wint\), exact
+common channel algebra, and non-zero private algebras satisfying (P).
+\end{proposition}
+
+\begin{proof}
+Let
+\[
+\Ac=M_2(S)\otimes M_2(P_1)\otimes M_2(P_2)
+\]
+and let \(\omega=\tau_S\otimes\tau_1\otimes\tau_2\), where each
+\(\tau\) is the normalized trace. Define two channel algebras
+\[
+\mathcal B_1=M_2(S)\otimes M_2(P_1)\otimes\mathbb C\mathbf1,
+\qquad
+\mathcal B_2=M_2(S)\otimes\mathbb C\mathbf1\otimes M_2(P_2),
+\]
+with the trace-preserving conditional expectations
+\[
+E_1(a_S\otimes a_1\otimes a_2)
+=a_S\otimes a_1\otimes\tau_2(a_2)\mathbf1,
+\qquad
+E_2(a_S\otimes a_1\otimes a_2)
+=a_S\otimes\tau_1(a_1)\mathbf1\otimes a_2,
+\]
+extended linearly.
+These maps are faithful and normal, so (H0) holds.
+
+Let \(G\) be the finite group generated by independent Pauli
+conjugations on \(P_1\) and \(P_2\), with phases factored out, and set
+\[
+R_{(g_1,g_2)}
+=
+\operatorname{Ad}_{\mathbf1_S\otimes g_1\otimes g_2}.
+\]
+The only matrices fixed by all Pauli conjugations on either private
+qubit are scalars. Hence
+\[
+\operatorname{Eq}(R)=\Ac^G
+=M_2(S)\otimes\mathbb C\mathbf1\otimes\mathbb C\mathbf1
+=:\Wint.
+\]
+This algebra is neither \(\mathbb C\mathbf1\) nor \(\Ac\), and direct
+tensor-factor inspection gives
+\[
+\mathcal B_1\cap\mathcal B_2=\Wint.
+\]
+The trace state is \(G\)-invariant. The group average is therefore the
+explicit expectation
+\[
+E_{\mathrm{int}}(a_S\otimes a_1\otimes a_2)
+=a_S\otimes\tau_1(a_1)\mathbf1\otimes\tau_2(a_2)\mathbf1
+\]
+on simple tensors, extended linearly, with range \(\Wint\), verifying
+(H1)--(H2).
+
+To use the history datum non-trivially, take
+\[
+K(t,s)=\kappa e^{-\lambda(t-s)}\mathbf1_{0\leq s\leq t},
+\qquad
+c_K(t)=\int_0^t K(t,s)\,ds,
+\]
+where \(\kappa,\lambda>0\), and set
+\[
+U_K(t)=\exp\!\left[-i c_K(t)
+\bigl(Z_{P_1}\otimes Z_{P_2}\bigr)\right].
+\]
+Define \(\Phi_{12}^{K}(t)=\operatorname{Ad}_{\mathbf1_S\otimes U_K(t)}\)
+and \(\Phi_{21}^{K}(t)=\operatorname{Ad}_{\mathbf1_S\otimes U_K(t)^*}\),
+with \(\Phi_{11}^{K}(t)=\Phi_{22}^{K}(t)=\operatorname{id}\).
+The cross-channel maps are non-trivial normal automorphisms on the
+private factors: the \(Z_{P_1}\otimes Z_{P_2}\) interaction acts on both
+named channel factors rather than serving as unused datum. All four maps
+fix \(\Wint\) pointwise, establishing (H3) with \(\delta=0\) for every
+finite report window.
+
+Finally set
+\[
+\mathcal P_1=\mathbb C\mathbf1_S\otimes M_2(P_1)
+\otimes\mathbb C\mathbf1,
+\qquad
+\mathcal P_2=\mathbb C\mathbf1_S\otimes\mathbb C\mathbf1
+\otimes M_2(P_2).
+\]
+Then \(\mathcal B_i=\Wint\vee\mathcal P_i\) and
+\(\mathcal P_i\cap\Wint=\mathbb C\mathbf1\). Both private algebras are
+non-zero; for example
+\(\mathbf1_S\otimes X_{P_1}\otimes\mathbf1\in\mathcal P_1\) is
+non-scalar. Thus the complete formal package is jointly satisfiable
+without importing a Foundation~II theorem.
+\end{proof}
+
+\subsection{Failure Modes}
+
+The same formal setup also identifies ways in which the construction may
+fail. These failure modes are important because they prevent the paper
+from treating a unified self-model as automatic.
+
+\begin{enumerate}[label=(M\arabic*)]
+\item The selected read-out structures may not admit the required
+conditional expectations. In that case the chosen scale is not suitable
+for this construction.
+\item A general CP-map equalizer may fail to be multiplicatively closed,
+or the exact equalizer may fail to equal the intersection of channel
+algebras. In either case no von Neumann workspace follows from the
+present proposition.
+\item The exact equalizer may be only \(\mathbb C\mathbf1\), or may be all
+of \(\Ac\). Either case defeats the intended non-trivial internal
+workspace reading.
+\item The coupling maps may fail the explicit \(\delta\)-stability bound
+over \([0,T]\). In that case the workspace is too unstable for the
+declared report regime.
+\item Private algebras \(\mathcal P_i\) satisfying (P) may not exist even
+when the linear kernel splitting does. In that case exact private-algebra
+language remains open.
+\end{enumerate}
+
+These failure modes are not pathologies in the clinical sense. They are
+formal warnings. A future empirical or mathematical application would
+need to show not only that a datum can be written down, but that the
+chosen datum avoids these failure modes in the regime under study.
+
+\subsection{Fragmentation Criterion}
+
+The internal workspace may fragment when the conditions supporting stable
+overlap fail. A formal fragmentation regime may be indicated by one or
+more of the following:
+\begin{enumerate}[label=(F\arabic*)]
+\item The coupling graph on \(I\) disconnects into weakly coupled or
+uncoupled components.
+\item For relevant comparison maps and some workspace unit-ball element,
+the disagreement exceeds the declared \(\delta\) over the report window.
+\item The exact equalizer ceases to coincide with the intersection of
+the relevant channel algebras.
+\item The \(K\)-parameterized coupling family fails to preserve even the
+approximate locus \(\Wint^{(\delta)}\) over \([0,T]\).
+\end{enumerate}
+
+Under such conditions, multiple local self-model candidates may become
+structurally possible. This is a formal criterion, not a diagnosis. It
+does not identify DID, split-brain, or any clinical state.
+
+\section{First-Person Report and Timing}
+
+First-person report is treated as a late, reportable phase of a broader
+internal stabilization process. This section uses Libet-style timing
+only as a compatible re-reading. It is not evidence for the framework,
+and it is not a general theory of decision.
+
+In standard presentations of Libet-style wrist-flexion experiments, a
+readiness potential is reported before the subject's reported awareness
+of deciding, and both precede the action~\cite{Libet1983,Haggard2008,Schurger2012}. The timing values usually associated
+with this paradigm are approximate and paradigm-dependent. They are
+drawn from self-paced, low-stakes actions, and extrapolation to complex
+or consequential decisions is not supported by the present framework.
+Schurger et al.'s stochastic-accumulator account undercuts the reading of
+the readiness potential as an already settled decision: time-locking
+stochastic fluctuations can generate the averaged signal. The timing
+table below is therefore a compatible illustration only and carries no
+confirmatory, causal, or predictive weight.
+
+The readiness potential is treated here as a window into
+action-preparation dynamics, not as a direct marker of completed
+decision. In the present language, it can be read as an early measurable
+trace of action-candidate stabilization. It does not show that the
+internal integration-workspace model is true.
+
+\begin{table}[H]
+\centering
+\begin{tabularx}{0.95\linewidth}{P{0.18\linewidth}Y P{0.22\linewidth}}
+\toprule
+\textbf{Timing} & \textbf{Compatible structural re-reading} & \textbf{Observable marker} \\
+\midrule
+Approx. \(-550\) ms &
+Action-candidate stabilization begins to become measurable in the relevant motor-preparation regime. &
+Readiness potential. \\
+Approx. \(-200\) ms &
+Reportable self-attribution becomes available: ``I decided.'' &
+W time report. \\
+Action time &
+Motor output occurs. &
+Movement. \\
+\bottomrule
+\end{tabularx}
+\caption{Schematic timing diagram. It is not an empirical data plot and
+does not generalize to complex or consequential decisions.}
+\end{table}
+
+The compatible re-reading is that the reportable ``I decided'' is not
+the first event in the action process. It belongs to the stage at which
+an action tendency has become stable enough to be attributed to the
+self-model. This does not make first-person report worthless. It
+locates it in the reportable phase of a longer internal process.
+
+This also blocks a misleading opposition. It is not ``the brain decided
+and I was bypassed.'' The internal workspace is stabilized within the
+person-level regime through which action is prepared, attributed, and
+executed. What is misleading is the identification of the person with
+the late linguistic report alone.
+
+Responsibility is therefore not erased. The relevant responsible
+structure is the embodied regime with its history-dependent couplings,
+plasticity, repair capacities, and future modifiability. Responsibility
+is not located in a single sentence, ``I decided,'' but in a trainable
+and accountable condition-chain.
+
+\section{Neuroscience Interfaces}
+
+This section gives interface points only. It is not a review article,
+and it does not claim to replace the theories or clinical categories it
+mentions. The cases below are selective examples rather than a complete
+inventory. For all empirical phenomena discussed below, the phenomenon
+is used as compatible re-reading only, not as evidence for the
+framework. The neuroscience citations in this section are orientation
+markers: they locate where the algebraic language might touch existing
+empirical or theoretical vocabularies. They are not evidential premises
+for the formal results in Section~6, and they do not make the framework
+empirically confirmed. External references in this section require
+author verification before submission.
+
+The table is included to prevent a misleading impression. The paper is
+not collecting neuroscientific evidence for the algebraic framework.
+Instead, it identifies where existing empirical or theoretical
+vocabularies would touch the algebraic objects introduced above:
+coupling maps, report boundaries, external calibration, private
+complements, and hull fragmentation. A reader should therefore treat
+the table as an interface map, not as an argument from neuroscience to
+the framework.
+
+\begin{table}[H]
+\centering
+\small
+\begin{tabularx}{0.98\linewidth}{P{0.18\linewidth}P{0.34\linewidth}Y}
+\toprule
+\textbf{Interface} & \textbf{External theory or phenomenon} & \textbf{Structural reading in this framework} \\
+\midrule
+Split-brain &
+Split-brain cases involve disrupted interhemispheric communication~\cite{Sperry1968,Gazzaniga2000}. &
+Can be read as coupling disconnection and possible internal-hull fragmentation. \\
+DID &
+DID is a clinically complex dissociative condition and should not be diagnosed from a formal model~\cite{APA2022,ISSTD2011}. &
+Can be read as protected decoupling among memory, affective, bodily, and narrative channels. \\
+Sleep &
+Sleep involves reduced sensory processing and motor output with memory and network maintenance~\cite{RaschBorn2013,TononiCirelli2014}. &
+Can be read as offline reweighting of \(K(t,s)\) under reduced immediate action demand. \\
+Dreaming &
+Dreaming involves reduced external input with internally active memory, affective, and imagery systems~\cite{NirTononi2010,Hobson2009}. &
+Can be read as weakened external calibration while internal-hull stabilization continues. \\
+Meditation &
+Meditation research studies training of attention, interoception, and affective regulation~\cite{TangHolzelPosner2015,LutzDunneDavidson2007}. &
+Can be read as modulation of attention and the report boundary. \\
+OBE / altered self-location &
+OBE and dissociative states involve altered body-ownership and self-location~\cite{Blanke2002,BlankeArzy2005}. &
+Can be read as body-anchoring and self-location decoupling or remapping. \\
+GWT &
+Global Workspace Theory describes consciousness in terms of global availability~\cite{Baars1988,DehaeneChangeux2011}. &
+Can be read as a reportable phase of internal-hull stabilization. \\
+Predictive processing &
+Predictive processing describes perception and action through prediction and error dynamics~\cite{Friston2010,Clark2013}. &
+Can be read as one class of coupling update within the embodied observable-algebra network. \\
+HOT &
+Higher-order theories locate awareness in states about other states~\cite{Rosenthal2005,LauRosenthal2011}. &
+Can be read as one read-out structure making another available at the report boundary. \\
+\bottomrule
+\end{tabularx}
+\caption{Selective neuroscience and consciousness-theory interfaces.
+Each structural reading is a compatible re-reading only, not evidence
+for the framework and not a replacement for the external theory.}
+\end{table}
+
+The table also explains why the section does not expand every row into a
+separate literature review. The most important rows for the formal core
+are split-brain, global availability, and sleep/dreaming. Split-brain
+interfaces with fragmentation, global availability interfaces with
+reportable stabilization, and sleep/dreaming interfaces with
+history-dependent coupling and external calibration. The remaining rows
+are included to show where the same language may connect later, not to
+claim coverage of clinical or contemplative phenomena.
+None of the structural readings in the table replaces the external
+theory or clinical category it interfaces with.
+
+\paragraph{Split-brain and fragmentation.}
+Split-brain cases provide the cleanest interface to the formal
+fragmentation criterion in Section~6. When a major coupling route is
+disrupted, some read-out subfamilies may no longer support one unified
+candidate workspace. This does not mean that the formal model diagnoses
+split-brain patients. It only says that coupling disconnection can be
+read as one biological interface to workspace fragmentation.
+
+\paragraph{Global availability and report.}
+Global Workspace Theory is the most direct theory-level interface
+because it focuses on global availability across multiple systems. In
+the present framework, global availability can be read as a reportable
+phase of internal-hull stabilization across read-out structures. The
+paper does not replace GWT, does not derive its architecture, and does
+not claim that GWT is wrong.
+
+\paragraph{Sleep, dreaming, and history-dependent coupling.}
+Sleep and dreaming provide the most direct interface to \(K(t,s)\) and
+external calibration. Sleep can be read as a state in which immediate
+external read-out and action demand are reduced while coupling history
+is reweighted; dreaming can be read as a state of altered external
+calibration in which transient world-model and self-model structure may
+continue without direct external anchoring. The paper does not offer a
+complete theory of sleep or dreaming and does not treat dream content as
+evidence for the framework.
+
+\paragraph{First-person timing as a restricted interface.}
+The Libet-style discussion in Section~7 is included because it gives a
+restricted timing case for first-person report. Readiness potential is
+read as a measurable trace of action-preparation dynamics, not as a
+direct marker of completed decision. This interface is limited to
+self-paced, low-stakes action paradigms and is not generalized to
+complex or consequential decisions.
+
+\section{Guardrails and Limitations}
+
+\subsection{Guardrails}
+
+\paragraph{1. Not a quantum-brain hypothesis.}
+This paper is not a quantum-brain hypothesis. The algebraic reading is
+allowed to operate at an effective or classical-observable level, and it
+does not require long-lived quantum coherence in the brain. The
+counter-claim not made is: ``the brain is a quantum computer that
+produces consciousness.''
+
+\paragraph{2. Not an empirical derivation of a testable construction of \(\Bbrain\).}
+This paper is not an empirical derivation of a testable construction of
+\(\Bbrain\). It introduces a structural interface that future work could
+potentially constrain using neuroscience data. The counter-claim not
+made is: ``neuroscience data already determine the observable algebra of
+the brain.''
+
+\paragraph{3. Not exhaustive over psychological functions.}
+This paper is not exhaustive over psychological functions, including
+qualia, emotion, imagery, clinical symptoms, or all cognition. It
+describes one structural reading of internal stabilization and
+first-person report. The counter-claim not made is: ``all mental
+functions are explained by the plastic observable-algebra network.''
+
+\paragraph{4. Not a proof of qualia or a solution to the hard problem.}
+This paper is not a proof of qualia or a solution to the hard problem.
+It does not claim to solve the hard problem of consciousness, and it
+does not reduce first-person experience to third-person description. The
+counter-claim not made is: ``the hard problem has been solved by neural
+algebra.''
+
+\paragraph{5. Not authorization for consciousness migration.}
+This paper is not authorization for consciousness migration, digital
+immortality, or first-person transfer. Functional copying, if discussed
+elsewhere, does not establish identity transfer. The counter-claim not
+made is: ``a copy of the network is the same first-person subject.''
+
+\paragraph{6. Not authorization for brain-computer-interface mind reading.}
+This paper does not claim that brain-computer interfaces can read,
+write, or transfer first-person consciousness. BCI results can be read
+as partial access to selected sensory, motor, or language-output
+channels, not as direct access to the full internal workspace. The
+counter-claim not made is: ``recording enough neural activity would
+read the mind or capture the subject.''
+
+\paragraph{7. Not a claim about the soul, near-death experience, or post-mortem continuity.}
+This paper does not prove, disprove, or redescribe any metaphysical
+doctrine of the soul. Phenomena such as out-of-body experience are
+treated here only as altered self-location readings within the
+framework, not as evidence for or against first-person persistence
+beyond the embodied regime. The counter-claim not made is: ``the soul
+exists as a separable entity the framework endorses.''
+
+\subsection{Limitations}
+
+First, the internal workspace candidate depends on the selected
+coarse-graining scale and on the choice of coupling family. Different
+choices may produce different workspace candidates. The paper does
+not resolve this scale- and choice-dependence.
+
+Second, cross-scale consistency remains coarse. Synaptic plasticity may
+operate over milliseconds, seconds, hours, days, and longer timescales,
+while first-person report timing may be measured in a different regime.
+This paper does not provide a full multi-scale neural dynamics model.
+
+Third, the physical and neurobiological plausibility of assumptions
+(H1)--(H3) in Section~6 and Appendix~A requires separate work. They are
+explicit modeling assumptions, not conclusions derived from
+neurophysiology.
+
+Fourth, the relation between one embodied observer regime and
+the external shared sector \(H_{12}\) from Foundation~II is not covered
+here. The paper is about the internal anchor of one regime. It does not
+construct a full bridge from \(\Wint\) to social or intersubjective
+worlds, and it imports no Foundation~II theorem.
+
+\section{Research Program}
+
+The framework suggests a conservative research program. It does not
+state that existing data validate the model. It asks how future data
+could potentially constrain pieces of the proposed interface.
+
+Connectome data could potentially constrain candidate coupling
+topologies \(\Phi_{ij}^{K}(t)\). Such data would not by themselves identify
+\(\Bbrain\), but they may provide empirical pressure on which
+coarse-grained read-out units are plausible. Any such use would require
+independent modeling choices.
+
+EEG and fMRI signatures could potentially constrain large-scale
+integration and fragmentation regimes. They would not directly measure
+the internal integration workspace \(\Wint\). They might identify regimes in which a
+simplified coupling model becomes more or less plausible.
+
+Perturbation data could be used to test simplified cases of hull
+stability. Stimulation, lesion, or pharmacological studies may create
+natural interface cases. This paper does not propose a protocol and
+does not treat such data as confirmation.
+
+Plasticity models could provide coarse constraints on \(K(t,s)\)-like
+history dependence. The relevant question would be how prior coupling
+history changes future readability and synchronization. This remains a
+research program rather than a result.
+
+Long-term potentiation and related synaptic plasticity mechanisms could
+potentially provide one empirical interface for this question~\cite{BlissLomo1973,BlissCollingridge1993}.
+Such mechanisms are
+compatible with reading memory as coupling history, but the present
+framework does not claim that any single plasticity mechanism implements
+\(K(t,s)\). They would at most constrain simplified biological cases.
+
+\paragraph{Formal direction.}
+The most direct formal next step is to constrain or estimate the explicit
+operator-norm tolerance \(\delta\) and report window \(T\) in a named
+biological model. One could also compare the present norm criterion with
+state-distance or operational distinguishability criteria. This would
+test how robust the exact workspace and its tolerance locus are under a
+change of metric rather than leaving tolerance undefined.
+
+A second formal direction is to study uniqueness and functoriality under
+coarse-graining. The present paper explicitly allows different choices
+of \(\{\mathcal B_i\}\), \(E_i\), \(R_\alpha\),
+\(\Phi_{ij}^{K}(t)\), \(\delta\), and \(T\) to produce different
+workspace candidates. Later work could ask whether some candidates are
+stable under refinement or coarsening of the biological scale. Such a
+result would be much stronger than anything claimed here.
+
+\paragraph{Empirical direction.}
+The empirical direction is not to look for \(\Wint\) directly. The
+internal workspace is not an observable brain signal. A more conservative
+program would seek constraints on the ingredients of the datum:
+candidate read-out families, coupling topologies, perturbation
+sensitivity, and history-dependent plasticity. If these ingredients can
+be bounded in simplified settings, the formal hypotheses (H0)--(H3)
+could become less arbitrary.
+
+This still would not validate the full framework. It would only show
+that some idealized datum is plausible for some limited biological
+regime. That is the right scale of empirical ambition for an anchoring
+interface paper.
+
+\section{Conclusion}
+
+The brain-centered embodied observer regime can be read as a biological
+anchor for an accessible algebra. Under hypotheses (H0)--(H3), a plastic
+observable-algebra network has the exact internal fixed-point workspace
+\(\Wint\), which may be read at the interface level as supporting
+first-person report. The finite-dimensional witness
+(Proposition~\ref{prop:fd-brain-witness}) confirms non-triviality of
+\(\Wint\) in the Pauli-qubit model; the general private-complement
+condition (P) remains open.
+
+The workspace \(\Wint\) plays a role analogous to the external shared
+sector \(H_{12}\) in Foundation~II, but no equality, functor, or
+theorem-level inheritance is asserted (see the typed hull namespace
+definition above). This conditional interface does not solve
+consciousness, reduce selfhood to neural machinery, or prove qualia.
+
+\appendix
+
+\section{Optional Formal Skeleton for the Internal Integration Workspace}
+
+This appendix is subordinate to the Formal Core in Section~6. It repeats
+the datum and the two conditional consequences for reference, but it
+does not define a second overlap construction. If wording here differs
+from Section~6, the definitions and hypotheses in Section~6 govern. In
+particular, the workspace is the exact read-out equalizer \(\Wint\), the
+positive-\(\delta\) object is only a unit-ball tolerance locus, and the
+conditional expectation is obtained from the fixed-point action rather
+than stipulated independently.
+
+\subsection{Provisional Definition: Internal Read-Out Datum}
+
+\begin{definition}[Appendix restatement of the internal read-out datum]
+The authoritative internal read-out datum of Section~6 is
+\[
+\mathfrak D_{\mathrm{int}}
+=
+(\Ac,\omega,\{\mathcal B_i\}_{i\in I},\{E_i\}_{i\in I},
+\{R_\alpha\}_{\alpha\in J},
+\{\Phi_{ij}^{K}(t)\}_{i,j\in I},K,\delta,T).
+\]
+Here \(\delta\geq0\) is a declared operator-norm tolerance on the unit
+ball over the report window \([0,T]\); it is a modeling parameter, not a
+quantity inferred from neuroscience. The comparison maps
+\(R_\alpha\) and coupling maps \(\Phi_{ij}^{K}(t)\) have the distinct
+typed roles specified in the Setup.
+\end{definition}
+
+\begin{remark}[Scale-dependence]
+The cardinality and identity of \(\{\mathcal B_i\}_{i\in I}\) and the
+existence of the maps \(\{E_i\}\) depend on the coarse-graining scale
+chosen within the embodied regime.
+Proposition~\ref{prop:conditional-construction} is understood at a fixed
+such scale and report window, not as an invariance claim across scales.
+\end{remark}
+
+\begin{remark}[Exact and approximate objects]
+At \(\delta=0\), \(\Wint=\operatorname{Eq}(R)\) is the exact agreement
+locus. At \(\delta>0\), \(\Wint^{(\delta)}\) is the operator-norm
+tolerance locus defined in Section~6. No algebraic closure is claimed
+for \(\Wint^{(\delta)}\). This explicit parameter replaces the former
+undefined phrase ``up to the regime tolerance.''
+\end{remark}
+
+\subsection{Appendix Restatement of the Conditional Construction}
+
+\begin{proposition}[Appendix restatement of the internal workspace]
+\label{prop:conditional-construction}
+Under the same (H0)--(H3) as
+Proposition~\ref{prop:hull-construction-main},
+\[
+\Wint
+=\operatorname{Eq}(R)
+=\Ac^G
+=\bigcap_{i\in I}\mathcal B_i
+\]
+is a non-trivial proper von Neumann algebra. The group average is the
+faithful normal \(\omega\)-preserving expectation
+\(E_{\mathrm{int}}:\Ac\to\Wint\), and
+\(\Phi_{ij}^{K}(t)(\operatorname{Ball}(\Wint))\subseteq
+\Wint^{(\delta)}\) for \(0\leq t\leq T\).
+\end{proposition}
+
+\begin{proof}
+This is Proposition~\ref{prop:hull-construction-main}, restated without
+altering its hypotheses. Proposition~\ref{prop:readout-equalizer}
+supplies the fixed-point algebra and conditional expectation; (H2) and
+(H3) supply the exact channel intersection and tolerance stability.
+\end{proof}
+
+\begin{remark}[What the construction does not show]
+Proposition~\ref{prop:conditional-construction} does not prove that
+the hypotheses hold in biological brains. It does not give an empirical
+construction of \(\Bbrain\). It also does not prove uniqueness of
+\(\Wint\), cross-scale invariance, or first-person identity transfer.
+The automorphic comparison action, exact channel intersection, and
+finite-window bound remain explicit interface hypotheses.
+\end{remark}
+
+\begin{remark}[Relation to Proposition~\ref{prop:hull-construction-main}]
+Proposition~\ref{prop:conditional-construction} is not an independent
+result. Section~6 is authoritative. The finite model in
+Proposition~\ref{prop:fd-brain-witness} verifies the same hypotheses and
+also verifies the stronger private-algebra condition (P).
+\end{remark}
+
+\subsection{Conditional Common / Private Decomposition}
+
+\begin{proposition}[Conditional common/private decomposition]
+\label{prop:common-private-appendix}
+Under Proposition~\ref{prop:conditional-construction},
+\[
+\bigcap_{i\in I}\mathcal B_i=\Wint
+\]
+and, for every channel,
+\[
+\mathcal B_i
+=\Wint\oplus\ker(E_{\mathrm{int}}|_{\mathcal B_i})
+\]
+as linear spaces. A private von Neumann algebra \(\mathcal P_i\) with
+\(\mathcal B_i=\Wint\vee\mathcal P_i\) and
+\(\mathcal P_i\cap\Wint=\mathbb C\mathbf1\) requires the additional
+condition (P) from Proposition~\ref{prop:common-private-main}.
+\end{proposition}
+
+\begin{proof}
+This is the linear and algebraic distinction proved in
+Proposition~\ref{prop:common-private-main}. The finite witness
+Proposition~\ref{prop:fd-brain-witness} realizes (P) with two non-zero
+private qubit algebras. No Foundation~II result is used.
+\end{proof}
+
+\subsection{Criterion: Fragmentation Regime}
+
+The internal workspace may fragment when the conditions supporting exact
+or approximate agreement fail. A formal fragmentation regime may be
+indicated by one or
+more of the following:
+\begin{enumerate}[label=(F\arabic*)]
+\item The coupling graph on \(I\) disconnects into weakly coupled or
+uncoupled components.
+\item Read-out disagreement exceeds \(\delta\) on the workspace unit ball
+over the report window.
+\item The exact equalizer no longer equals the intersection of the
+relevant channel algebras.
+\item The \(K\)-dependent coupling maps fail to preserve the
+\(\delta\)-locus over \([0,T]\).
+\end{enumerate}
+
+Under such conditions, multiple local self-model candidates may become
+structurally possible. This is a formal criterion, not a diagnosis. It
+does not identify DID, split-brain, or any clinical state.
+
+The criterion is intentionally weak. It describes a regime in which the
+single-workspace reading may fail or require refinement. It does not classify
+all possible fragmentation phenomena and does not replace empirical or
+clinical analysis.
+
+\subsection{Remarks on Limitations of the Skeleton}
+
+The construction in Appendix~A is a restatement, not a second theorem.
+It is fixed-scale and does not claim invariance across biological
+coarse-grainings. A different scale may produce different channel
+algebras, comparison maps, tolerance, and workspace.
+
+The common/private decomposition and fragmentation criterion are
+conditional formal tools. The expectation follows from the stated
+fixed-point action, whereas private algebras satisfying (P) remain an
+additional general hypothesis. The tools are not presented as completed
+biological or clinical classifications.
+
+The skeleton does not derive an empirically testable construction of
+\(\Bbrain\) from neuroscience data. It does not prove qualia. It does
+not support first-person identity transfer. It is a constrained formal
+appendix for an anchoring interface paper.
+
+\newpage
+\addcontentsline{toc}{section}{References}
+
+\begin{thebibliography}{99}
+\sloppy
+\raggedright
+
+\bibitem{FoundationI}
+S.~Liu, \emph{Foundation I: From Source to Manifestation --- A Conditional Same-Root Program for Geometry and Modular Flow}, Zenodo (2026), DOI: 10.5281/zenodo.19627786.
+
+\bibitem{FoundationII}
+S.~Liu, \emph{Foundation II: Shared Manifestation --- A Conditional Two-Source Program for Shared Accessible Sectors}, Zenodo (2026), DOI: 10.5281/zenodo.19641372.
+
+\bibitem{FoundationIII}
+S.~Liu, \emph{Foundation III: The Perfuming Loop --- A Conditional One-Step Source-Level Feedback Program}, Zenodo (2026), DOI: 10.5281/zenodo.19642189.
+
+\bibitem{PaperI}
+S.~Liu, \emph{The Inseparability of Geometry and Modular Flow: A Structural Inseparability Theorem and Its Implications for the Hard Problem}, Zenodo (2026), DOI: 10.5281/zenodo.19607387.
+
+\bibitem{StuartSpruston2015}
+G.~J.~Stuart and N.~Spruston,
+``Dendritic integration: 60 years of progress,''
+\emph{Nature Neuroscience} \textbf{18} (2015), 1713--1721,
+DOI:~10.1038/nn.4157.
+
+\bibitem{Sudhof2012}
+T.~C.~S{\"u}dhof,
+``Calcium control of neurotransmitter release,''
+\emph{Cold Spring Harbor Perspectives in Biology} \textbf{4} (2012),
+a011353,
+DOI:~10.1101/cshperspect.a011353.
+
+\bibitem{Sudhof2013}
+T.~C.~S{\"u}dhof,
+``Neurotransmitter release: The last millisecond in the life of a
+synaptic vesicle,''
+\emph{Neuron} \textbf{80} (2013), 675--690,
+DOI:~10.1016/j.neuron.2013.10.022.
+
+\bibitem{Libet1983}
+B.~Libet, C.~A.~Gleason, E.~W.~Wright, and D.~K.~Pearl,
+``Time of conscious intention to act in relation to onset of cerebral
+activity (readiness-potential): The unconscious initiation of a freely
+voluntary act,''
+\emph{Brain} \textbf{106} (1983), 623--642,
+DOI:~10.1093/brain/106.3.623.
+
+\bibitem{Sperry1968}
+R.~W.~Sperry,
+``Hemisphere deconnection and unity in conscious awareness,''
+\emph{American Psychologist} \textbf{23} (1968), 723--733,
+DOI:~10.1037/h0026839.
+
+\bibitem{Gazzaniga2000}
+M.~S.~Gazzaniga,
+``Cerebral specialization and interhemispheric communication: Does the
+corpus callosum enable the human condition?''
+\emph{Brain} \textbf{123} (2000), 1293--1326,
+DOI:~10.1093/brain/123.7.1293.
+
+\bibitem{APA2022}
+American Psychiatric Association,
+\emph{Diagnostic and Statistical Manual of Mental Disorders},
+5th ed., text rev. (DSM-5-TR),
+American Psychiatric Association Publishing, Washington, DC, 2022.
+
+\bibitem{ISSTD2011}
+International Society for the Study of Trauma and Dissociation,
+``Guidelines for treating dissociative identity disorder in adults,
+third revision,''
+\emph{Journal of Trauma \& Dissociation} \textbf{12} (2011), 115--187,
+DOI:~10.1080/15299732.2011.537247.
+
+\bibitem{RaschBorn2013}
+B.~Rasch and J.~Born,
+``About sleep's role in memory,''
+\emph{Physiological Reviews} \textbf{93} (2013), 681--766,
+DOI:~10.1152/physrev.00032.2012.
+
+\bibitem{TononiCirelli2014}
+G.~Tononi and C.~Cirelli,
+``Sleep and the price of plasticity: From synaptic and cellular
+homeostasis to memory consolidation and integration,''
+\emph{Neuron} \textbf{81} (2014), 12--34,
+DOI:~10.1016/j.neuron.2013.12.025.
+
+\bibitem{NirTononi2010}
+Y.~Nir and G.~Tononi,
+``Dreaming and the brain: From phenomenology to neurophysiology,''
+\emph{Trends in Cognitive Sciences} \textbf{14} (2010), 88--100,
+DOI:~10.1016/j.tics.2009.12.001.
+
+\bibitem{Hobson2009}
+J.~A.~Hobson,
+``REM sleep and dreaming: Towards a theory of protoconsciousness,''
+\emph{Nature Reviews Neuroscience} \textbf{10} (2009), 803--813,
+DOI:~10.1038/nrn2716.
+
+\bibitem{TangHolzelPosner2015}
+Y.-Y.~Tang, B.~K.~H{\"o}lzel, and M.~I.~Posner,
+``The neuroscience of mindfulness meditation,''
+\emph{Nature Reviews Neuroscience} \textbf{16} (2015), 213--225,
+DOI:~10.1038/nrn3916.
+
+\bibitem{LutzDunneDavidson2007}
+A.~Lutz, J.~D.~Dunne, and R.~J.~Davidson,
+``Meditation and the neuroscience of consciousness: An introduction,''
+in P.~D.~Zelazo, M.~Moscovitch, and E.~Thompson (eds.),
+\emph{The Cambridge Handbook of Consciousness},
+Cambridge University Press, Cambridge, 2007, 499--551,
+DOI:~10.1017/CBO9780511816789.020.
+
+\bibitem{Blanke2002}
+O.~Blanke, S.~Ortigue, T.~Landis, and M.~Seeck,
+``Stimulating illusory own-body perceptions,''
+\emph{Nature} \textbf{419} (2002), 269--270,
+DOI:~10.1038/419269a.
+
+\bibitem{BlankeArzy2005}
+O.~Blanke and S.~Arzy,
+``The out-of-body experience: Disturbed self-processing at the
+temporo-parietal junction,''
+\emph{The Neuroscientist} \textbf{11} (2005), 16--24,
+DOI:~10.1177/1073858404270885.
+
+\bibitem{Baars1988}
+B.~J.~Baars,
+\emph{A Cognitive Theory of Consciousness},
+Cambridge University Press, Cambridge, 1988.
+
+\bibitem{DehaeneChangeux2011}
+S.~Dehaene and J.-P.~Changeux,
+``Experimental and theoretical approaches to conscious processing,''
+\emph{Neuron} \textbf{70} (2011), 200--227,
+DOI:~10.1016/j.neuron.2011.03.018.
+
+\bibitem{Friston2010}
+K.~Friston,
+``The free-energy principle: A unified brain theory?''
+\emph{Nature Reviews Neuroscience} \textbf{11} (2010), 127--138,
+DOI:~10.1038/nrn2787.
+
+\bibitem{Clark2013}
+A.~Clark,
+``Whatever next? Predictive brains, situated agents, and the future of
+cognitive science,''
+\emph{Behavioral and Brain Sciences} \textbf{36} (2013), 181--204,
+DOI:~10.1017/S0140525X12000477.
+
+\bibitem{Rosenthal2005}
+D.~M.~Rosenthal,
+\emph{Consciousness and Mind},
+Oxford University Press, Oxford, 2005.
+
+\bibitem{LauRosenthal2011}
+H.~Lau and D.~Rosenthal,
+``Empirical support for higher-order theories of conscious awareness,''
+\emph{Trends in Cognitive Sciences} \textbf{15} (2011), 365--373,
+DOI:~10.1016/j.tics.2011.05.009.
+
+\bibitem{BlissLomo1973}
+T.~V.~P.~Bliss and T.~L{\o}mo,
+``Long-lasting potentiation of synaptic transmission in the dentate
+area of the anaesthetized rabbit following stimulation of the perforant
+path,''
+\emph{The Journal of Physiology} \textbf{232} (1973), 331--356,
+DOI:~10.1113/jphysiol.1973.sp010273.
+
+\bibitem{BlissCollingridge1993}
+T.~V.~P.~Bliss and G.~L.~Collingridge,
+``A synaptic model of memory: Long-term potentiation in the
+hippocampus,''
+\emph{Nature} \textbf{361} (1993), 31--39,
+DOI:~10.1038/361031a0.
+
+\bibitem{Haggard2008}
+P.~Haggard,
+``Human volition: Towards a neuroscience of will,''
+\emph{Nature Reviews Neuroscience} \textbf{9} (2008), 934--946,
+DOI:~10.1038/nrn2497.
+
+\bibitem{Schurger2012}
+A.~Schurger, J.~D.~Sitt, and S.~Dehaene,
+``An accumulator model for spontaneous neural activity prior to
+self-initiated movement,''
+\emph{Proceedings of the National Academy of Sciences} \textbf{109}
+(2012), E2904--E2913,
+DOI:~10.1073/pnas.1210467109.
+
+\end{thebibliography}
+
+\end{document}

@@ -1,0 +1,2135 @@
+{
+  "scope": "G5-03 plus FI/FII named protocols; scripts and archived outputs, not a new rerun of all historical experiments",
+  "dependencies": {
+    "python": "3.14.3",
+    "numpy": "2.4.2",
+    "scipy": "1.17.1",
+    "mpmath": "1.3.0"
+  },
+  "files": [
+    {
+      "papers": [
+        "TD-III"
+      ],
+      "source": "OctoberReview/research/autonomous_claude_20261004/agentF_td3/checks/check_detection.py",
+      "distributed": "source_tree/OctoberReview/research/autonomous_claude_20261004/agentF_td3/checks/check_detection.py",
+      "source_sha256": "4e720de00b4f88dd6ee275d58a47c63dd06f67e8475a234b756d5435ef53fc67",
+      "distributed_sha256": "4e720de00b4f88dd6ee275d58a47c63dd06f67e8475a234b756d5435ef53fc67",
+      "bytes": 6908,
+      "kind": "script",
+      "copy_changes": "none",
+      "path_changes": "none; run_check.py copies the complete tree to a fresh output directory before executing",
+      "supports": [
+        {
+          "paper": "TD-III",
+          "label": "prop:even",
+          "relation": "numerical check or comparison, not a substitute for the stated proof"
+        },
+        {
+          "paper": "TD-III",
+          "label": "cor:three_records",
+          "relation": "numerical check or comparison, not a substitute for the stated proof"
+        },
+        {
+          "paper": "TD-III",
+          "label": "prop:detect",
+          "relation": "numerical check or comparison, not a substitute for the stated proof"
+        },
+        {
+          "paper": "TD-III",
+          "label": "tab:detect",
+          "relation": "numerical check or comparison, not a substitute for the stated proof"
+        }
+      ],
+      "related_checks": [
+        "check_detection.py"
+      ]
+    },
+    {
+      "papers": [
+        "TD-III"
+      ],
+      "source": "OctoberReview/research/autonomous_claude_20261004/agentF_td3/checks/check_detection_output.json",
+      "distributed": "source_tree/OctoberReview/research/autonomous_claude_20261004/agentF_td3/checks/check_detection_output.json",
+      "source_sha256": "c74022454890d5e3808b09bed38e82a4cc709546f71947980fe4df0674398deb",
+      "distributed_sha256": "f4744276fb2c5d512a55f0fb0306bf36fdb04e2f7e458084ca71f488f68bc7c8",
+      "bytes": 2428,
+      "kind": "archived output/input",
+      "copy_changes": "one final newline added by apply_patch; payload unchanged",
+      "path_changes": "none; run_check.py copies the complete tree to a fresh output directory before executing",
+      "supports": [
+        {
+          "paper": "TD-III",
+          "label": "prop:even",
+          "relation": "numerical check or comparison, not a substitute for the stated proof"
+        },
+        {
+          "paper": "TD-III",
+          "label": "cor:three_records",
+          "relation": "numerical check or comparison, not a substitute for the stated proof"
+        },
+        {
+          "paper": "TD-III",
+          "label": "prop:detect",
+          "relation": "numerical check or comparison, not a substitute for the stated proof"
+        },
+        {
+          "paper": "TD-III",
+          "label": "tab:detect",
+          "relation": "numerical check or comparison, not a substitute for the stated proof"
+        }
+      ],
+      "related_checks": [
+        "check_detection.py"
+      ]
+    },
+    {
+      "papers": [
+        "TD-III"
+      ],
+      "source": "OctoberReview/research/autonomous_claude_20261004/agentF_td3/checks/check_drift_law.py",
+      "distributed": "source_tree/OctoberReview/research/autonomous_claude_20261004/agentF_td3/checks/check_drift_law.py",
+      "source_sha256": "d8fa98d190b6efc01bf61e685b31453ceca96158f8dfaf2ad06b79b553b7e369",
+      "distributed_sha256": "d8fa98d190b6efc01bf61e685b31453ceca96158f8dfaf2ad06b79b553b7e369",
+      "bytes": 9364,
+      "kind": "script",
+      "copy_changes": "none",
+      "path_changes": "none; run_check.py copies the complete tree to a fresh output directory before executing",
+      "supports": [
+        {
+          "paper": "TD-III",
+          "label": "thm:driftlaw",
+          "relation": "numerical check or comparison, not a substitute for the stated proof"
+        },
+        {
+          "paper": "TD-III",
+          "label": "cor:driftlaw",
+          "relation": "numerical check or comparison, not a substitute for the stated proof"
+        },
+        {
+          "paper": "TD-III",
+          "label": "cor:c3",
+          "relation": "numerical check or comparison, not a substitute for the stated proof"
+        },
+        {
+          "paper": "TD-III",
+          "label": "cor:thermo",
+          "relation": "numerical check or comparison, not a substitute for the stated proof"
+        },
+        {
+          "paper": "TD-III",
+          "label": "tab:price",
+          "relation": "numerical check or comparison, not a substitute for the stated proof"
+        },
+        {
+          "paper": "TD-III",
+          "label": "rem:driftlaw_scope",
+          "relation": "numerical check or comparison, not a substitute for the stated proof"
+        }
+      ],
+      "related_checks": [
+        "check_drift_law.py"
+      ]
+    },
+    {
+      "papers": [
+        "TD-III"
+      ],
+      "source": "OctoberReview/research/autonomous_claude_20261004/agentF_td3/checks/check_drift_law_output.json",
+      "distributed": "source_tree/OctoberReview/research/autonomous_claude_20261004/agentF_td3/checks/check_drift_law_output.json",
+      "source_sha256": "9a08c32c062882da26fa377182a19339f160be9fd506f569651b8cc61b049ad4",
+      "distributed_sha256": "612346a1af0e9e6d4540e4984c31fe9bec14daf1b6cd71c0eed8558a0bbe84d1",
+      "bytes": 5045,
+      "kind": "archived output/input",
+      "copy_changes": "one final newline added by apply_patch; payload unchanged",
+      "path_changes": "none; run_check.py copies the complete tree to a fresh output directory before executing",
+      "supports": [
+        {
+          "paper": "TD-III",
+          "label": "thm:driftlaw",
+          "relation": "numerical check or comparison, not a substitute for the stated proof"
+        },
+        {
+          "paper": "TD-III",
+          "label": "cor:driftlaw",
+          "relation": "numerical check or comparison, not a substitute for the stated proof"
+        },
+        {
+          "paper": "TD-III",
+          "label": "cor:c3",
+          "relation": "numerical check or comparison, not a substitute for the stated proof"
+        },
+        {
+          "paper": "TD-III",
+          "label": "cor:thermo",
+          "relation": "numerical check or comparison, not a substitute for the stated proof"
+        },
+        {
+          "paper": "TD-III",
+          "label": "tab:price",
+          "relation": "numerical check or comparison, not a substitute for the stated proof"
+        },
+        {
+          "paper": "TD-III",
+          "label": "rem:driftlaw_scope",
+          "relation": "numerical check or comparison, not a substitute for the stated proof"
+        }
+      ],
+      "related_checks": [
+        "check_drift_law.py"
+      ]
+    },
+    {
+      "papers": [
+        "TD-III"
+      ],
+      "source": "OctoberReview/research/autonomous_claude_20261004/agentF_td3/checks/check_extra.py",
+      "distributed": "source_tree/OctoberReview/research/autonomous_claude_20261004/agentF_td3/checks/check_extra.py",
+      "source_sha256": "305180ed90842656015ace3a574c19c5d94b217ab028bd4afec21e9eee3b6b87",
+      "distributed_sha256": "305180ed90842656015ace3a574c19c5d94b217ab028bd4afec21e9eee3b6b87",
+      "bytes": 3579,
+      "kind": "script",
+      "copy_changes": "none",
+      "path_changes": "none; run_check.py copies the complete tree to a fresh output directory before executing",
+      "supports": [
+        {
+          "paper": "TD-III",
+          "label": "eq:fisher_probe",
+          "relation": "numerical check or comparison, not a substitute for the stated proof"
+        },
+        {
+          "paper": "TD-III",
+          "label": "prop:degenerate",
+          "relation": "numerical check or comparison, not a substitute for the stated proof"
+        },
+        {
+          "paper": "TD-III",
+          "label": "conj:smooth",
+          "relation": "numerical check or comparison, not a substitute for the stated proof"
+        }
+      ],
+      "related_checks": [
+        "check_extra.py"
+      ]
+    },
+    {
+      "papers": [
+        "TD-III"
+      ],
+      "source": "OctoberReview/research/autonomous_claude_20261004/agentF_td3/checks/check_extra_output.json",
+      "distributed": "source_tree/OctoberReview/research/autonomous_claude_20261004/agentF_td3/checks/check_extra_output.json",
+      "source_sha256": "560c20e9d06fde20b21dfc865c2a85e0d9fff6bcb79aaab11d9c083a4b380900",
+      "distributed_sha256": "5e283058a59eac512912f04faa6ef6c42e3e7b6146871309e18b64128a1d7cbf",
+      "bytes": 1770,
+      "kind": "archived output/input",
+      "copy_changes": "one final newline added by apply_patch; payload unchanged",
+      "path_changes": "none; run_check.py copies the complete tree to a fresh output directory before executing",
+      "supports": [
+        {
+          "paper": "TD-III",
+          "label": "eq:fisher_probe",
+          "relation": "numerical check or comparison, not a substitute for the stated proof"
+        },
+        {
+          "paper": "TD-III",
+          "label": "prop:degenerate",
+          "relation": "numerical check or comparison, not a substitute for the stated proof"
+        },
+        {
+          "paper": "TD-III",
+          "label": "conj:smooth",
+          "relation": "numerical check or comparison, not a substitute for the stated proof"
+        }
+      ],
+      "related_checks": [
+        "check_extra.py"
+      ]
+    },
+    {
+      "papers": [
+        "TD-III"
+      ],
+      "source": "OctoberReview/research/autonomous_claude_20261004/agentF_td3/checks/check_section9.py",
+      "distributed": "source_tree/OctoberReview/research/autonomous_claude_20261004/agentF_td3/checks/check_section9.py",
+      "source_sha256": "80d02abd0442bc51a89999c7d8cacb162cfc596daf37db94baa3b96927abd23d",
+      "distributed_sha256": "80d02abd0442bc51a89999c7d8cacb162cfc596daf37db94baa3b96927abd23d",
+      "bytes": 3314,
+      "kind": "script",
+      "copy_changes": "none",
+      "path_changes": "none; run_check.py copies the complete tree to a fresh output directory before executing",
+      "supports": [
+        {
+          "paper": "TD-III",
+          "label": "prop:memory_drift",
+          "relation": "numerical check or comparison, not a substitute for the stated proof"
+        },
+        {
+          "paper": "TD-III",
+          "label": "prop:decode_error",
+          "relation": "numerical check or comparison, not a substitute for the stated proof"
+        },
+        {
+          "paper": "TD-III",
+          "label": "prop:task_risk",
+          "relation": "numerical check or comparison, not a substitute for the stated proof"
+        },
+        {
+          "paper": "TD-III",
+          "label": "prop:two_optima",
+          "relation": "numerical check or comparison, not a substitute for the stated proof"
+        },
+        {
+          "paper": "TD-III",
+          "label": "tab:two_optima",
+          "relation": "numerical check or comparison, not a substitute for the stated proof"
+        }
+      ],
+      "related_checks": [
+        "check_section9.py"
+      ]
+    },
+    {
+      "papers": [
+        "TD-III"
+      ],
+      "source": "OctoberReview/research/autonomous_claude_20261004/agentF_td3/checks/check_section9_output.json",
+      "distributed": "source_tree/OctoberReview/research/autonomous_claude_20261004/agentF_td3/checks/check_section9_output.json",
+      "source_sha256": "26f058f77e4cbc23e5a9154b5063035953cbc0823efbbfb022b9a1e35215bfa7",
+      "distributed_sha256": "ceaf036b196a291822981387b09a27ce641baadb55862f0654bc7047ae0cdaef",
+      "bytes": 761,
+      "kind": "archived output/input",
+      "copy_changes": "one final newline added by apply_patch; payload unchanged",
+      "path_changes": "none; run_check.py copies the complete tree to a fresh output directory before executing",
+      "supports": [
+        {
+          "paper": "TD-III",
+          "label": "prop:memory_drift",
+          "relation": "numerical check or comparison, not a substitute for the stated proof"
+        },
+        {
+          "paper": "TD-III",
+          "label": "prop:decode_error",
+          "relation": "numerical check or comparison, not a substitute for the stated proof"
+        },
+        {
+          "paper": "TD-III",
+          "label": "prop:task_risk",
+          "relation": "numerical check or comparison, not a substitute for the stated proof"
+        },
+        {
+          "paper": "TD-III",
+          "label": "prop:two_optima",
+          "relation": "numerical check or comparison, not a substitute for the stated proof"
+        },
+        {
+          "paper": "TD-III",
+          "label": "tab:two_optima",
+          "relation": "numerical check or comparison, not a substitute for the stated proof"
+        }
+      ],
+      "related_checks": [
+        "check_section9.py"
+      ]
+    },
+    {
+      "papers": [
+        "TD-III"
+      ],
+      "source": "OctoberReview/research/autonomous_claude_20261004/agentF_td3/checks/check_variance_test.py",
+      "distributed": "source_tree/OctoberReview/research/autonomous_claude_20261004/agentF_td3/checks/check_variance_test.py",
+      "source_sha256": "496f4778c58b2a158d1bdf98f0ba097c4113aa512d3b6c75da3f99bea0362225",
+      "distributed_sha256": "496f4778c58b2a158d1bdf98f0ba097c4113aa512d3b6c75da3f99bea0362225",
+      "bytes": 1558,
+      "kind": "script",
+      "copy_changes": "none",
+      "path_changes": "none; run_check.py copies the complete tree to a fresh output directory before executing",
+      "supports": [
+        {
+          "paper": "TD-III",
+          "label": "cor:before_failure",
+          "relation": "numerical check or comparison, not a substitute for the stated proof"
+        },
+        {
+          "paper": "TD-III",
+          "label": "tab:detect",
+          "relation": "numerical check or comparison, not a substitute for the stated proof"
+        }
+      ],
+      "related_checks": [
+        "check_variance_test.py"
+      ]
+    },
+    {
+      "papers": [
+        "TD-III"
+      ],
+      "source": "OctoberReview/research/autonomous_claude_20261004/agentF_td3/checks/check_variance_test_output.json",
+      "distributed": "source_tree/OctoberReview/research/autonomous_claude_20261004/agentF_td3/checks/check_variance_test_output.json",
+      "source_sha256": "7c864afa5f8981e85fb003e055ef9b496ae931574eb52f8ea9aa486341d3fb18",
+      "distributed_sha256": "1df61fd5fd3dfb02eddba46fbe1503cb094f7e8642f058775849bf85ed336747",
+      "bytes": 377,
+      "kind": "archived output/input",
+      "copy_changes": "one final newline added by apply_patch; payload unchanged",
+      "path_changes": "none; run_check.py copies the complete tree to a fresh output directory before executing",
+      "supports": [
+        {
+          "paper": "TD-III",
+          "label": "cor:before_failure",
+          "relation": "numerical check or comparison, not a substitute for the stated proof"
+        },
+        {
+          "paper": "TD-III",
+          "label": "tab:detect",
+          "relation": "numerical check or comparison, not a substitute for the stated proof"
+        }
+      ],
+      "related_checks": [
+        "check_variance_test.py"
+      ]
+    },
+    {
+      "papers": [
+        "TD-III"
+      ],
+      "source": "OctoberReview/research/autonomous_claude_20261004/agentJ_joint/checks/c1_reductions.py",
+      "distributed": "source_tree/OctoberReview/research/autonomous_claude_20261004/agentJ_joint/checks/c1_reductions.py",
+      "source_sha256": "e3c2434d6c9190d60cfe79f2d93d37d205b1e46a49bb4b8f9d5f7c82389ee5f5",
+      "distributed_sha256": "e3c2434d6c9190d60cfe79f2d93d37d205b1e46a49bb4b8f9d5f7c82389ee5f5",
+      "bytes": 2721,
+      "kind": "script",
+      "copy_changes": "none",
+      "path_changes": "none; run_check.py copies the complete tree to a fresh output directory before executing",
+      "supports": [
+        {
+          "paper": "TD-III",
+          "label": "def:joint",
+          "relation": "numerical check or comparison, not a substitute for the stated proof"
+        },
+        {
+          "paper": "TD-III",
+          "label": "prop:purity_copy",
+          "relation": "numerical check or comparison, not a substitute for the stated proof"
+        },
+        {
+          "paper": "TD-III",
+          "label": "subsec:J_ledger",
+          "relation": "numerical check or comparison, not a substitute for the stated proof"
+        }
+      ],
+      "related_checks": [
+        "c1_reductions.py"
+      ]
+    },
+    {
+      "papers": [
+        "TD-III"
+      ],
+      "source": "OctoberReview/research/autonomous_claude_20261004/agentJ_joint/checks/c2_gauge_enum.py",
+      "distributed": "source_tree/OctoberReview/research/autonomous_claude_20261004/agentJ_joint/checks/c2_gauge_enum.py",
+      "source_sha256": "6c345acbc41af6c8a950abfbf0176c37ff18c037cc5fd4cdd4879b3296dccf98",
+      "distributed_sha256": "6c345acbc41af6c8a950abfbf0176c37ff18c037cc5fd4cdd4879b3296dccf98",
+      "bytes": 6343,
+      "kind": "script",
+      "copy_changes": "none",
+      "path_changes": "none; run_check.py copies the complete tree to a fresh output directory before executing",
+      "supports": [
+        {
+          "paper": "TD-III",
+          "label": "thm:gauge",
+          "relation": "numerical check or comparison, not a substitute for the stated proof"
+        },
+        {
+          "paper": "TD-III",
+          "label": "prop:nostandard",
+          "relation": "numerical check or comparison, not a substitute for the stated proof"
+        }
+      ],
+      "related_checks": [
+        "c2_gauge_enum.py"
+      ]
+    },
+    {
+      "papers": [
+        "TD-III"
+      ],
+      "source": "OctoberReview/research/autonomous_claude_20261004/agentJ_joint/checks/c3_sign_inversion.py",
+      "distributed": "source_tree/OctoberReview/research/autonomous_claude_20261004/agentJ_joint/checks/c3_sign_inversion.py",
+      "source_sha256": "c7d574b2f956eff081c44e4f2a71d16df1b828653bebf411fcadac642ebce787",
+      "distributed_sha256": "c7d574b2f956eff081c44e4f2a71d16df1b828653bebf411fcadac642ebce787",
+      "bytes": 4253,
+      "kind": "script",
+      "copy_changes": "none",
+      "path_changes": "none; run_check.py copies the complete tree to a fresh output directory before executing",
+      "supports": [
+        {
+          "paper": "TD-III",
+          "label": "thm:inversion",
+          "relation": "numerical check or comparison, not a substitute for the stated proof"
+        }
+      ],
+      "related_checks": [
+        "c3_sign_inversion.py"
+      ]
+    },
+    {
+      "papers": [
+        "TD-III"
+      ],
+      "source": "OctoberReview/research/autonomous_claude_20261004/agentJ_joint/checks/c4_jump_price.py",
+      "distributed": "source_tree/OctoberReview/research/autonomous_claude_20261004/agentJ_joint/checks/c4_jump_price.py",
+      "source_sha256": "d8ad355bbc6ae8cf89153dead48bea678a5b8e9cb4ea2fb5a8b88ffe16c1f819",
+      "distributed_sha256": "d8ad355bbc6ae8cf89153dead48bea678a5b8e9cb4ea2fb5a8b88ffe16c1f819",
+      "bytes": 3242,
+      "kind": "script",
+      "copy_changes": "none",
+      "path_changes": "none; run_check.py copies the complete tree to a fresh output directory before executing",
+      "supports": [
+        {
+          "paper": "TD-III",
+          "label": "prop:sqrtlaw",
+          "relation": "numerical check or comparison, not a substitute for the stated proof"
+        }
+      ],
+      "related_checks": [
+        "c4_jump_price.py"
+      ]
+    },
+    {
+      "papers": [
+        "TD-III"
+      ],
+      "source": "OctoberReview/research/autonomous_claude_20261004/agentJ_joint/checks/c5_driftlaw_J0.py",
+      "distributed": "source_tree/OctoberReview/research/autonomous_claude_20261004/agentJ_joint/checks/c5_driftlaw_J0.py",
+      "source_sha256": "4af644ff5e4bf7ede5815c2bbd37b0633d33c0cdd8be8644de566aed33b1b021",
+      "distributed_sha256": "4af644ff5e4bf7ede5815c2bbd37b0633d33c0cdd8be8644de566aed33b1b021",
+      "bytes": 3846,
+      "kind": "script",
+      "copy_changes": "none",
+      "path_changes": "none; run_check.py copies the complete tree to a fresh output directory before executing",
+      "supports": [
+        {
+          "paper": "TD-III",
+          "label": "prop:J0",
+          "relation": "numerical check or comparison, not a substitute for the stated proof"
+        },
+        {
+          "paper": "TD-III",
+          "label": "prop:tax",
+          "relation": "numerical check or comparison, not a substitute for the stated proof"
+        },
+        {
+          "paper": "TD-III",
+          "label": "thm:ledger",
+          "relation": "numerical check or comparison, not a substitute for the stated proof"
+        }
+      ],
+      "related_checks": [
+        "c5_driftlaw_J0.py"
+      ]
+    },
+    {
+      "papers": [
+        "TD-III"
+      ],
+      "source": "OctoberReview/research/autonomous_claude_20261004/agentJ_joint/checks/c7_closedloop_moments.py",
+      "distributed": "source_tree/OctoberReview/research/autonomous_claude_20261004/agentJ_joint/checks/c7_closedloop_moments.py",
+      "source_sha256": "6e5acfc3f3a1363bd4b0f73f76fe0ca073fcd418a4ac62cd0f86e28b6b8df7e1",
+      "distributed_sha256": "6e5acfc3f3a1363bd4b0f73f76fe0ca073fcd418a4ac62cd0f86e28b6b8df7e1",
+      "bytes": 3403,
+      "kind": "script",
+      "copy_changes": "none",
+      "path_changes": "none; run_check.py copies the complete tree to a fresh output directory before executing",
+      "supports": [
+        {
+          "paper": "TD-III",
+          "label": "prop:loopmoments",
+          "relation": "numerical check or comparison, not a substitute for the stated proof"
+        }
+      ],
+      "related_checks": [
+        "c7_closedloop_moments.py"
+      ]
+    },
+    {
+      "papers": [
+        "TD-III"
+      ],
+      "source": "OctoberReview/research/autonomous_claude_20261004/agentJ_joint/checks/c8_push_frame.py",
+      "distributed": "source_tree/OctoberReview/research/autonomous_claude_20261004/agentJ_joint/checks/c8_push_frame.py",
+      "source_sha256": "b974ccfc0104bdf7bc2f28613c6a29ca2ca5d89ce80d93fd20ceffc3f4885db5",
+      "distributed_sha256": "b974ccfc0104bdf7bc2f28613c6a29ca2ca5d89ce80d93fd20ceffc3f4885db5",
+      "bytes": 1992,
+      "kind": "script",
+      "copy_changes": "none",
+      "path_changes": "none; run_check.py copies the complete tree to a fresh output directory before executing",
+      "supports": [
+        {
+          "paper": "TD-III",
+          "label": "subsec:J_consequences",
+          "relation": "numerical check or comparison, not a substitute for the stated proof"
+        }
+      ],
+      "related_checks": [
+        "c8_push_frame.py"
+      ]
+    },
+    {
+      "papers": [
+        "TD-III"
+      ],
+      "source": "OctoberReview/research/autonomous_claude_20261004/agentJ_joint/checks/common.py",
+      "distributed": "source_tree/OctoberReview/research/autonomous_claude_20261004/agentJ_joint/checks/common.py",
+      "source_sha256": "c07fb20b166cd4cad10dc1b05f355e1451d7c272eb35d017942c073dcc864cb6",
+      "distributed_sha256": "c07fb20b166cd4cad10dc1b05f355e1451d7c272eb35d017942c073dcc864cb6",
+      "bytes": 1727,
+      "kind": "script",
+      "copy_changes": "none",
+      "path_changes": "none; run_check.py copies the complete tree to a fresh output directory before executing",
+      "supports": [
+        {
+          "paper": "TD-III",
+          "label": "def:joint",
+          "relation": "dependency only; no standalone check",
+          "via": "c1_reductions.py"
+        },
+        {
+          "paper": "TD-III",
+          "label": "prop:purity_copy",
+          "relation": "dependency only; no standalone check",
+          "via": "c1_reductions.py"
+        },
+        {
+          "paper": "TD-III",
+          "label": "subsec:J_ledger",
+          "relation": "dependency only; no standalone check",
+          "via": "c1_reductions.py"
+        },
+        {
+          "paper": "TD-III",
+          "label": "prop:J0",
+          "relation": "dependency only; no standalone check",
+          "via": "c5_driftlaw_J0.py"
+        },
+        {
+          "paper": "TD-III",
+          "label": "prop:tax",
+          "relation": "dependency only; no standalone check",
+          "via": "c5_driftlaw_J0.py"
+        },
+        {
+          "paper": "TD-III",
+          "label": "thm:ledger",
+          "relation": "dependency only; no standalone check",
+          "via": "c5_driftlaw_J0.py"
+        }
+      ],
+      "related_checks": [
+        "c1_reductions.py",
+        "c5_driftlaw_J0.py"
+      ]
+    },
+    {
+      "papers": [
+        "TD-III"
+      ],
+      "source": "OctoberReview/research/autonomous_claude_20261004/agentJ_joint/checks/out/c1_reductions.json",
+      "distributed": "source_tree/OctoberReview/research/autonomous_claude_20261004/agentJ_joint/checks/out/c1_reductions.json",
+      "source_sha256": "735d53a53ea2aa94a405935948599a1cfa09097cf3156c751455e153fe0a8c2b",
+      "distributed_sha256": "d9da4566d8ec733086c6a6ac49284ac02d07bc35647284fc65846d991a1740ac",
+      "bytes": 3694,
+      "kind": "archived output/input",
+      "copy_changes": "one final newline added by apply_patch; payload unchanged",
+      "path_changes": "none; run_check.py copies the complete tree to a fresh output directory before executing",
+      "supports": [
+        {
+          "paper": "TD-III",
+          "label": "def:joint",
+          "relation": "numerical check or comparison, not a substitute for the stated proof"
+        },
+        {
+          "paper": "TD-III",
+          "label": "prop:purity_copy",
+          "relation": "numerical check or comparison, not a substitute for the stated proof"
+        },
+        {
+          "paper": "TD-III",
+          "label": "subsec:J_ledger",
+          "relation": "numerical check or comparison, not a substitute for the stated proof"
+        }
+      ],
+      "related_checks": [
+        "c1_reductions.py"
+      ]
+    },
+    {
+      "papers": [
+        "TD-III"
+      ],
+      "source": "OctoberReview/research/autonomous_claude_20261004/agentJ_joint/checks/out/c2_gauge_enum.json",
+      "distributed": "source_tree/OctoberReview/research/autonomous_claude_20261004/agentJ_joint/checks/out/c2_gauge_enum.json",
+      "source_sha256": "a152bb1b1c715bff3c1a8e206e78ae996e309329bc6a5cf99cc3cd56ae079633",
+      "distributed_sha256": "38d82b8dd4fb2aa985fc8b8caedc7740626ffeaacf7d2a959518c9b9361a4ad6",
+      "bytes": 9600,
+      "kind": "archived output/input",
+      "copy_changes": "one final newline added by apply_patch; payload unchanged",
+      "path_changes": "none; run_check.py copies the complete tree to a fresh output directory before executing",
+      "supports": [
+        {
+          "paper": "TD-III",
+          "label": "thm:gauge",
+          "relation": "numerical check or comparison, not a substitute for the stated proof"
+        },
+        {
+          "paper": "TD-III",
+          "label": "prop:nostandard",
+          "relation": "numerical check or comparison, not a substitute for the stated proof"
+        }
+      ],
+      "related_checks": [
+        "c2_gauge_enum.py"
+      ]
+    },
+    {
+      "papers": [
+        "TD-III"
+      ],
+      "source": "OctoberReview/research/autonomous_claude_20261004/agentJ_joint/checks/out/c3_sign_inversion.json",
+      "distributed": "source_tree/OctoberReview/research/autonomous_claude_20261004/agentJ_joint/checks/out/c3_sign_inversion.json",
+      "source_sha256": "c4fda17090bc63983cbe1c6a6e1cfd4fe9df1aa059b5c7034cc8ec467468e715",
+      "distributed_sha256": "8725c6924b38e5746c8bbc062cde20d38bc2442abb945591e80a0212fadd9b76",
+      "bytes": 8849,
+      "kind": "archived output/input",
+      "copy_changes": "one final newline added by apply_patch; payload unchanged",
+      "path_changes": "none; run_check.py copies the complete tree to a fresh output directory before executing",
+      "supports": [
+        {
+          "paper": "TD-III",
+          "label": "thm:inversion",
+          "relation": "numerical check or comparison, not a substitute for the stated proof"
+        }
+      ],
+      "related_checks": [
+        "c3_sign_inversion.py"
+      ]
+    },
+    {
+      "papers": [
+        "TD-III"
+      ],
+      "source": "OctoberReview/research/autonomous_claude_20261004/agentJ_joint/checks/out/c4_jump_price.json",
+      "distributed": "source_tree/OctoberReview/research/autonomous_claude_20261004/agentJ_joint/checks/out/c4_jump_price.json",
+      "source_sha256": "762840cdb0c511676191935288ee16d4a7dd4bb60a34a8dac3903b9f9addec22",
+      "distributed_sha256": "40e89aefe1f8c5c431c3b572052e49abbc1ac1288e7b35fe0e187a20eb04fde7",
+      "bytes": 4197,
+      "kind": "archived output/input",
+      "copy_changes": "one final newline added by apply_patch; payload unchanged",
+      "path_changes": "none; run_check.py copies the complete tree to a fresh output directory before executing",
+      "supports": [
+        {
+          "paper": "TD-III",
+          "label": "prop:sqrtlaw",
+          "relation": "numerical check or comparison, not a substitute for the stated proof"
+        }
+      ],
+      "related_checks": [
+        "c4_jump_price.py"
+      ]
+    },
+    {
+      "papers": [
+        "TD-III"
+      ],
+      "source": "OctoberReview/research/autonomous_claude_20261004/agentJ_joint/checks/out/c5_driftlaw_J0.json",
+      "distributed": "source_tree/OctoberReview/research/autonomous_claude_20261004/agentJ_joint/checks/out/c5_driftlaw_J0.json",
+      "source_sha256": "bf59fcb73e0ae4c55bd7dcf39e3201a0b88edd0037ddd28036fef75723cce60a",
+      "distributed_sha256": "2c46754071959a657d0331727b102dd56d0884e49d9a0a7e79565b4d54f07c81",
+      "bytes": 15568,
+      "kind": "archived output/input",
+      "copy_changes": "one final newline added by apply_patch; payload unchanged",
+      "path_changes": "none; run_check.py copies the complete tree to a fresh output directory before executing",
+      "supports": [
+        {
+          "paper": "TD-III",
+          "label": "prop:J0",
+          "relation": "numerical check or comparison, not a substitute for the stated proof"
+        },
+        {
+          "paper": "TD-III",
+          "label": "prop:tax",
+          "relation": "numerical check or comparison, not a substitute for the stated proof"
+        },
+        {
+          "paper": "TD-III",
+          "label": "thm:ledger",
+          "relation": "numerical check or comparison, not a substitute for the stated proof"
+        }
+      ],
+      "related_checks": [
+        "c5_driftlaw_J0.py"
+      ]
+    },
+    {
+      "papers": [
+        "TD-III"
+      ],
+      "source": "OctoberReview/research/autonomous_claude_20261004/agentJ_joint/checks/out/c7_closedloop_moments.json",
+      "distributed": "source_tree/OctoberReview/research/autonomous_claude_20261004/agentJ_joint/checks/out/c7_closedloop_moments.json",
+      "source_sha256": "f8b69cb587db3d0c0de2578482eff08602749eefba2314dcdff5daa265ea4eae",
+      "distributed_sha256": "d5b12c62d8c33d5a029bdc711786c7edd8e262d30655fa18a31ac89f70dbde37",
+      "bytes": 12137,
+      "kind": "archived output/input",
+      "copy_changes": "one final newline added by apply_patch; payload unchanged",
+      "path_changes": "none; run_check.py copies the complete tree to a fresh output directory before executing",
+      "supports": [
+        {
+          "paper": "TD-III",
+          "label": "prop:loopmoments",
+          "relation": "numerical check or comparison, not a substitute for the stated proof"
+        }
+      ],
+      "related_checks": [
+        "c7_closedloop_moments.py"
+      ]
+    },
+    {
+      "papers": [
+        "TD-III"
+      ],
+      "source": "OctoberReview/research/autonomous_claude_20261004/agentJ_joint/checks/out/c8_push_frame.json",
+      "distributed": "source_tree/OctoberReview/research/autonomous_claude_20261004/agentJ_joint/checks/out/c8_push_frame.json",
+      "source_sha256": "0b322661dfea9fc12bcf0b85662f3ede33be76842ca1762164ce653305a3beeb",
+      "distributed_sha256": "283074e2f799a21441449a2508a6bd55c05f0498977ad805a97aed9007289ab1",
+      "bytes": 561,
+      "kind": "archived output/input",
+      "copy_changes": "one final newline added by apply_patch; payload unchanged",
+      "path_changes": "none; run_check.py copies the complete tree to a fresh output directory before executing",
+      "supports": [
+        {
+          "paper": "TD-III",
+          "label": "subsec:J_consequences",
+          "relation": "numerical check or comparison, not a substitute for the stated proof"
+        }
+      ],
+      "related_checks": [
+        "c8_push_frame.py"
+      ]
+    },
+    {
+      "papers": [
+        "TD-III"
+      ],
+      "source": "OctoberReview/research/chain/claude_v2/chain_v2.py",
+      "distributed": "source_tree/OctoberReview/research/chain/claude_v2/chain_v2.py",
+      "source_sha256": "94c8a4576657ffe7614339b0cd50fc3dcd87d491aa5b2e0091146d94c43ef52f",
+      "distributed_sha256": "142a2dd15cd2b3d460087dbe12256de790c272269a476efd63749ef1ffdec56e",
+      "bytes": 15494,
+      "kind": "script",
+      "copy_changes": "Publication-copy module documentation/comments edited; computational AST unchanged. Source hash and contributor paths retained.",
+      "path_changes": "none; run_check.py copies the complete tree to a fresh output directory before executing",
+      "supports": [
+        {
+          "paper": "TD-III",
+          "label": "subsec:model_B",
+          "relation": "numerical check or comparison, not a substitute for the stated proof"
+        },
+        {
+          "paper": "TD-III",
+          "label": "tab:cells",
+          "relation": "numerical check or comparison, not a substitute for the stated proof"
+        },
+        {
+          "paper": "TD-III",
+          "label": "app:loop_protocol",
+          "relation": "numerical check or comparison, not a substitute for the stated proof"
+        }
+      ],
+      "related_checks": [
+        "chain_v2.py"
+      ]
+    },
+    {
+      "papers": [
+        "TD-III"
+      ],
+      "source": "OctoberReview/research/chain/claude_v2/chain_v2_output.json",
+      "distributed": "source_tree/OctoberReview/research/chain/claude_v2/chain_v2_output.json",
+      "source_sha256": "2baf9f904f7606fab3505118952d384d827200bbd738777d33fc5280392da072",
+      "distributed_sha256": "1544bae945b7b0a8b7a9fad6141a29ae5e233c2d198a0e6f8b5208bd1d133674",
+      "bytes": 7866,
+      "kind": "archived output/input",
+      "copy_changes": "one final newline added by apply_patch; payload unchanged",
+      "path_changes": "none; run_check.py copies the complete tree to a fresh output directory before executing",
+      "supports": [
+        {
+          "paper": "TD-III",
+          "label": "subsec:model_B",
+          "relation": "numerical check or comparison, not a substitute for the stated proof"
+        },
+        {
+          "paper": "TD-III",
+          "label": "tab:cells",
+          "relation": "numerical check or comparison, not a substitute for the stated proof"
+        },
+        {
+          "paper": "TD-III",
+          "label": "app:loop_protocol",
+          "relation": "numerical check or comparison, not a substitute for the stated proof"
+        }
+      ],
+      "related_checks": [
+        "chain_v2.py"
+      ]
+    },
+    {
+      "papers": [
+        "TD-III"
+      ],
+      "source": "OctoberReview/research/continuation_codex_20261007/subject/check_results.json",
+      "distributed": "source_tree/OctoberReview/research/continuation_codex_20261007/subject/check_results.json",
+      "source_sha256": "b204623ccf3bbe00be05e23c20ed1c4ef66d43d246291f489984226f628d08a6",
+      "distributed_sha256": "b204623ccf3bbe00be05e23c20ed1c4ef66d43d246291f489984226f628d08a6",
+      "bytes": 6420,
+      "kind": "archived output/input",
+      "copy_changes": "none",
+      "path_changes": "none; run_check.py copies the complete tree to a fresh output directory before executing",
+      "supports": [
+        {
+          "paper": "TD-III",
+          "label": "prop:body_event",
+          "relation": "numerical check or comparison, not a substitute for the stated proof"
+        },
+        {
+          "paper": "TD-III",
+          "label": "prop:body_blackout",
+          "relation": "numerical check or comparison, not a substitute for the stated proof"
+        },
+        {
+          "paper": "TD-III",
+          "label": "prop:body_memory_value",
+          "relation": "numerical check or comparison, not a substitute for the stated proof"
+        },
+        {
+          "paper": "TD-III",
+          "label": "tab:body_access_ledger",
+          "relation": "numerical check or comparison, not a substitute for the stated proof"
+        },
+        {
+          "paper": "TD-III",
+          "label": "app:filter_certificates",
+          "relation": "numerical check or comparison, not a substitute for the stated proof"
+        }
+      ],
+      "related_checks": [
+        "independent_checks.py"
+      ]
+    },
+    {
+      "papers": [
+        "TD-III"
+      ],
+      "source": "OctoberReview/research/continuation_codex_20261007/subject/independent_checks.py",
+      "distributed": "source_tree/OctoberReview/research/continuation_codex_20261007/subject/independent_checks.py",
+      "source_sha256": "f55ecf820027e5bba617841617b05060a9fdeb98a8002addf1e98d2f2609f4e5",
+      "distributed_sha256": "f55ecf820027e5bba617841617b05060a9fdeb98a8002addf1e98d2f2609f4e5",
+      "bytes": 10991,
+      "kind": "script",
+      "copy_changes": "none",
+      "path_changes": "none; run_check.py copies the complete tree to a fresh output directory before executing",
+      "supports": [
+        {
+          "paper": "TD-III",
+          "label": "prop:body_event",
+          "relation": "numerical check or comparison, not a substitute for the stated proof"
+        },
+        {
+          "paper": "TD-III",
+          "label": "prop:body_blackout",
+          "relation": "numerical check or comparison, not a substitute for the stated proof"
+        },
+        {
+          "paper": "TD-III",
+          "label": "prop:body_memory_value",
+          "relation": "numerical check or comparison, not a substitute for the stated proof"
+        },
+        {
+          "paper": "TD-III",
+          "label": "tab:body_access_ledger",
+          "relation": "numerical check or comparison, not a substitute for the stated proof"
+        },
+        {
+          "paper": "TD-III",
+          "label": "app:filter_certificates",
+          "relation": "numerical check or comparison, not a substitute for the stated proof"
+        }
+      ],
+      "related_checks": [
+        "independent_checks.py"
+      ]
+    },
+    {
+      "papers": [
+        "TD-III"
+      ],
+      "source": "OctoberReview/research/d1d2/claude/d3_repro.py",
+      "distributed": "source_tree/OctoberReview/research/d1d2/claude/d3_repro.py",
+      "source_sha256": "9e749d519b2c4c027e92953dca1ae178ea44a178a7eb64022d0d9e8fe6b971ce",
+      "distributed_sha256": "9e749d519b2c4c027e92953dca1ae178ea44a178a7eb64022d0d9e8fe6b971ce",
+      "bytes": 2400,
+      "kind": "script",
+      "copy_changes": "none",
+      "path_changes": "none; run_check.py copies the complete tree to a fresh output directory before executing",
+      "supports": [
+        {
+          "paper": "TD-III",
+          "label": "subsec:model_A",
+          "relation": "numerical check or comparison, not a substitute for the stated proof"
+        },
+        {
+          "paper": "TD-III",
+          "label": "tab:loop",
+          "relation": "numerical check or comparison, not a substitute for the stated proof"
+        },
+        {
+          "paper": "TD-III",
+          "label": "app:loop_protocol",
+          "relation": "numerical check or comparison, not a substitute for the stated proof"
+        }
+      ],
+      "related_checks": [
+        "d3_repro.py"
+      ]
+    },
+    {
+      "papers": [
+        "TD-III"
+      ],
+      "source": "OctoberReview/research/d1d2/claude/d3_repro_output.json",
+      "distributed": "source_tree/OctoberReview/research/d1d2/claude/d3_repro_output.json",
+      "source_sha256": "6677e2ae7626529c0c058868c0a3eb933974790a24eb18a78a96db871382c7a7",
+      "distributed_sha256": "14e127bea3083625f0b2784403ed6413829714dd944f8a3af78e9a03ef457a01",
+      "bytes": 70017,
+      "kind": "archived output/input",
+      "copy_changes": "one final newline added by apply_patch; payload unchanged",
+      "path_changes": "none; run_check.py copies the complete tree to a fresh output directory before executing",
+      "supports": [
+        {
+          "paper": "TD-III",
+          "label": "subsec:model_A",
+          "relation": "numerical check or comparison, not a substitute for the stated proof"
+        },
+        {
+          "paper": "TD-III",
+          "label": "tab:loop",
+          "relation": "numerical check or comparison, not a substitute for the stated proof"
+        },
+        {
+          "paper": "TD-III",
+          "label": "app:loop_protocol",
+          "relation": "numerical check or comparison, not a substitute for the stated proof"
+        }
+      ],
+      "related_checks": [
+        "d3_repro.py"
+      ]
+    },
+    {
+      "papers": [
+        "TD-III"
+      ],
+      "source": "OctoberReview/research/d1d2/claude/platform_e0.py",
+      "distributed": "source_tree/OctoberReview/research/d1d2/claude/platform_e0.py",
+      "source_sha256": "f045d56caf10cbf9c4bde6157c7ee4786c174a3be39cab8f752ab3dc1fd1c566",
+      "distributed_sha256": "bf2cff90918891d41ce7ccc42f2f20787494cceb1905e5dd9f3c6d184255bfee",
+      "bytes": 3576,
+      "kind": "script",
+      "copy_changes": "Publication-copy module documentation/comments edited; computational AST unchanged. Source hash and contributor paths retained.",
+      "path_changes": "none; run_check.py copies the complete tree to a fresh output directory before executing",
+      "supports": [
+        {
+          "paper": "TD-III",
+          "label": "subsec:model_A",
+          "relation": "dependency only; no standalone check",
+          "via": "d3_repro.py"
+        },
+        {
+          "paper": "TD-III",
+          "label": "tab:loop",
+          "relation": "dependency only; no standalone check",
+          "via": "d3_repro.py"
+        },
+        {
+          "paper": "TD-III",
+          "label": "app:loop_protocol",
+          "relation": "dependency only; no standalone check",
+          "via": "d3_repro.py"
+        }
+      ],
+      "related_checks": [
+        "d3_repro.py"
+      ]
+    },
+    {
+      "papers": [
+        "TD-III"
+      ],
+      "source": "OctoberReview/research/d3/codex/v0/closed_loop.py",
+      "distributed": "source_tree/OctoberReview/research/d3/codex/v0/closed_loop.py",
+      "source_sha256": "db232af21a6c6fad6f76ceef0baaab9e0a4a9abe22eb15808ab0487b301ae3cf",
+      "distributed_sha256": "db232af21a6c6fad6f76ceef0baaab9e0a4a9abe22eb15808ab0487b301ae3cf",
+      "bytes": 9265,
+      "kind": "script",
+      "copy_changes": "none",
+      "path_changes": "none; run_check.py copies the complete tree to a fresh output directory before executing",
+      "supports": [
+        {
+          "paper": "TD-III",
+          "label": "eq:bank_step",
+          "relation": "numerical check or comparison, not a substitute for the stated proof"
+        },
+        {
+          "paper": "TD-III",
+          "label": "subsec:model_A",
+          "relation": "numerical check or comparison, not a substitute for the stated proof"
+        },
+        {
+          "paper": "TD-III",
+          "label": "tab:loop",
+          "relation": "numerical check or comparison, not a substitute for the stated proof"
+        },
+        {
+          "paper": "TD-III",
+          "label": "prop:memory_drift",
+          "relation": "numerical check or comparison, not a substitute for the stated proof"
+        },
+        {
+          "paper": "TD-III",
+          "label": "prop:decode_error",
+          "relation": "numerical check or comparison, not a substitute for the stated proof"
+        }
+      ],
+      "related_checks": [
+        "closed_loop.py"
+      ]
+    },
+    {
+      "papers": [
+        "TD-III"
+      ],
+      "source": "OctoberReview/research/d3/codex/v0/closed_loop_output.json",
+      "distributed": "source_tree/OctoberReview/research/d3/codex/v0/closed_loop_output.json",
+      "source_sha256": "3f388d5f629774782a1ee222b952754c461fa498a30c7565aec9358612877795",
+      "distributed_sha256": "3f388d5f629774782a1ee222b952754c461fa498a30c7565aec9358612877795",
+      "bytes": 12374,
+      "kind": "archived output/input",
+      "copy_changes": "none",
+      "path_changes": "none; run_check.py copies the complete tree to a fresh output directory before executing",
+      "supports": [
+        {
+          "paper": "TD-III",
+          "label": "eq:bank_step",
+          "relation": "numerical check or comparison, not a substitute for the stated proof"
+        },
+        {
+          "paper": "TD-III",
+          "label": "subsec:model_A",
+          "relation": "numerical check or comparison, not a substitute for the stated proof"
+        },
+        {
+          "paper": "TD-III",
+          "label": "tab:loop",
+          "relation": "numerical check or comparison, not a substitute for the stated proof"
+        },
+        {
+          "paper": "TD-III",
+          "label": "prop:memory_drift",
+          "relation": "numerical check or comparison, not a substitute for the stated proof"
+        },
+        {
+          "paper": "TD-III",
+          "label": "prop:decode_error",
+          "relation": "numerical check or comparison, not a substitute for the stated proof"
+        }
+      ],
+      "related_checks": [
+        "closed_loop.py"
+      ]
+    },
+    {
+      "papers": [
+        "TD-III"
+      ],
+      "source": "OctoberReview/research/resumption_codex_20261007/ultra_subject/economy.py",
+      "distributed": "source_tree/OctoberReview/research/resumption_codex_20261007/ultra_subject/economy.py",
+      "source_sha256": "2e9a3c31fe015ec914cc5f98934dfcab47ad9b22c47a2d078200687fe14e997d",
+      "distributed_sha256": "2e9a3c31fe015ec914cc5f98934dfcab47ad9b22c47a2d078200687fe14e997d",
+      "bytes": 3014,
+      "kind": "script",
+      "copy_changes": "none",
+      "path_changes": "none; run_check.py copies the complete tree to a fresh output directory before executing",
+      "supports": [
+        {
+          "paper": "TD-III",
+          "label": "subsec:J_viability",
+          "relation": "numerical check or comparison, not a substitute for the stated proof"
+        },
+        {
+          "paper": "TD-III",
+          "label": "tab:viability",
+          "relation": "numerical check or comparison, not a substitute for the stated proof"
+        }
+      ],
+      "related_checks": [
+        "economy.py"
+      ]
+    },
+    {
+      "papers": [
+        "TD-III"
+      ],
+      "source": "OctoberReview/research/resumption_codex_20261007/ultra_subject/economy_output.json",
+      "distributed": "source_tree/OctoberReview/research/resumption_codex_20261007/ultra_subject/economy_output.json",
+      "source_sha256": "8ee17221bdea13016432cc6239d5ce56c4a79de7583668a397237782183f936f",
+      "distributed_sha256": "8ee17221bdea13016432cc6239d5ce56c4a79de7583668a397237782183f936f",
+      "bytes": 17075,
+      "kind": "archived output/input",
+      "copy_changes": "none",
+      "path_changes": "none; run_check.py copies the complete tree to a fresh output directory before executing",
+      "supports": [
+        {
+          "paper": "TD-III",
+          "label": "subsec:J_viability",
+          "relation": "numerical check or comparison, not a substitute for the stated proof"
+        },
+        {
+          "paper": "TD-III",
+          "label": "tab:viability",
+          "relation": "numerical check or comparison, not a substitute for the stated proof"
+        }
+      ],
+      "related_checks": [
+        "economy.py"
+      ]
+    },
+    {
+      "papers": [
+        "TD-III"
+      ],
+      "source": "OctoberReview/research/resumption_codex_20261007/ultra_subject/online_joint.py",
+      "distributed": "source_tree/OctoberReview/research/resumption_codex_20261007/ultra_subject/online_joint.py",
+      "source_sha256": "19c75bd9679c23cf1ef9711ac4977a2b7a0bb6703d6a6ad9c191f9c3c6512909",
+      "distributed_sha256": "19c75bd9679c23cf1ef9711ac4977a2b7a0bb6703d6a6ad9c191f9c3c6512909",
+      "bytes": 8928,
+      "kind": "script",
+      "copy_changes": "none",
+      "path_changes": "none; run_check.py copies the complete tree to a fresh output directory before executing",
+      "supports": [
+        {
+          "paper": "TD-III",
+          "label": "subsec:online_joint",
+          "relation": "numerical check or comparison, not a substitute for the stated proof"
+        },
+        {
+          "paper": "TD-III",
+          "label": "prop:finite_filter",
+          "relation": "numerical check or comparison, not a substitute for the stated proof"
+        },
+        {
+          "paper": "TD-III",
+          "label": "app:filter_certificates",
+          "relation": "numerical check or comparison, not a substitute for the stated proof"
+        }
+      ],
+      "related_checks": [
+        "online_joint.py"
+      ]
+    },
+    {
+      "papers": [
+        "TD-III"
+      ],
+      "source": "OctoberReview/research/resumption_codex_20261007/ultra_subject/online_joint_confirmation.json",
+      "distributed": "source_tree/OctoberReview/research/resumption_codex_20261007/ultra_subject/online_joint_confirmation.json",
+      "source_sha256": "0152139dd95caa35dc5403ea6cedd6203410275ac524bf591991e1a31c445d52",
+      "distributed_sha256": "0152139dd95caa35dc5403ea6cedd6203410275ac524bf591991e1a31c445d52",
+      "bytes": 2792,
+      "kind": "archived output/input",
+      "copy_changes": "none",
+      "path_changes": "none; run_check.py copies the complete tree to a fresh output directory before executing",
+      "supports": [
+        {
+          "paper": "TD-III",
+          "label": "subsec:online_joint",
+          "relation": "numerical check or comparison, not a substitute for the stated proof"
+        },
+        {
+          "paper": "TD-III",
+          "label": "prop:finite_filter",
+          "relation": "numerical check or comparison, not a substitute for the stated proof"
+        },
+        {
+          "paper": "TD-III",
+          "label": "app:filter_certificates",
+          "relation": "numerical check or comparison, not a substitute for the stated proof"
+        }
+      ],
+      "related_checks": [
+        "online_joint.py"
+      ]
+    },
+    {
+      "papers": [
+        "TD-III"
+      ],
+      "source": "OctoberReview/research/resumption_codex_20261007/ultra_subject/online_joint_output.json",
+      "distributed": "source_tree/OctoberReview/research/resumption_codex_20261007/ultra_subject/online_joint_output.json",
+      "source_sha256": "174d3d70f3f6f2d129da27b1c5bcf12a257cc88f1c752138e00f5e53236b9d06",
+      "distributed_sha256": "174d3d70f3f6f2d129da27b1c5bcf12a257cc88f1c752138e00f5e53236b9d06",
+      "bytes": 4391,
+      "kind": "archived output/input",
+      "copy_changes": "none",
+      "path_changes": "none; run_check.py copies the complete tree to a fresh output directory before executing",
+      "supports": [
+        {
+          "paper": "TD-III",
+          "label": "subsec:online_joint",
+          "relation": "numerical check or comparison, not a substitute for the stated proof"
+        },
+        {
+          "paper": "TD-III",
+          "label": "prop:finite_filter",
+          "relation": "numerical check or comparison, not a substitute for the stated proof"
+        },
+        {
+          "paper": "TD-III",
+          "label": "app:filter_certificates",
+          "relation": "numerical check or comparison, not a substitute for the stated proof"
+        }
+      ],
+      "related_checks": [
+        "online_joint.py"
+      ]
+    },
+    {
+      "papers": [
+        "TD-III"
+      ],
+      "source": "OctoberReview/research/round34_response_codex_20261008/subject/checks/check_subject.py",
+      "distributed": "source_tree/OctoberReview/research/round34_response_codex_20261008/subject/checks/check_subject.py",
+      "source_sha256": "1cb8d06778a1ea692c521ac22eb91f68ebf47e5ef6f76094b130bfd5a26952d7",
+      "distributed_sha256": "1cb8d06778a1ea692c521ac22eb91f68ebf47e5ef6f76094b130bfd5a26952d7",
+      "bytes": 8683,
+      "kind": "script",
+      "copy_changes": "none",
+      "path_changes": "none; run_check.py copies the complete tree to a fresh output directory before executing",
+      "supports": [
+        {
+          "paper": "TD-III",
+          "label": "prop:repair_witness",
+          "relation": "numerical check or comparison, not a substitute for the stated proof"
+        },
+        {
+          "paper": "TD-III",
+          "label": "eq:short_repair",
+          "relation": "numerical check or comparison, not a substitute for the stated proof"
+        },
+        {
+          "paper": "TD-III",
+          "label": "prop:adaptive_exact",
+          "relation": "numerical check or comparison, not a substitute for the stated proof"
+        },
+        {
+          "paper": "TD-III",
+          "label": "prop:sqrtlaw",
+          "relation": "numerical check or comparison, not a substitute for the stated proof"
+        }
+      ],
+      "related_checks": [
+        "check_subject.py"
+      ]
+    },
+    {
+      "papers": [
+        "TD-III"
+      ],
+      "source": "OctoberReview/research/round34_response_codex_20261008/subject/checks/check_subject_output.json",
+      "distributed": "source_tree/OctoberReview/research/round34_response_codex_20261008/subject/checks/check_subject_output.json",
+      "source_sha256": "fa1bb5690591c80c9b24ff665d301a6d5b9ae0450551784f92a1c265c81906c6",
+      "distributed_sha256": "fa1bb5690591c80c9b24ff665d301a6d5b9ae0450551784f92a1c265c81906c6",
+      "bytes": 4558,
+      "kind": "archived output/input",
+      "copy_changes": "none",
+      "path_changes": "none; run_check.py copies the complete tree to a fresh output directory before executing",
+      "supports": [
+        {
+          "paper": "TD-III",
+          "label": "prop:repair_witness",
+          "relation": "numerical check or comparison, not a substitute for the stated proof"
+        },
+        {
+          "paper": "TD-III",
+          "label": "eq:short_repair",
+          "relation": "numerical check or comparison, not a substitute for the stated proof"
+        },
+        {
+          "paper": "TD-III",
+          "label": "prop:adaptive_exact",
+          "relation": "numerical check or comparison, not a substitute for the stated proof"
+        },
+        {
+          "paper": "TD-III",
+          "label": "prop:sqrtlaw",
+          "relation": "numerical check or comparison, not a substitute for the stated proof"
+        }
+      ],
+      "related_checks": [
+        "check_subject.py"
+      ]
+    }
+  ],
+  "paper": "TD-III",
+  "manuscript_checks": [
+    {
+      "id": "check_detection.py",
+      "script": "source_tree/OctoberReview/research/autonomous_claude_20261004/agentF_td3/checks/check_detection.py",
+      "supports": [
+        {
+          "paper": "TD-III",
+          "label": "prop:even",
+          "relation": "numerical check or comparison, not a substitute for the stated proof"
+        },
+        {
+          "paper": "TD-III",
+          "label": "cor:three_records",
+          "relation": "numerical check or comparison, not a substitute for the stated proof"
+        },
+        {
+          "paper": "TD-III",
+          "label": "prop:detect",
+          "relation": "numerical check or comparison, not a substitute for the stated proof"
+        },
+        {
+          "paper": "TD-III",
+          "label": "tab:detect",
+          "relation": "numerical check or comparison, not a substitute for the stated proof"
+        }
+      ],
+      "archived_outputs": [
+        {
+          "path": "source_tree/OctoberReview/research/autonomous_claude_20261004/agentF_td3/checks/check_detection_output.json",
+          "selected_top_level_keys": [
+            "reader_kappa_formula",
+            "reader_KL_exact_formula_residual",
+            "probe_KL_exact_formula_residual",
+            "linear_drift_detection_lower_bounds",
+            "brownian_detection_vs_frozen_failure",
+            "LLR_test_eps_0.01_equal_error"
+          ],
+          "source_sha256": "c74022454890d5e3808b09bed38e82a4cc709546f71947980fe4df0674398deb",
+          "distributed_sha256": "f4744276fb2c5d512a55f0fb0306bf36fdb04e2f7e458084ca71f488f68bc7c8"
+        }
+      ],
+      "scope": "Even/odd Gaussian information and entropy formulas, necessary horizons and fixed-seed likelihood-ratio diagnostics. Does not implement the residual-variance-test row."
+    },
+    {
+      "id": "check_variance_test.py",
+      "script": "source_tree/OctoberReview/research/autonomous_claude_20261004/agentF_td3/checks/check_variance_test.py",
+      "supports": [
+        {
+          "paper": "TD-III",
+          "label": "cor:before_failure",
+          "relation": "numerical check or comparison, not a substitute for the stated proof"
+        },
+        {
+          "paper": "TD-III",
+          "label": "tab:detect",
+          "relation": "numerical check or comparison, not a substitute for the stated proof"
+        }
+      ],
+      "archived_outputs": [
+        {
+          "path": "source_tree/OctoberReview/research/autonomous_claude_20261004/agentF_td3/checks/check_variance_test_output.json",
+          "selected_top_level_keys": [
+            "0.01",
+            "0.001",
+            "0.0001"
+          ],
+          "source_sha256": "7c864afa5f8981e85fb003e055ef9b496ae931574eb52f8ea9aa486341d3fb18",
+          "distributed_sha256": "1df61fd5fd3dfb02eddba46fbe1503cb094f7e8642f058775849bf85ed336747"
+        }
+      ],
+      "scope": "The residual-variance-test row only: Brownian paths, chi-square null threshold and grid-based type-II Monte Carlo. Necessary times are supplied constants from check_detection, not independently recomputed here."
+    },
+    {
+      "id": "check_drift_law.py",
+      "script": "source_tree/OctoberReview/research/autonomous_claude_20261004/agentF_td3/checks/check_drift_law.py",
+      "supports": [
+        {
+          "paper": "TD-III",
+          "label": "thm:driftlaw",
+          "relation": "numerical check or comparison, not a substitute for the stated proof"
+        },
+        {
+          "paper": "TD-III",
+          "label": "cor:driftlaw",
+          "relation": "numerical check or comparison, not a substitute for the stated proof"
+        },
+        {
+          "paper": "TD-III",
+          "label": "cor:c3",
+          "relation": "numerical check or comparison, not a substitute for the stated proof"
+        },
+        {
+          "paper": "TD-III",
+          "label": "cor:thermo",
+          "relation": "numerical check or comparison, not a substitute for the stated proof"
+        },
+        {
+          "paper": "TD-III",
+          "label": "tab:price",
+          "relation": "numerical check or comparison, not a substitute for the stated proof"
+        },
+        {
+          "paper": "TD-III",
+          "label": "rem:driftlaw_scope",
+          "relation": "numerical check or comparison, not a substitute for the stated proof"
+        }
+      ],
+      "archived_outputs": [
+        {
+          "path": "source_tree/OctoberReview/research/autonomous_claude_20261004/agentF_td3/checks/check_drift_law_output.json",
+          "selected_top_level_keys": [
+            "a_brackets",
+            "b_random_schedules",
+            "c_value_iteration_gain",
+            "d_kalman_sim",
+            "e_binomial_EMA",
+            "f_CIII_KL_loss",
+            "g_linear_drift_EMA",
+            "h_thermo_example_g055"
+          ],
+          "source_sha256": "9a08c32c062882da26fa377182a19339f160be9fd506f569651b8cc61b049ad4",
+          "distributed_sha256": "612346a1af0e9e6d4540e4984c31fe9bec14daf1b6cd71c0eed8558a0bbe84d1"
+        }
+      ],
+      "scope": "Gaussian information recursion, cost brackets and price table; finite schedule/value-iteration diagnostics, stationary Kalman and a clipped-binomial comparison. The clipped model is a separate numerical comparison, not a proof of an all-policy physical Bernoulli floor or of the stopped-score lemma."
+    },
+    {
+      "id": "check_extra.py",
+      "script": "source_tree/OctoberReview/research/autonomous_claude_20261004/agentF_td3/checks/check_extra.py",
+      "supports": [
+        {
+          "paper": "TD-III",
+          "label": "eq:fisher_probe",
+          "relation": "numerical check or comparison, not a substitute for the stated proof"
+        },
+        {
+          "paper": "TD-III",
+          "label": "prop:degenerate",
+          "relation": "numerical check or comparison, not a substitute for the stated proof"
+        },
+        {
+          "paper": "TD-III",
+          "label": "conj:smooth",
+          "relation": "numerical check or comparison, not a substitute for the stated proof"
+        }
+      ],
+      "archived_outputs": [
+        {
+          "path": "source_tree/OctoberReview/research/autonomous_claude_20261004/agentF_td3/checks/check_extra_output.json",
+          "selected_top_level_keys": [
+            "probe_metric_formula_residual",
+            "natgrad_inframe_over_1/theta",
+            "natgrad_limit_2rho2_over_kappa",
+            "nu_where_floor_equals_record_value",
+            "smooth_drift"
+          ],
+          "source_sha256": "560c20e9d06fde20b21dfc865c2a85e0d9fff6bcb79aaab11d9c083a4b380900",
+          "distributed_sha256": "5e283058a59eac512912f04faa6ef6c42e3e7b6146871309e18b64128a1d7cbf"
+        }
+      ],
+      "scope": "Probe metric and natural-gradient limit; an indicative Gaussian-price crossing; Riccati slopes for stationary smoother-drift policies only, not the open adaptive lower bound."
+    },
+    {
+      "id": "check_section9.py",
+      "script": "source_tree/OctoberReview/research/autonomous_claude_20261004/agentF_td3/checks/check_section9.py",
+      "supports": [
+        {
+          "paper": "TD-III",
+          "label": "prop:memory_drift",
+          "relation": "numerical check or comparison, not a substitute for the stated proof"
+        },
+        {
+          "paper": "TD-III",
+          "label": "prop:decode_error",
+          "relation": "numerical check or comparison, not a substitute for the stated proof"
+        },
+        {
+          "paper": "TD-III",
+          "label": "prop:task_risk",
+          "relation": "numerical check or comparison, not a substitute for the stated proof"
+        },
+        {
+          "paper": "TD-III",
+          "label": "prop:two_optima",
+          "relation": "numerical check or comparison, not a substitute for the stated proof"
+        },
+        {
+          "paper": "TD-III",
+          "label": "tab:two_optima",
+          "relation": "numerical check or comparison, not a substitute for the stated proof"
+        }
+      ],
+      "archived_outputs": [
+        {
+          "path": "source_tree/OctoberReview/research/autonomous_claude_20261004/agentF_td3/checks/check_section9_output.json",
+          "selected_top_level_keys": [
+            "nu_star",
+            "limsup_g",
+            "limsup_b",
+            "decoded_bound",
+            "decoded_bound_unrolled",
+            "two_optima_table",
+            "two_optima_formula_residual",
+            "TDI_calibrated_loss_per_use_kT"
+          ],
+          "source_sha256": "26f058f77e4cbc23e5a9154b5063035953cbc0823efbbfb022b9a1e35215bfa7",
+          "distributed_sha256": "ceaf036b196a291822981387b09a27ce641baadb55862f0654bc7047ae0cdaef"
+        }
+      ],
+      "scope": "Analytic bounds including 0.4518, and direct enumeration of the M=20 task-risk example. Does not rerun Model A/B Monte Carlo."
+    },
+    {
+      "id": "c1_reductions.py",
+      "script": "source_tree/OctoberReview/research/autonomous_claude_20261004/agentJ_joint/checks/c1_reductions.py",
+      "supports": [
+        {
+          "paper": "TD-III",
+          "label": "def:joint",
+          "relation": "numerical check or comparison, not a substitute for the stated proof"
+        },
+        {
+          "paper": "TD-III",
+          "label": "prop:purity_copy",
+          "relation": "numerical check or comparison, not a substitute for the stated proof"
+        },
+        {
+          "paper": "TD-III",
+          "label": "subsec:J_ledger",
+          "relation": "numerical check or comparison, not a substitute for the stated proof"
+        }
+      ],
+      "archived_outputs": [
+        {
+          "path": "source_tree/OctoberReview/research/autonomous_claude_20261004/agentJ_joint/checks/out/c1_reductions.json",
+          "selected_top_level_keys": [
+            "TD-I n=1",
+            "TD-I n=5",
+            "TD-I n=7",
+            "flip_then_harvest",
+            "flip_then_harvest_maxdev",
+            "QR-B",
+            "IMP-CHAIN",
+            "R8 copy vs blank"
+          ],
+          "source_sha256": "735d53a53ea2aa94a405935948599a1cfa09097cf3156c751455e153fe0a8c2b",
+          "distributed_sha256": "d9da4566d8ec733086c6a6ac49284ac02d07bc35647284fc65846d991a1740ac"
+        }
+      ],
+      "scope": "Reductions and elementary feedback/copy-versus-blank resource numbers, using common.py. Not a proof or simulation of the complete apparatus ledger."
+    },
+    {
+      "id": "c2_gauge_enum.py",
+      "script": "source_tree/OctoberReview/research/autonomous_claude_20261004/agentJ_joint/checks/c2_gauge_enum.py",
+      "supports": [
+        {
+          "paper": "TD-III",
+          "label": "thm:gauge",
+          "relation": "numerical check or comparison, not a substitute for the stated proof"
+        },
+        {
+          "paper": "TD-III",
+          "label": "prop:nostandard",
+          "relation": "numerical check or comparison, not a substitute for the stated proof"
+        }
+      ],
+      "archived_outputs": [
+        {
+          "path": "source_tree/OctoberReview/research/autonomous_claude_20261004/agentJ_joint/checks/out/c2_gauge_enum.json",
+          "selected_top_level_keys": [
+            "binary_max_TV_no_ref",
+            "binary_min_TV_with_ref",
+            "loss_identity",
+            "linear_max_abs_dLL_gauge",
+            "linear_min_abs_dLL_nongauge"
+          ],
+          "source_sha256": "a152bb1b1c715bff3c1a8e206e78ae996e309329bc6a5cf99cc3cd56ae079633",
+          "distributed_sha256": "38d82b8dd4fb2aa985fc8b8caedc7740626ffeaacf7d2a959518c9b9361a4ad6"
+        }
+      ],
+      "scope": "Finite binary record/loss enumeration and linear Gaussian likelihood comparisons under joint relabeling. The all-policy assertion rests on the written covariance proof."
+    },
+    {
+      "id": "c3_sign_inversion.py",
+      "script": "source_tree/OctoberReview/research/autonomous_claude_20261004/agentJ_joint/checks/c3_sign_inversion.py",
+      "supports": [
+        {
+          "paper": "TD-III",
+          "label": "thm:inversion",
+          "relation": "numerical check or comparison, not a substitute for the stated proof"
+        }
+      ],
+      "archived_outputs": [
+        {
+          "path": "source_tree/OctoberReview/research/autonomous_claude_20261004/agentJ_joint/checks/out/c3_sign_inversion.json",
+          "selected_top_level_keys": [
+            "g=0.9,d=0.1,s=0.95,eta=0.05",
+            "g=0.6,d=0.2,s=0.8,eta=0.1",
+            "g=0.95,d=0.05,s=0.99,eta=0.02",
+            "g=0.9,d=0.05,s=0.95,eta=0.1",
+            "long_run_natural"
+          ],
+          "source_sha256": "c4fda17090bc63983cbe1c6a6e1cfd4fe9df1aa059b5c7034cc8ec467468e715",
+          "distributed_sha256": "8725c6924b38e5746c8bbc062cde20d38bc2442abb945591e80a0212fadd9b76"
+        }
+      ],
+      "scope": "Finite-horizon Bayes-optimal losses and natural-policy long runs. Its stored bound_general uses a maximum conditional bias (the later r_* type bound), not the sharper b_* formula of the current all-policy theorem. The explicit eta<=d comparison is identified separately in the script."
+    },
+    {
+      "id": "c4_jump_price.py",
+      "script": "source_tree/OctoberReview/research/autonomous_claude_20261004/agentJ_joint/checks/c4_jump_price.py",
+      "supports": [
+        {
+          "paper": "TD-III",
+          "label": "prop:sqrtlaw",
+          "relation": "numerical check or comparison, not a substitute for the stated proof"
+        }
+      ],
+      "archived_outputs": [
+        {
+          "path": "source_tree/OctoberReview/research/autonomous_claude_20261004/agentJ_joint/checks/out/c4_jump_price.json",
+          "selected_top_level_keys": [
+            "oracle",
+            "L0",
+            "policy",
+            "slope_w0.01",
+            "slope_w0.1"
+          ],
+          "source_sha256": "762840cdb0c511676191935288ee16d4a7dd4bb60a34a8dac3903b9f9addec22",
+          "distributed_sha256": "40e89aefe1f8c5c431c3b572052e49abbc1ac1288e7b35fe0e187a20eb04fde7"
+        }
+      ],
+      "scope": "Exogenous/periodic-reference benchmarks and noisy periodic-policy scans. Does not check the later adaptive reference bound, the 0.068 counterexample or prop:adaptive_exact."
+    },
+    {
+      "id": "c5_driftlaw_J0.py",
+      "script": "source_tree/OctoberReview/research/autonomous_claude_20261004/agentJ_joint/checks/c5_driftlaw_J0.py",
+      "supports": [
+        {
+          "paper": "TD-III",
+          "label": "prop:J0",
+          "relation": "numerical check or comparison, not a substitute for the stated proof"
+        },
+        {
+          "paper": "TD-III",
+          "label": "prop:tax",
+          "relation": "numerical check or comparison, not a substitute for the stated proof"
+        },
+        {
+          "paper": "TD-III",
+          "label": "thm:ledger",
+          "relation": "numerical check or comparison, not a substitute for the stated proof"
+        }
+      ],
+      "archived_outputs": [
+        {
+          "path": "source_tree/OctoberReview/research/autonomous_claude_20261004/agentJ_joint/checks/out/c5_driftlaw_J0.json",
+          "selected_top_level_keys": [
+            "floor_J0",
+            "self_label",
+            "body_loop_tracking"
+          ],
+          "source_sha256": "bf59fcb73e0ae4c55bd7dcf39e3201a0b88edd0037ddd28036fef75723cce60a",
+          "distributed_sha256": "2c46754071959a657d0331727b102dd56d0884e49d9a0a7e79565b4d54f07c81"
+        }
+      ],
+      "scope": "Gaussian free-information floor and reading-tax factor; a separate bounded body-moment tracker. The latter is not a joint Fisher-information-rate certificate for overlapping body products."
+    },
+    {
+      "id": "c7_closedloop_moments.py",
+      "script": "source_tree/OctoberReview/research/autonomous_claude_20261004/agentJ_joint/checks/c7_closedloop_moments.py",
+      "supports": [
+        {
+          "paper": "TD-III",
+          "label": "prop:loopmoments",
+          "relation": "numerical check or comparison, not a substitute for the stated proof"
+        }
+      ],
+      "archived_outputs": [
+        {
+          "path": "source_tree/OctoberReview/research/autonomous_claude_20261004/agentJ_joint/checks/out/c7_closedloop_moments.json",
+          "selected_top_level_keys": [
+            "max_dev_identities",
+            "max_c_err",
+            "max_g2_err",
+            "max_s_err",
+            "max_abs_mismatched_moment",
+            "rows"
+          ],
+          "source_sha256": "f8b69cb587db3d0c0de2578482eff08602749eefba2314dcdff5daa265ea4eae",
+          "distributed_sha256": "d5b12c62d8c33d5a029bdc711786c7edd8e262d30655fa18a31ac89f70dbde37"
+        }
+      ],
+      "scope": "Direct finite binary-path enumeration of moment identities and their inversion; arbitrary initial body means, with the current theorem retaining its stationary/nondegeneracy assumptions."
+    },
+    {
+      "id": "c8_push_frame.py",
+      "script": "source_tree/OctoberReview/research/autonomous_claude_20261004/agentJ_joint/checks/c8_push_frame.py",
+      "supports": [
+        {
+          "paper": "TD-III",
+          "label": "subsec:J_consequences",
+          "relation": "numerical check or comparison, not a substitute for the stated proof"
+        }
+      ],
+      "archived_outputs": [
+        {
+          "path": "source_tree/OctoberReview/research/autonomous_claude_20261004/agentJ_joint/checks/out/c8_push_frame.json",
+          "selected_top_level_keys": [
+            "shared",
+            "independent"
+          ],
+          "source_sha256": "0b322661dfea9fc12bcf0b85662f3ede33be76842ca1762164ce653305a3beeb",
+          "distributed_sha256": "283074e2f799a21441449a2508a6bd55c05f0498977ad805a97aed9007289ab1"
+        }
+      ],
+      "scope": "The D=6 shared-versus-independent sensing/action push regression example, not a general learning theorem for arbitrary couplings."
+    },
+    {
+      "id": "economy.py",
+      "script": "source_tree/OctoberReview/research/resumption_codex_20261007/ultra_subject/economy.py",
+      "supports": [
+        {
+          "paper": "TD-III",
+          "label": "subsec:J_viability",
+          "relation": "numerical check or comparison, not a substitute for the stated proof"
+        },
+        {
+          "paper": "TD-III",
+          "label": "tab:viability",
+          "relation": "numerical check or comparison, not a substitute for the stated proof"
+        }
+      ],
+      "archived_outputs": [
+        {
+          "path": "source_tree/OctoberReview/research/resumption_codex_20261007/ultra_subject/economy_output.json",
+          "selected_top_level_keys": [
+            "[]"
+          ],
+          "source_sha256": "8ee17221bdea13016432cc6239d5ce56c4a79de7583668a397237782183f936f",
+          "distributed_sha256": "8ee17221bdea13016432cc6239d5ce56c4a79de7583668a397237782183f936f"
+        }
+      ],
+      "scope": "Exact bounded-block posterior/reset/drive calculations: food-only optimum then body cost for the SAME drive state, including the external record-purity entries. Not the continuing filter or cyclic apparatus net."
+    },
+    {
+      "id": "online_joint.py",
+      "script": "source_tree/OctoberReview/research/resumption_codex_20261007/ultra_subject/online_joint.py",
+      "supports": [
+        {
+          "paper": "TD-III",
+          "label": "subsec:online_joint",
+          "relation": "numerical check or comparison, not a substitute for the stated proof"
+        },
+        {
+          "paper": "TD-III",
+          "label": "prop:finite_filter",
+          "relation": "numerical check or comparison, not a substitute for the stated proof"
+        },
+        {
+          "paper": "TD-III",
+          "label": "app:filter_certificates",
+          "relation": "numerical check or comparison, not a substitute for the stated proof"
+        }
+      ],
+      "archived_outputs": [
+        {
+          "path": "source_tree/OctoberReview/research/resumption_codex_20261007/ultra_subject/online_joint_output.json",
+          "selected_top_level_keys": [
+            "certificate",
+            "runs"
+          ],
+          "source_sha256": "174d3d70f3f6f2d129da27b1c5bcf12a257cc88f1c752138e00f5e53236b9d06",
+          "distributed_sha256": "174d3d70f3f6f2d129da27b1c5bcf12a257cc88f1c752138e00f5e53236b9d06",
+          "recorded_runs": [
+            {
+              "policy": "periodic",
+              "threshold": 0,
+              "steps": 32768,
+              "paths": 128,
+              "seed": 7100726
+            },
+            {
+              "policy": "adaptive",
+              "threshold": 0.01,
+              "steps": 32768,
+              "paths": 128,
+              "seed": 7100726
+            },
+            {
+              "policy": "adaptive",
+              "threshold": 0.02,
+              "steps": 32768,
+              "paths": 128,
+              "seed": 7100726
+            },
+            {
+              "policy": "adaptive",
+              "threshold": 0.04,
+              "steps": 32768,
+              "paths": 128,
+              "seed": 7100726
+            }
+          ]
+        },
+        {
+          "path": "source_tree/OctoberReview/research/resumption_codex_20261007/ultra_subject/online_joint_confirmation.json",
+          "selected_top_level_keys": [
+            "certificate",
+            "runs"
+          ],
+          "source_sha256": "0152139dd95caa35dc5403ea6cedd6203410275ac524bf591991e1a31c445d52",
+          "distributed_sha256": "0152139dd95caa35dc5403ea6cedd6203410275ac524bf591991e1a31c445d52",
+          "recorded_runs": [
+            {
+              "policy": "periodic",
+              "threshold": 0,
+              "steps": 65536,
+              "paths": 128,
+              "seed": 7100727
+            },
+            {
+              "policy": "adaptive",
+              "threshold": 0.04,
+              "steps": 65536,
+              "paths": 128,
+              "seed": 7100727
+            }
+          ]
+        }
+      ],
+      "scope": "Continuing eight-state filter, periodic/adaptive reference comparisons and projective constants. The random binary64 quantization diagnostics are not a rigorous machine certificate. Two archived outputs use different seed/horizon options, listed below."
+    },
+    {
+      "id": "independent_checks.py",
+      "script": "source_tree/OctoberReview/research/continuation_codex_20261007/subject/independent_checks.py",
+      "supports": [
+        {
+          "paper": "TD-III",
+          "label": "prop:body_event",
+          "relation": "numerical check or comparison, not a substitute for the stated proof"
+        },
+        {
+          "paper": "TD-III",
+          "label": "prop:body_blackout",
+          "relation": "numerical check or comparison, not a substitute for the stated proof"
+        },
+        {
+          "paper": "TD-III",
+          "label": "prop:body_memory_value",
+          "relation": "numerical check or comparison, not a substitute for the stated proof"
+        },
+        {
+          "paper": "TD-III",
+          "label": "tab:body_access_ledger",
+          "relation": "numerical check or comparison, not a substitute for the stated proof"
+        },
+        {
+          "paper": "TD-III",
+          "label": "app:filter_certificates",
+          "relation": "numerical check or comparison, not a substitute for the stated proof"
+        }
+      ],
+      "archived_outputs": [
+        {
+          "path": "source_tree/OctoberReview/research/continuation_codex_20261007/subject/check_results.json",
+          "selected_top_level_keys": [
+            "exact_wall_to_event_checks",
+            "CP_extension",
+            "current_drive",
+            "certificate_common_coarse",
+            "stationary_price_identity",
+            "memory_work_exact_path_enumeration",
+            "memory_work_formulas",
+            "absorbing"
+          ],
+          "source_sha256": "b204623ccf3bbe00be05e23c20ed1c4ef66d43d246291f489984226f628d08a6",
+          "distributed_sha256": "b204623ccf3bbe00be05e23c20ed1c4ef66d43d246291f489984226f628d08a6"
+        }
+      ],
+      "scope": "Exact rational first-return/eigenmode and memory-food paths, CP-extension and selected supplied-resource entries. The rational s=49/50 witness is separated from the actual manuscript drive; this is not a complete cyclic resource ledger."
+    },
+    {
+      "id": "check_subject.py",
+      "script": "source_tree/OctoberReview/research/round34_response_codex_20261008/subject/checks/check_subject.py",
+      "supports": [
+        {
+          "paper": "TD-III",
+          "label": "prop:repair_witness",
+          "relation": "numerical check or comparison, not a substitute for the stated proof"
+        },
+        {
+          "paper": "TD-III",
+          "label": "eq:short_repair",
+          "relation": "numerical check or comparison, not a substitute for the stated proof"
+        },
+        {
+          "paper": "TD-III",
+          "label": "prop:adaptive_exact",
+          "relation": "numerical check or comparison, not a substitute for the stated proof"
+        },
+        {
+          "paper": "TD-III",
+          "label": "prop:sqrtlaw",
+          "relation": "numerical check or comparison, not a substitute for the stated proof"
+        }
+      ],
+      "archived_outputs": [
+        {
+          "path": "source_tree/OctoberReview/research/round34_response_codex_20261008/subject/checks/check_subject_output.json",
+          "selected_top_level_keys": [
+            "gain_root",
+            "confidence",
+            "gain_means",
+            "repair",
+            "rational_interval_certificates",
+            "sqrtlaw"
+          ],
+          "source_sha256": "fa1bb5690591c80c9b24ff665d301a6d5b9ae0450551784f92a1c265c81906c6",
+          "distributed_sha256": "fa1bb5690591c80c9b24ff665d301a6d5b9ae0450551784f92a1c265c81906c6"
+        }
+      ],
+      "scope": "Static two-slot repair witness and exact rational quiet-threshold Bellman certificate. sqrtlaw here names the adaptive_exact certificate; it is not c4’s asymptotic scan. Does NOT compute prop:repair_rates, tab:repair_drift or the continuing enquiry examples."
+    },
+    {
+      "id": "closed_loop.py",
+      "script": "source_tree/OctoberReview/research/d3/codex/v0/closed_loop.py",
+      "supports": [
+        {
+          "paper": "TD-III",
+          "label": "eq:bank_step",
+          "relation": "numerical check or comparison, not a substitute for the stated proof"
+        },
+        {
+          "paper": "TD-III",
+          "label": "subsec:model_A",
+          "relation": "numerical check or comparison, not a substitute for the stated proof"
+        },
+        {
+          "paper": "TD-III",
+          "label": "tab:loop",
+          "relation": "numerical check or comparison, not a substitute for the stated proof"
+        },
+        {
+          "paper": "TD-III",
+          "label": "prop:memory_drift",
+          "relation": "numerical check or comparison, not a substitute for the stated proof"
+        },
+        {
+          "paper": "TD-III",
+          "label": "prop:decode_error",
+          "relation": "numerical check or comparison, not a substitute for the stated proof"
+        }
+      ],
+      "archived_outputs": [
+        {
+          "path": "source_tree/OctoberReview/research/d3/codex/v0/closed_loop_output.json",
+          "selected_top_level_keys": [
+            "configuration",
+            "analytic_guarantee",
+            "experiments",
+            "resources"
+          ],
+          "source_sha256": "3f388d5f629774782a1ee222b952754c461fa498a30c7565aec9358612877795",
+          "distributed_sha256": "3f388d5f629774782a1ee222b952754c461fa498a30c7565aec9358612877795"
+        }
+      ],
+      "scope": "Count-compressed Model A comparison (static, normal, x8 only), resource counts and an older unrolled analytic bound. Not the source of the x4 table row or the sharp 0.4518 calculation; see d3_repro/check_section9."
+    },
+    {
+      "id": "d3_repro.py",
+      "script": "source_tree/OctoberReview/research/d1d2/claude/d3_repro.py",
+      "supports": [
+        {
+          "paper": "TD-III",
+          "label": "subsec:model_A",
+          "relation": "numerical check or comparison, not a substitute for the stated proof"
+        },
+        {
+          "paper": "TD-III",
+          "label": "tab:loop",
+          "relation": "numerical check or comparison, not a substitute for the stated proof"
+        },
+        {
+          "paper": "TD-III",
+          "label": "app:loop_protocol",
+          "relation": "numerical check or comparison, not a substitute for the stated proof"
+        }
+      ],
+      "archived_outputs": [
+        {
+          "path": "source_tree/OctoberReview/research/d1d2/claude/d3_repro_output.json",
+          "selected_top_level_keys": [
+            "driftx1",
+            "staticx1",
+            "driftx8",
+            "driftx4"
+          ],
+          "source_sha256": "6677e2ae7626529c0c058868c0a3eb933974790a24eb18a78a96db871382c7a7",
+          "distributed_sha256": "14e127bea3083625f0b2784403ed6413829714dd944f8a3af78e9a03ef457a01"
+        }
+      ],
+      "scope": "Bit-by-bit Model A comparison; these four stored regimes supply the printed table, with additional x2/x16 scans retained. Uses platform_e0.py. Distinct streams across policies, not a paired-policy standard-error claim."
+    },
+    {
+      "id": "chain_v2.py",
+      "script": "source_tree/OctoberReview/research/chain/claude_v2/chain_v2.py",
+      "supports": [
+        {
+          "paper": "TD-III",
+          "label": "subsec:model_B",
+          "relation": "numerical check or comparison, not a substitute for the stated proof"
+        },
+        {
+          "paper": "TD-III",
+          "label": "tab:cells",
+          "relation": "numerical check or comparison, not a substitute for the stated proof"
+        },
+        {
+          "paper": "TD-III",
+          "label": "app:loop_protocol",
+          "relation": "numerical check or comparison, not a substitute for the stated proof"
+        }
+      ],
+      "archived_outputs": [
+        {
+          "path": "source_tree/OctoberReview/research/chain/claude_v2/chain_v2_output.json",
+          "selected_top_level_keys": [
+            "base",
+            "cap",
+            "faults",
+            "interaction"
+          ],
+          "source_sha256": "2baf9f904f7606fab3505118952d384d827200bbd738777d33fc5280392da072",
+          "distributed_sha256": "1544bae945b7b0a8b7a9fad6141a29ae5e233c2d198a0e6f8b5208bd1d133674"
+        }
+      ],
+      "scope": "Three-block Model B alignment/authority comparison, all fault cells and command-cap check. Not the different Foundation-II calibration experiment."
+    }
+  ],
+  "support_note": "Stable manuscript labels, not moving printed numbers. Selected keys locate evidence; scope distinguishes exact computation, finite diagnostics, dependencies and unproved generalizations. All original file metadata and evidence hashes are retained.",
+  "not_checked_by_this_bundle": [
+    "lem:stopped_score conditional-average bound: the article gives the proof; supplemental/stopped_score supplies a finite-tree reading-score illustration, not a discrete-prior van Trees proof.",
+    "prop:access_moments, prop:enquiry_moments, prop:repair_rates and tab:repair_drift: not computed by the bundled check_subject.py; their written proofs and other research evidence are not silently attributed to that script.",
+    "The 0.068 adaptive-reference counterexample and nonideal 0.0687253 number are not computed by c4_jump_price.py or check_subject.py."
+  ]
+}

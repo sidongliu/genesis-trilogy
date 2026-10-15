@@ -1,0 +1,42 @@
+{
+  "title": "The Consciousness Series",
+  "official_pdf": "Consciousness_Series_Complete_Collection.pdf",
+  "members": [
+    {
+      "id": "F-I",
+      "pdf": "F-I.pdf",
+      "title": "Foundation I: From Source to Manifestation. Accessible Algebras from a Source, Its Noise and a Readable Seed",
+      "sha256": "67a9bc4b02fa2b1212e6a37db7f7cb81c6a8b30b5d66334237fea11435864d91"
+    },
+    {
+      "id": "F-II",
+      "pdf": "F-II.pdf",
+      "title": "Foundation II: Shared Manifestation. Shared Structure, Public Calibration and Different Histories",
+      "sha256": "2c720c2a9fc9c6f5d4f3f403a06393310075d1bc57863894bc9edd3322116877"
+    },
+    {
+      "id": "F-III",
+      "pdf": "F-III.pdf",
+      "title": "Foundation III: The Perfuming Loop. Held Content, Learned Frames and Physical Return",
+      "sha256": "964ebc82a6e604d8d9cc5bb4c0fab5db0fd44eb12131574a01e6983eeaaa2954"
+    },
+    {
+      "id": "C-I",
+      "pdf": "C-I.pdf",
+      "title": "Geometry Relative to a Cut: Selection, Generation and Modular Inseparability",
+      "sha256": "92a602dc86fc2fa0f0dccb976d05caa41f54da3c061e05eea1056afe457fe943"
+    },
+    {
+      "id": "C-II",
+      "pdf": "C-II.pdf",
+      "title": "Higher-Dimensional Consistency of Geometry and Modular Flow: Physical Source Identification and a Second-Order Extension",
+      "sha256": "88095f4e24a0f3b3494a635fde088b75d7a324063d6798d59663f7d460b12877"
+    },
+    {
+      "id": "C-III",
+      "pdf": "C-III.pdf",
+      "title": "Finite Self-Models and the Explanatory Gap: What a Continuing Observer Can Know About Itself",
+      "sha256": "fa70240aecc8a81dd95f17b717aa4f8f38987a5399a4218e664d989a0c180de3"
+    }
+  ]
+}

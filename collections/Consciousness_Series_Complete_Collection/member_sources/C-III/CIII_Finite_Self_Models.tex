@@ -1,0 +1,1204 @@
+\documentclass[12pt]{article}
+
+\usepackage[a4paper, margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{mathtools}
+\usepackage{enumitem}
+\usepackage{booktabs}
+\usepackage[hidelinks]{hyperref}
+\hypersetup{pdftitle={Finite Self-Models and the Explanatory Gap: What a Continuing Observer Can Know About Itself},pdfauthor={Sidong Liu}}
+\usepackage{fontspec}
+
+\defaultfontfeatures{Ligatures=TeX}
+\IfFontExistsTF{Times New Roman}
+  {\setmainfont{Times New Roman}}
+  {\setmainfont{TeX Gyre Termes}}
+\IfFontExistsTF{Menlo}
+  {\setmonofont{Menlo}}
+  {\setmonofont{Latin Modern Mono}}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{hypothesis}[theorem]{Hypothesis}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+
+\newcommand{\E}{\mathbb E}
+\newcommand{\tr}{\operatorname{tr}}
+
+\title{%
+  \textbf{Finite Self-Models and the Explanatory Gap:}\\
+  \textbf{What a Continuing Observer Can Know About Itself}%
+}
+
+\author{
+  Sidong Liu, PhD \\
+  \small iBioStratix Ltd \\
+  \small \texttt{sidongliu@hotmail.com}
+}
+
+\date{Revised October 2026}
+
+\begin{document}
+\emergencystretch=2em
+\raggedbottom
+\hbadness=5000
+\vbadness=5000
+
+\maketitle
+
+\begin{abstract}
+A continuing observer learns about itself through permitted operations,
+retained records and a description it can decode. With relative entropy
+as the loss, its risk splits exactly into unobservable, finite-record,
+compression and decoding terms. Continued neutral acquisition with
+sufficient growing memory reaches the observability limit; permanent
+failure and fixed-bit storage impose separate floors. Joint information
+prices actual working opportunities, including adaptive access.
+An unknown qubit state supplied once has optimal Bloch-ball risk
+$h(3/5)-1/3=0.340$ nat. A drifting Gaussian self-parameter has stationary
+risk $\tfrac12\ln(1+P/v)$.
+We then distinguish matching routine reports from matching all permitted
+interventions. A finite pointer observer cannot passively distinguish
+a changed world, sensor or record frame, although they require different
+physical repairs. With two paid diagnostic permissions, its noisy
+restoration-failure risk plus read price is $29/120$, below $13/50$ for every fixed query list
+in the same menu; bounded finite gates preserve the advantage.
+Keeping the same body through repeated faults gives a stronger boundary:
+routine-only restoration success tends to at most $1/4$, for every
+history-dependent rule. Two paid internal pilots and a continuing
+two-step controller give failure approximately $.091$ in a specified
+noisy experiment, against $.195$ for the best enumerated memoryless map.
+Compressing causal records to confidence alone incurs a separate decision penalty. Confidence becomes causally useful when acquired distinctions return
+to the operation that needs correction. We propose that reflective
+first-person continuity depends on this maintained causal self-access,
+and specify selective-disruption, replay and retention contrasts.
+The proposal addresses the organization of reflection; the proved
+record boundaries do not establish phenomenal experience.
+\end{abstract}
+
+\clearpage
+\tableofcontents
+\clearpage
+
+\section{Introduction}\label{sec:1}
+
+\subsection{The question}
+
+An observer that is part of the world it describes must also describe itself: its own instruments, its own reliability and its own state. It can do so only from inside, with the operations available to it, from records it has kept, in a memory that is itself finite. This paper asks four questions about such self-description. What can a finite but continuing observer know about itself? Which limits are specific to self-description, as opposed to ordinary estimation? How does monitoring its own reliability extend what it can know? And what do the answers imply for the explanatory gap between a functional account of a subject and its experience?
+
+The self-description model specifies an accessible algebra, a family of
+self-states, permitted instruments, acquired records, finite-bit memory
+and a decoder. Its loss is relative entropy between the true self-state
+and the description. The results distinguish finite evidence, restricted
+operations and properties of the target that is being read. A second,
+finite task in Section~\ref{sec:causal} prices an actual causal diagnosis
+and restoration. Its indicator loss and read prices are not measured
+in relative-entropy nats.
+
+\subsection{Position within the series}
+
+Consciousness~I studies a noise-selected accessible algebra and standard
+Cuts inside its own vacuum representation, relating their modular
+data to geometry~\cite{PaperI}. The selected algebra is not itself a
+Cut of the ambient algebra. Consciousness~II carries modular data to
+balls in higher dimensions and studies their consistency with linearized
+gravity under its geometric inputs~\cite{PaperII}. This paper asks what
+an observer can know about its own states and conditions of access.
+HAFF~G motivates structural limits of such descriptions~\cite{PaperG}.
+T-DOME supplies self-frames selected by history~\cite{TDOMEII} and
+calibration and maintenance loops~\cite{TDOMEIII}; \emph{The World as
+Imprint} gives a reader that estimates its own instrument~\cite{WorldImprint}.
+The self-description bounds and causal diagnosis here connect those
+functional mechanisms to the Consciousness series' experiential question.
+The bridge has its own argument and competing explanations: none of the
+functional theorems supplies phenomenal presence by definition.
+
+\subsection{Results}
+
+\begin{itemize}[itemsep=2pt]
+\item \textbf{Finiteness is not a floor} (Proposition~\ref{prop:noFloor}). A two-outcome code reconstructs a short orbit of self-states exactly if the exact outcome probability is available. Loss enters through records and memory, not through dimension.
+\item \textbf{Exact anatomy of the loss} (Theorem~\ref{thm:decomp}). Unobservable, finite-record, compression and decoding terms add exactly. For the uniform Bloch ball read along one axis the unobservable term is $1/4$ nat and the finite-record term is an explicit sum.
+\item \textbf{What can be known} (Proposition~\ref{prop:learn}, Theorem~\ref{thm:vanTrees}). With sufficient growing memory, fresh expressions identify exactly what their outcome law distinguishes. Every decoder obeys a non-asymptotic floor $2m^2/(\E J_Y+J_\pi)$ on any von Neumann algebra.
+\item \textbf{Access must continue} (Propositions~\ref{prop:accessinfo}--\ref{prop:fixedmemory}). Actual working opportunities determine the available information. Repair restores the attainable fibre limit; in the continuous example, permanent failure and fixed-bit storage impose separate positive floors.
+\item \textbf{Limits that belong to a self.} The single-copy limit for the present state (Theorem~\ref{thm:onecopy}); self-shaped unobservable fibres (Proposition~\ref{prop:selfshaped}); an exact and strictly positive stationary floor for a Gaussian self-parameter that drifts while it is read at a finite rate, and the resulting price of keeping up (Theorem~\ref{thm:drift}, Corollary~\ref{cor:price}).
+\item \textbf{Monitoring} (Propositions~\ref{prop:monitor} and~\ref{prop:blindmonitor}). Record-conditioned risk is calibrated under a correct model; an effective implementation also needs a specified posterior and processing resources. Model errors confined to an unobservable fibre remain invisible.
+\item \textbf{Causal self-access} (Section~\ref{sec:causal}). An interventional distance bounds every discriminating test. A pointer realization gives exact paid diagnosis and actual repair, separating identical routine reports from the internal causes they hide.
+\item \textbf{Resolution order} (Proposition~\ref{prop:horizon}). Under a factorially decaying information spectrum, the number of self-directions resolvable to a fixed tolerance grows as $\log N/(\alpha\log\log N)$, with a two-sided Lambert-$W$ asymptotic.
+\item \textbf{A bridge to experience} (Section~\ref{sec:bridge}). A hypothesis relating reflective access to dispositional self-knowledge, with its reasons, the strongest objection and distinguishing predictions.
+\end{itemize}
+
+\subsection{Related work}
+
+Breuer proved that an observer cannot distinguish all present states of a system in which it is contained, classical or quantum~\cite{Breuer1995}. Our single-copy limit and drift floor are quantitative relatives of that result: they say how much can be known, at what cost, and which parts cannot be known at all under given permissions. The Holevo bound limits the information a measurement extracts from one copy of a quantum state~\cite{Holevo1973}. That Bayesian predictive states are optimal for averaged relative entropy is known for quantum statistical models~\cite{TanakaKomaki2005}, and the relative-entropy radius of a set of states equals its maximal Holevo information~\cite{SchumacherWestmoreland2001}. Posterior Cram\'er--Rao bounds for filtering are due to Tichavsk\'y, Muravchik and Nehorai~\cite{Tichavsky1998}. Bayesian metacognition models distinguish coupled decision and confidence processes~\cite{FlemingDaw2017}. Report-based and no-report paradigms separately examine experience and the processes used to express it~\cite{Tsuchiya2015}. Our elementary testing and decision rules use standard tools; their role is to connect continuing records to a physically specified correction, and to state which experiential comparison those tools leave open.
+
+\section{Finite observers and self-description}\label{sec:2}
+
+\subsection{Observer, self-states and permissions}
+
+\begin{definition}[Finite self-describing observer]\label{def:observer}
+A finite self-describing observer consists of
+\begin{enumerate}[itemsep=1pt]
+\item an accessible von Neumann algebra $\mathcal A_{\mathrm{obs}}$, for example the stable accessible algebra of Consciousness~I;
+\item a family of normal self-states $\{\omega_\theta\}_{\theta\in\Theta}$ on $\mathcal A_{\mathrm{obs}}$ with a prior $\pi$ on $\Theta$;
+\item a permitted observation protocol $\Lambda$, a sequence of instruments whose classical outcomes form the record $Y_N$ after $N$ uses;
+\item a memory that stores a compression $Z=f(Y_N)$ taking at most $2^B$ values;
+\item a decoder that outputs a normal state $\sigma_Z$ on $\mathcal A_{\mathrm{obs}}$.
+\end{enumerate}
+The self-description risk is $\E\,S(\omega_\Theta\Vert\sigma_Z)$, with $S$ the Araki relative entropy~\cite{Araki1976}; the minimax risk replaces the prior average by a supremum over $\theta$.
+\end{definition}
+
+The protocol may be adaptive; then $Y_N$ carries its full joint likelihood. Records, memory and decoding are physical operations of the observer, so their limits are its limits; no external reader is assumed. Relative entropy is the natural loss: it is defined for normal states on any von Neumann algebra, it is monotone under the observer's operations~\cite{Petz1986}, and its local quadratic form is the Bogoliubov--Kubo--Mori metric~\cite{Petz1996}, which Consciousness~I computes exactly for half-line algebras of chiral nets along local diffeomorphisms~\cite{PaperI}.
+
+\subsection{Finiteness alone gives no floor}
+
+\begin{proposition}[No floor from dimension]\label{prop:noFloor}
+Let $s\mapsto\omega_s$ be a nonconstant smooth family of normal states on $\mathcal A_{\mathrm{obs}}$, and choose an effect $0\le M\le\mathbf 1$ with $\frac{d}{ds}\omega_s(M)|_{s=0}\neq0$. On a short enough segment, $p(s)=\omega_s(M)$ is injective, and the two-outcome code $\omega_s\mapsto(p(s),1-p(s))$, which factors through the commutative algebra $\mathbb C^2$, followed by the recovery $(p(s),1-p(s))\mapsto\omega_s$, reconstructs every state on the segment with zero relative entropy.
+\end{proposition}
+
+\begin{proof}
+The map $\Phi(a,b)=aM+b(\mathbf 1-M)$ is normal, unital and completely positive from $\mathbb C^2$ into $\mathcal A_{\mathrm{obs}}$, and its dual sends $\omega_s$ to $(p(s),1-p(s))$. Injectivity on a short segment follows from the inverse function theorem, and the recovery is defined on the image.
+\end{proof}
+
+The code is exact because it is given the probability $p(s)$, a real number. A record is not a probability. Finitely many outcomes of the effect determine $p(s)$ only up to sampling error, and finitely many bits only up to quantization. When those are charged, the record and compression terms of Theorem~\ref{thm:decomp} below are positive for a continuous prior: for an affine family the decoded state is $\omega_{\E[s\mid Z]}$, which differs from $\omega_s$ with probability one. The quantity that a finite self-model fails to capture is therefore fixed by its records, its memory and its permissions, and those are what the rest of the paper prices.
+
+\section{The exact anatomy of self-description loss}\label{sec:3}
+
+In this section the algebra is a full matrix algebra and all states have full rank.
+
+\begin{theorem}[Four-term decomposition]\label{thm:decomp}
+Let $\Theta\to P\to Y\to Z$ be a Markov chain, where $P=p^\Lambda_\Theta$ is a sufficient specification of the protocol's record law, $Y$ the record and $Z$ its compression, and put $\rho_P=\E[\omega_\Theta\mid P]$, $\rho_Y=\E[\omega_\Theta\mid Y]$ and $\rho_Z=\E[\omega_\Theta\mid Z]$. For fresh independent uses, $P$ is the one-use outcome law; for an adaptive protocol it must determine the full conditional experiment. For every decoder $\sigma_Z$,
+\begin{equation}\label{eq:decomp}
+\E\,S(\omega_\Theta\Vert\sigma_Z)=\underbrace{\E\,S(\omega_\Theta\Vert\rho_P)}_{\text{unobservable}}
++\underbrace{\E\,S(\rho_P\Vert\rho_Y)}_{\text{finite records}}
++\underbrace{\E\,S(\rho_Y\Vert\rho_Z)}_{\text{compression}}
++\underbrace{\E\,S(\rho_Z\Vert\sigma_Z)}_{\text{decoding}}.
+\end{equation}
+The optimal decoder is $\sigma_Z=\rho_Z$, and the optimal risk is $\E\,S(\rho_Z)-\E\,S(\omega_\Theta)$, the average Holevo information of the posterior ensemble given $Z$.
+\end{theorem}
+
+\begin{proof}
+For an ensemble with average $\bar\rho$ and any $\sigma$, $\E\,S(\rho\Vert\sigma)=\E\,S(\rho\Vert\bar\rho)+S(\bar\rho\Vert\sigma)$, because $\E\tr\rho(\log\bar\rho-\log\sigma)=\tr\bar\rho(\log\bar\rho-\log\sigma)$. Applied conditionally on $Z$ with $\sigma=\sigma_Z$, it splits off the decoding term. For the remaining term, $S(\omega_\Theta\Vert\rho_Z)-S(\omega_\Theta\Vert\rho_Y)=\tr\omega_\Theta(\log\rho_Y-\log\rho_Z)$; conditioning on $(Y,Z)$ and using $\E[\omega_\Theta\mid Y,Z]=\rho_Y$, which holds because $\Theta$ and $Z$ are independent given $Y$, gives $\E\,S(\rho_Y\Vert\rho_Z)$. The same step at the level of $(P,Y)$, with $\E[\omega_\Theta\mid P,Y]=\rho_P$, gives the record term. The optimal risk follows from $\E\tr\omega_\Theta\log\rho_Z=\E\tr\rho_Z\log\rho_Z$.
+\end{proof}
+
+The four terms come from one joint model, which is why they add. Bounds derived for different models, such as a $d/(2N)$ rate, a fibre radius and a quantization bound, cannot simply be summed. Each term has its own remedy: new permissions for the first, more records for the second, more memory for the third and a better decoder for the fourth.
+
+\begin{example}[The uniform Bloch ball read along one axis]\label{ex:bloch}
+Let the self-state be a qubit $\omega_r=\tfrac12(\mathbf 1+r\cdot\sigma)$ with $r$ uniform in the Bloch ball, and let the protocol measure $\sigma_z$ on fresh preparations of $\omega_r$. Then $p=(1+z)/2$ has prior $\mathrm{Beta}(2,2)$, and after $N$ outcomes with $K$ positive the posterior is $\mathrm{Beta}(K+2,N-K+2)$ and the optimal description is $\tfrac12(\mathbf 1+\hat z_K\sigma_z)$ with $\hat z_K=(2K-N)/(N+4)$. With $h$ the binary entropy in nats, $\E\,S(\omega_r)=1/3$ and $\E\,S(\omega_{(0,0,z)})=7/12$, so the unobservable term is exactly $1/4$ nat, and
+\begin{equation}\label{eq:RN}
+R_N=\sum_{k=0}^N\frac{6(k+1)(N-k+1)}{(N+1)(N+2)(N+3)}\,h\!\left(\frac{k+2}{N+4}\right)-\frac13 .
+\end{equation}
+Numerically $R_0=0.35981$, $R_{10}=0.28408$, $R_{100}=0.25477$, $R_{1000}=0.25050$, and $N(R_N-\tfrac14)=0.4998$ at $N=10^4$: the finite-record term behaves as $1/(2N)$ for the one identifiable direction.
+\end{example}
+
+\begin{proof}
+The $z$-marginal of the uniform ball has density $\tfrac34(1-z^2)$, which gives the Beta law. The posterior mean of $z$ is $2\E[p\mid K]-1$. The entropies follow by integrating $h((1+|r|)/2)$ against $3|r|^2\,d|r|$ and $h((1+|z|)/2)$ against $\tfrac34(1-z^2)\,dz$. The risk is the average posterior Holevo information of Theorem~\ref{thm:decomp}, and the transverse components of $r$ have posterior mean zero for every record.
+\end{proof}
+
+\section{What a finite observer can know}\label{sec:4}
+
+\subsection{Dispositions are learnable}
+
+\begin{proposition}[Learnable dispositions]\label{prop:learn}
+In finite dimension, suppose the protocol has finitely many outcomes and its uses are independent given $\Theta$, each producing a fresh expression of the same self-parameter. The optimal risk $R_N$ for uncompressed records is non-increasing and converges to $\E\,S(\omega_\Theta\Vert\E[\omega_\Theta\mid P])$. It converges to zero if and only if $\omega_\Theta$ is, $\pi$-almost surely, a function of the outcome law $P$; in particular, if the protocol is informationally complete on the family.
+\end{proposition}
+
+\begin{proof}
+The conditional means $\E[\omega_\Theta\mid Y_N]$ form a bounded matrix martingale and converge; given $\Theta$ the empirical frequencies converge to $P$, so the limit is $\E[\omega_\Theta\mid P]$. The risk is $\E\,S(\rho_{Y_N})-\E\,S(\omega_\Theta)$, monotone because $\rho_{Y_N}$ is a martingale and entropy is concave, and continuous in the limit because entropy is continuous and bounded in finite dimension. The limit vanishes exactly when $\omega_\Theta=\E[\omega_\Theta\mid P]$ almost surely.
+\end{proof}
+
+The condition ``fresh expression'' matters. If all records copy a single outcome, they are nested and Markov but never improve on one use; repetition helps only when the self-parameter is expressed again. For the uniform Bloch ball with $N/3$ reads along each of $\sigma_x,\sigma_y,\sigma_z$, a Monte Carlo evaluation of the Bayes risk gives $0.290$, $0.118$ and $0.020$ nat for $N=3$, $30$ and $300$ (standard errors below $0.005$), against the single-axis limit of $1/4$.
+
+\subsection{A floor for every decoder}
+
+\begin{theorem}[Binary-effect floor]\label{thm:vanTrees}
+Let $\Theta=[a,b]$ carry a $C^1$ prior $\pi$ vanishing at the endpoints with finite Fisher information $J_\pi$, and let $\{\omega_\theta\}$ be normal states on any von Neumann algebra. Suppose there is an effect $M$ with $p(\theta)=\omega_\theta(M)$ monotone and $|p'(\theta)|\ge m>0$, and that the record $Y$ has a joint likelihood satisfying the regularity conditions of the scalar van Trees inequality, with Fisher information $J_Y(\theta)$. Then for every decoder $\sigma_Y$ whose randomization is conditionally independent of $\Theta$ given $Y$ (any correlated retained tape is included in $Y$),
+\begin{equation}\label{eq:vanTrees}
+\E\,S(\omega_\Theta\Vert\sigma_Y)\ \ge\ \frac{2m^2}{\E_\pi J_Y(\Theta)+J_\pi}.
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+Let $q=\sigma_Y(M)$, let $\tilde q$ be $q$ clipped to the interval between $p(a)$ and $p(b)$, and put $\hat\theta=p^{-1}(\tilde q)$. Monotonicity of relative entropy under the measurement $\{M,\mathbf 1-M\}$, Pinsker's inequality in nats for two Bernoulli laws, the fact that clipping to an interval containing $p(\theta)$ does not increase the distance to $p(\theta)$, and the mean value theorem give
+\[
+S(\omega_\theta\Vert\sigma_Y)\ \ge\ D\bigl(\mathrm{Ber}(p(\theta))\Vert\mathrm{Ber}(q)\bigr)\ \ge\ 2|p(\theta)-q|^2\ \ge\ 2|p(\theta)-\tilde q|^2\ \ge\ 2m^2|\theta-\hat\theta|^2 .
+\]
+The van Trees inequality~\cite{vanTrees1968} bounds $\E(\hat\theta-\Theta)^2$ below by $1/(\E_\pi J_Y+J_\pi)$.
+\end{proof}
+
+The theorem needs no quadratic expansion of the Araki relative entropy and no restriction of the decoder to the family, so it holds on Type~III algebras. For independent records $J_Y=NF$; for correlated records the joint information must be used, and it is not in general the independent value divided by a correlation time. As an example, take $\Theta=[-1,1]$ with prior $\tfrac{15}{16}(1-\theta^2)^2$, a commutative self-state $\mathrm{Ber}(0.5+0.2\theta)$ and $N$ independent records of it, so that $m=0.2$, $\E_\pi F=0.16387$ and $J_\pi=10$. The exact Bayes risks for $N=0$, $10$ and $100$ are $0.01153$, $0.00936$ and $0.00345$ nat; the floor gives $0.00800$, $0.00687$ and $0.00303$.
+
+\subsection{Working opportunities and retained knowledge}\label{sec:working}
+
+A reading rate presupposes a working reader. Let $A_t$ indicate whether a reading is actually acquired in wall-clock slot $t$, let $N(H)=\sum_{t=1}^H A_t$, and include access indicators, selected operations and acquired outcomes in the complete experimental record $\mathcal R_H$. This record may contain more than the observer retains. A floor derived for it also bounds any internal compression. The time labels specify the experiment; they do not grant a disabled processor an internal clock or free processing.
+
+\begin{proposition}[Information from actual access]\label{prop:accessinfo}
+Suppose the access and operation conditional probability kernels, given the pre-event complete-record history, are independent of a static parameter $\theta$. Write $F_t(\theta)$ for the predictable conditional Fisher information of an acquired outcome, allowing dependence on that history. Suppose the joint likelihood is regular and the conditional scores have mean zero. Then
+\begin{equation}\label{eq:accessinfo}
+J_{\mathcal R_H}(\theta)=\E_\theta\sum_{t=1}^H A_tF_t(\theta).
+\end{equation}
+In particular, if $F_t\le F_{\max}$, every decoder in Theorem~\ref{thm:vanTrees} obeys
+\begin{equation}\label{eq:accessfloor}
+\E\,S(\omega_\Theta\Vert\sigma)\ge
+\frac{2m^2}{J_\pi+\E_\pi J_{\mathcal R_H}}
+\ge\frac{2m^2}{J_\pi+F_{\max}\E_\pi N(H)}.
+\end{equation}
+The identity allows access rules chosen from earlier outcomes and decisions to stop reading.
+\end{proposition}
+
+\begin{proof}
+Factor the joint likelihood into conditional access, operation and outcome laws. Only acquired-outcome factors contribute to its derivative under the stated parameter-neutral access law. Their scores form martingale differences, so distinct scores are orthogonal in expectation. Their conditional second moments give~\eqref{eq:accessinfo}. Apply Theorem~\ref{thm:vanTrees} to the complete record and then to any retained record by data processing.
+\end{proof}
+
+If the access law itself depends on $\theta$, its score must also be counted: an erasure pattern can carry information. In the access-gated loop of T-DOME~III, the working body is not driven by its readings, and access is parameter-neutral given its stored latch. Equation~\eqref{eq:accessinfo} therefore applies to a static instrument in that loop. In its read-and-flip loop, the controlled body can instead make the access pattern informative about the instrument's sign; that pattern's score must then be counted~\cite{TDOMEIII}.
+
+For a concrete gate, start working, fail with probability $h\in(0,1)$ after a working slot and recover with probability $r\in[0,1]$ after a failed slot. Suppose this chain is independent of the self-parameter and the entire stream of fresh outcomes. Its mean acquired count is
+\begin{equation}\label{eq:workingcount}
+\E N(H)=qH+(1-q)\frac{1-(1-h-r)^H}{h+r},\qquad q=\frac r{h+r}.
+\end{equation}
+Without repair, $\E N(H)=[1-(1-h)^H]/h\le1/h$. In the affine Bernoulli example above, $F(\theta)\le4/21$. At $h=0.05$,~\eqref{eq:accessfloor} therefore gives a limiting floor of $21/3625=0.0057931$ nat. Independence of the gate sharpens it by using $\E_\pi F=0.1638677$ instead of its maximum, giving $0.0060253$ nat. These are decoder-independent lower bounds, not the exact Bayes risk.
+
+\begin{proposition}[Repair and the attainable observability limit]\label{prop:repairlimit}
+For the independent gate above and a finite-outcome protocol on a finite matrix algebra producing fresh expressions that are iid conditional on $\Theta$, let $R_n^*$ denote its optimal $n$-read risk with uncompressed records. The optimal wall-clock risk is
+\[
+R_H^*=\E R_{N(H)}^*.
+\]
+If $r>0$, then $N(H)/H\to q$ almost surely and
+\begin{equation}\label{eq:repairlimit}
+R_H^*\longrightarrow R_{\mathrm{fibre}}
+:=\E\,S(\omega_\Theta\Vert\E[\omega_\Theta\mid P]).
+\end{equation}
+It tends to zero exactly when the self-state is almost surely determined by its permitted outcome law. If $r=0$, then instead
+\begin{equation}\label{eq:failurelimit}
+R_H^*\longrightarrow
+\sum_{n\ge1}h(1-h)^{n-1}R_n^*,
+\end{equation}
+strictly above $R_{\mathrm{fibre}}$ whenever some finite $R_n^*$ is above it.
+\end{proposition}
+
+\begin{proof}
+The independent gate changes the count but not the conditional experiment. Its access history supplies no parameter information beyond that count. Positive repair makes the two-state chain recurrent with working fraction $q$, so infinitely many fresh expressions are acquired. Proposition~\ref{prop:learn}, together with the finite-dimensional entropy bound, gives~\eqref{eq:repairlimit} by dominated convergence. With no repair the total count has geometric law $h(1-h)^{n-1}$, giving~\eqref{eq:failurelimit} and its strictness criterion.
+\end{proof}
+
+\begin{proposition}[The fibre limit under predictable neutral access]
+\label{prop:neutral_limit}
+Let a fixed finite-outcome instrument on a finite matrix algebra produce
+fresh outcomes with law $P=p_\Theta$ independently conditional on the static
+parameter $\Theta$. Acquisition is selected before the current outcome,
+using the preceding complete history and parameter-independent random
+coins. Its conditional access kernels are parameter-neutral; no extra
+parameter-dependent status record is supplied. If $N(H)\to\infty$ almost
+surely under the prior, the optimal uncompressed wall-clock risk satisfies
+\[
+ R_H^*\longrightarrow R_{\rm fibre}.
+\]
+Access may depend on previously acquired outcomes. The finite-horizon
+identity $R_H^*=\E R_{N(H)}^*$ additionally requires independence of access
+from the outcome stream, as in Proposition~\ref{prop:repairlimit}.
+\end{proposition}
+\begin{proof}
+Let $T_n$ be the slot of the $n$-th acquisition. The event $T_n=t$ is
+selected without the current fresh outcome, so conditional on $\Theta$
+and the preceding acquired history its next outcome has law $p_\Theta$.
+Successive conditioning proves that the acquired outcomes, in acquisition
+order, are iid conditional on $\Theta$. Their empirical frequencies
+therefore converge to $P$. Factoring the full experimental likelihood,
+the access factors are parameter-neutral and only the acquired outcomes
+contribute to the posterior. Conditional on $P$, the acquired sequence and
+the access choices are independent of $\Theta$. Since $P$ is measurable
+from the infinite acquired sequence,
+\[
+ \E[\omega_\Theta\mid\mathcal R_\infty]
+ =\E[\omega_\Theta\mid P].
+\]
+The bounded matrix martingale
+$\rho_{\mathcal R_H}=\E[\omega_\Theta\mid\mathcal R_H]$ converges to this
+state. Continuity and boundedness of finite-dimensional entropy, together
+with the posterior predictive risk identity, give the claimed limit.
+At finite $H$, access selected from earlier outcomes can change their
+distribution conditional on $N(H)$; neutral likelihood factors do not
+justify averaging the fixed-count risks over that selected count.
+\end{proof}
+
+Repair restores opportunities while a nontrivial fibre remains. A
+recovering gate whose recovery probability is bounded below by a positive
+constant under every available latch acquires infinitely many fresh
+expressions; history-dependent latches are therefore covered by
+Proposition~\ref{prop:neutral_limit}. Both limiting results require
+uncompressed or asymptotically sufficient growing memory. For $k$
+outcomes, their counts use $O(k\log(H+1))$ bits and are exactly sufficient
+under these neutral kernels. More generally, if retained descriptions
+satisfy $\E\|\rho_{Z_H}-\rho_{\mathcal R_H}\|_1\to0$, uniform continuity of
+matrix entropy gives the same limiting optimal risk. A fixed register has
+the separate floor below.
+
+\begin{proposition}[A fixed-memory floor]\label{prop:fixedmemory}
+For $\pi(\theta)=\tfrac{15}{16}(1-\theta^2)^2$ on $[-1,1]$ and $\omega_\theta=\mathrm{Ber}(1/2+\theta/5)$, every description whose complete retained information takes at most $M\le2^B$ values obeys
+\begin{equation}\label{eq:memoryfloor}
+\E\,S(\omega_\Theta\Vert\sigma_Z)\ge
+\frac9{2560}M^{-2}\ge\frac9{2560}2^{-2B}\quad\text{nat},
+\end{equation}
+regardless of its acquisition history.
+\end{proposition}
+
+\begin{proof}
+Clip the decoded Bernoulli parameters to $[0.3,0.7]$ and invert them to centres $a_j\in[-1,1]$. Pinsker's inequality gives loss at least $(2/25)(\theta-a_j)^2$. On $[-1/2,1/2]$ the prior is at least $135/256$. The best $M$-centre integrated squared error on this unit interval is at least $1/(12M^2)$: nearest-centre cells of lengths $\ell_j$ contribute at least $\ell_j^3/12$, and $\sum_j\ell_j^3\ge1/M^2$. Multiplication gives~\eqref{eq:memoryfloor}. Random encoding cannot improve the nearest-centre bound. Decoder randomness independent of $\Theta$ conditional on $Z$ can be averaged out by convexity of relative entropy in its second argument; a retained correlated tape is additional information and belongs in $Z$.
+\end{proof}
+
+The three boundaries now separate. Lost working opportunities limit evidence; restricted operations leave fibres; fixed storage quantizes what the evidence could identify. Maintaining a reader, enlarging its permissions and enlarging its memory solve different problems. The memory floor is compatible with Proposition~\ref{prop:noFloor}, whose exact real-valued probability is not a $B$-bit record. T-DOME~III couples working opportunities to body maintenance~\cite{TDOMEIII}; the relational working graph of Brain Anchor determines which surviving channels can reconstruct an unread target~\cite{BrainAnchor}. Neither repair nor routing grants an internal monitor a way to detect a model error invisible to all its permitted experiments.
+
+\section{Limits that belong to a self}\label{sec:5}
+
+The estimation results also apply to external readers. For self-description, three boundaries are especially consequential: one preparation of the unknown occurrent state, permissions shaped by the self-model, and drift while the reader continues.
+
+\subsection{One copy of the present}
+
+A self-parameter that is re-expressed in each interaction can be sampled repeatedly. For the unknown occurrent state in this model there is only one preparation to interrogate: the observer is that copy. The reconstruction target is the initially prepared unknown state. Resetting it to a known state changes the target rather than reconstructing the old one. Repeated expressions of a stable parameter are a different resource.
+
+\begin{theorem}[Single-copy limit]\label{thm:onecopy}
+In finite dimension, let the target be a state $\omega_\Theta$ prepared once. Every record obtained by any sequence of instruments on that copy, adaptive or not, followed by any processing, has the outcome law of a single POVM $\{E_y\}$ on $\omega_\Theta$. Its optimal risk is
+\begin{equation}\label{eq:onecopy}
+R_{1}=\chi-\sup_{\{E_y\}}\E_Y\,S\bigl(\rho_Y\Vert\bar\rho\bigr)\ \ge\ \chi-I_{\mathrm{acc}},
+\end{equation}
+where $\bar\rho=\E\,\omega_\Theta$, $\chi=\E\,S(\omega_\Theta\Vert\bar\rho)$ is the risk with no record, and $I_{\mathrm{acc}}$ is the accessible information of the ensemble. For the uniform Bloch ball, $R_1=h(3/5)-1/3=0.33968$ nat, against $\chi=\ln2-1/3=0.35981$.
+\end{theorem}
+
+\begin{proof}
+A sequence of instruments composes to one instrument, whose outcome statistics form a POVM. Theorem~\ref{thm:decomp} with $\bar\rho$ as the decoder of the empty record gives $\chi=\E\,S(\omega_\Theta\Vert\rho_Y)+\E\,S(\rho_Y\Vert\bar\rho)$, which is~\eqref{eq:onecopy}; and $S(\rho_Y\Vert\bar\rho)\le D(\pi(\cdot\mid Y)\Vert\pi)$ by monotonicity under $\theta\mapsto\omega_\theta$, so the subtracted term is at most $I(\Theta;Y)\le I_{\mathrm{acc}}$. For the Bloch ball write $E_y=\alpha_y(\mathbf 1+n_y\cdot\sigma)$ with $|n_y|\le1$, $\sum\alpha_y=1$ and $\sum\alpha_yn_y=0$. Then $\Pr(y)=\alpha_y$, and since $\E[r_ir_j]=\delta_{ij}/5$ the posterior Bloch vector is $n_y/5$. Hence $\E_Y S(\rho_Y\Vert\mathbf 1/2)=\sum_y\alpha_y[\ln2-h(\tfrac12+\tfrac{|n_y|}{10})]\le\ln2-h(3/5)$, with equality when every $|n_y|=1$, which proves the value.
+\end{proof}
+
+One copy of a qubit-sized part, under the uniform Bloch-ball prior, can be described only $0.020$ nat better than with no record, a reduction of $5.6\%$. The same part, if it were an identifiable disposition re-expressed in fresh interactions, could be described to any precision with sufficient growing memory (Proposition~\ref{prop:learn}). The contrast is a structural fact about these experiments: recurring couplings, gains and habits of reading supply repeated evidence, whereas the initially unknown state on its sole preparation supplies one POVM record. This gives a quantitative boundary relevant to Breuer's self-measurement problem~\cite{Breuer1995}.
+
+\subsection{Self-shaped blind spots}
+
+The unobservable term of Theorem~\ref{thm:decomp} depends on the permitted protocol. When the protocol is chosen by the observer's own self-model, so does the blind spot.
+
+\begin{proposition}[Self-shaped fibres]\label{prop:selfshaped}
+Fix the observer's current self-model and its available history, and take expectations under the corresponding conditional prior. If the protocol at that stage is $\Lambda(\hat\theta)$, its unobservable term is $\E\,S(\omega_\Theta\Vert\E[\omega_\Theta\mid P_{\Lambda(\hat\theta)}])$, and its fibres $\{\theta:p^{\Lambda(\hat\theta)}_\theta=p\}$ move when the self-model moves. In the budgeted reader of T-DOME~II, with a rank-$k$ foreground $\mathcal P$ selected by the self-frame, the fibres are the spheres $\{u:\mathcal Pu=w\}$ in the complement of the foreground, so no number of records gathered through the frame locates the part of the task the frame misses~\cite{TDOMEII}.
+\end{proposition}
+
+\begin{proof}
+The first statement is Theorem~\ref{thm:decomp} applied to the protocol in use. The second is the in-frame identifiability theorem of T-DOME~II: the law of in-frame records depends on the coupling only through its in-frame component and the total output variance.
+\end{proof}
+
+The smallest case is a two-point fibre. When an even record law cannot tell $\theta$ from $-\theta$, as in the residual model of T-DOME~III, which T-DOME~II derives from a two-channel self-frame, the best estimate under true weights $w,1-w$ is $\theta(2w-1)$ with mean squared error $4\theta^2w(1-w)$ for every $N$, and the best description has risk equal to the Holevo information of the two states, $2g\theta^2w(1-w)$ to leading order, with $g$ the BKM metric along the fibre. For a qubit with base Bloch vector $(0,0,\tfrac12)$ and $\theta=0.05$, $w=0.8$, the Holevo information is $8.795\times10^{-4}$ against the leading term $8.789\times10^{-4}$. A single read in the direction that the self-frame excludes breaks the symmetry~\cite{TDOMEII}. Blind spots of this kind are repaired by changing what the observer reads, which requires a new permitted operation rather than another decoding of the same records.
+
+\subsection{A floor for continuing self-knowledge}
+
+A continuing observer's self-parameters change while it reads them. The following theorem gives the exact floor in the Gaussian case.
+
+\begin{theorem}[Drift floor]\label{thm:drift}
+Let the self-state be the law $\mathcal N(\theta_t,v)$ of a commutative register, let $\theta_0$ have a Gaussian prior and $\theta_{t+1}=\theta_t+\eta_t$ with independent $\eta_t\sim\mathcal N(0,q)$, $q>0$, and let the observer obtain at each step $N$ independent readings $\theta_t+\epsilon$, $\epsilon\sim\mathcal N(0,r)$. Over all decoders that use the records up to time $t$, the optimal expected relative entropy converges to
+\begin{equation}\label{eq:driftfloor}
+R_{\mathrm{drift}}=\tfrac12\ln\Bigl(1+\frac Pv\Bigr),\qquad P=\frac{-q+\sqrt{q^2+4qr/N}}{2},
+\end{equation}
+which is strictly positive and satisfies $R_{\mathrm{drift}}=\sqrt{qr/N}/(2v)\,(1+o(1))$ as $qr/N\to0$ with $q/(r/N)\to0$.
+\end{theorem}
+
+\begin{proof}
+The relative-entropy identity of Theorem~\ref{thm:decomp} holds for densities, so the optimal decoder is the posterior predictive law. With Gaussian prior and Gaussian records the posterior of $\theta_t$ is $\mathcal N(m_t,P_t)$, with $P_t$ given by the Kalman recursion $P_{t}^{-1}=(P_{t-1}+q)^{-1}+N/r$, so the posterior predictive law is $\mathcal N(m_t,v+P_t)$, and
+\[
+\E\,D\bigl(\mathcal N(\theta_t,v)\Vert\mathcal N(m_t,v+P_t)\bigr)=\tfrac12\Bigl[\ln\frac{v+P_t}{v}+\frac{v}{v+P_t}+\frac{P_t}{v+P_t}-1\Bigr]=\tfrac12\ln\Bigl(1+\frac{P_t}v\Bigr).
+\]
+The recursion converges to the positive root of $NP^2+NqP-qr=0$, which is the stated $P$. The expansion follows from $P=\sqrt{qr/N}\,(1+O(\sqrt{qN/r}))$.
+\end{proof}
+
+A Kalman simulation reproduces~\eqref{eq:driftfloor} to within $0.5\%$ in the four cases computed, and the decoder $\mathcal N(m_t,v)$, which ignores its own uncertainty, does worse in each. For general families and records the posterior Cram\'er--Rao recursion $J_{t+1}=F+(q+J_t^{-1})^{-1}$ bounds the mean squared error of any parameter estimate by the inverse of its fixed point~\cite{Tichavsky1998}; converting it into a relative-entropy floor for arbitrary decoders requires a bridge such as Theorem~\ref{thm:vanTrees} on the range the drift explores, which is not attempted here.
+
+\begin{corollary}[The price of keeping up]\label{cor:price}
+In the setting of Theorem~\ref{thm:drift}, allow controllable observation precision $N/r$ with arbitrary real $N\ge0$ and cost $wN$, measured in the same units as the loss. To leading order as $P/v\to0$ and $qN/r\to0$, the stationary loss plus reading cost per step is minimized at $N^*=\bigl(\sqrt{qr}/(4vw)\bigr)^{2/3}$, where it equals $3wN^*$. The minimal cost thus scales as $w^{1/3}q^{1/3}r^{1/3}v^{-2/3}$. For independent whole readings, this is the continuous-precision relaxation.
+\end{corollary}
+
+\begin{proof}
+Minimize $\sqrt{qr}/(2v\sqrt N)+wN$ over $N>0$.
+\end{proof}
+
+With $\nu=\sqrt q$, $J=1/r$ and $G=1/v$, the minimal cost has the form of T-DOME~I's scalar drift law~\cite{TDOMEI}. T-DOME~III proves the exact predictive-relative-entropy optimum for every predictable precision policy under the Gaussian prior used here~\cite{TDOMEIII}. Conditional on the full realized records and selected precisions, the posterior remains Gaussian, its variance obeys $P_t^{-1}=(P_{t-1}+q)^{-1}+N_t/r$, and its optimal risk is exactly $\tfrac12\ln(1+P_t/v)$. Telescoping this realized recursion gives the bound; a constant allowed precision attains it. This avoids converting an averaged mean-square bound through a concave logarithm. Integer reading counts retain the relaxation bound and require a separate attainable schedule. Numerical minimization of the exact continuous-precision cost agrees with the leading-order optimum to within $0.7\%$ for $q\le10^{-4}$, $r=v=1$, $w=10^{-3}$.
+
+A floor for self-knowledge under drift needs a typed observation model, and Theorem~\ref{thm:drift} supplies one: an observer with finite observation precision and nonzero drift has a positive tracking shortfall, with the stated square-root dependence in the slow-drift regime. The floor is not a consequence of finite dimension, which Proposition~\ref{prop:noFloor} excludes, but of a finite reading rate set against a nonzero drift.
+
+\section{Monitoring one's own reliability}\label{sec:monitor}
+
+\begin{proposition}[Record-conditioned assessment]\label{prop:monitor}
+Suppose a regular conditional posterior exists, the decoder $\sigma_R$ is measurable, and $L=S(\omega_\Theta\Vert\sigma_R)$ is measurable and integrable under the observer's model. Then $Q(R)=\E[L\mid R]$ satisfies $\E Q=\E L$ and
+\[
+\E[(L-Q)\mathbf1_C]=0
+\]
+for every event $C$ determined by the record. Under a correct model this is a calibrated risk assessment, including for Araki relative entropy on a general von Neumann algebra. On a finite matrix algebra the optimal decoder $\rho_R=\E[\omega_\Theta\mid R]$ has
+\[
+Q(R)=S(\rho_R)-\E[S(\omega_\Theta)\mid R],
+\]
+where the individual-state entropies are von Neumann entropies.
+\end{proposition}
+
+\begin{proof}
+The first identities follow from conditional expectation and its tower property. In finite dimension, $\E[\omega_\Theta\mid R]=\rho_R$ gives $-\E[\tr\omega_\Theta\log\rho_R\mid R]=S(\rho_R)$, proving the entropy difference. The difference formula is not used on Type~III algebras.
+\end{proof}
+
+Being a function of a record is not an algorithm for evaluating it. An implemented monitor needs an effectively specified posterior, decoder and loss, an approximation rule and the storage and processing to execute it. The finite-register filters in T-DOME~III supply a controller specification and quantization certificate for their transition family; their workspace, update throughput and cyclic erasure still require a physical implementation~\cite{TDOMEIII}. A finite calibrated monitor can exist without being a universal solver for arbitrary state families.
+
+Monitoring extends what an observer can do with its self-knowledge in at least four ways that the series has made concrete. It can weight self-knowledge by its reliability: in the budgeted reader of T-DOME~II, scaling the use of the self-frame by its computed reliability keeps it from ever doing worse than no memory and extends its useful range of drift by factors between $2.1$ and $14$~\cite{TDOMEII}. It can decide when to read more: the sequential reader of \emph{The World as Imprint} stops acquiring references once its estimated reliability reaches a target~\cite{WorldImprint}. It can allocate authority: in T-DOME~III, reliability-weighted authority over a shared world reduces the damage from a failed sensor~\cite{TDOMEIII}. And Theorem~\ref{thm:decomp} tells it which term dominates, hence whether more records, more memory, a better decoder or new permissions would help most.
+
+Monitoring has a limit that mirrors the blind spot it serves.
+
+\begin{proposition}[What monitoring cannot see]\label{prop:blindmonitor}
+In the two-point fibre $\{\theta,-\theta\}$ with true weights $w,1-w$, let the observer assume weights $q,1-q$. Its estimate is $\theta(2q-1)$; its true mean squared error exceeds the Bayes value $4\theta^2w(1-w)$ by $4\theta^2(q-w)^2$, and its self-assessed error differs from its true error by $4\theta^2(w-q)(1-2q)$. No number of records within the protocol changes either quantity.
+\end{proposition}
+
+\begin{proof}
+The records do not depend on the sign, so the posterior on the fibre equals the assumed prior. Direct computation gives the true error $4\theta^2[w(1-q)^2+(1-w)q^2]$ and the assessed error $4\theta^2q(1-q)$, whose differences are as stated.
+\end{proof}
+
+An observer's risk assessment is calibrated under a correct model, and it can be confidently and undetectably wrong on an unobservable fibre. A monitoring rule can recommend new permissions, but the new operations must actually be available. When acting respects a symmetry of the joint initial, sensing and transition laws, it cannot distinguish points on that symmetry orbit. Invariance is an obstruction, not a sufficient condition for identification. T-DOME~III supplies both this obstruction and a stationary body-moment construction; with independent sign inversions and bath flips, every fresh-record read-and-flip policy without a symmetry-breaking operation tends to chance~\cite{TDOMEIII}. Retained earlier physical records and labelled operations can provide relational standards. Their formation is compatible with the obstruction to absolute jointly relabelled orientation.
+
+The model being monitored need not be reassigned at each calibration. T-DOME~III also gives a continuing joint filter of a bounded instrument's gain, sign and controlled body, carried forward from its own records. A finite log-ratio register has a uniform quantization-risk bound, and a reference rule driven by that same history improves body risk under the same physical gates and reference cap~\cite{TDOMEIII}. This makes history-based model revision operational at finite memory without making the transition family, reference labels or processor resources self-originating. Monitoring its estimated risk remains conditional on that family being correct.
+
+\section{Causal self-access: world, sensing and retained records}
+\label{sec:causal}
+
+A confidence score concerns whether a judgment is right. A model of
+one's access also concerns why it might be wrong, which part can be
+changed and what evidence would justify that change. The same routine
+report can result from a change in the world, the sensor or the way
+retained records are read. Comparing reports alone does not distinguish
+these causes. Comparing the consequences of permitted interventions can.
+This distinction also limits what an experience hypothesis can test.
+
+\subsection{Which equivalence an experiment establishes}
+
+\begin{definition}[Interventional record distance]\label{def:intervention}
+For two specified physical conditions $\vartheta,\vartheta'$ and a common
+resource budget, let $\mathfrak P$ be their common set of permitted
+adaptive protocols. Each chooses operations from its acquired records
+and parameter-independent private coins. Include initial accessible
+information, operation labels, acquired outcomes and retained correlated
+tapes in the complete experimental record. Let $P_\vartheta^\pi$ be its
+law and put
+\[
+ \delta_{\mathfrak P}(\vartheta,\vartheta')
+ =\sup_{\pi\in\mathfrak P}
+   \|P_\vartheta^\pi-P_{\vartheta'}^\pi\|_{\rm TV}.
+\]
+The conditions are record-equivalent for this experiment class when
+$\delta_{\mathfrak P}=0$.
+\end{definition}
+
+\begin{proposition}[The boundary of a discriminating bridge]
+\label{prop:bridge_boundary}
+For equal prior odds, every protocol in $\mathfrak P$ and every decision
+based on its complete record has discrimination error at least
+$(1-\delta_{\mathfrak P})/2$. For any record statistic $0\le T\le1$,
+the difference of its expected values in the two conditions is at most
+$\delta_{\mathfrak P}$. Thus no test in this class distinguishes two
+record-equivalent conditions, including through confidence reports.
+\end{proposition}
+\begin{proof}
+For a fixed protocol, the minimum equal-prior testing error is
+$(1-\|P_\vartheta^\pi-P_{\vartheta'}^\pi\|_{\rm TV})/2$: choose the
+condition with the larger likelihood. The difference of expectations of
+a $[0,1]$-valued statistic is bounded by the same total variation.
+Taking the supremum over permitted protocols proves both bounds.
+Record processing and independent randomization cannot enlarge the
+distance.
+\end{proof}
+
+Equality of routine reports is weaker than this equivalence. A selective
+perturbation, a new reference or an external physiological readout can
+enlarge the experiment class and make a difference measurable. It must
+be included as an additional physical permission, not as a consequence
+of identical laws. Conversely, the proposition does not decide whether
+two record-equivalent systems have identical experiences. It states
+when a proposed difference has no test in the declared class.
+
+\subsection{An internal diagnosis that changes actual repair}
+
+Consider three commuting pointer registers with values
+$(w,g,m)\in\{-1,1\}^3$. They represent the controlled world's value,
+a sensor's orientation and a retained-record reading frame.
+The nominal state is $(1,1,1)$. Exactly one register has reversed,
+with equal prior probabilities. A routine record reads the product
+$y=mgw$, with any common independent report noise. The three causes
+therefore have identical routine laws for any number of such reads.
+Two additional internal permissions send a known pilot through the
+sensor while bypassing the record frame, or through the record frame
+while bypassing the sensor. With perfect pilots their outcomes are:
+\begin{center}
+\begin{tabular}{@{}lccc@{}}
+\toprule
+Reversed register & Routine $y$ & Sensor pilot & Record-frame pilot\\
+\midrule
+World & $-1$ & $+1$ & $+1$\\
+Sensor & $-1$ & $-1$ & $+1$\\
+Record frame & $-1$ & $+1$ & $-1$\\
+\bottomrule
+\end{tabular}
+\end{center}
+After at most two pilots, one permitted repair flips a chosen register.
+The loss is failure to restore the actual triple to $(1,1,1)$, plus
+nonnegative price $c$ for each pilot. This is a declared task with labelled
+standards. A reversed record frame is an invertible change of reading,
+not erasure of an unknown original record.
+
+\begin{proposition}[Paid causal diagnosis]\label{prop:causal_diagnosis}
+In this one-fault model:
+\begin{enumerate}[itemsep=2pt]
+\item Every repair selected only from routine records has failure
+probability at least $2/3$, even with arbitrarily many such records.
+Nevertheless, any chosen register flip makes the noise-free routine
+report $+1$. Normalizing the report is not the restoration criterion.
+\item With perfect pilots, the optimal risk over protocols using at
+most two pilots is
+\[
+ \min\{2/3,5c/3\}.
+\]
+For $c<2/5$, query one internal stage; repair immediately if it is
+reversed, otherwise query the other. Restoration is exact and the mean
+pilot count is $5/3$.
+\item With independent pilot flip probability $\epsilon=1/10$ and
+$c=1/20$, the optimal risk in that same menu is $29/120$.
+Its restoration failure is $4/25$ and its mean pilot count is $49/30$.
+Every record-independent query list of length at most two, including
+random mixtures and repeated queries, has risk at least $13/50$,
+even though its repair may use all outcomes.
+\end{enumerate}
+\end{proposition}
+\begin{proof}
+Routine likelihoods are identical, so the three-way posterior stays
+uniform. An incorrect repair leaves two reversed registers; their
+product is still positive. For perfect pilots, a first negative
+sensor pilot identifies the sensor. A positive result leaves world
+and record frame equally likely. A second pilot then removes failure
+$1/2$ at cost $c$. Backward induction compares this rule, risk $5c/3$,
+to no query, risk $2/3$; stopping after one query cannot lower their
+minimum.
+
+For noisy pilots write $p$ for the posterior over the three causes.
+With $n$ queries remaining its exact value is
+\begin{equation}\label{eq:causal_bellman}
+ V_n(p)=\min\left\{1-\max_i p_i,\ 
+ \min_{a\in\{g,m\}}\left[c+
+ \sum_{z=\pm1}p(z\mid p,a)V_{n-1}(p^{a,z})\right]\right\}.
+\end{equation}
+All likelihoods are $\epsilon$ or $1-\epsilon$. After the first
+sensor pilot, a negative result gives posterior $(1,9,1)/11$
+with probability $11/30$. Neither remaining query improves the
+optimal repair probability, so repair the sensor.
+A positive result gives $(9,1,9)/19$ with probability $19/30$.
+A record-frame pilot then gives optimal conditional failure $14/95$;
+repeating the sensor query gives no improvement. Including its price,
+\[
+ V_2(1/3,1/3,1/3)
+ =\frac1{20}+\frac{11}{30}\frac2{11}
+   +\frac{19}{30}\left(\frac1{20}+\frac{14}{95}\right)
+ =\frac{29}{120}.
+\]
+This beats stopping or any other first query; symmetry covers the
+record-frame-first rule. The failure and mean query count follow by
+the same branch sums. The fixed lists have risks $2/3$ (none),
+$9/20$ (one), $1/2$ (twice the same port), and $13/50$ (both ports).
+Their mixtures cannot beat the minimum.
+\end{proof}
+
+The single-fault premise affects both value and stopping. If the
+triple reversal is also possible, two perfect pilots still identify
+all four conditions compatible with the routine product $-1$,
+but a uniform four-condition prior requires both pilots. Repairing
+the triple reversal also needs three flips, outside the stated
+single-repair menu. Nor do arbitrarily many fully correlated pilot
+copies have the independent likelihood used above. These changes
+require a different experiment, not just a new confidence threshold.
+
+\subsection{What a causal self-model must retain}
+
+A confidence number can be calibrated yet omit what an operation
+needs. A finite self-model for this task is not a second name for
+the whole raw history. It is a retained description of the
+observer's world--sensor--record relations, sufficient to select
+an allowed next question and the corresponding correction at the
+given prices. Which distinctions are sufficient depends on the
+task and the future operation menu.
+
+\begin{proposition}[The decision price of compressing self-access]
+\label{prop:decision_compression}
+Let $R$ be the available acquired record in a specified finite
+causal task, $Z=f(R)$ its retained statistic, and $\mathcal U$ a
+finite common menu of operations. For bounded loss $\ell(\theta,u)$,
+include each operation's acquisition and actuation prices in $\ell$.
+Put $L_u(R)=\E[\ell(\Theta,u)\mid R]$. The extra optimal decision
+risk imposed by retaining only $Z$ is exactly
+\begin{equation}\label{eq:decision_compression}
+ \Delta_{\rm dec}
+ =\E\min_{u\in\mathcal U}\E[L_u(R)\mid Z]
+       -\E\min_{u\in\mathcal U}L_u(R)\ge0.
+\end{equation}
+It is zero exactly when, for almost every $Z=z$, one action
+minimizes $L_u(R)$ almost surely in that retained-record cell.
+The action can be a whole permitted finite continuation policy;
+then its future query budget, available clock, records and costs
+must be part of the specified menu.
+
+In the pointer task, randomly choose the first sensor or
+record-frame pilot with equal probabilities, and condition on
+its negative outcome. Their two posteriors are
+$(1,9,1)/11$ and $(1,1,9)/11$. Both have maximum confidence
+$9/11$. With no further pilot allowed, retaining the queried port
+gives repair failure $2/11$; when the complete remaining information
+is confidence alone (no port label or correlated tape), failure is
+$6/11$. The conditional decision penalty is $4/11$, separately
+from the physical price of erasing those distinctions.
+\end{proposition}
+\begin{proof}
+Conditioning on $Z$ commutes with each fixed action value. The
+minimum of finitely many linear functions is concave, giving
+\eqref{eq:decision_compression}. Select a minimizing action for
+each cell. Its loss above the record-optimal minimum is
+nonnegative and has zero expectation exactly when it vanishes
+almost surely. This proves the equality condition, including
+ties. For the example the two port labels have equal likelihood
+$11/30$ of a negative outcome. Erasing their distinction gives
+posterior $(1,5,5)/11$. Its best single repair succeeds with
+probability $5/11$, instead of $9/11$ when the port is retained.
+The read price already paid is common and cancels in the
+comparison; new diagnostic permissions would change the menu.
+\end{proof}
+
+This decision penalty is not another relative-entropy term to
+add to Theorem~\ref{thm:decomp}. It has the restoration task's units
+and a different loss. A state description accurate for routine
+prediction can be inadequate for repair; conversely, a sufficient
+causal statistic can allow redundant logs to be discarded without
+losing repair value. Keeping a complete calibrated controller
+state and its update rule can preserve every permitted future
+law, whether that state was learned here or supplied by copying
+a learned controller. The task distinguishes the information
+and its causal use, not an unobservable metaphysical privilege
+of its origin.
+
+\subsection{Finite physical operations and the role of history}
+
+The model has a finite pointer realization. Encode each sign in a
+qubit's $Z$ basis, and prepare a fresh meter in $|0\rangle$ for a pilot.
+For the selected sensor or record-frame register $j$ and duration
+$\tau>0$, the positive Hamiltonian, in units $\hbar=1$,
+\[
+ H_j=\frac{\pi}{2\tau}\,P_j^-\otimes(I-X_{\rm meter}),
+ \qquad P_j^-=(I-Z_j)/2,
+\]
+acts for time $\tau$ as a controlled NOT. Measuring the meter with
+the supplied stochastic read noise gives the required likelihood.
+The repair uses $H_{\rm rep}=\pi(I-X_j)/(2\tau)$ on the chosen
+register. The held triple is not re-prepared between pilots and repair.
+Only commuting pointer content is copied to the meter; this is not
+a second copy of an arbitrary unknown quantum state.
+
+Each gate has $\int_0^\tau\|H\|^2dt=\pi^2/\tau$. The noisy optimal
+rule therefore uses mean query-plus-repair control charge
+$(79/30)\pi^2/\tau$. This is a specified amplitude-duration charge,
+not net work or heat. Pilot preparation, noise, measurement, retained
+records, the reference labels and the clock remain supplied.
+The two pilot signs use at most two data bits; port, repair and
+stage labels and the finite decision table require additional
+storage. Rational branch probabilities do not require an exact
+continuous posterior register.
+
+The comparison survives finite gates. If each of at most three
+gates has pulse-area error at most $\eta$, its unitary operator
+error is at most $2\eta$ and its channel's half-diamond distance
+is at most $2\eta$. Telescoping the adaptive instrument and repair
+gives total variation at most $6\eta$ for the terminal task and
+record. Since their total loss lies in $[0,1+2c]$, risk increases
+by at most $6\eta(1+2c)$. At $\eta=10^{-4}$ the bound is
+$.242327$, still below the ideal fixed-list minimum $.26$.
+
+Own-record return is experimentally relevant even when every repair
+looks successful through the routine port. Repair labels replayed
+from an independent trial are independent of the current cause;
+their restoration failure is $2/3$. Blocking the acquired pilots
+from the repair selector has the same boundary. In contrast,
+deleting redundant raw logs after retaining their sufficient
+diagnosis need not change the action. These are different memory
+interventions. Brain Anchor gives a noncommutative companion:
+equal held logical marginals and equal current gain confidence
+can require opposite future protection commands because the
+access-dependent damage histories differ~\cite{BrainAnchor}.
+Its world and environment are not this pointer example, but both
+locate the useful history in an actual return to permitted action.
+
+\subsection{The same body through repeated damage and correction}
+\label{sec:recurrent-body}
+
+The single-fault experiment ends after repair. A continuing observer keeps
+the body left by that repair, including mistakes. Encode $(w,g,m)$ as
+$x\in\mathbb F_2^3$, with zero the nominal body. At each interval,
+each coordinate flips independently with probability $0<h<1/2$.
+The routine meter reads parity $p=x_1+x_2+x_3$ exactly.
+The permitted repair is no flip or one labelled coordinate flip.
+There is no preparation of a new body between intervals.
+
+\begin{theorem}[Routine repair cannot maintain the hidden body]
+\label{thm:recurrent-routine}
+Start from the known nominal body, with independent fresh faults.
+Every randomized repair policy based only on the complete parity and
+action history has post-repair restoration success at interval $t$ at most
+\begin{equation}\label{eq:recurrent-routine}
+ \frac14+\frac34(1-2h)^t.
+\end{equation}
+Thus its limiting success is at most $1/4$. The policy that does nothing
+on even parity and flips a fixed coordinate on odd parity attains the
+limit, while displaying nominal parity after every repair.
+\end{theorem}
+\begin{proof}
+Condition on the preceding complete history. The old body's parity is
+known, so the new parity reveals only the parity of the fresh fault.
+The even subgroup $E\subset\mathbb F_2^3$ has four elements. Translate
+each parity coset to $E$, and write $u$ for its uniform law. The
+probabilities of even and odd faults are
+\[
+ a=(1-h)^3+3h^2(1-h),\qquad b=3h(1-h)^2+h^3.
+\]
+Even-conditioned convolution sends $q-u$ to $\alpha_0(q-u)$, with
+$\alpha_0=(1-h)(1-2h)/a$. Odd-conditioned convolution sends it to
+$-\alpha_1P(q-u)$, where $P$ is a translation permutation and
+$\alpha_1=h(1-2h)/b$. These formulas follow from the one zero
+and three weight-two even faults, and the three weight-one and
+one weight-three odd faults. Their total-variation contractions are
+$\alpha_0,\alpha_1$.
+Every chosen repair is another known translation, preserving distance
+from the uniform coset law. Averaging over the next parity gives
+$a\alpha_0+b\alpha_1=1-2h$. The initial distance from uniform is
+$3/4$, hence its expected value is at most
+$3(1-2h)^t/4$. Given a uniform coset, any allowed single repair can
+send at most one of its four states to zero. This proves the bound.
+The indicated policy always chooses a parity-compatible repair, and
+its success converges to $1/4$ as the conditional coset becomes uniform.
+\end{proof}
+
+The bound concerns the actual triple, not its displayed report. At
+$h=.05$, even at interval 100 no routine-only history can have success
+above $.250020$. Initial parameter labels, fault-correlated tapes or
+another internal diagnostic port would change its experiment class.
+
+Now acquire the two internal pilots every interval, independently flipped
+with probability $\epsilon=.1$. Together with the parity meter they cost
+three readings per interval. A posterior $q$ over the eight pre-repair
+body states is retained across damage and action. Let $T$ be the known
+fresh-fault matrix, let $L_o(x)$ be the three-meter likelihood and let
+$A=\{0,e_1,e_2,e_3\}$ be the four repairs. For an action $a$, set
+$q^a_x=q_{x+a}$. Choose an action maximizing
+\begin{equation}\label{eq:recurrent-two-step}
+ q_a+\sum_o\max_{b\in A}(q^aT)_bL_o(b).
+\end{equation}
+The first term is present restoration success. The second is the
+expected next success after fresh damage and the next paid pilot pair,
+using its optimum terminal repair. This is an exact two-step decision
+at the current posterior, used repeatedly. It is not an infinite-horizon
+optimality theorem. Bayes prediction, actual acquired outcomes and the
+known chosen flip update $q$; the actual damaged body is never reset to
+that estimate.
+
+\begin{center}
+\begin{tabular}{@{}lrr@{}}
+\toprule
+Controller & Restoration failure & Repair fraction\\
+\midrule
+Routine parity only & $.7506$ & $.1354$\\
+Current pilots, specified decoded repair & $.2730$ & $.1255$\\
+Best enumerated memoryless pilot map & $.19465$ & ---\\
+Persistent posterior, present-success rule & $.2614$ & $.1354$\\
+Persistent posterior, two-step rule & $.09068$ & $.19180$\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+The two-step row averages three independent seed blocks, 91101--91103,
+each with 5000 held bodies, 700 intervals and the first 250 discarded
+for this comparison. Block means are $.09088,.09086,.09030$, with
+within-block standard errors about $.00036$. The first, second and fourth
+rows use a separate 16,000-body block, 600 intervals and 200 discarded
+intervals; the second row agrees with its exact rational stationary
+failure $.2726062$. These rows are finite empirical comparisons, not
+certificates of the two-step policy's stationary optimum. Every pilot
+controller uses the same three readings and the same four repairs.
+The memoryless comparison exhausts $4^8=65,536$ deterministic maps
+from current parity and the two pilot bits; it does not optimize all
+randomized or history-dependent rules. A direct rational enumeration
+of all retained branches gives the two-step policy's first three
+failure probabilities $.02891,.056064106375,.076489639905$.
+
+History alone does not guarantee a better controller. Retaining a
+posterior but maximizing only present restoration performs worse than
+the best current-record map here. Considering the effect of today's
+repair on tomorrow's body changes that result. The two-step rule also
+executes more repairs, so its lower failure is not a claim of lower
+total energy or a matched fixed pulse count. With three read prices
+$c_Q$ and repair price $c_R$, its empirical per-interval charge is
+approximately $3c_Q+.19180c_R$, before computation, preparations,
+retention and thermal export.
+
+This finite horizon need not require a real-valued posterior register.
+At $h=1/20$, $\epsilon=1/10$, every fresh-fault-plus-record kernel has
+integer numerator over $D=800000$. Store eight unnormalized integer
+weights, update them with that kernel and permute after the actual
+repair. Starting from one, each weight is at most $D^t$, so
+$1+\lceil t\log_2D\rceil$ bits per weight suffice. Multiplying
+Eq.~\eqref{eq:recurrent-two-step} by its common denominator makes
+its comparisons integer operations as well. Three acquired bits and
+two action bits per interval, arithmetic workspace and reversible
+garbage are additional resources. Saving every preceding weight vector
+for reversible execution costs quadratic, rather than constant,
+storage in the horizon. This gives finite exact computation in principle;
+the table's simulations use binary64, and no efficient cyclic processor
+or free erasure is inferred.
+
+Q-RAIF~C supplies a positive history-clock route for each specified
+finite decision circuit~\cite{QRAIFC}, with all held body content,
+meters, thermal cells and purification references retained.
+Its first-interval meter word controls actual repair and thermal
+exchange: failure is $.02891$ and cold-cell gain $.00761031$.
+The same finite Hamiltonian extends across a preallocated horizon
+without re-preparing the held body. The full source/clock and
+three-interval enumeration are recorded in the supplemental source notes.
+Ancillas, initialized clock, phase/timing permissions and reversible
+memory remain paid inputs; this does not turn the repeated simulation
+into a fixed-capacity cyclic thermal apparatus.
+
+\paragraph{Resolution under a supplied spectrum.}
+A factorially decaying reading spectrum resolves only
+$\log N/(\alpha\log\log N)$ directions to fixed tolerance.
+Appendix~\ref{sec:horizon} gives the two-sided inversion and full proof;
+it does not derive that spectrum from finite selfhood.
+
+\section{Finite self-knowledge and the explanatory gap}\label{sec:bridge}
+
+\subsection{Three questions}
+
+Three questions about a subject are easily merged. The question of access asks what the system can know about itself. The question of organization asks how a continuing self-model structures the world as it is presented to the system. The question of experience asks why there is something it is like to be the system at all. The results above answer the first question for any finite continuing observer in the typed model, and they constrain the second. They do not answer the third.
+
+\subsection{What the results fix}
+
+Within the typed model, continued fresh expression and sufficient growing memory make the identifiable dispositions learnable to any precision. In the example of Section~\ref{sec:3}, the finite-record excess falls as $1/(2N)$ nat. The reader's continuity controls whether those records remain available, while a fixed register has the floor of Proposition~\ref{prop:fixedmemory}. Its occurrent state can be known only within the single-copy limit, which for a uniformly distributed qubit state in the Bloch ball leaves $94\%$ of the no-record risk in place. Its drifting parameters can be tracked only up to a floor, with the stated square-root dependence in the slow-drift Gaussian regime. Its self-model shapes its blind spots, and its model-conditioned assessment cannot see beyond them. These estimation statements require no brain-specific substrate. Their interpretation as self-knowledge comes from the observer's physical role in the experiment, not from an estimation law unavailable to an external reader.
+
+\subsection{A bridge hypothesis}
+
+\begin{hypothesis}[Dispositional self-acquaintance]\label{hyp:bridge}
+In a system whose continuing self-model has the structure above, what is available to reflective first-person access corresponds to the self-model's knowledge of the system's own dispositions and their reliability, which grows with its history and is refreshed at a finite rate. The occurrent state is not available to that access beyond the single-copy limit; it is lived through rather than read off. The sense that present experience is given immediately and the impossibility of describing it completely are, on this hypothesis, two aspects of one finite organization.
+\end{hypothesis}
+
+The proposed mechanism is participation: readings, memory and corrections
+belong to the physical process whose dispositions they describe.
+Recurring couplings and habits of access express those dispositions
+again; an arbitrary unknown state supplied once does not provide a
+separate ensemble of copies. This distinction supports the hypothesis
+without making every classical present state unknowable. Habits of
+attention and perception can become objects of reflection while the
+ongoing experience remains its medium. \emph{The World as Imprint}
+develops this reading of the self as a maintained way of
+participating~\cite{WorldImprint}. The causal-return hypothesis below
+asks which retained distinctions actually sustain that participation.
+
+\subsection{Why propose this particular bridge?}
+
+The bridge is an inference about organization, not an inference
+from finite estimation error to the existence of feeling.
+It has four independent motivations. First, a reflective
+description is available to this system only if acquired
+distinctions can return to its own continuing operations; an
+external observer's accurate catalogue is not yet that return.
+Second, the distinction between a world change and a change of
+one's own access determines different possible corrections.
+The pointer task makes this difference causal even when content
+and confidence reports agree. Third, retained structure supplies
+a continuity of dispositions through new states and damaged
+components; requiring every raw episode to remain stored is
+unnecessary. Fourth, the current lived state and the model by
+which it is described occupy different roles in this account.
+The single-copy result constrains one declared reconstruction
+task; it does not show that all present experience is quantum,
+ineffable or inaccessible in every respect.
+
+Together these reasons locate a candidate basis for reflective
+ownership: a maintained model is used by the process whose
+access it organizes. They do not derive valence, qualitative
+character or phenomenal presence. An ordinary non-experiential
+controller can have this organization. The experiential addition
+is the hypothesis that a subject's reflective continuity depends
+on this organization, to be tested with independently justified
+markers rather than defined true by controller success.
+
+The strongest objection is that the hypothesis concerns access and organization, while the explanatory gap concerns experience. A system without experience would satisfy every theorem above, so the theorems cannot show that experience is present or what it is like. The hypothesis does not claim otherwise. It relocates the gap: the formal account fixes what a subject can know about itself and how that knowledge is organized in time, and an explanation of experience must connect at that point. It also excludes something definite. An account granting a physical observer exact reconstruction of an arbitrary unknown occurrent state from operations on its sole preparation is incompatible with the single-copy limit. Prior knowledge of the state or fresh preparations change that premise.
+
+The comparison of dispositions and the present state must fix the prior,
+target and available preparations. A common scoring rule alone does not
+order calibration. For the specified Bloch-ball experiments, fresh
+informationally complete expressions drive the dispositional risk to zero,
+whereas the one-preparation target has the stated positive risk.
+For a self-parameter with the confirmed Gaussian random-walk and readout
+laws, Theorem~\ref{thm:drift} gives the exact predictive loss and its
+slow-drift scaling. Those are quantitative tests of the functional model,
+not universal laws for all subjective judgments.
+
+\subsection{Causal return and reflective continuity}
+
+\begin{hypothesis}[Renewable causal self-acquaintance]
+\label{hyp:causal_return}
+In an observer exhibiting reflective first-person access, its continuity
+depends on a maintained, causally usable distinction between changes of
+the represented world, its reading interface and its retained records.
+Selective disruption of the return from acquired distinctions to
+permitted correction impairs reflective causal self-attribution even
+when routine content reports remain matched. Retaining the sufficient
+causal organization can preserve that access through replacement of
+components or loss of redundant raw logs.
+\end{hypothesis}
+
+The pointer result supplies a functional witness for this proposal.
+Ordinary reports stay the same while internal causes differ; a repair
+can normalize a report without repairing those causes. Acquired
+records alter which part is corrected and whether another question is
+worth asking. Brain Anchor supplies a different physical witness in
+which retained access history chooses future protection of still-held
+unknown content~\cite{BrainAnchor}. These witnesses identify a return
+mechanism that a theory of reflection can investigate. Their success
+does not make either device a demonstrated subject.
+
+The empirical contrast should keep current content performance, routine
+confidence output and read/actuation budgets matched before the
+diagnostic intervention. Manipulate world state, sensor orientation and
+record reading separately. Compare own-record diagnosis with
+independent-trial replay, blocked record-to-operation return, and
+deletion of raw logs after preserving the sufficient diagnostic state.
+Score the inferred cause, the correction chosen and its actual effect,
+not merely whether the old report becomes normal. A biological
+application also needs independently justified markers of reflective
+access or ownership; the pointer's restoration score is not such a
+marker by definition.
+
+A candidate marker class is error-sensitive nonverbal opt-out behavior,
+paired with source-ownership attribution on separate probe trials.
+Neither measure is the diagnostic selector or restoration score.
+Before using it here, independent validation must establish its
+relation to reflective access and control for first-order performance,
+motor capability and reward sensitivity. It is a proposed assay,
+not an established marker of experience.
+Preregister a minimally detectable change and an equivalence margin.
+If selective blocking abolishes cause-specific diagnosis while this
+validated marker remains equivalent to sham within that margin,
+with adequate power and matched controls, the claimed dependence
+is refuted. A replay/control contrast chosen only after seeing the
+outcome would not meet this test.
+
+The hypothesis predicts that preserving the causal return, rather than
+the displayed autobiography alone, preserves reflective self-attribution
+across these changes. The preregistered refutation criterion above
+uses equivalence within the declared margin, not a failure to reject
+a difference. A model restricted to the matched routine records can reproduce
+current reports but not the cause-specific repair in
+Proposition~\ref{prop:causal_diagnosis}.
+An ordinary controller with the same full interventional laws can
+reproduce it. Distinguishing that controller from an experiencing
+subject needs an additional empirical bridge; Proposition~\ref{prop:bridge_boundary}
+prevents hidden experiential labels from being declared observable
+without the corresponding permission.
+
+\subsection{Competing explanations and discriminating interventions}
+
+A report-generation account can explain confidence and
+autobiography without making them causally necessary for repair.
+A generic metacognitive-control account can explain the entire
+functional task, including causal diagnosis, with no commitment
+about experience. A broader integration account may instead
+attribute the change in reflective markers to a disruption of
+global communication or task competence. Finally, a theory on
+which experience survives loss of reflective access may accept
+all functional effects here while rejecting this dependence for
+phenomenal presence. These are genuine alternatives; a loss of
+reports alone does not decide among them.
+
+The proposed experiment therefore separates three interventions.
+Block or replay the record-to-correction path while matching
+routine content and confidence before the diagnostic event.
+Erase redundant raw logs after retaining the causal decision
+statistic, and separately erase that statistic while keeping
+the logs or displayed autobiography available. Finally, restore
+the causal state and update program in replacement hardware.
+Measure cause-specific correction and independent reflective
+markers, with acquisition, stimulation, timing and actuation
+budgets declared in each condition. A matched sham disruption
+and a nonspecific processing-load control test whether any
+change is due simply to poorer global performance.
+
+The causal-return proposal predicts selective loss when usable
+causal distinctions are broken, preservation when sufficient
+structure survives, and recovery when its permitted return is
+restored. A display-only account need not predict this pattern;
+a fully equivalent causal controller does. The marker comparison uses
+the preregistered equivalence criterion stated above.
+If all permitted interventional
+laws and markers are matched, this proposal has no further
+observable discriminator. A distinct experiential interpretation
+then requires an additional bridge, not a new hidden label
+attached to the same functional result.
+
+\subsection{Relation to modular time and to Paper G}
+
+The accessible algebra of Consciousness~I carries a modular flow that the Cut correspondence reads geometrically for standard Cuts~\cite{PaperI}. That flow is algebraic time, defined by the state and the algebra. Nothing here identifies it with the time in which a self-model is refreshed, or with experienced time. Paper~G distinguishes a selected target operation from its larger executor and prices sharp readouts in a finite program register~\cite{PaperG}. The risk floors here instead come from one copy, a finite reading rate against drift, and permissions chosen by the self-model. No fixed-point impossibility is used or claimed.
+
+\section{Conclusion}\label{sec:8}
+
+A finite observer can acquire self-knowledge, assess its reliability
+and use that assessment to revise its access. Failure, restricted
+permissions and fixed storage leave different gaps. The unknown state
+supplied once and drift during reading add further boundaries.
+T-DOME~III gives histories with equal sign confidence but different
+maintenance values~\cite{TDOMEIII}; here, causes with identical routine
+reports require different actual repairs. Paid internal diagnosis
+separates those causes, and finite physical gates preserve its task
+advantage. With the same body left in place through repeated damage,
+normalizing routine reports cannot maintain its hidden organization.
+A finite self-reader can instead carry its posterior into decisions
+about future repair. Optimizing only the present can squander that
+history; considering the next damaged body gives a constructive benefit.
+This puts a causal role for reflection beside its estimation
+limits.
+
+The experiential proposal is that reflective continuity follows a
+maintained return from records to the organization of access, rather
+than a displayed self-description alone. It has selective-disruption
+and retention tests. Equal routine reports do not defeat those tests;
+equal complete interventional laws do. The remaining question is how
+this causally organized self-acquaintance relates to the lived state,
+and what independently justified evidence can decide that relation.
+
+\appendix
+
+\section{The resolution order of a finite self-model}\label{sec:horizon}
+
+Suppose a self-model has independent directions $j=1,2,\dots$, each estimated from records with information $I_j$ per record, and call direction $j$ resolved when $NI_j\ge c$ for a fixed tolerance constant $c$. This is a statement about precision, not identifiability: a direction with small positive $I_j$ is identifiable but needs many records.
+
+\begin{proposition}[Resolution order]\label{prop:horizon}
+If $\log I_j=-\alpha j\log j+O(j)$ with $\alpha>0$ and $L=\log N$, then
+\begin{equation}\label{eq:horizon}
+K(N):=\max\{j:NI_j\ge c\}=\frac{L/\alpha}{W(L/\alpha)}\bigl(1+o(1)\bigr)\sim\frac{\log N}{\alpha\log\log N},
+\end{equation}
+with $W$ the Lambert function. The same asymptotic holds for the summed budget $\max\{K:\sum_{j\le K}I_j^{-1}\le B\}$ with $L=\log B\to\infty$.
+\end{proposition}
+
+\begin{proof}
+Write $-\log I_j=\alpha j\log j+\epsilon_j$ with $|\epsilon_j|\le Cj$. If $NI_K\ge c$, then $\alpha K\log K-CK\le L-\log c$; if $\alpha j\log j+Cj\le L-\log c$, then $NI_j\ge c$. Since $j\log j\pm Cj/\alpha=j\log j\,(1+O(1/\log j))$ and the inverse of $x\mapsto x\log x$ is $y\mapsto y/W(y)$, both the largest admissible $K$ and the largest $j$ satisfying the sufficient condition equal $(L/\alpha)/W(L/\alpha)\,(1+o(1))$. For the summed budget, $\log\sum_{j\le K}I_j^{-1}=\alpha K\log K+O(K)$, and the same inversion applies.
+\end{proof}
+
+For $\alpha=1$ the values of $L/W(L)$ at $L=10^2,10^3,\dots,10^6$ are $29.54$, $190.49$, $1382.77$, $10770.56$ and $87847.54$. The approach to $L/\log L$ is slow, with relative corrections of order $\log\log L/\log L$. The proposition turns a stipulated information spectrum into a count of resolvable self-directions; it does not supply the spectrum. A candidate signal factor with exact factorial suppression appears in the small-ball modular Hamiltonian (Appendix~\ref{app:chm}), but a physical spectrum needs independently normalized directions, a fluctuation kernel and a permitted measurement, none of which is constructed here.
+
+\section{The small-ball signal and its scope}\label{app:chm}
+The full one-dimensional CHM moment calculation is retained in
+\texttt{CIII\_smallball.tex} in the supplemental source notes.
+Its factorial signal suppression alone supplies neither normalized
+directions nor reading noise. Consciousness~II gives the ball-family
+multipoles and a conditional Fisher spectrum with
+$\log I_k=-4k\log k+O(k)$ under supplied noise~\cite{PaperII},
+so Proposition~\ref{prop:horizon} then applies with $\alpha=4$.
+A physical noise law remains to be derived.
+
+\newpage
+\addcontentsline{toc}{section}{References}
+
+\begin{thebibliography}{99}
+\bibitem{QRAIFC}
+S.~Liu, \emph{Retained Quantum History, Physical Sources and Receiver Renewal in Q-RAIF} (Q-RAIF~C), 2026.
+
+
+\bibitem{PaperI}
+S.~Liu, \emph{Geometry Relative to a Cut: Selection, Generation and Modular Inseparability} (Consciousness~I), 2026; July 2026 record DOI: 10.5281/zenodo.19607387.
+
+\bibitem{PaperII}
+S.~Liu, \emph{Higher-Dimensional Consistency of Geometry and Modular Flow: Physical Source Identification and a Second-Order Extension} (Consciousness~II), Zenodo (2026), DOI: 10.5281/zenodo.19607543.
+
+\bibitem{PaperG}
+S.~Liu, \emph{Internal Selection and Revisable Organization: How History Changes Permissions and Physical Sources} (HAFF~G), 2026; July 2026 record DOI: 10.5281/zenodo.18402907.
+
+\bibitem{TDOMEI}
+S.~Liu, \emph{Memory as a Usable Resource: Correlations, Records and Complete Endpoint Accounting} (T-DOME~I), 2026.
+
+\bibitem{TDOMEII}
+S.~Liu, \emph{Reference Frames Selected by History: The Capability and Cost of a Bounded Agent's Self-Frame} (T-DOME~II), 2026.
+
+\bibitem{TDOMEIII}
+S.~Liu, \emph{Keeping a Self-Model Calibrated: Drift Detection, the Price of Keeping Up, and Reliability in a Closed Loop} (T-DOME~III), 2026; July 2026 record DOI: 10.5281/zenodo.18591771.
+
+\bibitem{WorldImprint}
+S.~Liu, \emph{The World as Imprint: From Trace-Carrying Structure to Self-Reading Mind}, 2026.
+
+\bibitem{BrainAnchor}
+S.~Liu, \emph{The Brain as a Plastic Observable-Algebra Network: Learning Shared Access from Sensorimotor History}, 2026.
+
+\bibitem{Araki1976}
+H.~Araki,
+\emph{Relative entropy of states of von Neumann algebras},
+Publ.\ Res.\ Inst.\ Math.\ Sci.\ \textbf{11}, 809--833 (1976).
+
+\bibitem{Petz1986}
+D.~Petz,
+\emph{Sufficient subalgebras and the relative entropy of states of a von Neumann algebra},
+Commun.\ Math.\ Phys.\ \textbf{105}, 123--131 (1986).
+
+\bibitem{Petz1996}
+D.~Petz,
+\emph{Monotone metrics on matrix spaces},
+Linear Algebra Appl.\ \textbf{244}, 81--96 (1996).
+
+\bibitem{vanTrees1968}
+H.~L.~Van Trees,
+\emph{Detection, Estimation, and Modulation Theory, Part~I},
+Wiley, New York (1968).
+
+\bibitem{Holevo1973}
+A.~S.~Holevo,
+\emph{Bounds for the quantity of information transmitted by a quantum communication channel},
+Probl.\ Inf.\ Transm.\ \textbf{9}, 177--183 (1973).
+
+\bibitem{Breuer1995}
+T.~Breuer,
+\emph{The impossibility of accurate state self-measurements},
+Philosophy of Science \textbf{62}, 197--214 (1995).
+
+\bibitem{TanakaKomaki2005}
+F.~Tanaka and F.~Komaki,
+\emph{Bayesian prediction of the Gaussian states from $n$ sample},
+arXiv:quant-ph/0510176 (2005).
+
+\bibitem{SchumacherWestmoreland2001}
+B.~Schumacher and M.~D.~Westmoreland,
+\emph{Optimal signal ensembles},
+arXiv:quant-ph/9912122 (1999).
+
+\bibitem{Tichavsky1998}
+P.~Tichavsk\'y, C.~H.~Muravchik, and A.~Nehorai,
+\emph{Posterior Cram\'er--Rao bounds for discrete-time nonlinear filtering},
+IEEE Trans.\ Signal Process.\ \textbf{46}, 1386--1396 (1998).
+
+\bibitem{FlemingDaw2017}
+S.~M.~Fleming and N.~D.~Daw,
+\emph{Self-evaluation of decision-making: A general Bayesian framework for metacognitive computation},
+Psychological Review \textbf{124}, 91--114 (2017),
+doi:10.1037/rev0000045.
+
+\bibitem{Tsuchiya2015}
+N.~Tsuchiya, M.~Wilke, S.~Fr\"assle, and V.~A.~F.~Lamme,
+\emph{No-report paradigms: Extracting the true neural correlates of consciousness},
+Trends Cogn.\ Sci.\ \textbf{19}, 757--770 (2015),
+doi:10.1016/j.tics.2015.10.002.
+
+\bibitem{CasiniHuertaMyers2011}
+H.~Casini, M.~Huerta, and R.~C.~Myers,
+\emph{Towards a derivation of holographic entanglement entropy},
+JHEP \textbf{1105}, 036 (2011),
+arXiv:1102.0440.
+
+\end{thebibliography}
+
+\end{document}

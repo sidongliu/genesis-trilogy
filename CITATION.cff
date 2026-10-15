@@ -1,80 +1,324 @@
 cff-version: 1.2.0
-title: "The Genesis Trilogy: HAFF, Q-RAIF, and T-DOME"
-message: "If you use or reference this work, please cite using the metadata below."
+title: 'The Genesis Trilogy: World, Interface and Subject'
+message: For a specific result, cite the individual paper and exact Zenodo version consulted. This repository collects
+  research preprints and their supplementary material.
 type: dataset
 authors:
-  - family-names: Liu
-    given-names: Sidong
-    affiliation: iBioStratix Ltd
-    orcid: "https://orcid.org/0009-0000-3180-2936"
+- family-names: Liu
+  given-names: Sidong
+  affiliation: iBioStratix Ltd
+  orcid: https://orcid.org/0009-0000-3180-2936
 license: CC-BY-4.0
-doi: "10.5281/zenodo.18608021"
+doi: 10.5281/zenodo.18608021
 repository-code: https://github.com/sidongliu/genesis-trilogy
 keywords:
-  - emergent geometry
-  - observable algebras
-  - quantum foundations
-  - thermodynamic cognition
-  - self-monitoring
-  - Clifford algebra
+- emergent geometry
+- observable algebras
+- quantum foundations
+- thermodynamic cognition
+- self-monitoring
+- Clifford algebra
 identifiers:
-  - type: doi
-    value: "10.5281/zenodo.18608021"
-    description: "Genesis Trilogy"
-  - type: doi
-    value: "10.5281/zenodo.18361706"
-    description: "HAFF Paper A"
-  - type: doi
-    value: "10.5281/zenodo.18367060"
-    description: "HAFF Paper B"
-  - type: doi
-    value: "10.5281/zenodo.18374805"
-    description: "HAFF Paper C"
-  - type: doi
-    value: "10.5281/zenodo.18388881"
-    description: "HAFF Paper D"
-  - type: doi
-    value: "10.5281/zenodo.18400065"
-    description: "HAFF Paper E"
-  - type: doi
-    value: "10.5281/zenodo.18400425"
-    description: "HAFF Paper F"
-  - type: doi
-    value: "10.5281/zenodo.18402907"
-    description: "HAFF Paper G"
-  - type: doi
-    value: "10.5281/zenodo.18407367"
-    description: "HAFF Postscript"
-  - type: doi
-    value: "10.5281/zenodo.18416482"
-    description: "HAFF Abstract"
-  - type: doi
-    value: "10.5281/zenodo.18452194"
-    description: "HAFF Complete Collection"
-  - type: doi
-    value: "10.5281/zenodo.18525876"
-    description: "Q-RAIF Paper A"
-  - type: doi
-    value: "10.5281/zenodo.18525890"
-    description: "Q-RAIF Paper B"
-  - type: doi
-    value: "10.5281/zenodo.18528934"
-    description: "Q-RAIF Paper C"
-  - type: doi
-    value: "10.5281/zenodo.18548704"
-    description: "Q-RAIF Complete Collection"
-  - type: doi
-    value: "10.5281/zenodo.18574342"
-    description: "T-DOME Paper I"
-  - type: doi
-    value: "10.5281/zenodo.18579703"
-    description: "T-DOME Paper II"
-  - type: doi
-    value: "10.5281/zenodo.18591771"
-    description: "T-DOME Paper III"
-  - type: doi
-    value: "10.5281/zenodo.18593180"
-    description: "T-DOME Complete Collection"
-  - type: doi
-    value: "10.5281/zenodo.20044329"
-    description: "The Brain as a Plastic Observable-Algebra Network"
+- type: doi
+  value: 10.5281/zenodo.20044329
+  description: 'The Brain as a Plastic Observable-Algebra Network: Learning Shared Access from Sensorimotor History'
+- type: doi
+  value: 10.5281/zenodo.19607387
+  description: 'Geometry Relative to a Cut: Selection, Generation and Modular Inseparability'
+- type: doi
+  value: 10.5281/zenodo.19607543
+  description: 'Higher-Dimensional Consistency of Geometry and Modular Flow: Physical Source Identification and
+    a Second-Order Extension'
+- type: doi
+  value: 10.5281/zenodo.19607724
+  description: 'Finite Self-Models and the Explanatory Gap: What a Continuing Observer Can Know About Itself'
+- type: doi
+  value: 10.5281/zenodo.19627786
+  description: 'Foundation I: From Source to Manifestation. Accessible Algebras from a Source, Its Noise and a Readable
+    Seed'
+- type: doi
+  value: 10.5281/zenodo.19641372
+  description: 'Foundation II: Shared Manifestation. Shared Structure, Public Calibration and Different Histories'
+- type: doi
+  value: 10.5281/zenodo.19642189
+  description: 'Foundation III: The Perfuming Loop. Held Content, Learned Frames and Physical Return'
+- type: doi
+  value: 10.5281/zenodo.18361706
+  description: 'Physical Access and Correlation Geometry: The Holographic Alaya-Field Framework'
+- type: doi
+  value: 10.5281/zenodo.18416482
+  description: 'The Holographic Alaya-Field Framework: World, Interface and Subject'
+- type: doi
+  value: 10.5281/zenodo.18367060
+  description: 'Coupling, Records, and Stable Relations: Formation, Protected Content and the Lifetime of a Geometry'
+- type: doi
+  value: 10.5281/zenodo.18374805
+  description: 'Causation, Agency, and Existence: Historical Control and Maintained Intervention'
+- type: doi
+  value: 10.5281/zenodo.18388881
+  description: 'Selection, Maintenance and Gravitational Response: Modular Constraints and a Physical Return'
+- type: doi
+  value: 10.5281/zenodo.18400065
+  description: 'Measurement as Accessibility: Measurement Permissions, Stable Records and Public Readout'
+- type: doi
+  value: 10.5281/zenodo.18400425
+  description: 'Records, Dissipation and Intervention: Conditions for a Temporal Direction'
+- type: doi
+  value: 10.5281/zenodo.18402907
+  description: 'Internal Selection and Revisable Organization: How History Changes Permissions and Physical Sources'
+- type: doi
+  value: 10.5281/zenodo.18407367
+  description: 'Postscript: Persistence, Participation and an Unfinished Self'
+- type: doi
+  value: 10.5281/zenodo.20151594
+  description: 'The Imprint Chain: Records, Self-Calibration, and Physical Feedback'
+- type: doi
+  value: 10.5281/zenodo.20151451
+  description: 'Renormalization and Imprint Filtering: Source Identification, Memory, and Calibration'
+- type: doi
+  value: 10.5281/zenodo.20151508
+  description: 'Stable Hulls as Imprint Integration: Relations, Anchors and the Cost of Joint Reading'
+- type: doi
+  value: 10.5281/zenodo.20122718
+  description: 'The World as Imprint: From Trace-Carrying Structure to Self-Reading Mind'
+- type: doi
+  value: 10.5281/zenodo.18525876
+  description: 'Lorentzian Read-out from Local Unitary Propagation: Clifford Relations, Causal Cones and Spectral
+    Mass'
+- type: doi
+  value: 10.5281/zenodo.18525890
+  description: 'Thermodynamic Stability Constraints on Persistent Open Quantum Subsystems: Control Algebra, Physical
+    Actuation and Energy Cost'
+- type: doi
+  value: 10.5281/zenodo.18528934
+  description: Retained Quantum History, Physical Sources and Receiver Renewal in Q-RAIF
+- type: doi
+  value: 10.5281/zenodo.20280951
+  description: 'Recovering Mass-Energy Equivalence within Algebraic Lorentzian Read-out: Spectral Mass, Lattice
+    Windows and Finite Records'
+- type: doi
+  value: 10.5281/zenodo.20283057
+  description: 'The Null Cluster as Structural Imprint: A Closed Source Task and the Null-Boundary Programme'
+- type: doi
+  value: 10.5281/zenodo.20284454
+  description: 'No View from Nowhere: Read-out Closure and the Vacuum Curvature Test in Q-RAIF A'
+- type: doi
+  value: 10.5281/zenodo.18574342
+  description: 'Memory as a Usable Resource: Correlations, Records and Complete Endpoint Accounting'
+- type: doi
+  value: 10.5281/zenodo.18579703
+  description: 'Reference Frames Selected by History: The Capability and Cost of a Bounded Agent''s Self-Frame'
+- type: doi
+  value: 10.5281/zenodo.18591771
+  description: 'Keeping a Self-Model Calibrated: Drift Detection, the Price of Keeping Up, and Reliability in a
+    Closed Loop'
+- type: doi
+  value: 10.5281/zenodo.18452194
+  description: The Holographic Alaya-Field Framework
+- type: doi
+  value: 10.5281/zenodo.18548704
+  description: Quantum Reference Algebra for Information Flow
+- type: doi
+  value: 10.5281/zenodo.18593180
+  description: Thermodynamic Dynamics of Observer-Memory Entanglement
+- type: doi
+  value: 10.5281/zenodo.18608021
+  description: The Genesis Trilogy
+- type: doi
+  value: 10.5281/zenodo.19642398
+  description: Foundation Trilogy
+- type: doi
+  value: 10.5281/zenodo.19608174
+  description: Consciousness Trilogy
+- type: doi
+  value: 10.5281/zenodo.19643449
+  description: The Consciousness Series
+version: October 2026
+preferred-citation:
+  type: article
+  title: The Genesis Trilogy
+  authors:
+  - family-names: Liu
+    given-names: Sidong
+  doi: 10.5281/zenodo.18608021
+  version: October 2026
+references:
+- type: article
+  title: 'The Brain as a Plastic Observable-Algebra Network: Learning Shared Access from Sensorimotor History'
+  authors:
+  - family-names: Liu
+    given-names: Sidong
+  doi: 10.5281/zenodo.20044329
+- type: article
+  title: 'Geometry Relative to a Cut: Selection, Generation and Modular Inseparability'
+  authors:
+  - family-names: Liu
+    given-names: Sidong
+  doi: 10.5281/zenodo.19607387
+- type: article
+  title: 'Higher-Dimensional Consistency of Geometry and Modular Flow: Physical Source Identification and a Second-Order
+    Extension'
+  authors:
+  - family-names: Liu
+    given-names: Sidong
+  doi: 10.5281/zenodo.19607543
+- type: article
+  title: 'Finite Self-Models and the Explanatory Gap: What a Continuing Observer Can Know About Itself'
+  authors:
+  - family-names: Liu
+    given-names: Sidong
+  doi: 10.5281/zenodo.19607724
+- type: article
+  title: 'Foundation I: From Source to Manifestation. Accessible Algebras from a Source, Its Noise and a Readable
+    Seed'
+  authors:
+  - family-names: Liu
+    given-names: Sidong
+  doi: 10.5281/zenodo.19627786
+- type: article
+  title: 'Foundation II: Shared Manifestation. Shared Structure, Public Calibration and Different Histories'
+  authors:
+  - family-names: Liu
+    given-names: Sidong
+  doi: 10.5281/zenodo.19641372
+- type: article
+  title: 'Foundation III: The Perfuming Loop. Held Content, Learned Frames and Physical Return'
+  authors:
+  - family-names: Liu
+    given-names: Sidong
+  doi: 10.5281/zenodo.19642189
+- type: article
+  title: 'Physical Access and Correlation Geometry: The Holographic Alaya-Field Framework'
+  authors:
+  - family-names: Liu
+    given-names: Sidong
+  doi: 10.5281/zenodo.18361706
+- type: article
+  title: 'The Holographic Alaya-Field Framework: World, Interface and Subject'
+  authors:
+  - family-names: Liu
+    given-names: Sidong
+  doi: 10.5281/zenodo.18416482
+- type: article
+  title: 'Coupling, Records, and Stable Relations: Formation, Protected Content and the Lifetime of a Geometry'
+  authors:
+  - family-names: Liu
+    given-names: Sidong
+  doi: 10.5281/zenodo.18367060
+- type: article
+  title: 'Causation, Agency, and Existence: Historical Control and Maintained Intervention'
+  authors:
+  - family-names: Liu
+    given-names: Sidong
+  doi: 10.5281/zenodo.18374805
+- type: article
+  title: 'Selection, Maintenance and Gravitational Response: Modular Constraints and a Physical Return'
+  authors:
+  - family-names: Liu
+    given-names: Sidong
+  doi: 10.5281/zenodo.18388881
+- type: article
+  title: 'Measurement as Accessibility: Measurement Permissions, Stable Records and Public Readout'
+  authors:
+  - family-names: Liu
+    given-names: Sidong
+  doi: 10.5281/zenodo.18400065
+- type: article
+  title: 'Records, Dissipation and Intervention: Conditions for a Temporal Direction'
+  authors:
+  - family-names: Liu
+    given-names: Sidong
+  doi: 10.5281/zenodo.18400425
+- type: article
+  title: 'Internal Selection and Revisable Organization: How History Changes Permissions and Physical Sources'
+  authors:
+  - family-names: Liu
+    given-names: Sidong
+  doi: 10.5281/zenodo.18402907
+- type: article
+  title: 'Postscript: Persistence, Participation and an Unfinished Self'
+  authors:
+  - family-names: Liu
+    given-names: Sidong
+  doi: 10.5281/zenodo.18407367
+- type: article
+  title: 'The Imprint Chain: Records, Self-Calibration, and Physical Feedback'
+  authors:
+  - family-names: Liu
+    given-names: Sidong
+  doi: 10.5281/zenodo.20151594
+- type: article
+  title: 'Renormalization and Imprint Filtering: Source Identification, Memory, and Calibration'
+  authors:
+  - family-names: Liu
+    given-names: Sidong
+  doi: 10.5281/zenodo.20151451
+- type: article
+  title: 'Stable Hulls as Imprint Integration: Relations, Anchors and the Cost of Joint Reading'
+  authors:
+  - family-names: Liu
+    given-names: Sidong
+  doi: 10.5281/zenodo.20151508
+- type: article
+  title: 'The World as Imprint: From Trace-Carrying Structure to Self-Reading Mind'
+  authors:
+  - family-names: Liu
+    given-names: Sidong
+  doi: 10.5281/zenodo.20122718
+- type: article
+  title: 'Lorentzian Read-out from Local Unitary Propagation: Clifford Relations, Causal Cones and Spectral Mass'
+  authors:
+  - family-names: Liu
+    given-names: Sidong
+  doi: 10.5281/zenodo.18525876
+- type: article
+  title: 'Thermodynamic Stability Constraints on Persistent Open Quantum Subsystems: Control Algebra, Physical Actuation
+    and Energy Cost'
+  authors:
+  - family-names: Liu
+    given-names: Sidong
+  doi: 10.5281/zenodo.18525890
+- type: article
+  title: Retained Quantum History, Physical Sources and Receiver Renewal in Q-RAIF
+  authors:
+  - family-names: Liu
+    given-names: Sidong
+  doi: 10.5281/zenodo.18528934
+- type: article
+  title: 'Recovering Mass-Energy Equivalence within Algebraic Lorentzian Read-out: Spectral Mass, Lattice Windows
+    and Finite Records'
+  authors:
+  - family-names: Liu
+    given-names: Sidong
+  doi: 10.5281/zenodo.20280951
+- type: article
+  title: 'The Null Cluster as Structural Imprint: A Closed Source Task and the Null-Boundary Programme'
+  authors:
+  - family-names: Liu
+    given-names: Sidong
+  doi: 10.5281/zenodo.20283057
+- type: article
+  title: 'No View from Nowhere: Read-out Closure and the Vacuum Curvature Test in Q-RAIF A'
+  authors:
+  - family-names: Liu
+    given-names: Sidong
+  doi: 10.5281/zenodo.20284454
+- type: article
+  title: 'Memory as a Usable Resource: Correlations, Records and Complete Endpoint Accounting'
+  authors:
+  - family-names: Liu
+    given-names: Sidong
+  doi: 10.5281/zenodo.18574342
+- type: article
+  title: 'Reference Frames Selected by History: The Capability and Cost of a Bounded Agent''s Self-Frame'
+  authors:
+  - family-names: Liu
+    given-names: Sidong
+  doi: 10.5281/zenodo.18579703
+- type: article
+  title: 'Keeping a Self-Model Calibrated: Drift Detection, the Price of Keeping Up, and Reliability in a Closed
+    Loop'
+  authors:
+  - family-names: Liu
+    given-names: Sidong
+  doi: 10.5281/zenodo.18591771

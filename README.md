@@ -1,267 +1,53 @@
 # The Genesis Trilogy
 
-**Author:** Sidong Liu, PhD — iBioStratix Ltd
+Sidong Liu · iBioStratix Ltd
 
-A unified research programme in operator-algebraic quantum theory.
+How do physical interactions form a readable world, the interfaces through which it can be reached, and a subject able to revise its own participation in it? The Genesis Trilogy studies these questions through physical access, retained records and the operations those records make possible.
 
-The core repository is the **Genesis Trilogy**: thirteen papers across
-**HAFF**, **Q-RAIF**, and **T-DOME** that ask how geometry, observer
-architecture, and irreversible self-reference can emerge from algebraic
-structure.
+HAFF develops the world side: coupling-selected structure, measurement, agency, temporal direction and gravitational response. Q-RAIF develops the physical interface, from Lorentzian readout and control costs to quantum records, material sources and receiver renewal. T-DOME follows the formation of functional subject organization through memory, learned self-frames and continued calibration.
 
-This repository also contains the six-paper **Consciousness Series**,
-which uses that infrastructure to build one continuous chain:
+Foundation, Consciousness, Imprint and Brain Anchor extend these questions to realized and shared structure, physical return, finite self-reading, useful traces and learned bodily access. Each retains its own explanatory task. A functional self-model or successful self-calibration does not by itself establish subjective experience.
 
-`source formation → shared manifestation → feedback → geometry/modular inseparability → gravity → structural horizon of self-description`
+This October 2026 edition contains 29 individual documents and seven collected volumes. These are research preprints. The papers distinguish proved results within specified models, conditional physical laws, and stronger conjectures.
 
-A separate biological anchoring interface paper connects that series to
-embodied brain organization.
+## Start reading
 
-So the repo is not just an archive of separate papers. It contains both:
+The [general abstract](papers/HAFF-ABS/HAFF_Abstract.pdf) surveys the full programme. The [Genesis Trilogy collection](collections/Genesis_Trilogy_Collection/Genesis_Trilogy_Collection.pdf) brings together the central HAFF, Q-RAIF and T-DOME papers. All seven collected volumes have a dedicated cover, linked contents, a reading map and section-level PDF bookmarks. Contents use PDF page numbers; the component papers retain their original printed pagination.
 
-- the foundational trilogy that develops the mathematical
-  infrastructure; and
-- the follow-on consciousness programme that pushes that infrastructure
-  into a single six-step arc.
+| Line | Papers | Collected volume |
+|---|---|---|
+| HAFF: world and physical access | [A](papers/HAFF-A/), [B](papers/HAFF-B/), [C](papers/HAFF-C/), [D](papers/HAFF-D/), [E](papers/HAFF-E/), [F](papers/HAFF-F/), [G](papers/HAFF-G/), [Postscript](papers/HAFF-PS/) | [HAFF](collections/HAFF_Complete_Collection/HAFF_Complete_Collection.pdf) |
+| Q-RAIF: physical interface | [A](papers/QR-A/), [B](papers/QR-B/), [C](papers/QR-C/); companions: [Mass–Energy](papers/QR-ME/), [Null Cluster](papers/QR-NC/), [No View](papers/QR-NV/) | [Q-RAIF A–C](collections/QRAIF_Complete_Collection/QRAIF_Complete_Collection.pdf) |
+| T-DOME: memory, self-frames and calibration | [I](papers/TD-I/), [II](papers/TD-II/), [III](papers/TD-III/) | [T-DOME](collections/TDOME_Complete_Collection/TDOME_Complete_Collection.pdf) |
+| Foundation: realization, sharing and return | [I](papers/F-I/), [II](papers/F-II/), [III](papers/F-III/) | [Foundation](collections/Foundation_Trilogy_Complete_Collection/Foundation_Trilogy_Complete_Collection.pdf) |
+| Consciousness: geometry and finite first-person organization | [I](papers/C-I/), [II](papers/C-II/), [III](papers/C-III/) | [Consciousness](collections/Consciousness_Trilogy_Complete_Collection/Consciousness_Trilogy_Complete_Collection.pdf) |
+| Imprint: traces, reading, integration and action | [The World as Imprint](papers/IMP-W/), [Renormalization and Imprint Filtering](papers/IMP-RG/), [Stable Hulls as Imprint Integration](papers/IMP-SH/), [The Imprint Chain](papers/IMP-CHAIN/) | Individual papers |
+| Brain Anchor: learned access on a continuing body | [The Brain as a Plastic Observable-Algebra Network](papers/BRAIN/) | Individual paper |
 
-## At a Glance
+The [Consciousness Series collection](collections/Consciousness_Series_Complete_Collection/Consciousness_Series_Complete_Collection.pdf) combines Foundation I–III and Consciousness I–III. Collections preserve the individual papers' pagination; their contents overlap with the standalone papers.
 
-- **Genesis Trilogy**: 13 papers across HAFF, Q-RAIF, and T-DOME.
-- **Q-RAIF companion papers**: downstream compatibility papers extending the Q-RAIF line without enlarging the core trilogy count.
-- **Consciousness Series**: 6 papers across Foundations I--III and
-  Papers I--III, plus one biological anchoring interface paper, one
-  programmatic essay, and three `Imprint Interlude` bridge papers.
-- **Fastest entry point for the consciousness programme**:
-  [Consciousness Series complete collection DOI](https://doi.org/10.5281/zenodo.19643449)
-- **Repo location for upload-ready consciousness files**:
-  `consciousness_series/Zenodo/` and `consciousness_series/Zenodo_Meta/`
+For the operational starting point, read HAFF A and B, then E. Q-RAIF A–C follows propagation, actuation and actual quantum history. T-DOME I–III follows memory's task value, the formation of a usable self-frame and its upkeep. The collection introductions give more detailed routes.
 
----
+## Finite return and the stronger conjectures
 
-## Structure
+Foundation III constructs a finite semiclassical scalar/JT return under one mean action. An acquired record installs protection for quantum content already held in the apparatus and changes its source. At fixed initial mass and geometric constraints, the resulting geometric response enters a later X-basis reading of the old probe into a spent cell. The content, references, physical cursor and retained history remain in the comparison; task benefit and return occur within the same finite window.
 
-The trilogy comprises **13 papers** across three frameworks:
+This finite result is distinguished from two stronger targets: sustained thermal renewal on one apparatus, and the joint attainability of sharp complete entropy export with an informative adaptive return. Both remain strong conjectures. Separate quantum receiver-renewal, full-mode source and geometric constructions retain their stated inputs and do not constitute one universal implementation.
 
-### I. HAFF — Holographic Alaya-Field Framework (7 papers + postscript)
+The paths linked above identify this edition. Legacy paths from earlier editions, where retained in the repository, are historical copies.
 
-*How geometry emerges from observable algebras.*
+## July edition
 
-| Paper | Title |
-|-------|-------|
-| A | Emergent Geometry from Coarse-Grained Observable Algebras |
-| B | Accessibility, Stability, and Emergent Geometry — Conceptual Clarifications |
-| C | Causation, Agency, and Existence — Structural Constraints and Interpretive Bridges |
-| D | Gravitational Phenomena as Emergent Properties of Observable Algebra Selection |
-| E | Measurement as Accessibility — A Structural Analysis of Observable Algebra Selection |
-| F | Temporal Asymmetry as Accessibility Propagation |
-| G | Structural Limits of Unification — Accessibility, Incompleteness, and the Necessity of a Final Cut |
-| PS | Postscript: On the Closure of Structure |
+The [24 July 2026 archive](archive/2026-07-24/README.md) preserves the 127 files published across the same 36 Zenodo record lines, with their original checksums. It also supplies the original local `arxiv.sty` build dependency. The October documents above are the current edition; historical manuscripts and supplements should not be mixed with them. Cite the exact version used.
 
-### II. Q-RAIF — Quantum Reality-Algebra Intersection Framework (3 papers)
+## Sources and citation
 
-*Why an observer's control algebra must embed in the environment's Cl(1,3).*
+Each directory under `papers/` contains its manuscript source and PDF, together with any accompanying dependencies or supplements. The seven assembled PDFs are under `collections/`. Read the relevant supplement instructions before running a calculation: numerical checks illustrate or test the stated models and have their own assumptions.
 
-| Paper | Title |
-|-------|-------|
-| A | The Quantum Reality-Algebra Intersection Framework |
-| B | Algebraic Constraints on Observer–Environment Coupling |
-| C | The Structural Closure of Reality Intersection |
+The October supplements support the current manuscripts; retired figures and experiments remain in the July archive rather than accompanying the revised papers. Zenodo downloads use descriptive attachment names. Where a relative directory layout is needed, each record supplies a `DOWNLOAD.md` guide and a `FILES.json` map with paths and checksums. Restore that layout before compiling sources or running a scientific entry point.
 
-### III. T-DOME — Thermodynamic Dome (3 papers)
-
-*The irreversible logic chain: Chaos → Time → Self → Sentience.*
-
-| Paper | Title |
-|-------|-------|
-| I | Memory as Thermodynamic Resource: Markov Ceilings and the Necessity of Non-Markovian Encoding |
-| II | Foreground-Background Partitioning Under Finite Attention: The Emergence of Ego-Structure |
-| III | Closure Under Calibration: From Ego-Structure to the Self-Monitoring Loop |
-
----
-
-## Repository Layout
-
-```
-genesis-trilogy/
-├── papers/
-│   ├── HAFF_A/ … HAFF_G/        # Individual HAFF papers
-│   ├── HAFF_Postscript/
-│   ├── QRAIF_A/ … QRAIF_C/      # Individual Q-RAIF papers
-│   ├── QRAIF_Mass_Energy_Companion/
-│   ├── QRAIF_Null_Cluster_Companion/
-│   ├── QRAIF_No_View_from_Nowhere/
-│   ├── TDOME_I/ … TDOME_III/     # Individual T-DOME papers
-│   │   ├── manuscript.tex
-│   │   ├── manuscript.pdf
-│   │   ├── figures/              # (T-DOME only)
-│   │   ├── data/                 # (T-DOME only)
-│   │   └── demo/                 # (T-DOME only)
-│   └── .../Zenodo/               # Upload-specific PDF/TEX pairs where applicable
-├── collections/                   # Complete collected volumes
-│   ├── HAFF_Complete_Collection.*
-│   ├── Q_RAIF_Complete_Collection.*
-│   ├── T_DOME_Complete_Collection.*
-│   ├── Genesis_Trilogy.*          # All 13 papers in one volume
-│   └── build_*.py                 # Automated build scripts
-├── consciousness_series/
-│   ├── Zenodo/                    # Paper-level Zenodo upload files only
-│   │   ├── Foundation_I_*.pdf / .tex
-│   │   ├── Foundation_II_*.pdf / .tex
-│   │   ├── Foundation_III_*.pdf / .tex
-│   │   ├── Paper_I_*.pdf / .tex
-│   │   ├── Paper_II_*.pdf / .tex
-│   │   ├── Paper_III_*.pdf / .tex
-│   │   └── Brain_as_Plastic_Observable_Algebra_Network_*.pdf / .tex
-│   │   ├── The_World_as_Imprint_*.pdf / .tex
-│   │   ├── Renormalization_as_Imprint_Filtering_*.pdf / .tex
-│   │   ├── Stable_Hulls_as_Imprint_Integration_*.pdf / .tex
-│   │   └── The_Imprint_Chain_*.pdf / .tex
-│   └── Zenodo_Meta/               # Collection/community assets kept out of upload root
-│       ├── Foundation_Trilogy_Complete_Collection_Zenodo.pdf / .tex
-│       ├── Consciousness_Trilogy_Complete_Collection_Zenodo.pdf / .tex
-│       ├── Consciousness_Series_Complete_Collection_Zenodo.pdf / .tex
-│       └── community.jpg
-├── notes/                         # Companion materials
-│   ├── mapping_en.md / mapping_zh.md   # Theory ↔ Yogacara mapping
-│   ├── reviewer_en.md / reviewer_zh.md # Self-evaluation
-│   └── tdome_companion_note_draft.md
-├── arxiv.sty                      # Shared LaTeX style
-├── LICENSE                        # CC BY 4.0
-└── CITATION.cff
-```
-
----
-
-## Consciousness Upload Package
-
-The paper-level Zenodo upload files live in `consciousness_series/Zenodo/`. Collection-level assets are kept separately in `consciousness_series/Zenodo_Meta/`.
-
-### Paper-Level Uploads
-
-| Item | DOI |
-|------|-----|
-| Foundation I — *From Source to Manifestation* | [10.5281/zenodo.19627786](https://doi.org/10.5281/zenodo.19627786) |
-| Foundation II — *Shared Manifestation* | [10.5281/zenodo.19641372](https://doi.org/10.5281/zenodo.19641372) |
-| Foundation III — *The Perfuming Loop* | [10.5281/zenodo.19642189](https://doi.org/10.5281/zenodo.19642189) |
-| Paper I — *The Inseparability of Geometry and Modular Flow* | [10.5281/zenodo.19607387](https://doi.org/10.5281/zenodo.19607387) |
-| Paper II — *Higher-Dimensional Consistency of Geometry and Modular Flow* | [10.5281/zenodo.19607543](https://doi.org/10.5281/zenodo.19607543) |
-| Paper III — *The Structural Horizon of Self-Description* | [10.5281/zenodo.19607724](https://doi.org/10.5281/zenodo.19607724) |
-| Interface Paper — *The Brain as a Plastic Observable-Algebra Network* | [10.5281/zenodo.20044329](https://doi.org/10.5281/zenodo.20044329) |
-| Programmatic Essay — *The World as Imprint* | [10.5281/zenodo.20122718](https://doi.org/10.5281/zenodo.20122718) |
-| Bridge Paper I — *Renormalization and Imprint Filtering* | [10.5281/zenodo.20151451](https://doi.org/10.5281/zenodo.20151451) |
-| Bridge Paper II — *Stable Hulls as Imprint Integration* | [10.5281/zenodo.20151508](https://doi.org/10.5281/zenodo.20151508) |
-| Roadmap Paper — *The Imprint Chain* | [10.5281/zenodo.20151594](https://doi.org/10.5281/zenodo.20151594) |
-
-`Foundation I` appears locally in both the published `v1` text and the interface-harmonized `v2` text; both stay under the same DOI line above.
-
-The three `Imprint Interlude` papers are deposited in the same consciousness-facing upload root as bridge companions to *The World as Imprint* rather than as a separate series.
-
-### Collected Volumes
-
-| Item | DOI |
-|------|-----|
-| Foundation Trilogy | [10.5281/zenodo.19642398](https://doi.org/10.5281/zenodo.19642398) |
-| Consciousness Trilogy | [10.5281/zenodo.19608174](https://doi.org/10.5281/zenodo.19608174) |
-| Consciousness Series — complete six-paper collected volume | [10.5281/zenodo.19643449](https://doi.org/10.5281/zenodo.19643449) |
-
-The upload root is intentionally kept minimal: each paper appears only as a same-named `*_Zenodo.tex` / `*_Zenodo.pdf` pair. Collection-level files and the Zenodo community image are kept separately in `consciousness_series/Zenodo_Meta/`.
-
----
-
-## Zenodo DOIs
-
-| Item | DOI |
-|------|-----|
-| **Genesis Trilogy** | [10.5281/zenodo.18608021](https://doi.org/10.5281/zenodo.18608021) |
-| | |
-| HAFF Paper A — Emergent Geometry | [10.5281/zenodo.18361706](https://doi.org/10.5281/zenodo.18361706) |
-| HAFF Paper B — Accessibility, Stability | [10.5281/zenodo.18367060](https://doi.org/10.5281/zenodo.18367060) |
-| HAFF Paper C — Causation, Agency, Existence | [10.5281/zenodo.18374805](https://doi.org/10.5281/zenodo.18374805) |
-| HAFF Paper D — Gravitational Phenomena | [10.5281/zenodo.18388881](https://doi.org/10.5281/zenodo.18388881) |
-| HAFF Paper E — Measurement as Accessibility | [10.5281/zenodo.18400065](https://doi.org/10.5281/zenodo.18400065) |
-| HAFF Paper F — Temporal Asymmetry | [10.5281/zenodo.18400425](https://doi.org/10.5281/zenodo.18400425) |
-| HAFF Paper G — Structural Limits of Unification | [10.5281/zenodo.18402907](https://doi.org/10.5281/zenodo.18402907) |
-| HAFF Postscript | [10.5281/zenodo.18407367](https://doi.org/10.5281/zenodo.18407367) |
-| HAFF Abstract | [10.5281/zenodo.18416482](https://doi.org/10.5281/zenodo.18416482) |
-| HAFF Complete Collection | [10.5281/zenodo.18452194](https://doi.org/10.5281/zenodo.18452194) |
-| | |
-| Q-RAIF Paper A — Lorentzian Metrics | [10.5281/zenodo.18525876](https://doi.org/10.5281/zenodo.18525876) |
-| Q-RAIF Paper B — Operator Algebra Stability | [10.5281/zenodo.18525890](https://doi.org/10.5281/zenodo.18525890) |
-| Q-RAIF Paper C — Realizability Bridge | [10.5281/zenodo.18528934](https://doi.org/10.5281/zenodo.18528934) |
-| Q-RAIF Companion — Mass-Energy Conditional Theorem | [10.5281/zenodo.20280951](https://doi.org/10.5281/zenodo.20280951) |
-| Q-RAIF Programme Note — Null Cluster as Structural Imprint | [10.5281/zenodo.20283057](https://doi.org/10.5281/zenodo.20283057) |
-| Q-RAIF Predictive Note — No View from Nowhere | [10.5281/zenodo.20284454](https://doi.org/10.5281/zenodo.20284454) |
-| Q-RAIF Complete Collection | [10.5281/zenodo.18548704](https://doi.org/10.5281/zenodo.18548704) |
-| | |
-| T-DOME Paper I — Non-Markovian Memory | [10.5281/zenodo.18574342](https://doi.org/10.5281/zenodo.18574342) |
-| T-DOME Paper II — Reference Frame SSB | [10.5281/zenodo.18579703](https://doi.org/10.5281/zenodo.18579703) |
-| T-DOME Paper III — Self-Referential Calibration | [10.5281/zenodo.18591771](https://doi.org/10.5281/zenodo.18591771) |
-| T-DOME Complete Collection | [10.5281/zenodo.18593180](https://doi.org/10.5281/zenodo.18593180) |
-| | |
-| Foundation I — From Source to Manifestation | [10.5281/zenodo.19627786](https://doi.org/10.5281/zenodo.19627786) |
-| Foundation II — Shared Manifestation | [10.5281/zenodo.19641372](https://doi.org/10.5281/zenodo.19641372) |
-| Foundation III — The Perfuming Loop | [10.5281/zenodo.19642189](https://doi.org/10.5281/zenodo.19642189) |
-| Paper I — Geometry and Modular Flow | [10.5281/zenodo.19607387](https://doi.org/10.5281/zenodo.19607387) |
-| Paper II — Higher-Dimensional Consistency | [10.5281/zenodo.19607543](https://doi.org/10.5281/zenodo.19607543) |
-| Paper III — Structural Horizon of Self-Description | [10.5281/zenodo.19607724](https://doi.org/10.5281/zenodo.19607724) |
-| Interface Paper — Brain as Plastic Observable-Algebra Network | [10.5281/zenodo.20044329](https://doi.org/10.5281/zenodo.20044329) |
-| Programmatic Essay — The World as Imprint | [10.5281/zenodo.20122718](https://doi.org/10.5281/zenodo.20122718) |
-| Bridge Paper I — Renormalization and Imprint Filtering | [10.5281/zenodo.20151451](https://doi.org/10.5281/zenodo.20151451) |
-| Bridge Paper II — Stable Hulls as Imprint Integration | [10.5281/zenodo.20151508](https://doi.org/10.5281/zenodo.20151508) |
-| Roadmap Paper — The Imprint Chain | [10.5281/zenodo.20151594](https://doi.org/10.5281/zenodo.20151594) |
-| Foundation Trilogy | [10.5281/zenodo.19642398](https://doi.org/10.5281/zenodo.19642398) |
-| Consciousness Trilogy | [10.5281/zenodo.19608174](https://doi.org/10.5281/zenodo.19608174) |
-| Consciousness Series — complete collection | [10.5281/zenodo.19643449](https://doi.org/10.5281/zenodo.19643449) |
-
----
-
-## Reproducing Numerical Demonstrations
-
-T-DOME Papers I–III include numerical demonstrations. Each demo script is self-contained and requires only **NumPy** and **Matplotlib**:
-
-```bash
-# Paper I — Markov ceiling demo
-cd papers/TDOME_I/demo
-python paper1_markov_ceiling_demo.py
-
-# Paper II — k* staircase demo
-cd papers/TDOME_II/demo
-python paper2_kstar_scaling_demo.py
-
-# Paper III — phase diagram, survival, ego, loop demos
-cd papers/TDOME_III/demo
-python tdome_demo.py
-```
-
-Each script produces deterministic output (fixed seeds) and generates PDF figures with confidence intervals.
-
----
-
-## Building Collections
-
-The collected volumes can be rebuilt from individual papers:
-
-```bash
-cd collections
-python build_tdome_collection.py    # → T_DOME_Complete_Collection.tex
-python build_genesis_trilogy.py     # → Genesis_Trilogy.tex
-# Then compile with pdflatex (3 passes for cross-references)
-```
-
----
-
-## Archive / Long-term Preservation
-
-| Layer | Platform | Identifier |
-|-------|----------|------------|
-| Academic citation | **Zenodo** | [10.5281/zenodo.18608021](https://doi.org/10.5281/zenodo.18608021) |
-| Canonical source | **GitHub** | [github.com/sidongliu/genesis-trilogy](https://github.com/sidongliu/genesis-trilogy) |
-| Software Heritage | **SWH** | [`swh:1:snp:76ebc4c8e9cd85e7f9e97a0b7c0237ca17696f83`](https://archive.softwareheritage.org/swh:1:snp:76ebc4c8e9cd85e7f9e97a0b7c0237ca17696f83) |
-
-This repository contains the LaTeX sources, numerical demonstrations, and build scripts needed to reproduce the Genesis Trilogy together with the associated Consciousness Series upload package. The Zenodo DOIs serve as the academic citation entry point; the GitHub repository is the canonical, versioned source; and the Software Heritage archive provides content-addressed, platform-independent long-term preservation.
-
----
+For academic citation, use the DOI and version of the paper or collection consulted. [CITATION.cff](CITATION.cff) provides repository-level citation metadata. Series DOIs printed in the manuscripts identify their archival record lines; consult the record's version history when a specific edition matters.
 
 ## License
 
-This work is licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/).
+[Creative Commons Attribution 4.0 International](LICENSE), © 2025–2026 Sidong Liu.

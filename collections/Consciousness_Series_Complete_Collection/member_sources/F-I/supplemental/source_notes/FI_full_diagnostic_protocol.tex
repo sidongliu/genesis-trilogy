@@ -1,0 +1,40 @@
+Three diagnostic scripts accompany the paper, with their outputs.
+
+\paragraph{B.0 Physical permission bridge}
+\texttt{check\_permission\_bridge.py} verifies the actual controlled-X
+instrument, including an old reference, at \(\alpha=0,.1,.6,1\) and
+\(m=1,2,3,5\). It compares the full coarse post-read maps with
+Proposition~\ref{prop:readbridge}, including the tie rule, and checks
+the trace-distance identity on a Bell input and eleven random mixed
+inputs per setting. The diamond identity is proved above, not inferred
+from that finite sample. It also checks the bounded-function qubit
+coupling and positive Hamiltonian shift, the unchanged-effect
+post-read-flip counterexample, and the exact mean and constant
+instantaneous distance in Example~\ref{ex:mean}.
+
+\paragraph{B.1 Finite-dimensional hulls} (\texttt{hull\_finite.py}). The hull is
+computed as the smallest subspace containing the seed and \(\mathbf 1\) that is closed
+under products, adjoints, \(X\mapsto[\log\rho,X]\) and the Lindblad generator, which in
+finite dimension is equivalent to invariance under the modular group and the
+semigroup. Checks: (1) Example~\ref{ex:qubit}, hull of \(P_0\) equal to \(M_2\) and the
+fixed algebra not modular-invariant; (2) the same with the pinched state, hull of
+dimension 2; (3) \(M_2\otimes M_3\) with ergodic noise on the second factor:
+fixed algebra \(M_2\otimes\mathbf 1\), modular invariance for a stationary product state,
+\(E_{\mathrm{fix}}\circ\mathcal E_t=E_{\mathrm{fix}}\), bimodularity, failure of modular
+invariance for an entangled state; (4) the collective dephasing of three qubits: records
+alone generate only themselves, the in-block seed obeys
+Proposition~\ref{prop:finite} with dimensions \(3\le10\le10\le20\), the expectation onto
+the hull is bimodular and persistent, and joins are preserved; (5) the example of
+Consciousness~I; (6) in \(M_2\) the subgroups \(O(2)\) and \(SO(3)\) have the same fixed
+algebra, so stabilizers do not classify hulls in type~I; (7) the Davis--Kahan bound of
+Proposition~\ref{prop:alignment} on 200 random task matrices; (8) the counterexample in
+the corrections note.
+
+\paragraph{B.2 Hull characters} (\texttt{characters.py}). Multiplicities \(m_j(K)\) for
+\(j\le60\) are computed from the class data of \(C_n,D_n\) (\(n\le40\)), \(T,O,I\) and from
+closed forms for \(SO(2),O(2),SO(3)\). The script verifies that the characters of
+Theorem~\ref{thm:su2}(b) reproduce the U(1) Fock, SU(2)\(_1\), Virasoro (levels 0--9
+equal to \(1,0,1,1,2,2,4,4,7,8\)) and even-Fock characters and the rank-one lattice
+characters for \(C_2,C_3,C_5\), that the 85 multiplicity sequences are pairwise distinct,
+and it prints Table~\ref{tab:chars} and the first levels at which characters differ.
+

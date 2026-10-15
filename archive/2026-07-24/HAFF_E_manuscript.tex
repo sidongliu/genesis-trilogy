@@ -1,0 +1,558 @@
+% Paper E: Measurement as Accessibility
+% A Structural Analysis of Observable Algebra Selection
+% COMPLETE VERSION — Final Draft
+
+\documentclass[12pt,a4paper]{article}
+\usepackage{amsmath,amssymb,amsfonts,amsthm}
+\usepackage{physics}
+\usepackage{hyperref}
+\usepackage{geometry}
+\usepackage{array}
+\newcolumntype{P}[1]{>{\raggedright\arraybackslash}p{#1}}
+\usepackage{booktabs}
+\geometry{margin=1in}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{constraint}[theorem]{Constraint}
+
+\title{Measurement as Accessibility:\\
+A Structural Analysis of Observable Algebra Selection}
+
+\author{
+  Sidong Liu, PhD \\
+  iBioStratix Ltd \\
+  \texttt{sidongliu@hotmail.com}
+}
+
+\date{July 2026}
+
+\begin{document}
+\emergencystretch=2em
+\raggedbottom
+\hbadness=5000
+\vbadness=5000
+
+\maketitle
+
+\begin{abstract}
+We propose that quantum measurement is not a primitive process but can be analyzed through accessibility constraints on operator-algebraic structures. Building on the Holographic Alaya-Field Framework (HAFF), we distinguish three typed tests---probe reachability, dynamical stability, and environmental redundancy---rather than treating them as one intersection that determines a single accessible algebra. Measurement outcomes are reinterpreted through the eigenvalue and record structure of observables satisfying the relevant declared tests, and the definiteness of outcomes is traced to redundant environmental encoding rather than wave function collapse. This framework maintains compatibility with unitary quantum mechanics while providing a structural account of why certain observables acquire definite values. The analysis is structural in nature: we do not propose new dynamics or modifications to quantum mechanics, but clarify the conditions under which measurement-like phenomena emerge from algebraic constraints. Connections to decoherence theory, quantum Darwinism, and algebraic quantum field theory are discussed, along with explicit non-claims to prevent misinterpretation.
+\end{abstract}
+
+\section{Introduction}
+\label{sec:intro}
+
+\subsection{The Measurement Problem Reconsidered}
+
+The quantum measurement problem has resisted resolution for nearly a century. In its sharpest form, the problem asks: how do definite measurement outcomes arise from quantum states that, prior to measurement, assign non-trivial amplitudes to multiple possibilities? Standard quantum mechanics provides rules for computing outcome probabilities but does not explain the transition from superposition to definiteness.
+
+Various approaches have been proposed: collapse postulates that modify unitary evolution, many-worlds interpretations that deny the uniqueness of outcomes, and decoherence-based accounts that explain the suppression of interference without addressing the selection of particular results. Each approach has merits, but none has achieved consensus.
+
+\subsection{A Structural Reframing}
+
+This paper proposes a different perspective. Rather than asking how measurement \emph{causes} a unique outcome, we ask: under what structural conditions do effects become probe-reachable and records become objective in the first place?
+
+The central claim is:
+
+\begin{quote}
+\textbf{Measurement is not a primitive process, but a manifestation of accessibility constraints on operator algebras.}
+\end{quote}
+
+Within the Holographic Alaya-Field Framework (HAFF) developed in previous papers \cite{Liu2026PaperA,Liu2026PaperB,Liu2026PaperC,Liu2026PaperD}, physical descriptions are formulated relative to selected operator families in an ambient von Neumann algebra $\mathcal M_U$. Not all mathematically definable operators correspond to physically realizable measurements. The present paper separates three tests that were previously conflated:
+
+\begin{enumerate}
+    \item \textbf{Probe reachability}: an allowed probe channel can distinguish the relevant effect.
+    \item \textbf{Dynamical stability}: the effect is approximately stable, or exactly fixed, under a specified environmental dynamics.
+    \item \textbf{Record redundancy}: a classical pointer label is recoverable from many disjoint environmental fragments.
+\end{enumerate}
+
+These tests apply to different mathematical objects and therefore must not be intersected and called an algebra. Probe-reachable effects form an operator system; exact fixed points form an operator system and, under additional hypotheses, a von Neumann algebra; pointer records form a designated commutative algebra. Redundancy supports robust, intersubjectively readable records, but does not select a unique outcome of the global state.
+
+\subsection{Scope and Limitations}
+
+We emphasize what this paper does and does not attempt.
+
+\textbf{This paper does:}
+\begin{itemize}
+    \item Provide a structural characterization of measurement in terms of algebraic accessibility
+    \item Identify three typed tests within a measurement-accessibility profile
+    \item Connect measurement to established frameworks (decoherence, quantum Darwinism, AQFT)
+    \item Maintain compatibility with unitary quantum mechanics
+\end{itemize}
+
+\textbf{This paper does not:}
+\begin{itemize}
+    \item Propose new dynamics or modifications to quantum mechanics
+    \item Explain why specific measurement outcomes occur (the ``outcome problem'')
+    \item Resolve interpretational debates about the ontology of quantum states
+    \item Invoke consciousness, observers, or subjective elements
+\end{itemize}
+
+The analysis is structural: we clarify conditions under which measurement-like phenomena emerge, without claiming to have solved the measurement problem in its deepest form.
+
+\subsection{Outline}
+
+Section~\ref{sec:background} reviews relevant background on algebraic approaches to quantum mechanics and the HAFF framework. Section~\ref{sec:constraints} develops the three accessibility constraints in detail. Section~\ref{sec:measurement} reframes measurement in terms of these constraints. Section~\ref{sec:relations} discusses connections to existing approaches. Section~\ref{sec:nonclaims} states explicit non-claims. Section~\ref{sec:connection} situates the paper within the broader HAFF program. Section~\ref{sec:conclusion} concludes.
+
+\section{Background}
+\label{sec:background}
+
+\subsection{Algebraic Approaches to Quantum Mechanics}
+
+In the algebraic formulation of quantum mechanics, the fundamental objects are not wave functions or Hilbert spaces, but algebras of observables. A quantum system is characterized by a $*$-algebra $\mathcal{A}$ of bounded operators, and states are positive linear functionals on $\mathcal{A}$ \cite{Haag1996,Araki1999}.
+
+This perspective has several advantages. It does not presuppose a specific Hilbert space representation, accommodates systems with infinitely many degrees of freedom, and naturally incorporates superselection rules. Most importantly for our purposes, it treats the specification of observables as logically prior to the specification of states.
+
+\subsection{Observable Algebras in AQFT}
+
+In algebraic quantum field theory (AQFT), local observable algebras $\mathcal{A}(\mathcal{O})$ are associated with spacetime regions $\mathcal{O}$, without invoking a global tensor product structure \cite{Haag1996}. The key insight is that subsystem structure emerges from the algebra of observables rather than being presupposed.
+
+The HAFF framework extends this perspective by treating the selection of operator structures as physically constrained rather than given. Building on foundational work demonstrating that tensor product structures are observable-induced \cite{Zanardi2001,Zanardi2004}, different physical contexts---characterized by different interaction structures, stability conditions, and environmental couplings---can yield different effective operator descriptions.
+
+\subsection{Typed Accessibility Data}
+
+Let $\mathcal M_U$ be the ambient von Neumann algebra.  A context $\mathbf c$ specifies allowed probe channels, an environmental dynamics, a record algebra, timescales, and resolution thresholds.  The following objects are distinct.
+
+\begin{definition}[Probe channel and reachable effects]
+\label{def:probe-effects}
+For each allowed probe $\alpha$, let
+\[
+\mathcal R_{\alpha,\mathbf c}^{*}:\mathcal B(\mathcal K_\alpha)\longrightarrow\mathcal M_U
+\]
+be its normal unital completely positive Heisenberg map.  The \textbf{probe-reachable operator system} is
+\[
+\mathrm{Eff}_{\mathrm{acc}}(\mathbf c)
+:=\overline{\operatorname{span}}^{\,uw}
+\{\mathcal R_{\alpha,\mathbf c}^{*}(F):0\le F\le\mathbf 1,
+\ \alpha\text{ allowed}\}.
+\]
+Its positive contractions are the effects distinguishable by the allowed probes.  The family $\mathfrak R_{\mathrm{probe}}(\mathbf c):=\{\mathcal R_{\alpha,\mathbf c}\}_\alpha$ is part of the context, not an observable algebra.
+\end{definition}
+
+\begin{definition}[Environmental fixed set]
+\label{def:fixed-set}
+For a normal UCP semigroup $\{\mathcal E_t\}_{t\ge0}$ on $\mathcal M_U$, set
+\[
+\operatorname{Fix}(\mathcal E)
+:=\{O\in\mathcal M_U:\mathcal E_t(O)=O\text{ for every }t\ge0\}.
+\]
+This is always an ultraweakly closed operator system.  It is an ordinary-product von Neumann subalgebra, for example, when the semigroup admits a faithful normal invariant state: equality in the Schwarz inequality then places every fixed element in the multiplicative domain.  We do not assume this closure without stating such a hypothesis.
+\end{definition}
+
+\begin{definition}[Pointer/record algebra]
+\label{def:pointer-algebra}
+A \textbf{pointer/record algebra} $\mathcal P_{\mathrm{env}}\subset\mathcal M_U$ is a designated commutative von Neumann algebra generated by a classical record PVM $Z(B)$, or by a finite-resolution coarse graining of such a PVM.  Record channels
+\[
+\Gamma_k:\mathcal P_{\mathrm{env}}\longrightarrow\mathcal B(\mathcal H_{E_k})
+\]
+describe what environmental fragment $E_k$ carries about the record.  Approximate pointer observables are treated by distance to $\mathcal P_{\mathrm{env}}$, rather than by calling an approximately closed set an algebra.
+\end{definition}
+
+There is no default equality among $\mathrm{Eff}_{\mathrm{acc}}$, $\operatorname{Fix}(\mathcal E)$, and $\mathcal P_{\mathrm{env}}$.  The declared maps are the probe maps $\mathcal R_{\alpha,\mathbf c}^{*}$, the dynamics $\mathcal E_t$, the inclusions of any chosen subalgebras into $\mathcal M_U$, and the record channels $\Gamma_k$.  A model may establish overlaps---for example, stable records in $\mathcal P_{\mathrm{env}}\cap\operatorname{Fix}(\mathcal E)$---but such overlaps are conclusions or assumptions of that model, not type identifications.
+
+The operator-system and fixed-set statements above are made for general von Neumann algebras under the hypotheses shown.  Entropic redundancy formulas are finite-alphabet or finite-resolution statements about specified states.  This paper makes no blanket finite-dimensional or Type~III claim for all four objects.
+
+\section{Accessibility as Physical Constraint}
+\label{sec:constraints}
+
+We now formulate the three tests in their appropriate types.  They provide a measurement workflow; they do not define one common algebra by intersection.
+
+\subsection{Test 1: Probe Reachability}
+
+\begin{constraint}[Probe reachability]
+\label{const:interaction}
+An effect $M(B)\in\mathcal M_U$ is probe-reachable in context $\mathbf c$ if it lies in the image of an allowed probe map: $M(B)=\mathcal R_{\alpha,\mathbf c}^{*}(F)$ for some probe effect $0\le F\le\mathbf1$.
+\end{constraint}
+
+\paragraph{Physical interpretation.}
+Operational accessibility is a property of a channel and an effect, not of a bare commutator.  The allowed channel must map distinct system statistics to distinguishable probe statistics.  This formulation includes indirect measurements and general POVMs.
+
+\paragraph{Relation to measurement.}
+Measurement requires that system information become correlated with apparatus degrees of freedom.  A probe Hamiltonian may implement the channel, but $[O,H_{\mathrm{probe}}]\ne0$ is neither necessary nor closed under algebra operations; ideal nondemolition couplings commonly commute with the measured pointer observable.  The environmental interaction responsible for einselection is a separate part of the context.
+
+\begin{remark}
+Probe reachability does not imply stability or environmental redundancy.  Conversely, an exact environmental fixed point need not be readable by any probe in the allowed family.
+\end{remark}
+
+\subsection{Test 2: Dynamical Stability}
+
+\begin{constraint}[Stability]
+\label{const:stability}
+An effect $O$ satisfies the \textbf{finite-window stability test} if it remains approximately invariant under the specified environmental maps $\mathcal{E}_t$:
+\begin{equation}
+\|\mathcal{E}_t(O) - O\| < \epsilon
+\end{equation}
+for $0\le t\le T_{\mathbf c}$.  Exact stability is the separate statement $O\in\operatorname{Fix}(\mathcal E)$.
+\end{constraint}
+
+\paragraph{Physical interpretation.}
+Observables that scramble rapidly---spreading their information across many degrees of freedom faster than any recording process can track---cannot be reliably measured. Stability ensures that the observable persists long enough to be correlated with records.
+
+\paragraph{Relation to scrambling.}
+In the language of quantum chaos, stable observables are those with slow out-of-time-order correlator (OTOC) growth \cite{Hayden2007}:
+\begin{equation}
+\langle [\hat{O}(t), \hat{V}(0)]^2 \rangle \ll 1 \quad \text{for } t \ll \tau_{\text{scrambling}}.
+\end{equation}
+Observables satisfying this condition resist rapid delocalization and maintain their identity under dynamical evolution.
+
+\paragraph{Relation to decoherence.}
+The stability constraint is closely related to the selection of pointer observables in decoherence theory \cite{Zurek2003}. Pointer observables are those that remain stable under system-environment interaction, forming the preferred basis in which the density matrix becomes approximately diagonal.
+
+\begin{remark}[Threshold $\epsilon$]
+The threshold $\epsilon$ is not a fundamental constant but depends on the physical context: the precision of available recording mechanisms, the timescales of interest, and the noise level of the environment. This context-dependence is a feature, not a bug---it reflects the operational nature of accessibility.
+\end{remark}
+
+\subsection{Test 3: Environmental Redundancy}
+
+\begin{constraint}[Redundancy]
+\label{const:redundancy}
+Let $X$ be the classical label of a pointer PVM, or of a finite measurable coarse graining of a POVM.  For each environmental fragment $E_k$, form the corresponding classical--quantum state $\rho_{XE_k}$.  The label is $\delta$-redundant if many disjoint fragments satisfy
+\begin{equation}
+\chi(X:E_k)_{\rho}\ge(1-\delta)H(X),
+\end{equation}
+where $\chi$ is the Holevo information.  Equivalently, one may require the accessible information of an explicitly specified fragment measurement to meet the same threshold.
+\end{constraint}
+
+For continuous spectra, $X$ denotes a declared finite-resolution measurable partition.  No von Neumann entropy is assigned to an operator, and no cross-type expression such as $I(\hat O:E_k)$ is used.
+
+\paragraph{Physical interpretation.}
+Redundancy ensures that information about the observable is not localized in a single environmental degree of freedom but is broadcast across many independent fragments. This makes the information robust and intersubjectively accessible: multiple independent observers can extract the same information without disturbing each other's records.
+
+\paragraph{Relation to quantum Darwinism.}
+The redundancy constraint formalizes the central insight of quantum Darwinism \cite{Zurek2009}: classical objectivity arises when information about a system is redundantly imprinted on the environment. Observables satisfying this constraint are precisely those for which multiple observers can agree on measurement outcomes.
+
+\paragraph{Operational significance.}
+Redundancy distinguishes \emph{objective} from \emph{subjective} information. An observable whose information is encoded in only a single environmental fragment is accessible to at most one observer; different observers would obtain different, incompatible records. Redundancy ensures that the observable's value is a matter of intersubjective fact.
+
+\begin{remark}[Relation to classical objectivity]
+The redundancy constraint provides a structural account of why certain observables behave ``classically'': their values are recorded multiply and independently, making them robust against local perturbations and accessible to multiple agents.
+\end{remark}
+
+\subsection{Typed Relations Rather Than One Accessible Algebra}
+
+\begin{definition}[Measurement-accessibility profile]
+\label{def:accessible-full}
+The \textbf{measurement-accessibility profile} of a context is the typed datum
+\begin{equation}
+\mathbf{Acc}(\mathbf c)
+:=\bigl(\mathrm{Eff}_{\mathrm{acc}}(\mathbf c),
+\mathfrak R_{\mathrm{probe}}(\mathbf c),
+\mathcal P_{\mathrm{env}}(\mathbf c),
+\operatorname{Fix}(\mathcal E_{\mathbf c});
+\Gamma_k,T_{\mathbf c},\epsilon,\delta\bigr).
+\end{equation}
+\end{definition}
+
+The old definition that intersected the three tests is withdrawn.  In particular, $[O,H_{\mathrm{int}}]\ne0$ excludes the identity and is not stable under sums or products, while pointer stability typically selects observables commuting with the environmental interaction.  The profile above preserves those distinct roles and makes every cross-object map explicit.
+
+\begin{table}[ht]
+\centering
+\small
+\begin{tabular}{|P{2.5cm}|P{4.5cm}|P{5.5cm}|}
+\hline
+\textbf{Constraint} & \textbf{Condition} & \textbf{Physical Meaning} \\
+\hline
+Probe & $M(B)=\mathcal R_{\alpha,\mathbf c}^{*}(F)$ & Reachable effects; an operator system, not automatically an algebra \\
+\hline
+Stability & $\sup_{0\le t\le T_{\mathbf c}}\|\mathcal E_t(O)-O\|<\epsilon$ & Approximate sector; exact sector is $\operatorname{Fix}(\mathcal E)$ \\
+\hline
+Records & $\chi(X:E_k)\ge(1-\delta)H(X)$ & A classical pointer label is redundantly readable \\
+\hline
+\end{tabular}
+\caption{The three typed tests in a measurement-accessibility profile.}
+\label{tab:constraints}
+\end{table}
+
+\section{Measurement Reframed}
+\label{sec:measurement}
+
+We now apply the accessibility framework to reinterpret quantum measurement.
+
+\subsection{What Can Be Measured}
+
+Within the present framework, the question ``What can be measured?'' is relative to an allowed probe family.  A POVM $M:\Sigma\to\mathcal M_U$ is implementable in context $\mathbf c$ when there are an allowed probe channel $\mathcal R_{\alpha,\mathbf c}$ and a probe POVM $F$ such that
+\[
+M(B)=\mathcal R_{\alpha,\mathbf c}^{*}(F(B))
+\qquad(B\in\Sigma).
+\]
+
+\begin{quote}
+\textbf{Measurement accessibility is implementability of effects through a declared probe channel.}
+\end{quote}
+
+Effects outside $\mathrm{Eff}_{\mathrm{acc}}(\mathbf c)$ are not reachable by the allowed probes.  This does not mean they ``do not exist'' in any metaphysical sense.  It says only that the specified context supplies no operational implementation.  Stability and redundant recording are additional properties of an implementation, not hidden algebra-closure conditions on probe reachability.
+
+\subsection{Measurement Outcomes}
+
+The outcome space is part of the POVM datum $(X,\Sigma,M)$.  For a sharp discrete observable, $M$ is its spectral PVM and the possible outcomes may be identified with eigenvalues.  For continuous spectrum, outcomes are measurable sets or finite-resolution bins; for an unsharp measurement, they are POVM labels rather than eigenvalues of a single self-adjoint operator.
+
+\begin{quote}
+\textbf{Eigenvalues describe the sharp discrete-PVM special case, not measurement outcomes in general.}
+\end{quote}
+
+The structural question is therefore whether the POVM effects are reachable through $\mathfrak R_{\mathrm{probe}}(\mathbf c)$ and, separately, whether their labels acquire stable redundant records.
+
+\subsection{Objectivity from Redundant Records}
+
+Environmental redundancy explains why a record can be robust and independently readable by many observers.  It does not, by itself, explain why the global state contains one unique outcome rather than several decohered branches.
+
+When a pointer label $X$ satisfies the redundancy test, multiple disjoint fragments carry nearly the same classical information about $X$.  Conditional on a branch/record value, fragment readers can agree without accessing the original system.  This is the operational content of quantum-Darwinist objectivity.
+
+\begin{quote}
+\textbf{Objectivity and robustness are constituted by redundant environmental encoding.}
+\end{quote}
+
+The global quantum state may remain in superposition.  The present analysis establishes no context-independent deterministic value assignment for a noncommutative effect system and no unique global outcome.
+
+\subsection{The Outcome Problem}
+
+The framework does not explain why a \emph{particular} outcome is realized rather than another. This ``outcome problem'' remains open:
+
+\begin{quote}
+\textbf{We explain how records become robust and intersubjectively readable, not why one global outcome is selected.}
+\end{quote}
+
+This limitation is shared with decoherence-based approaches. The present framework does not claim to resolve this aspect of the measurement problem, only to clarify the structural conditions under which objective records become possible.
+
+\subsection{Measurement Without Observers}
+
+A crucial feature of the framework is that measurement is characterized without reference to observers, agents, or consciousness:
+
+\begin{quote}
+\textbf{The ``observer'' is replaced by the ``interaction context.''}
+\end{quote}
+
+Any physical system implementing a probe channel and producing records---be it a photon counter, a mineral surface, or an interstellar dust grain---can constitute a measurement site for the relevant effects. Stability and redundancy determine the persistence and public readability of those records. Human observers are a special case, not a privileged category.
+
+\section{Relation to Existing Approaches}
+\label{sec:relations}
+
+\subsection{Decoherence Theory}
+
+Decoherence theory explains how interference between quantum states is suppressed through environmental entanglement \cite{Zurek2003}. The present framework is fully compatible with decoherence and may be viewed as extending it in two respects:
+
+\begin{enumerate}
+    \item We make explicit the \emph{conditions} under which decoherence selects a preferred basis (the stability and redundancy constraints).
+    \item We embed decoherence within the broader HAFF framework, connecting it to emergent geometry and gravitational phenomena.
+\end{enumerate}
+
+\subsection{Quantum Darwinism}
+
+Quantum Darwinism \cite{Zurek2009} emphasizes the role of environmental redundancy in establishing classical objectivity. The redundancy test (Constraint~\ref{const:redundancy}) formalizes this insight for a classical pointer label using Holevo or accessible information.
+
+The present framework situates quantum Darwinism within an algebraic setting while keeping record objectivity distinct from probe implementability and exact dynamical fixation.
+
+\subsection{QBism}
+
+QBism \cite{Fuchs2014} interprets quantum states as expressions of an agent's beliefs. The present framework differs fundamentally: accessibility is determined by physical interaction structure, not by agent beliefs.
+
+The key difference:
+\begin{itemize}
+    \item \textbf{QBism}: Dependence on agent's epistemic state (belief-determined)
+    \item \textbf{HAFF}: Dependence on interaction structure (interaction-determined)
+\end{itemize}
+
+Both reject naive realism about quantum states, but the present framework maintains objectivity by grounding accessibility in physical constraints rather than subjective beliefs.
+
+\subsection{Relational Quantum Mechanics}
+
+Relational quantum mechanics (RQM) \cite{Rovelli1996} holds that quantum states are relational---defined only relative to a reference system. The present framework shares the emphasis on relationality but differs in its treatment of what grounds the relation:
+
+\begin{itemize}
+    \item \textbf{RQM}: Relations between systems (system-relative)
+    \item \textbf{HAFF}: Stability conditions on algebras (interaction-determined)
+\end{itemize}
+
+HAFF may provide the stable ``nodes'' required for RQM's relational network: before relations can exist, there must be relata stable enough to participate in interactions.
+
+\subsection{Algebraic Quantum Field Theory}
+
+The closest structural affinity is with algebraic quantum field theory (AQFT) \cite{Haag1996}. Both frameworks treat observable algebras as primary and states as secondary. The present framework extends AQFT by:
+
+\begin{enumerate}
+    \item Providing typed criteria for probe reachability, stability, and record redundancy
+    \item Connecting algebra selection to measurement and emergent geometry
+    \item Situating AQFT insights within the broader HAFF program
+\end{enumerate}
+
+\begin{table}[ht]
+\centering
+\small
+\begin{tabular}{|P{3cm}|P{4cm}|P{5.5cm}|}
+\hline
+\textbf{Approach} & \textbf{Key Mechanism} & \textbf{Relation to HAFF} \\
+\hline
+Decoherence & Environmental entanglement & Compatible; constraints specify conditions \\
+\hline
+Quantum Darwinism & Redundant encoding & Redundancy constraint formalizes this \\
+\hline
+QBism & Agent beliefs & Categorically distinct; HAFF is interaction-determined \\
+\hline
+RQM & System relations & Complementary; HAFF provides stable relata \\
+\hline
+AQFT & Observable algebras & Closest affinity; HAFF adds selection criteria \\
+\hline
+\end{tabular}
+\caption{Relation of the present framework to existing approaches.}
+\label{tab:relations}
+\end{table}
+
+\section{What This Paper Does NOT Claim}
+\label{sec:nonclaims}
+
+To prevent misinterpretation, we state explicitly what the paper does not claim.
+
+\begin{enumerate}
+    \item \textbf{No resolution of the outcome problem.} We do not explain why particular measurement outcomes occur; redundancy establishes robust, intersubjectively readable records, not unique global selection.
+    
+    \item \textbf{No collapse postulate.} The framework assumes standard quantum dynamics. Record objectivity arises from redundancy, not from non-unitary collapse.
+    
+    \item \textbf{No modification of quantum mechanics.} We do not propose new equations, new dynamics, or modifications to the standard formalism.
+    
+    \item \textbf{No consciousness or observer-dependence.} Accessibility is determined by physical constraints, not by conscious observers or epistemic states.
+    
+    \item \textbf{No claim that all measurement problems are solved.} The framework addresses probe accessibility and record objectivity but leaves unique outcomes, preferred-basis details, and tails to be addressed in conjunction with existing approaches.
+    
+    \item \textbf{No claim of novelty regarding decoherence.} The framework builds on and is compatible with decoherence theory; it does not replace it.
+    
+    \item \textbf{No claim of universal applicability.} The analysis is confined to the HAFF framework and does not assert that all approaches to measurement must adopt this structure.
+    
+    \item \textbf{No metaphysical conclusions.} We do not claim that the probe-reachable effect system exhausts reality, only that it records what the declared probe family can implement within a given context.
+    
+    \item \textbf{No derivation of Born rule.} The framework does not derive the Born rule for outcome probabilities; it assumes standard quantum probability.
+    
+    \item \textbf{No claim about quantum-classical divide.} We do not assert a sharp boundary between quantum and classical; accessibility is context-dependent and admits degrees.
+    
+    \item \textbf{No hidden variables.} The framework does not invoke hidden variables or additional ontology beyond standard quantum mechanics.
+    
+    \item \textbf{No many-worlds commitment.} The framework is compatible with, but does not require, many-worlds interpretations.
+    
+    \item \textbf{No claim of interpretational neutrality.} While the framework avoids some interpretational commitments, it does adopt the structural stance of HAFF, which may not be neutral with respect to all interpretations.
+\end{enumerate}
+
+\section{Connection to the HAFF Framework}
+\label{sec:connection}
+
+\subsection{Relation to Previous Papers}
+
+The present paper (Paper E) is part of a series developing the Holographic Alaya-Field Framework:
+
+\begin{itemize}
+    \item \textbf{Paper A} \cite{Liu2026PaperA}: Establishes that inequivalent coarse-graining structures induce inequivalent effective geometries from the same global quantum state.
+    
+    \item \textbf{Paper B} \cite{Liu2026PaperB}: Clarifies the structural (vs.\ epistemic) nature of accessibility and situates HAFF relative to existing interpretations.
+    
+    \item \textbf{Paper C} \cite{Liu2026PaperC}: Explores philosophical implications for causation, agency, and existence.
+    
+    \item \textbf{Paper D} \cite{Liu2026PaperD}: Proposes that gravitational dynamics corresponds to the adiabatic evolution of accessible algebras.
+    
+    \item \textbf{Paper E} (this paper): Reframes measurement as a manifestation of accessibility constraints.
+    
+    \item \textbf{Paper F} (forthcoming): Addresses temporal asymmetry as accessibility propagation.
+\end{itemize}
+
+\subsection{The Diagnostic Triangle: D + E + F}
+
+Papers D, E, and F form a ``diagnostic triangle'' within the HAFF framework:
+
+\begin{table}[ht]
+\centering
+\small
+\begin{tabular}{|P{1.5cm}|P{2.5cm}|P{3.5cm}|P{4.5cm}|}
+\hline
+\textbf{Paper} & \textbf{Phenomenon} & \textbf{Traditional View} & \textbf{HAFF Reframing} \\
+\hline
+D & Gravity & Fundamental force & Conditional flow of a geometric algebra \\
+\hline
+E & Measurement & Primitive process & Probe-reachable effects and objective records \\
+\hline
+F & Time & Fundamental parameter & Direction of record propagation \\
+\hline
+\end{tabular}
+\caption{The diagnostic triangle: gravity, measurement, and time reframed as aspects of algebraic accessibility.}
+\label{tab:triangle}
+\end{table}
+
+The proposed unifying insight is that force, measurement, and time may be described through related operator-algebraic structures.  This does not identify the structures: probe effects, record algebras, dynamical fixed sets, and geometric algebras retain their declared types.
+
+\subsection{Structural Link to Gravity}
+
+Paper D proposes that gravitational behaviour can be associated, under additional modular and holographic hypotheses, with the evolution of a selected geometric algebra.  The present paper does not identify that algebra with $\mathrm{Eff}_{\mathrm{acc}}$, $\mathcal P_{\mathrm{env}}$, or $\operatorname{Fix}(\mathcal E)$.  Any bridge must specify a representation, inclusion, or channel between the relevant objects.
+
+The connection may be summarized as follows:
+
+\begin{quote}
+If Paper D's conditional holographic dictionary maps selected algebraic data to spatial curvature, Paper E supplies candidate operational inputs: probe-reachable effects and stable records.  Which of these data enter the geometric algebra is a separate interface problem.  No finiteness or gravitational conclusion follows merely from the measurement-accessibility profile.
+\end{quote}
+
+\section{Conclusion}
+\label{sec:conclusion}
+
+We have proposed that quantum measurement is not a primitive process but a manifestation of accessibility constraints on operator algebras.
+
+The central results are:
+
+\begin{enumerate}
+    \item \textbf{Three accessibility tests}: Probe reachability, dynamical stability, and environmental redundancy form a typed measurement-accessibility profile within a given physical context; they do not define one common algebra by intersection.
+    
+    \item \textbf{Measurement reframed}: What can be measured is described by the relevant profile components; measurement outcomes are read from selected observables or pointer records; definiteness arises from redundant environmental encoding.
+    
+    \item \textbf{Observer-independence}: The framework characterizes measurement without reference to observers, consciousness, or subjective elements. The ``observer'' is replaced by the ``interaction context.''
+    
+    \item \textbf{Compatibility}: The framework is compatible with unitary quantum mechanics, decoherence theory, and quantum Darwinism, while providing a structural account that connects measurement to the broader HAFF program.
+\end{enumerate}
+
+The framework does not resolve all aspects of the measurement problem. It does not explain why particular outcomes occur, nor does it derive the Born rule. What it provides is a structural clarification: the conditions under which measurement-like phenomena emerge from physical constraints on operator algebras.
+
+Within the HAFF program, measurement can be analyzed alongside gravity and time through related accessibility structures. This diagnostic unification does not constitute a Theory of Everything, but it suggests that seemingly disparate foundational puzzles may share a common structural origin.
+
+\section*{Acknowledgments}
+
+The author thanks the anonymous reviewers for their insightful comments and suggestions, which greatly improved the clarity and rigor of this work.
+
+\begin{thebibliography}{99}
+
+\bibitem{Liu2026PaperA}
+S.~Liu, \emph{Emergent Geometry from Coarse-Grained Observable Algebras: The Holographic Alaya-Field Framework}, Zenodo (2026), DOI: 10.5281/zenodo.18361706.
+
+\bibitem{Liu2026PaperB}
+S.~Liu, \emph{Accessibility, Stability, and Emergent Geometry: Conceptual Clarifications on the Holographic Alaya-Field Framework}, Zenodo (2026), DOI: 10.5281/zenodo.18367060.
+
+\bibitem{Liu2026PaperC}
+S.~Liu, \emph{Causation, Agency, and Existence: Structural Constraints and Interpretive Bridges}, Zenodo (2026), DOI: 10.5281/zenodo.18374805.
+
+\bibitem{Liu2026PaperD}
+S.~Liu, \emph{Observable-Algebra Selection and Emergent Gravitational Phenomena: A Conditional Structural Analysis}, Zenodo (2026), DOI: 10.5281/zenodo.18388881.
+
+\bibitem{Haag1996}
+R. Haag, \emph{Local Quantum Physics: Fields, Particles, Algebras}, Springer-Verlag (1996).
+
+\bibitem{Araki1999}
+H. Araki, \emph{Mathematical Theory of Quantum Fields}, Oxford University Press (1999).
+
+\bibitem{Zurek2003}
+W. H. Zurek, \emph{Decoherence, einselection, and the quantum origins of the classical}, Rev. Mod. Phys. \textbf{75}, 715 (2003).
+
+\bibitem{Zurek2009}
+W. H. Zurek, \emph{Quantum Darwinism}, Nature Physics \textbf{5}, 181 (2009).
+
+\bibitem{Hayden2007}
+P. Hayden and J. Preskill, \emph{Black holes as mirrors: quantum information in random subsystems}, JHEP \textbf{09}, 120 (2007).
+
+\bibitem{Fuchs2014}
+C. A. Fuchs, N. D. Mermin, and R. Schack, \emph{An Introduction to QBism with an Application to the Locality of Quantum Mechanics}, Am. J. Phys. \textbf{82}, 749 (2014).
+
+\bibitem{Rovelli1996}
+C. Rovelli, \emph{Relational Quantum Mechanics}, Int. J. Theor. Phys. \textbf{35}, 1637 (1996).
+
+\bibitem{Zanardi2001}
+P. Zanardi, \emph{Virtual Quantum Subsystems}, Phys. Rev. Lett. \textbf{87}, 077901 (2001).
+
+\bibitem{Zanardi2004}
+P. Zanardi, D. A. Lidar, and S. Lloyd, \emph{Quantum Tensor Product Structures are Observable Induced}, Phys. Rev. Lett. \textbf{92}, 060402 (2004).
+
+\end{thebibliography}
+
+\end{document}

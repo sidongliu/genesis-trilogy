@@ -1,0 +1,1156 @@
+{
+  "edition": "July 2026",
+  "publication_date": "2026-07-24",
+  "published_attachment_count": 127,
+  "published_records": 36,
+  "files": [
+    {
+      "record": "HAFF_A",
+      "concept_doi": "10.5281/zenodo.18361706",
+      "local_path": "HAFF_A_manuscript.pdf",
+      "remote_key": "HAFF_A_manuscript.pdf",
+      "size": "287078",
+      "sha256": "e62267a6f3a169524575ace2f5ce4538f3f61a2725ff43a34dc8b5482838641c",
+      "md5": "b259e19e7b8399cf8b79624657844773"
+    },
+    {
+      "record": "HAFF_A",
+      "concept_doi": "10.5281/zenodo.18361706",
+      "local_path": "HAFF_A_manuscript.tex",
+      "remote_key": "HAFF_A_manuscript.tex",
+      "size": "48925",
+      "sha256": "81dda3eb69cd09bb18d0ef022f0704517a880284b2842275d51aa351e5d53703",
+      "md5": "db52b1f9261ee92b0fe6dada7aa5361b"
+    },
+    {
+      "record": "HAFF_B",
+      "concept_doi": "10.5281/zenodo.18367060",
+      "local_path": "HAFF_B_manuscript.pdf",
+      "remote_key": "HAFF_B_manuscript.pdf",
+      "size": "194039",
+      "sha256": "9470d37817ae53852ce1ee93e6bce852236a428544ebdda48f0cfedd8cfeab9d",
+      "md5": "770018dfd346ba83206b763675ef33c5"
+    },
+    {
+      "record": "HAFF_B",
+      "concept_doi": "10.5281/zenodo.18367060",
+      "local_path": "HAFF_B_manuscript.tex",
+      "remote_key": "HAFF_B_manuscript.tex",
+      "size": "38577",
+      "sha256": "3d7648a1181fe03f41f4bae15a1b89b0fbc15bf1bad46e40ce27bd80a54224b9",
+      "md5": "425499852ed1b8903fff680c4c9569a5"
+    },
+    {
+      "record": "HAFF_C",
+      "concept_doi": "10.5281/zenodo.18374805",
+      "local_path": "HAFF_C_manuscript.pdf",
+      "remote_key": "HAFF_C_manuscript.pdf",
+      "size": "496610",
+      "sha256": "c54515792c62f4a21e930d848493d639458ff5a066b0e2d3902f514465856c8a",
+      "md5": "df969e98c944afdcd25014c927daebd4"
+    },
+    {
+      "record": "HAFF_C",
+      "concept_doi": "10.5281/zenodo.18374805",
+      "local_path": "HAFF_C_manuscript.tex",
+      "remote_key": "HAFF_C_manuscript.tex",
+      "size": "58000",
+      "sha256": "2bcbabbbb16486bdecd4efe6c1d621046e2f8d24ca653c1dc669a5540d3a5841",
+      "md5": "aaded64d11490e0ee2842ae9550bc0db"
+    },
+    {
+      "record": "HAFF_D",
+      "concept_doi": "10.5281/zenodo.18388881",
+      "local_path": "HAFF_D_manuscript.pdf",
+      "remote_key": "HAFF_D_manuscript.pdf",
+      "size": "183902",
+      "sha256": "6345f8e03fd9f38c3b94145184054507dea42e4fe59701f1914b7b737fee871e",
+      "md5": "2cdc354c4c2fff803c5d765c910f335e"
+    },
+    {
+      "record": "HAFF_D",
+      "concept_doi": "10.5281/zenodo.18388881",
+      "local_path": "HAFF_D_manuscript.tex",
+      "remote_key": "HAFF_D_manuscript.tex",
+      "size": "70971",
+      "sha256": "ea646befe05409bec4ad20780a89eb1b7484202983ab07b2278a914113f8eb9e",
+      "md5": "20158a4be52ee5ef34bcbf4df4425c67"
+    },
+    {
+      "record": "HAFF_E",
+      "concept_doi": "10.5281/zenodo.18400065",
+      "local_path": "HAFF_E_manuscript.pdf",
+      "remote_key": "HAFF_E_manuscript.pdf",
+      "size": "277583",
+      "sha256": "59469494311a2e42dbb6b32fd4731dd66a584d70ae6b7fb229feaa953b28a4a9",
+      "md5": "1df694897a3f4d3fa854365ef6803f0a"
+    },
+    {
+      "record": "HAFF_E",
+      "concept_doi": "10.5281/zenodo.18400065",
+      "local_path": "HAFF_E_manuscript.tex",
+      "remote_key": "HAFF_E_manuscript.tex",
+      "size": "35465",
+      "sha256": "cb4f3ddec335268ed65067bae399c4ac1251c83b0e1369a4027b0bedabf6164f",
+      "md5": "59b5d43dd8594a1fa70e77121b25e2c9"
+    },
+    {
+      "record": "HAFF_F",
+      "concept_doi": "10.5281/zenodo.18400425",
+      "local_path": "HAFF_F_manuscript.pdf",
+      "remote_key": "HAFF_F_manuscript.pdf",
+      "size": "116227",
+      "sha256": "5c9d6f3c0e7344ed115d1f647775aa47f95874f9b6371b93f9d106dbea5c25b5",
+      "md5": "342461d334237e3fc100e26f4f931453"
+    },
+    {
+      "record": "HAFF_F",
+      "concept_doi": "10.5281/zenodo.18400425",
+      "local_path": "HAFF_F_manuscript.tex",
+      "remote_key": "HAFF_F_manuscript.tex",
+      "size": "32827",
+      "sha256": "c1744d3b88a7477932597855181f68c3456e9d63b3ef7192951c3d305892c98e",
+      "md5": "63177d213bb2f34ab07f5d6c19e4d57f"
+    },
+    {
+      "record": "HAFF_G",
+      "concept_doi": "10.5281/zenodo.18402907",
+      "local_path": "HAFF_G_manuscript.pdf",
+      "remote_key": "HAFF_G_manuscript.pdf",
+      "size": "73888",
+      "sha256": "d7ef2bf0a69eca6493601515d4deddd01cad25dcf84f2c0cea7500bcc84ceeb9",
+      "md5": "9ca76b333e28e9b7ecd6e0260b83eb4b"
+    },
+    {
+      "record": "HAFF_G",
+      "concept_doi": "10.5281/zenodo.18402907",
+      "local_path": "HAFF_G_manuscript.tex",
+      "remote_key": "HAFF_G_manuscript.tex",
+      "size": "25854",
+      "sha256": "b8a9cdcf4ddd1aef2df6022284cbea7284b160b3bc9e909abf8aee1c42587750",
+      "md5": "3fbc43de8549f79ea405f48d9a3c3363"
+    },
+    {
+      "record": "HAFF_Postscript",
+      "concept_doi": "10.5281/zenodo.18407367",
+      "local_path": "HAFF_Postscript_manuscript.pdf",
+      "remote_key": "HAFF_Postscript_manuscript.pdf",
+      "size": "131208",
+      "sha256": "e464131ac04fbcf66798b35f243c3b4b5ea0e669b03e91d0f0951fa47e087efe",
+      "md5": "5069a33fce6eb87bd8f11b56e82d1c78"
+    },
+    {
+      "record": "HAFF_Postscript",
+      "concept_doi": "10.5281/zenodo.18407367",
+      "local_path": "HAFF_Postscript_manuscript.tex",
+      "remote_key": "HAFF_Postscript_manuscript.tex",
+      "size": "8033",
+      "sha256": "7b23c9bdf3ff522b3e336eb493a6b34e263723c3e3ed37b1387fa9e501064afb",
+      "md5": "80fbd316b2aa473349b77b5226010b01"
+    },
+    {
+      "record": "QRAIF_A",
+      "concept_doi": "10.5281/zenodo.18525876",
+      "local_path": "QRAIF_A_manuscript.pdf",
+      "remote_key": "QRAIF_A_manuscript.pdf",
+      "size": "112675",
+      "sha256": "ec8e2ab5b524b810da49d6859c4dcddeff2bf0f0b7b44d0ef917596c635e8c65",
+      "md5": "1ae2571d32178f86b84dcc5e8a757bc7"
+    },
+    {
+      "record": "QRAIF_A",
+      "concept_doi": "10.5281/zenodo.18525876",
+      "local_path": "QRAIF_A_manuscript.tex",
+      "remote_key": "QRAIF_A_manuscript.tex",
+      "size": "28355",
+      "sha256": "ceb39a4fedd0d32577394df1447f39c92b374bba8a2528a5e3af511cc6423ac7",
+      "md5": "bd587b8c2b0b3b0b7822ca5d97caed6e"
+    },
+    {
+      "record": "QRAIF_B",
+      "concept_doi": "10.5281/zenodo.18525890",
+      "local_path": "QRAIF_B_manuscript.pdf",
+      "remote_key": "QRAIF_B_manuscript.pdf",
+      "size": "268150",
+      "sha256": "f13fc4b107ba67addcd1b28a961d88bff45c31e72ffa58b88f62a0797df40337",
+      "md5": "fa8823dfbbebb365638e788f1c9de3df"
+    },
+    {
+      "record": "QRAIF_B",
+      "concept_doi": "10.5281/zenodo.18525890",
+      "local_path": "QRAIF_B_manuscript.tex",
+      "remote_key": "QRAIF_B_manuscript.tex",
+      "size": "21570",
+      "sha256": "6c0d7379d17ea3d7d993bf53b56fc25974ea1eb26ed16d84a7c9113a2c57d6af",
+      "md5": "3489af4b024c3bf8c9553d5ddd069c88"
+    },
+    {
+      "record": "QRAIF_C",
+      "concept_doi": "10.5281/zenodo.18528934",
+      "local_path": "QRAIF_C_manuscript.pdf",
+      "remote_key": "QRAIF_C_manuscript.pdf",
+      "size": "81669",
+      "sha256": "b54e14fa45fc3ecad1a5f58b67e3b26f25dc58ebc2831912a38f1648910831a2",
+      "md5": "e4e0f3b09b59f024679f7b60ae988871"
+    },
+    {
+      "record": "QRAIF_C",
+      "concept_doi": "10.5281/zenodo.18528934",
+      "local_path": "QRAIF_C_manuscript.tex",
+      "remote_key": "QRAIF_C_manuscript.tex",
+      "size": "14664",
+      "sha256": "d2438846e7cbbce288a3832e3523680b18da411125c30b401b2782660849eddc",
+      "md5": "11605b178929d44fc47373ffca27238d"
+    },
+    {
+      "record": "QRAIF_Mass_Energy",
+      "concept_doi": "10.5281/zenodo.20280951",
+      "local_path": "QRAIF_Mass_Energy_manuscript.pdf",
+      "remote_key": "QRAIF_Mass_Energy_manuscript.pdf",
+      "size": "184528",
+      "sha256": "73d7aef77f1c6cdbfe4b9cbc8ca55a39062ce74b35aab8d6bfb40fd1dffc1975",
+      "md5": "45c4ca48e02b1d5039bcbe5e4c1c6bbe"
+    },
+    {
+      "record": "QRAIF_Mass_Energy",
+      "concept_doi": "10.5281/zenodo.20280951",
+      "local_path": "QRAIF_Mass_Energy_manuscript.tex",
+      "remote_key": "QRAIF_Mass_Energy_manuscript.tex",
+      "size": "51452",
+      "sha256": "30a98a8aa5095d4c250c6e455839e5dc0d030c2ced13039fd6d212e95555fdef",
+      "md5": "813d85943a86926f6d9f43593f4a32e1"
+    },
+    {
+      "record": "QRAIF_Null_Cluster",
+      "concept_doi": "10.5281/zenodo.20283057",
+      "local_path": "QRAIF_Null_Cluster_manuscript.pdf",
+      "remote_key": "QRAIF_Null_Cluster_manuscript.pdf",
+      "size": "142882",
+      "sha256": "809e51faf1e8f7a9ab07d2d4613fc2dbe03699b328186caf1adf282f537642da",
+      "md5": "6f56fa91c45c2d0513c79b45cecb3db0"
+    },
+    {
+      "record": "QRAIF_Null_Cluster",
+      "concept_doi": "10.5281/zenodo.20283057",
+      "local_path": "QRAIF_Null_Cluster_manuscript.tex",
+      "remote_key": "QRAIF_Null_Cluster_manuscript.tex",
+      "size": "34441",
+      "sha256": "8eef4199432de84ebe752be482b6ca69944df1dd220f0c91e301d28cc86d6e8b",
+      "md5": "737fba7a0781489be6c97704810a8275"
+    },
+    {
+      "record": "QRAIF_No_View",
+      "concept_doi": "10.5281/zenodo.20284454",
+      "local_path": "QRAIF_No_View_manuscript.pdf",
+      "remote_key": "QRAIF_No_View_manuscript.pdf",
+      "size": "131324",
+      "sha256": "2defdeed122b657970a4abd435280eea00da1c89a8c9b0f0a2c00f152a7dd961",
+      "md5": "c06cdd8a16e40c1d3514277c84b370d5"
+    },
+    {
+      "record": "QRAIF_No_View",
+      "concept_doi": "10.5281/zenodo.20284454",
+      "local_path": "QRAIF_No_View_manuscript.tex",
+      "remote_key": "QRAIF_No_View_manuscript.tex",
+      "size": "28336",
+      "sha256": "eb00ffdf43993299d032c3ca6fbe67ba3ada2071261d4415af7715264097d4e1",
+      "md5": "901e408688af6e9b24047876005d0acc"
+    },
+    {
+      "record": "TDOME_I",
+      "concept_doi": "10.5281/zenodo.18574342",
+      "local_path": "TDOME_I_manuscript.pdf",
+      "remote_key": "TDOME_I_manuscript.pdf",
+      "size": "496661",
+      "sha256": "08e8458d3564ef7af094f447f6af90b11c0168dd81889d8afdef3d1d7df2b3a4",
+      "md5": "adea79b0d4cad8e7e4c07ff3f7670253"
+    },
+    {
+      "record": "TDOME_I",
+      "concept_doi": "10.5281/zenodo.18574342",
+      "local_path": "TDOME_I_manuscript.tex",
+      "remote_key": "TDOME_I_manuscript.tex",
+      "size": "85423",
+      "sha256": "fb4545f87500210ca006f7ead8ddb5f964c57bfcbec08c37cf3b43b339b781b2",
+      "md5": "a931a8963b5543c388816ca2188019a9"
+    },
+    {
+      "record": "TDOME_I",
+      "concept_doi": "10.5281/zenodo.18574342",
+      "local_path": "TDOME_I_supplement/fig_paper1_markov_ceiling.pdf",
+      "remote_key": "fig_paper1_markov_ceiling.pdf",
+      "size": "28310",
+      "sha256": "9f6fe453e278beb97bc186c9029b7bd126208cd14e0023dd5d80ae723a149f15",
+      "md5": "45da9ea0057bc3bd457d8a94ea79032e"
+    },
+    {
+      "record": "TDOME_I",
+      "concept_doi": "10.5281/zenodo.18574342",
+      "local_path": "TDOME_I_supplement/fig_survival.pdf",
+      "remote_key": "fig_survival.pdf",
+      "size": "48954",
+      "sha256": "8a9e5195323e01bfb89ade0c867eaff44bdec39ef8268e27feef0d0ea3159be2",
+      "md5": "d673470849091d141996e759f6d6b1b9"
+    },
+    {
+      "record": "TDOME_I",
+      "concept_doi": "10.5281/zenodo.18574342",
+      "local_path": "TDOME_I_supplement/markov_ceiling_boundary.csv",
+      "remote_key": "markov_ceiling_boundary.csv",
+      "size": "56",
+      "sha256": "8a87390375fba2d5d557d9a66e1eb4ef07f35fb985c584dd510a3ff0446b16cf",
+      "md5": "5a7011466866b3299d2f82cac8a00c25"
+    },
+    {
+      "record": "TDOME_I",
+      "concept_doi": "10.5281/zenodo.18574342",
+      "local_path": "TDOME_I_supplement/markov_ceiling_data.csv",
+      "remote_key": "markov_ceiling_data.csv",
+      "size": "1031",
+      "sha256": "66ef16bf2c6141494f7b4725e3fc07bac8bbff435ec177b41b1c84a37b42dc65",
+      "md5": "449458ed9651f6125889abd36730df4c"
+    },
+    {
+      "record": "TDOME_I",
+      "concept_doi": "10.5281/zenodo.18574342",
+      "local_path": "TDOME_I_supplement/paper1_markov_ceiling_demo.py",
+      "remote_key": "paper1_markov_ceiling_demo.py",
+      "size": "14617",
+      "sha256": "11b5a0aceeb71d02387ddc31a44a6af5bccba48a36faa40b90d63ab1f6bc9d28",
+      "md5": "32c7def1ec81ef103e5c6f1a240ea0bd"
+    },
+    {
+      "record": "TDOME_II",
+      "concept_doi": "10.5281/zenodo.18579703",
+      "local_path": "TDOME_II_manuscript.pdf",
+      "remote_key": "TDOME_II_manuscript.pdf",
+      "size": "477373",
+      "sha256": "f9e99650e256430765097fc50b15125385fe2e083aa74d4333fe7dfabc57c2a2",
+      "md5": "37ca4b652ac7bc562ce7cfc774891264"
+    },
+    {
+      "record": "TDOME_II",
+      "concept_doi": "10.5281/zenodo.18579703",
+      "local_path": "TDOME_II_manuscript.tex",
+      "remote_key": "TDOME_II_manuscript.tex",
+      "size": "87775",
+      "sha256": "da3369eeb036738933b38822cb5ab493c617cca47870b0e57f7c314c4f026636",
+      "md5": "eb392172f0dc3e584442b0c31aded969"
+    },
+    {
+      "record": "TDOME_II",
+      "concept_doi": "10.5281/zenodo.18579703",
+      "local_path": "TDOME_II_supplement/fig_ego.pdf",
+      "remote_key": "fig_ego.pdf",
+      "size": "26048",
+      "sha256": "b97665268f3b6e7d5c35b5ceaa138e828c617abe442870004f329ff17d798dc5",
+      "md5": "dfa750c01215f272613eb78827df7a73"
+    },
+    {
+      "record": "TDOME_II",
+      "concept_doi": "10.5281/zenodo.18579703",
+      "local_path": "TDOME_II_supplement/fig_paper2_kstar_scaling.pdf",
+      "remote_key": "fig_paper2_kstar_scaling.pdf",
+      "size": "29118",
+      "sha256": "f48de8d01a8e623bf58e928450e8a8f85ed037ebd7f3d9ae79fda720d4537641",
+      "md5": "88712ddf2f4d1cfea5d8f97008fd1ec5"
+    },
+    {
+      "record": "TDOME_II",
+      "concept_doi": "10.5281/zenodo.18579703",
+      "local_path": "TDOME_II_supplement/kstar_scaling_data.csv",
+      "remote_key": "kstar_scaling_data.csv",
+      "size": "1628",
+      "sha256": "e3887364423a65e182ebce3bb39fe366b7081f7db9fa4007407b6bde0aa504c6",
+      "md5": "9eade1c26d6e20808eb9a88d8d397699"
+    },
+    {
+      "record": "TDOME_II",
+      "concept_doi": "10.5281/zenodo.18579703",
+      "local_path": "TDOME_II_supplement/paper2_kstar_scaling_demo.py",
+      "remote_key": "paper2_kstar_scaling_demo.py",
+      "size": "20820",
+      "sha256": "ef216d9df47f8f010e204c98c56319f9b862a75267eaa37b3149e4dc59853e5f",
+      "md5": "96d71a10196c14a1ad82b145160be205"
+    },
+    {
+      "record": "TDOME_III",
+      "concept_doi": "10.5281/zenodo.18591771",
+      "local_path": "TDOME_III_manuscript.pdf",
+      "remote_key": "TDOME_III_manuscript.pdf",
+      "size": "582566",
+      "sha256": "a6568d5af988392ee2ac451ab5ef002434419e745d8741da72cde201b42bfb2e",
+      "md5": "9b4a9967b26b14e126b6d43fc006a2a1"
+    },
+    {
+      "record": "TDOME_III",
+      "concept_doi": "10.5281/zenodo.18591771",
+      "local_path": "TDOME_III_manuscript.tex",
+      "remote_key": "TDOME_III_manuscript.tex",
+      "size": "78011",
+      "sha256": "d0fea25c86efc4a5f72cbf7a7b805b6ae9b478034a7e516ef43e781055b0bf59",
+      "md5": "6578acd246dc640541893a5c37f9a50a"
+    },
+    {
+      "record": "TDOME_III",
+      "concept_doi": "10.5281/zenodo.18591771",
+      "local_path": "TDOME_III_supplement/alpha_min_curve.csv",
+      "remote_key": "alpha_min_curve.csv",
+      "size": "389",
+      "sha256": "8dcf92a9409d3492e81e93f0df7595648b46a68df70870542e0fb7afe5b56047",
+      "md5": "064ad7354337f57fe43097be0c703b4b"
+    },
+    {
+      "record": "TDOME_III",
+      "concept_doi": "10.5281/zenodo.18591771",
+      "local_path": "TDOME_III_supplement/alpha_opt_curve.csv",
+      "remote_key": "alpha_opt_curve.csv",
+      "size": "425",
+      "sha256": "f656845d6c96c65332a091b653d2d4841f8eda406dd34221b1b6f6c9660c95a5",
+      "md5": "564f70deed588da7e99dabd6164a3acc"
+    },
+    {
+      "record": "TDOME_III",
+      "concept_doi": "10.5281/zenodo.18591771",
+      "local_path": "TDOME_III_supplement/fig_alpha_opt.pdf",
+      "remote_key": "fig_alpha_opt.pdf",
+      "size": "21962",
+      "sha256": "32e3068c259cdecf02c3d96212d3b21c934099092cfc3fd5d11f6d3e83c26ac8",
+      "md5": "bf1722c0cc3aefc8e9bd4ac54f168507"
+    },
+    {
+      "record": "TDOME_III",
+      "concept_doi": "10.5281/zenodo.18591771",
+      "local_path": "TDOME_III_supplement/fig_delusion_trap.pdf",
+      "remote_key": "fig_delusion_trap.pdf",
+      "size": "146176",
+      "sha256": "eac29af89d25ccca5c802275e0d6f7cbe7037be15d46fe1266d96ec6656df84c",
+      "md5": "8d3a61a796340c36aa0af74416a8d478"
+    },
+    {
+      "record": "TDOME_III",
+      "concept_doi": "10.5281/zenodo.18591771",
+      "local_path": "TDOME_III_supplement/fig_fisher_residual.pdf",
+      "remote_key": "fig_fisher_residual.pdf",
+      "size": "24422",
+      "sha256": "baf074dadad2c01d794b03e046e970c614b69cbac1ead158c3a42f804500ad2e",
+      "md5": "829bc6bc18dbbbac96ef1b7ca9bac532"
+    },
+    {
+      "record": "TDOME_III",
+      "concept_doi": "10.5281/zenodo.18591771",
+      "local_path": "TDOME_III_supplement/fig_phase_with_boundary.pdf",
+      "remote_key": "fig_phase_with_boundary.pdf",
+      "size": "36215",
+      "sha256": "73277562b742e38987be159d3245ef91ce53e5ce2dc9754d003547345a3bf906",
+      "md5": "2e876ce4335b5b80887a29ebb715ddfc"
+    },
+    {
+      "record": "TDOME_III",
+      "concept_doi": "10.5281/zenodo.18591771",
+      "local_path": "TDOME_III_supplement/fisher_residual_data.csv",
+      "remote_key": "fisher_residual_data.csv",
+      "size": "48087",
+      "sha256": "80a5c328058565006eb04d98e541d6e8579876f4dacea15414451a630370afbc",
+      "md5": "052fa1a6d93915a17bf1875edfd24f4f"
+    },
+    {
+      "record": "TDOME_III",
+      "concept_doi": "10.5281/zenodo.18591771",
+      "local_path": "TDOME_III_supplement/fisher_residual_demo.py",
+      "remote_key": "fisher_residual_demo.py",
+      "size": "3617",
+      "sha256": "55d0b142ea2b0da6ca7df468d4aa0238afa9caf56268c65d821466c449fcba53",
+      "md5": "64124a014e6fea185f69f1c9f71aca24"
+    },
+    {
+      "record": "TDOME_III",
+      "concept_doi": "10.5281/zenodo.18591771",
+      "local_path": "TDOME_III_supplement/gen_fig_ego.py",
+      "remote_key": "gen_fig_ego.py",
+      "size": "4184",
+      "sha256": "f047fa2155e6259643f094d6bb24f0d7ceee2c164182ca75b81046194add31be",
+      "md5": "854aa2d07a118b5dbf1b56cbdea14ca1"
+    },
+    {
+      "record": "TDOME_III",
+      "concept_doi": "10.5281/zenodo.18591771",
+      "local_path": "TDOME_III_supplement/gen_fig_loop.py",
+      "remote_key": "gen_fig_loop.py",
+      "size": "7015",
+      "sha256": "f78645320bef8b3130dcfa2cdbb3ac7023b4832c6e0d9c26768a1902b8406435",
+      "md5": "f41d382d34f0826cf4e50e63422254be"
+    },
+    {
+      "record": "TDOME_III",
+      "concept_doi": "10.5281/zenodo.18591771",
+      "local_path": "TDOME_III_supplement/tdome_demo.py",
+      "remote_key": "tdome_demo.py",
+      "size": "24118",
+      "sha256": "818dde631732a1c421eb7463cbc9718b18e33bf53d1283756a1cdc1730e42425",
+      "md5": "547efdedaf1a78418cdb9aa96aea915e"
+    },
+    {
+      "record": "Foundation_I",
+      "concept_doi": "10.5281/zenodo.19627786",
+      "local_path": "Foundation_I_v2.pdf",
+      "remote_key": "Foundation_I_v2.pdf",
+      "size": "287581",
+      "sha256": "fe5caac7285da4e4b7a6adc8c63d1561a79fc038abc978dc0ae71eba2313a3a8",
+      "md5": "661bd64d82d6b325d527f0e8ed366704"
+    },
+    {
+      "record": "Foundation_I",
+      "concept_doi": "10.5281/zenodo.19627786",
+      "local_path": "Foundation_I_v2.tex",
+      "remote_key": "Foundation_I_v2.tex",
+      "size": "102673",
+      "sha256": "63379e647fdd4000f4239f42c35c1148825e04bcced98290c1be2d267af23409",
+      "md5": "5d805183f91f6764d60a6a297685eed6"
+    },
+    {
+      "record": "Foundation_II",
+      "concept_doi": "10.5281/zenodo.19641372",
+      "local_path": "Foundation_II.pdf",
+      "remote_key": "Foundation_II.pdf",
+      "size": "222039",
+      "sha256": "4844e6d6696fe1a6c008ce80206b57142bb530e98331ddc979ba90f534c57f0d",
+      "md5": "7679fd1ed254264ea7a433b40ef196b6"
+    },
+    {
+      "record": "Foundation_II",
+      "concept_doi": "10.5281/zenodo.19641372",
+      "local_path": "Foundation_II.tex",
+      "remote_key": "Foundation_II.tex",
+      "size": "66064",
+      "sha256": "3b32e0321c0f677c730deb23a84353f825dbb9b13439b1c51f4a32cc45a61c46",
+      "md5": "9bc087e4b14b75c12ea7fb327bf24f59"
+    },
+    {
+      "record": "Foundation_III",
+      "concept_doi": "10.5281/zenodo.19642189",
+      "local_path": "Foundation_III.pdf",
+      "remote_key": "Foundation_III.pdf",
+      "size": "185888",
+      "sha256": "e79345e91611d1ee8a515bd1f5db6794a187caa5eb7e70ce15c238154caee09f",
+      "md5": "608df97402df48983162ed8a824106ce"
+    },
+    {
+      "record": "Foundation_III",
+      "concept_doi": "10.5281/zenodo.19642189",
+      "local_path": "Foundation_III.tex",
+      "remote_key": "Foundation_III.tex",
+      "size": "51406",
+      "sha256": "b90cc4017f5dc9dc1e0d5ed2e67569a19ca679f575334424c3b9cbd07593585c",
+      "md5": "f39f66cf43dd854372959a98f595f337"
+    },
+    {
+      "record": "CI",
+      "concept_doi": "10.5281/zenodo.19607387",
+      "local_path": "CI_Inseparability.pdf",
+      "remote_key": "CI_Inseparability.pdf",
+      "size": "261405",
+      "sha256": "068e4033fbc72604acb42bd8a2bd25a799872435041e9455288f0a93e0c47fa1",
+      "md5": "44f8b66965908d66bb27a063006655ec"
+    },
+    {
+      "record": "CI",
+      "concept_doi": "10.5281/zenodo.19607387",
+      "local_path": "CI_Inseparability.tex",
+      "remote_key": "CI_Inseparability.tex",
+      "size": "101172",
+      "sha256": "33337cb4a1182c66d8d6bb9bb410c0dcc288a3b01798ec358ce5d27d3f2a7907",
+      "md5": "f689be36173a3d823fa64799aacb034c"
+    },
+    {
+      "record": "CII",
+      "concept_doi": "10.5281/zenodo.19607543",
+      "local_path": "CII_Higher_Dimensional.pdf",
+      "remote_key": "CII_Higher_Dimensional.pdf",
+      "size": "166199",
+      "sha256": "57c5d8a6496be07bf80f324e08c728dec2b0ebfefc5ab62c25fafc08288aeebb",
+      "md5": "b09d58d2707ba73fdf22720395e116fa"
+    },
+    {
+      "record": "CII",
+      "concept_doi": "10.5281/zenodo.19607543",
+      "local_path": "CII_Higher_Dimensional.tex",
+      "remote_key": "CII_Higher_Dimensional.tex",
+      "size": "37258",
+      "sha256": "56a75cfdd971e6ac0ca290fe51ceec99b7a567ded77c4e28c6609cefed1ae3a5",
+      "md5": "601a063863f11ad213d7348e16b02ff9"
+    },
+    {
+      "record": "CIII",
+      "concept_doi": "10.5281/zenodo.19607724",
+      "local_path": "CIII_Finite_Self_Models.pdf",
+      "remote_key": "CIII_Finite_Self_Models.pdf",
+      "size": "159271",
+      "sha256": "c3a8d9cc189766d2e4e33cf77508366e27dd8766d2b703ee10b9f8296bf26dc1",
+      "md5": "b0de39951ca9d1f120acbd47f2fb5e18"
+    },
+    {
+      "record": "CIII",
+      "concept_doi": "10.5281/zenodo.19607724",
+      "local_path": "CIII_Finite_Self_Models.tex",
+      "remote_key": "CIII_Finite_Self_Models.tex",
+      "size": "27589",
+      "sha256": "a92fa67b1bad1de0b47752943adf598261870bc12e6dc17c66d24b393786bbc5",
+      "md5": "a0a175667bb80a06058611c2257d442f"
+    },
+    {
+      "record": "Brain_Anchor",
+      "concept_doi": "10.5281/zenodo.20044329",
+      "local_path": "Brain_Anchor_v2.pdf",
+      "remote_key": "Brain_Anchor_v2.pdf",
+      "size": "225936",
+      "sha256": "863a41d0f2bbe97616c15a3a2d5060ea914a1951d9b0547c867eb573a613bb50",
+      "md5": "c79c910d19494ff51ee1b7eabdc57342"
+    },
+    {
+      "record": "Brain_Anchor",
+      "concept_doi": "10.5281/zenodo.20044329",
+      "local_path": "Brain_Anchor_v2.tex",
+      "remote_key": "Brain_Anchor_v2.tex",
+      "size": "84994",
+      "sha256": "1089a1507511f7f4e6c056cd8a04dfbae81335aaa76b2a02a7c2cfb5eedfb524",
+      "md5": "12c183bb2206f3e7cebef91b913e9870"
+    },
+    {
+      "record": "World_as_Imprint",
+      "concept_doi": "10.5281/zenodo.20122718",
+      "local_path": "Imprint_World_as_Imprint.pdf",
+      "remote_key": "Imprint_World_as_Imprint.pdf",
+      "size": "212797",
+      "sha256": "60d824217d92e5b1ce1827e49029486a0af5b07abfb548ea838bd095b42a9696",
+      "md5": "151711bfd7efb9f4561cc41520471b1d"
+    },
+    {
+      "record": "World_as_Imprint",
+      "concept_doi": "10.5281/zenodo.20122718",
+      "local_path": "Imprint_World_as_Imprint.tex",
+      "remote_key": "Imprint_World_as_Imprint.tex",
+      "size": "50791",
+      "sha256": "008cba2797edf91838a57a0d8a4031df79cc588189b343825dce52a2d6a40e22",
+      "md5": "d89a63b3e889a7ed7ebadb699370f6ab"
+    },
+    {
+      "record": "Imprint_RG_Filtering",
+      "concept_doi": "10.5281/zenodo.20151451",
+      "local_path": "Imprint_RG_Filtering.pdf",
+      "remote_key": "Imprint_RG_Filtering.pdf",
+      "size": "183641",
+      "sha256": "28ee19b6aac5e12afa7a04968aebae9ca6b1567004fe0b2b447c7171e390c4ff",
+      "md5": "b648f38b99dd9570abbb88bc4fdfe148"
+    },
+    {
+      "record": "Imprint_RG_Filtering",
+      "concept_doi": "10.5281/zenodo.20151451",
+      "local_path": "Imprint_RG_Filtering.tex",
+      "remote_key": "Imprint_RG_Filtering.tex",
+      "size": "25919",
+      "sha256": "e29349ffb34c931ca4a8e0359e8051f1a16884392fc77be8c3052d72bb7ed758",
+      "md5": "742ec65c2f564e1b3d5a585424f4f0c9"
+    },
+    {
+      "record": "Imprint_Stable_Hulls",
+      "concept_doi": "10.5281/zenodo.20151508",
+      "local_path": "Imprint_Stable_Hulls.pdf",
+      "remote_key": "Imprint_Stable_Hulls.pdf",
+      "size": "75515",
+      "sha256": "02b709c8ffa3b6f456936ab93bd772ae9ca44e7439196559551ee846f69115b2",
+      "md5": "b95f8e1e5ab594fc44c3f3237d6827fd"
+    },
+    {
+      "record": "Imprint_Stable_Hulls",
+      "concept_doi": "10.5281/zenodo.20151508",
+      "local_path": "Imprint_Stable_Hulls.tex",
+      "remote_key": "Imprint_Stable_Hulls.tex",
+      "size": "22359",
+      "sha256": "15c5c524c9c309bb57cc113ad58e46ac0b112209672cf5d1cd762b9c0dfef048",
+      "md5": "1090d5284364301223c62e8911c75622"
+    },
+    {
+      "record": "Imprint_Chain",
+      "concept_doi": "10.5281/zenodo.20151594",
+      "local_path": "Imprint_Chain.pdf",
+      "remote_key": "Imprint_Chain.pdf",
+      "size": "220022",
+      "sha256": "90efcf49f0f5888caaf3107a1d5e9e66cb7af5ce52a7c69858bfea69600aff8e",
+      "md5": "2442e1e05ece584620c82ace174a26fb"
+    },
+    {
+      "record": "Imprint_Chain",
+      "concept_doi": "10.5281/zenodo.20151594",
+      "local_path": "Imprint_Chain.tex",
+      "remote_key": "Imprint_Chain.tex",
+      "size": "42291",
+      "sha256": "a0171641ee0cde8eea5ab455a57f663b0c5775cf9d00ffe13f71347768e3e297",
+      "md5": "52da9b3cfeec42db8ba763a75f30b7bb"
+    },
+    {
+      "record": "HAFF_Abstract",
+      "concept_doi": "10.5281/zenodo.18416482",
+      "local_path": "HAFF_Abstract.pdf",
+      "remote_key": "HAFF_Abstract.pdf",
+      "size": "70803",
+      "sha256": "1a6335e97a3b53ea6d6e0ca3c7488db05f2df57406558013fb0ea435224ed139",
+      "md5": "ab24562fb9af16323278e0c9b9a9bcba"
+    },
+    {
+      "record": "HAFF_Abstract",
+      "concept_doi": "10.5281/zenodo.18416482",
+      "local_path": "HAFF_Abstract.tex",
+      "remote_key": "HAFF_Abstract.tex",
+      "size": "3835",
+      "sha256": "41935db3e2b7ef3dc503e417be3b0a57a903f392a0ac0094bc97de13c135909f",
+      "md5": "ae725f8c3a502238106dc2e3e576a4bc"
+    },
+    {
+      "record": "HAFF_Complete_Collection",
+      "concept_doi": "10.5281/zenodo.18452194",
+      "local_path": "HAFF_Complete_Collection.pdf",
+      "remote_key": "HAFF_Complete_Collection.pdf",
+      "size": "1002018",
+      "sha256": "3b67ab19491f3dacb26f07a0bbfaac1efad00468adfafd6696775b7305cc1ac7",
+      "md5": "5daf5cb6026f1814eaf9b604d248f55b"
+    },
+    {
+      "record": "HAFF_Complete_Collection",
+      "concept_doi": "10.5281/zenodo.18452194",
+      "local_path": "HAFF_Complete_Collection.tex",
+      "remote_key": "HAFF_Complete_Collection.tex",
+      "size": "309280",
+      "sha256": "47e98dd03152f56d810e3537f30c1ed0811230d772cbd64a6ee9ddc73d7a74f3",
+      "md5": "e7991d9dbc29641236fe295acb741ea6"
+    },
+    {
+      "record": "QRAIF_Complete_Collection",
+      "concept_doi": "10.5281/zenodo.18548704",
+      "local_path": "QRAIF_Complete_Collection.pdf",
+      "remote_key": "QRAIF_Complete_Collection.pdf",
+      "size": "164694",
+      "sha256": "27a230556122280326249c8d215c3a09bc46a39217a67a62f930b5574fa90244",
+      "md5": "8de6ce8650466ac0d060b59cd7d047d9"
+    },
+    {
+      "record": "QRAIF_Complete_Collection",
+      "concept_doi": "10.5281/zenodo.18548704",
+      "local_path": "QRAIF_Complete_Collection.tex",
+      "remote_key": "QRAIF_Complete_Collection.tex",
+      "size": "65721",
+      "sha256": "c9977e1b2fe49ddbba55bc09dca66a45393e9a4e5bcc99b139c7a5adc1b4267f",
+      "md5": "9df379f55c37a56647f32c19578cf9f7"
+    },
+    {
+      "record": "TDOME_Complete_Collection",
+      "concept_doi": "10.5281/zenodo.18593180",
+      "local_path": "TDOME_Complete_Collection.pdf",
+      "remote_key": "TDOME_Complete_Collection.pdf",
+      "size": "1297228",
+      "sha256": "fe83daa16cb891ae54fa48020c40df77b1bcb4ff395c60ab95448d5996473086",
+      "md5": "bb59259385e7a34efad6bbb270fe054e"
+    },
+    {
+      "record": "TDOME_Complete_Collection",
+      "concept_doi": "10.5281/zenodo.18593180",
+      "local_path": "TDOME_Complete_Collection.tex",
+      "remote_key": "TDOME_Complete_Collection.tex",
+      "size": "252127",
+      "sha256": "5bba1f0d426c5eae78921afa5512049f8a91c901fc92a5a9d965a957da0f5308",
+      "md5": "254e3b9292b3130d54c0f3f94d0d192e"
+    },
+    {
+      "record": "TDOME_Complete_Collection",
+      "concept_doi": "10.5281/zenodo.18593180",
+      "local_path": "TDOME_Complete_supplement/alpha_min_curve.csv",
+      "remote_key": "alpha_min_curve.csv",
+      "size": "389",
+      "sha256": "8dcf92a9409d3492e81e93f0df7595648b46a68df70870542e0fb7afe5b56047",
+      "md5": "064ad7354337f57fe43097be0c703b4b"
+    },
+    {
+      "record": "TDOME_Complete_Collection",
+      "concept_doi": "10.5281/zenodo.18593180",
+      "local_path": "TDOME_Complete_supplement/alpha_opt_curve.csv",
+      "remote_key": "alpha_opt_curve.csv",
+      "size": "425",
+      "sha256": "f656845d6c96c65332a091b653d2d4841f8eda406dd34221b1b6f6c9660c95a5",
+      "md5": "564f70deed588da7e99dabd6164a3acc"
+    },
+    {
+      "record": "TDOME_Complete_Collection",
+      "concept_doi": "10.5281/zenodo.18593180",
+      "local_path": "TDOME_Complete_supplement/fig_alpha_opt.pdf",
+      "remote_key": "fig_alpha_opt.pdf",
+      "size": "21962",
+      "sha256": "32e3068c259cdecf02c3d96212d3b21c934099092cfc3fd5d11f6d3e83c26ac8",
+      "md5": "bf1722c0cc3aefc8e9bd4ac54f168507"
+    },
+    {
+      "record": "TDOME_Complete_Collection",
+      "concept_doi": "10.5281/zenodo.18593180",
+      "local_path": "TDOME_Complete_supplement/fig_delusion_trap.pdf",
+      "remote_key": "fig_delusion_trap.pdf",
+      "size": "146176",
+      "sha256": "eac29af89d25ccca5c802275e0d6f7cbe7037be15d46fe1266d96ec6656df84c",
+      "md5": "8d3a61a796340c36aa0af74416a8d478"
+    },
+    {
+      "record": "TDOME_Complete_Collection",
+      "concept_doi": "10.5281/zenodo.18593180",
+      "local_path": "TDOME_Complete_supplement/fig_ego.pdf",
+      "remote_key": "fig_ego.pdf",
+      "size": "26048",
+      "sha256": "b97665268f3b6e7d5c35b5ceaa138e828c617abe442870004f329ff17d798dc5",
+      "md5": "dfa750c01215f272613eb78827df7a73"
+    },
+    {
+      "record": "TDOME_Complete_Collection",
+      "concept_doi": "10.5281/zenodo.18593180",
+      "local_path": "TDOME_Complete_supplement/fig_paper1_markov_ceiling.pdf",
+      "remote_key": "fig_paper1_markov_ceiling.pdf",
+      "size": "28310",
+      "sha256": "9f6fe453e278beb97bc186c9029b7bd126208cd14e0023dd5d80ae723a149f15",
+      "md5": "45da9ea0057bc3bd457d8a94ea79032e"
+    },
+    {
+      "record": "TDOME_Complete_Collection",
+      "concept_doi": "10.5281/zenodo.18593180",
+      "local_path": "TDOME_Complete_supplement/fig_paper2_kstar_scaling.pdf",
+      "remote_key": "fig_paper2_kstar_scaling.pdf",
+      "size": "29118",
+      "sha256": "f48de8d01a8e623bf58e928450e8a8f85ed037ebd7f3d9ae79fda720d4537641",
+      "md5": "88712ddf2f4d1cfea5d8f97008fd1ec5"
+    },
+    {
+      "record": "TDOME_Complete_Collection",
+      "concept_doi": "10.5281/zenodo.18593180",
+      "local_path": "TDOME_Complete_supplement/fig_phase_with_boundary.pdf",
+      "remote_key": "fig_phase_with_boundary.pdf",
+      "size": "36215",
+      "sha256": "73277562b742e38987be159d3245ef91ce53e5ce2dc9754d003547345a3bf906",
+      "md5": "2e876ce4335b5b80887a29ebb715ddfc"
+    },
+    {
+      "record": "TDOME_Complete_Collection",
+      "concept_doi": "10.5281/zenodo.18593180",
+      "local_path": "TDOME_Complete_supplement/fig_survival.pdf",
+      "remote_key": "fig_survival.pdf",
+      "size": "48954",
+      "sha256": "8a9e5195323e01bfb89ade0c867eaff44bdec39ef8268e27feef0d0ea3159be2",
+      "md5": "d673470849091d141996e759f6d6b1b9"
+    },
+    {
+      "record": "TDOME_Complete_Collection",
+      "concept_doi": "10.5281/zenodo.18593180",
+      "local_path": "TDOME_Complete_supplement/fisher_residual_data.csv",
+      "remote_key": "fisher_residual_data.csv",
+      "size": "48087",
+      "sha256": "80a5c328058565006eb04d98e541d6e8579876f4dacea15414451a630370afbc",
+      "md5": "052fa1a6d93915a17bf1875edfd24f4f"
+    },
+    {
+      "record": "TDOME_Complete_Collection",
+      "concept_doi": "10.5281/zenodo.18593180",
+      "local_path": "TDOME_Complete_supplement/fisher_residual_demo.py",
+      "remote_key": "fisher_residual_demo.py",
+      "size": "3617",
+      "sha256": "55d0b142ea2b0da6ca7df468d4aa0238afa9caf56268c65d821466c449fcba53",
+      "md5": "64124a014e6fea185f69f1c9f71aca24"
+    },
+    {
+      "record": "TDOME_Complete_Collection",
+      "concept_doi": "10.5281/zenodo.18593180",
+      "local_path": "TDOME_Complete_supplement/gen_fig_ego.py",
+      "remote_key": "gen_fig_ego.py",
+      "size": "4184",
+      "sha256": "f047fa2155e6259643f094d6bb24f0d7ceee2c164182ca75b81046194add31be",
+      "md5": "854aa2d07a118b5dbf1b56cbdea14ca1"
+    },
+    {
+      "record": "TDOME_Complete_Collection",
+      "concept_doi": "10.5281/zenodo.18593180",
+      "local_path": "TDOME_Complete_supplement/gen_fig_loop.py",
+      "remote_key": "gen_fig_loop.py",
+      "size": "7015",
+      "sha256": "f78645320bef8b3130dcfa2cdbb3ac7023b4832c6e0d9c26768a1902b8406435",
+      "md5": "f41d382d34f0826cf4e50e63422254be"
+    },
+    {
+      "record": "TDOME_Complete_Collection",
+      "concept_doi": "10.5281/zenodo.18593180",
+      "local_path": "TDOME_Complete_supplement/kstar_scaling_data.csv",
+      "remote_key": "kstar_scaling_data.csv",
+      "size": "1628",
+      "sha256": "e3887364423a65e182ebce3bb39fe366b7081f7db9fa4007407b6bde0aa504c6",
+      "md5": "9eade1c26d6e20808eb9a88d8d397699"
+    },
+    {
+      "record": "TDOME_Complete_Collection",
+      "concept_doi": "10.5281/zenodo.18593180",
+      "local_path": "TDOME_Complete_supplement/markov_ceiling_boundary.csv",
+      "remote_key": "markov_ceiling_boundary.csv",
+      "size": "56",
+      "sha256": "8a87390375fba2d5d557d9a66e1eb4ef07f35fb985c584dd510a3ff0446b16cf",
+      "md5": "5a7011466866b3299d2f82cac8a00c25"
+    },
+    {
+      "record": "TDOME_Complete_Collection",
+      "concept_doi": "10.5281/zenodo.18593180",
+      "local_path": "TDOME_Complete_supplement/markov_ceiling_data.csv",
+      "remote_key": "markov_ceiling_data.csv",
+      "size": "1031",
+      "sha256": "66ef16bf2c6141494f7b4725e3fc07bac8bbff435ec177b41b1c84a37b42dc65",
+      "md5": "449458ed9651f6125889abd36730df4c"
+    },
+    {
+      "record": "TDOME_Complete_Collection",
+      "concept_doi": "10.5281/zenodo.18593180",
+      "local_path": "TDOME_Complete_supplement/paper1_markov_ceiling_demo.py",
+      "remote_key": "paper1_markov_ceiling_demo.py",
+      "size": "14617",
+      "sha256": "11b5a0aceeb71d02387ddc31a44a6af5bccba48a36faa40b90d63ab1f6bc9d28",
+      "md5": "32c7def1ec81ef103e5c6f1a240ea0bd"
+    },
+    {
+      "record": "TDOME_Complete_Collection",
+      "concept_doi": "10.5281/zenodo.18593180",
+      "local_path": "TDOME_Complete_supplement/paper2_kstar_scaling_demo.py",
+      "remote_key": "paper2_kstar_scaling_demo.py",
+      "size": "20820",
+      "sha256": "ef216d9df47f8f010e204c98c56319f9b862a75267eaa37b3149e4dc59853e5f",
+      "md5": "96d71a10196c14a1ad82b145160be205"
+    },
+    {
+      "record": "TDOME_Complete_Collection",
+      "concept_doi": "10.5281/zenodo.18593180",
+      "local_path": "TDOME_Complete_supplement/tdome_demo.py",
+      "remote_key": "tdome_demo.py",
+      "size": "24118",
+      "sha256": "818dde631732a1c421eb7463cbc9718b18e33bf53d1283756a1cdc1730e42425",
+      "md5": "547efdedaf1a78418cdb9aa96aea915e"
+    },
+    {
+      "record": "Genesis_Trilogy_Collection",
+      "concept_doi": "10.5281/zenodo.18608021",
+      "local_path": "Genesis_Trilogy_Collection.pdf",
+      "remote_key": "Genesis_Trilogy_Collection.pdf",
+      "size": "1889851",
+      "sha256": "8c8f608cce046ae07ecd005660de2995f0a0af29e775590ed2965aeb74a53673",
+      "md5": "d74b30c25c9bfc505da7891b18690621"
+    },
+    {
+      "record": "Genesis_Trilogy_Collection",
+      "concept_doi": "10.5281/zenodo.18608021",
+      "local_path": "Genesis_Trilogy_Collection.tex",
+      "remote_key": "Genesis_Trilogy_Collection.tex",
+      "size": "617731",
+      "sha256": "16f9e196bdb81b972f348eb333dbb177377a479653a00b1f0a93eb08810bf412",
+      "md5": "8c9acb539a295bfb41eb6c19fe809565"
+    },
+    {
+      "record": "Genesis_Trilogy_Collection",
+      "concept_doi": "10.5281/zenodo.18608021",
+      "local_path": "Genesis_Trilogy_supplement/alpha_min_curve.csv",
+      "remote_key": "alpha_min_curve.csv",
+      "size": "389",
+      "sha256": "8dcf92a9409d3492e81e93f0df7595648b46a68df70870542e0fb7afe5b56047",
+      "md5": "064ad7354337f57fe43097be0c703b4b"
+    },
+    {
+      "record": "Genesis_Trilogy_Collection",
+      "concept_doi": "10.5281/zenodo.18608021",
+      "local_path": "Genesis_Trilogy_supplement/alpha_opt_curve.csv",
+      "remote_key": "alpha_opt_curve.csv",
+      "size": "425",
+      "sha256": "f656845d6c96c65332a091b653d2d4841f8eda406dd34221b1b6f6c9660c95a5",
+      "md5": "564f70deed588da7e99dabd6164a3acc"
+    },
+    {
+      "record": "Genesis_Trilogy_Collection",
+      "concept_doi": "10.5281/zenodo.18608021",
+      "local_path": "Genesis_Trilogy_supplement/fig_alpha_opt.pdf",
+      "remote_key": "fig_alpha_opt.pdf",
+      "size": "21962",
+      "sha256": "32e3068c259cdecf02c3d96212d3b21c934099092cfc3fd5d11f6d3e83c26ac8",
+      "md5": "bf1722c0cc3aefc8e9bd4ac54f168507"
+    },
+    {
+      "record": "Genesis_Trilogy_Collection",
+      "concept_doi": "10.5281/zenodo.18608021",
+      "local_path": "Genesis_Trilogy_supplement/fig_delusion_trap.pdf",
+      "remote_key": "fig_delusion_trap.pdf",
+      "size": "146176",
+      "sha256": "eac29af89d25ccca5c802275e0d6f7cbe7037be15d46fe1266d96ec6656df84c",
+      "md5": "8d3a61a796340c36aa0af74416a8d478"
+    },
+    {
+      "record": "Genesis_Trilogy_Collection",
+      "concept_doi": "10.5281/zenodo.18608021",
+      "local_path": "Genesis_Trilogy_supplement/fig_ego.pdf",
+      "remote_key": "fig_ego.pdf",
+      "size": "26048",
+      "sha256": "b97665268f3b6e7d5c35b5ceaa138e828c617abe442870004f329ff17d798dc5",
+      "md5": "dfa750c01215f272613eb78827df7a73"
+    },
+    {
+      "record": "Genesis_Trilogy_Collection",
+      "concept_doi": "10.5281/zenodo.18608021",
+      "local_path": "Genesis_Trilogy_supplement/fig_survival.pdf",
+      "remote_key": "fig_survival.pdf",
+      "size": "48954",
+      "sha256": "8a9e5195323e01bfb89ade0c867eaff44bdec39ef8268e27feef0d0ea3159be2",
+      "md5": "d673470849091d141996e759f6d6b1b9"
+    },
+    {
+      "record": "Genesis_Trilogy_Collection",
+      "concept_doi": "10.5281/zenodo.18608021",
+      "local_path": "Genesis_Trilogy_supplement/fisher_residual_data.csv",
+      "remote_key": "fisher_residual_data.csv",
+      "size": "48087",
+      "sha256": "80a5c328058565006eb04d98e541d6e8579876f4dacea15414451a630370afbc",
+      "md5": "052fa1a6d93915a17bf1875edfd24f4f"
+    },
+    {
+      "record": "Genesis_Trilogy_Collection",
+      "concept_doi": "10.5281/zenodo.18608021",
+      "local_path": "Genesis_Trilogy_supplement/fisher_residual_demo.py",
+      "remote_key": "fisher_residual_demo.py",
+      "size": "3617",
+      "sha256": "55d0b142ea2b0da6ca7df468d4aa0238afa9caf56268c65d821466c449fcba53",
+      "md5": "64124a014e6fea185f69f1c9f71aca24"
+    },
+    {
+      "record": "Genesis_Trilogy_Collection",
+      "concept_doi": "10.5281/zenodo.18608021",
+      "local_path": "Genesis_Trilogy_supplement/gen_fig_ego.py",
+      "remote_key": "gen_fig_ego.py",
+      "size": "4184",
+      "sha256": "f047fa2155e6259643f094d6bb24f0d7ceee2c164182ca75b81046194add31be",
+      "md5": "854aa2d07a118b5dbf1b56cbdea14ca1"
+    },
+    {
+      "record": "Genesis_Trilogy_Collection",
+      "concept_doi": "10.5281/zenodo.18608021",
+      "local_path": "Genesis_Trilogy_supplement/gen_fig_loop.py",
+      "remote_key": "gen_fig_loop.py",
+      "size": "7015",
+      "sha256": "f78645320bef8b3130dcfa2cdbb3ac7023b4832c6e0d9c26768a1902b8406435",
+      "md5": "f41d382d34f0826cf4e50e63422254be"
+    },
+    {
+      "record": "Genesis_Trilogy_Collection",
+      "concept_doi": "10.5281/zenodo.18608021",
+      "local_path": "Genesis_Trilogy_supplement/kstar_scaling_data.csv",
+      "remote_key": "kstar_scaling_data.csv",
+      "size": "1628",
+      "sha256": "e3887364423a65e182ebce3bb39fe366b7081f7db9fa4007407b6bde0aa504c6",
+      "md5": "9eade1c26d6e20808eb9a88d8d397699"
+    },
+    {
+      "record": "Genesis_Trilogy_Collection",
+      "concept_doi": "10.5281/zenodo.18608021",
+      "local_path": "Genesis_Trilogy_supplement/markov_ceiling_boundary.csv",
+      "remote_key": "markov_ceiling_boundary.csv",
+      "size": "56",
+      "sha256": "8a87390375fba2d5d557d9a66e1eb4ef07f35fb985c584dd510a3ff0446b16cf",
+      "md5": "5a7011466866b3299d2f82cac8a00c25"
+    },
+    {
+      "record": "Genesis_Trilogy_Collection",
+      "concept_doi": "10.5281/zenodo.18608021",
+      "local_path": "Genesis_Trilogy_supplement/markov_ceiling_data.csv",
+      "remote_key": "markov_ceiling_data.csv",
+      "size": "1031",
+      "sha256": "66ef16bf2c6141494f7b4725e3fc07bac8bbff435ec177b41b1c84a37b42dc65",
+      "md5": "449458ed9651f6125889abd36730df4c"
+    },
+    {
+      "record": "Genesis_Trilogy_Collection",
+      "concept_doi": "10.5281/zenodo.18608021",
+      "local_path": "Genesis_Trilogy_supplement/paper1_markov_ceiling_demo.py",
+      "remote_key": "paper1_markov_ceiling_demo.py",
+      "size": "14617",
+      "sha256": "11b5a0aceeb71d02387ddc31a44a6af5bccba48a36faa40b90d63ab1f6bc9d28",
+      "md5": "32c7def1ec81ef103e5c6f1a240ea0bd"
+    },
+    {
+      "record": "Genesis_Trilogy_Collection",
+      "concept_doi": "10.5281/zenodo.18608021",
+      "local_path": "Genesis_Trilogy_supplement/paper2_kstar_scaling_demo.py",
+      "remote_key": "paper2_kstar_scaling_demo.py",
+      "size": "20820",
+      "sha256": "ef216d9df47f8f010e204c98c56319f9b862a75267eaa37b3149e4dc59853e5f",
+      "md5": "96d71a10196c14a1ad82b145160be205"
+    },
+    {
+      "record": "Genesis_Trilogy_Collection",
+      "concept_doi": "10.5281/zenodo.18608021",
+      "local_path": "Genesis_Trilogy_supplement/tdome_demo.py",
+      "remote_key": "tdome_demo.py",
+      "size": "24118",
+      "sha256": "818dde631732a1c421eb7463cbc9718b18e33bf53d1283756a1cdc1730e42425",
+      "md5": "547efdedaf1a78418cdb9aa96aea915e"
+    },
+    {
+      "record": "Consciousness_Trilogy_Collection",
+      "concept_doi": "10.5281/zenodo.19608174",
+      "local_path": "Consciousness_Trilogy_Complete_Collection.pdf",
+      "remote_key": "Consciousness_Trilogy_Complete_Collection.pdf",
+      "size": "833186",
+      "sha256": "d5125b271e22c7c2d2184b2c4d1b631de11b8953c152d75ce8a5a2d4d172c3bf",
+      "md5": "320212187d414c90a14c859bab8b3ae7"
+    },
+    {
+      "record": "Consciousness_Trilogy_Collection",
+      "concept_doi": "10.5281/zenodo.19608174",
+      "local_path": "Consciousness_Trilogy_Complete_Collection.tex",
+      "remote_key": "Consciousness_Trilogy_Complete_Collection.tex",
+      "size": "4602",
+      "sha256": "c2ce69c2a84fd24f430168e0098f7bc8455957c39f28377101d35e8789ff04ce",
+      "md5": "ec0a1ce8544fde2da5df2d5bca166026"
+    },
+    {
+      "record": "Foundation_Trilogy_Collection",
+      "concept_doi": "10.5281/zenodo.19642398",
+      "local_path": "Foundation_Trilogy_Complete_Collection.pdf",
+      "remote_key": "Foundation_Trilogy_Complete_Collection.pdf",
+      "size": "730404",
+      "sha256": "e7fdeb194372ebcedf9459bfd8f1742d8558c35691a60db2d465670226d1e4ba",
+      "md5": "ffa99ad674e613ea4699edd19b42a152"
+    },
+    {
+      "record": "Foundation_Trilogy_Collection",
+      "concept_doi": "10.5281/zenodo.19642398",
+      "local_path": "Foundation_Trilogy_Complete_Collection.tex",
+      "remote_key": "Foundation_Trilogy_Complete_Collection.tex",
+      "size": "5003",
+      "sha256": "6ce89cec1a15040ba452abe24a1f66b59a7ee8d881023fae3058bc0278d8ac15",
+      "md5": "562c35e31404909e013a484de39827a9"
+    },
+    {
+      "record": "Consciousness_Series_Complete_Collection",
+      "concept_doi": "10.5281/zenodo.19643449",
+      "local_path": "Consciousness_Series_Complete_Collection.pdf",
+      "remote_key": "Consciousness_Series_Complete_Collection.pdf",
+      "size": "1563239",
+      "sha256": "37253494a7ae6c8a24dd0236e888132612d5f7f7e2f316ec38f50e321f856214",
+      "md5": "c09f007ca7cc36ae6c140a0587618c52"
+    },
+    {
+      "record": "Consciousness_Series_Complete_Collection",
+      "concept_doi": "10.5281/zenodo.19643449",
+      "local_path": "Consciousness_Series_Complete_Collection.tex",
+      "remote_key": "Consciousness_Series_Complete_Collection.tex",
+      "size": "6490",
+      "sha256": "fe179cad6b15452e146b68758031be2520987394109bf1051bb04c75fdb58dbb",
+      "md5": "8cbe773d0586e5a0700833727c761bf3"
+    }
+  ],
+  "additional_build_dependency": {
+    "path": "arxiv.sty",
+    "sha256": "5ca551dbda41573265dd8c1e9c983ba9729f7d4070a9f1503dd8c7fd65d1dc46",
+    "note": "Present in original local staging; not listed among the 127 July remote attachments."
+  }
+}

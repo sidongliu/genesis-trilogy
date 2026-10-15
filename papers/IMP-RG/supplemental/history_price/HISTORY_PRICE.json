@@ -1,0 +1,16 @@
+{
+  "p0": [
+    0.12793513414073376,
+    0.1482568544160061
+  ],
+  "p1": [
+    0.148689469544184,
+    0.12870555773432538
+  ],
+  "best_fixed_split": 1965,
+  "exact_expression_numerical_minimum": 0.09589697851760323,
+  "history_error": 0.03423280688176749,
+  "price_difference": 0.06166417163583574,
+  "stationarity_residual": 8.326672684688674e-17,
+  "qualification": "binary64 evaluation of exact finite formulas; no interval certification"
+}

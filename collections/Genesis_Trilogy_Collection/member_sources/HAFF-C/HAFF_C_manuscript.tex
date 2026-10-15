@@ -1,0 +1,803 @@
+% HAFF: Holographic Alaya-Field Framework
+% Essay C: Causation, Agency, and Existence
+% October 2026 working revision.
+
+\documentclass[11pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{hyperref}
+\usepackage{geometry}
+\usepackage{booktabs}
+\usepackage{array}
+\newcolumntype{P}[1]{>{\raggedright\arraybackslash}p{#1}}
+\geometry{margin=1in}
+
+\newtheorem{definition}{Definition}[section]
+\newtheorem{proposition}[definition]{Proposition}
+\newtheorem{corollary}[definition]{Corollary}
+\newtheorem{remark}[definition]{Remark}
+
+\title{Causation, Agency, and Existence:\\
+Historical Control and Maintained Intervention}
+
+\author{
+  Sidong Liu, PhD \\
+  iBioStratix Ltd \\
+  \texttt{sidongliu@hotmail.com}
+}
+
+\date{October 2026}
+
+\hypersetup{pdftitle={Causation, Agency, and Existence: Historical Control and Maintained Intervention},pdfauthor={Sidong Liu}}
+\begin{document}
+\emergencystretch=2em
+\raggedbottom
+\hbadness=5000
+\vbadness=5000
+
+\maketitle
+
+\begin{abstract}
+A cause changes what an allowed intervention can bring about; a record alone
+need not identify that change. We define interventional influence relative
+to a process, an intervention set and a readout. It contracts under
+post-processing and along channel chains. A direct cause and a common cause
+can have identical declared record laws and influences \(1\) and \(0\).
+
+Agency requires more than a persistent register. In a binary tracking task,
+the memoryless failure probability is bounded by
+\(\frac12[1-(1-2q)\kappa_{\mathrm s}\kappa_{\mathrm c}]\).
+Three retained readings beat every present-reading controller in the
+specified sensor menu, despite a smaller influence of the present world on
+the action. We then give the same agent a damageable body: an actual
+mixed-port diagnosis controls repair, and the repaired body determines the
+next sensing channel. The finite reversible protocol maintains tracking
+error at most \(0.15820\) from a healthy start, against a long-run lower bound
+\(0.22172\) for damage-independent maintenance calendars at the same repair
+rate. All spent ports and old records remain; fresh blank supply is not a
+thermal reset. This is a mechanism for maintaining intervention capability,
+not a derivation of the initial body or its couplings.
+
+These results support relational existence: structures can be objective
+within their coupling, history and observation window without being
+intrinsic to a state alone. The essay develops implications for will,
+self-maintenance and structural realism, then compares traces and
+dependence with Yog\=ac\=ara and M\=adhyamaka. These comparisons have
+their own arguments and do not establish phenomenal consciousness.
+
+\end{abstract}
+
+\tableofcontents
+
+\section{Introduction}
+\label{sec:intro}
+
+A register can remain unchanged while doing nothing. An agent can change
+almost every internal value while continuing to sense, act and preserve the
+conditions for doing so again. The distinction matters when a quantum
+state does not by itself select a division into things, causes and agents.
+
+The earlier papers provide different parts of the physical account.
+Paper~A~\cite{Liu2026PaperA} connects actual channel and record permissions
+to different correlation geometries for a fixed source and dictionary.
+Paper~B~\cite{Liu2026PaperB} derives stable block content in a commuting
+coupling class and distinguishes pre-existing relations from relations
+formed by actual recording or Hamiltonian links. Block-constant couplings
+record central labels; arbitrary environmental records need not have that
+form. Paper~E~\cite{Liu2026PaperE} derives measurement permissions,
+partly mixed records and calibrated public readout. Paper~F~\cite{Liu2026PaperF}
+accounts for record formation, retention and updating; Paper~G~\cite{Liu2026PaperG}
+asks how much of the selection can be performed from inside the process.
+
+The present question is how these structures acquire causal and agentive
+roles. Section~\ref{sec:causation} separates observation from intervention.
+Section~\ref{sec:agency} bounds viable control with and without history,
+then closes a missing step: records act on the same body whose condition
+controls later sensing. Section~\ref{sec:existence} develops relational
+objectivity rather than identifying reality with a reader's answer.
+Section~\ref{sec:bridges} compares the argument with Buddhist accounts of
+traces and dependence. The initial partition and gate permissions are
+stated inputs to the finite mechanism; their primitive formation remains
+a broader question.
+
+\section{Part I: Causation, records and interventions}
+\label{sec:causation}
+
+\subsection{Observational asymmetry and its limits}
+
+Standard quantum mechanics assigns no joint density operator to non-commuting observables at two times without a process formalism, so a cross-time mutual information is defined only relative to declared instruments.
+
+\begin{definition}[Instrument-relative directional asymmetry]
+\label{def:asym}
+Fix a two-time process $\mathcal N_{t_1\to t_2}$, an initial preparation and instruments $\mathcal I_A,\mathcal I_B$ with classical outcomes $X_A^{t_i},X_B^{t_i}$, measured in separate forward and reverse arrangements. Put
+\[
+\Delta^{\mathcal I}_{A\to B}=I(X_A^{t_1}:X_B^{t_2})-I(X_B^{t_1}:X_A^{t_2}),
+\]
+with Shannon mutual informations of the outcome distributions.
+\end{definition}
+
+$\Delta^{\mathcal I}$ is a well-defined observational diagnostic. Its sign depends on the instruments, the preparation and the process, and it can arise from a common cause or from asymmetric noise. Other conventions for quantum two-time objects exist \cite{Fitzsimons2015,LeiferSpekkens2013}; none turns a correlation into a cause without an account of intervention, which we now give.
+
+\subsection{Interventional influence}
+
+\begin{definition}[Interventional influence]
+\label{def:influence}
+Fix a process in which a declared set $\mathcal J_A$ of interventions can be applied at $A$, each replacing the mechanism that ordinarily determines $A$ while everything else is held fixed, and fix a readout at $B$. Let $\rho_B^J$ be the state, or the outcome distribution, at $B$ under the intervention $J$. The interventional influence of $A$ on $B$ is
+\[
+\kappa_{\mathcal J}(A\to B)=\sup_{J,J'\in\mathcal J_A}D\bigl(\rho_B^J,\rho_B^{J'}\bigr),
+\]
+where $D$ is the trace distance, or the total-variation distance for classical outcomes.
+\end{definition}
+
+For several steps, with memory in the environment and controls at several times, the natural setting is a quantum comb or process tensor \cite{ChiribellaDArianoPerinotti2009,Pollock2018}; the definition applies to any slot of such an object.
+
+\begin{proposition}[Properties of interventional influence]
+\label{prop:influence}
+\begin{enumerate}
+\item $0\le\kappa\le1$, and $\kappa=0$ exactly when no allowed intervention changes the state at $B$.
+\item Post-processing the readout at $B$ by any channel, or restricting $\mathcal J_A$, cannot increase $\kappa$.
+\item If the interventions at $A$ affect $B$ only through $M$, in the sense that $\rho_B^J=\Lambda(\rho_M^J)$ for a channel $\Lambda$ that does not depend on $J$, then
+\[
+\kappa(A\to B)\le\eta(\Lambda)\,\kappa(A\to M),\qquad
+\eta(\Lambda)=\sup_{\rho\ne\sigma}\frac{D(\Lambda\rho,\Lambda\sigma)}{D(\rho,\sigma)} .
+\]
+For a classical channel with kernel $\Lambda(\cdot\mid m)$, $\eta(\Lambda)=\max_{m,m'}D(\Lambda(\cdot\mid m),\Lambda(\cdot\mid m'))$, Dobrushin's coefficient \cite{Dobrushin1956}, which is the influence of $M$ on $B$ under all point interventions on $M$.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+(1) is immediate. (2) Trace and total-variation distances do not increase under channels, and a supremum over a smaller set is smaller. (3) $D(\Lambda\rho_M^J,\Lambda\rho_M^{J'})\le\eta(\Lambda)D(\rho_M^J,\rho_M^{J'})$ by the definition of $\eta$. For classical kernels the supremum is attained on pairs of point masses, which is Dobrushin's formula.
+\end{proof}
+
+Part (3) is the causal counterpart of the data-processing inequality: influence passed along a chain is at most the product of the influences of its links. Section~\ref{sec:agency} uses it to show that an agent needs both sensing and control.
+
+\subsection{Records do not reveal causes}
+
+\begin{proposition}[Same observations, different causes]
+\label{prop:same}
+Consider two processes on bits $A,B$ observed in the computational basis at times $t_1<t_2$.
+\begin{enumerate}
+\item Direct cause: $A$ is a uniform bit at $t_1$, $B=0$ at $t_1$, and a controlled NOT from $A$ to $B$ acts between $t_1$ and $t_2$.
+\item Common cause: a hidden uniform bit $C$ is copied into $A$ before $t_1$ and into $B$ between $t_1$ and $t_2$; $B=0$ at $t_1$.
+\end{enumerate}
+The joint distributions of $(X_A^{t_1},X_B^{t_1},X_A^{t_2},X_B^{t_2})$ coincide, both equal to $\frac12$ on $(0,0,0,0)$ and on $(1,0,1,1)$, and both give $\Delta^{\mathcal I}_{A\to B}=\ln2$. For the interventions ``set $A$ to $0$'' and ``set $A$ to $1$'' at $t_1$, the influence on $B$ at $t_2$ is $1$ in the first process and $0$ in the second.
+\end{proposition}
+
+\begin{proof}
+In both processes $A$ keeps its value, $B$ starts at $0$ and ends equal to the uniform bit carried by $A$. Under the intervention, $B$ at $t_2$ equals the set value in the first process and the hidden bit in the second.
+\end{proof}
+
+Every statistic of the declared observed variables is the same in the
+two processes, so accumulating more of those records cannot settle which
+structure produced them. For quantum variables the situation is partly different: some causal structures can be inferred from observations alone when entanglement or coherence is available \cite{Ried2015}. That is an advantage of particular quantum protocols, not a general replacement for interventions.
+
+\subsection{Records and interventions in one process}
+
+A record carries a recoverable difference from an earlier process.
+An intervention changes a declared mechanism or operation. They can occur
+within the same interaction without being the same role.
+Paper~E shows that a memory need not be pure to record: the relevant budget
+is its purity deficit \(\ln d-S(\eta)\), and partly mixed pointer ports have
+nonzero readable information. Records of a commuting pointer label are a
+specific acquisition model, not a classification of every record.
+
+For an already detached port, a later trace-preserving operation on the
+source leaves its marginal unchanged, by no-signalling. A renewed
+interaction with the port, or a direct operation on it, can change its
+state. Reversible relabelling, repair, transfer into another memory and
+reset have different resource balances. Paper~F treats them through the
+joint state; they cannot all be priced as erasure of a marginal entropy.
+The Imprint Chain~\cite{LiuImprintChain} makes a complementary distinction:
+a passive record and a feedback can carry the same information about an
+interface while only the feedback changes the world state.
+
+In Proposition~\ref{prop:same}, the recorded correlation between \(A\) and
+\(B\) does not make \(A\) a cause of \(B\). Conversely, an influence can
+change a state without a record being retained. Memory consists here of
+physical records that remain available to later decisions. Their
+availability may itself depend on repair, storage and permission.
+
+The process already has a time order. Under fresh-port and specified
+interaction conditions, it can acquire an operational direction of record
+accumulation and intervention. Repeated contact can return correlations
+and restore source coherence; local entropy need not increase at every
+step. These mechanisms explain a direction within the process, not the
+origin of its time parameter.
+
+\section{Part II: Historical control and maintained capability}
+\label{sec:agency}
+
+\subsection{What a boundary criterion must allow}
+
+A tempting boundary criterion asks every internal observable to stay nearly
+unchanged: \(\sup_t\sup_{\|O\|\le1}\|\mathcal E_t^*(O)-O\|\le\epsilon\).
+It admits an isolated frozen register and excludes a changing tracker.
+In the example below, the internal \(Z_r=(-1)^r\) has deviation
+\(1+(1-2\nu)(1-2q)=1.768\), although the tracker succeeds.
+What must persist is a capability and the physical organization that
+supports it, not every stored value.
+
+A stable algebra of the kind derived in Paper~B can hold part of that
+organization. It does not by itself provide the sensor, actuator or
+maintenance procedure. We first specify the task and then construct the
+maintenance mechanism.
+
+\begin{definition}[Viable agent on a window]
+\label{def:agent}
+Fix a declared partition into a world variable $W$, an agent register $R$ and an actuated variable $b$, declared interventions on $W$ and on $R$, a viability condition $v(W,b)$ and a window. The register is a viable agent on the window, with margin $\eta<\frac12$, if
+\begin{enumerate}
+\item the viability condition fails with probability at most $\eta$ at every step of the window;
+\item the sensing influence $\kappa_{\mathrm s}=\kappa(W\to R)$ is positive;
+\item the control influence $\kappa_{\mathrm c}=\kappa(R\to b)$ is positive.
+\end{enumerate}
+The agent is memoryless if its action at a step depends on the world only through its reading at that step.
+\end{definition}
+
+\subsection{Sensing and control multiply}
+
+Consider a world bit $W_t$ that flips with probability $q<\frac12$ at each step. The agent reads it into $R$, acts on $b$, and is viable when $b_{t+1}=W_{t+1}$.
+
+\begin{proposition}[Viability needs sensing and control]
+\label{prop:viable}
+Let a uniform world bit be read through a fixed sensor channel with
+independent fresh randomness. The actuator receives the world only through
+that reading, uses independent randomness, and the next world flip is
+independent of both. Thus the sensor's ordinary conditional output law
+equals its output under interventions setting \(W_t\), with no initial
+world--controller common cause or retained world-correlated side input.
+For this memoryless menu, with $\kappa_{\mathrm s}$ computed for interventions
+setting $W_t$ to $0$ or $1$ and $\kappa_{\mathrm c}$ for all point interventions on $R$,
+\begin{equation}
+\Pr(b_{t+1}\ne W_{t+1})\ \ge\ \tfrac12\bigl(1-(1-2q)\,\kappa_{\mathrm s}\kappa_{\mathrm c}\bigr).
+\label{eq:viable}
+\end{equation}
+For a sensor that errs with probability $\nu$ and an actuator that errs with probability $\mu$, both symmetric, equality holds and the misalignment is $\frac12(1-(1-2\nu)(1-2\mu)(1-2q))$.
+\end{proposition}
+
+\begin{proof}
+Let $K$ be the channel from $W_t$ to $b_{t+1}$. With $W_{t+1}=W_t\oplus f$, $\Pr(f=1)=q$, the success probability is $q+\frac12(1-2q)(K(0|0)+K(1|1))$, and $K(0|0)+K(1|1)\le1+D(K(\cdot|0),K(\cdot|1))=1+\kappa(W_t\to b_{t+1})$. By Proposition~\ref{prop:influence}(3), $\kappa(W_t\to b_{t+1})\le\kappa_{\mathrm s}\kappa_{\mathrm c}$. For symmetric channels $\kappa_{\mathrm s}=1-2\nu$, $\kappa_{\mathrm c}=1-2\mu$, and the misalignment is the probability that an odd number of the three independent events sensor error, actuator error and flip occurs.
+\end{proof}
+
+\begin{corollary}[Records without control, control without records]
+In this fresh-sensor task, a passive recorder with
+$\kappa_{\mathrm c}=0$, an open-loop actuator with
+$\kappa_{\mathrm s}=0$, and an initially uncorrelated frozen register
+fail with probability $\frac12$.
+\end{corollary}
+
+The channel condition is necessary. If a hidden fair bit is copied into
+\(W_t\) and a frozen \(R\) before the slot, then \(b_{t+1}=R\)
+has ordinary error \(q\), although intervening on current \(W_t\)
+does not change \(R\): \(\kappa_{\mathrm s}=0\).
+The common-cause record is useful without a new sensing influence.
+It is not a fresh sensor channel from the intervened world. Treating
+observed \(\Pr(R\mid W_t)\) as that channel would erase the distinction
+proved in Proposition~\ref{prop:same}. Retained world-correlated inputs
+must instead be included as memory, as in the next subsection.
+
+The magnitudes \(\kappa_{\mathrm s},\kappa_{\mathrm c}\) alone do not
+certify the labels needed for the directional task: a reversed sensor has
+the same influence as a correctly oriented one. T-DOME~III shows that acting cannot reveal parameters moved by a symmetry of the complete record law. Certifying this directional task therefore needs a symmetry-breaking labelled operation or retained standard~\cite{Liu2026TDOME_III}. It may be physically implemented inside the agent; the requirement concerns the information it supplies, not its location outside the loop.
+
+With $\nu=0.1$, $\mu=0.05$ and $q=0.02$ the memoryless agent fails
+with probability $0.1544$, while its register changes value in one step
+with probability $0.193$. It is viable in Definition~\ref{def:agent}
+and fails the pointwise-invariance criterion; an initially uncorrelated
+frozen register passes that criterion and has no sensing route.
+
+\subsection{Memory changes what an agent can do}
+
+Let the agent instead act on the majority of its last three readings. Exact enumeration gives a misalignment of $0.1082$. The influence of the present world state on the action falls at the same time: an intervention on $W_t$ changes only the newest reading, which decides the majority only when the two older readings disagree, so the influence is $(1-2\nu)(1-2\mu)\Pr(\text{older readings disagree})=0.139$, against $0.72$ for the memoryless agent.
+
+\begin{corollary}[Memory is necessary for this level of viability]
+\label{cor:memory}
+In the specified drifting-bit menu with one fresh sensor reading per slot, every memoryless agent fails with probability at least $\frac12(1-(1-2q)(1-2\nu))$, which is $0.116$ for $\nu=0.1$, $q=0.02$. The majority-of-three agent fails with probability $0.1082$ even with an imperfect actuator, $\mu=0.05$. Within this menu, a failure probability below $0.116$ therefore requires dependence on past readings.
+\end{corollary}
+
+\begin{proof}
+A memoryless agent's register depends on $W_t$ only through the reading, so $\kappa_{\mathrm s}\le1-2\nu$ by Proposition~\ref{prop:influence}(2); Proposition~\ref{prop:viable} with $\kappa_{\mathrm c}\le1$ gives the bound; the majority value follows from enumerating the \(2^8\) values of the
+initial world bit, three flips, three reading errors and actuator error.
+The exact value is \(0.10822784\); Appendix~\ref{app:circuit} gives the
+verification method.
+\end{proof}
+
+The memory agent tracks the world better while the present world influences it less. Its success rests on records of past world states, which are correlated with the present one because the world persists; an intervention on the present world cannot reach those records. Agency therefore involves two different relations to the world: causal influence through current sensing and control, and correlation carried by records. Proposition~\ref{prop:viable} bounds what the first can achieve alone. This is the task-level form of the memory resource studied in T-DOME~I \cite{LiuTDOMEI}, and it is the step at which the self-reading of Imprint~W \cite{LiuWorldImprint} and the internal selection rules of Paper~G become relevant: an agent that also keeps a model of its own sensor and actuator, and revises it from its records, can choose which readings to take.
+
+\subsection{Records maintain the body that reads next}\label{subsec:body}
+
+The tracker so far has a supplied sensor. Give it a body bit \(D_t\):
+\(0\) is functional and \(1\) damaged. The same physical body remains
+throughout the run; its condition modulates the world-sensing coupling,
+and it can be repaired before sensing. Damage is independent of the
+world, arrives after each task slot with probability \(0<d<1\), and is
+absorbing until repair. This is a specified failure mechanism, not a
+biological model.
+
+Each slot begins with diagnosis. A fresh port in
+\(\eta_{\mathrm d}=[I+(1-2e)Z]/2\), \(0<e<1/2\), interacts by
+controlled \(X\) with \(D_t\). Its \(Z\) record is
+\(Y_t=D_t\oplus N_t\), \(\Pr(N_t=1)=e\), from the mixed-port
+instrument of Paper~E. Exactly when \(Y_t=1\), the controller swaps a
+fresh \(|0\rangle\) into \(D_t\); the old body state goes into that port
+and remains in the spent bank. The post-repair body is
+\(D_t'=D_t(1-Y_t)\). The decision uses \(Y_t\), not hidden \(D_t\).
+
+The world sensor then gives
+\begin{equation}\label{eq:bodysensor}
+R_t=W_t\oplus N_t^{\mathrm s}\oplus D_t'Q_t,
+\qquad \Pr(N_t^{\mathrm s}=1)=\nu,\quad \Pr(Q_t=1)=\tfrac12.
+\end{equation}
+For a healthy body it is the original sensor; for a damaged body its
+reading is fair. Two gates realize this law: controlled \(X\) from
+\(W_t\) to a port in \([I+(1-2\nu)Z]/2\), followed by a flip
+controlled by \(D_t'\) and a fresh fair bit \(Q_t\).
+The spent \(Q_t\) is retained but outside the controller's readout
+menu. Joint access to it would change the sensing permission.
+
+The reading drives the same actuated variable \(b\). A fresh blank is
+swapped into \(b\), retaining its old value; copying \(R_t\) and adding
+independent actuator error gives \(b_{t+1}=R_t\oplus N_t^{\mathrm a}\),
+\(\Pr(N_t^{\mathrm a}=1)=\mu\).
+The world then flips with probability \(q\), and finally the body suffers
+damage: \(D_{t+1}=D_t'\lor J_t\), \(\Pr(J_t=1)=d\).
+Fresh ports are independent of the retained body, world and history.
+Diagnostic orientation and error are known or separately calibrated;
+a common unknown sign is not eliminated by a self-certifying reference.
+
+\begin{proposition}[Maintenance of a sensing route]\label{prop:body}
+Let \(x_t=\Pr(D_t=1)\), \(z_t=\Pr(D_t'=1)\), and \(r_t=\Pr(Y_t=1)\).
+Then
+\begin{align}
+z_t&=ex_t,& r_t&=e+(1-2e)x_t,&
+x_{t+1}&=d+(1-d)ex_t, \label{eq:repairrec}\\
+x_*&=\frac{d}{1-(1-d)e},&
+z_*&=ex_*,&r_*&=e+(1-2e)x_*.\label{eq:repairstar}
+\end{align}
+With \(\rho=(1-d)e\), \(x_t=x_*+\rho^t(x_0-x_*)\).
+For a uniform world independent of the initial body, the raw sensing
+influence and tracking failure are
+\begin{align}
+\kappa_{\mathrm s,t}&=(1-z_t)(1-2\nu),\\
+\mathcal R_t&=\mathcal R_0+(\tfrac12-\mathcal R_0)z_t,\qquad
+\mathcal R_0=\tfrac12[1-(1-2q)(1-2\nu)(1-2\mu)].
+\label{eq:bodyrisk}
+\end{align}
+A healthy start gives \(z_t\le z_*\) and
+\(\mathcal R_t\le\mathcal R_0+(\tfrac12-\mathcal R_0)z_*\) at every
+slot. Without repair, sensing influence tends to zero and tracking
+failure tends to \(1/2\).
+\end{proposition}
+\begin{proof}
+Only a damaged body missed by diagnosis remains damaged, with
+probability \(ex_t\). The diagnostic is positive on a healthy body
+with probability \(e\) and on a damaged body with probability \(1-e\).
+Independent damage gives \(x_{t+1}=z_t+d(1-z_t)\). Solving the
+recurrence gives the fixed point and convergence. Repair and damage
+do not depend on the world, so the body remains independent of \(W_t\).
+The sensor mixes the original channel, with weight \(1-z_t\), and
+a fair channel, with weight \(z_t\), giving its influence and risk.
+Without repair, \(x_t=1-(1-x_0)(1-d)^t\).
+\end{proof}
+
+This is intervention rather than relabelling. Replacing diagnosis
+by \emph{never repair} or \emph{always repair}, with the pre-slot
+distribution fixed, changes post-repair damage from \(x_t\) to zero
+and risk by \((\tfrac12-\mathcal R_0)x_t\). Setting the body to
+healthy or damaged after repair changes the available sensing channel.
+The record maintains a physical condition of later intervention,
+not merely confidence in a previous answer.
+
+\begin{proposition}[A matched calendar comparison]\label{prop:calendar}
+Consider repair calendars independent of damage and of all information
+about it, including diagnostic or world-sensor histories. They may use
+private randomness and have positive long-run repair frequency \(r\),
+with empirical mean gap \(1/r\) and vanishing end effects in the
+occupancy average. In the same present-reading control menu, their
+long-run mean post-repair damage is at least
+\begin{equation}\label{eq:calendar}
+z_{\mathrm{cal}}(r)=r[(1-\omega)G(L)+\omega G(L+1)],
+\quad L=\lfloor r^{-1}\rfloor,\quad \omega=r^{-1}-L,
+\end{equation}
+where
+\[
+G(\ell)=\sum_{j=0}^{\ell-1}[1-(1-d)^j]
+=\ell-\frac{1-(1-d)^\ell}{d}.
+\]
+Gaps \(L,L+1\) in these proportions attain the bound.
+Frequency at most \(r\) gives the same lower bound.
+\end{proposition}
+\begin{proof}
+A gap of length \(\ell\), starting with repair, has expected damaged
+occupancy \(1-(1-d)^j\) at age \(j\), with sum \(G(\ell)\).
+Conditioning on an independent calendar preserves the damage law.
+The differences \(G(\ell+1)-G(\ell)=1-(1-d)^\ell\) increase.
+The convex envelope on the integers minimizes average gap occupancy
+at fixed mean gap \(1/r\) by balancing adjacent lengths.
+Multiplication by gaps per slot gives \eqref{eq:calendar}.
+Adding repairs cannot increase occupancy, so the allowance is
+optimally used in full.
+\end{proof}
+
+For \(d=e=0.1\) and \(q=0.02,\nu=0.1,\mu=0.05\),
+\[
+x_*=\frac{10}{91},\quad z_*=\frac1{91},\quad
+r_*=0.18791209,\quad \mathcal R_*=0.15819780.
+\]
+The optimal independent calendar at this repair frequency has
+\(z_{\mathrm{cal}}=0.19479225\) and mean error \(0.22172020\).
+Both receive the same diagnostic and world-reading ports and the same
+repair and actuator menu. One unit is charged per actual repair,
+with other per-slot inputs equal. A controller inferring damage
+from sensor history is another record-guided strategy, outside the
+calendar class. Equal long-run rate does not mean equal repair
+counts on every finite trajectory.
+
+\subsection{Finite stock and a maintained boundary}\label{subsec:stock}
+
+For \(n\) slots, the realization has three continuing bits \(D,W,b\)
+and nine fresh ports per slot: diagnostic, repair blank, world sensor,
+fair sensor-noise, actuator-noise, world-flip, damage coin,
+damage-dilation blank and actuator blank.
+Maximum repair count is \(n\); a healthy start gives expected count
+at most \(nr_*\). Supplying the bank, storing spent ports and routing
+records belong to the finite-window budget. Mean activation count
+is not stock capacity.
+
+Each of the three blank ports per slot supplies initial purity deficit
+\(\ln2\). Diagnostic and sensor ports supply \(\ln2-h(e)\) and
+\(\ln2-h(\nu)\); actuator, world-flip and damage coins supply
+\(\ln2-h(\mu),\ln2-h(q),\ln2-h(d)\); fair noise supplies none.
+Here \(h\) is binary entropy in nats. Unused repair blanks may remain
+pure; supplied purity is not necessarily exhausted on every slot.
+Old states and correlations remain; the reversible circuit in
+Appendix~\ref{app:circuit} conserves joint entropy.
+No bath is reset and no work or heat price follows from counting swaps.
+For the numerical parameters, the nine-port input purity is
+\(8\ln2-3h(0.1)-h(0.05)-h(0.02)=4.27337417\) nats per slot.
+For degenerate port Hamiltonians, \(k_BT\) times this quantity is the
+free-energy difference from a maximally mixed preparation at temperature
+\(T\), not heat dissipated or net work consumed by the run.
+The initialized healthy body and blank actuator in the explicit check
+add two initial pure bits; the world starts fair. Gate strengths,
+preparation, duration, clock, storage and later bank renewal remain
+physical inputs.
+
+The body's condition regulates whether a reading is informative,
+and a record of that condition regulates the operation preserving
+the route. Organization survives while its values change.
+Continued intervention capability is produced by record-conditioned
+action, rather than merely imposed as a viability condition. Repair
+uses the current diagnosis only; earlier diagnoses remain stored but
+are not read by this policy. The majority tracker establishes the value
+of longer history, whereas this circuit establishes the maintenance of
+later permissions. Neither result alone constructs a long-term self-model.
+
+\begin{remark}[Maintained organization]\label{rem:organization}
+A broader agency hypothesis is that an effective agent boundary is the
+organization of sensing and action routes whose continued availability
+is causally regulated by retained history. Disrupting use of a bodily
+diagnostic should impair later intervention capability even when current
+discrimination is spared. At a matched budget, an independent calendar
+should fail where a condition-dependent policy succeeds.
+\end{remark}
+
+The binary body establishes one instance. Formation must also explain
+how routes and the repair menu arise from earlier interactions and how
+histories coordinate several demands. The hypothesis explains no
+additional boundary if a fixed external controller accounts for every
+apparent self-maintenance effect, or if manipulating history never
+changes later permissions. BRAIN supplies learned protection and
+routing for a different body model~\cite{LiuBrainAnchor};
+Imprint~W and Imprint~SH price reliability-based action
+\cite{LiuWorldImprint,LiuImprintSH}. Their dynamics and budgets must
+match before they form a larger construction; they are not assumed
+to be this circuit.
+
+\subsection{Will, degrees of agency and free will}
+
+On this account, ``will'' names the control route from an agent's records to the world: the influence $\kappa_{\mathrm c}$, together with the dependence of the action on the agent's records. A thermostat has a sensing route, a control route and a viability condition, and it is a viable agent in the weak sense of Definition~\ref{def:agent}. Organisms differ from it in degree along several axes: the length of the window over which viability is maintained, the margin, the strength of sensing and control, the depth of memory, and whether the agent can revise its own selection rules. Agency is graded along these axes and is not an all-or-nothing property.
+
+The traditional free-will question presupposes well-defined agents and causal histories. The present account supplies both relative to a declared partition and intervention set, and it turns part of the question into questions that can be answered: how strongly the agent's records, rather than the present state of the world, determine what it does, and whether its selection rules are themselves revised from its records. It does not settle the metaphysical question and is not offered as doing so.
+
+The account says nothing about what it is like to act. The explanatory gap between functional organization and experience \cite{Levine1983,Chalmers1996} remains. One empirical route connects these notions to neuroscience, where habitual and flexible control have been associated with distinct cortico-basal ganglia loops \cite{Graybiel2008,Yin2006} and the sense of agency with motor prediction \cite{Haggard2005}; the relevant times there are classical control times, not quantum coherence times \cite{Tegmark2000}. Whether the quantities defined here are useful for that research is open.
+
+\section{Part III: Existence without substance}
+\label{sec:existence}
+
+\subsection{Relational existence}
+
+Parts~I and~II treat causes and agents as real within declared contexts and dependent on them. This raises the question of their ontological status. Two extremes are available and both are mistaken: treating context-dependent structures as fundamental, and denying them objective reality because they depend on context. We propose structural realism about relational patterns \cite{Ladyman2007,French2014}.
+
+\begin{definition}[Relational existence]
+\label{def:relational}
+An entity $X$ exists relative to a context $\mathcal S$ if $X$ is well defined and stable within $\mathcal S$, participates in objective relational patterns there, and may be absent or differently constituted in another context $\mathcal S'$.
+\end{definition}
+
+\begin{definition}[Emptiness, technical sense]
+\label{def:empty}
+An entity is empty in the technical sense if it lacks being independent of every context while exhibiting stable patterns within specified contexts. Emptiness in this sense entails neither non-existence nor illusion.
+\end{definition}
+
+Paper~B supplies physical instances of a context. In its commuting-coupling
+class, the stated stability and observability criteria select a unique
+largest admissible block algebra on a window. Smaller admissible algebras
+also exist. Selected content depends on coupling and window, yet the
+same inputs define the same criterion for all readers. Readable redundant
+labels additionally require actual recording couplings, fragment preparation
+and calibrated readout, as in Paper~E; stability alone does not make them
+public.
+
+The maintained body adds history and budget to the context.
+The sensor's operational distinction survives under record-guided repair
+and disappears under unmaintained damage. That difference is real in the
+task outcomes even for a reader unaware of the controller's policy.
+Relational objectivity concerns these reproducible consequences, not
+agreement on a chosen label.
+
+\subsection{Examples}
+
+Temperature depends on which degrees of freedom are treated as macroscopic, yet given that choice it is measurable and predictive. Quasiparticles such as phonons and magnons are collective excitations with no counterpart among the microscopic constituents; operationally they are stable peaks in spectral functions, dispersion relations, lifetimes and scattering amplitudes, all of which depend on temperature, doping and resolution. Subsystems are the case closest to this framework. A state alone does not privilege one of its many factorizations, and Paper~A shows that entropies, mutual informations and reconstructed geometries depend on the channel through which the state is read; Paper~B shows how couplings select one structure over a window.
+
+\subsection{What is invariant}
+
+Objectivity does not require independence from every context. It requires that patterns be stable and predictive within a context and that the transformations between contexts be stated. What stays invariant depends on that class of transformations. Under a change of factorization, implemented by a unitary relabelling of the Hilbert space, the spectrum of the global state is invariant, while subsystem entropies, mutual informations and the geometries built from them are not. For readers applying the same selection criterion with couplings and
+window fixed, the selected algebra is unchanged. Access to its labels
+requires the declared record protocol; readers with different measurement
+permissions need not obtain the same information. A mere unitary change
+of coordinates is also different from physically changing a coupling.
+
+\begin{table}[ht]
+\centering
+\small
+\begin{tabular}{P{3.3cm}P{5.2cm}P{4.8cm}}
+\toprule
+Kind & Characterization & Example\\
+\midrule
+Intrinsic existence & independent of every context & classical particles, if fundamental\\
+Relational existence & dependent on context, objective within it & temperature, selected subsystems, records\\
+Conventional existence & dependent on context and on agreement among agents & money, legal rights\\
+Non-existence & absent from every relevant context & phlogiston, luminiferous ether\\
+\bottomrule
+\end{tabular}
+\caption{Kinds of existence claim. The causal influences, agents and geometric features of this series belong to the second kind.}
+\label{tab:existence}
+\end{table}
+
+\section{Part IV: Interpretive bridges to Buddhist philosophy}
+\label{sec:bridges}
+
+\subsection{Method}
+
+The comparison below is between formal patterns. It does not claim historical influence in either direction, endorsement of Buddhist doctrine, or that physics confirms any religious view; ``Buddhism'' is not treated as one doctrine, and the discussion is limited to some Yog\=ac\=ara and M\=adhyamaka texts. One limitation must be stated plainly. The framework was named after the \=alaya-vij\~n\=ana, so a resemblance between the two was partly built in by the naming and cannot count as independent evidence for either. The mathematical results of Parts~I--III do not depend on the comparison; the comparison depends on them.
+
+\subsection{Yog\=ac\=ara: traces that condition later appearance}
+
+Yog\=ac\=ara texts describe the \=alaya-vij\~n\=ana, the store consciousness, as the stream in which the impressions (\emph{v\=asan\=a}) of past actions are kept as seeds (\emph{b\={\i}ja}) that condition later experience \cite{Asanga_Mahayana,Vasubandhu_Trimsika,Lusthaus2002,Waldron2003}. Vasubandhu's \emph{Tri\d{m}\'sik\=a} says that it proceeds like a torrent; it is a changing stream, not a fixed container. The following correspondences are formal analogies.
+
+\begin{table}[ht]
+\centering
+\small
+\begin{tabular}{P{5.2cm}P{8.3cm}}
+\toprule
+Yog\=ac\=ara notion & Counterpart in this series (analogy only)\\
+\midrule
+\=Alaya-vij\~n\=ana, a stream that keeps traces & the global state together with the records its history has formed\\
+B\={\i}ja and v\=asan\=a, seeds and impressions & records that change what later readouts can distinguish (Papers~E, F; the Imprint papers)\\
+Prav\d{r}tti-vij\~n\=ana, the active consciousnesses & selected readouts and the effective subsystems they define (Papers~A, B)\\
+\=A\'sraya-par\=av\d{r}tti, transformation of the basis & a change of couplings that changes which structure is selected, as opposed to a change of description (Paper~B)\\
+\bottomrule
+\end{tabular}
+\caption{Formal analogies. Yog\=ac\=ara concerns consciousness and liberation; HAFF concerns physical structure, and its global state carries no phenomenal properties.}
+\label{tab:yogacara}
+\end{table}
+
+The analogy concerns the role of traces. In both pictures what can appear later depends on what earlier processes have left behind, and the traces are not inert stores but conditions on later access. The differences are as important. The Yog\=ac\=ara substrate is described as consciousness; the HAFF state is physical and the framework is neutral on mind and matter. The analogy does not establish panpsychism, idealism or the claim that quantum information is conscious.
+
+\subsection{M\=adhyamaka: dependence without a foundation}
+
+For N\=ag\=arjuna, whatever arises dependently is empty of intrinsic nature (\emph{svabh\=ava}), and that emptiness is itself a dependent designation, the middle way (\emph{M\=ulamadhyamakak\=arik\=a} 24:18) \cite{Nagarjuna_MMK_Garfield1995,Garfield2002,Siderits2007}. The technical emptiness of Definition~\ref{def:empty} has the same form: denial of intrinsic being together with affirmation of functional reality.
+
+Dependence also applies to the apparatus of selection. The structure that selects is itself conditioned: the selected algebra depends on couplings and on a window (Paper~B), and a system that selects its own couplings does so through dynamics that its own registers do not select (Paper~G). In a finite model the chain of selectors ends at that dynamics. The endpoint is not a foundation in N\=ag\=arjuna's sense, an independently existing ground, because it is only the part of the dynamics that the given model leaves outside, and a larger model can take it in. Dependence therefore holds at every level without an infinite regress and without an independent base. Whether this resembles the M\=adhyamaka middle way is a matter of interpretation. The resemblance is in form, and M\=adhyamaka uses the insight to loosen attachment to views, whereas the physical account here describes how structure is selected and maintained.
+
+\subsection{Karma: actions, traces and later access}
+
+Buddhist accounts of karma hold that intentional actions leave traces that condition future experience \cite{Gombrich1996,Harvey2000}. In the stated fresh-port process, an intervention on the source changes
+later records while detached earlier ports retain their marginals
+(Paper~F). Records then condition later reading and action.
+In Section~\ref{subsec:body}, they condition whether later sensing
+remains informative. The analogy is formal and stops at normativity. Karma classifies actions as wholesome or unwholesome; interventional influence and records carry no ethical valuation.
+
+\subsection{Where the traditions and the framework differ}
+
+The differences are substantive. Buddhist philosophy starts from first-person experience and aims at liberation from suffering; the physical results used here begin with third-person structure. Rebirth, karmic continuity across lives, cosmological realms and meditative attainment have no counterpart here, and the comparison neither supports nor undermines them. Yog\=ac\=ara readings that give consciousness priority differ from the framework's neutrality. And the methods differ: contemplative inquiry, textual interpretation and dialectic on one side, mathematics and experiment on the other. The comparison is worth making because both traditions and the framework deny intrinsic subsystem structure while affirming stable relational patterns, and because precise statements on one side can sharpen questions on the other.
+
+\section{Conclusion}
+\label{sec:conclusion}
+
+Causal influence is a property of a declared intervention process, not
+of correlation alone. It contracts through links and distinguishes
+processes whose observed records coincide. In the tracking task, sensing
+and control jointly limit memoryless viability; history can surpass that
+limit without raising the influence of the current world on the action.
+
+The same finite task now includes a damageable body. An actual diagnostic
+controls repair of that body, whose condition determines the next sensor
+channel. The recurrence and matched calendar comparison show how a record
+maintains later intervention capability. Fresh blanks and spent history
+are explicit resources; this is a finite-stock mechanism, not a perpetual
+thermal cycle or the primitive origin of the initial body.
+
+Agency so understood is a maintained relational organization. Partition,
+loss and permissions specify the task; success and failure are physical
+consequences, not matters of agreement. A fuller formation account must
+generate and coordinate the routes rather than supply all of them.
+The Buddhist comparison clarifies a related philosophical possibility:
+traces and dependent structures can have functional reality without an
+independently existing substrate. Its experiential and ethical questions
+remain independent of the physical mechanism.
+
+\appendix
+\section{Reversible realization and checks}\label{app:circuit}
+
+The body protocol is an explicit basis-permutation unitary on twelve
+bits. Besides continuing \(D,W,b\), use fresh
+\((C,B,R,Q,A,F,J,G,V)\) with initial one-probabilities
+\[
+(e,0,\nu,\tfrac12,\mu,q,d,0,0).
+\]
+Here \(C,B\) are the diagnostic and repair ports; \(R,Q\) the
+sensor and fair-noise ports; \(A,F,J\) actuator, world and damage
+randomness; \(G,V\) blank damage and actuator ports.
+On diagonal states perform, in order:
+\begin{enumerate}
+\item \(C\leftarrow C\oplus D\); swap \(D,B\) conditional on \(C=1\).
+\item \(R\leftarrow R\oplus W\); \(R\leftarrow R\oplus DQ\).
+\item Swap \(b,V\); \(b\leftarrow b\oplus R\oplus A\).
+\item \(W\leftarrow W\oplus F\).
+\item \(G\leftarrow G\oplus D\);
+ \(D\leftarrow D\oplus[(1-G)J]\).
+\end{enumerate}
+Each gate is reversible on all basis inputs, not just the initialized
+subspace. Since \(G\) starts at zero, the last step stores the
+post-repair body in \(G\) and gives \(D_{\rm next}=D'\lor J\).
+Repair uses \(C=Y\) alone. The physical control of noise by the body
+does not grant a hidden diagnostic read. All ports remain in the
+spent bank, and the next slot uses fresh ones. \(Z\) reading of \(C,R\)
+is compatible with the diagonal protocol and does not change its
+joint law. Realizing these gates and their known orientations is
+a charged hardware permission.
+
+The check enumerates all \(4096\) input strings and verifies that
+the composite is a permutation. For diagonal product inputs with
+\(x=\Pr(D=1)\) equal to \(0,1/5,10/91,1\), exact rational probabilities
+reproduce every term of \eqref{eq:repairrec} and \eqref{eq:bodyrisk}.
+Old \(b\) does not affect the output: it remains in \(V\).
+Joint entropy is unchanged. This is a circuit distribution check
+for the stated classical task, not unknown quantum-source or bath
+certification.
+
+The calendar check verifies discrete convexity of \(G\) and the
+optimal \(5,6\) gap mixture at the stated rate. Independently,
+enumeration of the original three-reading task gives \(0.10822784\).
+The probability that the two older readings disagree is
+\(\frac12[1-(1-2q)(1-2\nu)^2]=0.1928\), giving present-world
+influence \(0.138816\). Analytic contraction and calendar proofs,
+rather than numerical sampling, establish the general statements.
+
+\begin{thebibliography}{99}
+
+\bibitem{Liu2026PaperA}
+S.~Liu, \emph{Physical Access and Correlation Geometry: The Holographic
+Alaya--Field Framework}, 2026, July series
+record DOI: 10.5281/zenodo.18361706.
+
+\bibitem{Liu2026PaperB}
+S.~Liu, \emph{Coupling, Records, and Stable Relations:
+Formation, Protected Content and the Lifetime of a Geometry},
+2026, July series record DOI:
+10.5281/zenodo.18367060.
+
+\bibitem{Liu2026PaperE}
+S.~Liu, \emph{Measurement as Accessibility: Measurement Permissions, Stable Records and Public Readout}, (2026), series record DOI: 10.5281/zenodo.18400065.
+
+\bibitem{Liu2026PaperF}
+S.~Liu, \emph{Records, Dissipation and Intervention: Conditions for a Temporal Direction}, (2026), series record DOI: 10.5281/zenodo.18400425.
+
+\bibitem{Liu2026PaperG}
+S.~Liu, \emph{Internal Selection and Revisable Organization: How History Changes Permissions and Physical Sources}, (2026), series record DOI: 10.5281/zenodo.18402907.
+
+\bibitem{LiuImprintChain}
+S.~Liu, \emph{The Imprint Chain: Records, Self-Calibration, and Physical Feedback}, (2026), series record DOI: 10.5281/zenodo.20151594.
+
+\bibitem{LiuWorldImprint}
+S.~Liu, \emph{The World as Imprint: From Trace-Carrying Structure to Self-Reading Mind}, (2026), series record DOI: 10.5281/zenodo.20122718.
+
+\bibitem{LiuTDOMEI}
+S.~Liu, \emph{Memory as a Usable Resource: Correlations, Records and Complete Endpoint Accounting}, (2026), series record DOI: 10.5281/zenodo.18574342.
+
+\bibitem{Fitzsimons2015}
+J.~F.~Fitzsimons, J.~A.~Jones, and V.~Vedral, \emph{Quantum correlations which imply causation}, Sci.\ Rep.\ \textbf{5}, 18281 (2015).
+
+\bibitem{LeiferSpekkens2013}
+M.~S.~Leifer and R.~W.~Spekkens, \emph{Towards a formulation of quantum theory as a causally neutral theory of Bayesian inference}, Phys.\ Rev.\ A \textbf{88}, 052130 (2013).
+
+\bibitem{ChiribellaDArianoPerinotti2009}
+G.~Chiribella, G.~M.~D'Ariano, and P.~Perinotti, \emph{Theoretical framework for quantum networks}, Phys.\ Rev.\ A \textbf{80}, 022339 (2009).
+
+\bibitem{Pollock2018}
+F.~A.~Pollock, C.~Rodr\'iguez-Rosario, T.~Frauenheim, M.~Paternostro, and K.~Modi, \emph{Non-Markovian quantum processes: Complete framework and efficient characterization}, Phys.\ Rev.\ A \textbf{97}, 012127 (2018).
+
+\bibitem{Dobrushin1956}
+R.~L.~Dobrushin, \emph{Central limit theorem for nonstationary Markov chains. I}, Theory Probab.\ Appl.\ \textbf{1}, 65--80 (1956).
+
+\bibitem{Ried2015}
+K.~Ried, M.~Agnew, L.~Vermeyden, D.~Janzing, R.~W.~Spekkens, and K.~J.~Resch, \emph{A quantum advantage for inferring causal structure}, Nature Physics \textbf{11}, 414--420 (2015).
+
+\bibitem{Levine1983}
+J.~Levine, \emph{Materialism and qualia: The explanatory gap}, Pacific Philosophical Quarterly \textbf{64}, 354 (1983).
+
+\bibitem{Chalmers1996}
+D.~J.~Chalmers, \emph{The Conscious Mind: In Search of a Fundamental Theory}, Oxford University Press (1996).
+
+\bibitem{Graybiel2008}
+A.~M.~Graybiel, \emph{Habits, rituals, and the evaluative brain}, Annual Review of Neuroscience \textbf{31}, 359--387 (2008).
+
+\bibitem{Yin2006}
+H.~H.~Yin and B.~J.~Knowlton, \emph{The role of the basal ganglia in habit formation}, Nature Reviews Neuroscience \textbf{7}, 464--476 (2006).
+
+\bibitem{Haggard2005}
+P.~Haggard, \emph{Conscious intention and motor cognition}, Trends in Cognitive Sciences \textbf{9}, 290--295 (2005).
+
+\bibitem{Tegmark2000}
+M.~Tegmark, \emph{Importance of quantum decoherence in brain processes}, Phys.\ Rev.\ E \textbf{61}, 4194--4206 (2000).
+
+\bibitem{Ladyman2007}
+J.~Ladyman and D.~Ross, \emph{Every Thing Must Go: Metaphysics Naturalized}, Oxford University Press (2007).
+
+\bibitem{French2014}
+S.~French, \emph{The Structure of the World: Metaphysics and Representation}, Oxford University Press (2014).
+
+\bibitem{Asanga_Mahayana}
+Asa\.nga, \emph{Mah\=ay\=anasa\.mgraha}, translated by \'E.~Lamotte, Peeters (1973).
+
+\bibitem{Vasubandhu_Trimsika}
+Vasubandhu, \emph{Tri\d{m}\'sik\=a-vij\~naptim\=atrat\=a}, translated by S.~Anacker, in \emph{Seven Works of Vasubandhu}, Motilal Banarsidass (1984).
+
+\bibitem{Nagarjuna_MMK_Garfield1995}
+N\=ag\=arjuna, \emph{The Fundamental Wisdom of the Middle Way: N\=ag\=arjuna's M\=ula\-madhyamaka\-k\=arik\=a}, translated by J.~L.~Garfield, Oxford University Press (1995).
+
+\bibitem{Lusthaus2002}
+D.~Lusthaus, \emph{Buddhist Phenomenology: A Philosophical Investigation of Yog\=ac\=ara Buddhism and the Ch'eng Wei-shih lun}, Routledge (2002).
+
+\bibitem{Waldron2003}
+W.~S.~Waldron, \emph{The Buddhist Unconscious: The \=Alaya-vij\~n\=ana in the Context of Indian Buddhist Thought}, Routledge (2003).
+
+\bibitem{Garfield2002}
+J.~L.~Garfield, \emph{Empty Words: Buddhist Philosophy and Cross-Cultural Interpretation}, Oxford University Press (2002).
+
+\bibitem{Siderits2007}
+M.~Siderits, \emph{Buddhism as Philosophy: An Introduction}, Hackett (2007).
+
+\bibitem{Gombrich1996}
+R.~F.~Gombrich, \emph{How Buddhism Began: The Conditioned Genesis of the Early Teachings}, Athlone Press (1996).
+
+\bibitem{Liu2026TDOME_III}
+S.~Liu, \emph{Keeping a Self-Model Calibrated: Drift Detection, the Price of Keeping Up, and Reliability in a Closed Loop} (T-DOME~III), 2026; July 2026 record DOI: 10.5281/zenodo.18591771.
+
+\bibitem{LiuBrainAnchor}
+S.~Liu, \emph{The Brain as a Plastic Observable-Algebra Network:
+Learning Shared Access from Sensorimotor History}, 2026, series record DOI: 10.5281/zenodo.20044329.
+
+\bibitem{LiuImprintSH}
+S.~Liu, \emph{Stable Hulls as Imprint Integration: Relations, Anchors
+and the Cost of Joint Reading}, 2026,
+series record DOI: 10.5281/zenodo.20151508.
+
+\bibitem{Harvey2000}
+P.~Harvey, \emph{An Introduction to Buddhist Ethics: Foundations, Values and Issues}, Cambridge University Press (2000).
+
+\end{thebibliography}
+
+\end{document}
+

@@ -1,0 +1,27 @@
+{
+ "sigma2": 0.002724609375,
+ "nu_star": 0.016108587993454212,
+ "nu_g": 0.005356560608359569,
+ "nu_b": 0.006585167856826978,
+ "limsup_g": 0.03511733082690459,
+ "limsup_b": 0.037644551480349786,
+ "decoded_bound": 0.4518495035241813,
+ "decoded_bound_unrolled": 0.5122540442390435,
+ "two_optima_table": {
+  "0.3333": {
+   "joint_estimation_error": 0.006666666666666668,
+   "next_step_world_loss": 0.0075250000000000004
+  },
+  "0.5000": {
+   "joint_estimation_error": 0.0075,
+   "next_step_world_loss": 0.007501249999999999
+  },
+  "0.6667": {
+   "joint_estimation_error": 0.01,
+   "next_step_world_loss": 0.0074933333333333345
+  }
+ },
+ "two_optima_formula_residual": 4.336808689942018e-18,
+ "TDI_calibrated_loss_per_use_kT": 0.0025439453125,
+ "TDI_kappa": 1.3025
+}

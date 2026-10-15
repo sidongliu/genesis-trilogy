@@ -1,0 +1,1671 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,booktabs,array}
+\usepackage[hidelinks]{hyperref}
+\hypersetup{pdftitle={Renormalization and Imprint Filtering: Source Identification, Memory, and Calibration},pdfauthor={Sidong Liu}}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{definition}[theorem]{Definition}
+\newcommand{\E}{\mathbb E}
+\newcommand{\Var}{\operatorname{Var}}
+\title{Renormalization and Imprint Filtering:\\
+Source Identification, Memory, and Calibration}
+\author{Sidong Liu, PhD\\iBioStratix Ltd\\
+\texttt{sidongliu@hotmail.com}}
+\date{October 2026}
+\begin{document}
+\emergencystretch=2em
+\raggedbottom
+\maketitle
+
+\begin{abstract}
+A physical trace is readable relative to a source question and a
+permitted measurement. We make that relation operational on a
+continuing lattice field: bounded randomized forces at two durations
+separate an unknown source relaxation rate from an unknown positive
+reader gain, and the acquired response history selects the next read
+duration and physical force. The changed carrier continues through
+calibration and action. A finite martingale certificate retains its
+nonstationary contribution and tolerates unknown centered independent
+read noise with a known variance cap.
+Exact Gaussian block spectra establish the scale-dependent distinctions
+on which this inquiry acts. Coarse readings can retain mass information
+while suppressing higher-gradient contrasts, and mixing relaxation rates
+makes retained history useful for prediction. Independent preparations
+give separate gain-free decision laws and explicit low-gain budget
+obstructions. History also changes which reading is acquired: five
+retained bits beat every fixed allocation in a slowly changing source
+family. On one field trajectory, a paid block reading or no new reading
+is followed by a bounded force. Gaussian conditioning gives the optimal
+one-round rule, and sixteen-bit records preserve its strict advantage
+over every history-independent reading choice in the stated case.
+The noise extension concerns response calibration; the Gaussian
+likelihood and conditional-state results keep their original noise
+assumptions. Reading prices, mechanical switching work and the supplied
+apparatus remain separate parts of the resource account.
+\end{abstract}
+
+\section{Which traces survive a change of scale?}
+
+The world can carry a history without presenting that history in a form
+an observer can use. Large-scale fluctuations may identify a material's
+phase while revealing little about its microscopic couplings. A present
+measurement may be insufficient to predict the next one even when the
+physical dynamics is Markovian. A changing signal may reflect either
+the source or the instrument. These are different failures of
+readability.
+
+The imprint proposal asks how generative conditions remain legible in
+the structures they produce \cite{WorldImprint}. Renormalization makes
+scale central to this question: an effective description preserves
+selected distinctions and suppresses others. Information geometry
+already relates coarse-graining to parameter distinguishability
+\cite{Machta2013,Raju2018}. Projection methods likewise establish that
+eliminating degrees of freedom can introduce memory \cite{Mori1965}.
+We use these ideas together, with the reading experiment and its
+resources specified.
+
+Our central claim is that an imprint is a relation among a source
+contrast, its surviving carrier, and a reading interface. It is not an
+additional substance carried by every organized object. A single
+lattice model makes the relation calculable. Its static distribution
+gives source-identification tests; its dynamics gives a value for
+retained history; an uncertain gain gives a calibration problem.
+Information can survive physically without being readable through a
+given interface, and successful world-reading can require a model of
+the reader's own coupling.
+
+Block averaging is an exact transformation of the Gaussian probability
+law, not a claim that the effective action stays within a short list of
+local couplings. The mathematical tools are standard. Their common
+implementation establishes what scale filtering, memory, and
+calibration jointly imply for the imprint account. In particular,
+records can serve as references for one another through either spatial
+scale or controlled readout settings. Whether this removes an unknown
+gain depends on the actual record distribution, not just on a cost
+assigned to each reading.
+
+The initial calculations use three experiments in the same model family:
+independent static preparations, the subsequent relaxation of a
+preparation in a common bath, and prediction along a stationary
+trajectory. Their inputs are stated separately. They are not claimed
+to be simultaneous observations of one run.
+Section~\ref{sec:history-scale} adds a fourth experiment: a persistent
+regime changes which of two scales carries the current source contrast.
+Its retained history changes the next allocation of real readings.
+This is not information recovered by postprocessing a discarded field.
+Section~\ref{sec:field-control} instead follows one field through past
+observation, a selected current reading and a subsequent force. Its
+control changes the carrier that will be read again.
+Section~\ref{sec:active-reference} uses that actual change as a
+calibration reference. It separates source dynamics from reader gain
+on one spectral mode, then uses the response history to choose a
+future temporal scale and control. These are declared protocols on
+one lattice family, not simultaneous free access to every observable.
+
+\section{A source family and its block observations}
+
+On $\Lambda=(\mathbb Z/L\mathbb Z)^2$, take a real centered Gaussian
+field with unitary Fourier convention
+$\widehat X(k)=L^{-1}\sum_x e^{-ik\cdot x}X_x$ and precision
+\begin{align}
+ K_\theta(k)&=\mu+s(k)+g\,s(k)^2+\gamma\,a(k),\label{eq:K}\\
+ s(k)&=4\sin^2(k_1/2)+4\sin^2(k_2/2),\nonumber\\
+ a(k)&=16\sin^4(k_1/2)+16\sin^4(k_2/2).\nonumber
+\end{align}
+Here $\mu>0$, $g,\gamma\geq0$ suffice for positivity. Derivatives at
+$g=\gamma=0$ use the open finite-lattice extension where $K_\theta>0$.
+No claim about efficient estimation at a parameter-space boundary is
+needed. The parameters describe preparation conditions, not every
+detail of a sample's formation history.
+
+The coefficients $g$ and $\gamma$ change higher-gradient terms.
+For example, $\gamma=1/12$ cancels the fourth-order anisotropic
+small-momentum error of the nearest-neighbor Laplacian.
+
+For $\ell\mid L$, observe nonoverlapping means
+$Y_j=\ell^{-2}\sum_{a_1,a_2=0}^{\ell-1}X_{\ell j+a}$.
+There are $N_\ell=(L/\ell)^2$ coarse coordinates. For coarse momentum
+$Q$, its aliases are $k_n=(Q+2\pi n)/\ell$, with
+$n\in\{0,\ldots,\ell-1\}^2$. Set
+$W_\ell(k)=\sum_{a=0}^{\ell-1}e^{ika}$.
+
+\begin{proposition}[Exact block spectrum]\label{prop:block}
+The unitary Fourier covariance of the coarse field has eigenvalues
+\begin{equation}
+ v_{\theta,\ell}(Q)=\ell^{-6}\sum_n
+ \frac{|W_\ell(k_{n,1})W_\ell(k_{n,2})|^2}{K_\theta(k_n)}.
+ \label{eq:block}
+\end{equation}
+\end{proposition}
+\begin{proof}
+Insert the inverse fine Fourier transform in the block mean and take
+the coarse unitary transform. The coarse-site sum selects the alias
+set. Each fine coefficient is multiplied by
+$\ell^{-3}W_\ell(k_{n,1})W_\ell(k_{n,2})$. Squaring and summing its
+variance gives \eqref{eq:block}.
+\end{proof}
+
+For white noise $K=1$, this yields $v_{\theta,\ell}=\ell^{-2}$.
+The zero coarse Fourier mode has variance $1/(\ell^2\mu)$; the literal
+global spatial mean has variance $1/(L^2\mu)$. Both are blind to $g$
+and $\gamma$. Nontrivial fluctuations can therefore be completely
+uninformative about a specified source contrast.
+
+Fourier coefficients of a real field occur in conjugate pairs.
+Information sums below count the corresponding independent real sine
+and cosine coordinates, not independent complex observations twice.
+The effective precision is the inverse coarse covariance. It generally
+contains terms beyond \eqref{eq:K}; we do not assume a closed
+three-parameter RG flow.
+
+\section{Information retained by a coarse description}
+
+\begin{definition}[Readable source contrast]
+A source contrast is readable through a fixed protocol if its two
+preparations induce different record distributions. Its strength can be
+expressed by decision risk or divergence. A resource claim also states
+how the records are acquired, retained, and processed.
+\end{definition}
+
+\begin{proposition}[Gaussian information]\label{prop:information}
+One complete coarse-field snapshot has Fisher information
+\begin{equation}
+ F_{ij}^{(\ell)}=\frac12\sum_Q
+ \partial_i\log v_{\theta,\ell}(Q)\,
+ \partial_j\log v_{\theta,\ell}(Q).
+ \label{eq:F}
+\end{equation}
+For two preparations with spectra $v_0,v_1$, its Chernoff information is
+\begin{equation}
+ C_\ell=\max_{0\leq u\leq1}\frac12\sum_Q
+ \left[u\log v_0+(1-u)\log v_1+
+ \log\left(\frac{u}{v_0}+\frac{1-u}{v_1}\right)\right].
+ \label{eq:C}
+\end{equation}
+It is zero exactly when the two coarse covariances coincide.
+\end{proposition}
+\begin{proof}
+In real Gaussian coordinates the variance score is
+$\frac12\partial_i\log v\,(Z^2/v-1)$; its second moment gives
+\eqref{eq:F}. Integrating $p_0^u p_1^{1-u}$ gives \eqref{eq:C}.
+Equality at zero requires equal Gaussian laws.
+\end{proof}
+
+A zero Fisher direction at one parameter value means only first-order
+local indistinguishability. It need not describe a globally unobservable
+source family. The zero mode above, by contrast, is exactly blind to all
+$g,\gamma$ contrasts at fixed $\mu$.
+
+Nested block averages of the same sample satisfy
+\[
+ F^{(\ell_2)}\preceq F^{(\ell_1)},\qquad
+ C_{\ell_2}\leq C_{\ell_1}\quad(\ell_1\mid\ell_2).
+\]
+The coarse score is the conditional expectation of the finer score;
+conditional variance proves the first inequality. Conditional
+H\"older inequality proves the second. Known parameter-independent
+coordinate or amplitude rescaling changes neither information.
+Acquiring a different observable or preparing more fields changes the
+experiment and is not postprocessing of the old records.
+
+\section{Reading cost and spectral access}
+
+Spatial block values are correlated. Thus $F^{(\ell)}/N_\ell$ and
+$C_\ell/N_\ell$ are densities for a complete snapshot, not information
+in arbitrary independent block readings. For $n$ independently
+prepared snapshots, the equal-prior optimal error obeys
+\begin{equation}
+ P_e\leq\tfrac12 e^{-nC_\ell}.
+ \label{eq:Pe}
+\end{equation}
+A $5\%$ sufficient certificate needs
+$\lceil\log(10)/C_\ell\rceil$ snapshots and $N_\ell$ times as many scalar
+records. Correlated snapshots from one trajectory cannot replace
+independent preparations.
+
+Table~\ref{tab:scale} uses $L=256$, $\theta_0=(.01,0,0)$.
+The mass contrast changes $\mu$ to $.0125$; the microscopic contrast
+changes $\gamma$ to $1/12$. This table idealizes continuous precision.
+\begin{table}[ht]
+\centering\small
+\begin{tabular}{rrrrrr}
+\toprule
+$\ell$&$N_\ell$&$F_{\mu\mu}$&$F_{\gamma\gamma}$&
+$C_{\rm mass}$&$C_{\rm micro}$\\
+\midrule
+1&65536&262732.0&248831.1&.183030&170.010\\
+4&4096&256284.8&433.963&.178014&.333084\\
+8&1024&242440.5&8.50597&.167361&.00671261\\
+16&256&202231.1&.133228&.137232&.000107754\\
+32&64&126311.3&.00206272&.0831354&.00000168534\\
+\bottomrule
+\end{tabular}
+\caption{Information in one complete block snapshot.}\label{tab:scale}
+\end{table}
+
+For the mass contrast, changing $\ell=1$ to $32$ reduces the sufficient
+record count from $851968$ to $1792$, while increasing preparations
+from $13$ to $28$. For the microscopic contrast, preparations grow from
+$1$ to $1366242$. The former is a trade between preparation and readout,
+not information gained by discarding data. Preparation count, physical
+support, reads, precision, retention, and computation belong in
+separate resource entries.
+
+Changing spectral access gives another comparison. For the microscopic
+contrast, a real coordinate at $k=(\pi,0)$ has variances $.24937656$
+and $.18714910$. Use $255$ fixed thresholds equally spaced in
+$[-8\sqrt{v_{\max}},8\sqrt{v_{\max}}]$, giving $256$ outcomes including
+the two unbounded tails. Integrating the Gaussian laws over these bins
+gives Chernoff information $.00514034$ per independent reading.
+Then $448$ independent preparations suffice for the $5\%$ certificate,
+with $3584$ bits of recorded outcomes. Counters, decoding, preparation,
+and the full spatial support of the spectral observable are additional
+resources. One recorded number is not a single-site interaction.
+
+The low coordinate $k=(2\pi/256,0)$ instead has continuous Chernoff
+information about $5.08\times10^{-13}$; the zero mode has none.
+A new interface reveals a distinction by accessing the carrier again,
+not by reconstructing discarded data from the old coarse records.
+
+\section{Reading a past preparation after relaxation}
+
+Prepare $X_0\sim N(0,K_\theta^{-1})$ and subsequently use a common bath
+with fixed $K_0=K_{\theta_0}$, independent of the preparation parameter
+$\theta$:
+\begin{equation}
+ dX_t=-K_0X_t\,dt+\sqrt2\,dW_t.
+ \label{eq:OU}
+\end{equation}
+Physical loss of preparation history and spatial coarse-graining are
+now distinct operations in the same process.
+
+\begin{proposition}[Remaining preparation information]
+The fine variance at time $t$ is
+\begin{equation}
+ V_\theta(k,t)=K_0(k)^{-1}+e^{-2K_0(k)t}
+ [K_\theta(k)^{-1}-K_0(k)^{-1}].
+ \label{eq:history}
+\end{equation}
+Replace $K_\theta^{-1}$ by $V_\theta$ in \eqref{eq:block} for its block
+spectrum. At $\theta=\theta_0$, its log-variance derivative is
+\begin{equation}
+ r_i(Q,t)=-
+ \frac{\sum_n |W_1W_2|^2e^{-2K_0t}(\partial_iK_\theta)/K_0^2}
+ {\sum_n |W_1W_2|^2/K_0}.
+ \label{eq:score}
+\end{equation}
+\end{proposition}
+\begin{proof}
+The solution is
+$e^{-K_0t}X_0+\sqrt2\int_0^t e^{-K_0(t-s)}dW_s$.
+Its independent covariance contributions give \eqref{eq:history}.
+Differentiate and project to obtain \eqref{eq:score}.
+\end{proof}
+
+The source parameter is no longer being applied after preparation.
+For $K_0(k)\geq\mu>0$, its full-field Fisher matrix at the reference
+satisfies
+\[
+ F_{\rm full}(t)\preceq e^{-4\mu t}F_{\rm full}(0).
+\]
+Each mode contributes a positive rank-one matrix multiplied by
+$e^{-4K_0(k)t}$. A fixed reader adds further loss; this formula does
+not compare every coarse reader against its own initial information.
+
+In the reference field of Table~\ref{tab:scale}, full-field $\gamma$
+information falls from $248831.1$ at $t=0$ to $49.9307$ at $t=1$
+and $.0237407$ at $t=10$. Mass information at $t=10$ remains
+$101633.8$. A readable history has a depth relative to its source
+question, not a single universal lifetime. The bath and elapsed time
+are known inputs.
+
+\section{The prediction value of a retained record}
+
+Write $K=K_0$ and start \eqref{eq:OU} in its stationary law $N(0,K^{-1})$.
+For a real coarse Fourier coordinate $Y(t)$ of variance $v>0$, the
+normalized correlation is
+\begin{equation}
+ r(t)=\sum_n p_n e^{-K(k_n)|t|},\qquad
+ p_n=\frac{|W_1W_2|^2/K(k_n)}
+ {\sum_m|W_1W_2|^2/K(k_m)}.
+ \label{eq:r}
+\end{equation}
+
+\begin{theorem}[Memory relative to the coarse interface]\label{thm:memory}
+Fix $\Delta>0$, write $Y_j=Y(j\Delta)$, $r_1=r(\Delta)$ and
+$r_2=r(2\Delta)$. Then
+\begin{equation}
+ d=r_2-r_1^2=\Var_p(e^{-K\Delta})\geq0.
+ \label{eq:d}
+\end{equation}
+The minimum square risks for predicting $Y_1$ from $Y_0$ and from
+$(Y_0,Y_{-1})$, over all measurable predictors, are
+\begin{equation}
+ R_1=v(1-r_1^2),\qquad
+ R_2=R_1-\frac{v d^2}{1-r_1^2}.
+ \label{eq:risks}
+\end{equation}
+The improvement is strict exactly when the positive-weight alias set
+has more than one relaxation rate.
+\end{theorem}
+\begin{proof}
+Equation~\eqref{eq:d} follows from the positive mixture \eqref{eq:r}.
+Positivity of $K$ and $\Delta$ gives $0<r_1<1$.
+The three records are jointly Gaussian with correlations $r_1,r_1,r_2$.
+Their conditional expectation minimizes square loss among all measurable
+functions. Its Schur-complement variance gives \eqref{eq:risks};
+the minimizing two-record predictor is
+\begin{equation}
+ \widehat Y_1=a_1Y_0+a_2Y_{-1},\qquad
+ a_1=\frac{r_1(1-r_2)}{1-r_1^2},\quad
+ a_2=\frac{d}{1-r_1^2}.
+ \label{eq:pred}
+\end{equation}
+A mixture variance vanishes exactly when the rates on its support agree.
+\end{proof}
+
+This also characterizes Markov closure. Distinct coarse real Fourier
+coordinates are independent processes. If each alias group has one
+rate, every coordinate is an Ornstein--Uhlenbeck process. Otherwise
+\eqref{eq:d} gives conditional dependence of past and future after
+conditioning on the entire current coarse field, so those variables
+alone are not Markov. The complete microscopic state remains Markov.
+
+For $L=64$, $\ell=4$, $\mu=.1$, $g=\gamma=0$, coarse Fourier index
+$(3,5)$ and $\Delta=.2$, the results are
+\[
+ v=.10868306,\quad d=.005993705,\quad
+ R_1=.0214457374,\quad R_2=.0214259507.
+\]
+The improvement is $.0923\%$.
+
+\subsection{Finite storage and arithmetic}
+
+\begin{corollary}[Finite record precision]\label{cor:finite}
+Quantize each record to $2^B$ uniform levels in $[-A,A]$, clipping
+outside. Put
+\[
+ \delta=\frac{2A}{2^B-1},\quad z=A/\sqrt v,\quad
+ \eta=\delta/2+\sqrt{2v[z\phi(z)+\overline\Phi(z)]},
+\]
+where $\phi,\overline\Phi$ are the standard normal density and upper
+tail. Applying \eqref{eq:pred} to these records has risk
+\begin{equation}
+ \widetilde R_2\leq R_2+(|a_1|+|a_2|)^2\eta^2.
+ \label{eq:finite}
+\end{equation}
+If the right side is below $R_1$, this finite-record predictor beats
+every predictor using the exact current record alone.
+\end{corollary}
+\begin{proof}
+The quantization error has $L^2$ norm at most $\eta$, by the Gaussian
+tail identity
+$\E[Y^2\mathbf1_{\{|Y|>A\}}]=2v[z\phi(z)+\overline\Phi(z)]$.
+The conditional-prediction residual is independent of both records and
+hence orthogonal to their quantization errors. Its risk adds to the
+predictor perturbation's second moment. The $L^2$ triangle inequality
+then gives \eqref{eq:finite}.
+\end{proof}
+
+In this example, $B=10$ and $A=8\sqrt v$ give
+$\eta\leq .00257817$ and $\widetilde R_2\leq .021431324<R_1$.
+Only the retained data occupy $20$ bits. The full-support reading
+operation, model coefficients, and computation still have costs.
+
+The rational-arithmetic construction in Appendix~\ref{app:force-precision}
+retains this strict prediction advantage with finite coefficient and
+output registers.
+
+The mechanism is different from asserting that every viable system
+needs memory. Coarse observation removes the sufficiency of the
+present. A past record then supplies information missing from that
+present, and its predictive value can be computed.
+
+\section{Source identification and instrument calibration}
+
+The previous calculations assumed a known reading interface. Now take
+$K(k)=\mu+s(k)$ and an unknown fixed positive instrument gain $b$.
+A real spectral reading has law
+\[
+ Z_i\sim N\!\left(0,\frac{b^2}{\mu+\lambda_i}\right),
+ \qquad \lambda_i=s(k_i).
+\]
+The same gain acts at both known frequencies. A positive sign is
+stipulated because centered variance data cannot determine it.
+
+\begin{proposition}[Source--gain separation]\label{prop:gain}
+One spectral band cannot identify $\mu,b$ separately.
+Two bands with $\lambda_1\ne\lambda_2$ identify both globally.
+For $n_1,n_2>0$ independent preparations, let $\eta_b=\log b$ and
+$q_i=-1/(\mu+\lambda_i)$. The Fisher matrix and its Schur complement are
+\begin{align}
+ F&=\frac12\sum_i n_i
+ \begin{pmatrix}q_i\\2\end{pmatrix}\begin{pmatrix}q_i&2\end{pmatrix},\\
+ F_{\mu\mid\eta_b}
+ &=\frac{n_1n_2}{2(n_1+n_2)}(q_1-q_2)^2>0.
+ \label{eq:gain}
+\end{align}
+At a fixed total reading count the latter is maximized by equal
+allocation.
+\end{proposition}
+\begin{proof}
+One variance determines only $b^2/(\mu+\lambda_i)$.
+For two population variances set $\rho=v_1/v_2$. Then
+\[
+ \rho=\frac{\mu+\lambda_2}{\mu+\lambda_1},\qquad
+ \mu=\frac{\lambda_2-\rho\lambda_1}{\rho-1},\qquad
+ b^2=v_1(\mu+\lambda_1).
+\]
+This determines the positive gain uniquely. Apply \eqref{eq:F} to
+the log variances and take a Schur complement to obtain \eqref{eq:gain}.
+For fixed $n_1+n_2$, their product is maximal at equal allocation.
+\end{proof}
+
+For $L=64$, $\mu=.1$, modes $(10\pi/64,0)$ and $(\pi/2,0)$,
+and $64$ preparations per band, $F_{\mu\mid\eta_b}=99.88849656$.
+Population identifiability and finite-sample information do not assert
+that a sample-variance ratio is unbiased or attains an information bound.
+
+The spectral family, band locations, gain stability, and common
+frequency response are inputs. Their importance is physical:
+a system can distinguish source change from gain change because these
+alternatives leave different joint records. To exercise that capacity,
+it must estimate, retain the result, and revise subsequent reading or
+action. T-DOME~III and Foundation~III provide separate drift and
+feedback constructions for those operations \cite{TDIII,FoundationIII}.
+The existence of an identifiable model is not itself an agent that
+uses it.
+
+The continuing experiment in Section~\ref{sec:active-reference} turns
+that distinction into the next operation. A fresh force coin supplies
+an intervention reference on a mode whose state is retained. Responses
+at two durations identify its source rate and reading gain; the
+inferred values choose a new time scale and force on the field already
+changed by calibration. The same finite certificate allows unknown
+centered read noise with a known variance cap. This is an additional
+response-based route, rather than a use of the independent-preparation
+variance laws on correlated readings.
+
+\subsection{Block scales as references for one another}
+\label{subsec:two-scales}
+
+Return to the three preparations of Table~\ref{tab:scale}, denoted
+$H_0$, $H_\mu$, and $H_\gamma$. One reading now means one scalar
+block mean from a freshly prepared field, rather than a complete
+coarse-field snapshot. Translation invariance gives its variance
+\[
+ \sigma_\ell^2(H)=\frac1{N_\ell}\sum_Q v_{H,\ell}(Q).
+\]
+With a common unknown gain $b>0$, the record has law
+$Y\sim N(0,b^2\sigma_\ell^2(H))$. All preparations are independent;
+the mean is known to be zero. Fix the reading counts
+$n_\ell,n_m>0$ in advance and let $S_\ell,S_m$ be the sums of squares.
+
+\begin{proposition}[Gain-invariant source decisions]\label{prop:ratio}
+For every $b>0$,
+\begin{equation}
+ R=\frac{S_\ell/n_\ell}{S_m/n_m}
+ \ \overset d=\ \rho_H F_{n_\ell,n_m},\qquad
+ \rho_H=\frac{\sigma_\ell^2(H)}{\sigma_m^2(H)}.
+ \label{eq:ratio}
+\end{equation}
+Every function of the two positive sufficient statistics that is
+invariant under common positive rescaling depends only on $R$.
+With one such statistic, every invariant function is constant.
+Distinct $\rho_H$ identify finitely many sources consistently as
+both reading counts tend to infinity, without a prior on $b$.
+\end{proposition}
+\begin{proof}
+The variables $S_\ell/[b^2\sigma_\ell^2(H)]$ and
+$S_m/[b^2\sigma_m^2(H)]$ are independent chi-squares. Dividing each
+by its degrees of freedom gives the standard $F$ law
+\cite{NISTF}. Positive rescaling is transitive on the positive reals;
+on positive pairs its orbits are labeled by the ratio. Finally,
+the two sample second moments converge to their population values,
+so $R\to\rho_H$ almost surely.
+\end{proof}
+
+For equal source weights, choose the largest scaled $F$ density.
+This rule minimizes the average error among gain-invariant rules
+based on these sufficient statistics. When $n_\ell=n_m=n$, adjacent
+ordered ratios $\rho_i<\rho_{i+1}$ have decision boundary
+$\sqrt{\rho_i\rho_{i+1}}$: the scaled density is proportional to
+$\rho^{n/2}R^{n/2-1}/(\rho+R)^n$.
+Thus ordinary $F$ cumulative probabilities give each source's exact
+finite-sample success probability.
+
+At scales $(1,32)$ the ratios for $(H_0,H_\mu,H_\gamma)$ are
+$12.85474928$, $14.55261454$, and $11.92780351$.
+With $20{,}000$ readings split equally, the success probabilities are
+$.968359$, $.999036$, and $.969323$. Table~\ref{tab:ratio-counts}
+gives the smallest even total for which all three reach $.95$ under
+the equal-split rule. These are numerical evaluations of the exact
+decision law, not Monte Carlo estimates or minima over all allocations.
+
+\begin{table}[ht]
+\centering\small
+\begin{tabular}{rr}
+\toprule
+Scale pair & Total independent readings\\
+\midrule
+$(1,32)$ & $15{,}984$\\
+$(1,16)$ & $20{,}082$\\
+$(1,8)$ & $36{,}732$\\
+$(1,4)$ & $107{,}746$\\
+$(2,32)$ & $96{,}336$\\
+$(4,32)$ & $758{,}974$\\
+\bottomrule
+\end{tabular}
+\caption{Equal-split reading counts for at least $.95$ success under
+each source. Each scalar record requires a new field preparation;
+gain is fixed but unknown, and readout is noiseless.}
+\label{tab:ratio-counts}
+\end{table}
+
+The ratio removes gain from the decision; it does not make gain
+unidentifiable from the full data. Once the source is identified,
+its absolute variance determines $b$. Nor is $R$ an unbiased estimate
+of $\rho_H$: its mean is
+$\rho_H n_m/(n_m-2)$ when $n_m>2$.
+The decision uses the distribution, not that mean.
+Preparation, block support, record precision, and subsequent storage
+remain separate resources. The fixed-count law cannot be reused
+unchanged after data-dependent stopping or allocation.
+
+\subsection{Readout noise and the price of a reference}
+\label{subsec:noise}
+
+A noisy probe changes both the cost and the distribution of a record.
+Consider independent Gaussian readout noise $\xi\sim N(0,r)$,
+with known variance. Two possible placements give
+\begin{align}
+ Y=b(Z+\xi):&\quad V=b^2(\sigma_\ell^2(H)+r),\label{eq:noise-in}\\
+ Y=bZ+\xi:&\quad V=b^2\sigma_\ell^2(H)+r.\label{eq:noise-out}
+\end{align}
+These are alternative reading models. Take $r(E)=\nu/E$ with
+$\nu>0$, and charge $E>0$ per reading. This energy--noise relation
+is a specified probe model; preparation, memory, switching and the
+rest of the apparatus are not included in this charge.
+
+\begin{proposition}[Two kinds of calibration reference]\label{prop:noise}
+For fixed settings in \eqref{eq:noise-in}, the gain-invariant ratio
+law holds with
+$\rho_H=[\sigma_\ell^2(H)+r_\ell]/[\sigma_m^2(H)+r_m]$.
+These ratios must be distinct to identify the sources by this rule.
+Moreover, at a single spatial scale, two known noise variances
+$r_1\ne r_2$ identify both the gain and the source variance:
+\begin{equation}
+ b^2=\frac{V_1-V_2}{r_1-r_2},\qquad
+ \sigma_\ell^2(H)=V_1/b^2-r_1.
+ \label{eq:noise-reference}
+\end{equation}
+This identifies the source whenever its variances at that scale differ.
+The ratio law also applies to the two settings at one scale: with
+$\ell=m$ and $r_1\ne r_2$,
+$\rho_H=[\sigma_\ell^2(H)+r_1]/[\sigma_\ell^2(H)+r_2]$ is strictly
+monotone in $\sigma_\ell^2(H)$, so this reference also gives an exact,
+gain-free finite-sample decision.
+
+For fixed settings in \eqref{eq:noise-out}, the raw sample ratio has
+law $(V_\ell/V_m)F_{n_\ell,n_m}$, generally dependent on $b$.
+Nevertheless, for every fixed $b>0$,
+\begin{equation}
+ \frac{V_\ell-r_\ell}{V_m-r_m}
+ =\frac{\sigma_\ell^2(H)}{\sigma_m^2(H)}.
+ \label{eq:noise-subtracted}
+\end{equation}
+Distinct source ratios therefore still identify the source and then
+the gain. Changing only the noise variance at a single scale in this
+second model identifies $b^2\sigma_\ell^2(H)$, not its two factors.
+\end{proposition}
+\begin{proof}
+The chi-square argument applies to either pair of variances, including
+two settings at the same scale; there the derivative of
+$(\sigma^2+r_1)/(\sigma^2+r_2)$ in $\sigma^2$ is
+$(r_2-r_1)/(\sigma^2+r_2)^2\ne0$. In
+\eqref{eq:noise-in}, subtracting the population variances at the two
+settings gives \eqref{eq:noise-reference}; in
+\eqref{eq:noise-out}, subtracting the known noise gives
+\eqref{eq:noise-subtracted}. At a fixed scale in the second model,
+every setting has variance $c+r$ with the same unknown product $c$.
+All sources of positive variance can realize that product by changing
+$b$.
+\end{proof}
+
+The subtractions in \eqref{eq:noise-subtracted} are statements about
+population variances. Finite sample estimates can fall below the
+noise floor and their subtracted ratio is not $F$ distributed.
+Consistency at any fixed $b>0$ follows from convergence of sample
+second moments; uniform accuracy down to arbitrarily small gains
+requires a separate resource analysis. A proper prior on gain can
+also give a single setting source information through absolute
+amplitude, despite the unknown-fixed-gain ambiguity.
+
+\begin{proposition}[Low-gain limit at fixed probe budget]\label{prop:budget}
+Use \eqref{eq:noise-out} with $r(E)=\nu/E$ and two equally weighted
+sources $H,H'$. Fix the same $b>0$ under both sources and a finite
+set of allowed scales. At each of at most $T<\infty$ readings, a
+policy $\pi$ may choose the scale and energy using previous records
+and source-independent randomization, with
+$\sum_i E_i\leq B$ on every history. Each reading uses an independent
+new preparation, and no other source-dependent data are supplied.
+Put $\delta=\max_\ell|\sigma_\ell^2(H)-\sigma_\ell^2(H')|$.
+For the resulting transcript laws,
+\begin{equation}
+ D_{\rm KL}(P_H^\pi\Vert P_{H'}^\pi)
+ \leq\frac{b^4\delta^2B^2}{4\nu^2},\qquad
+ P_{\rm err}^{\pi}\geq
+ \max\!\left\{0,\frac12-\frac{b^2\delta B}{4\sqrt2\,\nu}\right\}.
+ \label{eq:budget}
+\end{equation}
+The error bound applies to every terminal decision, including
+decisions based on adaptively chosen reads.
+\end{proposition}
+\begin{proof}
+For centered Gaussian variances $v,w$,
+\[
+ D_{\rm KL}(N(0,v)\Vert N(0,w))
+ =\tfrac12[v/w-1-\log(v/w)]
+ \leq\frac{(v-w)^2}{4\min(v,w)^2}.
+\]
+This follows by Taylor's theorem for $-\log x$ between $1$ and $v/w$.
+Conditional on a common transcript history, the policy uses the same
+distribution of settings under either source. Each conditional
+divergence is at most $b^4\delta^2E_i^2/(4\nu^2)$, because
+$\min(v,w)\geq\nu/E_i$. The divergence chain rule and
+$\sum_i E_i^2\leq B^2$ give the first bound. Stopping can be padded
+with source-independent null records up to $T$. The equal-prior
+testing error is at least $(1-\|P_H^\pi-P_{H'}^\pi\|_{\rm TV})/2$;
+Pinsker's inequality gives the second bound.
+\end{proof}
+
+The bound uses only $\sum_iE_i^2\leq B^2$, which is tight when the
+budget is spent on very few readings. If every reading also obeys
+$E_i\leq E_{\max}$, then $\sum_iE_i^2\leq BE_{\max}$ and $B^2$ in
+\eqref{eq:budget} may be replaced by $BE_{\max}$; keeping the pathwise
+sum $\sum_iE_i^2$ gives a sharper statement still.
+
+No allocation of this fixed probe budget, adaptive or otherwise,
+maintains reliable discrimination uniformly as $b\to0$.
+The obstruction belongs to the placement \eqref{eq:noise-out}. With
+the noise before the gain, \eqref{eq:noise-in}, the same argument gives
+$|v-w|\leq b^2\delta$ and $\min(v,w)\geq b^2\nu/E_i$, so the factor
+$b^4$ cancels. Fixed designs with gain-invariant decisions, and
+policies whose choices and decisions use only scale-invariant
+statistics, then perform identically at every gain; a policy that
+reacts to absolute amplitudes can still behave differently at
+different gains.
+This finite-resource obstruction coexists with identifiability at
+each fixed positive gain. Conversely, \eqref{eq:noise-reference}
+shows that a controlled change in the probe can itself provide a
+reference. Cross-scale access is one way to resolve source--reader
+ambiguity; a known change in the reading interaction is another.
+
+\section{Self-reading at a chosen scale}\label{sec:self-scale}
+
+Prediction and passive self-identification have the same statistical
+quantity when the competing interface produces independent records
+with the same one-record law. For a stationary record law $P$ and
+that independent law $Q^{\otimes n}$, the divergence chain rule gives
+\begin{equation}\label{eq:predictive-rate}
+ D(P^n\Vert Q^{\otimes n})=
+ nD(P_1\Vert Q)+\sum_{j=2}^n I_P(Y_j;Y_1,\ldots,Y_{j-1}).
+\end{equation}
+When $P_1=Q$, the divergence per record tends to
+$I_P(Y_0;Y_{-\infty}^{-1})$, possibly infinite. This is the passive
+test in \emph{The World as Imprint}~\cite{WorldImprint}, not an upper
+bound on all active identification protocols. It also gives
+Theorem~\ref{thm:memory} a self-reading interpretation: the increase
+from one past Gaussian record to two is
+$\frac12\log(R_1/R_2)>0$ exactly when the alias rates differ.
+
+Now sample one physical block mean along a stationary trajectory of
+\eqref{eq:OU}, at interval $\Delta$, and add independent Gaussian
+readout noise of variance $r\geq0$. Write
+\[
+ w_\ell(k)=\frac{|W_\ell(k_1)W_\ell(k_2)|^2}
+ {L^2\ell^4K(k)},\qquad a_k=e^{-K(k)\Delta},\qquad
+ v_\ell=\sum_k w_\ell(k).
+\]
+The record spectral density is
+\begin{equation}\label{eq:reading-density}
+ f_{\ell,r}(\omega)=r+\sum_k w_\ell(k)
+ \frac{1-a_k^2}{1-2a_k\cos\omega+a_k^2}.
+\end{equation}
+The positive finite mixture has absolutely summable correlations and
+a strictly positive smooth density. The Gaussian entropy-rate formula
+therefore applies~\cite{Gray2006}.
+
+\begin{proposition}[The reader's noise changes its informative scale]
+\label{prop:self-scale}
+Against independent Gaussian records of variance $v_\ell+r$, the
+passive divergence rate, in nats per continuous record, is
+\begin{equation}\label{eq:scale-information}
+ \mathcal I_\ell(r)=\frac12\log(v_\ell+r)
+ -\frac1{4\pi}\int_{-\pi}^{\pi}\log f_{\ell,r}(\omega)\,d\omega.
+\end{equation}
+It is nonincreasing in $r$ at each scale. The scale maximizing it need
+not remain fixed when the reader's noise changes.
+\end{proposition}
+\begin{proof}
+The independent law has entropy rate
+$\frac12\log[2\pi e(v_\ell+r)]$, and its cross-entropy under the
+matched law is the same because their one-record marginals agree.
+Subtract the matched Gaussian entropy rate to get
+\eqref{eq:scale-information}. Alternatively this is the limiting
+predictive information in \eqref{eq:predictive-rate}.
+Adding independent noise of variance $r_2-r_1$ to every record maps
+both candidate laws at $r_1$ to those at $r_2$. Data processing for
+each finite transcript and passage to the rate prove monotonicity.
+The table below supplies the change of maximizing scale.
+\end{proof}
+
+\begin{table}[ht]
+\centering\small
+\begin{tabular}{rrrrrrrr}
+\toprule
+$r$ & $\ell=1$ & $2$ & $4$ & $8$ & $16$ & $32$ & $64$\\
+\midrule
+$0$ & .3405 & .6219 & .9486 & 1.2351 & 1.4254 & 1.5250 & 1.6194\\
+$10^{-4}$ & .3404 & .6210 & .9449 & 1.2200 & 1.3684 & 1.3390 & 1.1516\\
+$10^{-2}$ & .3229 & .5479 & .7092 & .6769 & .4599 & .2076 & .0688\\
+\bottomrule
+\end{tabular}
+\caption{Passive self-reading rate for $L=64$, $\mu=.1$, $g=\gamma=0$,
+$\Delta=.2$. Each row compares fixed ideal continuous-record
+interfaces, not a finite-memory controller or a total-cost optimum.}
+\label{tab:self-scale}
+\end{table}
+
+The best listed scale moves from $64$ to $16$ to $4$. Coarse means
+have longer temporal correlations, but smaller variance; fixed
+readout noise masks them first. After noise rises from $10^{-4}$ to
+$10^{-2}$, staying at scale $16$ gives $.4599$ nats per record,
+whereas scale $4$ gives $.7092$. These numbers assume known noise.
+They do not by themselves identify the damage, choose a scale online,
+or give the support and apparatus bill for the new interface.
+
+\section{A retained history chooses the next reading scale}
+\label{sec:history-scale}
+
+We next make the allocation depend on records. This experiment uses
+fresh preparations, not the stationary trajectory of the preceding
+section. At $L=64$ set $H_0=(\mu,\gamma)=(.1,0)$ with $g=0$.
+Port $0$ reads the global mean, of variance $1/(L^2\mu)$.
+Port $1$ reads one site, of variance
+$v(\mu,\gamma)=L^{-2}\sum_k K_{\mu,\gamma}(k)^{-1}$.
+Let
+\[
+ H_0^{\rm alt}=(.09,\gamma_\mu),\qquad
+ v(.09,\gamma_\mu)=v(.1,0),\qquad
+ H_1^{\rm alt}=(.1,1/12).
+\]
+The positive solution is $\gamma_\mu\simeq .0144867958104$;
+monotonicity in $\gamma$ makes it unique. The equality, rather than
+this rounded number, defines the preparation. Port $1$ is exactly
+blind to $H_0^{\rm alt}$, and port $0$ to $H_1^{\rm alt}$.
+
+In episode $t$, a hidden regime $J_t\in\{0,1\}$ selects the available
+alternative. The source is $H_0$ or $H_{J_t}^{\rm alt}$ with equal
+probability, independently of earlier source flags given the regime.
+The regime starts uniform and changes with probability
+$0<\varepsilon\leq1/2$ between episodes. Each reading uses a fresh
+field and returns one bit:
+$|Y|>\tau_b\sqrt{v_b(H_0)}$ at port $b$, with
+$\tau_0=1.5222951844903065$ and $\tau_1=1.445716072545341$.
+The baseline and informative-alternative probabilities are
+\begin{equation}\label{eq:blind-probabilities}
+ (p_0^0,p_0^1)\simeq(.1279351341,.1486894695),\qquad
+ (p_1^0,p_1^1)\simeq(.1482568544,.1287055577).
+\end{equation}
+At the blind port the alternative probability is exactly the baseline.
+The thresholds are specified designs, not claimed optimal quantizers.
+All policies have $n=4000$ readings and preparations per episode and
+choose the episode's split before collecting its records. The task is
+to report whether that episode's source is the alternative.
+Equal read counts do not equate the spatial support of a global mean
+and a site measurement. This comparison stipulates equal read and
+preparation prices; physical support and full apparatus energy remain
+separate resources.
+
+\begin{theorem}[Fixed-allocation bound and history-dependent allocation]
+\label{thm:history-allocation}
+Define the one-bit Bhattacharyya exponents
+\[
+ \beta_b=-\log\left(\sqrt{p_b^0p_b^1}
+                  +\sqrt{(1-p_b^0)(1-p_b^1)}\right),\qquad
+ \beta_{\max}=\max_b\beta_b.
+\]
+\begin{enumerate}
+\item Every fixed split, or mixture of fixed splits independent of
+the regime, has average error at least
+\begin{equation}\label{eq:fixed-lower}
+ B_n=\frac12\left(1-\sqrt{1-e^{-n\beta_{\max}}}\right),
+\end{equation}
+even if the decoder is told the current regime and keeps all past
+records. For the stated experiment $B_{4000}\simeq .042754$.
+\item A history policy with five retained bits has a finite Markov
+description and a computable stationary error. One explicit policy
+at $\varepsilon=10^{-4}$ has stationary error numerically evaluated
+as $.034233$, below
+\eqref{eq:fixed-lower}. Thus its advantage is over every fixed split,
+not only a tested set of allocations.
+\item At $\varepsilon=1/2$, history-dependent episode allocations
+cannot beat the best history-free allocation under the same episode
+protocol. This statement does not restrict policies which reallocate
+after readings within the episode.
+\end{enumerate}
+\end{theorem}
+\begin{proof}
+For $m$ readings at an informative port, the two product laws have
+Bhattacharyya coefficient $e^{-m\beta_b}$. Cauchy--Schwarz bounds
+their total variation by $\sqrt{1-e^{-2m\beta_b}}$, so the equal-prior
+Bayes error is at least
+$b(m)=\frac12(1-\sqrt{1-e^{-2m\beta_{\max}}})$.
+With the regime given, the other port carries no source information;
+a split $(m,n-m)$ therefore has error at least
+$[b(m)+b(n-m)]/2$. The decreasing function $b$ is convex on
+$(0,\infty)$ and continuous at zero. Jensen's inequality gives
+$b(n/2)=B_n$; independent randomization preserves the bound.
+Past records cannot reveal the fresh source flag once $J_t$ is given.
+
+For part (2), retain a believed regime $b\in\{0,1\}$ and a counter
+$c\in\{1,\ldots,16\}$. Read only $b$. A coarse count at least $553$
+or a fine count at most $553$ declares the alternative. A detection
+raises $c$, capped at $16$. Without a detection, an independent fair
+coin lowers $c$ with probability $1/2$; at zero switch $b$ and set
+$c=1$. Nothing in this rule uses $J_t$ or the source flag. Its
+transition matrix on $(J,b,c)$ has $64$ states. A binomial tail gives
+each detection probability; the source flag is averaged with weight
+$1/2$ and the regime changes after the update. Solving
+$\pi T=\pi$, $\sum\pi=1$, and averaging the conditional task error
+gives the stated numerical value. This is a deterministic evaluation
+of a specified finite chain, not an adaptive optimality proof.
+
+For part (3), $J_t$ is independent of all previous records and
+private coins. Conditional on the history the allocation is fixed,
+and current source data have their history-free law. The conditional
+Bayes error cannot be below its minimum over fixed allocations.
+Averaging proves the claim.
+\end{proof}
+
+The sharper minimum with the regime given is obtained by evaluating
+$[e_0(m)+e_1(4000-m)]/2$ for all $4001$ splits, where
+\[
+ e_b(m)=\frac12\sum_{k=0}^{m}\min\{
+ \operatorname{Bin}_{m,p_b^0}(k),
+ \operatorname{Bin}_{m,p_b^1}(k)\}.
+\]
+It is $.095897$ at $m=1965$. The analytic bound, although less sharp,
+already separates the history policy from the whole fixed class.
+The same counter rule, with explicitly chosen cap $C$, yields:
+\begin{center}\small
+\begin{tabular}{rrr}
+\toprule
+$\varepsilon$ & $C$ & Stationary error\\
+\midrule
+$10^{-5}$ & $16$ & $.032754$\\
+$10^{-4}$ & $16$ & $.034233$\\
+$10^{-3}$ & $8$ & $.041516$\\
+$10^{-2}$ & $4$ & $.081334$\\
+\bottomrule
+\end{tabular}
+\end{center}
+These are attainable policies, not minima over all histories or
+universal switching thresholds. The unknown common gain problem of
+Section~\ref{subsec:two-scales} has not been added to this experiment.
+
+\begin{corollary}[A price interval for retained history]
+\label{cor:history-price}
+Give each correct source report value $V>0$ and define the exact
+finite-comparison value
+\[
+ E_{\rm fix}=\min_{0\le m\le n}
+               \frac{e_0(m)+e_1(n-m)}2.
+\]
+If the history policy's additional memory, randomization and update
+charge per episode obeys
+\[
+ 0\le\lambda<V(E_{\rm fix}-L_H),
+\]
+where $L_H$ is its stationary error, its net value exceeds that of
+every fixed allocation, including mixtures, even with a regime-informed
+decoder. The analytic bound $E_{\rm fix}\ge B_n$ gives the closed-form
+subinterval $0\le\lambda<V(B_n-L_H)$.
+At $\varepsilon=10^{-4}$, evaluation of the exact finite formulas gives
+$E_{\rm fix}=.0958969785$, $L_H=.0342328069$ and
+$(E_{\rm fix}-L_H)V\simeq.06166417V$, compared with the analytic
+subinterval of approximately $.008521V$. Displayed rounding is not
+an interval certificate.
+\end{corollary}
+\begin{proof}
+At each fixed split the best regime-informed decoder has error
+$[e_0(m)+e_1(n-m)]/2$: its other port is blind and the fresh source
+flag is independent of past records conditional on the current regime.
+A mixture of fixed splits cannot lower their minimum. Subtract the
+common preparation and read charges; the gain in correct reports is
+at least $V(E_{\rm fix}-L_H)$. Charging $\lambda$ gives the result.
+\end{proof}
+
+The public supplement \texttt{supplemental/history\_price} contains the
+finite-state calculation and fixed-allocation enumeration for this corollary.
+Here $\lambda$ is a task-value charge, not a thermodynamic estimate.
+The retained automaton has $32$ states and needs five bits. Its
+within-episode count has $4001$ states and needs twelve more transient
+bits; acquisition timing, model storage, randomization, resetting and
+computation remain in the apparatus bill. Silence is informative
+because the contrast occurrence rate is specified: repeated absence
+of an expected detection changes the future port choice. A rule
+which switches only on a detection at the unread port never switches
+when it takes no probe there. Such a frozen belief has long-run error
+$\frac12 e_b(4000)+\frac14$, exceeding $.264$.
+This is a failure of that update rule, not a claim that all
+zero-probe policies fail. The constructed policy uses silence and
+needs no second-port readings in these slowly changing regimes.
+
+\section{A history chooses how to read and act on the same field}
+\label{sec:field-control}
+
+The preceding allocation experiment scores a report. Here a reading
+is followed by an operation on its physical source. Take the stationary
+process~\eqref{eq:OU}, with $K>0$ the finite real-space precision matrix.
+Retain $R=a^TX_{-\Delta}+\xi_R$, where $a$ is a block vector. At
+time zero either acquire one $Z_\ell=h_\ell^TX_0+\xi_\ell$ or take
+no new reading. Independent Gaussian read noises have known positive
+variances. These classical readings are assumed not to disturb $X$;
+their apparatus and dissipation are not derived from the noise law.
+
+After that decision, apply a constant force $Bu$ for $0<s<\Delta$,
+with $B=a/\|a\|^2$ and $u\in\{-U,0,U\}$. Then
+\begin{equation}\label{eq:field-force}
+ dX_s=(-KX_s+Bu)\,ds+\sqrt2\,dW_s,\qquad
+ Y_\Delta^u=Y_\Delta^0+\alpha u,\qquad
+ \alpha=a^TK^{-1}(I-e^{-K\Delta})B>0,
+\end{equation}
+where $Y=a^TX$. The zero superscript is the unforced continuation of
+the same field and bath noise, not a new preparation. In units with
+bath temperature and mobility one, the force comes from the
+nonnegative potential
+$H_u(X)=\frac12(X-K^{-1}Bu)^TK(X-K^{-1}Bu)$.
+The force pattern, finite amplitude, clock and read ports are inputs.
+The task minimizes $\E[(Y_\Delta^u)^2+c_\ell]$, with zero read charge
+when no read is acquired. These $c_\ell$ are task prices, not heat.
+
+\begin{theorem}[Reading for a bounded physical action]
+\label{thm:reading-action}
+Suppose that, conditional on the authorized history $\mathcal H$,
+the unforced target and candidate readings are jointly Gaussian.
+Let $m=\E[Y_\Delta^0\mid\mathcal H]$ and put
+\[
+ q_\ell=
+ \frac{\operatorname{Cov}(Y_\Delta^0,Z_\ell\mid\mathcal H)^2}
+ {\Var(Z_\ell\mid\mathcal H)},\quad D=\alpha U,\quad
+ \mathcal B(m)=2D(|m|-D/2)_+.
+\]
+For $N\sim N(0,1)$ define
+\begin{equation}\label{eq:action-reading-value}
+ G_\ell(m)=\E\mathcal B(m+\sqrt{q_\ell}N)-\mathcal B(m)-c_\ell.
+\end{equation}
+Choose the reading with the largest positive $G_\ell$, or no reading
+if none is positive. Let $M$ be the revised conditional mean of the
+unforced target. Apply zero force for $|M|\leq D/2$, and
+$u=-U\operatorname{sign}M$ otherwise. The risk is
+\begin{equation}\label{eq:field-control-risk}
+ \E[(Y_\Delta^0)^2]-\E\mathcal B(m)
+ -\E\max\{0,G_1(m),\ldots,G_p(m)\}.
+\end{equation}
+This minimizes the one-round objective over every measurable choice
+using that history, at most one permitted new reading and the stated
+three forces.
+\end{theorem}
+\begin{proof}
+For mean $M$, the force changes conditional square loss by
+$2\alpha uM+\alpha^2u^2$. Its minimum is $-\mathcal B(M)$.
+Gaussian conditioning makes the revised mean, before receiving the
+new result, distributed as $m+\sqrt{q_\ell}N$. The unforced target's
+conditional second moment averages to its previous value. Thus
+the reading's reduction is exactly $G_\ell$. Maximize pointwise
+and average to obtain~\eqref{eq:field-control-risk}.
+\end{proof}
+
+Convexity of $\mathcal B$ makes the uncharged reading benefit
+nonnegative. Its priced value depends on the history and on the
+changes of optimal action at $M=\pm D/2$, not just on an information
+rate. This is Bayesian experimental decision-making on a
+scale-filtered carrier. Informative control is an established subject
+\cite{KlenskeHennig}; the present Gaussian law and finite force menu
+make its composition with imprint reading explicit.
+
+\subsection{A finite-record case}
+
+Set $L=32$, $\mu=.1$, $g=\gamma=0$, and $\Delta=.5$. The target and
+old reading use a $4\times4$ block. Current ports use nested
+$2\times2$ and $4\times4$ means. Every read noise variance is $.001$.
+Choose $D=.15$, $c_2=.001$, $c_4=.014$. Finite lattice sums give
+\begin{align*}
+ v&=\Var(Y)=.1443687793,\qquad m=.6983747950R,\\
+ \alpha&=.4012307531,\qquad U=.3738497083.
+\end{align*}
+and $q_2=.0079283594$, $q_4=.0272698232$.
+The reader chooses scale $4$ for $|R|<.123905791$, scale $2$ for
+$.123905791<|R|<.285137090$, and no read outside. Equalities may be
+assigned either way. The thresholds are roots of the Gaussian value
+functions, not fitted rules. With $d=D/2$,
+\begin{equation}\label{eq:normal-force-benefit}
+ \E\mathcal B(m+\tau N)=2D\sum_{\epsilon=\pm1}
+ \left[\tau\phi\!\left(\frac{\epsilon m-d}{\tau}\right)
+ +(\epsilon m-d)\Phi\!\left(\frac{\epsilon m-d}{\tau}\right)\right].
+\end{equation}
+
+\begin{table}[ht]
+\centering\small
+\begin{tabular}{lrrr}
+\toprule
+Next reading & Mean reads & Task risk & Switching work\\
+\midrule
+None & $0$ & $.100621$ & $.91202$\\
+Always scale $2$ & $1$ & $.098280$ & $.94975$\\
+Always scale $4$ & $1$ & $.103732$ & $1.02893$\\
+History-selected & $.54545$ & $.097546$ & $1.02916$\\
+\bottomrule
+\end{tabular}
+\caption{One continuation of the same field. Every row retains the old
+reading and uses its optimal permitted force. Task risk includes the
+read price; switching work is in bath-energy units and excludes the
+reader and memory apparatus.}\label{tab:field-control}
+\end{table}
+
+Every choice independent of $R$ is a mixture of the first three rows,
+even if its force decoder later uses $R$ and the new result. It cannot
+beat their minimum. The history-selected rule does. Its material
+square loss is $.093688$ and its mean read charge $.003858$. If all
+information from $R$ is removed before the choice and action, the
+best risk in this same menu is $.103835$. Neither comparison allows
+an extra read or a field reset.
+
+The strict advantage survives sixteen-bit records, finite coefficient
+and threshold precision, and displacement error at most $10^{-5}$.
+Appendix~\ref{app:force-precision} gives the implementation and register
+account, certifying risk below $.097763$ against the ideal fixed-choice
+minimum $.098280$. The analog interface, clock and physical storage
+remain additional resources.
+
+\subsection{Work and continued operation}
+
+Switch $H_u$ on after reading and off at $\Delta$. The
+force-dependent constant cancels between switches, giving the
+pathwise mechanical work
+\begin{equation}\label{eq:field-switch-work}
+ W_{\rm sw}=uB^T(X_\Delta^u-X_0).
+\end{equation}
+This is the rectangular switching protocol in
+Table~\ref{tab:field-control}, not $c_\ell$.
+Finite ramps need not destroy the strict comparison. Replace the
+force by $Buf(s)$, with $f$ rising linearly from zero to one in time
+$\tau$, remaining one and falling to zero in the final $\tau$.
+The response becomes
+$\alpha_f=a^T\int_0^\Delta e^{-K(\Delta-s)}Bf(s)\,ds$.
+Since $K>0$ and $\|a\|\|B\|=1$,
+$|\alpha-\alpha_f|\leq2\tau$. Choosing
+$\tau=5\times10^{-6}/(2U)$ bounds the displacement change by
+$5\times10^{-6}$; the remaining $5\times10^{-6}$ may cover calibrated
+amplitude error. This fits the finite-controller certificate.
+The ramps have finite slope, though their timing and drive apparatus
+remain supplied. Their actual work is
+$-u\int_0^\Delta f'(s)B^TX_s\,ds$, obtained from the same potential;
+the force-dependent offset integrates to zero.
+The history-selected rule improves the declared objective but uses
+more switching work than always reading scale $2$. It is not a
+total-energy optimum. The measurement and memory parts of an
+information-thermodynamic account require their own physical
+implementation \cite{SagawaUeda2010}.
+
+The resulting field can be read again. Known $K$, linear noisy
+readings and retained controls give a Gaussian conditional-state
+recursion on the same carrier \cite{ImprintChain}. After each force
+its mean and covariance must be propagated; one cannot reapply the
+old stationary prior or thresholds without that update. Reusing the
+one-round rule is not a long-horizon optimality proof. Likewise, the
+finite-record certificate above concerns this single continuation,
+not an indefinitely running sixteen-bit controller.
+
+\section{A control becomes a calibration reference on the same carrier}
+\label{sec:active-reference}
+
+The unknown-gain calculations used independent preparations. A control
+can instead supply a reference on the field already being read, without
+replacing its changed state by equilibrium. Choose one normalized real
+spectral coordinate of the lattice, with known Laplacian eigenvalue
+$s_0$, set $g=\gamma=0$, and let its unknown stable relaxation rate be
+$\lambda=\mu+s_0>0$. A known force profile has projection $B>0$ on
+this mode. On consecutive intervals it obeys
+\[
+ dX_t=(-\lambda X_t+Bu_i)\,dt+\sqrt2\,dW_t,\qquad
+ Z_i=bX_{t_{i+1}}+\xi_i ,
+\]
+where $b>0$ is unknown and fixed, $\xi_i$ is independent centered
+Gaussian read noise of known variance $r$. The mode, $B$, clock and
+gain are the same for both reading durations. A force pattern or
+gain allowed to change with the duration would define another problem.
+
+Before each interval, use a fresh fair coin to choose $u_i=\pm U$,
+$U>0$, independently of the entire past carrier, hidden parameters
+and retained history. Alternate durations $\Delta$ and $2\Delta$,
+with $\Delta>0$; neither the field nor the bank of old records is
+reset. Put $f_\tau(\lambda)=(1-e^{-\lambda\tau})/\lambda$.
+
+\begin{proposition}[Source and reader identified by paid responses]
+\label{prop:active-reference}
+For an interval of duration $\tau$, conditional on its full physical
+past,
+\[
+ \E[u_iZ_i/U^2\mid\text{past}]
+   =\kappa_\tau=bBf_\tau(\lambda).
+\]
+Thus the two response moments identify the relaxation rate and gain:
+\begin{equation}\label{eq:active-identification}
+ q=\frac{\kappa_{2\Delta}}{\kappa_\Delta}-1=e^{-\lambda\Delta},
+ \qquad
+ \lambda=-\frac{\log q}{\Delta},\quad
+ \mu=\lambda-s_0,\quad
+ b=\frac{\kappa_\Delta}{Bf_\Delta(\lambda)}.
+\end{equation}
+With known signed $B$, the response sign would also identify a
+nonzero signed gain, unlike centered variance data. The finite
+certificate below uses a positive gain interval. If $B$ is unknown,
+only the product $bB$ is identified by these responses.
+
+For a uniform finite-sample certificate, suppose
+$\lambda\in[\lambda_-,\lambda_+]$, $b\in[b_-,b_+]$ with
+$\lambda_-,b_->0$, and $\E X_0^2\le V_0<\infty$. Define
+\[
+ V_*=\max\left\{V_0,\frac1{\lambda_-}
+                         +\left(\frac{BU}{\lambda_-}\right)^2\right\},
+ \qquad
+ Q=\frac{b_+^2V_*+b_+^2/\lambda_-+r}{U^2}.
+\]
+Collect $n$ intervals of each duration and average $u_iZ_i/U^2$
+separately into $\widehat\kappa_\Delta,\widehat\kappa_{2\Delta}$.
+For any $\eta>0$, both moment errors are at most $\eta$ except on
+an event of probability at most $\min(1,2Q/(n\eta^2))$.
+Let $\kappa_-=b_-Bf_\Delta(\lambda_+)$ and assume $\eta<\kappa_-$.
+Clip the estimated $q$ to
+$[e^{-\lambda_+\Delta},e^{-\lambda_-\Delta}]$ before taking its
+logarithm. On the certified event,
+\begin{align}
+ |\widehat\lambda-\lambda|
+ &\le e_\lambda:=
+ \frac{3\eta}{(\kappa_--\eta)\Delta e^{-\lambda_+\Delta}},
+ \label{eq:active-lambda}\\
+ |\widehat b-b|
+ &\le e_b:=\frac{\eta}{Bf_\Delta(\lambda_+)}
+ +\frac{b_+\Delta^2}{2f_\Delta(\lambda_+)}e_\lambda .
+ \label{eq:active-gain}
+\end{align}
+Clipping $\widehat b$ to $[b_-,b_+]$ preserves the latter bound.
+\end{proposition}
+\begin{proof}
+The exact interval solution is
+$X_{t+\tau}=e^{-\lambda\tau}X_t+Bf_\tau(\lambda)u_i+\zeta_i$,
+with independent centered innovation of variance
+$(1-e^{-2\lambda\tau})/\lambda$.
+The fresh coin cancels the old-state term, even when that state is
+nonzero or correlated with all old records. Multiplication by $u_i$
+and conditional expectation give the response identity; the ratio
+$f_{2\Delta}/f_\Delta=1+e^{-\lambda\Delta}$ proves identification.
+
+The second-moment recursion is
+\[
+ \E X_{t+\tau}^2=e^{-2\lambda\tau}\E X_t^2+
+ B^2U^2f_\tau(\lambda)^2+
+ (1-e^{-2\lambda\tau})/\lambda .
+\]
+The chosen $V_*$ is invariant for either duration, since
+$f_\tau(\lambda)^2/(1-e^{-2\lambda\tau})
+=(1-e^{-\lambda\tau})/[\lambda^2(1+e^{-\lambda\tau})]
+\le1/\lambda_-^2$.
+The centered response samples are martingale differences with
+conditional variance
+\[
+ U^{-2}\left[b^2e^{-2\lambda\tau}X_t^2+
+ b^2(1-e^{-2\lambda\tau})/\lambda+r\right].
+\]
+Their unconditional second moments are at most $Q$. Orthogonality
+gives each average variance at most $Q/n$, despite dependence of the
+carrier across intervals. Chebyshev's inequality and a union bound
+give the stated probability.
+The true response ratio lies in $(1,2)$, so its error is at most
+$3\eta/(\kappa_--\eta)$. Clipping $q$ cannot increase error, and
+$\log$ is $e^{\lambda_+\Delta}$-Lipschitz on that interval.
+Finally $|f_\Delta'|\le\Delta^2/2$ and
+$f_\Delta\ge f_\Delta(\lambda_+)$ give~\eqref{eq:active-gain}.
+\end{proof}
+
+\begin{corollary}[Response calibration with unknown read noise]
+\label{cor:active-noise}
+In Proposition~\ref{prop:active-reference}, replace the Gaussian
+read errors by mutually independent centered errors, independent of
+the carrier past, bath increments and force coins, with
+$\E\xi_i^2\le r_+<\infty$. Their distributions and actual variances
+may be unknown and may differ between readings. The response identity,
+source--gain identification and finite parameter-error certificate
+remain valid with $r_+$ in place of $r$ in $Q$.
+\end{corollary}
+\begin{proof}
+The read error contributes zero to the conditional response mean.
+Independence removes its cross terms with the old-state and bath
+terms. Its contribution to the conditional variance is
+$\E\xi_i^2/U^2\le r_+/U^2$.
+The carrier's second-moment recursion is unchanged because read errors
+do not enter its force coin or dynamics. The centered responses are
+therefore still martingale differences with the same upper bound $Q$
+after the substitution. Orthogonality, Chebyshev's inequality and the
+deterministic ratio and logarithm bounds prove the claim.
+\end{proof}
+
+This extension does not identify the read-noise law. Nor does it extend
+the Gaussian likelihoods, entropy rates or conditional-state filters
+used elsewhere in the paper. With unknown parameters, or non-Gaussian
+read noise, those Gaussian state updates cannot be recovered by
+inserting fitted parameters and a variance cap. The response added by
+the next force, however, depends on the same linear dynamics and
+conditional zero mean, so Corollary~\ref{cor:active-next} also uses this
+certificate. Without a variance cap the population response identity
+can still hold, but the uniform finite-budget bound above is unavailable.
+
+\begin{corollary}[Finite records for response calibration]
+\label{cor:active-quantization}
+In Corollary~\ref{cor:active-noise}, clip each endpoint record to
+$[-A,A]$ and round to $2^{B_{\rm rec}}$ equally spaced levels, with
+step $\delta=2A/(2^{B_{\rm rec}}-1)$. Put
+$M_Z=b_+^2V_*+r_+$ and
+$e_{\rm rec}=[\delta/2+M_Z/(4A)]/U$.
+For any $\eta,\epsilon>0$ with
+$\eta+\epsilon<\kappa_-$, the parameter and next-action bounds
+remain valid with $\eta+\epsilon$ in place of $\eta$, except on an
+event of probability at most
+\[
+ \min\left\{1,\frac{2Q}{n\eta^2}
+                 +\frac{2e_{\rm rec}}{\epsilon}\right\}.
+\]
+Thus a sufficiently large but finite range and record register
+retain every fixed positive-tolerance certificate.
+\end{corollary}
+The proof is in Appendix~\ref{app:response-record-proof}.
+The accumulation can be exact on integer level indices: a signed sum
+for each duration needs at most
+$B_{\rm rec}+\lceil\log_2(n+1)\rceil+2$ bits, with the record range,
+force scale and subsequent parameter arithmetic supplied separately.
+Quantization does not manufacture an analog measuring device or
+a cost-free cyclic processor.
+
+No independent-read variance formula was used. The fresh randomness
+creates orthogonal response errors, not independent field samples.
+The price is $2n$ actual force intervals and endpoint readings,
+$3n\Delta$ elapsed time, the specified spatial force/read support,
+coins, moment accumulation and retained records. Corollary~\ref{cor:active-quantization} gives the additional finite-record
+error and the accumulation storage needed for this certificate. For each fixed positive gain one can use its
+actual finite constants. Without a positive lower gain bound this is
+not a uniform fixed-budget claim as $b\to0$.
+For failure probability at most $\delta_{\rm fail}$, the sufficient
+count is $n\ge2Q/(\delta_{\rm fail}\eta^2)$. This Chebyshev budget
+is conservative, not an efficiency or optimal-design claim.
+
+\begin{corollary}[Calibration selects the next time scale and action]
+\label{cor:active-next}
+Permit force amplitudes in $[0,U_{\max}]$, rather than only the
+three-action menu of Section~\ref{sec:field-control}.
+Let $q_*\in(0,1)$ be a desired response decay. After the calibration
+history, set $\widehat\tau=-\log(q_*)/\widehat\lambda$.
+On the preceding certified event,
+\[
+ |\widehat\tau-\tau_*|
+ \le\frac{-\log(q_*)}{\lambda_-^2}e_\lambda,
+ \qquad \tau_*=-\log(q_*)/\lambda .
+\]
+For a desired readout displacement
+$0\le D_*\le U_{\max}b_-B(1-q_*)/\lambda_+$, install the legal force
+\[
+ \widehat u=\frac{D_*\,\widehat\lambda}
+                  {\widehat b B(1-q_*)}\le U_{\max}
+\]
+for this next interval. With $\tau_{\max}=-\log(q_*)/\lambda_-$,
+its actual mean displacement relative to the unforced continuation
+of the same current state differs from $D_*$ by at most
+\[
+ U_{\max}B\left[\tau_{\max}e_b+
+                       b_+\tau_{\max}^2 e_\lambda/2\right].
+\]
+\end{corollary}
+\begin{proof}
+The reciprocal function is $\lambda_-^{-2}$-Lipschitz.
+The predicted displacement is exactly
+$\widehat b B f_{\widehat\tau}(\widehat\lambda)\widehat u=D_*$.
+At that same actual duration,
+$|bBf_{\widehat\tau}(\lambda)-
+ \widehat b Bf_{\widehat\tau}(\widehat\lambda)|
+\le B[\tau_{\max}e_b+b_+\tau_{\max}^2e_\lambda/2]$.
+Multiply by the legal amplitude.
+\end{proof}
+
+The comparison concerns the response added to a current, generally
+nonstationary field. It does not erase the calibration's perturbation.
+The old state contributes to the absolute next record and must be
+propagated. Once unknown parameters are inferred from these records,
+a posterior over parameters and state is generally a mixture, not
+one Gaussian state. The known-parameter Gaussian rule of
+Theorem~\ref{thm:reading-action} may not be applied to that mixture by
+silently replacing it with a fitted equilibrium law.
+
+Force ramps also belong to the model. A normalized taper replaces
+$f_\tau$ by
+$\int_0^\tau e^{-\lambda(\tau-s)}f(s)\,ds$; arbitrary tapers do not
+preserve~\eqref{eq:active-identification}. The exact identity above
+uses the stated rectangular force. Its potential is nonnegative,
+$H_u(X)=\lambda(X-Bu/\lambda)^2/2$, and a switch from $u$ to $v$
+costs the actual potential difference at the current $X$, not a
+price attached to an observation. Finite amplitudes and durations
+do not by themselves supply a heat, memory-reset or complete-apparatus
+work ledger.
+
+\section{From trace-carrying to organized reading}
+
+A source contrast, its carrier and the available reading are distinct.
+The zero mode can miss a contrast present in the field; one spectral
+band can confuse a source change with reader gain. Temporal filtering
+can instead make past records useful when the coarse present is
+insufficient. This supplies a precise retention-and-reuse interface
+to Stable Hulls~\cite{StableHulls}, with a source-specific meaning of
+access dependence~\cite{HAFFA}.
+
+Records also change the next physical operation. The regime protocol
+selects a port, the Gaussian continuation selects a reading and force,
+and paid responses calibrate a future duration and command on a
+changed carrier. Their preparation and noise laws remain different;
+unknown gain, reader drift and hidden switching cannot be combined by
+identifying their estimates. The Imprint Chain supplies separate
+use and maintenance permissions~\cite{ImprintChain}; this field does
+not derive its body's repair law. Port formation, control access and
+first-person experience remain separate explanatory questions.
+
+\section{Conclusion}
+
+Scale-stable readability is not microscopic reconstruction.
+Block averaging in the specified Gaussian field retains substantial
+mass information while suppressing higher-gradient contrasts.
+The same operation leaves a dynamic consequence: past and future are
+conditionally correlated when the coarse present is insufficient.
+A finite retained record exploits that correlation, with strictly
+better risk than any current-only predictor. Additional spectral
+access separates a source parameter from the reader's own gain.
+Independent block readings supply an exact finite-sample calibration
+law. Noisy readout distinguishes two further questions: whether a
+source is identifiable at all, and whether the available probe budget
+can identify it reliably. Known probe variations can supply a
+calibration reference even at one spatial scale.
+
+Filtering now has two consequences for a reader. It gives retained
+history a prediction value, and it changes which scale is worth
+reading when the source or reader changes. A finite history can govern
+the next allocation and beat every fixed allocation under an explicit
+price interval. On a single continuing field, it can also choose a
+noisy block reading and a bounded physical force. The optimal
+one-round rule, its finite-record advantage and its switching work
+make prediction, inquiry and actual change parts of the same
+experiment. The active response reference adds a further step:
+a history can learn which source and reader parameters govern its
+actual intervention, then select a new time scale and command on
+the changed carrier. The moment certificate prices a finite experiment
+but does not optimize it. The formation of ports, known force
+relations and maintenance capacities remains a physical question.
+Unknown centered independent read noise with a known variance cap
+preserves this response route, without turning the other Gaussian
+inference protocols into noise-independent laws.
+
+\appendix
+\section{Numerical evaluation}
+
+Spectral sums use the complete finite grid with analytic derivatives.
+Chernoff optimization is one-dimensional on $[0,1]$. For stability its
+per-mode summand is evaluated as
+$\frac12\{\log[1+u(e^z-1)]-uz\}$, where $z=\log(v_1/v_0)$,
+using \texttt{log1p} and \texttt{expm1}. Finite bins are integrated
+before computing their discrete Chernoff coefficient.
+
+For an $8\times8$ lattice, direct physical-space covariance and block
+matrices agree with \eqref{eq:block} to $3.6\times10^{-15}$.
+A sample of $6000$ fields at $L=32,\ell=4$ has mean
+measured-to-predicted spectral variance ratio $.995762$, without
+removing an overall normalization. Direct Gaussian regression agrees
+with \eqref{eq:risks} to about $10^{-17}$.
+
+For Table~\ref{tab:ratio-counts}, scalar block variances are also
+evaluated directly on the fine lattice as
+\[
+ \sigma_\ell^2(H)=\frac1{L^2\ell^4}
+ \sum_k\frac{|W_\ell(k_1)W_\ell(k_2)|^2}{K_H(k)}.
+\]
+The equal-count geometric decision boundaries give success
+probabilities from $F$ cumulative and survival functions. Searching
+integer counts and checking each preceding count locates the listed
+thresholds; no density-grid quadrature is used.
+
+Table~\ref{tab:self-scale} uses the finite Fourier transform of each
+physical block and the spectral density~\eqref{eq:reading-density}.
+Periodic midpoint grids of $8192$ and $16384$ frequencies agree within
+$9\times10^{-16}$ for these listed rates. This agreement is a numerical
+convergence check, not an interval certificate for arbitrary spectra.
+The history policies use analytic binomial tails, an enumerated
+finite transition matrix and its normalized stationary solution;
+the stationarity residual is below $3\times10^{-16}$. The fixed
+regime-informed comparison enumerates all integer splits. Its
+likelihood-threshold tails agree with direct binomial sums through
+$m=32$ within $9\times10^{-16}$. No Monte Carlo estimate or policy
+search is needed for the stated constructed-policy comparisons.
+
+For the active response reference, conditional means were checked
+by explicit averaging over the two forces at four nonzero or zero
+old-state values. A diagnostic uses $64$ continuing carriers, each
+with $20{,}000$ intervals at each duration, starting at $X_0=2$.
+At $(\lambda,b,B,U,\Delta,r)=(.7,1.3,.8,.6,.5,.01)$, population
+response moments are $.4387491$ and $.7479304$; empirical replica
+means are $.4416915$ and $.7465218$. Their comparison uses the
+martingale variances accumulated from the actual second-moment
+recursion, not an independent-field approximation.
+Perturbed response moments at the four corners of a fixed error
+square satisfy the parameter and next-action bounds. A force sign
+aligned with the old state instead gives a nonzero response bias,
+confirming the independence requirement. These checks do not
+certify force apparatus heat or optimize the conservative budget.
+
+\subsection{Finite response records}
+\label{app:response-record-proof}
+
+\begin{proof}[Proof of Corollary~\ref{cor:active-quantization}]
+For the quantizer $\mathsf q$, the pathwise error is bounded by
+$\delta/2+(|Z|-A)_+$.
+The inequality $(|z|-A)_+\le z^2/(4A)$ and
+$\E Z_i^2\le M_Z$ give $\E|\mathsf q(Z_i)-Z_i|
+\le\delta/2+M_Z/(4A)$.
+Each duration's response average therefore has mean absolute
+quantization error at most $e_{\rm rec}$.
+Markov's inequality and a union bound put both such errors below
+$\epsilon$ with failure at most $2e_{\rm rec}/\epsilon$.
+Combine this with the unquantized martingale event. The remaining
+ratio, clipping and action bounds are deterministic.
+Taking $A$ large and then $B_{\rm rec}$ large makes $e_{\rm rec}$
+arbitrarily small; no Gaussian tail law was used.
+\end{proof}
+
+\section{Finite records for the reading-and-force rule}
+\label{app:force-precision}
+
+\subsection{Rational arithmetic for the prediction rule}
+
+An entirely finite-arithmetic variant uses rational $A=3$, the same
+$10$-bit records, and rounds $a_1,a_2$ and the output to the nearest
+$2^{-16}$. Intermediate rational arithmetic is finite.
+Coefficient and output rounding add at most $(2A+1)2^{-17}$ to the
+predictor error. Adding that amount to $(|a_1|+|a_2|)\eta$ before
+squaring in \eqref{eq:finite} gives risk at most $.021433187<R_1$.
+The parameters are known and the extra registers must be counted.
+The advantage therefore does not require an infinite-precision
+archive, though it remains relative to a specified model and interface.
+
+\subsection{The reading-and-force controller}
+
+Both old and newly acquired scalar records use the nearest-point uniform
+quantizer on $[-4,4]$ with $2^{16}$ levels, including the endpoints, and
+saturation outside the interval. Decoder coefficients are rounded to
+sixteen binary fractional bits; the two $R$-thresholds to twenty, giving
+$\epsilon_R\le 2^{-21}$. This is distinct from the ten-bit prediction
+variant above.
+There are sixteen retained data bits and sixteen transient data bits;
+five fixed decoder coefficients use eighty fractional bits in total
+and the two thresholds forty. A forty-bit signed accumulator and a
+twenty-one-bit revised-mean register suffice for this arithmetic
+construction. Program, acquisition clock, analog interface and
+physical storage remain additional resources; these are sufficient
+register sizes, not minimal ones.
+
+
+\paragraph{Quantization and decision regret.}
+For a centered Gaussian record of variance $V$, clipping and uniform
+quantization on $[-A,A]$ have $L^1$ error at most
+\[
+ \eta(V)=\frac{A}{2^B-1}
+ +\sqrt{2V[z\phi(z)+\overline\Phi(z)]},\qquad z=A/\sqrt V.
+\]
+Use the $L^2$ clipping bound of Corollary~\ref{cor:finite} and
+Cauchy--Schwarz. Write the old mean as $\beta R$ and the revised
+mean as $b_\ell R+d_\ell Z_\ell$, where
+\[
+ d_\ell=\frac{\operatorname{Cov}(Y_\Delta^0,Z_\ell\mid R)}
+ {\Var(Z_\ell\mid R)},\qquad
+ b_\ell=\beta-d_\ell\frac{\operatorname{Cov}(Z_\ell,R)}{\Var R}.
+\]
+Include $b_0=\beta$ for no reading, and set $C_R=\max_{\ell\geq0}|b_\ell|$.
+
+The function $\mathcal B$ is $2D$-Lipschitz, and each $G_\ell$ is
+$4D$-Lipschitz. Maximizing scores at a perturbed old mean costs at
+most twice their largest perturbation. Choosing the force at a
+perturbed revised mean costs at most $4D$ times its error.
+The record-induced regret is therefore bounded by
+\[
+ 8D|\beta|\eta_R+
+ 4D\left(C_R\eta_R+\sum_\ell|d_\ell|\eta_\ell\right).
+\]
+The sum bounds errors at a selected port using its unconditional
+Gaussian marginal. It does not grant unchosen readings to the policy.
+
+In the example, both innovation standard deviations exceed $d=D/2$.
+The larger-variance minus smaller-variance smoothed benefit decreases
+with $|m|$. Each reading gain over no reading increases up to $d$
+and decreases afterwards. Together with the signs at zero and the
+crossing, these give precisely the three selection intervals.
+To verify the difference's monotonicity, differentiate
+\eqref{eq:normal-force-benefit}. For $0<m<d$ and $\tau\geq d$,
+\[
+ \log\frac{d+m}{d-m}\geq\frac{2m}{d}
+ \geq\frac{2dm}{\tau^2};
+\]
+the derivative of the smoothed benefit in $m$ consequently decreases
+with $\tau$. For $m\geq d$ the same sign follows directly from the
+two densities. Rounding the $R$ boundaries with error $\epsilon_R$
+adds at most $8D|\beta|\epsilon_R$: their competing scores agree
+at an exact boundary within that distance.
+
+Coefficient and output rounding on a grid of sixteen binary
+fractional bits contributes mean error at most $(2A+1)2^{-17}$,
+and hence regret at most $4D(2A+1)2^{-17}$.
+An actual force displacement error $\epsilon_D$ contributes at most
+$2\epsilon_D(\sqrt v+D)+\epsilon_D^2$, because the unforced target
+has second moment $v$ and the applied displacement is bounded by $D$.
+With $B=16$, $A=4$, $\epsilon_R=2^{-21}$ and
+$\epsilon_D=10^{-5}$, total regret is at most $.000164788$.
+Numerical evaluation gives risk below $.097711$.
+A conservative directed-interval calculation also certifies the strict
+comparison. Put $s=\sqrt{\Var(m)}$ and $\tau_{\max}=\max_\ell\sqrt{q_\ell}$.
+On the positive half-line the product of the folded Gaussian density
+and $\max(0,G_2,G_4)$ is Lipschitz with constant at most
+\[
+ \mathcal L=
+ \frac{4D\sqrt{2/\pi}}{s}
+ +\frac{2D\tau_{\max}\sqrt{2/\pi}}{s^2}.
+\]
+Use $1024$ midpoint intervals on $[0,.3]$ and subtract
+$\mathcal L(.3)^2/(4\cdot1024)$ from the gain integral estimate.
+Dropping its nonnegative remainder beyond $.3$ preserves a lower
+bound. Evaluate the finite lattice sums and interval arithmetic at
+55 decimal digits. The Gaussian CDF is evaluated with the integrated
+exponential Taylor polynomial of order $48$, using remainder at most
+$|x|^{99}/(2^{49}49!\,99\sqrt{2\pi})$.
+For the clipping bound one may use
+$\overline\Phi(z)\leq\phi(z)/z$.
+This gives finite-controller risk below $.097763$ and fixed-choice
+risk above $.09827985$. The certificate concerns this one-round
+comparison, not an infinite-duration apparatus or formal verification
+of the interval software.
+
+\begin{thebibliography}{99}
+\bibitem{KlenskeHennig}
+E.~D.~Klenske and P.~Hennig,
+\emph{Dual Control for Approximate Bayesian Reinforcement Learning},
+Journal of Machine Learning Research \textbf{17}(127), 1--30 (2016),
+\href{https://jmlr.org/papers/v17/15-162.html}{journal text}.
+\bibitem{SagawaUeda2010}
+T.~Sagawa and M.~Ueda,
+\emph{Generalized Jarzynski Equality under Nonequilibrium Feedback Control},
+Physical Review Letters \textbf{104}, 090602 (2010),
+\href{https://arxiv.org/abs/0907.4914}{arXiv:0907.4914}.
+\raggedright
+\bibitem{Gray2006}
+R.~M.~Gray, \emph{Toeplitz and Circulant Matrices: A Review},
+Foundations and Trends in Communications and Information Theory
+\textbf{2}(3), 155--239 (2006),
+\href{https://ee.stanford.edu/~gray/CIT006-journal.pdf}{author's text}.
+\bibitem{ImprintChain}
+S.~Liu, \emph{The Imprint Chain: Records, Self-Calibration, and
+Physical Feedback}, 2026;
+series record DOI: 10.5281/zenodo.20151594.
+\bibitem{NISTF}
+NIST/SEMATECH, \emph{e-Handbook of Statistical Methods},
+Section~1.3.6.6.5, ``F Distribution,''
+\href{https://www.itl.nist.gov/div898/handbook/eda/section3/eda3665.htm}{online reference}.
+\bibitem{WorldImprint}
+S.~Liu, \emph{The World as Imprint: From Trace-Carrying Structure
+to Self-Reading Mind}, Zenodo (2026),
+\href{https://doi.org/10.5281/zenodo.20122718}{doi:10.5281/zenodo.20122718}.
+\bibitem{Machta2013}
+B.~B.~Machta, R.~Chachra, M.~K.~Transtrum and J.~P.~Sethna,
+\emph{Parameter space compression underlies emergent theories and
+predictive models}, Science \textbf{342}, 604--607 (2013),
+\href{https://arxiv.org/abs/1303.6738}{arXiv:1303.6738}.
+\bibitem{Raju2018}
+A.~Raju, B.~B.~Machta and J.~P.~Sethna,
+\emph{Information loss under coarse graining: A geometric approach},
+Physical Review E \textbf{98}, 052112 (2018),
+\href{https://doi.org/10.1103/PhysRevE.98.052112}{doi:10.1103/PhysRevE.98.052112}.
+\bibitem{Mori1965}
+H.~Mori, \emph{Transport, collective motion, and Brownian motion},
+Progress of Theoretical Physics \textbf{33}, 423--455 (1965),
+\href{https://doi.org/10.1143/PTP.33.423}{doi:10.1143/PTP.33.423}.
+\bibitem{StableHulls}
+S.~Liu, \emph{Stable Hulls as Imprint Integration: Relations, Anchors
+and the Cost of Joint Reading}, 2026,
+\href{https://doi.org/10.5281/zenodo.20151508}{doi:10.5281/zenodo.20151508}.
+\bibitem{HAFFA}
+S.~Liu, \emph{Physical Access and Correlation Geometry: The Holographic Alaya--Field Framework}, Zenodo (2026),
+\href{https://doi.org/10.5281/zenodo.18361706}{doi:10.5281/zenodo.18361706}.
+\bibitem{TDIII}
+S.~Liu, \emph{Keeping a Self-Model Calibrated: Drift Detection, the
+Price of Keeping Up, and Reliability in a Closed Loop} (T-DOME III),
+2026.
+\bibitem{FoundationIII}
+S.~Liu, \emph{Foundation III: The Perfuming Loop.
+Held Content, Learned Frames and Physical Return}, 2026,
+section on finite feedback; series record DOI: 10.5281/zenodo.19642189.
+\end{thebibliography}
+\end{document}

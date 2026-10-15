@@ -1,0 +1,360 @@
+{
+  "scope": "G5-03 plus FI/FII named protocols; scripts and archived outputs, not a new rerun of all historical experiments",
+  "dependencies": {
+    "python": "3.14.3",
+    "numpy": "2.4.2",
+    "scipy": "1.17.1",
+    "mpmath": "1.3.0"
+  },
+  "files": [
+    {
+      "papers": [
+        "TD-II"
+      ],
+      "source": "OctoberReview/research/autonomous_claude_20261004/agentD_td2_c3/checks/td2_checks.py",
+      "distributed": "source_tree/OctoberReview/research/autonomous_claude_20261004/agentD_td2_c3/checks/td2_checks.py",
+      "source_sha256": "d22d6982b9dfc7cf9898f74d08d69ab9d811162e4a0e5017401b0db300e29a3b",
+      "distributed_sha256": "d22d6982b9dfc7cf9898f74d08d69ab9d811162e4a0e5017401b0db300e29a3b",
+      "bytes": 11545,
+      "kind": "script",
+      "copy_changes": "none",
+      "path_changes": "none; run_check.py copies the complete tree to a fresh output directory before executing",
+      "supports": [
+        {
+          "paper": "TD-II",
+          "label": "thm:capability",
+          "relation": "numerical check or comparison, not a substitute for the stated proof"
+        },
+        {
+          "paper": "TD-II",
+          "label": "thm:rate",
+          "relation": "numerical check or comparison, not a substitute for the stated proof"
+        },
+        {
+          "paper": "TD-II",
+          "label": "cor:price",
+          "relation": "numerical check or comparison, not a substitute for the stated proof"
+        },
+        {
+          "paper": "TD-II",
+          "label": "tab:rate",
+          "relation": "numerical check or comparison, not a substitute for the stated proof"
+        },
+        {
+          "paper": "TD-II",
+          "label": "thm:blind",
+          "relation": "numerical check or comparison, not a substitute for the stated proof"
+        },
+        {
+          "paper": "TD-II",
+          "label": "cor:even",
+          "relation": "numerical check or comparison, not a substitute for the stated proof"
+        },
+        {
+          "paper": "TD-II",
+          "label": "thm:drift",
+          "relation": "numerical check or comparison, not a substitute for the stated proof"
+        }
+      ],
+      "related_checks": [
+        "td2_checks.py"
+      ]
+    },
+    {
+      "papers": [
+        "TD-II"
+      ],
+      "source": "OctoberReview/research/autonomous_claude_20261004/agentD_td2_c3/checks/td2_checks_output.json",
+      "distributed": "source_tree/OctoberReview/research/autonomous_claude_20261004/agentD_td2_c3/checks/td2_checks_output.json",
+      "source_sha256": "07a182fa8144cda7931189380890ac00991543b0558412602003193279f841a8",
+      "distributed_sha256": "c1e1367d09ab0ea59f1d247f2a7ef4b7c3f5a3b47dc367c2673ff27064518cae",
+      "bytes": 6453,
+      "kind": "archived output/input",
+      "copy_changes": "one final newline added by apply_patch; payload unchanged",
+      "path_changes": "none; run_check.py copies the complete tree to a fresh output directory before executing",
+      "supports": [
+        {
+          "paper": "TD-II",
+          "label": "thm:capability",
+          "relation": "numerical check or comparison, not a substitute for the stated proof"
+        },
+        {
+          "paper": "TD-II",
+          "label": "thm:rate",
+          "relation": "numerical check or comparison, not a substitute for the stated proof"
+        },
+        {
+          "paper": "TD-II",
+          "label": "cor:price",
+          "relation": "numerical check or comparison, not a substitute for the stated proof"
+        },
+        {
+          "paper": "TD-II",
+          "label": "tab:rate",
+          "relation": "numerical check or comparison, not a substitute for the stated proof"
+        },
+        {
+          "paper": "TD-II",
+          "label": "thm:blind",
+          "relation": "numerical check or comparison, not a substitute for the stated proof"
+        },
+        {
+          "paper": "TD-II",
+          "label": "cor:even",
+          "relation": "numerical check or comparison, not a substitute for the stated proof"
+        },
+        {
+          "paper": "TD-II",
+          "label": "thm:drift",
+          "relation": "numerical check or comparison, not a substitute for the stated proof"
+        }
+      ],
+      "related_checks": [
+        "td2_checks.py"
+      ]
+    },
+    {
+      "papers": [
+        "TD-II"
+      ],
+      "source": "OctoberReview/research/autonomous_claude_20261004/agentD_td2_c3/checks/td2_loop.py",
+      "distributed": "source_tree/OctoberReview/research/autonomous_claude_20261004/agentD_td2_c3/checks/td2_loop.py",
+      "source_sha256": "12582caad721a9d60b4d23ea0fd8625f59203ba6a5bee5528d8d1b2cbf8ef10f",
+      "distributed_sha256": "12582caad721a9d60b4d23ea0fd8625f59203ba6a5bee5528d8d1b2cbf8ef10f",
+      "bytes": 8740,
+      "kind": "script",
+      "copy_changes": "none",
+      "path_changes": "none; run_check.py copies the complete tree to a fresh output directory before executing",
+      "supports": [
+        {
+          "paper": "TD-II",
+          "label": "prop:stationary",
+          "relation": "numerical check or comparison, not a substitute for the stated proof"
+        },
+        {
+          "paper": "TD-II",
+          "label": "tab:loop",
+          "relation": "numerical check or comparison, not a substitute for the stated proof"
+        },
+        {
+          "paper": "TD-II",
+          "label": "app:protocol",
+          "relation": "numerical check or comparison, not a substitute for the stated proof"
+        }
+      ],
+      "related_checks": [
+        "td2_loop.py"
+      ]
+    },
+    {
+      "papers": [
+        "TD-II"
+      ],
+      "source": "OctoberReview/research/autonomous_claude_20261004/agentD_td2_c3/checks/td2_loop_output.json",
+      "distributed": "source_tree/OctoberReview/research/autonomous_claude_20261004/agentD_td2_c3/checks/td2_loop_output.json",
+      "source_sha256": "9f176bdc260289a3011f3899247277a155b096220f0a273b0e43f8584ea56c67",
+      "distributed_sha256": "3ebfbc4a93f4382291069af359a33c904be64cd53462bdfb46f2d8d851903489",
+      "bytes": 87452,
+      "kind": "archived output/input",
+      "copy_changes": "one final newline added by apply_patch; payload unchanged",
+      "path_changes": "none; run_check.py copies the complete tree to a fresh output directory before executing",
+      "supports": [
+        {
+          "paper": "TD-II",
+          "label": "prop:stationary",
+          "relation": "numerical check or comparison, not a substitute for the stated proof"
+        },
+        {
+          "paper": "TD-II",
+          "label": "tab:loop",
+          "relation": "numerical check or comparison, not a substitute for the stated proof"
+        },
+        {
+          "paper": "TD-II",
+          "label": "app:protocol",
+          "relation": "numerical check or comparison, not a substitute for the stated proof"
+        }
+      ],
+      "related_checks": [
+        "td2_loop.py"
+      ]
+    },
+    {
+      "papers": [
+        "TD-II"
+      ],
+      "source": "OctoberReview/research/autonomous_claude_20261004/agentD_td2_c3/checks/td2_threshold.py",
+      "distributed": "source_tree/OctoberReview/research/autonomous_claude_20261004/agentD_td2_c3/checks/td2_threshold.py",
+      "source_sha256": "47820307d34d117518c2c0059d21422adc19a0d13d7f9ba6769245f59dec3fcd",
+      "distributed_sha256": "47820307d34d117518c2c0059d21422adc19a0d13d7f9ba6769245f59dec3fcd",
+      "bytes": 1578,
+      "kind": "script",
+      "copy_changes": "none",
+      "path_changes": "none; run_check.py copies the complete tree to a fresh output directory before executing",
+      "supports": [
+        {
+          "paper": "TD-II",
+          "label": "tab:threshold",
+          "relation": "numerical check or comparison, not a substitute for the stated proof"
+        },
+        {
+          "paper": "TD-II",
+          "label": "prop:stationary",
+          "relation": "numerical check or comparison, not a substitute for the stated proof"
+        }
+      ],
+      "related_checks": [
+        "td2_threshold.py"
+      ]
+    },
+    {
+      "papers": [
+        "TD-II"
+      ],
+      "source": "OctoberReview/research/autonomous_claude_20261004/agentD_td2_c3/checks/td2_threshold_output.json",
+      "distributed": "source_tree/OctoberReview/research/autonomous_claude_20261004/agentD_td2_c3/checks/td2_threshold_output.json",
+      "source_sha256": "ddf2fe61078489324c9f443c1b14ffd7adbaec5113d52011bc4d0ec41b812cd5",
+      "distributed_sha256": "d7fb78cf46b4b602f3acd45973ceef82668ccc5f0573d3d9b034c25f44cd34c0",
+      "bytes": 3057,
+      "kind": "archived output/input",
+      "copy_changes": "one final newline added by apply_patch; payload unchanged",
+      "path_changes": "none; run_check.py copies the complete tree to a fresh output directory before executing",
+      "supports": [
+        {
+          "paper": "TD-II",
+          "label": "tab:threshold",
+          "relation": "numerical check or comparison, not a substitute for the stated proof"
+        },
+        {
+          "paper": "TD-II",
+          "label": "prop:stationary",
+          "relation": "numerical check or comparison, not a substitute for the stated proof"
+        }
+      ],
+      "related_checks": [
+        "td2_threshold.py"
+      ]
+    }
+  ],
+  "paper": "TD-II",
+  "manuscript_checks": [
+    {
+      "id": "td2_checks.py",
+      "script": "source_tree/OctoberReview/research/autonomous_claude_20261004/agentD_td2_c3/checks/td2_checks.py",
+      "supports": [
+        {
+          "paper": "TD-II",
+          "label": "thm:capability",
+          "relation": "numerical check or comparison, not a substitute for the stated proof"
+        },
+        {
+          "paper": "TD-II",
+          "label": "thm:rate",
+          "relation": "numerical check or comparison, not a substitute for the stated proof"
+        },
+        {
+          "paper": "TD-II",
+          "label": "cor:price",
+          "relation": "numerical check or comparison, not a substitute for the stated proof"
+        },
+        {
+          "paper": "TD-II",
+          "label": "tab:rate",
+          "relation": "numerical check or comparison, not a substitute for the stated proof"
+        },
+        {
+          "paper": "TD-II",
+          "label": "thm:blind",
+          "relation": "numerical check or comparison, not a substitute for the stated proof"
+        },
+        {
+          "paper": "TD-II",
+          "label": "cor:even",
+          "relation": "numerical check or comparison, not a substitute for the stated proof"
+        },
+        {
+          "paper": "TD-II",
+          "label": "thm:drift",
+          "relation": "numerical check or comparison, not a substitute for the stated proof"
+        }
+      ],
+      "archived_outputs": [
+        {
+          "path": "source_tree/OctoberReview/research/autonomous_claude_20261004/agentD_td2_c3/checks/td2_checks_output.json",
+          "selected_top_level_keys": [
+            "A",
+            "B",
+            "C",
+            "D"
+          ],
+          "source_sha256": "07a182fa8144cda7931189380890ac00991543b0558412602003193279f841a8",
+          "distributed_sha256": "c1e1367d09ab0ea59f1d247f2a7ef4b7c3f5a3b47dc367c2673ff27064518cae"
+        }
+      ],
+      "scope": "Finite-prior capability/top-k tests; Beta/Legendre table and tilted equality; Gaussian blind-spot covariance; isotropic rotation moment diagnostics. Not a proof of every theorem or a test of the separate quantum-reference results."
+    },
+    {
+      "id": "td2_loop.py",
+      "script": "source_tree/OctoberReview/research/autonomous_claude_20261004/agentD_td2_c3/checks/td2_loop.py",
+      "supports": [
+        {
+          "paper": "TD-II",
+          "label": "prop:stationary",
+          "relation": "numerical check or comparison, not a substitute for the stated proof"
+        },
+        {
+          "paper": "TD-II",
+          "label": "tab:loop",
+          "relation": "numerical check or comparison, not a substitute for the stated proof"
+        },
+        {
+          "paper": "TD-II",
+          "label": "app:protocol",
+          "relation": "numerical check or comparison, not a substitute for the stated proof"
+        }
+      ],
+      "archived_outputs": [
+        {
+          "path": "source_tree/OctoberReview/research/autonomous_claude_20261004/agentD_td2_c3/checks/td2_loop_output.json",
+          "selected_top_level_keys": [
+            "[]"
+          ],
+          "source_sha256": "9f176bdc260289a3011f3899247277a155b096220f0a273b0e43f8584ea56c67",
+          "distributed_sha256": "3ebfbc4a93f4382291069af359a33c904be64cd53462bdfb46f2d8d851903489"
+        }
+      ],
+      "scope": "Resource-matched trajectories and exact stationary formulas; all nine eta rows, common random world and declared start-up/read budgets. The trajectory implementation uses algebraically equivalent noiseless functionals, not independent noisy hardware reads."
+    },
+    {
+      "id": "td2_threshold.py",
+      "script": "source_tree/OctoberReview/research/autonomous_claude_20261004/agentD_td2_c3/checks/td2_threshold.py",
+      "supports": [
+        {
+          "paper": "TD-II",
+          "label": "tab:threshold",
+          "relation": "numerical check or comparison, not a substitute for the stated proof"
+        },
+        {
+          "paper": "TD-II",
+          "label": "prop:stationary",
+          "relation": "numerical check or comparison, not a substitute for the stated proof"
+        }
+      ],
+      "archived_outputs": [
+        {
+          "path": "source_tree/OctoberReview/research/autonomous_claude_20261004/agentD_td2_c3/checks/td2_threshold_output.json",
+          "selected_top_level_keys": [
+            "[]"
+          ],
+          "source_sha256": "ddf2fe61078489324c9f443c1b14ffd7adbaec5113d52011bc4d0ec41b812cd5",
+          "distributed_sha256": "d7fb78cf46b4b602f3acd45973ceef82668ccc5f0573d3d9b034c25f44cd34c0"
+        }
+      ],
+      "scope": "Stationary-risk crossings from td2_loop.risks/best_alpha, not a second Monte Carlo experiment. Uses optimization floor 1e-4, unlike the 0.002 floor of the trajectory comparison."
+    }
+  ],
+  "support_note": "Stable manuscript labels, not moving printed numbers. Selected keys locate evidence; scope distinguishes exact computation, finite diagnostics, dependencies and unproved generalizations. All original file metadata and evidence hashes are retained.",
+  "not_checked_by_this_bundle": [
+    "TD-II quantum-reference and signed-price results: proofs remain in the manuscript; none of these three scripts is claimed to test them."
+  ]
+}

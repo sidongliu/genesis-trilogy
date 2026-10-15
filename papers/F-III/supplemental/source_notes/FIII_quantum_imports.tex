@@ -1,0 +1,152 @@
+\section{Imported quantum continuation}\label{app:quantum_imports}
+\subsection{A renewed receiver in the next retained window}
+\label{subsec:continuation}
+
+A decision rule can jump at a posterior threshold without making the
+physical history map discontinuous. If the rule is fixed, it acts on a
+record already present in the state. This observation removes one
+unnecessary continuity assumption from quantum returns.
+
+\begin{proposition}[Fixed history control and its physical source]
+\label{prop:continuation}
+Let the complete classical--quantum history, including held content
+and old references, be retained. An acquisition instrument followed
+by a fixed, legal record-controlled channel is nonexpansive in half
+trace distance. Thus $N$ such rounds with uniform complete-instrument
+defects $\epsilon_n$ have error at most $d_0+\sum_{n<N}\epsilon_n$,
+irrespective of discontinuities in the controller's decision rule.
+
+For source transport, let normalized purifications $\psi,\varphi$
+include the material, controller, clock and every reference. Assume
+$\|\psi-\varphi\|\le e$ and
+$\|H_F\psi\|,\|H_F\varphi\|\le M_F$, and continue both under the
+same positive quantum-material Hamiltonian of Q-RAIF~C.
+For its smooth interacting-window field-source form $O_{\rm int}$
+with
+\[
+ \|(H_F+\Lambda)^{-1/2}O_{\rm int}
+                      (H_F+\Lambda)^{-1/2}\|\le C_{\rm int},
+ \qquad \Lambda>0,
+\]
+the difference of actual next-window sources is at most
+\begin{equation}\label{eq:nextsource}
+ 2C_{\rm int}\sqrt{\Lambda e^2+2M_Fe}\sqrt{\Lambda+M_F}.
+\end{equation}
+The two inputs must each meet the form domain and rms bound.
+A later bounded record or action loss in $[0,1]$ differs by at most $e$.
+No conditioning on a rare or successful branch is used.
+\end{proposition}
+\begin{proof}
+An instrument maps $\rho$ to
+$\bigoplus_r\mathcal I_r(\rho)$, with unnormalized branches and
+$\sum_r\mathcal I_r$ trace preserving. Applying a trace-preserving
+channel to each block gives another CPTP map on the complete history.
+Tensor it with the identity on old references. Trace-norm
+contractivity and the triangle inequality give the first assertion
+and its finite error sum. A coherent controller instead has one
+fixed channel on its full quantum register; the same argument applies.
+
+For the source assertion, use Q-RAIF~C's interacting-window form,
+with the same $K$, vacuum subtraction, smooth profiles and compact
+space--time test. Set $A=H_F+\Lambda$.
+The form difference is bounded by
+$C_{\rm int}\|A^{1/2}(\psi-\varphi)\|
+(\|A^{1/2}\psi\|+\|A^{1/2}\varphi\|)$.
+Cauchy--Schwarz and
+$\|H_F(\psi-\varphi)\|\le2M_F$ give
+$\|A^{1/2}(\psi-\varphi)\|^2\le\Lambda e^2+2M_Fe$;
+each remaining norm is at most $\sqrt{\Lambda+M_F}$.
+This proves~\eqref{eq:nextsource}. Common unitary evolution preserves
+the vector error; a later complete instrument contracts half trace
+distance, which is at most $e$ for these pure joint states. Bounded
+losses obey the same bound.
+\end{proof}
+
+The channel inequality is standard. Its role here is to place
+history-dependent decisions, old references and the physical source
+in one comparison. It does not make a nonlinear semiclassical
+mean-action map contractive. Nor does it bound unbounded controller
+stress from a bounded-loss test.
+
+\begin{corollary}[Finite renewal remains usable without a new clock]
+\label{cor:usable-renewal}
+Use Q-RAIF~C's receiver-renewal family with fixed $A>0$,
+$p\in(0,1/2)$, even clock length $m$ and coupling $J=A/m$.
+The first edge is a true receiver--bank SWAP, later edges are
+identities, and the material force is supported at $j\ge m/2$.
+Keep the initially correlated old receiver, held content, preparation
+purifiers and complete cursor. At
+$t_R=(m/A)\arcsin\sqrt p$, its actual purification differs from the
+completed-SWAP comparison on the same untrimmed cursor by at most
+\[
+ b_m=2(1-p)^{m/2}
+ +\frac{m\arcsin\sqrt p}{A}
+   \left[L_\Delta\sqrt M e^{-mD/4}
+                       +c_\Delta e^{-mD/2}\right],
+ \qquad D=D_{\rm Ber}(1/2\|p)>0 .
+\]
+Continue those two states under that same interacting Hamiltonian,
+without resetting or translating the cursor. On any fixed subsequent
+window satisfying the smooth-source conditions, bounded next-task
+errors tend to zero with $b_m$, and the field-source difference tends
+to zero by~\eqref{eq:nextsource} with $e=b_m$.
+\end{corollary}
+\begin{proof}
+The stated full-purification bound is the renewal estimate of
+Q-RAIF~C, not a marginal-only reset. Its cell energies and
+force/counterterm norms are fixed, and the history-clock norm is at
+most $2A$. The actual physical rms is uniformly bounded by its
+positive-Hamiltonian certificate. The comparison applies a completed
+SWAP to the old receiver and independent Gibbs bank, leaving the
+material input unchanged; the SWAP commutes with the two cell
+energies. Its material rms and its total-energy graph norm are
+therefore bounded independently of $m$ as well. The same certificate
+bounds its continued physical rms. The smooth source constants depend
+on the fixed subsequent window, $K$, profiles and coupling norms,
+not on the cursor site count. Proposition~\ref{prop:continuation}
+now applies, and $b_m\to0$.
+\end{proof}
+
+The comparison cursor in this corollary is not concentrated in a
+ready site. To execute another prescribed round one needs an actual
+later program on that cursor. Q-RAIF~C's finite-sequence construction
+provides it, with a different clock tradeoff.
+
+\begin{corollary}[Several returns with the same body and history]
+\label{cor:installed-returns}
+Fix a finite number of rounds, a complete Gaussian material $K$,
+smooth linear probe/record forces, and finite reversible decisions
+using only the actual retained records. Suppose the data gates
+commute with their nonnegative bare energy; matched-cell swaps and
+degenerate logic are permitted. Initially supply the finite bank,
+workspace and their preparation references.
+Then one positive autonomous Hamiltonian implements the successive
+readings, decisions, forces and receiver replacements to arbitrarily
+small specified joint error at any fixed finite set of checkpoints
+away from the comparison gate times. It retains the same body,
+old references, spent cells and untrimmed cursor. The complete
+sequence ends at $T=\pi/(2J)$; clock energy and dimension grow with
+precision. Its material rms has an $m$-independent bound, so the
+same-$H_m$ source comparisons of~\eqref{eq:nextsource} remain valid.
+\end{corollary}
+\begin{proof}
+Place all rounds on the single threshold path of Q-RAIF~C's
+finite-sequence proposition. Its prefix-gauge Duhamel error is
+$O(m^{-1/2})$; wrong-prefix probabilities at checkpoints with a
+nonzero threshold margin decay exponentially. Its direct material
+commutator estimate bounds the rms independently of clock size.
+A swap transfers the old receiver and its correlations into the
+next spent bank, while data gates preserve the material graph domain.
+Thus each round ends in the actual input domain of the next, with
+no replacement clock. The retained-history and source estimates
+above apply to this common process. A finite history-dependent
+decision table is compiled reversibly with its inputs and garbage
+retained; it never needs the inaccessible true fault as an input.
+\end{proof}
+
+The clock has $m+1$ states, initial mean $mJ$ and norm $2mJ$.
+All banks, old records and arithmetic storage are charged. This
+finite construction supplies an installed next round; fixed-capacity
+operation as $N\to\infty$ and the renormalized total apparatus source
+remain additional physical requirements. In particular the material
+source certificate is not a quantum JT equation.

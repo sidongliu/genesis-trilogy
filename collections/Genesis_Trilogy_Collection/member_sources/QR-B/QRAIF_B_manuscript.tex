@@ -1,0 +1,1451 @@
+\documentclass[aps,pre,onecolumn,superscriptaddress,floatfix,longbibliography]{revtex4-2}
+\usepackage{amsmath,amssymb,amsthm,bm}
+\usepackage{hyperref}
+\hypersetup{pdftitle={Thermodynamic Stability Constraints on Persistent Open Quantum Subsystems: Control Algebra, Physical Actuation and Energy Cost},pdfauthor={Sidong Liu}}
+\usepackage{booktabs}
+\usepackage{array}
+\newcolumntype{P}[1]{>{\raggedright\arraybackslash}p{#1}}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{corollary}[theorem]{Corollary}
+
+\begin{document}
+\emergencystretch=2em
+\raggedbottom
+
+\title{Thermodynamic Stability Constraints on Persistent Open Quantum Subsystems:\texorpdfstring{\\}{ }
+Control Algebra, Physical Actuation and Energy Cost}
+
+\author{Sidong Liu, PhD \\
+\small iBioStratix Ltd \\
+\small \texttt{sidongliu@hotmail.com}}
+
+\date{October 2026}
+
+\begin{abstract}
+Persistent control has to be realized by an interaction, with an error and a cost. We construct one such actuator: a degenerate bit coupled to a mode of a free chiral field through $U=\exp[-i\lambda X(b+b^\dagger)]$ and a smooth switch $g$. For independent diagonal bit inputs, the same unitary fixes the flip error, added stress $(g')^2/4$, switching work $\lambda^2\bar\omega$ and a positive quadratic cost on switch profiles. A flip with failure $\epsilon$ needs mean drive occupation at least $\theta_\epsilon(1-2\epsilon)/[4\sqrt{\epsilon(1-\epsilon)}]-\tfrac12$, where $\theta_\epsilon=\arccos(2\epsilon-1)$; the leading cost is $\pi/(4\sqrt\epsilon)$. Displaced squeezed states nearly attain it, whereas classical drives need order $\epsilon^{-1}$. A calibrated feedback task with scheduled fresh independent drives has an exact stationary loss, coupling rate and stability proof, with one acceptance condition joining calibration records to drive energy. A second bound prices response readout: if two branches differ only by probe delays bounded in difference by $\Delta\tau$, binary error $\epsilon$ requires $E\Delta\tau\ge\hbar[1-2\sqrt{\epsilon(1-\epsilon)}]/\zeta$, with $\zeta=\max_{x>0}(1-\cos x)/x$. Retained ancillas and joint decoding do not remove this bound, and a three-level construction saturates it across the allowed signed-delay families. A retained oscillator also supports a thermal branch: a coherent echo protects held quantum content, a mixed qubit port reads the coupling through one binary outcome, and a finite Gibbs bank restores the oscillator while retaining every spent output. These energy and memory accounts do not identify exported energy with removed entropy. The descent metric, physical work form and Lorentzian propagation form remain distinct.
+\end{abstract}
+
+\maketitle
+
+% ============================================================
+\section{Introduction}
+\label{sec:intro}
+
+Interaction with a large environment drives a quantum system towards decoherence and thermalization~\cite{Breuer2002,Weiss2012}. A subsystem that keeps a non-equilibrium steady state (NESS) does so through a control process paid for by its surroundings, and such processes can be modelled as feedback~\cite{Seifert2012,Jarzynski2011,Sagawa2012,Parrondo2015}. This paper asks what persistence requires of the controls. The question has two parts. One concerns the operator structure the control dynamics needs in order to remain Lyapunov stable. The other concerns how a control operation is physically realized, what error it carries and what it costs.
+
+Persistence alone does not select a Clifford algebra or an indefinite metric. Gradient descent requires a positive control metric, and standard dissipative and coherent control stabilizes target states without Clifford structure~\cite{Verstraete2009,Diehl2008,TicozziViola2008,Mirrahimi2005}. Section~\ref{sec:algebra} distinguishes associativity of operator composition, positivity of a descent metric and the optional Clifford encoding of a chosen quadratic form.
+
+The physical part is the main subject. In an abstract control model a pulse is a free exact unitary. In a physical model it is an interaction with a field, and the field brings quantum fluctuations, energy and stress with it. We work out one such actuator exactly. A degenerate two-level system couples to the derivative of a free chiral scalar field through a smooth switch. The same unitary then fixes the flip channel and its failure probability, the outgoing stress and switching work, and a positive quadratic form on switch profiles that is derived from the field rather than chosen.
+
+Three results follow from this construction. Theorem~\ref{thm:energy} bounds the energy cost of an accurate flip for every input state of the driving mode; squeezed Gaussian drives nearly attain the bound, while Proposition~\ref{prop:classical} shows that classical drives cannot approach it. Theorem~\ref{thm:persist} places the actuator in a calibrated feedback task and gives a complete closed-loop persistence theorem, including bath noise, reading noise and gate failure. Proposition~\ref{prop:joint} turns the task requirement into one condition on calibration records and drive energy together, so a shortage of either resource can make the task infeasible.
+
+An interface can also be queried while it carries unknown quantum content.
+Section~\ref{sec:held-content} gives the corrected parity instrument and its
+collection-dependent damage. A coherent controlled-parity echo protects the
+body for arbitrary mode inputs and returns a finite meter; its mode access,
+control and readout are separate physical resources. Resonant contacts realize
+a retained receiver and a finite packet collector, with explicit occupation,
+pulse-duration and finite-area-error accounts. A positive-frequency finite-band
+field supplies a continuous counterpart: a finite prescribed drive prepares
+its matched packet, with certified collection loss and separately counted
+receiver renewal.
+
+For the retained oscillator, Section~\ref{sec:thermal-bank} also supplies
+a thermal alternative to vacuum inquiry. A mixed qubit port produces an
+actual binary record after the echo, and a finite bank of Gibbs oscillators
+restores the active port without discarding its old correlations. The record
+gain, read backreaction and pulse durations are derived from this same
+protocol. Its bank and clocks are finite resources; it is a different
+implementation from travelling-field collection.
+
+Control also needs the response to come back through an instrument. A bound based
+on mean energy, in the quantum-speed-limit tradition~\cite{MargolusLevitin1998},
+prices a specified translation-only readout in Theorem~\ref{thm:delayed-readout}.
+It permits mixed probes, retained ancillas and joint decoding. Its role is to
+constrain the physical response-to-program route of HAFF-D, not to identify
+every sensing channel with a time delay.
+
+Within the Q-RAIF series this paper carries the control and persistence side of the physical interface. Its outgoing stress is the matter source whose gravitational response is studied in the HAFF paper on gravity~\cite{Liu2026HAFFD}, and its feedback task is the one analysed in the Imprint Chain~\cite{Liu2026Chain}, where the corrective flip was a supplied exact pulse. Nothing here makes an observer the author of geometry. Persistence is analysed inside a supplied field theory, and geometric reconstruction in HAFF depends on its own algebraic and dictionary inputs~\cite{Liu2026PaperB}.
+
+Section~\ref{sec:persistence} states the feedback problem. Section~\ref{sec:algebra} records the algebraic constraints. Section~\ref{sec:actuator} constructs the actuator, Section~\ref{sec:energy} proves the energy--accuracy results, and Section~\ref{sec:persist} treats persistence, calibration, response readout and their resource accounts. Section~\ref{sec:forms} compares the quadratic structures, Section~\ref{sec:context} relates the results to other work, and Section~\ref{sec:discussion} discusses what remains open.
+
+% ============================================================
+\section{Persistence as a feedback problem}
+\label{sec:persistence}
+
+Consider $\mathcal{H}_{\mathrm{tot}} = \mathcal{H}_R \otimes \mathcal{H}_E$ with reduced dynamics
+\begin{equation}
+\dot{\rho}_R = -i[H_{\mathrm{eff}}, \rho_R] + \mathcal{D}[\rho_R].
+\end{equation}
+The controls must be specified in the composed system dynamics, rather than inferred from a formal stationarity condition on a protocol cost.
+
+Standard quantum control writes $H_{\mathrm{ctrl}} = \sum_k u_k(t) G_k$ with generators of a Lie algebra $\mathfrak g$, $[G_i, G_j] = i f_{ijk} G_k$~\cite{WisemanMilburn2009}. The Lie algebra fixes the accessible directions. The size of a correction is quantified by a positive cost, norm or information metric supplied separately. This separation is standard and is not a defect of Lie-algebraic control. Section~\ref{sec:actuator} shows where such a cost can come from physically: from the stress of the field that implements the control.
+
+% ============================================================
+\section{What the operator algebra must supply}
+\label{sec:algebra}
+
+\subsection{Associativity as a boundary of the model}
+\label{sec:assoc}
+
+\begin{remark}[Associativity as a control-model boundary]
+\label{rem:assoc-boundary}
+The master-equation model represents sequential controls by linear maps under ordinary composition, which is associative by definition~\cite{Breuer2002}. This is a declared scope condition, not a theorem excluding every non-associative dynamics. Jordan or octonionic models would need additional bracketing, subsystem and composition rules before a control calculation could be transferred~\cite{Schafer1966,Gunaydin1973}. Q-RAIF Paper~A~\cite{Liu2026QRAIF_A} uses the same operator-composition boundary for propagation.
+\end{remark}
+
+\subsection{A positive metric for Lyapunov descent}
+\label{sec:metric}
+
+For an auxiliary gradient controller on parameters $\lambda$ consider the descent rule
+\begin{equation}
+\dot{\lambda} = -\Gamma\, G^{-1} \nabla_\lambda V,\qquad \Gamma>0.
+\label{eq:gradient}
+\end{equation}
+
+\begin{proposition}[Positive descent metric]
+\label{prop:descent}
+The controller contribution to $\dot V$ under Eq.~\eqref{eq:gradient} is $-\Gamma(\nabla_\lambda V)^TG^{-1}(\nabla_\lambda V)$. It is nonpositive for every gradient exactly when $G^{-1}$, equivalently the invertible symmetric matrix $G$, is positive definite. If $G$ has a negative direction, a gradient along it makes the contribution positive.
+\end{proposition}
+
+\begin{proof}
+The first statement is the chain rule. A symmetric quadratic form is nonnegative on all vectors precisely when it is positive semidefinite, and an invertible positive semidefinite matrix is positive definite.
+\end{proof}
+
+The descent mechanism therefore selects positive definiteness, not Lorentzian signature. Channel types such as unitary, dephasing and dissipative can be labelled by a discrete index, a direct-sum decomposition or supplied weights; their qualitative difference does not need a negative norm.
+
+Parameter descent is not yet the physical state equation. With drift $H_0$, dissipator $\mathcal D$ and controls $H_{\mathrm{ctrl}}(\lambda)=\sum_i u_i(\lambda)G_i$, the closed loop is
+\begin{equation}
+\dot\rho= -i[H_0+H_{\mathrm{ctrl}}(\lambda),\rho]+\mathcal D[\rho],
+\qquad
+\dot\lambda=-\Gamma G^{-1}\nabla_\lambda V,
+\end{equation}
+and for differentiable $V(\rho,\lambda)$
+\begin{equation}
+\dot V=D_\rho V\!\left[-i[H_0+H_{\mathrm{ctrl}},\rho]+\mathcal D[\rho]\right]
+-\Gamma(\nabla_\lambda V)^TG^{-1}(\nabla_\lambda V).
+\label{eq:fullVdot}
+\end{equation}
+A stability proof must control the first term as well. Setting a control amplitude equal to a gradient component gives no general sign.
+
+Dissipative and coherent control can stabilize target states with positive costs and Lie or operator-algebraic controls~\cite{Verstraete2009,Diehl2008,TicozziViola2008,Mirrahimi2005}. Von Neumann and $C^*$-algebras are compatible with this model; neither supplies a preferred quadratic form without a dynamics. These examples also show why persistence alone imposes no indefinite Clifford structure.
+
+\subsection{Clifford algebra as a parameterization}
+
+If one chooses a quadratic space $(V,q)$ and requires control generators to satisfy $v^2=q(v)\mathbf 1$, the universal property identifies $Cl(V,q)$ as the minimal algebra for that presentation~\cite{Hestenes1966}. This is a definitional fact. It does not show that persistence, channel discrimination or Lyapunov descent imposes those relations. Pauli controls of a qubit satisfy $\{\sigma_i,\sigma_j\}=2\delta_{ij}\mathbf 1$, the relations of $Cl(3,0)$, so the Clifford package is a convenient description of qubit controls. A particular feedback model may favour some representation because of its controls and costs, but that preference has to be shown in its closed-loop dynamics.
+
+\paragraph{State stability.}\label{sec:toymodel}
+Equation~\eqref{eq:fullVdot} is the continuous-time obligation: a parameter descent controls only its own contribution, while drift, dissipator and controlled state evolution remain. For full-rank states and a fixed full-rank target,
+$\dot D(\rho\Vert\rho_*)=\operatorname{tr}[\dot\rho(\log\rho-\log\rho_*)]$.
+Theorem~\ref{thm:persist} establishes stability instead for a discrete composed channel with a physically realized, imperfect correction.
+
+% ============================================================
+\section{A control flip realized by a field coupling}
+\label{sec:actuator}
+
+\subsection{The coupling and its channel}
+
+The field-coupling and drive bounds in this and the next section use
+$\hbar=1$: $\bar\omega N$ and $\bar\omega\lambda^2$ are energies in
+these units. In physical units they are $\hbar\bar\omega N$ and
+$\hbar\bar\omega\lambda^2$; the field Hamiltonian and stress carry
+the same overall $\hbar$. Quadratures, occupation and pulse areas are
+dimensionless. The later delay, entropy and retained-oscillator accounts
+display $\hbar$ explicitly.
+
+The controlled system is a two-level system with zero free Hamiltonian, Pauli operators $X$ and $Z$. A bosonic mode with $[b,b^\dagger]=1$ and quadratures $Q=b+b^\dagger$, $P=i(b^\dagger-b)$, $[Q,P]=2i$, interacts through
+\begin{equation}
+U=\exp[-i\lambda XQ],\qquad \lambda>0.
+\label{eq:U}
+\end{equation}
+In the eigenbasis $X|x\rangle=x|x\rangle$, $U=\sum_x|x\rangle\langle x|\otimes e^{-i\lambda xQ}$, and $e^{-i\lambda xQ}$ is the displacement $D(-i\lambda x)$. Write $\chi_\sigma(k)=\operatorname{tr}(\sigma e^{-ikQ})$ for the characteristic function of $Q$ in a mode state $\sigma$.
+
+\begin{proposition}[Channel of the coupling]
+\label{prop:channel}
+Let the mode start in a state $\sigma$ independent of the bit. The bit channel multiplies the matrix element $\rho_{xx'}$ in the $X$ basis by $\chi_\sigma(\lambda(x-x'))$. For bit states diagonal in $Z$, its output $Z$ statistics agree with a flip having failure probability
+\begin{equation}
+\epsilon=\tfrac12\bigl(1+\operatorname{Re}\chi_\sigma(2\lambda)\bigr).
+\label{eq:eps-general}
+\end{equation}
+For a coherent input $|\alpha\rangle$, $\alpha>0$, the factor is
+\begin{equation}
+e^{-\lambda^2(1-xx')-2i\alpha\lambda(x-x')}.
+\label{eq:coef}
+\end{equation}
+If $2\lambda\alpha=\pi/2$ and $N=\alpha^2$, the channel on every bit state is
+\begin{equation}
+\mathcal F_N(\rho)=s_NX\rho X+(1-s_N)\rho,\qquad
+s_N=\frac{1+e^{-2\lambda^2}}2,\qquad \lambda^2=\frac{\pi^2}{16N},
+\label{eq:FN}
+\end{equation}
+so that $\epsilon_N=1-s_N=\bigl(1-e^{-\pi^2/(8N)}\bigr)/2$.
+\end{proposition}
+
+\begin{proof}
+Tracing the mode gives the factor $\operatorname{tr}(\sigma\,e^{i\lambda x'Q}e^{-i\lambda xQ})=\chi_\sigma(\lambda(x-x'))$. A $Z$-diagonal state $(I+zZ)/2$ has $\rho_{+-}=z/2$ in the $X$ basis, so the output mean of $Z$ is $z\operatorname{Re}\chi_\sigma(2\lambda)$, which is $(1-2s)z$ for a flip with success probability $s$. For the coherent input, $D(\beta)D(\alpha)=e^{(\beta\alpha^*-\beta^*\alpha)/2}D(\alpha+\beta)$ gives $e^{-i\lambda xQ}|\alpha\rangle=e^{-i\alpha\lambda x}|\alpha-i\lambda x\rangle$. The overlap is the coherent-state inner product $\langle\alpha-i\lambda x'|\alpha-i\lambda x\rangle=e^{-\lambda^2(1-xx')-i\alpha\lambda(x-x')}$ times the Weyl phase $e^{-i\alpha\lambda(x-x')}$ from composing the displacements; this is Eq.~\eqref{eq:coef}. At $2\lambda\alpha=\pi/2$ the off-diagonal factor is $-e^{-2\lambda^2}$, and $1-2s_N=-e^{-2\lambda^2}$ yields Eq.~\eqref{eq:FN} on all inputs.
+\end{proof}
+
+The channel $\mathcal F_N$ differs from the ideal $\operatorname{Ad}_X$ by $\epsilon_N(\mathrm{id}-\operatorname{Ad}_X)$, so its half diamond-norm distance from the ideal flip is $\epsilon_N$, and its average gate infidelity is $2\epsilon_N/3$. These are different error conventions. The coherent family above needs infinite occupation for an exact flip; Section~\ref{sec:energy} shows that this holds for every input state.
+
+\subsection{A local switch on a free field}
+\label{sec:switch}
+
+Equation~\eqref{eq:U} becomes a local operation once the mode is defined by a switch. Take a right-moving free massless scalar in $1+1$ dimensions with null coordinate $u$,
+\begin{equation}
+\phi(u)=\int_0^\infty\frac{d\omega}{\sqrt{4\pi\omega}}\bigl(a_\omega e^{-i\omega u}+a_\omega^\dagger e^{i\omega u}\bigr),\qquad
+[a_\omega,a_{\omega'}^\dagger]=\delta(\omega-\omega'),
+\end{equation}
+current $j=\partial_u\phi$ and stress $T_{uu}=:j^2:$. The current obeys $[j(u),j(v)]=\tfrac i2\delta'(u-v)$. For a real smooth compactly supported switch $g$ define
+\begin{equation}
+Q_g=\int g(u)\,j(u)\,du=\lambda(b+b^\dagger),\qquad
+\lambda^2=\int_0^\infty\frac{\omega}{4\pi}|\hat g(\omega)|^2d\omega,\qquad
+\hat g(\omega)=\int g(u)e^{-i\omega u}du,
+\label{eq:Qg}
+\end{equation}
+where $b=\int_0^\infty f^*(\omega)a_\omega d\omega$ with $f(\omega)=i\sqrt{\omega/(4\pi)}\,\hat g^*(\omega)/\lambda$ is a normalized mode. Its mean frequency is $\bar\omega=\int\omega|f|^2d\omega$, and the current contains it as $j(u)=\psi(u)b+\psi^*(u)b^\dagger+j_\perp(u)$ with $\psi(u)=-i\int_0^\infty\sqrt{\omega/(4\pi)}\,f(\omega)e^{-i\omega u}d\omega$.
+
+A probe at fixed position with interaction Hamiltonian $g(t)Xj(t)$ evolves by $U=e^{i\vartheta}\exp(-iXQ_g)$ for a real phase $\vartheta$. The reason is that $[g(t)Xj(t),g(t')Xj(t')]$ is a multiple of the identity, because $X^2=1$ and the current commutator is a c-number, so the Magnus series stops at second order and the second-order term is a phase. This uses three conditions: a single probe, a fixed coupling operator $X$, and a probe free Hamiltonian that is zero or commutes with $X$. Nonzero field frequencies are harmless. A probe Hamiltonian that does not commute with $X$ makes $X(t)$ time dependent, and several probes keep relative phases; neither case is covered. A point-like limit of the switch needs regularization, so we use smooth profiles. This exact Weyl evolution of a degenerate detector is a known method~\cite{Landulfo2016,Cozzella2020}; what we add is its use as a priced feedback actuator.
+
+\subsection{Stress, work and a derived quadratic cost}
+\label{sec:stress}
+
+\begin{proposition}[Stress of one encounter]
+\label{prop:stress}
+For the unitary $U=\exp(-iXQ_g)$,
+\begin{equation}
+U^\dagger j(u)U=j(u)+\tfrac12Xg'(u),\qquad
+U^\dagger T_{uu}(u)U=T_{uu}(u)+g'(u)\,X j(u)+\tfrac14g'(u)^2 .
+\label{eq:stress}
+\end{equation}
+The expected added stress is $g'(u)\langle Xj(u)\rangle+g'(u)^2/4$. The cross term vanishes if the bit and the fresh field input are initially independent and $\operatorname{tr}(\rho X)=0$, or if their joint state has no coherence in the bit's $Z$ basis. A $Z$-diagonal bit marginal alone is not sufficient.
+\end{proposition}
+
+\begin{proof}
+$[Q_g,j(u)]=\int g(v)[j(v),j(u)]dv=-\tfrac i2g'(u)$ is a c-number, so $e^{iXQ_g}j(u)e^{-iXQ_g}=j(u)+\tfrac12Xg'(u)$ exactly. Squaring, using $X^2=1$, and noting that a c-number shift leaves normal ordering unchanged gives the stress identity. Under independence $\langle Xj\rangle=\operatorname{tr}(\rho X)\langle j\rangle=0$, even when the input beam has $\langle j\rangle\ne0$. If the joint state is block diagonal in the bit's $Z$ basis, $X\otimes A$ has zero expectation for every field operator $A$. For the last claim, $(|{\uparrow}\rangle|0\rangle+|{\downarrow}\rangle|1_b\rangle)/\sqrt2$ has bit marginal $I/2$ but $\langle Xb\rangle=1/2$, hence $\langle Xj(u)\rangle=\operatorname{Re}\psi(u)\ne0$; with a relative phase $i$ the integrated cross term equals $-\lambda\bar\omega$ and changes the work below.
+\end{proof}
+
+Under the stated joint condition the added stress is
+\begin{equation}
+F_g(u)=\tfrac14g'(u)^2=4\lambda^2[\operatorname{Im}\psi(u)]^2,
+\label{eq:Fg}
+\end{equation}
+the second form following from $2\lambda\operatorname{Im}\psi=g'/2$. If the interaction is off before and after the encounter and the bit Hamiltonian is zero, the energy delivered by the external switching agent equals the change of field energy,
+\begin{equation}
+W_{\rm switch}=\frac14\int g'(u)^2du=\frac1{4\pi}\int_0^\infty\omega^2|\hat g(\omega)|^2d\omega=\lambda^2\bar\omega,
+\label{eq:work}
+\end{equation}
+by Parseval's identity and $|f|^2=\omega|\hat g|^2/(4\pi\lambda^2)$. This holds for every input state of the field that satisfies the joint condition.
+
+\begin{proposition}[Derived quadratic cost]
+\label{prop:K}
+For $g=\sum_ia_ig_i$ with real smooth compactly supported $g_i$, $W_{\rm switch}=\sum_{ij}a_iK_{ij}a_j$ with $K_{ij}=\tfrac14\int g_i'g_j'du$. If the $g_i$ are linearly independent, $K$ is positive definite.
+\end{proposition}
+
+\begin{proof}
+$a^TKa=\tfrac14\int(\sum_ia_ig_i')^2du$ vanishes only if $\sum_ia_ig_i$ is constant; compact support makes the constant zero, and linear independence gives $a=0$.
+\end{proof}
+
+\subsection{Coherent drive}
+
+Let the mode $b$ carry a coherent state $|\alpha\rangle$, $\alpha=\sqrt N$, with all orthogonal modes in vacuum, independent of a $Z$-diagonal bit. The output field marginal is then
+\begin{equation}
+\rho_F^{\rm out}=\tfrac12|\alpha-i\lambda\rangle\langle\alpha-i\lambda|+\tfrac12|\alpha+i\lambda\rangle\langle\alpha+i\lambda|,
+\end{equation}
+independently of the bit's bias, although bit and field are correlated afterwards. The incoming field energy is $E_{\rm in}=N\bar\omega$ and the outgoing energy is $(N+\lambda^2)\bar\omega$. A wave packet is not an eigenmode of the field Hamiltonian, so these are mean values; the field Hamiltonian is not $\bar\omega b^\dagger b$. The incoming stress is $4N[\operatorname{Re}\psi(u)]^2$ and the encounter adds $F_g$ of Eq.~\eqref{eq:Fg}. The gravitational use of these profiles is developed in Ref.~\cite{Liu2026HAFFD}.
+
+% ============================================================
+\section{The energy cost of an accurate flip}
+\label{sec:energy}
+
+How much drive is needed for a flip of given accuracy? The coherent family gives $N=\pi^2/(16\ell)$ with $\ell=-\tfrac12\log(1-2\epsilon)$, about $\pi^2/(16\epsilon)$. The following theorem bounds every input state.
+
+\begin{theorem}[Energy--accuracy bound]
+\label{thm:energy}
+Let $\sigma$ be any state of the mode $b$ with finite mean occupation $N=\operatorname{tr}(\sigma b^\dagger b)$, let $\lambda>0$, and let the coupling~\eqref{eq:U} flip $Z$-diagonal bit states with failure probability $\epsilon\in(0,\tfrac12)$ as in Eq.~\eqref{eq:eps-general}. With $\theta_\epsilon=\arccos(2\epsilon-1)\in(\pi/2,\pi)$,
+\begin{align}
+N&\ge\frac{\theta_\epsilon(1-2\epsilon)}{4\sqrt{\epsilon(1-\epsilon)}}-\frac12,\label{eq:boundN}\\
+N+\lambda^2&\ge\frac{\theta_\epsilon}{4\sqrt{\epsilon(1-\epsilon)}}-\frac12.\label{eq:boundNW}
+\end{align}
+Both right-hand sides equal $\pi/(4\sqrt\epsilon)-1+O(\sqrt\epsilon)$. The second inequality is a bound on an occupation-plus-activation budget. It equals the outgoing single-mode energy in units of $\bar\omega$ only with the independent zero-cross-term field inputs of Section~\ref{sec:stress}; correlations can change the actual switching work. An exact flip, $\epsilon=0$, is impossible at finite occupation.
+\end{theorem}
+
+\begin{proof}
+Write $C=\cos(2\lambda Q)$ and $U_2=e^{-2i\lambda Q}$, so that $\langle C\rangle=\operatorname{Re}\chi_\sigma(2\lambda)=2\epsilon-1$ and $b^\dagger b=(Q^2+P^2-2)/4$. Finite $N$ makes both second moments finite.
+
+\emph{Position quadrature.} The function $G(c)=\arccos^2c$ is convex on $[-1,1]$: with $c=\cos y$, $y\in(0,\pi)$, one finds $G''(c)=2(1-y\cot y)/\sin^2y\ge0$, since $y\cot y\le1$. For every real $q$, $(2\lambda q)^2\ge G(\cos2\lambda q)$, with equality when $|2\lambda q|\le\pi$ and strict inequality otherwise because $G\le\pi^2$. Jensen's inequality for the spectral distribution of $Q$ gives
+\begin{equation}
+\langle Q^2\rangle\ge\frac{G(\langle C\rangle)}{4\lambda^2}=\frac{\theta_\epsilon^2}{4\lambda^2}.
+\end{equation}
+
+\emph{Momentum quadrature.} Since $U_2^\dagger PU_2=P-4\lambda$, we have $[U_2,P]=4\lambda U_2$ on the domain of $P$. Writing $\delta U_2=U_2-\langle U_2\rangle$, $\delta P=P-\langle P\rangle$ and applying Cauchy--Schwarz to the Hilbert--Schmidt products $\operatorname{tr}(\sigma\,\delta U_2\,\delta P)$ and $\operatorname{tr}(\sigma\,\delta P\,\delta U_2)$ gives $|\langle[U_2,P]\rangle|\le2\,\Delta U_2\,\Delta P$ with $(\Delta U_2)^2=1-|\langle U_2\rangle|^2$. Hence $\Delta P\ge2\lambda|\chi|/\sqrt{1-|\chi|^2}$ with $\chi=\chi_\sigma(2\lambda)$. Because $|\chi|\ge|\operatorname{Re}\chi|=1-2\epsilon$ and $x/\sqrt{1-x^2}$ increases,
+\begin{equation}
+\langle P^2\rangle\ge(\Delta P)^2\ge\frac{\lambda^2(1-2\epsilon)^2}{\epsilon(1-\epsilon)}.
+\end{equation}
+In particular $|\chi|<1$ at finite $N$, which excludes $\epsilon=0$.
+
+\emph{Combination.} Adding the two bounds,
+\begin{equation}
+N\ge\frac14\left[\frac{\theta_\epsilon^2}{4\lambda^2}+\frac{\lambda^2(1-2\epsilon)^2}{\epsilon(1-\epsilon)}\right]-\frac12,
+\end{equation}
+and minimizing over $\lambda$ by the arithmetic--geometric mean inequality gives Eq.~\eqref{eq:boundN}. Adding $\lambda^2$ changes the coefficient of $\lambda^2$ to $\tfrac14[(1-2\epsilon)^2/(\epsilon(1-\epsilon))+4]=1/[4\epsilon(1-\epsilon)]$, and the same step gives Eq.~\eqref{eq:boundNW}. The expansion uses $\theta_\epsilon=\pi-2\sqrt\epsilon+O(\epsilon^{3/2})$.
+\end{proof}
+
+The bound is nearly attained by Gaussian drives.
+
+\begin{proposition}[Coherent and Gaussian families]
+\label{prop:gauss}
+(a) The coherent family with $2\lambda\alpha=\pi/2$ needs $N=\pi^2/(16\ell)$, $\ell=-\tfrac12\log(1-2\epsilon)$.
+(b) For a displaced pure Gaussian state whose $Q$ has mean $2\alpha$ and variance $V>0$, $\chi(2\lambda)=e^{-4i\lambda\alpha}e^{-2\lambda^2V}$ and $N=\alpha^2+(V+V^{-1}-2)/4$. At $2\lambda\alpha=\pi/2$ and failure $\epsilon$,
+\begin{equation}
+\min N=\frac{\sqrt{1+\pi^2/(4\ell)}-1}{2},\qquad
+\min(N+\lambda^2)=\frac12\sqrt{\Bigl(1+\frac{\pi^2}{4\ell}\Bigr)(1+4\ell)}-\frac12,
+\label{eq:gauss}
+\end{equation}
+attained at $V=(1+\pi^2/(4\ell))^{-1/2}$ and $V=[(1+4\ell)/(1+\pi^2/(4\ell))]^{1/2}$ respectively. Both equal $\pi/(4\sqrt\epsilon)-\tfrac12+O(\sqrt\epsilon)$, so their gap to Theorem~\ref{thm:energy} tends to half a quantum.
+\end{proposition}
+
+\begin{proof}
+The Gaussian characteristic function gives $\chi$. The failure condition reads $\lambda^2V=\ell$, so $\alpha^2=\pi^2/(16\lambda^2)=aV$ with $a=\pi^2/(16\ell)$ and $N=(1+4a)V/4+1/(4V)-\tfrac12$, minimized at $V=(1+4a)^{-1/2}$. Adding $\lambda^2=\ell/V$ replaces $1/(4V)$ by $(1+4\ell)/(4V)$.
+\end{proof}
+
+Squeezing is what makes the better scaling possible.
+
+\begin{proposition}[Classical drives]
+\label{prop:classical}
+If $\sigma=\int P(\beta)|\beta\rangle\langle\beta|\,d^2\beta$ with a probability density $P\ge0$, then a flip with failure $\epsilon$ needs
+\begin{equation}
+N\ge\frac{(\pi-\arccos(1-2\epsilon))^2}{16\ell}=\frac{\pi^2}{16\epsilon}\bigl(1-4\sqrt\epsilon/\pi+O(\epsilon)\bigr).
+\label{eq:classical}
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+Each coherent component has $\chi_\beta(2\lambda)=e^{-2\lambda^2}e^{-4i\lambda\operatorname{Re}\beta}$, so $\int P\cos(4\lambda\operatorname{Re}\beta)=-(1-2\epsilon)e^{2\lambda^2}$. This must be at least $-1$, hence $\lambda^2\le\ell$. The convexity argument of Theorem~\ref{thm:energy} applied to $y=4\lambda\operatorname{Re}\beta$ gives $16\lambda^2\int P(\operatorname{Re}\beta)^2\ge(\pi-\arccos[(1-2\epsilon)e^{2\lambda^2}])^2\ge(\pi-\arccos(1-2\epsilon))^2$. Finally $N=\int P|\beta|^2\ge\int P(\operatorname{Re}\beta)^2$ and $\lambda^2\le\ell$.
+\end{proof}
+
+At fixed $\lambda$, a constrained minimum can be certified by a supporting ground-state problem. If $\psi_\mu$ is the ground state of $b^\dagger b+\mu\cos(2\lambda Q)$ and $\langle C\rangle_{\psi_\mu}=2\epsilon-1$, then every $\sigma$ with the same $\langle C\rangle$ satisfies $\operatorname{tr}(\sigma b^\dagger b)\ge\langle b^\dagger b\rangle_{\psi_\mu}$, because $\operatorname{tr}\sigma(b^\dagger b+\mu C)$ is at least the ground energy. Table~\ref{tab:energy} lists numerical variational minima on a position grid, further minimized over $\lambda$, alongside the analytic bounds and the explicitly attainable Gaussian half-turn family. Halving the grid checks resolution stability, not the continuous global minimum. The computed states are close to displaced squeezed states, while the coherent half-turn family uses substantially more occupation.
+
+\begin{table}[h]
+\centering
+\begin{tabular}{@{}rrrrrr@{}}
+\toprule
+$\epsilon$ & Classical bound \eqref{eq:classical} & Coherent, $2\lambda\alpha=\pi/2$ & Bound \eqref{eq:boundN} & Grid variational & Gaussian half-turn \eqref{eq:gauss}\\
+\midrule
+0.1 & 3.496 & 5.529 & 1.165 & 1.847 & 1.904\\
+0.05 & 8.589 & 11.709 & 2.278 & 2.921 & 2.958\\
+0.01 & 53.53 & 61.07 & 6.742 & 7.314 & 7.330\\
+0.001 & 591.7 & 616.2 & 23.80 & 24.32 & 24.33\\
+\bottomrule
+\end{tabular}
+\caption{Mean drive occupation needed for a flip with failure probability $\epsilon$. Including one activation's switching work at $\epsilon=0.01$: bound~\eqref{eq:boundNW} $6.890$, grid variational minimum $7.470$, Gaussian half-turn $7.487$, coherent $61.08$. The grid minima change by less than $2\times10^{-3}$ when the spacing is halved; this is not a certified global error bound.}
+\label{tab:energy}
+\end{table}
+
+\begin{remark}[Scope of the occupation]
+\label{rem:occupation}
+(i) For a multimode field state, Cauchy--Schwarz applied to $b=\int f^*a_\omega d\omega$ gives $\langle b^\dagger b\rangle\le\omega_h^{-1}\langle H_F\rangle$ with $\omega_h^{-1}=\int|f|^2\omega^{-1}d\omega$, so the field energy is at least $\omega_h$ times the bound~\eqref{eq:boundN}; under the zero-cross-term condition of Section~\ref{sec:stress}, $\omega_h\le\bar\omega$ then makes field energy plus switching work at least $\omega_h$ times the bound~\eqref{eq:boundNW}. (ii) The occupation is the drive level present at the encounter, not energy absorbed by the bit. The bit is degenerate; the beam leaves with energy $(N+\lambda^2)\bar\omega$ in the coherent case. Whether drive energy is lost depends on whether the outgoing beam is recovered. (iii) Squeezed inputs can have locally negative normal-ordered stress, and their preparation and phase reference are additional resources.
+\end{remark}
+
+Recovering the beam is not free of consequences. Two bits placed one after the other on the same chiral packet, with the same switch profile in $u$, experience $U=\exp[-i\lambda(X_1+X_2)Q]$.
+
+\begin{proposition}[Shared drive correlates errors]
+\label{prop:reuse}
+For a shared drive each bit's marginal channel is the single-encounter channel. For two bits starting at $Z=+1$, $\langle Z_1Z_2\rangle=\tfrac12[1+\operatorname{Re}\chi(4\lambda)]$. For the coherent family of Proposition~\ref{prop:channel} this equals $(1+e^{-8\lambda^2})/2$, which exceeds the product $\langle Z_1\rangle\langle Z_2\rangle=e^{-4\lambda^2}$ obtained with independent drives.
+\end{proposition}
+
+\begin{proof}
+In the $X$ basis the joint element with indices $(x_1x_2),(x_1'x_2')$ is multiplied by $\chi(\lambda(x_1+x_2-x_1'-x_2'))$; tracing one bit recovers Proposition~\ref{prop:channel}. $Z_1Z_2$ connects $(x_1,x_2)$ with $(-x_1,-x_2)$, which gives arguments $\pm4\lambda$ and $0$. For the coherent family $\chi(4\lambda)=e^{-8\lambda^2}e^{-2\pi i}$, and $(1+y^2)/2>y$ for $0<y<1$.
+\end{proof}
+
+At $N=16$ the single failure probability is $0.0371$, and the probability that both flips fail is $0.00393$, against $0.00138$ for independent drives. Drive energy can be shared only at the price of correlated failures. The persistence analysis below uses a fresh drive at each opportunity.
+
+% ============================================================
+\section{Persistence with a finite-energy actuator}
+\label{sec:persist}
+
+\subsection{The task}
+
+We use the feedback task of the Imprint Chain~\cite{Liu2026Chain} with the corrective flip replaced by the coupling of Section~\ref{sec:actuator}. The persistent subsystem is a bit restricted to $Z$-diagonal states, with value $W=\pm1$ and target $W=+1$. A bath step flips $W$ with probability $d\in(0,\tfrac12)$; put $c=1-2d$. A reading prepares a fresh probe, copies $W$ by a CNOT, rotates the probe by $U_a$ with $a\in\{0,1\}$, and measures it with effects $E_{y\mid s}=\tfrac12(I+y\nu\sigma_s)$, $\sigma_0=Z$, $\sigma_1=X$, where the instrument label $S$ is hidden and fixed. Then
+\begin{equation}
+\Pr(Y=y\mid W=w,S=s,a)=\begin{cases}(1+yw\nu)/2,&a=s,\\ 1/2,&a\ne s.\end{cases}
+\end{equation}
+A calibration stage selects $a$; its mismatch probability $q=\Pr(a\ne S)$ is fixed along a trajectory. In each task step the system reads $Y$, accepts feedback with an independent probability $h\in(0,1]$, switches on the coupling if accepted and $Y=-1$, and then the bath acts. The loss is the occupation probability $L_t=\Pr(W_t=-1)$.
+
+Two declarations fix the resource accounting. Each opportunity has its own drive, initially independent of the bit and of earlier records, and the outgoing field never returns to the controller's reading access. The drive is scheduled: the same incoming beam arrives at every opportunity and the command only decides whether $g$ is switched on. On-demand emission of a whole packet would need a router and a timing scheme that we do not model.
+
+\subsection{Closed-loop stability}
+
+\begin{theorem}[Persistence with a finite-energy actuator]
+\label{thm:persist}
+Let each coupling act on the bit as the flip channel $sX\rho X+(1-s)\rho$, which is the case exactly when $\chi_\sigma(2\lambda)$ is real, for instance for the coherent and Gaussian families at $2\lambda\alpha=\pi/2$. Put $\Lambda=c(1-hs)$ and $B=chs\nu$, and let the task start from $W$ uniform.
+\begin{enumerate}
+\item[(a)] Conditional on $a=S$, the bit evolves by a fixed channel $\mathcal T$ on $Z$-diagonal states, $m\mapsto\Lambda m+B$ for the mean $m$ of $W$. Conditional on $a\ne S$, $m\mapsto\Lambda m$.
+\item[(b)] $\mathcal T$ has the unique fixed point $\rho_*=(I+m_*Z)/2$, $m_*=B/(1-\Lambda)$. The trace distance to $\rho_*$ contracts by exactly $\Lambda$ per step, and $D(\rho_t\Vert\rho_*)$ is nonincreasing and tends to zero.
+\item[(c)] The stationary loss is
+\begin{equation}
+L_\infty(q)=\frac12-\frac{(1-q)B}{2(1-\Lambda)}.
+\label{eq:loss}
+\end{equation}
+\item[(d)] The stationary rate of actual couplings is
+\begin{equation}
+p(q)=\frac h2\left[1-\frac{(1-q)\nu B}{1-\Lambda}\right]=h\nu L_\infty(q)+\frac{h(1-\nu)}2,
+\label{eq:rate}
+\end{equation}
+of which a fraction $s$ succeed. Over a window of $T$ steps the expected number of couplings is $\tfrac h2\bigl[T-(1-q)\nu\tfrac B{1-\Lambda}\bigl(T-\tfrac{1-\Lambda^T}{1-\Lambda}\bigr)\bigr]$.
+\item[(e)] For two calibrations with $q'<q$, $L_\infty(q)-L_\infty(q')=(q-q')B/[2(1-\Lambda)]$ and $p(q)-p(q')=h\nu[L_\infty(q)-L_\infty(q')]$.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+With $a=S$ a reading has $\mathbb E[WY]=\nu$, and the coupling is attempted with probability $h(1-Y)/2$ and flips with probability $s$. Thus the mean after feedback is $m-2s\,\mathbb E[W h(1-Y)/2]=(1-hs)m+hs\nu$, and the bath multiplies it by $c$. With $a\ne S$, $Y$ is independent of $W$ and the mean after feedback is $(1-hs)m$. Fresh probes and fresh drives make each step the same channel on the bit marginal. Trace distance between $Z$-diagonal states is $|m-m'|/2$, which the affine map multiplies by $\Lambda<1$. Data processing gives $D(\mathcal T\rho\Vert\rho_*)\le D(\rho\Vert\rho_*)$, and $m_t\to m_*$ gives convergence. Starting from $m_0=0$, the branch means are $m_*(1-\Lambda^t)$ and $0$, weighted by $1-q$ and $q$; this gives (c). The attempt probability is $h(1-\nu m)/2$ for $a=S$ and $h/2$ otherwise, which gives (d) after averaging and using $(1-q)m_*=1-2L_\infty$. Part (e) follows from (c) and (d).
+\end{proof}
+
+Gate failure enters the recursion through $hs$, while the attempt rate keeps $h$: a failed gate uses the whole encounter. Stability here does not rely on a gradient rule or a metric $G$. It follows from the contraction of the composed channel, and the relative entropy to the stationary state is a Lyapunov function of the full closed loop, which is what Section~\ref{sec:toymodel} required of a proof. Whether persistence is useful is a separate matter: the stationary polarization is positive only on the calibrated branch and grows with $s$.
+
+Table~\ref{tab:task} uses $\nu=0.8$, $c=0.9$, $h=0.4$ and coherent drives. The calibrated column uses $32$ passive two-read blocks, $q_{32}=0.0404888$ (Section~\ref{sec:calib}). With an exact flip the calibrated loss would be $0.199631$~\cite{Liu2026Chain}.
+
+\begin{table}[h]
+\centering
+\begin{tabular}{@{}rrrrrrr@{}}
+\toprule
+$N$ & $\epsilon_N$ & Loss, $q=\tfrac12$ & Loss, $q_{32}$ & Rate $p$, $q=\tfrac12$ & Rate $p$, $q_{32}$ & Added energy per opportunity\\
+\midrule
+1 & 0.354394 & 0.360165 & 0.231654 & 0.155253 & 0.114129 & 0.070401\\
+4 & 0.132699 & 0.348517 & 0.209300 & 0.151525 & 0.106976 & 0.016497\\
+16 & 0.037104 & 0.344779 & 0.202127 & 0.150329 & 0.104680 & 0.004036\\
+64 & 0.009546 & 0.343806 & 0.200259 & 0.150018 & 0.104083 & 0.001003\\
+\bottomrule
+\end{tabular}
+\caption{Stationary loss and coupling rate with a coherent drive of occupation $N$. The last column is $p\lambda^2$ at $q_{32}$ in units of $\bar\omega$; the incoming energy $N\bar\omega$ is paid at every opportunity in addition. Reading, probe and calibration costs are not included.}
+\label{tab:task}
+\end{table}
+
+\subsection{Calibration with the same imperfect gate}
+\label{sec:calib}
+
+The Imprint Chain separates calibration blocks by an exact randomization $\mathcal R(\rho)=\tfrac12(\rho+X\rho X)$. With an imperfect gate, triggering it with probability $\tfrac12$ leaves a fraction $1-s$ of the bit's mean. Triggering with probability $1/(2s)$, which is at most one because $s\ge\tfrac12$, and discarding the coin gives
+\begin{equation}
+\Bigl(1-\frac1{2s}\Bigr)\rho+\frac1{2s}\bigl(sX\rho X+(1-s)\rho\bigr)=\tfrac12(\rho+X\rho X)
+\end{equation}
+exactly. This presumes that $s$ is known. If the trigger probability is rounded to $k$ binary digits, each randomization has flip probability within $s2^{-k-1}$ of $\tfrac12$. Since $\mathrm{id}-\operatorname{Ad}_X$ has diamond norm $2$, the record distributions of a protocol with $n+1$ randomizations differ from the exact ones by at most $(n+1)s2^{-k-1}$ in total variation, or $1.52\times10^{-5}$ for $N=16$, $n=32$, $k=20$.
+
+Passive two-read blocks randomize, read, let the bath act and read again, without a feedback flip. With the compensated randomization they keep the Imprint Chain likelihood: the product of the two readings is positive with probability $p_{\rm cal}=(1+c\nu^2)/2$ if $a=S$ and $\tfrac12$ otherwise. After $n$ blocks the optimal mismatch probability is
+\begin{equation}
+q_n=\frac12\sum_{k=0}^n\binom nk\min\bigl\{p_{\rm cal}^k(1-p_{\rm cal})^{n-k},2^{-n}\bigr\}.
+\label{eq:qn}
+\end{equation}
+Active blocks, with a feedback flip after the first reading, change once the flip is imperfect. For $a=S$,
+\begin{equation}
+\Pr(y_1,y_2)=\tfrac14\bigl[1+c\nu^2y_2\bigl(s+(1-s)y_1\bigr)\bigr],
+\end{equation}
+and the pair is uniform for $a\ne S$. This law is obtained from the passive pair by an $S$-independent post-processing that keeps the first reading and relabels with probability $s$, so gate error creates no calibration information about the sensor. The success probability $s$ itself is readable from the closed loop: in the persistence task the lag-one correlation of readings on gated steps differs from that on ungated steps by a term proportional to $s$, so the agent's own records determine $s$, the bath contraction and the squared gain without references, and never the sign~\cite{Liu2026TDOME_III}. Calibration with $n$ blocks uses $2n$ readings and $n+1$ randomizations with an expected $(n+1)/(2s)$ couplings.
+
+\subsection{Records and drive in one acceptance condition}
+
+\begin{proposition}[Joint record--drive condition]
+\label{prop:joint}
+If $chs\nu>0$, the stationary loss satisfies $L_\infty(q)\le L_*$ exactly when
+\begin{equation}
+q\le1-\frac{(1-2L_*)(1-c+chs)}{chs\nu}.
+\label{eq:joint}
+\end{equation}
+If the right-hand side is negative, no amount of calibration achieves $L_*$ with that actuator.
+\end{proposition}
+
+\begin{proof}
+Rearrange Eq.~\eqref{eq:loss} using $1-\Lambda=1-c+chs$.
+\end{proof}
+
+Take $L_*=0.2$. A coherent drive with $N=1$ fails even with a known interface, whose loss is $0.220330$. For $N=4$, $16$ and $64$ the minimal numbers of passive blocks are $57$, $36$ and $33$; since $q_n$ is nonincreasing, checking that $n-1$ blocks fail and $n$ succeed establishes the minimum. With $32$ blocks fixed, Eq.~\eqref{eq:joint} requires $s\ge0.9943781$, that is $\epsilon\le0.0056219$. Coherent half-turn drives then need $N\ge109.10$, classical drives need $N\ge98.93$ by Proposition~\ref{prop:classical}, and by Theorem~\ref{thm:energy} every single-mode drive acting as a flip channel needs $N\ge9.390$ (and $N+\lambda^2\ge9.503$). The Gaussian half-turn family reaches $9.957$ and the computed grid variational minimum is $9.945$. These minima refer to the declared block protocol and feedback rule, not to every possible experiment.
+
+\begin{corollary}[Scaling of the persistence cost]
+\label{cor:scaling}
+Among drives acting as flip channels, holding the stationary loss within $\delta$ of its exact-flip value at a known interface requires a drive occupation per activation that grows as $\delta^{-1/2}$ for optimal drives and as $\delta^{-1}$ for classical drives.
+\end{corollary}
+
+\begin{proof}
+At $q=0$, $L_\infty$ is a smooth decreasing function of $s$ with nonzero derivative at $s=1$, so $\delta$ is proportional to $\epsilon$ to first order. Theorem~\ref{thm:energy} and Proposition~\ref{prop:gauss} give occupation of order $\epsilon^{-1/2}$ for optimal drives, and Proposition~\ref{prop:classical} together with the coherent family gives order $\epsilon^{-1}$ for classical drives.
+\end{proof}
+
+\subsection{Resource accounting}
+
+The resources of the task are kept as a vector. Each task opportunity uses one reading, one probe and CNOT, a gate coin, a bath interval and one incoming drive of occupation $N$, prepared whether or not it is used. Each actual coupling adds switching work $\lambda^2\bar\omega$ at rate $p$. For $N=16$ and $32$ blocks, calibration uses $64$ readings and $33$ randomization opportunities carrying incoming energy $528\bar\omega$, with an expected $17.14$ couplings and switching work $0.6606\bar\omega$. Over a task window of $60$ steps the expected number of couplings is $6.494$. The occupations $61.07$ and $7.33$ at $\epsilon=0.01$ are input levels, and $7.49$ minimizes input plus one activation's work; none of these is the total energy of an experiment, which would also include reading, preparation, records and the switching apparatus.
+
+\subsection{Finite-energy response readout}
+\label{sec:readback}
+
+An outgoing stress can change a boundary trajectory, which can in turn change
+signal delays. Consider the particular readout in which these delays are the
+only branch-dependent signal. Use one calibrated proper clock, nonnegative
+probe Hamiltonians $H_j$ on separate ports, and a joint probe--ancilla state
+independent of the unknown branch. The ancilla may be correlated with the probes
+but is not acted on by the signal. In branch $k=0,1$ the probes undergo
+$U_k=\exp[-i\sum_jH_j\tau_{kj}/\hbar]$. Preparation and final joint measurement
+can be arbitrary. The charged probe input is
+$E=\sum_j\operatorname{Tr}(\rho H_j)$, above the declared zero levels.
+
+\begin{theorem}[Sharp signed-delay energy bound]\label{thm:delayed-readout}
+Let $\Delta\tau=\max_j|\tau_{1j}-\tau_{0j}|>0$ and define
+\begin{equation}\label{eq:readout-zeta}
+ \zeta=\max_{x>0}\frac{1-\cos x}{x}=0.724611\ldots,
+ \qquad z=\frac{\zeta E\Delta\tau}{\hbar}.
+\end{equation}
+The trace distance of the two output states, including the retained ancilla,
+is at most $\sqrt{z(2-z)}$ for $0\le z\le1$, and at most one otherwise.
+For equal priors, error at most $\epsilon<1/2$ therefore requires
+\begin{equation}\label{eq:readout-energy}
+ E\ge\frac{\hbar}{\zeta\Delta\tau}
+       \left[1-2\sqrt{\epsilon(1-\epsilon)}\right].
+\end{equation}
+This lower bound is sharp across the permitted probe families, including
+oppositely signed delay differences. It need not be sharp for a specified
+Hamiltonian or a readout with all delay differences of the same sign.
+If $\Delta\tau=0$, no such protocol distinguishes the branches.
+\end{theorem}
+\begin{proof}
+The scalar maximum occurs at the unique $x_*\in(0,\pi)$ satisfying
+$\tan(x_*/2)=x_*$; for $x\ge\pi$, $(1-\cos x)/x\le2/\pi$, whereas
+the value at $2\pi/3$ gives $\zeta\ge9/(4\pi)>2/\pi$.
+Thus $1-\cos x\le\zeta|x|$ for every real $x$.
+Purify the probe--ancilla input. The overlap of the two resulting pure states is
+\[
+ A=\operatorname{Tr}\rho\exp(-iK),\qquad
+ K=\sum_jH_j(\tau_{1j}-\tau_{0j})/\hbar.
+\]
+The Hamiltonians commute strongly, and their positivity gives
+$|K|\le(\Delta\tau/\hbar)\sum_jH_j$ by joint spectral calculus.
+Consequently $\operatorname{Re}A\ge1-z$.
+For $z\le1$, the pure-state trace distance is
+$\sqrt{1-|A|^2}\le\sqrt{z(2-z)}$; discarding the purifying reference cannot
+increase it. Equal-prior error is at least $(1-D)/2$ for trace distance $D$.
+Solving this inequality gives Eq.~\eqref{eq:readout-energy}.
+
+For saturation, take two probes with equal excited energy
+$e=x_*\hbar/\Delta\tau$, and delay differences $+\Delta\tau,-\Delta\tau$.
+On the three states $|00\rangle,|e0\rangle,|0e\rangle$ prepare
+\[
+ |\psi\rangle=\sqrt{1-p}\,|00\rangle
+       +\sqrt{p/2}\,(|e0\rangle+|0e\rangle),\qquad
+ p=\frac{1-2\sqrt{\epsilon(1-\epsilon)}}{1-\cos x_*}.
+\]
+Here $0\le p<1$, $E=pe$, and the branch overlap is exactly
+$1-p(1-\cos x_*)=2\sqrt{\epsilon(1-\epsilon)}$. The optimal binary
+measurement attains error $\epsilon$ and Eq.~\eqref{eq:readout-energy}.
+\end{proof}
+
+Mean-energy quantum speed limits constrain distinguishable evolution, including
+arbitrary-fidelity targets~\cite{MargolusLevitin1998,HornedalSonnerborn2023}.
+Here the relevant resource is the
+sum of the physical probe energies, not the signed generator's ground-state
+shift; this accounts for opposite delay differences without assigning a negative
+probe cost. A readable branch marker, changed output frequency or amplitude,
+branch-dependent preparation, or a signal interaction other than translation
+falls outside the theorem. For example, an unpriced orthogonal marker would
+distinguish the branches at zero probe energy. Receiver, clock and preparation
+costs remain additional resources.
+
+In HAFF-D, three echoes determine the coefficients of a supplied JT solution.
+Its source-compensated inverse permits known stresses in both null directions
+and propagates timing and source-calibration errors to the next coupled
+projection~\cite{Liu2026HAFFD}. This connects a selection-dependent source, its
+response and a subsequent operation, conditional on the declared instrument.
+For its compact-pulse example the largest proper-delay difference is
+$0.05001338$; a translation-only instrument with error $0.1$ requires input
+energy at least $11.0374\hbar$ in that clock's units. The geometric inverse does
+not construct such a probe or its reflecting boundary. Its supplied bulk
+source-compensation test is not an energy--resolution demonstration. A joint
+apparatus must meet the readout bound, the actuator bound and its actual stress
+and entropy accounts without counting the same outgoing energy twice.
+
+% ============================================================
+\subsection{Finite-rate entropy export}
+
+Drive occupation and exported heat obey different bounds. If the maintained
+subsystem and its finite reused controller remove a net dimensionless entropy
+current $\dot s>0$, and all of it leaves through a chiral conformal exhaust of
+capacity $c_{\rm ex}$ above a thermal input at temperature $T$, HAFF-D gives
+\cite{Liu2026HAFFD}
+\[
+ \dot Q\ge k_BT\dot s+\frac{3\hbar}{\pi c_{\rm ex}}\dot s^2.
+\]
+The current must include retained side information and controller consumption;
+the number of attempted flips alone does not determine it. The bound assumes
+an extensive long-window entropy-current account, zero chemical potential or
+the matched conserved-charge account, and one common clock. It is not an exact
+bound for every short packet. It remains positive at $T=0$ for a thermal input,
+where ordinary Landauer heat is zero. For independent parallel exhausts at one
+temperature, $c_{\rm ex}$ is their total capacity.
+
+A nonthermal drive changes this comparison. If its incoming energy and
+dimensionless entropy currents are $e_{\rm in}$ and $\sigma_{\rm in}$, the
+same Gibbs argument gives
+\[
+ \dot Q+e_{\rm in}-E_{\rm th}(\sigma_{\rm in})
+ \ge k_BT_\sigma\dot s+\frac{3\hbar}{\pi c_{\rm ex}}\dot s^2,\qquad
+ E_{\rm th}(\sigma)=\frac{3\hbar\sigma^2}{\pi c_{\rm ex}},\quad
+ T_\sigma=\frac{6\hbar\sigma_{\rm in}}{\pi c_{\rm ex}k_B}.
+\]
+The incoming energy above its entropy-matched thermal value can pay for export.
+In particular, a coherent beam with zero entropy is not a zero-energy reservoir.
+Its drive occupation and the additional heat must be accounted for separately.
+
+This heat is neither the incoming occupation $N\bar\omega$ nor an extra charge
+to add to an outgoing energy already counted. It is a constraint on that energy
+when it carries the removed entropy. The scheduled drive calculation above does
+not establish its exhaust-capacity assumptions. A complete apparatus must price
+reading, recovery, sensing and entropy transport in the same cycle.
+
+% ============================================================
+\section{Calibrating an interface while it carries quantum content}
+\label{sec:held-content}
+
+Preparing test states before storage is not the only way to learn an interface.
+The outgoing field can carry information about the coupling without carrying
+the logical content that the apparatus is trying to keep. We give the instrument,
+its loss under incomplete collection, and a coherent implementation.
+
+On the two-qubit code $\mathcal C=\operatorname{span}\{|01\rangle,|10\rangle\}$,
+let $Z_L$ have eigenvalues $+1,-1$. The coupling
+$Z_1+\alpha aZ_2$ restricts to $mZ_L$, $m=1-\alpha a$, with unknown
+$\alpha>0$ and chosen command $a$. Write
+\[
+ Q_f=\sqrt{k}(b+b^\dagger),\qquad U_m=e^{-imZ_LQ_f},\qquad
+ k>0,\quad \Pi=(-1)^{b^\dagger b}.
+\]
+The independently prepared incoming mode is vacuum. A beam splitter collects
+fraction $\xi$ of this mode, leaving fraction $1-\xi$ inaccessible.
+
+\begin{proposition}[A content-preserving calibration instrument]
+\label{prop:held-instrument}
+Measure the collected mode's parity and apply $Z_L$ for an odd outcome.
+The corrected instrument, including an arbitrary retained reference, is
+\begin{equation}
+ \mathcal I_\pm(\rho)=p_\pm(a)\mathcal D_{\xi,m}(\rho),\qquad
+ p_\pm(a)=\frac{1\pm e^{-2k\xi m^2}}2,
+ \label{eq:held-instrument}
+\end{equation}
+where $\mathcal D_{\xi,m}$ fixes the populations and multiplies logical
+coherence by $e^{-2k(1-\xi)m^2}$. At full collection each outcome is a
+scalar multiple of the identity channel. Fresh-port queries chosen from earlier
+records can therefore calibrate the interface without replacing its held state.
+\end{proposition}
+\begin{proof}
+The accessible displacement has the expansion
+$I_L\cos(m\sqrt\xi Q_A)-iZ_L\sin(m\sqrt\xi Q_A)$.
+On the vacuum the two field vectors have opposite parity, with squared norms
+$p_+,p_-$. The conditional pulse makes both logical factors $I_L$.
+The independent inaccessible displacement commutes with this correction and
+leaves $\mathcal D_{\xi,m}$. Each branch is thus Eq.~\eqref{eq:held-instrument},
+not merely an equality of its unconditional channel. Composition proves the
+adaptive statement; the same computation tensors with any reference.
+\end{proof}
+
+Environment-assisted correction of unitary Kraus branches is a known general
+mechanism~\cite[Proposition~2]{GregorattiWerner2002}. Here its records are also
+the data for learning the same interaction's gain and collection fraction.
+Repeated ancilla-based parity measurements have been implemented for a cavity
+mode~\cite{Sun2013}; collecting the full mode of a travelling chiral field is
+an additional requirement, not supplied by that experiment.
+
+Partial collection prices the calibration itself. For $N$ queries at each of
+$a=\pm h$, with fixed $\alpha,\xi$, the held coherence is multiplied by
+\begin{equation}
+ \exp[-4Nk(1-\xi)(1+\alpha^2h^2)].
+ \label{eq:calibration-disturbance}
+\end{equation}
+This loss occurs before any subsequent operating benefit. With $k=.2$,
+$\alpha=1.1$, $h=.5$ and $N=4096$, keeping the calibration's dephasing error
+below $.01$ needs $1-\xi\le4.7335\times10^{-6}$. At $\xi=.99$ its error
+is essentially $1/2$. More records are not automatically better for held content.
+
+\subsection{A resonant collection port}
+\label{sec:resonant-collector}
+
+The collection fraction can itself be realized by a finite-duration interaction.
+This construction starts with a retained source oscillator $b$ and a receiver
+oscillator $c$ of the same frequency $\omega$, with $c$ initially in vacuum.
+It does not assume that a broadband travelling mode has already been trapped
+by this interaction. In the interaction picture put
+\[
+ H_{\rm cap}(t)=\hbar g(t)C,\quad
+ C=b^\dagger c+c^\dagger b,\quad
+ \theta=\int g(t)dt,\quad
+ U_{\rm cap}=e^{-i\theta C}.
+\]
+
+\begin{proposition}[Finite resonant collection]
+\label{prop:resonant-collection}
+For $0\le\theta\le\pi/2$, the receiver collects
+$\xi=\sin^2\theta$ of the source mode. Corrected receiver-parity readout
+realizes Eq.~\eqref{eq:held-instrument} with this $\xi$.
+If $|g|\le g_{\max}<\omega$, the total Hamiltonian
+$\hbar\omega(n_b+n_c)+H_{\rm cap}$ is bounded below and the pulse needs
+duration at least $\theta/g_{\max}$. A pulse starting and ending at zero
+does no net prescribed-switch work in this isolated two-mode model.
+For the independently prepared vacuum encounter, the mean occupations after
+collection are $\xi km^2$ and $(1-\xi)km^2$. Their sum is $km^2$.
+
+A pulse-area error $\delta$ changes $\xi$ by at most $|\delta|$.
+For any input with $\langle n_b+n_c\rangle\le\bar n$, including a
+retained reference, its half-trace error is at most
+$\min\{1,\sqrt{2|\delta|\bar n}\}$.
+\end{proposition}
+\begin{proof}
+The Heisenberg transforms are
+$b\mapsto b\cos\theta-ic\sin\theta$ and
+$c\mapsto c\cos\theta-ib\sin\theta$.
+The conditional coherent states produced by $U_m$ therefore split into
+receiver and remainder amplitudes with squared fractions $\xi,1-\xi$.
+The receiver's known phase does not change parity. Applying
+Proposition~\ref{prop:held-instrument} proves the instrument and the
+occupation account, for any logical input.
+
+The normal modes $(b\pm c)/\sqrt2$ have instantaneous frequencies
+$\omega\pm g$, which proves the lower bound. The amplitude bound proves
+the duration statement. Both $C$ and total occupation commute with the
+Hamiltonian, so
+$\int\langle\partial_tH_{\rm cap}\rangle dt
+=\hbar\langle C\rangle[g(t_{\rm end})-g(t_{\rm start})]=0$.
+Finally $|\sin^2(\theta+\delta)-\sin^2\theta|\le|\delta|$ and
+$|C|\le n_b+n_c$. The purified-vector estimate
+$2\langle1-\cos(\delta C)\rangle\le2|\delta|\bar n$ proves
+the energy-constrained error bound.
+\end{proof}
+
+This account includes transferred energy and a gate clock. Receiver parity
+control, reading and retaining a syndrome, preparing the next empty receiver,
+and supplying the switching apparatus remain separate resources. Emptying the
+receiver exports energy; it is not included in the zero net switch work above.
+Restoring a degraded collection setting also needs a stated physical permission
+and price. Brain Anchor~\cite{Liu2026Brain} uses such a permission in a finite
+model where the same content survives inquiry, operation and maintenance.
+Resonant port capture, local capture of a continuous field and sustained
+thermal export are three different implementation questions.
+
+Whole-mode control can be reduced to successive port contacts in a finite
+packet model. Take $n$ source oscillators of frequency $\omega$ and one
+vacuum receiver $c$. For real $f_j\ge0$, $\sum_jf_j^2=1$, form the packet
+mode $b_f=\sum_jf_jb_j$. Sequential source interactions
+$e^{-im\sqrt{k}f_jZ_L(b_j+b_j^\dagger)}$ produce the same packet displacement
+as $e^{-im\sqrt{k}Z_L(b_f+b_f^\dagger)}$. After contacting port $j$, couple
+only that port to $c$ through the resonant Hamiltonian above, with area
+$0\le\theta_j\le\theta_{\max}\le\pi/2$. Released ports are inaccessible.
+The receiver's packet amplitude, up to its known common phase, obeys
+\[
+ y_0=0,\qquad y_j=y_{j-1}\cos\theta_j+f_j\sin\theta_j.
+\]
+
+\begin{proposition}[Sequential local-port collection]
+\label{prop:packet-collection}
+The receiver collects fraction $\xi=y_n^2$ of the packet, and its corrected
+parity instrument is Eq.~\eqref{eq:held-instrument}. Among these permitted
+real resonant contacts, final collection is maximized by
+\[
+ \theta_j=\min\{\theta_{\max},\arctan(f_j/y_{j-1})\},
+\]
+with the first angle $\pi/2$ before applying the cap when $y_{j-1}=0<f_j$.
+When $y_{j-1}=f_j=0$, choose $\theta_j=0$.
+For a uniform packet and $\theta_{\max}=.5$, the first five contacts are
+capped and the remaining ones are unconstrained. For $n\ge5$ the exact
+optimum is
+\[
+ \xi=1-\frac d n,\qquad
+ d=5-\cot^2(.25)(1-\cos^5(.5))^2=1.47392688\ldots.
+\]
+Thus 148 uniform ports suffice for collection at least $.99$, and fewer
+do not under the same cap. With no cap below $\pi/2$, the angles
+$\theta_1=\pi/2$, $\theta_j=\arctan(1/\sqrt{j-1})$ collect a uniform
+finite packet completely.
+\end{proposition}
+\begin{proof}
+Passive mode mixing sends the packet's conditional coherent displacement
+to receiver amplitude $-i y_n$ and a remainder of squared norm $1-y_n^2$.
+Orthogonal input modes are vacuum. Their overlaps prove the instrument.
+Each step maximizes $y\cos\theta+f_j\sin\theta$ at the stated angle.
+The maximum is nondecreasing in $y\ge0$, because all permitted cosines
+are nonnegative. Induction therefore makes this stepwise optimum a final
+optimum. For a uniform packet, the first capped steps give
+$y_j=n^{-1/2}\cot(.25)(1-\cos^j(.5))$. After the fifth, the interior
+optimum has $y_j^2=y_{j-1}^2+1/n$. This proves the formula and threshold.
+The uncapped recursion gives $y_j=\sqrt{j/n}$.
+\end{proof}
+
+Each contact has a Hamiltonian bounded below when $g_{\max}<\omega$,
+needs duration at least $\theta_j/g_{\max}$ and conserves total occupation.
+The source prepares mean total occupation $km^2$, the receiver holds
+$\xi km^2$ and the released ports hold $(1-\xi)km^2$. Parity control is
+needed only on the retained receiver. For contact-area errors $\delta_j$,
+the half-trace error is at most
+$\min\{1,\sum_j\sqrt{2|\delta_j|\bar n}\}$ when total occupation is
+bounded in mean by $\bar n$; telescope the preceding energy-constrained
+bound. Source switching, receiver reuse and detector errors require their
+own account. These are local contacts in a finite collision architecture,
+not a proof that a specified relativistic wave packet admits that architecture
+or that its clocks and references can be sustained indefinitely.
+
+\subsection{Positive-frequency continuous collection}
+\label{sec:band-collector}
+
+A specified continuous field can also supply the collection port. Let
+$\omega=\Omega+\delta$, $|\delta|\le B<\Omega$, and couple it to a retained
+oscillator $c$. With $[a_\delta,a^\dagger_{\delta'}]=\delta(\delta-\delta')$,
+take a real even form factor $g$, $J=g^2$ and $G=\|g\|_2$. Put
+\begin{equation}
+ H(h)=\hbar\Omega n_c+\hbar\!\int_{-B}^{B}(\Omega+\delta)
+ a^\dagger_\delta a_\delta d\delta
+ +\hbar h(t)\!\int_{-B}^{B}g(\delta)
+ (c^\dagger a_\delta+a^\dagger_\delta c)d\delta,\qquad |h|\le1.
+ \label{eq:band-H}
+\end{equation}
+This is an excitation-preserving effective Hamiltonian with a specified
+band-smeared coupling. Its frequency form factor gives spatial tails; it is
+not a strictly point-local relativistic detector. No negative physical
+frequencies or Markov extension of the band are used. Matched pulse absorption
+by a tunable resonator is an established mechanism~\cite{Wenner2014}; the
+question here is how its finite-band realization enters the held-content
+instrument and source account.
+
+In the frame rotating at $\Omega$, the one-particle operator is
+\[
+ A=\begin{pmatrix}0&\langle g|\\|g\rangle&\delta\end{pmatrix},
+ \quad S=e^{-iAT},\quad r(T)=\langle c|S|c\rangle.
+\]
+The capture pulse has $h=1$ on $[0,T]$ and is otherwise off. Deviations from
+this prescribed pulse are bounded below.
+
+\begin{proposition}[Matched finite-band capture]
+\label{prop:band-capture}
+If $\Omega>B+G$, every Hamiltonian in Eq.~\eqref{eq:band-H} is bounded
+below by $\hbar(\Omega-B-G)N$. Write
+$\xi_0=1-|r(T)|^2>0$. Among normalized incoming field modes, the mode
+\[
+ f=-P_{\rm field}S^\dagger|c\rangle/\sqrt{\xi_0}
+\]
+maximizes collection and is collected with fraction $\xi_0$.
+It can be prepared from independent vacuum by a finite prescribed
+body-controlled linear drive with envelope $u(s)=r(T-s)$, $0\le s\le T$.
+For even $J$, $r$ and this envelope are real. The prepared field amplitudes are
+\begin{equation}
+ m\beta w_u(\delta),\qquad
+ w_u(\delta)=-ig(\delta)\int_0^T u(s)e^{i\delta s}ds,
+ \quad w_u=-P_{\rm field}S^\dagger|c\rangle,
+ \quad \beta=\sqrt{k/\xi_0}.
+ \label{eq:band-preparation}
+\end{equation}
+For an arbitrary prepared envelope and $w_u\ne0$, replace $k$ by
+$k_{\rm eff}=\beta^2\|w_u\|^2$ and use
+$\xi=|\langle c|S(0,w_u)\rangle|^2/\|w_u\|^2$.
+Corrected receiver-parity readout then realizes
+Eq.~\eqref{eq:held-instrument} with these actual parameters.
+\end{proposition}
+\begin{proof}
+$\|A\|\le B+G$ and second quantization prove the lower bound.
+The norm of the field part of the receiver row is $\sqrt{\xi_0}$;
+Cauchy--Schwarz proves the optimum. Its orthogonal complement has zero
+collection, so the statement is not uniform over unknown packets.
+
+Eliminating the field component of $S^\dagger|c\rangle$ gives
+Eq.~\eqref{eq:band-preparation}. Reflection $\delta\mapsto-\delta$,
+field sign reversal and complex conjugation define an antiunitary taking
+$A$ to $-A$ and leaving its propagator invariant. Hence $r$ is real.
+One explicit preparation places the band-smeared source at $x=-T$ and the
+receiver at $x=0$, with propagation speed one. Drive the source during
+$t\in[-T,0]$ with envelope $u(t+T)$ and a prescribed carrier phase
+$\Omega$. Explicitly its interaction-picture Hamiltonian is
+\[
+ H_s^I(t)=\hbar m\beta Z_L u(t+T)
+ \int_{-B}^B g(\delta)
+ [a_\delta^\dagger e^{i\delta(t+T)}+
+  a_\delta e^{-i\delta(t+T)}]d\delta.
+\]
+Its displacement is $m\beta w_u$; the receiver is coupled only after this
+drive. The source Hamiltonian is linear in the band field and proportional
+to $mZ_L$. Its time-ordering
+commutator is a scalar times $Z_L^2$, so it changes only an overall phase.
+Completing the square bounds its instantaneous energy below since
+$\Omega-B>0$ and $\int J/\omega$ is finite.
+
+Passive field evolution splits the conditional coherent amplitudes into
+a receiver component of squared fraction $\xi$ and a remainder of
+fraction $1-\xi$. Their vacuum overlaps give the claimed instrument for
+arbitrary logical input and retained reference. Initial independence and
+parameters fixed within an encounter are required.
+\end{proof}
+
+The propagation prescription is within the band-smeared model: a strictly
+band-limited field operator has no compact spatial support. The construction
+supplies a drive and a receiver, not their formation from unknown interactions.
+For real envelopes and even $g$, the free input and output energies are
+\begin{equation}
+ E_{\rm source}=\hbar\Omega k_{\rm eff}m^2,\qquad
+ E_c=\hbar\Omega\xi k_{\rm eff}m^2,\qquad
+ E_{\rm free,out}=\hbar\Omega(1-\xi)k_{\rm eff}m^2.
+ \label{eq:band-energy}
+\end{equation}
+The same reflection symmetry makes the mean detuning energy zero before and
+after collection. Consequently the net prescribed capture-switch work is
+zero in this family. The complete source drive supplies $E_{\rm source}$.
+For other packets the capture work need not vanish: at mean occupation
+$\bar n$, its magnitude is at most $2\hbar B\bar n$.
+Detector, carrier, clock and support costs are separate from these accounts.
+
+\begin{proposition}[A finite waveform certificate]
+\label{prop:band-certificate}
+Let $J(\delta)\le J_0$. Approximate $r(T-s)$ by linear interpolation of
+node values on $L$ uniform intervals, each rounded on a prescribed grid of
+spacing $q$. Include a further uniform envelope error $\eta_u$. With
+$\nu=\sqrt{\xi_0}$,
+\[
+ \sigma=\sqrt{2\pi J_0T}
+       \left[\frac{G^2(T/L)^2}{8}+\frac q2+\eta_u\right]
+\]
+bounds the prepared field-vector error relative to
+Eq.~\eqref{eq:band-preparation}. An interval enclosure error for node values
+is added inside the brackets. Let duration and arrival errors be bounded by
+$d_T,d_t$, and the capture pulse have
+$\int|h_{\rm actual}-h|dt\le d_h$. Put
+$\varepsilon=(B+G)d_T+Bd_t+Gd_h$. If $\sigma<\nu$, then
+\begin{equation}
+ 1-\xi\le
+ \left[\frac{|r|\nu+\sigma+\varepsilon(\nu+\sigma)}{\nu-\sigma}\right]^2,
+ \qquad
+ \left(1-\frac\sigma\nu\right)^2
+ \le\frac{k_{\rm eff}}k\le
+ \left(1+\frac\sigma\nu\right)^2.
+ \label{eq:band-certificate}
+\end{equation}
+Arrival and duration bounds here concern collection and the logical parity
+instrument, which are insensitive to the common carrier phase.
+\end{proposition}
+\begin{proof}
+$|r''(s)|=|\langle Ac|e^{-iAs}|Ac\rangle|\le G^2$ gives the
+interpolation bound. Plancherel over the entire frequency line, followed by
+restriction to the band, gives $\|w_u-w_{\rm ideal}\|\le\sigma$.
+Duhamel bounds the carrier-referenced propagator error by $\varepsilon$.
+The ideal outgoing field remainder has norm $|r|\nu$.
+Adding preparation and propagator errors to this norm and dividing by the
+actual input norm, at least $\nu-\sigma$, proves the first bound.
+The second follows by the same input-norm bounds.
+\end{proof}
+
+For a concrete continuum certificate use
+\[
+ J(\delta)=\frac1{2\pi}\left[1-(\delta/B)^2\right]^2,
+ \quad \Omega=20,\quad B=5,\quad T=16.
+\]
+Frequencies are measured in units of $2\pi J_0$ and times in its reciprocal.
+Then $G^2=8/(3\pi)$. The exact even bath moments are
+$\mu_{2j}=16J_0B^{2j+1}/[(2j+1)(2j+3)(2j+5)]$.
+If $M_n=\langle c|A^n|c\rangle$, then
+\[
+ M_0=1,\qquad M_{2n}=\sum_{j=0}^{n-1}\mu_{2j}M_{2(n-1-j)},
+ \qquad r(t)=\sum_{n=0}^\infty
+             \frac{(-1)^nM_{2n}t^{2n}}{(2n)!}.
+\]
+Decomposing each departure and return to $c$ proves the recurrence.
+The degree-$P$ Taylor remainder is at most
+$[(B+G)T]^{P+1}/(P+1)!$ by self-adjoint functional calculus.
+Directed intervals at 120 decimal digits and $P=400$ give
+$r(16)=0.00006174329992949833573\ldots$ with remainder below
+$1.53\times10^{-79}$ and $\xi_0>0.99999999618$.
+
+Choose $L=512$, $q=1/65536$, $\eta_u=d_T=d_t=d_h=10^{-5}$.
+The 513 rounded node values fit the grid $[-1/64,1]$, whose 66561 labels
+need 17 bits each. The fixed table uses 8721 logical bits, apart from its
+decoder, interpolator, carrier and clock. A separately encoded normalization
+amplitude rounded on a $2^{-24}$ grid contributes less than $10^{-7}$
+relative error at nominal $k=.2$; it fits within $\eta_u$ and uses 24 more
+label bits. Eq.~\eqref{eq:band-certificate}
+gives $1-\xi<4.42935\times10^{-7}$ and
+$k_{\rm eff}/k\in[.999030268,1.000970203]$.
+For $\alpha=1.1$, $h=.5$, $N=4096$ probes at each of $\pm h$ and
+nominal $k=.2$, the calibration's collection-dependent dephasing error
+is below $.000946$. This contrasts with the loss of content at $\xi=.99$
+above; it does not include parity-gate or detector errors.
+
+A second numerical representation replaces frequency multiplication by
+cell midpoints while retaining $g$ itself. The invariant vector in each cell
+is $g\mathbf1_{\rm cell}/\|g\mathbf1_{\rm cell}\|$, with coupling
+$\sqrt{\int_{\rm cell}J}$. Its finite matrix approximates the continuum
+propagator with operator error at most $TB/M$ for $M$ cells. These cells
+are a numerical resolution, not fresh physical ports. Dense
+and sparse matrix calculations agree with the moment enclosure and the prepared
+waveform. The recurrence and rounding rule specify the waveform without a
+fitted infinite-precision function.
+
+After an encounter, swapping $c$ with an independent same-frequency vacuum
+oscillator returns $c$ exactly to vacuum, even when its old state is correlated
+with a reference. The swap exports $E_c$ and has the finite duration and
+occupation account of Proposition~\ref{prop:resonant-collection}. It supplies
+a reusable receiver for a finite bank of encounters, not a free thermal sink.
+Repeating the query law needs independent field preparations as well as
+independent vacuum exhausts. Independent field sectors selected one at a time
+give a finite-bank realization whose Hamiltonian remains bounded below.
+8192 queries consume 8192 such preparations and exhausts, while sharing the
+waveform program. In this calibration example the nominal source energy is
+$E_{\rm probes}/[\hbar(2\pi J_0)]=
+4096(.2)(20)[(1-.55)^2+(1+.55)^2]=42680.32$.
+It is predominantly collected and later exported, not
+eliminated by the small content-damage bound. Serial preparation and capture
+take $8192(2T)=262144$ time units before parity control and receiver reset.
+Time windows in one band-limited waveguide are not
+automatically independent; that alternative requires a return/reset bound.
+Thermal exhaust resets $c$ to a thermal state and changes the readout law.
+For example, for the exactly matched mode, a thermal receiver of mean
+occupation $n_T$ gives even-parity
+probability
+\[
+ \frac12\left[1+
+ \frac{e^{-2\xi k m^2/[1+2(1-\xi)n_T]}}{1+2(1-\xi)n_T}\right]
+\]
+after mixing with the vacuum source packet, rather than the vacuum formula.
+For an unmatched packet, the thermal occupation term instead uses
+$|\langle c|S|c\rangle|^2n_T$, which need not equal $(1-\xi)n_T$.
+
+\begin{proposition}[Coherent parity echo]
+\label{prop:coherent-parity-echo}
+Suppose the relevant mode remains available for joint control. The bounded
+involution
+\[
+ R=|0_L\rangle\langle0_L|\otimes I+
+   |1_L\rangle\langle1_L|\otimes\Pi
+   =I_L\otimes P_{\rm even}+Z_L\otimes P_{\rm odd}
+\]
+satisfies, on the quadrature domain,
+\begin{equation}
+ R(Z_L\otimes Q_f)R=I_L\otimes Q_f,
+ \qquad R U_m R=I_L\otimes e^{-imQ_f}.
+ \label{eq:coherent-parity-echo}
+\end{equation}
+This protects the body's marginal for every mode input and even for an initially
+correlated body--mode state. For an independent vacuum input, the first $R$
+acts trivially; the final $R$ alone disentangles the body and mode.
+\end{proposition}
+\begin{proof}
+$\Pi Q_f\Pi=-Q_f$. In the $+1$ logical block the conjugated generator is
+$Q_f$, and in the $-1$ block it is $-\Pi Q_f\Pi=Q_f$.
+Functional calculus gives the unitary identity. A unitary on the mode alone
+cannot change the body's reduced state. On vacuum $\Pi|0\rangle=|0\rangle$.
+\end{proof}
+
+One qubit meter implements $R$ coherently. Prepare it in $|0\rangle_C$, apply
+\[
+ M=\exp[-i(\pi/2)P_{\rm odd}\otimes Y_C],
+ \qquad C_Z=I_L\otimes|0\rangle\langle0|_C+
+           Z_L\otimes|1\rangle\langle1|_C,
+\]
+and then apply $M^\dagger C_Z M$, with the tensor identities understood.
+The meter computes parity, controls the body phase and uncomputes parity;
+it returns exactly to $|0\rangle_C$. Bounded Hamiltonians
+$g(t)P_{\rm odd}\otimes Y_C$ and
+$\gamma(t)(I_L-Z_L)/2\otimes|1\rangle\langle1|_C$ suffice, with pulse areas
+$\pi/2$ and $\pi$. Amplitude bounds impose corresponding nonzero durations.
+No classical syndrome bit has to be erased in this coherent correction.
+Producing a retained classical calibration record is a separate operation.
+Pulse area is not a heat bill: the control field, capture, clock and support
+still need their physical energy account. Half-diamond errors of supplied
+primitive channels accumulate at most by their sum, by telescoping compositions;
+such a bounded-channel error alone does not bound an unbounded stress observable.
+
+A retained oscillator offers a direct alternative to the spectral meter.
+In its interaction picture, with $n=b^\dagger b$ and
+$P_1=|1_L\rangle\langle1_L|$, the dispersive Hamiltonian
+$H_R(t)=\hbar\chi(t)P_1\otimes n$ implements $R$ when
+$\int\chi(t)dt=\pi$. Such number-controlled parity gates are established
+cavity operations~\cite[pp.~2--3]{Sun2013}. For a degenerate logical body,
+$\chi\ge0$ and oscillator energy $\hbar\omega n$, the total Hamiltonian
+is bounded below. If $\chi$ starts and ends at zero and the gate is isolated,
+$P_1n$ is conserved, so its net prescribed-switch work is exactly zero:
+\[
+ W_R=\hbar\int\dot\chi\,\langle P_1n\rangle dt=0.
+\]
+The oscillator's stored energy, gate duration and controller are not zero.
+The integrated expected interaction energy is
+$\pi\hbar\langle P_1n\rangle$; $\chi\le\chi_{\max}$ gives duration
+at least $\pi/\chi_{\max}$. If the pulse area has error $\delta$, its
+half-trace error, with any reference and an input occupation bound
+$\langle n\rangle\le\bar n$, is at most
+$\min\{1,\sqrt{2|\delta|\bar n}\}$. Indeed the relative unitary is
+$e^{-i\delta P_1n}$, and the purified vector error squared is bounded by
+$2|\delta|\langle P_1n\rangle$, using $1-\cos x\le|x|$.
+This is an energy-constrained error, not an unrestricted diamond bound.
+It gives an explicit retained-oscillator gate account; it does not price
+trapping a broadband travelling mode or operating the classical switch.
+
+\subsection{Thermal inquiry with a binary record and a finite bank}
+\label{sec:thermal-bank}
+
+The echo gives an actual thermal inquiry protocol on the retained oscillator.
+Let its input be the centered Gibbs state $\tau_T$ of
+$H_b=\hbar\omega n$, with $n_T=(e^{\hbar\omega/(k_BT)}-1)^{-1}$ and
+$\nu_T=2n_T+1$. This input is independent of the held body, its old reference
+and earlier records. Both parity gates in $R U_m R$ are used: the first is
+generally consequential on a thermal input. The result is
+$\rho_{L\mathrm{old}}\otimes D_m\tau_TD_m^\dagger$, where
+$D_m=e^{-im\sqrt{k}Q}$. Thus the body and its entire old reference are
+preserved, while the oscillator has
+\[
+ \langle P\rangle=-2m\sqrt{k},\qquad
+ \operatorname{Var}(P)=\nu_T,\qquad
+ E_b-E_{b,\mathrm{in}}=\hbar\omega km^2.
+\]
+The displaced Gibbs state has the same entropy as $\tau_T$.
+
+A quadrature mean is not yet a saved record. Prepare a fresh degenerate
+qubit $C$ in $\eta_v=(I+vZ_C)/2$, $0<v\le1$, independently of the
+oscillator and all earlier outputs. Couple it through
+\[
+ V_\kappa=e^{-i\kappa P\otimes Y_C},\qquad \kappa>0,
+\]
+then measure $X_C$ and store the outcome $Y=\pm1$. The preparation,
+orientation, measurement and storage are declared operations.
+
+\begin{proposition}[Thermal binary inquiry]\label{prop:thermal-read}
+For this protocol the instrument on the held body and its old reference is
+\begin{equation}\label{eq:thermal-read}
+ \mathcal J_y(\rho_{L\mathrm{old}})
+ =\frac{1+y\mu_T(m)}2\rho_{L\mathrm{old}},\qquad
+ \mu_T(m)=-v e^{-2\kappa^2\nu_T}\sin(4\kappa m\sqrt{k}).
+\end{equation}
+The read interaction adds oscillator energy $\hbar\omega\kappa^2$
+before conditioning on the record. If $m=\pm m_0$ with known $m_0>0$,
+$0<\kappa\le\pi/(8m_0\sqrt{k})$ gives sign gain
+$\gamma_T=v e^{-2\kappa^2\nu_T}\sin(4\kappa m_0\sqrt{k})>0$.
+For $J$ fresh trials, the sign estimate from $-\sum_jY_j$ has error at most
+$e^{-J\gamma_T^2/2}$, including ties as errors.
+\end{proposition}
+\begin{proof}
+The echo acts only on the independent oscillator, so all subsequent
+oscillator--port operations factor from $\rho_{L\mathrm{old}}$.
+Conjugation gives
+$V_\kappa^\dagger X_CV_\kappa
+=\cos(2\kappa P)X_C+\sin(2\kappa P)Z_C$.
+The Gibbs characteristic function is
+$\langle e^{itP}\rangle=e^{-t^2\nu_T/2}$, and displacement changes it by
+$e^{-2itm\sqrt{k}}$. Taking the qubit expectation proves
+Eq.~\eqref{eq:thermal-read}. Also
+$V_\kappa^\dagger QV_\kappa=Q+2\kappa Y_C$, while $P$ is fixed.
+Since the independent port has $\langle Y_C\rangle=0$ and $Y_C^2=I$,
+$n=(Q^2+P^2-2)/4$ increases in mean by $\kappa^2$.
+Each sign-aligned binary variable has mean $\gamma_T$; Hoeffding's
+inequality gives the stated bound. Independence here follows from fresh
+inputs and the renewal below, rather than from reusing a disturbed mode.
+\end{proof}
+
+This record reads a sign that parity cannot resolve. Its orientation
+reference is an additional permission. The sine is periodic, so one setting
+does not identify arbitrary continuous $m$; an unknown initial quadrature
+mean also confounds it. If the mode initially shares correlations with the
+body, the echo still preserves the unconditional body state, but measuring
+the mode may steer it. That case does not give Eq.~\eqref{eq:thermal-read}.
+
+The pulse can have bounded amplitude and finite duration. In the laboratory
+frame choose a smooth real $g(t)$ of compact time support, with
+$\int g(t)dt=\kappa$, and set
+\begin{equation}\label{eq:thermal-read-H}
+ H_{\mathrm{read}}(t)=\hbar\omega n+
+ \hbar g(t)[P\cos(\omega t)+Q\sin(\omega t)]\otimes Y_C.
+\end{equation}
+Its interaction-picture generator is exactly $\hbar g(t)P\otimes Y_C$.
+The final laboratory evolution includes a known free rotation; subsequent
+pulses and read axes use the same clock. Completing the square gives
+$H_{\mathrm{read}}(t)\ge-\hbar g(t)^2/\omega$.
+Adding the scalar $\hbar g(t)^2/\omega$ makes it nonnegative and changes
+only an overall phase; the scalar vanishes at both endpoints.
+For $|g|\le g_{\max}$ the duration is at least $\kappa/g_{\max}$.
+The net prescribed-switch work is the endpoint free-Hamiltonian energy increase
+$\hbar\omega\kappa^2$ in this isolated, degenerate-port model.
+
+The echo's displacement admits the same finite pulse construction, with
+laboratory force $\hbar m\sqrt{k}f(t)
+[Q\cos(\omega t)-P\sin(\omega t)]Z_L$ and
+$\int f(t)dt=1$. Completing the square bounds its Hamiltonian below by
+$-\hbar km^2f(t)^2/\omega$; a finite command range keeps this bound uniform.
+The source pulse supplies $\hbar\omega km^2$ on the Gibbs input.
+The two parity gates have the finite dispersive realization above.
+These rotating profiles supply phase and clock access explicitly; their
+implementation by an autonomous controller is a further physical question.
+
+\begin{proposition}[Finite thermal renewal with retained outputs]
+\label{prop:thermal-renewal}
+Take a bank of $J$ independent same-frequency oscillators in $\tau_T$,
+independent mixed read ports, and storage for $J$ binary records.
+After each echo and read, couple $b$ to the next fresh bank oscillator
+through $\hbar h(t)(b^\dagger c+c^\dagger b)$ with area $\pi/2$.
+The active oscillator returns exactly to $\tau_T$, independent of all
+earlier retained outputs. Its entire post-read state and correlations
+are transferred to the spent bank oscillator, up to known phase rotations.
+After summing over the new outcome, the entire old body/reference/history
+state is preserved, including for commands selected from earlier records.
+If $|h|\le h_{\max}<\omega$, the total
+contact Hamiltonian is bounded below and its duration is at least
+$\pi/(2h_{\max})$. A pulse off at both endpoints has zero net
+prescribed-switch work. For fixed $m$ and $\kappa$, the spent oscillator's
+mean excess energy above its incoming Gibbs value is
+\begin{equation}\label{eq:thermal-bank-energy}
+ \Delta E_{\mathrm{spent}}=\hbar\omega(km^2+\kappa^2).
+\end{equation}
+This is a finite $J$-trial realization of Eq.~\eqref{eq:thermal-read}.
+\end{proposition}
+\begin{proof}
+The contact sends $b\mapsto-ic$, $c\mapsto-ib$.
+For any joint post-read state $\rho_{bA}$, where $A$ contains the held
+body, old reference, port and records, the output is
+$\tau_{T,b}\otimes\rho'_{cA}$. Gibbs states are invariant under the known
+phase rotation. This identity transfers correlations instead of tracing
+them out. The two instantaneous normal frequencies are $\omega\pm h$.
+Total occupation and $b^\dagger c+c^\dagger b$ are conserved during the
+contact, which proves the stability and zero switch-work statements as in
+Proposition~\ref{prop:resonant-collection}. The preceding two displacement
+accounts prove Eq.~\eqref{eq:thermal-bank-energy} after averaging over
+the retained record. For an old classical history $r$, the new record
+appends the kernel $p(y\mid m_r)$ to its existing conditional
+body/reference state. Summing over $y$ leaves each old block, and hence
+their full joint state, unchanged. Induction proves renewal and this
+nonselective preservation for adaptive commands. Conditioning only on a
+new outcome can reweight old history blocks and change the reader's
+body/reference state; it need not preserve that conditional state.
+For a fixed unknown sign and fixed settings the new inputs give
+independent trials.
+\end{proof}
+
+For example, $k=.2$, $m_0=.7$, $v=.6$ and
+$\kappa=\min\{\pi/(8m_0\sqrt{k}),1/(2\sqrt{\nu_T})\}$ give sufficient
+trial counts $178$, $247$ and $593$ for error $.05$ at
+$n_T=.2$, $.5$ and $2$. The respective excess oscillator energies per
+trial, in units of $\hbar\omega$, are $.276571$, $.223$ and $.148$.
+Higher temperature weakens the record even though this choice reduces
+the read-pulse energy. A bank consumes one fresh Gibbs oscillator and one
+mixed read port per trial, retains the spent oscillator and a binary
+record, and pays both parity gates, the source/read profiles and the
+resonant contact duration. The initial active Gibbs oscillator is needed
+in addition to the $J$ fresh bank inputs. Preparation, transport, readout, storage,
+orientation and the clock/support must be charged in addition.
+
+Neither term in Eq.~\eqref{eq:thermal-bank-energy} is an entropy-export
+certificate. The source displacement preserves entropy; the read operation
+changes correlations with its port and record. Replenishing the bank or
+erasing spent outputs requires their joint state, including side information.
+This construction supplies repeated thermal inquiry for each finite bank.
+It does not supply the chiral capacity of Section~\ref{sec:persist}, an
+infinite thermal line or the total covariant stress of a controller.
+
+For a centered independent input the original outgoing source is $m^2F_f$,
+$F_f=(f')^2/4$. The coherent echo leaves this coupling-added stress in the field
+while preserving content. Its implementation requires an available mode and
+controlled parity; it supplies neither a local capture apparatus for a whole
+continuous field nor a sustained thermal exhaust. The finite oscillator identity
+and the moving-field apparatus are different levels of the construction.
+
+\section{Three quadratic structures}
+\label{sec:forms}
+
+The analysis now contains three quadratic objects, and they should not be identified.
+
+The descent metric $G$ of Proposition~\ref{prop:descent} is a positive form on changes of controller parameters. A designer of a gradient controller chooses it, and its positivity is what descent requires. The work form $K$ of Proposition~\ref{prop:K} is a positive form on switch profiles. It is derived from the field stress and prices a control setting. The Lorentzian form used in Q-RAIF Paper~A~\cite{Liu2026QRAIF_A} represents spacetime read-out; it is indefinite and derived from a single-shell propagation symbol with independently supplied evolution time and spatial carrier.
+
+$K$ and $G$ live on different spaces: $K$ on profiles, $G$ on tangent vectors of the parameter space. If the controller parameters are the amplitudes $a$ of $g=\sum_ia_ig_i$, the parameter space is linear and one may choose $G=K$. The descent direction $-K^{-1}\nabla V$ then maximizes the first-order decrease $-\nabla V\cdot v$ among parameter changes with $v^TKv=1$, by Cauchy--Schwarz in the $K$ inner product. This is a design option that measures parameter changes in the units that price settings. Persistence does not force it, and the feedback of Section~\ref{sec:persist} is not a gradient controller: its stability was proved without any $G$.
+
+Positive quadratic drive charges with supplied coefficients appear in other Q-RAIF protocols. The field coupling shows how such a coefficient can be fixed by the stress of the field that carries the control. Both $G$ and $K$ are positive, so the actuator does not supply the negative direction of a Lorentzian form.
+
+% ============================================================
+\section{Relations to other work}
+\label{sec:context}
+
+\subsection{Q-RAIF Papers A and C}
+
+Paper~A~\cite{Liu2026QRAIF_A} looks for the relative sign in translation-invariant local unitary propagation. When all bands share one quadratic shell, the propagation symbol obeys Euclidean Clifford relations. Its form $\eta=\omega^2-Q(q)$ has one positive frequency direction and $d$ negative spatial directions; the mass term together with the spatial generators yields $Cl(1,d)$. Reversing the overall metric convention reverses these signs, not their relative opposition. By Sylvester's law neither positive $G$ nor $K$ of Section~\ref{sec:forms} can be brought to that indefinite form.
+
+The two papers use different quadratic structures, and Section~\ref{sec:forms} keeps them apart. Paper~C~\cite{Liu2026QRAIF_C} asks what a coupling supplies in place of an assumed representation map. For the coupling $XQ_g$ of this paper the algebra represented exactly is the commutant of $X$, for every drive state, and the defect on the remaining controls reproduces the energy--accuracy bound of Theorem~\ref{thm:energy}.
+
+The mass--energy paper~\cite{Liu2026QRAIF_ME} now uses the same
+quadrature interaction to realize a quantum-walk coin. With a fresh
+Gaussian drive each step, its mean angle fixes the rest resonance,
+while drive fluctuations set its decay rate. At input occupation $N$
+the smallest Gaussian rate is $\theta^2/[2\tau N(N+1)]$, attained by
+a displaced squeezed state. This connects the price of control to
+the persistence of a spectral readout. The rate is an open-channel
+linewidth, not a new spectral mass, and shift, preparation and port
+reset costs are separate.
+
+\subsection{Quantum control theory}
+
+Lie-algebraic control characterizes reachability through the algebra generated by drift and control Hamiltonians~\cite{WisemanMilburn2009}. Stabilization against perturbations also needs magnitudes and costs. In the realized actuator these come from the physical coupling: the rotation angle from the drive amplitude, the error from the drive's quadrature fluctuations, and the cost from the field stress. A Clifford quadratic form is not needed to supply them.
+
+\subsection{Decoherence-free subspaces}
+
+Decoherence-free subspaces~\cite{Zanardi2001,Lidar2003} are protected passively by symmetry. The feedback task gives the active counterpart. The held-code instrument, coherent echo and finite collection protocols also join passive encoding to priced inquiry and correction: their exact identities protect a supplied code, while collection loss and gate error determine what survives. Brain Anchor~\cite{Liu2026Brain} uses records of this interface for finite-window inquiry and maintenance decisions. Forming the code and its physical permission from a prior history is a further mechanism, not a consequence of encoding it.
+
+\subsection{The Imprint Chain and HAFF}
+
+The Imprint Chain~\cite{Liu2026Chain} supplies the instrument, the calibration and the task, with an exact supplied flip. Replacing that flip by the field coupling raises the calibrated loss from $0.199631$ to $0.202127$ at $N=16$ and makes the drive energy part of the feasibility condition. Each coupling also adds the stress $F_g$ to the outgoing field. The HAFF gravity paper~\cite{Liu2026HAFFD} uses this outgoing field as a matter source in a Jackiw--Teitelboim model; there, calibration changes the mean source through the coupling rate $p$ of Eq.~\eqref{eq:rate}. Selecting the coupled projection changes its represented algebra and source even at fixed activation schedule. A boundary readout can then update the next projection, with known probe stresses and bounded errors included in the inverse. Section~\ref{sec:readback} supplies one energy constraint on a specified realization of that return.
+
+\subsection{Quantized control fields}
+
+The effect of field quantization on gate accuracy has a substantial literature. For Jaynes--Cummings-type couplings, conservation of excitation number leads to error bounds controlled by photon-number fluctuations, of order $1/\bar n$ for coherent fields~\cite{GeaBanaclocheOzawa2005}; coherent-field control limits for such models were analysed in Ref.~\cite{Igeta2013}, and simultaneous driving of several atoms by one quantized pulse in Ref.~\cite{Lindemann2025}. The coupling studied here is a quadrature coupling of a degenerate bit and conserves no excitation number, which is why squeezing changes the scaling from $\epsilon^{-1}$ to $\epsilon^{-1/2}$. Theorem~\ref{thm:energy} gives the quadrature-specific bound and explicit near-attainment under these assumptions. A covariant stress tensor for a finite detector, including its localization, is constructed in Ref.~\cite{Perche2025}; it shows why the apparatus stress cannot simply be omitted.
+
+% ============================================================
+\section{Discussion}
+\label{sec:discussion}
+
+For gradient-type feedback the algebra must compose associatively and the descent metric must be positive. When control is realized by a field, the structure that limits persistence is the canonical commutation relation of the drive quadratures: $[Q,P]=2i$ fixes the trade-off between flip accuracy and drive occupation in Theorem~\ref{thm:energy}, and it is the reason squeezed drives do better than classical ones. The Pauli and Clifford relations of the controlled bit label the operation; they do not set its cost. Persistence has a closed-loop proof in this model, with an explicit Lyapunov function, and the drive energy and calibration records enter one feasibility condition.
+
+Several inputs remain supplied. The free chiral field, the degenerate bit, the
+clock and switch, the drive ports and the instrument family are given. The
+feedback task also supplies the success probability for compensated randomization
+and scheduled beams. Its analysis concerns $Z$-diagonal bit states and flip
+channels; complex $\chi_\sigma(2\lambda)$ instead rotates $Z$ into $Y$.
+The held-content construction concerns arbitrary logical inputs. Its finite-band
+realization prepares and collects a specified packet, with a finite waveform,
+clock tolerances and independent vacuum exhausts. It returns a coherent meter;
+the carrier, detector, port selection and vacuum supply remain separate inputs.
+The stress of the switch
+and its support is not computed; outgoing-field stress is used outside the apparatus.
+
+The thermal bank identifies what renewal has to preserve. A fresh input
+restores the oscillator only because the previous state, including its
+record correlations, moves to a spent output. Bank replenishment and memory
+erasure must therefore be priced on that joint output, as in the information
+thermodynamic account~\cite{Sagawa2012,Parrondo2015}. The chiral capacity bound
+constrains a specified entropy flow; the finite oscillator construction gives
+an implementable inquiry and transfer, rather than that flow's attainability.
+
+Repeated propagation in one field remains a stronger problem.
+Proposition~\ref{prop:reuse} proves that shared drives can preserve each
+marginal channel while correlating failures. A persistence calculation on
+that joint history may therefore have a different energy scaling from the
+fresh-drive task. The other unresolved connection is formation: which
+interactions and retained records produce the code, access permissions and
+controller used here? T-DOME, Imprint and Brain Anchor address that mechanism;
+the present results constrain the resources of the operations it must supply.
+
+\section{Conclusion}
+
+Persistence of an open subsystem needs controls, and controls are physical. At the algebraic level, associativity and a positive descent metric are what gradient feedback requires, and Clifford algebra remains an optional parameterization. At the physical level, a flip realized by a field coupling has an error, an outgoing stress, a switching work and a derived quadratic cost. Every drive state needs occupation of order $\pi/(4\sqrt\epsilon)$ for failure $\epsilon$, squeezed drives nearly reach this, and classical drives need order $\pi^2/(16\epsilon)$. In a calibrated feedback task the same actuator gives a complete stability proof, exact loss and coupling rates, and a single condition that ties calibration records to drive energy. Returning a response through a translation-only instrument has a separate sharp mean-energy bound, even with retained ancillas and joint decoding. Together these results price both directions of a control interface; the finite thermal oscillator branch realizes content-preserving inquiry and physical port renewal, but does not supply the chiral exhaust capacity or a reusable geometric readout. The work form, the descent metric and the Lorentzian read-out form stay distinct.
+
+% ============================================================
+\begin{thebibliography}{99}
+
+\bibitem{Breuer2002}
+H.-P.~Breuer and F.~Petruccione, \emph{The Theory of Open Quantum Systems}, Oxford University Press (2002).
+
+\bibitem{Wenner2014}
+J.~Wenner et al., \emph{Catching Time-Reversed Microwave Coherent State
+Photons with 99.4\% Absorption Efficiency}, Phys. Rev. Lett. \textbf{112},
+210501 (2014), doi:10.1103/PhysRevLett.112.210501.
+
+\bibitem{GregorattiWerner2002}
+M.~Gregoratti and R.~F.~Werner, \emph{Quantum Lost and Found},
+arXiv:quant-ph/0209025 (2002).
+
+\bibitem{Liu2026Brain}
+S.~Liu, \emph{The Brain as a Plastic Observable-Algebra Network:
+Learning Shared Access from Sensorimotor History}, 2026; series concept DOI: 10.5281/zenodo.20044329.
+
+\bibitem{Sun2013}
+L.~Sun et al., \emph{Tracking Photon Jumps with Repeated Quantum Non-Demolition
+Parity Measurements}, arXiv:1311.2534 (2013).
+
+\bibitem{Weiss2012}
+U.~Weiss, \emph{Quantum Dissipative Systems}, 4th ed., World Scientific (2012).
+
+\bibitem{Seifert2012}
+U.~Seifert, \emph{Stochastic thermodynamics, fluctuation theorems and molecular machines}, Rep.\ Prog.\ Phys.\ \textbf{75}, 126001 (2012).
+
+\bibitem{Jarzynski2011}
+C.~Jarzynski, \emph{Equalities and inequalities: irreversibility and the second law at the nanoscale}, Annu.\ Rev.\ Condens.\ Matter Phys.\ \textbf{2}, 329 (2011).
+
+\bibitem{Sagawa2012}
+T.~Sagawa and M.~Ueda, \emph{Fluctuation theorem with information exchange}, Phys.\ Rev.\ E \textbf{85}, 021104 (2012).
+
+\bibitem{Parrondo2015}
+J.~M.~R.~Parrondo, J.~M.~Horowitz, and T.~Sagawa, \emph{Thermodynamics of information}, Nat.\ Phys.\ \textbf{11}, 131 (2015).
+
+\bibitem{Hestenes1966}
+D.~Hestenes, \emph{Space-Time Algebra}, Gordon and Breach (1966).
+
+\bibitem{Schafer1966}
+R.~D.~Schafer, \emph{An Introduction to Nonassociative Algebras}, Academic Press (1966).
+
+\bibitem{Gunaydin1973}
+M.~G\"unaydin and F.~G\"ursey, \emph{Quark structure and octonions}, J.\ Math.\ Phys.\ \textbf{14}, 1651 (1973).
+
+\bibitem{WisemanMilburn2009}
+H.~M.~Wiseman and G.~J.~Milburn, \emph{Quantum Measurement and Control}, Cambridge University Press (2009).
+
+\bibitem{Verstraete2009}
+F.~Verstraete, M.~M.~Wolf, and J.~I.~Cirac, \emph{Quantum computation and quantum-state engineering driven by dissipation}, Nat.\ Phys.\ \textbf{5}, 633--636 (2009).
+
+\bibitem{Diehl2008}
+S.~Diehl, A.~Micheli, A.~Kantian, B.~Kraus, H.~P.~B\"uchler, and P.~Zoller, \emph{Quantum states and phases in driven open quantum systems with cold atoms}, Nat.\ Phys.\ \textbf{4}, 878--883 (2008).
+
+\bibitem{TicozziViola2008}
+F.~Ticozzi and L.~Viola, \emph{Quantum Markovian subsystems: invariance, attractivity, and control}, IEEE Trans.\ Autom.\ Control \textbf{53}, 2048--2063 (2008).
+
+\bibitem{Mirrahimi2005}
+M.~Mirrahimi, P.~Rouchon, and G.~Turinici, \emph{Lyapunov control of bilinear Schr\"odinger equations}, Automatica \textbf{41}, 1987--1994 (2005).
+
+\bibitem{Zanardi2001}
+P.~Zanardi, \emph{Virtual Quantum Subsystems}, Phys.\ Rev.\ Lett.\ \textbf{87}, 077901 (2001).
+
+\bibitem{Lidar2003}
+D.~A.~Lidar and K.~B.~Whaley, \emph{Decoherence-free subspaces and subsystems}, in \emph{Irreversible Quantum Dynamics}, Springer, pp.\ 83--120 (2003).
+
+\bibitem{Landulfo2016}
+A.~G.~S.~Landulfo, \emph{Nonperturbative approach to relativistic quantum communication channels}, Phys.\ Rev.\ D \textbf{93}, 104019 (2016), arXiv:1603.06641.
+
+\bibitem{Cozzella2020}
+G.~Cozzella, S.~A.~Fulling, A.~G.~S.~Landulfo, and G.~E.~A.~Matsas, \emph{Uniformly accelerated classical sources as limits of Unruh--DeWitt detectors}, Phys.\ Rev.\ D \textbf{102}, 105016 (2020), arXiv:2009.13246.
+
+\bibitem{Perche2025}
+T.~R.~Perche, J.~P.~M.~Pitelli, and D.~A.~T.~Vanzella, \emph{The stress-energy tensor of an Unruh--DeWitt detector}, Phys.\ Rev.\ D \textbf{111}, 045004 (2025), arXiv:2411.09732.
+
+\bibitem{GeaBanaclocheOzawa2005}
+J.~Gea-Banacloche and M.~Ozawa, \emph{Constraints for quantum logic arising from conservation laws and field fluctuations}, J.\ Opt.\ B: Quantum Semiclass.\ Opt.\ \textbf{7}, S326 (2005), arXiv:quant-ph/0507251.
+
+\bibitem{Igeta2013}
+K.~Igeta, N.~Imoto, and M.~Koashi, \emph{Fundamental limit to qubit control with coherent field}, Phys.\ Rev.\ A \textbf{87}, 022321 (2013), arXiv:1211.1092.
+
+\bibitem{Lindemann2025}
+H.~Lindemann, S.~Vuglar, and J.~Gea-Banacloche, \emph{Rotation errors due to field quantization for simultaneously driven atoms}, arXiv:2508.06769 (2025).
+
+\bibitem{Liu2026PaperA}
+S.~Liu, \emph{Physical Access and Correlation Geometry: The Holographic Alaya--Field Framework}, (2026), series record DOI: 10.5281/zenodo.18361706.
+
+\bibitem{Liu2026PaperB}
+S.~Liu, \emph{Coupling, Records, and Stable Relations: Formation, Protected Content and the Lifetime of a Geometry}, 2026; series record DOI: 10.5281/zenodo.18367060.
+
+\bibitem{Liu2026HAFFD}
+S.~Liu, \emph{Selection, Maintenance and Gravitational Response: Modular Constraints and a Physical Return}, (2026), series record DOI: 10.5281/zenodo.18388881.
+
+\bibitem{Liu2026QRAIF_A}
+S.~Liu, \emph{Lorentzian Read-out from Local Unitary Propagation: Clifford Relations, Causal Cones and Spectral Mass}, 2026; series record DOI: 10.5281/zenodo.18525876.
+
+\bibitem{Liu2026QRAIF_C}
+S.~Liu, \emph{Retained Quantum History, Physical Sources and Receiver Renewal in Q-RAIF}, 2026; series record DOI: 10.5281/zenodo.18528934.
+
+\bibitem{Liu2026QRAIF_ME}
+S.~Liu, \emph{Recovering Mass--Energy Equivalence within Algebraic Lorentzian Read-out: Spectral Mass, Lattice Windows and Finite Records}, 2026; series record DOI: 10.5281/zenodo.20280951.
+
+\bibitem{Liu2026TDOME_III}
+S.~Liu, \emph{Keeping a Self-Model Calibrated: Drift Detection, the Price of Keeping Up, and Reliability in a Closed Loop} (T-DOME~III), 2026; July 2026 record DOI: 10.5281/zenodo.18591771.
+
+\bibitem{MargolusLevitin1998}
+N.~Margolus and L.~B.~Levitin, \emph{The maximum speed of dynamical evolution}, arXiv:quant-ph/9710043.
+
+\bibitem{HornedalSonnerborn2023}
+N.~H\"ornedal and O.~S\"onnerborn, \emph{Margolus-Levitin quantum speed limit for an arbitrary fidelity}, arXiv:2301.10063.
+
+\bibitem{Liu2026Chain}
+S.~Liu, \emph{The Imprint Chain: Records, Self-Calibration, and Physical Feedback}, (2026), series record DOI: 10.5281/zenodo.20151594.
+
+\end{thebibliography}
+
+\end{document}
+
+
+

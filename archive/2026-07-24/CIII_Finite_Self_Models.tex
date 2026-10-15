@@ -1,0 +1,740 @@
+\documentclass[12pt]{article}
+
+\usepackage[a4paper, margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{mathtools}
+\usepackage{mathrsfs}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fontspec}
+
+\defaultfontfeatures{Ligatures=TeX}
+\IfFontExistsTF{Times New Roman}
+  {\setmainfont{Times New Roman}}
+  {\setmainfont{TeX Gyre Termes}}
+\IfFontExistsTF{Menlo}
+  {\setmonofont{Menlo}}
+  {\setmonofont{Latin Modern Mono}}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+
+\newcommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+
+\title{%
+  \textbf{Finite Self-Models and the Open Explanatory Gap:}\\
+  \textbf{A Conditional Arithmetic Analysis}%
+}
+
+\author{
+  Sidong Liu, PhD \\
+  \small iBioStratix Ltd \\
+  \small \texttt{sidongliu@hotmail.com}
+}
+
+\date{July 2026}
+
+\begin{document}
+\emergencystretch=2em
+\raggedbottom
+\hbadness=5000
+\vbadness=5000
+
+\maketitle
+
+\begin{abstract}
+Paper~G offers a programme-level diagnosis of possible self-reference
+limits, while Paper~II retains a leading small-ball stress-tensor
+extraction with an \(O(R^{d+3})\) remainder. Neither result supplies a
+fixed-point no-go theorem, a physical Fisher spectrum, or a
+self-description tower. This paper tests a proposed quantitative bridge
+by defining a local Araki-relative-entropy reconstruction loss for a
+stipulated finite statistical bottleneck.
+
+The former local minimax drift-floor theorem is withdrawn. A finite
+Fisher ceiling does not by itself imply a positive reconstruction loss:
+on a short modular orbit, an admissible two-outcome channel can preserve
+the orbit coordinate exactly and achieve zero loss. A future positive
+risk theorem would therefore need a typed observation model that excludes
+such lossless-orbit constructions and relates estimator risk to the
+reconstruction loss.
+
+The surviving formal result is a conditional arithmetic inversion. If a
+stipulated positive sequence satisfies
+\[
+\log I_k=-\alpha k\log k+O(k)
+\]
+and the available budget grows at polynomial scale, then its maximal
+admissible index obeys
+\[
+K(n)=O\!\left(\frac{\log n}{\log\log n}\right).
+\]
+This lemma proves neither a physical coefficient/Fisher spectrum nor a
+self-model resource bound. The explanatory gap therefore remains open:
+the paper identifies conditions required for a future quantitative
+rebuild but does not establish a finite self-description horizon.
+ \end{abstract}
+
+\clearpage
+\tableofcontents
+\clearpage
+
+\section{Introduction}\label{sec:1}
+
+Paper~G\cite{PaperG} motivates the possibility that self-reference
+limits an accessibility-based description. Its regress and collapse
+scenarios are philosophical diagnostics, not a fixed-point no-go theorem
+or an exhaustive dichotomy. Paper~III uses that discussion only as
+motivation.
+
+Paper~II\cite{PaperII} moved the discussion to a more concrete level.
+In the higher-dimensional CHM ball framework, Paper~II retains the
+leading stress-tensor extraction at order \(R^{d+1}\), with a remainder
+\(O(R^{d+3})\). It does not construct independent coefficient
+directions, a Fisher map, or a self-description tower from that
+remainder.
+
+The present paper defines a local Araki-relative-entropy reconstruction
+loss for a stipulated finite statistical bottleneck, but withdraws the
+claimed universal drift floor. Estimation risk in a specified noisy
+experiment cannot be identified with reconstruction loss for a channel
+that may preserve the orbit coordinate exactly. The surviving formal
+result is instead a conditional arithmetic inversion for a stipulated
+positive sequence and budget. The surrounding programme draws on:
+\begin{enumerate}
+\item the BKM/QFIM structure already used in Paper~I\cite{PaperI};
+\item the self-referential Fisher and ego-rigidity formalism of
+T-DOME~Paper~III\cite{TDOMEIII};
+\item the leading CHM expansion and remainder order recorded in
+Paper~II\cite{PaperII}.
+\end{enumerate}
+
+The arithmetic statement assumes, rather than derives, a positive
+sequence \(I_k\) with
+\[
+\log I_k = -\alpha k\log k + O(k),
+\]
+and a polynomial-scale budget. Under those stipulations its maximal
+index obeys
+\[
+K(n)=O\!\left(\frac{\log n}{\log\log n}\right).
+\]
+This proves neither a physical Fisher spectrum nor a self-model budget.
+
+The trilogy-level interpretation also depends on Paper~I's supplied
+shell interface \((Amb)\), its dynamical covariance axiom \((C)\), and
+the scale-faithfulness axiom \((SFa)\). Modular flow supplies algebraic
+time only; a phenomenal-time reading is conditional and interpretive.
+T-DOME~Paper~III supplies an ego-rigidity prior model, not a theorem that
+turns it into a reconstruction floor.
+
+The paper is organized as follows. Section~\ref{sec:2} defines finite
+observers, admissible self-models, and the self-description deficit.
+Section~\ref{sec:3} records why the former drift-floor theorem is
+withdrawn. Section~\ref{sec:4} proves the conditional arithmetic
+inversion. Section~\ref{sec:5} retains only the exact CHM moment
+coefficient and explains why it does not supply a Fisher spectrum.
+Section~\ref{sec:6}
+explains the trilogy-level significance of the result, and
+Section~\ref{sec:7} states the remaining limitations and open problems.
+
+\section{Finite Observers and the Self-Description Deficit}\label{sec:2}
+
+\subsection{Finite Observers}\label{subsec:2.1}
+
+Motivated by Paper~G's architectural discussion, we first specify what
+counts as a finite statistical self-model. This definition does not
+inherit a no-go theorem from Paper~G.
+
+\begin{definition}[Finite observer]\label{def:2.1}
+A finite observer of complexity \(n\) is a triple
+\[
+(\mathcal{A}_{\mathrm{obs}},\omega_{\mathrm{obs}},\mathfrak{M}_n),
+\]
+where:
+\begin{enumerate}
+\item \(\mathcal{A}_{\mathrm{obs}} \subset \mathcal{A}_c\) is the
+observer's accessible subalgebra;
+\item \(\omega_{\mathrm{obs}} = \omega|_{\mathcal{A}_{\mathrm{obs}}}\)
+is the restricted state;
+\item \(\mathfrak{M}_n\) is an \(n\)-dimensional statistical model used
+internally to represent the observer's own accessible state.
+\end{enumerate}
+\end{definition}
+
+The complexity parameter \(n\) measures effective statistical degrees of
+freedom, not arbitrary description length. This is deliberate. Paper~III
+is not about Kolmogorov complexity in full generality. It is about the
+finite number of statistically usable directions available to an
+observer trying to model itself.
+
+\subsection{Modular Fisher Sensitivity}\label{subsec:2.1b}
+
+The Tomita--Takesaki modular automorphism group
+\(\sigma_t^\omega\) of a faithful normal state \(\omega\) on a von
+Neumann algebra satisfies \(\omega\circ\sigma_t^\omega=\omega\) for
+all \(t\). The orbit is therefore trivial at the level of states, and
+the associated tangent vector vanishes. Since the modular orbit itself
+carries no state-level Fisher information, we replace it with the
+intrinsic accessible-unitary perturbation family as the operational
+proxy for modular sensitivity.
+
+\begin{definition}[Modular Fisher sensitivity]\label{def:2.1b}
+Fix a self-adjoint element
+\(h\in\mathcal{A}_{\mathrm{obs}}\) and define the perturbed family
+\[
+\omega_s^{(h)}
+:=
+\omega_{\mathrm{obs}}\circ\mathrm{Ad}(e^{ish}),
+\qquad s\in(-\epsilon,\epsilon).
+\]
+The modular Fisher sensitivity of
+\(\omega_{\mathrm{obs}}\) along \(h\) is
+\[
+\mathcal{I}_F(\omega_{\mathrm{obs}},h)
+:=
+\mathbf{Q}_{\omega_{\mathrm{obs}}}\!\left(
+\frac{d\omega_s^{(h)}}{ds}\bigg|_{s=0},\;
+\frac{d\omega_s^{(h)}}{ds}\bigg|_{s=0}
+\right).
+\]
+The modular Fisher sensitivity of the observer is
+\[
+\mathcal{I}_F(\omega_{\mathrm{obs}})
+:=
+\sup\bigl\{
+\mathcal{I}_F(\omega_{\mathrm{obs}},h)
+:\;
+h=h^*\in\mathcal{A}_{\mathrm{obs}},\;
+\|h\|\le 1
+\bigr\}.
+\]
+\end{definition}
+
+The supremum is taken over unit-norm self-adjoint perturbations in the
+observer's own accessible algebra. It is finite whenever the BKM form
+is bounded on the unit ball of
+\(\mathcal{A}_{\mathrm{obs}}\)-tangent directions, which holds in the
+local regime used throughout this paper. The quantity
+\(\mathcal{I}_F(\omega_{\mathrm{obs}})\) measures the observer's
+maximal intrinsic sensitivity to unitary perturbations of its own
+accessible state. It is strictly positive whenever
+\(\omega_{\mathrm{obs}}\) is not a trace state on
+\(\mathcal{A}_{\mathrm{obs}}\).
+
+Throughout the paper, the term \emph{local modular drift family}
+refers to the one-parameter family \(\{\omega_s^{(h)}\}\) for a fixed
+perturbation \(h\). When the supremum in
+Definition~\ref{def:2.1b} is attained, we take \(h\) to be a
+maximizer; when it is not, we use a standard
+\(\eta\)-optimization: for each \(\eta>0\), choose
+\(h_\eta=h_\eta^*\in\mathcal{A}_{\mathrm{obs}}\) with
+\(\|h_\eta\|\le 1\) and
+\(\mathcal{I}_F(\omega_{\mathrm{obs}},h_\eta)\ge
+\mathcal{I}_F(\omega_{\mathrm{obs}})-\eta\), carry out the proof for
+\(h_\eta\), and let \(\eta\downarrow 0\). Despite the name, this
+family is not the Tomita--Takesaki modular orbit (which is
+state-preserving) but the accessible-unitary perturbation family that
+serves as its operational proxy at the level of Fisher information.
+This is the family along which the observer's self-description is
+hardest to compress.
+
+\subsection{Admissible Self-Models}\label{subsec:2.2}
+
+The theorem chain does not require a literal embedding of the self-model
+into a matrix algebra. That stronger route would force us to solve a
+much harder operator-algebraic problem than the present paper needs.
+What matters here is the existence of a finite statistical bottleneck.
+
+\begin{definition}[Admissible self-model]\label{def:2.2}
+An admissible \(n\)-dimensional self-model is a pair
+\[
+(\Pi_n,\Psi_n),
+\]
+where:
+\begin{enumerate}
+\item \(\Pi_n:\mathcal{S}(\mathcal{A}_{\mathrm{obs}})\to
+\mathfrak{M}_n\) is the state-space map induced by a normal unital
+completely positive map from a finite-dimensional algebra into
+\(\mathcal{A}_{\mathrm{obs}}\), so that Petz monotonicity of relative
+entropy applies;
+\item \(\Psi_n:\mathfrak{M}_n\to
+\mathcal{S}(\mathcal{A}_{\mathrm{obs}})\) is a recovery map;
+\item \(\Pi_n\) factors through the observer's own accessible state
+space, so no external ``God's-eye'' parameter is introduced;
+\item near the reference state \(\omega_{\mathrm{obs}}\), the Fisher
+matrix on \(\mathfrak{M}_n\) can be whitened:
+\[
+\mathbf{I}^{(n)}_\omega
+=
+\mathrm{diag}(\lambda_1,\dots,\lambda_n),
+\qquad
+\lambda_a \leq \mathcal{I}_F(\omega_{\mathrm{obs}}).
+\]
+\end{enumerate}
+\end{definition}
+
+The last condition is the substantive standing assumption of the
+theorem, not a mere coordinate normalization. It says that the
+compressed model has only \(n\) effective Fisher directions, and none of
+them is sharper than the observer's own modular sensitivity scale. This
+is the exact place where the theorem absorbs finite-dimensionality.
+
+\subsection{Self-Description Deficit}\label{subsec:2.3}
+
+The correct loss function is not a metric but a divergence. In a
+Type~III setting there is no preferred trace-class density-matrix
+picture, while Araki relative entropy is native to the operator
+algebraic formulation \cite{Araki1976}.
+
+\begin{definition}[Self-description deficit]\label{def:2.3}
+Define the BKM ball of radius \(\delta\) around
+\(\omega_{\mathrm{obs}}\) by
+\[
+\mathcal{B}_\delta(\omega_{\mathrm{obs}})
+:=
+\bigl\{
+\omega\in\mathcal{S}(\mathcal{A}_{\mathrm{obs}})
+:\;
+\mathbf{Q}_{\omega_{\mathrm{obs}}}(\omega-\omega_{\mathrm{obs}},\,
+\omega-\omega_{\mathrm{obs}})
+<\delta^2
+\bigr\}.
+\]
+Fix once and for all a \(\delta>0\) small enough that Araki relative
+entropy admits its quadratic expansion on
+\(\mathcal{B}_\delta(\omega_{\mathrm{obs}})\), and large enough that
+the ego-rigidity prior \(\pi_{\mathrm{ego}}\) of
+T-DOME~Paper~III\cite{TDOMEIII} can be supported on a segment of the
+local modular drift family inside
+\(\mathcal{B}_\delta(\omega_{\mathrm{obs}})\). The self-description
+deficit of complexity \(n\) is
+\[
+\varepsilon(n)
+:=
+\inf_{(\Pi_n,\Psi_n)}
+\sup_{\omega\in \mathcal{B}_\delta(\omega_{\mathrm{obs}})}
+S\!\left(
+\omega
+\;\middle\|\;
+\Psi_n\circ\Pi_n(\omega)
+\right),
+\]
+where the infimum is taken over all admissible \(n\)-dimensional
+self-models.
+\end{definition}
+
+Near a fixed state, Araki relative entropy has the familiar BKM/QFIM
+quadratic expansion
+\[
+S(\omega\|\omega+\delta\omega)
+=
+\frac{1}{2}\mathbf{Q}_\omega(\delta\omega,\delta\omega)
++o(\|\delta\omega\|^2),
+\]
+which is the local information-geometric structure already used in
+Paper~I\cite{PaperI} and in Petz's monotone-metric framework
+\cite{Petz1996}. The minimax form is essential: it rules out trivial
+constant recovery maps that memorize the reference state while failing
+arbitrarily nearby. Thus \(\varepsilon(n)\) measures optimal local
+uniform reconstruction loss in the intrinsic Type~III geometry of
+states.
+
+\section{The Fisher Ceiling for Admissible Self-Models}\label{sec:3}
+
+\subsection{Petz Monotonicity and Finite Fisher Budget}\label{subsec:3.1}
+
+The first ingredient is standard.
+
+\begin{lemma}[Petz monotonicity]\label{lem:3.1}
+For any normal coarse-graining \(\Pi_n\),
+\[
+S(\omega\|\sigma)\ge S(\Pi_n(\omega)\|\Pi_n(\sigma)).
+\]
+\end{lemma}
+
+\begin{proof}
+This is the monotonicity of relative entropy under coarse-graining
+\cite{Petz1986}. The present paper uses it only in the local regime,
+where it implies that compression cannot increase BKM/Fisher
+information.
+\end{proof}
+
+Whitening then converts finite statistical dimension directly into two
+distinct ceilings: one for the specific modular drift channel, and one
+for the total trace budget across all retained directions.
+
+\begin{proposition}[Directional and total Fisher ceilings]\label{prop:3.2}
+Let \((\Pi_n,\Psi_n)\) be an admissible \(n\)-dimensional self-model.
+Then:
+\begin{enumerate}
+\item along the local modular drift family through
+\(\omega_{\mathrm{obs}}\), the Fisher information retained after
+compression satisfies
+\[
+\mathcal{I}^{(n)}_{\mathrm{drift}}
+\le
+\mathcal{I}_F(\omega_{\mathrm{obs}});
+\]
+\item the total retained data Fisher information satisfies
+\[
+\mathcal{I}^{(n)}_{\mathrm{data}}
+:=
+\mathrm{tr}\,\mathbf{I}^{(n)}_\omega
+\le
+n\,\mathcal{I}_F(\omega_{\mathrm{obs}}).
+\]
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+\(\!\)(1) Apply Lemma~\ref{lem:3.1} to the one-parameter modular drift
+family. In the local quadratic regime, monotonicity of relative entropy
+implies monotonicity of the associated BKM/Fisher metric, so
+compression cannot increase Fisher information for that specific scalar
+parameter.
+
+\(\!\)(2) In Fisher-whitened coordinates, the compressed Fisher matrix is
+\[
+\mathbf{I}^{(n)}_\omega
+=
+\mathrm{diag}(\lambda_1,\dots,\lambda_n),
+\qquad
+\lambda_a \le \mathcal{I}_F(\omega_{\mathrm{obs}}).
+\]
+Summing over the \(n\) effective directions gives
+\[
+\mathrm{tr}\,\mathbf{I}^{(n)}_\omega
+=
+\sum_{a=1}^n \lambda_a
+\le
+n\,\mathcal{I}_F(\omega_{\mathrm{obs}}).
+\]
+\end{proof}
+
+\subsection{Withdrawal of the Drift-Floor Claim}\label{subsec:3.2}
+
+The former local minimax drift-floor theorem and its corollary are
+withdrawn. The argument applied a van Trees estimation-risk bound to a
+compression/recovery loss without specifying a noisy observation model
+that prevents the orbit coordinate from being retained.
+
+The obstruction can be implemented by an internal finite-dimensional
+channel. Let \(s\mapsto\omega_s\) be a nonconstant smooth local drift
+orbit. Choose an effect \(0\le M\le\mathbf{1}\) in
+\(\mathcal{A}_{\mathrm{obs}}\) with
+\(\frac{d}{ds}\omega_s(M)|_{s=0}\ne0\). The normal unital completely
+positive map
+\[
+\Phi:\mathbb{C}^2\longrightarrow\mathcal{A}_{\mathrm{obs}},
+\qquad
+\Phi(a,b)=aM+b(\mathbf{1}-M),
+\]
+induces the binary statistical coordinate
+\[
+\Pi_1(\omega_s)=\bigl(p(s),1-p(s)\bigr),
+\qquad p(s):=\omega_s(M).
+\]
+By the inverse-function theorem, after restricting to a sufficiently
+short orbit segment, \(p\) is injective. Define the recovery map on its
+image, and extend it arbitrarily off that image, by
+\[
+\Psi_1\bigl(p(s),1-p(s)\bigr)=\omega_s.
+\]
+This code uses an observable in the accessible algebra rather than an
+external parameter, and it factors through a finite-dimensional
+commutative algebra as required by Definition~\ref{def:2.2}. Then
+\[
+S\!\left(\omega_s\middle\|\Psi_1\circ\Pi_1(\omega_s)\right)=0
+\]
+for every \(s\) on the encoded segment. A positive Bayes estimation
+risk can arise only after a likelihood or sampling channel restricts
+access to \(s\); it is not a lower bound on this lossless orbit
+reconstruction. The previous proof therefore confused estimation risk
+with reconstruction loss. Petz monotonicity and the stipulated Fisher
+ceilings above remain bookkeeping facts within their stated model, but
+they imply no nonzero reconstruction floor.
+
+\section{A Conditional Arithmetic Inversion}\label{sec:4}
+
+Paper~II\cite{PaperII} supplies a leading CHM coefficient and an
+\(O(R^{d+3})\) remainder, not an infinite family of normalized Fisher
+directions. We therefore separate the arithmetic statement from any
+physical interpretation.
+
+Let \(\{I_k\}_{k\ge1}\) be a \emph{stipulated} positive sequence and
+let \(B(n)\ge1\) be a \emph{stipulated} budget. Define
+\[
+K(n):=\max\left\{K\ge1:
+\sum_{j=1}^{K}I_j^{-1}\le B(n)\right\},
+\]
+with \(K(n)=0\) if the set is empty. No claim is made here that the
+\(I_k\) are Fisher informations of physical coefficient directions or
+that \(B(n)\) is a self-model resource.
+
+\begin{lemma}[Conditional arithmetic inversion]\label{lem:arithmetic-asymptotic}
+Suppose
+\[
+\log I_k=-\alpha k\log k+O(k),
+\qquad \alpha>0,
+\]
+and \(\log B(n)=O(\log n)\). Then
+\[
+K(n)=O\!\left(\frac{\log n}{\log\log n}\right).
+\]
+\end{lemma}
+
+\begin{proof}
+If \(K=K(n)\ge1\), the final nonnegative summand satisfies
+\(I_K^{-1}\le B(n)\). Hence
+\[
+\alpha K\log K+O(K)=-\log I_K\le\log B(n)=O(\log n).
+\]
+For sufficiently large \(K\), the \(K\log K\) term dominates the
+linear remainder, so inversion gives
+\(K=O(\log n/\log\log n)\). Bounded \(K\) obeys the same asymptotic
+bound.
+\end{proof}
+
+This lemma is exactly the surviving claim. It establishes neither a
+self-model budget nor a physical Fisher spectrum. In particular,
+rescaling coefficient coordinates changes any candidate \(I_k\), so a
+physical application requires a separately justified normalization,
+likelihood, and Fisher map.
+
+\section{Exact CHM Moment Without a Fisher-Spectrum Claim}
+\label{sec:5}
+
+The following exact integral is retained as an algebraic check. It does
+not construct the coefficient directions or Fisher map absent from
+Paper~II.
+
+\subsection{Exact d=1 Signal Factor}\label{subsec:5.2}
+
+In \(d=1\), the CHM modular Hamiltonian is
+\[
+K_B
+=
+\frac{\pi}{R}\int_{-R}^{R}(R^2-x^2)\,T_{00}(x)\,dx.
+\]
+Expanding \(T_{00}(x)\) around the ball center gives
+\[
+T_{00}(x)
+=
+\sum_{k\ge 0}\frac{x^{2k}}{(2k)!}\partial_x^{2k}T_{00}(0)+\cdots.
+\]
+Therefore the coefficient multiplying the \(2k\)-th derivative is
+\[
+c_k^{(d=1)}
+=
+\frac{\pi}{R}\cdot\frac{1}{(2k)!}
+\int_{-R}^{R}(R^2-x^2)x^{2k}\,dx\cdot R^{-(2k+2)}.
+\]
+The radial moment is exact:
+\[
+\int_{-R}^{R}(R^2-x^2)x^{2k}\,dx
+=
+\frac{4R^{2k+3}}{(2k+1)(2k+3)}.
+\]
+Hence
+\[
+c_k^{(d=1)}
+=
+\frac{4\pi}{(2k+1)(2k+3)(2k)!},
+\]
+which shows exact factorial suppression:
+\[
+c_k^{(d=1)}
+\sim
+\frac{\mathrm{const}}{(2k)!\,k^2}.
+\]
+
+The factorial suppression of \(c_k^{(d=1)}\) is normalization-dependent
+signal information. It does not by itself determine a fluctuation
+kernel, a renormalized Fisher information \(I_k\), or a cumulative
+inverse-information budget. Consequently this calculation does not
+instantiate Lemma~\ref{lem:arithmetic-asymptotic}; it only shows what one
+factor in a future, fully specified model would look like.
+
+\section{Trilogy Implications}\label{sec:6}
+
+\subsection{Paper G as Motivation Only}\label{subsec:6.1}
+
+Paper~G\cite{PaperG} supplies philosophical motivation for studying
+self-description, but no formal bridge maps its syntax-level scenarios
+to the reconstruction loss defined here. The withdrawn drift-floor
+argument does not quantify Paper~G, and this paper asserts no generic
+fixed-point obstruction.
+
+\subsection{Relocating the Gap in Paper II Terms}\label{subsec:6.2}
+
+Paper~II\cite{PaperII} supplies a leading CHM stress-tensor term and an
+\(O(R^{d+3})\) remainder. It does not supply normalized coefficient
+directions or a Fisher map. Paper~III therefore does not reinterpret the
+remainder as a physical control tower. Lemma~\ref{lem:arithmetic-asymptotic}
+applies only after a positive sequence and budget are stipulated
+independently.
+
+\subsection{Trilogy-Level Interpretation}\label{subsec:6.3}
+
+The trilogy-level reading is conditional on Paper~I's shell interface
+\((Amb)\), dynamical axiom \((C)\), and scale-faithfulness assumption
+\((SFa)\), as well as Paper~II's restricted CHM regime. These inputs
+supply algebraic modular time and conditional geometric statements, not
+a phenomenal-time identification. The surviving arithmetic lemma does
+not locate or quantify an explanatory gap.
+
+\section{Limitations and Open Problems}\label{sec:7}
+
+The withdrawals identify four concrete tasks for any future rebuild.
+
+\begin{enumerate}
+\item \textbf{A typed observation model.} A future risk theorem must
+specify a likelihood or sampling channel that prevents lossless orbit
+coding, then distinguish estimator risk from state reconstruction loss.
+
+\item \textbf{Normalized coefficient directions.} A physical use of
+Lemma~\ref{lem:arithmetic-asymptotic} requires independently constructed
+coefficient perturbations, a renormalized kernel, and a normalization
+under which the Fisher sequence is invariantly defined.
+
+\item \textbf{A Paper II bridge.} The remainder order alone is
+insufficient. One must construct a map from small-ball coefficient data
+to the statistical model before any resource comparison is meaningful.
+
+\item \textbf{Ego-rigidity interface.} The T-DOME prior may enter a
+specified Bayesian estimation problem, but it supplies no reconstruction
+floor by itself. Its operational channel and boundary conditions must be
+given before van Trees can be used.
+\end{enumerate}
+
+\section{Conclusion}\label{sec:8}
+
+Paper~III tests a proposed quantitative route to the explanatory gap.
+Paper~G supplies programme-level motivation, while Paper~II supplies a
+leading stress-tensor extraction and a controlled remainder order; it
+does not identify that remainder as a physical self-description carrier.
+The present paper defines a finite-self-model reconstruction loss and
+records why the former universal drift-floor inference fails.
+
+A finite Fisher ceiling alone does not imply a nonzero local minimax
+reconstruction loss. The lossless-orbit construction shows that a finite
+channel can preserve the relevant modular-orbit coordinate exactly on a
+short segment. A positive lower bound may still arise under an additional
+typed observation model that excludes such encodings and connects
+estimation risk to reconstruction loss, but a precise characterization
+of those conditions remains open.
+
+Separately, the conditional arithmetic lemma shows that a stipulated
+positive sequence with
+\(\log I_k=-\alpha k\log k+O(k)\) has maximal admissible index
+\(K(n)=O(\log n/\log\log n)\) under a polynomial-scale budget. It does
+not establish a physical Fisher spectrum, a self-model budget, or a
+finite self-description horizon. The explanatory gap is therefore not
+eliminated in general, but it is not quantitatively located by the
+present results.
+
+\appendix
+
+\section{Trilogy Key Premises Summary}\label{app:premises}
+
+The following list records the external inputs and their restricted
+roles. Paper~III is not self-contained with respect to these trilogy
+interfaces.
+
+\begin{enumerate}
+\item \textbf{Paper I algebraic interface} (Paper~I\cite{PaperI}).
+The Araki relative entropy of two nearby faithful normal states on a
+Type~III von Neumann algebra admits a local quadratic expansion
+\(S(\omega\|\omega+\delta\omega)=\tfrac{1}{2}\mathbf{Q}_\omega
+(\delta\omega,\delta\omega)+o(\|\delta\omega\|^2)\), where
+\(\mathbf{Q}_\omega\) is the BKM/QFIM quadratic form. This is the
+information-geometric structure used in Definitions~\ref{def:2.1b}
+and~\ref{def:2.3} and throughout Section~\ref{sec:3}. The broader
+trilogy interpretation also assumes Paper~I's shell interface \((Amb)\),
+dynamical covariance \((C)\), and scale-faithfulness \((SFa)\). These
+give conditional algebraic structure; modular flow is algebraic time,
+not a derived phenomenal-time variable.
+
+\item \textbf{Small-ball expansion with \(O(R^{d+3})\) remainder}
+(Paper~II\cite{PaperII}).
+In the CHM ball framework for conformal nets, the modular energy of a
+small ball of radius \(R\) admits the expansion
+\(\delta\langle K_{B,u}\rangle = \frac{2\pi V_d}{d+2}R^{d+1}
+\delta\langle T_{\mu\nu}\rangle u^\mu u^\nu + O(R^{d+3})\).
+The leading coefficient extracts the local stress tensor, while the
+higher-order remainder is uncontrolled. Paper~II supplies neither an
+infinite coefficient tower nor a Fisher map; Section~\ref{sec:5} uses
+only a separate exact \(d=1\) moment calculation.
+
+\item \textbf{Self-reference motivation} (Paper~G\cite{PaperG}).
+Paper~G discusses regress and collapse scenarios but does not prove that
+a self-referential fixed point generically fails to exist. Paper~III
+uses it as motivation only and does not quantify it.
+
+\item \textbf{Ego-rigidity prior}
+(T-DOME~Paper~III\cite{TDOMEIII}).
+The ego-rigidity prior \(\mathcal{I}_{\mathrm{ego}}\) is the Fisher
+information of the observer's prior distribution over its own
+self-model parameters:
+\(\mathcal{I}_{\mathrm{ego}}:=\int(\partial_\sigma\log
+\pi_{\mathrm{ego}}(\sigma))^2\pi_{\mathrm{ego}}(\sigma)\,d\sigma\).
+It may enter a separately specified Bayesian likelihood model. It does
+not lower-bound reconstruction loss without such an observation model,
+and no theorem in this paper uses it to do so.
+\end{enumerate}
+ 
+\newpage
+\addcontentsline{toc}{section}{References}
+
+\begin{thebibliography}{99}
+
+\bibitem{PaperI}
+S.~Liu, \emph{The Inseparability of Geometry and Modular Flow: A Structural Inseparability Theorem and Its Implications for the Hard Problem}, Zenodo (2026), DOI: 10.5281/zenodo.19607387.
+
+\bibitem{PaperII}
+S.~Liu, \emph{Higher-Dimensional Consistency of Geometry and Modular Flow: Small-Ball Modular Data and Linearized Gravity}, Zenodo (2026), DOI: 10.5281/zenodo.19607543.
+
+\bibitem{PaperG}
+S.~Liu, \emph{Structural Limits of Unification: Accessibility, Incompleteness, and a Programme-Level Final-Cut Diagnosis}, Zenodo (2026), DOI: 10.5281/zenodo.18402907.
+
+\bibitem{TDOMEIII}
+S.~Liu, \emph{Fisher Information Geometry and Conditional Implementation Costs of Self-Referential Calibration}, Zenodo (2026), DOI: 10.5281/zenodo.18591771.
+
+\bibitem{Araki1976}
+H.~Araki,
+\emph{Relative entropy of states of von Neumann algebras},
+Publ.\ Res.\ Inst.\ Math.\ Sci.\ \textbf{11}, 809--833 (1976).
+
+\bibitem{Petz1986}
+D.~Petz,
+\emph{Sufficient subalgebras and the relative entropy of states of a von Neumann algebra},
+Commun.\ Math.\ Phys.\ \textbf{105}, 123--131 (1986).
+
+\bibitem{Petz1996}
+D.~Petz,
+\emph{Monotone metrics on matrix spaces},
+Linear Algebra Appl.\ \textbf{244}, 81--96 (1996).
+
+\bibitem{vanTrees1968}
+H.~L.~Van Trees,
+\emph{Detection, Estimation, and Modulation Theory, Part~I},
+Wiley, New York (1968).
+
+\bibitem{CasiniHuertaMyers2011}
+H.~Casini, M.~Huerta, and R.~C.~Myers,
+\emph{Towards a derivation of holographic entanglement entropy},
+JHEP \textbf{1105}, 036 (2011),
+arXiv:1102.0440.
+
+\end{thebibliography}
+ 
+\end{document}

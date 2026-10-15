@@ -1,0 +1,120 @@
+{
+  "scope": "G5-03 plus FI/FII named protocols; scripts and archived outputs, not a new rerun of all historical experiments",
+  "dependencies": {
+    "python": "3.14.3",
+    "numpy": "2.4.2",
+    "scipy": "1.17.1",
+    "mpmath": "1.3.0"
+  },
+  "files": [
+    {
+      "papers": [
+        "F-II"
+      ],
+      "source": "OctoberReview/research/d1d2/claude_v3/d2_v3.py",
+      "distributed": "source_tree/OctoberReview/research/d1d2/claude_v3/d2_v3.py",
+      "source_sha256": "b8a46c1263434169112c83be0d2ae8df49763e11e7fd7bb6868ae7674939f137",
+      "distributed_sha256": "7fd363f8f09adfa262c5856e36460bf289dd7e70734da88cb88fd94c86f1e40e",
+      "bytes": 16042,
+      "kind": "script",
+      "copy_changes": "Publication-copy module documentation/comments edited; computational AST unchanged. Source hash and contributor paths retained.",
+      "path_changes": "none; run_check.py copies the complete tree to a fresh output directory before executing"
+    },
+    {
+      "papers": [
+        "F-II"
+      ],
+      "source": "OctoberReview/research/d1d2/claude_v3/d2_v3_output.json",
+      "distributed": "source_tree/OctoberReview/research/d1d2/claude_v3/d2_v3_output.json",
+      "source_sha256": "cba93f4492f47cc82cd4cf2f34c219892578bca51f438d87ec07e7d07dbb9b38",
+      "distributed_sha256": "e1852c3549db7c2ab54310233f1769096a1ba6731d3e8ccb03daec89fb6cfad1",
+      "bytes": 57999,
+      "kind": "archived output/input",
+      "copy_changes": "one final newline added by apply_patch; payload unchanged",
+      "path_changes": "none; run_check.py copies the complete tree to a fresh output directory before executing"
+    },
+    {
+      "papers": [
+        "F-II"
+      ],
+      "source": "OctoberReview/research/d1d2/claude_v3/d2_v3_output_fixedwindow.json",
+      "distributed": "source_tree/OctoberReview/research/d1d2/claude_v3/d2_v3_output_fixedwindow.json",
+      "source_sha256": "94bdce89090515e6a520d34a641baad8e0b2ab0ee66b55eae1ebe2c3ef35267f",
+      "distributed_sha256": "72443c5f842c9e99bad5802b536d52d8b505da4f1010b972d4e12d7792dab947",
+      "bytes": 58156,
+      "kind": "archived output/input",
+      "copy_changes": "one final newline added by apply_patch; payload unchanged",
+      "path_changes": "none; run_check.py copies the complete tree to a fresh output directory before executing"
+    },
+    {
+      "papers": [
+        "F-II"
+      ],
+      "source": "OctoberReview/research/f2_writeback/claude/f2_numbers.json",
+      "distributed": "source_tree/OctoberReview/research/f2_writeback/claude/f2_numbers.json",
+      "source_sha256": "9ed096c7ea86b2034519755368ab1db88517f19416c432cc243d81f7e61254dc",
+      "distributed_sha256": "f09a5fe767a6e4e5725c260254d67bf87b32e3ae94395da3d0a9352e1ee283bf",
+      "bytes": 4894,
+      "kind": "archived output/input",
+      "copy_changes": "one final newline added by apply_patch; payload unchanged",
+      "path_changes": "none; run_check.py copies the complete tree to a fresh output directory before executing"
+    },
+    {
+      "papers": [
+        "F-II"
+      ],
+      "source": "OctoberReview/supplement_review_20261015/execution/calculate_f2_numbers.py",
+      "distributed": "source_tree/OctoberReview/research/f2_writeback/claude/calculate_f2_numbers.py",
+      "source_sha256": "816a436c7eaded105b04e7e31af693bf0f1f72bc1cb5cbda48478999e462d62f",
+      "distributed_sha256": "816a436c7eaded105b04e7e31af693bf0f1f72bc1cb5cbda48478999e462d62f",
+      "bytes": 4019,
+      "kind": "numeric-only aggregation script",
+      "copy_changes": "Numeric calculations extracted; manuscript and TeX generation removed. Output matches archived f2_numbers.json byte for byte.",
+      "path_changes": "New publication-only script; distributed path preserves access to the three supplied JSON inputs. run_check.py uses the distributed path.",
+      "derived_from": {
+        "path": "OctoberReview/research/f2_writeback/claude/make_f2_section.py",
+        "sha256": "6711ae6ed376c9e9249539865da0c26373e6d8ddc6d2539ce58e68817999f93e"
+      }
+    },
+    {
+      "papers": [
+        "F-II"
+      ],
+      "source": "OctoberReview/research/f2_writeback/claude/witness_check.py",
+      "distributed": "source_tree/OctoberReview/research/f2_writeback/claude/witness_check.py",
+      "source_sha256": "928c449ac369d610bee5422559c8c4a22ea5f635515ca8b160a4da0b9084fa97",
+      "distributed_sha256": "928c449ac369d610bee5422559c8c4a22ea5f635515ca8b160a4da0b9084fa97",
+      "bytes": 4107,
+      "kind": "script",
+      "copy_changes": "none",
+      "path_changes": "none; run_check.py copies the complete tree to a fresh output directory before executing"
+    },
+    {
+      "papers": [
+        "F-II"
+      ],
+      "source": "OctoberReview/research/synthesis/codex/round20_v1/d2_checks.py",
+      "distributed": "source_tree/OctoberReview/research/synthesis/codex/round20_v1/d2_checks.py",
+      "source_sha256": "e49279aeafb5decfe64d2da4ae27dec885c0f7fc822d55c1a8ac2442fcff838a",
+      "distributed_sha256": "2ba30832ffcd7aba1354a81ee2b2b8fd2c4de50983c66c83ebfb657b85fab7bf",
+      "bytes": 8588,
+      "kind": "script",
+      "copy_changes": "Publication-copy module documentation/comments edited; computational AST unchanged. Source hash and contributor paths retained.",
+      "path_changes": "none; run_check.py copies the complete tree to a fresh output directory before executing"
+    },
+    {
+      "papers": [
+        "F-II"
+      ],
+      "source": "OctoberReview/research/synthesis/codex/round20_v1/d2_output.json",
+      "distributed": "source_tree/OctoberReview/research/synthesis/codex/round20_v1/d2_output.json",
+      "source_sha256": "73a1ea48432ff4a7e8264372d15a1d1ec7ebdf0ee4a81d7640f4a373673d3804",
+      "distributed_sha256": "73a1ea48432ff4a7e8264372d15a1d1ec7ebdf0ee4a81d7640f4a373673d3804",
+      "bytes": 17888,
+      "kind": "archived output/input",
+      "copy_changes": "none",
+      "path_changes": "none; run_check.py copies the complete tree to a fresh output directory before executing"
+    }
+  ],
+  "paper": "F-II"
+}

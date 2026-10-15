@@ -1,0 +1,366 @@
+\documentclass[aps,pre,onecolumn,superscriptaddress,floatfix,longbibliography]{revtex4-2}
+\usepackage{amsmath,amssymb,amsthm,bm,color}
+\usepackage{hyperref}
+\usepackage{booktabs}
+\usepackage{graphicx}
+\usepackage{array}
+\newcolumntype{P}[1]{>{\raggedright\arraybackslash}p{#1}}
+\usepackage{tikz}
+\usetikzlibrary{shapes,arrows,positioning,calc,decorations.pathmorphing}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{corollary}[theorem]{Corollary}
+
+\begin{document}
+\emergencystretch=2em
+\raggedbottom
+\hbadness=5000
+\vbadness=5000
+
+\title{Thermodynamic Stability Constraints on the Operator Algebra\\
+of Persistent Open Quantum Subsystems}
+
+\author{Sidong Liu, PhD \\
+\small iBioStratix Ltd \\
+\small \texttt{sidongliu@hotmail.com}}
+
+\date{July 2026}
+
+\begin{abstract}
+We investigate algebraic modelling choices for open quantum subsystems
+that maintain a non-equilibrium steady state (NESS) under continuous
+environmental interaction.  We formulate persistence as a variational
+and Lyapunov-stability problem, while keeping the scope of the algebraic
+claim explicit.
+
+The analysis isolates two structural desiderata for a control
+parameterization: associativity of the operator product and a supplied
+quadratic generator relation when channel directions and magnitudes are
+to be encoded together.  Clifford algebra $Cl(V,q)$ is a compact way to
+package such a selected quadratic form with control generators, but the
+paper does not prove that Clifford structure is necessary, uniquely
+selected, or forced by persistence.
+
+A worked controlled-qubit example records what a full Lyapunov proof
+would have to check.  The comparison with von Neumann, $C^*$, and Lie
+algebraic frameworks is therefore a modelling audit, not an exclusion
+theorem.
+The analysis complements the Holographic Alaya-Field Framework (HAFF)~\cite{Liu2026PaperA,Liu2026PaperB} and the companion paper on algebraic constraints in entropic gravity~\cite{Liu2026QRAIF_A}.
+\end{abstract}
+
+\maketitle
+
+% ============================================================
+\section{Introduction}
+\label{sec:intro}
+
+The interaction of a quantum system with a large environment typically leads to decoherence and thermalization~\cite{Breuer2002,Weiss2012}.
+Maintaining a NESS requires continuous energetic cost~\cite{Seifert2012,Jarzynski2011}, which can be modeled as a feedback control process~\cite{Sagawa2012,Parrondo2015}.
+We address: \textit{What algebraic structures allow the internal control dynamics to remain Lyapunov stable?}
+
+\subsection{Three-Paper Structure}
+
+\begin{center}
+\begin{tabular}{@{}lll@{}}
+\toprule
+\textbf{Paper} & \textbf{Question} & \textbf{Analogy} \\
+\midrule
+HAFF~\cite{Liu2026PaperA} & How does geometry emerge? & Ocean \\
+Q-RAIF A~\cite{Liu2026QRAIF_A} & What algebra does geometry need? & Water \\
+This work & What algebra does survival need? & Fish \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\subsection{Anti-Solipsism Disclaimer}
+
+A potential misreading is that the observer ``creates'' geometry through survival.
+We explicitly reject this.
+The revised claim is model-relative: Pauli/Clifford generators are one convenient parameterization of feedback channels, but persistence does not force an indefinite Clifford algebra.  Within HAFF, geometric reconstruction is itself conditional on selected algebraic and dictionary inputs~\cite{Liu2026PaperB}.
+
+\subsection{Scope}
+
+This work does not derive Clifford algebra from first principles.  The stability calculation requires a positive-definite control metric and a complete closed-loop model.  Clifford relations may be adopted as a modelling choice that packages a selected quadratic form with control generators; indefinite signature is a separate read-out choice, not a Lyapunov consequence.
+
+\paragraph{Result-status ledger.}
+Associativity of standard operator composition is a general observation.  The persistence action below is heuristic motivation.  The former indefinite Metric Constraint and Persistence Compatibility Theorem are retracted.  The qubit section is a model audit showing what a valid Lyapunov proof would have to control, not a proof of Clifford necessity.
+
+% ============================================================
+\section{Variational Bounds on Persistence}
+\label{sec:variational}
+
+Consider $\mathcal{H}_{\mathrm{tot}} = \mathcal{H}_R \otimes \mathcal{H}_E$, with reduced dynamics:
+\begin{equation}
+\dot{\rho}_R = -i[H_{\mathrm{eff}}, \rho_R] + \mathcal{D}[\rho_R].
+\end{equation}
+
+\paragraph{Heuristic persistence cost.}
+For a declared control protocol $Q=\{u_k(t)\}_{k=1}^m$, one may compare protocols using
+\begin{equation}
+\mathcal{A}[Q] = \int_0^\tau dt\, D_{KL}(\rho_Q(t) \| \rho_{\mathrm{NESS}}).
+\end{equation}
+No variational domain, endpoint conditions, or Euler--Lagrange calculation is supplied here.  Consequently $\delta\mathcal A=0$ does not derive a control Hamiltonian or an operator algebra.  The functional is motivation only; the actual feedback law must be specified and verified directly in the closed-loop master equation.
+
+\subsection{What Lie Algebras Do Not Encode by Themselves}
+
+Standard quantum control theory uses Lie algebra generators~\cite{WisemanMilburn2009}: the control Hamiltonian $H_{\mathrm{ctrl}} = \sum_k u_k(t) G_k$ where $\{G_k\}$ generate a Lie algebra $\mathfrak{g}$ via commutators $[G_i, G_j] = i f_{ijk} G_k$.
+
+Lie algebras encode \emph{infinitesimal symmetries}---they specify which directions in state space are accessible via control.  A control model normally supplies a positive cost, norm, or information metric separately to quantify correction size.  That separation is standard and does not require the Lie algebra itself to carry a canonical metric.  A Clifford quadratic form can package additional representation data when chosen, but it is not forced by error correction or channel discrimination.
+
+% ============================================================
+\section{Algebraic Constraints on Control Stability}
+\label{sec:stability}
+
+\subsection{Constraint I: Associativity as Structural Boundary}
+\label{sec:assoc}
+
+\begin{remark}[Associativity as a control-model boundary]
+\label{rem:assoc-boundary}
+The present master-equation model represents sequential controls by linear maps with ordinary composition, which is associative by definition~\cite{Breuer2002}.  This is a declared scope condition, not a theorem excluding every non-associative dynamics.  Jordan or octonionic models would need additional bracketing, subsystem, and composition rules before the control calculation could be transferred~\cite{Schafer1966,Gunaydin1973}.  Revised Paper~A~\cite{Liu2026QRAIF_A} makes the same type distinction in its remark ``Physical pathologies of non-associative dynamics.''
+\end{remark}
+
+The substantive constraint is Constraint~II, which discriminates among \emph{associative} algebras.
+
+\subsection{Constraint II: Positive Control Metric for Lyapunov Descent}
+\label{sec:metric}
+
+The former lemma asserting that Lyapunov stability requires an indefinite metric is withdrawn.  For an auxiliary gradient controller on parameters $\lambda$, the descent ansatz is
+\begin{equation}
+\dot{\lambda} = -\Gamma\, G^{-1} \nabla_\lambda V,
+\label{eq:gradient}
+\end{equation}
+with $G$ positive definite.  Then the controller contribution is
+\begin{equation}
+(\nabla_\lambda V)^T\dot\lambda
+=-\Gamma(\nabla_\lambda V)^TG^{-1}(\nabla_\lambda V)\leq0.
+\end{equation}
+If $G$ is indefinite, a negative-norm gradient direction reverses this sign and is anti-stable under the same rule.  Thus the stated descent mechanism selects positive definiteness, not Lorentzian signature.
+
+Channel labels such as unitary, dephasing, and dissipative may be represented by a discrete type label, a direct-sum decomposition, or externally supplied weights.  Their qualitative difference does not require negative norm.  Any indefinite quadratic form used later for spacetime or read-out representation is a separate modelling input and must not be identified with the control metric $G$.
+
+More importantly, $\lambda$-descent alone is not the physical state equation.  With drift $H_0$, dissipator $\mathcal D$, and controls $H_{\mathrm{ctrl}}(\lambda)=\sum_i u_i(\lambda)G_i$, the closed loop is
+\begin{equation}
+\dot\rho= -i[H_0+H_{\mathrm{ctrl}}(\lambda),\rho]+\mathcal D[\rho],
+\qquad
+\dot\lambda=-\Gamma G^{-1}\nabla_\lambda V.
+\end{equation}
+For a differentiable $V(\rho,\lambda)$,
+\begin{equation}
+\dot V=D_\rho V\!\left[-i[H_0+H_{\mathrm{ctrl}},\rho]+\mathcal D[\rho]\right]
+-\Gamma(\nabla_\lambda V)^TG^{-1}(\nabla_\lambda V).
+\end{equation}
+A stability proof must control the first term as well as the positive-metric controller term.  No general sign follows merely by setting a control amplitude equal to a gradient component.
+
+\subsection{Comparison with Alternative Algebraic Frameworks}
+\label{sec:exclusion}
+
+\begin{table}[h]
+\centering
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{@{}lccl@{}}
+\toprule
+\textbf{Algebra} & \textbf{I: Assoc.} & \textbf{Control metric} & \textbf{Status} \\
+\midrule
+von Neumann (III$_1$) & \checkmark & externally chosen positive $G$ & Compatible \\
+$C^*$-algebra & \checkmark & externally chosen positive $G$ & Compatible \\
+Lie/control algebra & via representation & positive cost metric & Standard control setting \\
+Jordan algebra & non-assoc. & model-dependent & Outside operator-composition setup \\
+\textbf{Clifford} $Cl(V,q)$ & \checkmark & $q$ need not equal $G$ & Optional parameterization \\
+\bottomrule
+\end{tabular}
+}
+\caption{Candidate control frameworks after separating the positive Lyapunov metric $G$ from any Clifford/read-out form $q$.}
+\label{tab:exclusion}
+\end{table}
+
+The table is no longer an exclusion argument.  Standard dissipative and coherent-control frameworks stabilize target states with positive cost functions and Lie/operator-algebraic controls \cite{Verstraete2009,Diehl2008,TicozziViola2008,Mirrahimi2005}.  They are counterexamples to the claim that indefinite Clifford structure is necessary for persistence.
+
+\subsection{Worked Example: Controlled Qubit Under Lindblad Dynamics}
+\label{sec:toymodel}
+
+\paragraph{Setup.}
+Consider a single qubit coupled to a thermal bath at inverse temperature $\beta$, with Lindblad dissipator:
+\begin{equation}
+\mathcal{D}[\rho] = \gamma_\downarrow \mathcal{L}[\sigma_-]\rho + \gamma_\uparrow \mathcal{L}[\sigma_+]\rho + \gamma_\phi \mathcal{L}[\sigma_z]\rho,
+\end{equation}
+where $\mathcal{L}[L]\rho = L\rho L^\dagger - \frac{1}{2}\{L^\dagger L, \rho\}$, and $\gamma_\downarrow$, $\gamma_\uparrow$, $\gamma_\phi$ are decay, excitation, and dephasing rates.
+
+\paragraph{Control algebra.}
+The control Hamiltonian is $H_{\mathrm{ctrl}} = \sum_i u_i(t)\, \sigma_i$ where $\{\sigma_x, \sigma_y, \sigma_z\}$ are Pauli operators.
+These satisfy $\{\sigma_i, \sigma_j\} = 2\delta_{ij}\mathbf{1}$---the defining relation of $Cl(3,0)$.
+
+\paragraph{Lyapunov function.}
+Take $V = D_{KL}(\rho \| \rho_{\mathrm{NESS}})$ where $\rho_{\mathrm{NESS}}$ is the thermal state.
+For full-rank states its derivative along the actual master equation is
+\begin{equation}
+\dot V
+=\operatorname{Tr}\!\left[\dot\rho
+(\log\rho-\log\rho_{\mathrm{NESS}})\right],
+\end{equation}
+with $\dot\rho$ containing the drift, all Lindblad terms, and the controlled commutator.  The former equation $\dot V=-\alpha\sum_i(\partial V/\partial u_i)^2$ is withdrawn: the amplitudes $u_i$ are not state coordinates, and assigning their values does not eliminate the Lindblad/drift contribution.  A concrete feedback law must prove the full derivative nonpositive for its declared target and rates.
+
+\paragraph{Failure mode without built-in metric.}
+An abstract Lie algebra $\mathfrak{su}(2)$ specifies rotation directions; a control design also supplies amplitudes and a positive cost/control metric.  Importing that metric is normal control data, not a consistency failure.  In the Pauli representation the Hilbert--Schmidt form or another positive weight matrix can provide it.
+
+The Pauli anticommutators can package a Euclidean quadratic form, so $Cl(3,0)$ is a convenient model representation.  This convenience neither proves stability nor makes Clifford algebras uniquely necessary for feedback.
+
+\paragraph{No indefinite extension from this mechanism.}
+Under the same gradient-descent law, replacing the positive control metric by an indefinite form creates anti-descent directions.  No stable indefinite example is supplied, so the former extension claim is deleted.  A Lorentzian form may still be used at a separate representation/read-out layer, but it is not the Lyapunov metric of this feedback calculation.
+
+% ============================================================
+\subsection{Clifford Parameterization as a Model Choice}
+
+The former Persistence Compatibility Theorem and its NESS corollary are retracted.  If one separately chooses a quadratic space $(V,q)$ and requires generators to satisfy $v^2=q(v)\mathbf1$, then the universal property identifies $Cl(V,q)$ as the minimal algebra for that presentation \cite{Hestenes1966}.  This definitional observation does not show that persistence, channel discrimination, or Lyapunov descent imposes those relations.
+
+\begin{remark}[Natural Selection, Not Design]
+No algebraic natural-selection theorem is established.  A particular physical feedback model may favour a representation because of its controls and costs, but that preference must be demonstrated by its closed-loop dynamics.
+\end{remark}
+
+\begin{remark}[Content of the Argument]
+\label{rem:scope}
+As with the withdrawn selection theorem in Paper~A~\cite{Liu2026QRAIF_A}, invoking the universal property of $Cl(V,q)$ after positing Clifford relations is a standard algebraic identity.
+The surviving ingredients have different status:
+Remark~\ref{rem:assoc-boundary} (associativity as the declared operator-composition boundary; see the named non-associative-dynamics remark in Paper~A~\cite{Liu2026QRAIF_A}),
+the positive control-metric calculation in Section~\ref{sec:metric}, and the model audit in Section~\ref{sec:toymodel}.  The latter does not prove stability until a feedback law controls the full Lindblad derivative.
+\end{remark}
+
+% ============================================================
+\section{Contextual Relations}
+\label{sec:context}
+
+\subsection{Convergence with Paper A}
+
+The revised companion paper~\cite{Liu2026QRAIF_A} treats $Cl(1,3)$ as a model representation of a separately supplied Lorentzian form.
+
+\begin{center}
+\begin{tabular}{@{}lcc@{}}
+\toprule
+& \textbf{Paper A} & \textbf{This work} \\
+\midrule
+Starting point & Holographic boundary & Open subsystem \\
+Method & Lorentzian encoding choice & Positive-metric stability audit \\
+Key input & Clifford generator relations & Feedback model and cost metric \\
+Result & $Cl(1,3)$ parameterization & $Cl(V,q)$ parameterization \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+There is no independent convergence theorem: both papers posit Clifford relations for their respective representation tasks.  The shared choice motivates comparison, but neither route currently derives it from its upstream physical premises.
+
+\subsection{Relation to Quantum Control Theory}
+
+Standard quantum control operates within a Lie algebraic framework~\cite{WisemanMilburn2009}: controllability is characterized by the Lie algebra generated by the drift and control Hamiltonians.
+This framework is complete for determining \emph{reachability} of target states.
+
+However, Lie algebras encode symmetries (via commutators) without encoding distances (via quadratic forms).
+When the control objective is not merely reachability but \emph{stabilization against stochastic perturbations}---as in NESS maintenance---both direction and magnitude of corrections must be specified.
+Clifford algebras provide this additional structure through their built-in quadratic form, complementing rather than replacing the Lie algebraic framework.
+
+\subsection{Relation to Decoherence-Free Subspaces}
+
+Decoherence-free subspaces (DFS)~\cite{Zanardi2001,Lidar2003} represent subsystems that are passively protected from environmental noise by symmetry.
+The present analysis addresses the \emph{active} counterpart: subsystems that maintain coherence through continuous feedback.
+In both cases, the algebraic structure of the system-environment interaction determines which subsystems can persist.
+The Clifford parameterization considered here applies to the active model; DFS theory applies to the passive case.
+A unified treatment remains an open problem.
+
+% ============================================================
+\section{Discussion}
+
+\textbf{What this result does show:}
+A positive-definite parameter metric makes the auxiliary gradient contribution nonpositive.  Clifford algebra is a compact parameterization if a quadratic generator relation is separately selected.  Table~\ref{tab:exclusion} and Section~\ref{sec:toymodel} record modelling options and missing stability conditions, not an exclusion theorem.
+
+\textbf{What this result does not show:}
+That Clifford algebra is necessary or uniquely selected.
+That the displayed qubit feedback stabilizes the target without an explicit full-derivative proof.
+That an indefinite read-out form can serve as the Lyapunov control metric under the same descent rule.
+
+\section{Conclusion}
+
+We have argued for a narrower conclusion: Clifford algebra $Cl(V,q)$ is
+a useful modelling choice when a control model separately supplies a
+quadratic generator relation for channel discrimination and directed
+correction.  Associativity remains a structural boundary condition, and
+the quadratic form remains an additional read-out or modelling input.
+The comparison with alternative algebras identifies missing ingredients
+for this particular package; it does not exclude those frameworks or
+prove Clifford necessity.
+
+Combined with the companion paper's holographic constraints, this
+supports a compatibility programme linking geometric consistency and
+thermodynamic persistence.  It does not show that $Cl(V,q)$ is necessary
+or uniquely selected, as stated in the Discussion above.
+
+% ============================================================
+\begin{thebibliography}{99}
+
+\bibitem{Breuer2002}
+H.-P.~Breuer and F.~Petruccione, \emph{The Theory of Open Quantum Systems}, Oxford University Press (2002).
+
+\bibitem{Weiss2012}
+U.~Weiss, \emph{Quantum Dissipative Systems}, 4th ed., World Scientific (2012).
+
+\bibitem{Seifert2012}
+U.~Seifert, \emph{Stochastic thermodynamics, fluctuation theorems and molecular machines}, Rep.\ Prog.\ Phys.\ \textbf{75}, 126001 (2012).
+
+\bibitem{Jarzynski2011}
+C.~Jarzynski, \emph{Equalities and inequalities: irreversibility and the second law at the nanoscale}, Annu.\ Rev.\ Condens.\ Matter Phys.\ \textbf{2}, 329 (2011).
+
+\bibitem{Sagawa2012}
+T.~Sagawa and M.~Ueda, \emph{Fluctuation theorem with information exchange}, Phys.\ Rev.\ E \textbf{85}, 021104 (2012).
+
+\bibitem{Parrondo2015}
+J.~M.~R.~Parrondo, J.~M.~Horowitz, and T.~Sagawa, \emph{Thermodynamics of information}, Nat.\ Phys.\ \textbf{11}, 131 (2015).
+
+\bibitem{Hestenes1966}
+D.~Hestenes, \emph{Space-Time Algebra}, Gordon and Breach (1966).
+
+\bibitem{Doran2003}
+C.~Doran and A.~Lasenby, \emph{Geometric Algebra for Physicists}, Cambridge University Press (2003).
+
+\bibitem{Petz1996}
+D.~Petz, \emph{Monotone metrics on matrix spaces}, Linear Algebra Appl.\ \textbf{244}, 81 (1996).
+
+\bibitem{Schafer1966}
+R.~D.~Schafer, \emph{An Introduction to Nonassociative Algebras}, Academic Press (1966).
+
+\bibitem{Gunaydin1973}
+M.~G\"unaydin and F.~G\"ursey, \emph{Quark structure and octonions}, J.\ Math.\ Phys.\ \textbf{14}, 1651 (1973).
+
+\bibitem{WisemanMilburn2009}
+H.~M.~Wiseman and G.~J.~Milburn, \emph{Quantum Measurement and Control}, Cambridge University Press (2009).
+
+\bibitem{Verstraete2009}
+F.~Verstraete, M.~M.~Wolf, and J.~I.~Cirac, \emph{Quantum computation and quantum-state engineering driven by dissipation}, Nat. Phys. \textbf{5}, 633--636 (2009).
+
+\bibitem{Diehl2008}
+S.~Diehl, A.~Micheli, A.~Kantian, B.~Kraus, H.~P.~B\"uchler, and P.~Zoller, \emph{Quantum states and phases in driven open quantum systems with cold atoms}, Nat. Phys. \textbf{4}, 878--883 (2008).
+
+\bibitem{TicozziViola2008}
+F.~Ticozzi and L.~Viola, \emph{Quantum Markovian subsystems: invariance, attractivity, and control}, IEEE Trans. Autom. Control \textbf{53}, 2048--2063 (2008).
+
+\bibitem{Mirrahimi2005}
+M.~Mirrahimi, P.~Rouchon, and G.~Turinici, \emph{Lyapunov control of bilinear Schr\"odinger equations}, Automatica \textbf{41}, 1987--1994 (2005).
+
+\bibitem{Zanardi2001}
+P.~Zanardi, \emph{Virtual Quantum Subsystems}, Phys.\ Rev.\ Lett.\ \textbf{87}, 077901 (2001).
+
+\bibitem{Lidar2003}
+D.~A.~Lidar and K.~B.~Whaley, \emph{Decoherence-free subspaces and subsystems}, in \emph{Irreversible Quantum Dynamics}, Springer, pp.\ 83--120 (2003).
+
+\bibitem{Liu2026PaperA}
+S.~Liu, \emph{Emergent Geometry from Coarse-Grained Observable Algebras: The Holographic Alaya-Field Framework}, Zenodo (2026), DOI: 10.5281/zenodo.18361706.
+
+\bibitem{Liu2026PaperB}
+S.~Liu, \emph{Accessibility, Stability, and Emergent Geometry: Conceptual Clarifications on the Holographic Alaya-Field Framework}, Zenodo (2026), DOI: 10.5281/zenodo.18367060.
+
+\bibitem{Liu2026QRAIF_A}
+S.~Liu, \emph{A Clifford-Encoding Model for Lorentzian Metrics in Entropic Gravity Frameworks}, Zenodo (2026), DOI: 10.5281/zenodo.18525876.
+
+\end{thebibliography}
+
+\end{document}

@@ -1,0 +1,1740 @@
+\documentclass[12pt]{article}
+
+\usepackage[a4paper, margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{mathtools}
+\usepackage{mathrsfs}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fontspec}
+
+\defaultfontfeatures{Ligatures=TeX}
+\IfFontExistsTF{Times New Roman}
+  {\setmainfont{Times New Roman}}
+  {\setmainfont{TeX Gyre Termes}}
+\IfFontExistsTF{Menlo}
+  {\setmonofont{Menlo}}
+  {\setmonofont{Latin Modern Mono}}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+
+\newcommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+
+\title{%
+  \textbf{Foundation III: The Perfuming Loop}\\
+  \textbf{Held Content, Learned Frames and Physical Return}%
+}
+
+\author{
+  Sidong Liu, PhD \\
+  \small iBioStratix Ltd \\
+  \small \texttt{sidongliu@hotmail.com}
+}
+
+\date{Revised October 2026}
+
+\hypersetup{pdftitle={Foundation III: The Perfuming Loop. Held Content, Learned Frames and Physical Return},pdfauthor={Sidong Liu}}
+\begin{document}
+\emergencystretch=2em
+\raggedbottom
+\hbadness=5000
+\vbadness=5000
+
+\maketitle
+
+\begin{abstract}
+An observer's return to its source can change the accessible algebra,
+the evolving state, or both. We separate these effects and construct
+normal completely positive feedback lifts on a supplied Type~III
+algebra. For a finite family of compact noise groups, repeated partial
+Haar dephasings converge strong* to the expectation onto their common
+fixed algebra whenever each group receives divergent cumulative
+exposure. The order, gaps and individual exposure strengths need not be
+fixed. Thus simultaneous sharing and long-time persistence select the
+same algebra in this model. A countable-family example shows why
+recurrence alone cannot replace the finite-family condition. Summable
+channel perturbations preserve convergence to the selected algebra,
+although they can change the state of the retained content.
+
+For GNS-symmetric source and feedback semigroups, the fixed observables
+of a finite product are their common fixed observables, even without
+commutation. A uniformly mixing source has only scalar fixed
+observables; it cannot at the same time retain a nontrivial fixed
+algebra. Moving its stationary state requires a different return
+mechanism. We realize that mechanism in a controlled bank of diagonal
+qubits and bound its risk under persistent estimation error. The compact
+actions and physical controls are inputs, not a derivation of their
+origin. Physical returns compose on the complete retained history,
+with nonlinear continuity bounds where required. Q-RAIF~C supplies the imported quantum history-control and receiver-renewal
+bounds: fixed controllers are nonexpansive across decision thresholds,
+and finite renewal preserves later bounded tasks and smooth tested
+material-field sources under the same Hamiltonian and retained history. These finite results do not imply
+infinite-time stability or renewal of the entire apparatus.
+In a finite semiclassical scalar/JT mean-action realization, an acquired record installs a
+protective encoding for held quantum content and changes the apparatus's
+own source. With the initial mass and geometry fixed, the resulting
+geometric response enters an $X$-basis acquisition of the old probe
+on a spent cell, after the first record has been acquired.
+Both readings retain the old content, references and physical cursor.
+Learning outperforms both fixed encodings under the declared unknown-sign
+prior. The stated example's sign-prior-averaged geometric signal is about
+$-5\times10^{-9}$, an existence-level return rather than a practical
+gravitational performance gain. The hardware and diagnostic relation are supplied; the installed
+frame, rather than a new microscopic law, is formed.
+\end{abstract}
+
+\clearpage
+\tableofcontents
+\clearpage
+
+\section{Introduction}\label{sec:intro}
+
+The source does not merely produce records. The observer uses those
+records to act on the process that will produce its next records.
+Foundation~III studies this return arrow. Foundation~I~\cite{FoundationI}
+constructs selected algebras from supplied source dynamics and seeds;
+Foundation~II~\cite{FoundationII} asks what different readers share.
+Here the question is what persists when the operations themselves change,
+and when a return modifies the world rather than only its description.
+
+These are distinct questions. Adding a symmetric noise channel can
+remove fixed observables without moving the reference state. A reset
+command can instead move a stationary state while every diagonal
+observable remains in the same pointer algebra. Neither operation by
+itself establishes that a new observer or geometry has formed.
+Section~\ref{sec:persistence} gives precise criteria for both effects.
+In particular, it connects sharing across readers to persistence across
+time: the common fixed algebra of a finite family of noise groups is
+also the strong* limit selected by any weighted-fair sequence of partial
+dephasings. This connects the shared-sector problem of Foundation~II
+to an iterated source process without assuming cyclic visits, bounded
+gaps, a positive minimum exposure, or a uniform spectral gap.
+
+Finite-dimensional projection convergence has a substantial history,
+including the paracontraction theorem of
+Elsner, Koltracht and Neumann~\cite{Elsner1992}. The projection lemma
+below supplies the cumulative-weight version used here; compact-group
+representation theory then lifts it to normal noise maps on a von
+Neumann algebra. Our use of these tools concerns accessible content,
+not a new general principle of iterative numerical analysis. The
+countable-family construction identifies a real boundary of that use.
+Small errors are treated separately: summable implementation
+perturbations still converge into the common algebra, but need not
+preserve its original state.
+
+The feedback signal is supplied by a specified calibration protocol.
+T-DOME~III~\cite{TDOMEIII} provides reference and probe records,
+posterior-dependent maintenance decisions and bounded commands under
+drift. Its self-model parameter is written \(\vartheta\) there and
+\(\sigma\) here. Residuals generated solely by the self-model need not
+identify their own calibration error; the reference permissions are
+part of the physical interface. A signal becomes a source operation
+only after a control channel has been specified.
+Sections~\ref{sec:feedback} and~\ref{sec:preservation} construct exact
+normal completely positive lifts and state their continuity and
+commutation conditions. A compact-group construction realizes the lift
+on the Type~III algebra itself, while its available couplings and
+calibration-to-rate rule remain supplied controls.
+
+Section~\ref{sec:bank} treats moving-source feedback in a bank of
+diagonal qubits. Every bounded command defines a legal channel; no
+autonomous-semigroup claim is needed for the adaptive sequence.
+Persistent estimation error gives an attracting risk ball.
+A smaller upper certificate need not mean a smaller actual loss, so
+the analysis separates the certificate from simulation and an exact
+open-loop comparison. This finite model implements part of the
+record--self-model--action loop; it is not an identification of the
+bank with a Type~III observer or with experiential consciousness.
+
+The algebraic results keep the group action, reference state, seeds and
+control permissions explicit. A nontrivial selected algebra can carry
+an internal Cut under the translation and standardness assumptions of
+Foundation~I and Consciousness~I~\cite{PaperI}; persistence alone does
+not supply those assumptions. Source preparation and geometric
+identification belong to Consciousness~II~\cite{PaperII}.
+Physical actuation and its stress belong to the Q-RAIF/HAFF interface.
+Section~\ref{sec:retainedreturn} gives the composition rule for a
+single process that chooses access, produces a source and uses its
+response. Its finite example learns an installed encoding from actual
+records while keeping the old quantum content and preparation
+references. A second result uses the complete quantum interface of
+Q-RAIF~C~\cite{QRAIFC}: a receiver renewed there can continue under
+the same interacting Hamiltonian with controlled next-window source
+and bounded-task error. The clock and old correlations remain in the
+comparison. Matching this quantum realization to the scalar/JT return
+is a further physical requirement.
+
+The final sections state the formation hypothesis and its physical
+interfaces. Appendix~\ref{app:arrival} supplies the finite arrival
+estimate used in the joint return; Appendix~\ref{app:physicalreturn}
+specifies the numerical protocol.
+
+\section{Feedback Lift and Regularity Conditions}\label{sec:feedback}
+
+We first specify the signal and the source operation it may control.
+
+\begin{definition}[Admissible calibration signal]\label{def:signal}
+Fix a source datum \(S_{\mathrm{source}}\) as in Foundation~I,
+a bounded readable seed \(S\), and a closure family \(\Gamma\) containing
+the source's modular group. The accessible object is
+\[
+\mathcal O_{\mathrm{acc}}
+= (\mathcal A_{\mathrm{acc}},\omega|_{\mathcal A_{\mathrm{acc}}},
+       \Gamma,\mathsf P_{\mathrm{phys}}),\qquad
+\mathcal A_{\mathrm{acc}}=\operatorname{Hull}_{\Gamma}(S).
+\]
+Here \(\mathsf P_{\mathrm{phys}}\) specifies the actual probe instruments,
+preparations and resource budget. The ideal hull does not itself make
+every element measurable. Calibration records must be obtainable under
+these permissions. A stable hull additionally requires the stationary
+source and stable-seed assumptions of Foundation~I; Cut inheritance
+requires its stated translation and standardness inputs.
+An \emph{admissible calibration signal} is a vector
+\[
+\delta\sigma \in T_\sigma\Sigma
+\]
+in the local calibration parameter space of T-DOME~III such that:
+\begin{enumerate}
+\item \(\delta\sigma\) is obtained from the natural-gradient calibration
+  step imported from T-DOME~III, with a metric made positive definite by
+  probe or reference records (read through the self-model alone, the
+  metric vanishes at calibration);
+\item \(\sigma+\delta\sigma\) remains inside the Lyapunov neighborhood on
+  which the T-DOME~III tracking estimate is valid;
+\item there exists a bound
+  \(\|\delta\sigma\| \leq R_{\mathrm{cal}}\) for some finite
+  calibration radius \(R_{\mathrm{cal}}>0\).
+\end{enumerate}
+\end{definition}
+
+\begin{remark}[Local signals and repeated returns]
+Definition~\ref{def:signal} concerns one local signal, not convergence
+of calibration. Repeated partial dephasings have their own exact
+limit in Section~\ref{sec:persistence}; drift control has an attracting
+ball in Section~\ref{sec:bank}; finite physical histories compose in
+Section~\ref{sec:retainedreturn}. None follows by iterating the local
+signal definition alone.
+\end{remark}
+
+For a source semigroup $\mathcal E_t$, the feedback package is a
+normal UCP semigroup $\mathscr F_r$ with $\mathscr F_r^{[0]}=\mathrm{id}$,
+an every-observable weak derivative at zero, and strict commutation
+with $\mathcal E_t$. It must separately retain the named hull,
+stationarity, translation and standardness inputs.
+Appendix~\ref{app:feedback_background} states FB-A--FB-C and proves
+that this derivative gives a bounded normal generator.
+Strict commutation permits nontrivial decay reweighting, but does
+not mix the pre-existing joint modes of its finite example.
+The following lift acts directly on the source algebra.
+
+\begin{proposition}[A compact-group lift on the source algebra]
+\label{prop:compactlift}
+Let a compact group \(G\) act continuously by normal automorphisms on
+\(\mathcal A_U\), preserving its faithful normal reference state.
+For a closed subgroup \(H\subseteq G\), write \(Q_G,Q_H\) for the Haar
+expectations and put
+\[
+ \mathcal E_t=e^{-\gamma t}\mathrm{id}+(1-e^{-\gamma t})Q_G,\qquad
+ \mathscr F_r^{[\delta\sigma]}
+ =e^{-\kappa q(\delta\sigma)r}\mathrm{id}
+   +(1-e^{-\kappa q(\delta\sigma)r})Q_H,
+ \quad q(\delta\sigma)=\|\delta\sigma\|^2 ,
+\]
+where \(\gamma,\kappa>0\). These are normal UCP semigroups on the
+source algebra, including when it is Type~III. They satisfy FB-A,
+FB-B and the commutation clause of FB-C. Inputs supported on
+\(\mathcal A_U^G\) are fixed by both semigroups.
+If \(Q_H\ne\mathrm{id}\), \(t,\eta>0\) and \(\delta\sigma\ne0\),
+the composed source map differs from \(\mathcal E_t\).
+\end{proposition}
+\begin{proof}
+Each Haar expectation is a normal UCP idempotent, so
+\(e^{a(Q-\mathrm{id})}=e^{-a}\mathrm{id}+(1-e^{-a})Q\).
+This proves the semigroup and continuity statements and gives the
+bounded feedback generator
+\(\kappa q(\delta\sigma)(Q_H-\mathrm{id})\).
+Haar invariance and \(H\subseteq G\) give
+\(Q_GQ_H=Q_HQ_G=Q_G\). Thus the two semigroups commute.
+For \(x\) with \(Q_Hx\ne x\), their difference is
+\[
+ \mathscr F_{\eta t}^{[\delta\sigma]}\mathcal E_t(x)-\mathcal E_t(x)
+ =e^{-\gamma t}(1-e^{-\kappa q(\delta\sigma)\eta t})(Q_Hx-x)\ne0 .
+\]
+Elements of \(\mathcal A_U^G\) are fixed at every step.
+\end{proof}
+
+This realizes a normal source-level lift without a finite-dimensional
+amplification. The group coupling, its availability to the controller
+and the response law \(q\) are still physical inputs.
+Preserving a full Foundation~I chain requires its named inputs to
+lie in an invariant sector; a valid CP map alone does not ensure that.
+
+The exact modified source is
+$\mathcal E_t^{[\eta]}=\mathscr F_{\eta t}^{[\delta\sigma]}\mathcal E_t$.
+At fixed $t$, its tangent is
+$\Gamma(\delta\sigma,\mathcal E_t)=t\mathfrak G_{\delta\sigma}\mathcal E_t$;
+a uniform perturbative use requires $\eta T\ll1$ and a valid comparison
+window. Appendix~\ref{app:feedback_background} supplies the definitions
+and expansion proof. The next theorem concerns the exact CP operation.
+
+\section{Source-Datum Preservation}\label{sec:preservation}
+
+\begin{theorem}[Source-datum preservation]\label{thm:preserve}
+Assume a source datum $S_{\rm source}$ and the feedback package
+FB-A--FB-C. For each admitted $\eta\ge0$,
+$\mathcal E_t^{[\eta]}=\mathscr F_{\eta t}^{[\delta\sigma]}\mathcal E_t$
+is a pointwise $\sigma$-weakly continuous semigroup of normal UCP
+maps. The unchanged $\Omega$ remains cyclic and separating for
+$\mathcal A_U$.
+\end{theorem}
+\begin{proof}
+Commutation in FB-C and the two semigroup laws give
+$\mathcal E_t^{[\eta]}\mathcal E_s^{[\eta]}
+=\mathscr F_{\eta(t+s)}\mathcal E_{t+s}$.
+Normality, complete positivity and unitality survive composition.
+Proposition~\ref{prop:boundedfeedback} gives norm continuity of
+$\mathscr F_r$. For fixed $A$ and a normal functional $\varphi$, insert
+$\varphi(\mathscr F_{\eta t_0}\mathcal E_t A)$ between the expressions
+at $t$ and $t_0$. The first difference is at most
+$\|\varphi\|\|\mathscr F_{\eta t}-\mathscr F_{\eta t_0}\|\|A\|$;
+the second tends to zero by $\sigma$-weak continuity of $\mathcal E_t$
+and normality of $\varphi\mathscr F_{\eta t_0}$.
+The ambient standard-form triple has not changed.
+\end{proof}
+
+The source-datum format survives, not automatically its selected
+projection, foreground frame or manifest algebra. Rerunning a
+Foundation~I chain requires the structural permissions in
+Appendix~\ref{app:interfaces}.
+The first-order map $\Gamma(\delta\sigma,\mathcal E_t)$ in
+Definition~\ref{def:Gamma} is therefore the tangent of an exact
+CP perturbation, not a truncated map whose positivity is assumed.
+
+\section{Persistent Content under Changing Source Operations}\label{sec:persistence}
+
+\subsection{Fixed observables and stationary states}
+
+Use \(\operatorname{Fix}(\mathcal E)\) for observables fixed at every
+time by a semigroup. Symmetry below refers to the GNS inner product
+\(\langle x\Omega,y\Omega\rangle=\omega(x^*y)\), not to a chosen
+matrix representation.
+
+\begin{proposition}[Fixed content of a product]\label{prop:fixedproduct}
+Let \(\mathcal E^{(1)},\ldots,\mathcal E^{(m)}\) be normal UCP
+semigroups preserving one faithful normal state \(\omega\).
+Suppose each is GNS-symmetric:
+\[
+ \omega(y^*\mathcal E_t^{(i)}x)
+ =\omega((\mathcal E_t^{(i)}y)^*x).
+\]
+For positive times \(t_i\), the fixed observables of
+\(\mathcal E_{t_m}^{(m)}\cdots\mathcal E_{t_1}^{(1)}\) are exactly
+\(\bigcap_i\operatorname{Fix}(\mathcal E^{(i)})\).
+The maps need not commute.
+
+If a source semigroup converges uniformly over all initial normal
+states to one state \(\tau\), its fixed observables are scalar.
+A CPTP map commuting with that source preserves \(\tau\).
+\end{proposition}
+\begin{proof}
+Kadison--Schwarz and invariance implement each semigroup on GNS space
+by self-adjoint contractions \(V_t^{(i)}\).
+Pointwise \(\sigma\)-weak continuity, together with contractivity,
+gives strong continuity on the dense set \(\mathcal A_U\Omega\)
+and hence on GNS space.
+Since \(V_t^{(i)}=(V_{t/2}^{(i)})^2\), they are positive.
+If their product fixes \(v\), the chain of norm inequalities starts
+and ends at \(\|v\|\), so each is an equality. A positive contraction
+preserves a vector's norm only on its eigenvalue-one space. Starting
+with the first factor therefore gives \(V_{t_1}^{(1)}v=v\), then
+the same conclusion for each remaining factor. The semigroup spectral
+representation identifies this space with the vectors fixed at all
+times. Apply the result to \(x\Omega\) and use the separating vector
+\(\Omega\). The reverse inclusion follows directly.
+
+If \(\mathcal E_t x=x\), uniform mixing gives
+\(\rho(x)=\tau(x)\) for every normal state \(\rho\), whence
+\(x=\tau(x)\mathbf1\).
+For commuting feedback \(F\),
+\(\mathcal E_{t*}(F\tau)=F(\mathcal E_{t*}\tau)=F\tau\);
+uniqueness of the invariant state gives \(F\tau=\tau\).
+\end{proof}
+
+Commutation remains useful for forming an autonomous composed
+semigroup, but is unnecessary for this fixed-content identity.
+Without GNS symmetry, opposite unitary rotations can compose to the
+identity and restore every observable although each individual
+commutant is smaller. Likewise, a unique mixing state and a
+nontrivial fixed algebra cannot be combined into one mechanism.
+
+The reset bank illustrates another distinction. Its Heisenberg reset
+is \(x\mapsto a x+(1-a)\operatorname{tr}(\tau_vx)\mathbf1\),
+which preserves \(W^*(S)\) for every pointer seed \(S\), even for a
+coherent target. With a fixed faithful diagonal reference state, this
+pointer algebra remains modular invariant as the target changes.
+If the reference state itself is replaced by a coherent faithful
+target, modular closure can enlarge the algebra. For a finite
+maximal diagonal algebra \(\mathcal D\),
+\(\rho^{is}\mathcal D\rho^{-is}=\mathcal D\) for all \(s\) holds
+exactly when the faithful density matrix \(\rho\) is diagonal:
+differentiation gives
+\([\log\rho,d]\in\mathcal D\), whose off-diagonal entries vanish
+for every diagonal \(d\). Thus moving a state, changing a reference
+and changing operational access must be tracked separately.
+
+\subsection{Finite noise families with cumulative exposure}
+
+\begin{lemma}[Weighted-fair projections]\label{lem:weightedfair}
+Let \(P_1,\ldots,P_m\) be orthogonal projections on a
+finite-dimensional Hilbert space and let
+\(R_n=(1-\theta_n)I+\theta_n P_{i_n}\), \(0<\theta_n\le1\).
+If
+\begin{equation}\label{eq:weightedfair}
+ \sum_{n:i_n=i}\theta_n=\infty\quad\hbox{for every }i ,
+\end{equation}
+then \(R_n\cdots R_1v\) converges to the orthogonal projection of
+\(v\) onto \(\bigcap_i\operatorname{ran}P_i\).
+\end{lemma}
+\begin{proof}
+Write \(v_n=R_nv_{n-1}\). The exact norm decrease is
+\[
+ \|v_{n-1}\|^2-\|v_n\|^2
+ =\theta_n(2-\theta_n)\|(I-P_{i_n})v_{n-1}\|^2 .
+\]
+The sequence is bounded. For a cluster point \(z\), let
+\(I_0=\{i:P_i z=z\}\) and suppose its complement \(J\) is nonempty.
+Put \(\delta=\min_{i\in J}\|(I-P_i)z\|>0\) and \(R=\|v_0\|\).
+Take a late cluster visit \(N\) with
+\(\|v_N-z\|<\delta/8\) and remaining norm-decrease budget \(E\)
+so small that \(\delta/8+8RE/\delta^2<\delta/2\).
+Steps in \(I_0\) do not increase distance to \(z\).
+Before any exit from the radius-\(\delta/2\) ball, each step in
+\(J\) spends at least \(\theta_n\delta^2/4\) of the budget and
+moves the vector by at most \(2R\theta_n\). Their total movement
+is at most \(8RE/\delta^2\), so no first exit is possible.
+Their cumulative weights are then at most \(4E/\delta^2\),
+contradicting~\eqref{eq:weightedfair}. Every cluster point is
+therefore in the common range. Its orthogonal projection is
+unchanged by every step, making the cluster point unique.
+\end{proof}
+
+\begin{theorem}[Persistent algebra of finite compact noise families]
+\label{thm:compactnoise}
+Let a compact group \(G\) act continuously by normal automorphisms
+on a von Neumann algebra \(M\), preserving a faithful normal state
+\(\omega\). For a finite family of closed subgroups \(H_1,\ldots,H_m\),
+let \(Q_i\) be their Haar expectations and
+\[
+ D_n=(1-\theta_n)\mathrm{id}+\theta_n Q_{i_n},\qquad
+ K=\overline{\langle H_1,\ldots,H_m\rangle}.
+\]
+Under~\eqref{eq:weightedfair}, for every \(x\in M\),
+\[
+ D_n\cdots D_1(x)\longrightarrow Q_K(x)
+ \quad\hbox{strong* in the faithful GNS representation},\qquad
+ M^K=\bigcap_i M^{H_i}.
+\]
+No bound on visit gaps, minimum weight or common spectral gap is
+required.
+\end{theorem}
+\begin{proof}
+State preservation implements the group by a continuous unitary
+representation on GNS space. Each \(Q_i\) acts on \(x\Omega\)
+as its subgroup's Haar orthogonal projection.
+A compact-group representation is a Hilbert direct sum of
+finite-dimensional irreducibles with multiplicities. Every vector
+can be approximated by vectors in finite-dimensional invariant
+subspaces, taking finitely many multiplicity vectors. Apply
+Lemma~\ref{lem:weightedfair} there and use contractions to control
+the approximation error. The limiting projection is the \(K\)-Haar
+projection, since invariance under every \(H_i\) is invariance under
+the closed group they generate.
+
+Thus \(x_n\Omega\to Q_K(x)\Omega\), with \(\|x_n\|\le\|x\|\).
+The separating vector makes \(M'\Omega\) dense, and
+\((x_n-Q_Kx)a'\Omega=a'(x_n-Q_Kx)\Omega\) for \(a'\in M'\).
+Uniform boundedness extends convergence strongly to the full
+Hilbert space. Apply the same argument to \(x^*\) for strong*
+convergence.
+\end{proof}
+
+Partial dephasing for a duration \(t_n>0\) has
+\(\theta_n=1-e^{-\kappa_{i_n}t_n}\). For a fixed positive rate
+per subgroup, condition~\eqref{eq:weightedfair} is equivalent to
+divergent total duration for each subgroup: small durations give
+comparable \(t_n\) and \(\theta_n\), while infinitely many durations
+bounded away from zero already give divergent weights.
+Full dephasing has \(\theta_n=1\).
+Choices based on past records can be used pathwise when their
+realized sequences satisfy the condition. The theorem describes
+the resulting noise-map product; additional measurement and
+control operations must not be silently omitted.
+
+The algebra selected across time is therefore the algebra shared by
+all these noise sectors. In the SU(2) level-one model of
+Consciousness~I~\cite{PaperI}, two nonparallel axis-rotation
+subgroups generate \(SO(3)\); their fixed algebra is the
+Virasoro \(c=1\) half-line algebra. A sequence with cumulative
+exposure to both axes retains precisely that algebra. If the
+sequence stays on one axis, its current algebra can remain.
+The ambient action and the translations needed for an internal
+Cut are still supplied.
+
+\subsection{Implementation errors and the size of the noise family}
+
+\begin{corollary}[Summable channel perturbations]\label{cor:noiseperturb}
+Under Theorem~\ref{thm:compactnoise}, replace \(D_n\) by normal UCP
+maps \(\widetilde D_n\) such that
+\(\|\widetilde D_n-D_n\|\le\varepsilon_n\) and
+\(\sum_n\varepsilon_n<\infty\), where the norm is the operator
+norm on maps \(M\to M\). Then
+\(\widetilde D_n\cdots\widetilde D_1(x)\) converges strong*
+to an element of \(M^K\). If additionally
+\(Q_K\widetilde D_n=Q_K\) for every \(n\), the limit is \(Q_Kx\).
+\end{corollary}
+\begin{proof}
+Put \(x_n=\widetilde D_nx_{n-1}\) and
+\(e_n=(\widetilde D_n-D_n)x_{n-1}\).
+Contractivity gives \(\|e_n\|\le\varepsilon_n\|x\|\).
+For a fixed \(N\), the distance in norm between \(x_n\) and the
+unperturbed tail product \(D_n\cdots D_{N+1}x_N\) is at most
+\(\|x\|\sum_{j>N}\varepsilon_j\).
+The latter product converges strong* to \(Q_Kx_N\).
+Since \(Q_KD_n=Q_K\),
+\[
+ Q_Kx_N=Q_Kx+\sum_{j=1}^N Q_Ke_j
+\]
+converges in norm to an element \(z\) of \(M^K\).
+Letting \(N\to\infty\) in the tail estimate proves strong*
+convergence to \(z\), also for adjoints. The extra conservation
+condition makes every \(Q_Kx_N=Q_Kx\).
+\end{proof}
+
+Persistent forcing need not be summable. It may hold a component
+away from the passive fixed algebra, which is one role of active
+protection. The corollary does not assign its implementation cost.
+Even a single finite control error can change the final retained
+content, so convergence into an algebra is weaker than conservation
+of every original record.
+
+A finite family cannot be replaced by an arbitrary countable
+family using recurrence alone. On a qubit with trace state set
+\[
+ \sigma_\alpha=\cos\alpha\,X+\sin\alpha\,Y,\qquad
+ Q_\alpha=(\mathrm{id}+\operatorname{Ad}_{\sigma_\alpha})/2 .
+\]
+At stage \(k\ge6\), visit in order
+\(\alpha_j=j\pi/2^k\), \(j=1,\ldots,2^k\).
+Every dyadic axis receives infinitely many visits, and the
+common fixed algebra is scalar. Starting from Bloch vector
+\((1,0,0)\), the full projections give alternating signed \(X\)
+vectors at stage endpoints, with limiting length
+\[
+ \prod_{k\ge6}\cos(\pi/2^k)^{2^k}
+ \ge e^{-\pi^2/32}>0 .
+\]
+The bound follows from \(\log\cos t\ge-t^2\) on the interval used
+and \(\sum_{k\ge6}2^{-k}=1/32\).
+Replace each projection at stage \(k\) by the finite-duration map
+\(4^{-k}\mathrm{id}+(1-4^{-k})Q_\alpha\).
+Telescoping the contractive Bloch maps bounds its distance from
+the full-projection sequence by
+\(\sum_{k\ge6}2^k4^{-k}=1/32\).
+The alternating endpoints still do not converge, although every
+individual axis receives divergent cumulative exposure.
+This is a qubit counterexample to the unrestricted extension,
+not a reconstruction of a spacetime net.
+
+\section{A Legal Finite Feedback under Persistent Noise}\label{sec:bank}
+
+The compact-noise limit retains observables but does not move the
+reference state. Here a bounded command changes the source reset
+target at every epoch. The resulting adaptive sequence is legal
+without strict commutation or an autonomous-semigroup description.
+The bank is finite and diagonal; its contraction bound concerns
+state risk, not Type~III reconstruction.
+
+\subsection{The controlled bank}\label{subsec:bank_def}
+
+Take $M$ qubits in $Z$-basis configurations $z_j\in\{\pm1\}$ and write $x=M^{-1}\sum_jz_j$. For $|v|\le1$ let $\tau_v=\tfrac12(I+vZ)$ and let $R_v(\varrho)=\tau_v\operatorname{tr}\varrho$ be the reset to $\tau_v$. With weights $a,c,r\ge0$, $a+c+r=1$, a command $u$ and an environmental input $d$, the channel applied to each qubit in one epoch is
+\begin{equation}\label{eq:bank_channel}
+\Lambda_{u,d}=a\,\mathrm{id}+c\,R_u+r\,R_d .
+\end{equation}
+The qubit keeps its state with weight $a$, is exchanged with a reference prepared at the command with weight $c$, and with a reference prepared at the environmental input with weight $r$. Legality, item (a) below, holds for all such weights. For the later statements we take $0<a<1$, $c>0$, $r\ge0$: $a=1$ is the identity, and $a=0$ is a complete reset, which is not a finite-time reset generator and, with $c=h=1$, would give $|a-ch|=1$.
+
+\begin{proposition}[Legality and mean dynamics]\label{prop:bank_legal}
+Let $|u|\le1$ and $|d|\le1$.
+\begin{enumerate}[label=(\alph*),itemsep=0pt]
+\item $\Lambda_{u,d}$ is completely positive and trace preserving, and its Heisenberg-picture dual is normal, completely positive and unital.
+\item If $a<1$, $\Lambda_{u,d}=a\,\mathrm{id}+(1-a)R_v$ with $v=(cu+rd)/(1-a)$ and $|v|\le1$. If also $a>0$, then for $a=e^{-\gamma\Delta t}$ it is the time-$\Delta t$ map of the reset generator $\gamma(R_v-\mathrm{id})$.
+\item If $u=-h\hat x$ with $\hat x\in[-1,1]$ and $0\le h\le1$, then $|u|\le h\le1$, so every epoch is legal whatever the estimate $\hat x$ is.
+\item Applying $\Lambda_{u,d}^{\otimes M}$ to a configuration of mean $x$ gives a configuration of mean $x'=ax+cu+rd+\zeta$ with $\mathbb E[\zeta\mid x]=0$ and $\mathbb E[\zeta^2\mid x]\le M^{-1}$. The number of qubits at $+1$ after the step is a sum of two independent binomial variables.
+\end{enumerate}
+\end{proposition}
+\begin{proof}
+(a) $\mathrm{id}$ and $R_u$, $R_d$ are completely positive and trace preserving, and so is their convex combination. The dual is $\Lambda^*(A)=aA+c\operatorname{tr}(\tau_uA)I+r\operatorname{tr}(\tau_dA)I$, which maps $I$ to $I$. (b) $cR_u+rR_d=(c+r)R_v$ because $\tau_v$ is affine in $v$, and $|v|\le(c+r)^{-1}(c|u|+r|d|)\le1$. Since $R_v^2=R_v$, $e^{\gamma t(R_v-\mathrm{id})}=e^{-\gamma t}\mathrm{id}+(1-e^{-\gamma t})R_v$. (c) is immediate. (d) A qubit with value $z$ ends at $+1$ with probability $\tfrac12(1+az+w)$, where $w=cu+rd$, independently of the others. Its mean is $az+w$ and its variance $1-(az+w)^2$. Averaging over the bank gives mean $ax+w$ and variance $M^{-1}(1-a^2-2axw-w^2)$, which is at most $M^{-1}$ since $a^2+2axw+w^2$ is the average of the squares $(az_j+w)^2$. The qubits at $+1$ and at $-1$ each give one binomial variable.
+\end{proof}
+
+\begin{remark}[Non-commutation]\label{rem:bank_noncomm}
+Let $E=a\,\mathrm{id}+(1-a)R_v$ with $a<1$ be the reset of a source. Its only invariant state is $\tau_v$, and the same holds for $E^{\otimes M}$ and $\tau_v^{\otimes M}$. If a completely positive trace-preserving map $F$ commutes with $E$, then $E(F\tau_v)=F(E\tau_v)=F\tau_v$, so $F\tau_v=\tau_v$ and $\tau_v$ is invariant for $F\circ E$ as well. A feedback that commutes with the source reset therefore cannot move the stationary state of the source. The feedback of this section moves it from $\tau_v$ to $\tau_{v'}$ with $v'\ne v$ whenever the command moves the target. The strict commutation input FB-C of Definition~\ref{def:FB}, which gives the semigroup law in Section~\ref{sec:preservation}, fails for it, and Theorem~\ref{thm:preserve} does not apply. For two resets $\Lambda_i=a_i\,\mathrm{id}+(1-a_i)R_{v_i}$ one finds directly $\Lambda_1\Lambda_2-\Lambda_2\Lambda_1=(1-a_1)(1-a_2)(R_{v_1}-R_{v_2})$, because $R_{v_1}R_{v_2}=R_{v_1}$. This concerns a fixed command. The history-dependent process is a sequence of legal channels with commands that change from epoch to epoch, and it is not a new autonomous semigroup. The next subsection replaces the exact time-ordering argument by a norm estimate.
+\end{remark}
+
+\subsection{An attracting ball instead of convergence}\label{subsec:bank_ball}
+
+Here the estimate that sets the command may keep an error in every epoch, and summability of the feedback is not assumed. What can be proved is that the state stays in a ball.
+
+\begin{lemma}[Contraction with forcing and innovation]\label{lem:ball}
+Let $H$ be a Hilbert space and let $\xi_{k+1}=T_k\xi_k+f_k+\zeta_k$ with $\|T_k\|\le q<1$, $\|f_k\|\le B_k$, and $\zeta_k$ orthogonal to $T_k\xi_k+f_k$ with $\|\zeta_k\|\le s$. Write $\varphi_B(X)=\sqrt{(qX+B)^2+s^2}$. Then $\|\xi_{k+1}\|\le\varphi_{B_k}(\|\xi_k\|)$. If $B_k\le B$ for all $k$, then with
+\[
+\bar X=\frac{qB+\sqrt{B^2+(1-q^2)s^2}}{1-q^2}
+\]
+one has $\|\xi_k\|\le\bar X+q^k(\|\xi_0\|-\bar X)_+$. If only $\limsup B_k\le B$, then $\limsup\|\xi_k\|\le\bar X$.
+\end{lemma}
+\begin{proof}
+Orthogonality gives $\|\xi_{k+1}\|^2=\|T_k\xi_k+f_k\|^2+\|\zeta_k\|^2\le(q\|\xi_k\|+B_k)^2+s^2$. The map $\varphi_B$ is increasing, $\varphi_B'(X)=q(qX+B)/\varphi_B(X)\le q$, and $\bar X$ is its fixed point, so $\varphi_B(\bar X+t)\le\bar X+qt$ for $t\ge0$ and $\varphi_B(X)\le\bar X$ for $X\le\bar X$. Induction gives the bound. For the last statement, $\varphi_B$ is increasing in $B$, so for any $\epsilon>0$ the sequence is eventually below the orbit of $\varphi_{B+\epsilon}$, whose limit is $\bar X(B+\epsilon)$; let $\epsilon\to0$.
+\end{proof}
+
+In a probabilistic reading $H=L^2(\mathbb P)$, and conditional mean zero of $\zeta_k$ given everything determined before the step implies the orthogonality used. A Type~III version would have to supply this hypothesis through a conditional expectation.
+
+\begin{proposition}[Bounded risk of the closed bank]\label{prop:bank_ball}
+Let $0<a<1$, $c>0$, $r\ge0$ and let the bank evolve by $\Lambda_{u_k,d_k}^{\otimes M}$ with $|d_k|\le D\le1$ and $u_k=-h\hat x_k$, $0<h\le1$, where $\hat x_k\in[-1,1]$ is any estimate of $x_k$ that is determined before the step, with $\|\hat x_k-x_k\|_{L^2}\le\varepsilon_k$. Put $k_c=ch$ and $q=|a-k_c|$. Then $q<1$ for every legal $h$, and
+\[
+\|x_{k+1}\|_{L^2}\le\sqrt{\bigl(q\|x_k\|_{L^2}+k_c\varepsilon_k+rD\bigr)^2+M^{-1}} .
+\]
+If $\varepsilon_k\le\varepsilon_*$ for all $k$, then with $B=k_c\varepsilon_*+rD$ and $s^2=M^{-1}$ in Lemma~\ref{lem:ball},
+\[
+\mathbb E\,\tfrac14x_k^2\le\tfrac14\bigl[\bar X+q^k(\|x_0\|_{L^2}-\bar X)_+\bigr]^2 .
+\]
+\end{proposition}
+\begin{proof}
+By Proposition~\ref{prop:bank_legal}(d), $x_{k+1}=(a-k_c)x_k-k_ce_k+rd_k+\zeta_k$ with $e_k=\hat x_k-x_k$. The first three terms are determined before the step, and $\zeta_k$ has conditional mean zero and second moment at most $M^{-1}$ given them, so Lemma~\ref{lem:ball} applies with $T_k$ the multiplication by $a-k_c$ and $f_k=-k_ce_k+rd_k$. Finally $a-k_c>-1$ because $k_c\le c<1+a$.
+\end{proof}
+
+No independence between $x_k$ and the estimation error is assumed, and no claim is made that $\varepsilon_k\to0$. The radius grows with $\varepsilon_*$, and whether it is smaller than the radius without feedback depends on $\varepsilon_*$, as the next subsection shows.
+
+\subsection{What the ball certifies}\label{subsec:bank_cert}
+
+Compare the closed-loop radius with the open-loop radius ($h=0$, so $q=a$ and $B=rD$). Let $\bar X_0$ be the fixed point of $\varphi_0(X)=\sqrt{(aX+rD)^2+M^{-1}}$.
+
+\begin{corollary}[Smaller certificate]\label{cor:bank_threshold}
+Let $0<k_c=ch\le a<1$ and let $\bar X_h$ be the radius of Proposition~\ref{prop:bank_ball} with the uniform error bound $\varepsilon_*$. Then, for every finite $M$,
+\[
+\bar X_h<\bar X_0\iff\varepsilon_*<\bar X_0 ,
+\]
+and $\bar X_h=\bar X_0$ exactly when $\varepsilon_*=\bar X_0$. As $M\to\infty$, $\bar X_0\to rD/(1-a)$.
+\end{corollary}
+\begin{proof}
+Both maps are increasing strict contractions. At $X=\bar X_0$ the quantity under the root for the closed loop is $(a-k_c)\bar X_0+k_c\varepsilon_*+rD=(a\bar X_0+rD)+k_c(\varepsilon_*-\bar X_0)$, so the closed-loop map takes $\bar X_0$ to a value below, at, or above $\bar X_0$ according to the sign of $\varepsilon_*-\bar X_0$. For a strictly contracting increasing map, that sign decides whether its fixed point lies below, at, or above $\bar X_0$. For $M\to\infty$, $\bar X_0=rD/(1-a)$.
+\end{proof}
+
+The corollary compares two certificates. It does not compare the losses of the two systems: an upper bound for one process being smaller than an upper bound for another says nothing about their actual losses. Take $M\to\infty$, $d_k\equiv0$ and $x_0=0$, with the declared bound $D>0$. Without feedback the state stays at $0$. An estimator with a constant bias $\delta<rD/(1-a)$ has $\varepsilon_*=\delta$ below the threshold, yet the closed loop settles at $x_*=-k_c\delta/(1-a+k_c)\ne0$.
+
+In the bank used in T-DOME~III's appendix on a drifting instrument in a closed loop~\cite{TDOMEIII} one has $(a,c,r)=(0.65,0.25,0.1)$, $h=0.8$, $M=4096$, $|d_k|\le D=0.85$, hence $q=0.45$. The recursive estimate of that appendix, with a gain floor of $0.30$ and the drift of its normal case, has $\limsup_k\varepsilon_k\le\varepsilon_*=0.4518$ by its propositions on memory under drift and on the error of the decoded state. The bound holds in expectation and not for all epochs at once, and it concerns the limit superior, which Lemma~\ref{lem:ball} accepts. Then $B=0.1754$, $\bar X_h=0.3195$, and $\limsup\mathbb E\tfrac14x_k^2\le0.02553$, below the trivial bound $\tfrac14$. (The cruder closed form in that paper gives $\varepsilon_*=0.5123$ and $0.02915$.) The open-loop radius is $\bar X_0=0.2443$, which is the finite-$M$ threshold ($rD/(1-a)=0.2429$ for $M=\infty$), and $\varepsilon_*$ is above it. The certificate therefore gives a larger radius for the feedback than for the open loop, $0.3195$ against $0.2443$. The loss comparison rests on other evidence. For the same bath, initial state and epochs 200--1199, the open-loop world loss is 8.17$\times10^{-3}$, obtained exactly from the mean and variance recursions of Proposition~\ref{prop:bank_legal}(d). The simulated persistent policy gives 3.60$\times10^{-3}$, 56\% lower. The epoch-averaged root-mean-square estimation error of the persistent policy is 0.135 (0.173 for the memoryless policy and 0.211 for the frozen one). An epoch average is not a uniform bound.
+
+\subsection{Scope}\label{subsec:bank_scope}
+
+The model is a bank of qubits restricted to diagonal states. It uses no quantum effect, and the cost of non-commuting readout or of writing the memory is not included. The reference states used by the estimate are assumed to be prepared reliably. The bound on $\varepsilon_*$ is an input from another paper and holds in expectation for one drift family. The mean and variance in Proposition~\ref{prop:bank_legal}(d) were checked against exact enumeration on a seven-qubit bank over a grid of commands and inputs (largest residual 4.4e-16). Nothing here constructs a normal completely positive lift on a Type~III algebra.
+
+\section{From Persistent Content to a Priced Return}\label{sec:pricedreturn}
+
+Theorems about persistence specify which observables a process retains;
+they do not specify the apparatus that retains them. The weights
+\(\theta_n\) and rates \(\kappa_i\) describe channels, not joules.
+A physical account must separately price the generation of these
+channels, sensing, retained records, reference preparation, control
+and disposal of outputs. A proper fixed algebra by itself supplies
+no universal positive entropy-production rate.
+
+In the bank, an epoch uses \(n\) sensor readings and on average
+\(cM\) commanded reference qubits. If those references are freshly
+prepared from degenerate thermal qubits at temperature \(T\), their
+minimum preparation charge, conditional on the known command, is
+\[
+ k_BT\,cM\,\mathbb E\!
+ \left[\log2-H_2\!\left(\frac{1+u_k}{2}\right)\right].
+\]
+This is an input-preparation charge, not the net cost of a complete
+cycle: outputs can carry work, entropy and correlations.
+The isolation, resetting and readout assumptions of the chosen
+T-DOME~III protocol determine what further charge can be added.
+A record-dependent command is free neither because it is classical
+nor because its channel is CPTP.
+
+These distinctions locate the remaining cross-series bridge.
+Foundation~I selects an algebra from a seed and supplied operations.
+For the same compact action, the intersection of several fixed
+algebras is \(M^K\); Theorem~\ref{thm:compactnoise} identifies it
+with content that persists under cumulative exposure.
+An internal Cut and its geometric data require the additional
+translation and standardness inputs of Consciousness~I.
+Consciousness~II supplies conditions under which a prepared source
+identifies a geometric response. Q-RAIF and HAFF must realize the
+control as an interaction and account for its actual source.
+The T-DOME and Imprint loops specify how retained records choose the
+next operation; Brain Anchor asks how the channels and maintenance
+relations themselves are learned and restored.
+
+A common fixed algebra can therefore be an output, rather than a
+separate sharing assumption. It does not turn independent source
+states into one state or shared carrier into shared content.
+Nor does passive convergence explain why a particular noise group,
+reference port or coupling became available. Closing the theory's
+return arrow requires a model in which that access is formed,
+its price affects decisions, and its response changes the next
+read or action. The persistence and legal-return results specify two
+of its interfaces. The next section supplies a finite composition
+theorem and a physical example with an acquired installed frame.
+
+
+\section{Returns on a Retained Physical History}\label{sec:retainedreturn}
+
+\subsection{Finite composition and its error budget}
+
+A round consists of acquisition, a retained record, a control decision,
+an interaction and the response used by the next acquisition. Its input
+includes the old content, preparation references, spent ports and the
+clock and geometric data needed to predict that response. Adding a
+fresh port enlarges this state; it does not replace a spent port by its
+initial state. In a semiclassical realization, the joint evolution of
+quantum and classical variables need not be one linear quantum channel.
+
+\begin{theorem}[Finite retained-history composition]
+\label{thm:retainedcomposition}
+For $n=0,\ldots,N-1$, let $\Phi_n$ and $\widetilde\Phi_n$ be an
+ideal and an implemented round from a metric state space $(X_n,d_n)$
+to $(X_{n+1},d_{n+1})$. Suppose both trajectories remain in specified
+admissible sets $C_n$, and on those sets
+\begin{align}
+ d_{n+1}(\Phi_n(x),\Phi_n(y))
+   &\le \omega_n(d_n(x,y)),\label{eq:returnmodulus}\\
+ d_{n+1}(\widetilde\Phi_n(x),\Phi_n(x))
+   &\le \epsilon_n .\label{eq:returndefect}
+\end{align}
+Here each $\omega_n$ is nondecreasing, continuous at zero, and
+$\omega_n(0)=0$. Define $b_0=d_0(\widetilde x_0,x_0)$ and
+\[
+ b_{n+1}=\omega_n(b_n)+\epsilon_n.
+\]
+Then $d_n(\widetilde x_n,x_n)\le b_n$ at every round.
+For fixed finite $N$, $b_N\to0$ as the initial discrepancy and all
+implementation defects tend to zero.
+\end{theorem}
+\begin{proof}
+Insert $\Phi_n(\widetilde x_n)$ between
+$\widetilde\Phi_n(\widetilde x_n)$ and $\Phi_n(x_n)$ in the
+triangle inequality. Equations~\eqref{eq:returnmodulus} and
+\eqref{eq:returndefect} give
+$d_{n+1}\le\epsilon_n+\omega_n(d_n)$.
+Monotonicity proves the recursive bound by induction; continuity at
+zero proves its finite-horizon limit, again by induction.
+\end{proof}
+
+The input sets and moduli carry the physical burden. In finite
+dimensions, a smooth mean-action evolution on a compact regular domain
+has a local Lipschitz bound. An unbounded material stress requires an
+energy-aware domain and a source certificate; ordinary trace distance
+does not provide one. For the number Hamiltonian, the states
+$\rho_m=(1-m^{-1})|0\rangle\langle0|+
+m^{-1}|m^2\rangle\langle m^2|$ approach the vacuum in half trace
+distance $m^{-1}$ while their mean energy grows as $m$.
+Clock positivity, a regular exterior region and the energy moments
+used by the source estimate must remain valid throughout the return.
+
+\begin{corollary}[Linear and H\"older budgets]\label{cor:returnbudgets}
+Under Theorem~\ref{thm:retainedcomposition}, nonnegative vector
+bounds $e_{n+1}\le A_ne_n+\varepsilon_n$ give
+\[
+ e_N\le A_{N-1}\cdots A_0e_0+
+ \sum_{j=0}^{N-1}A_{N-1}\cdots A_{j+1}\varepsilon_j,
+\]
+with an empty product equal to the identity.
+If instead $\omega_n(t)=K t^\alpha$, $K>0$, $0<\alpha<1$,
+and implementation defects vanish, then
+\[
+ d_N\le K^{(1-\alpha^N)/(1-\alpha)}d_0^{\alpha^N}.
+\]
+For $\alpha=1$ this becomes $d_N\le K^N d_0$.
+\end{corollary}
+\begin{proof}
+Successive substitution proves the vector formula. Iterating
+$b_{n+1}=Kb_n^\alpha$ gives the geometric sum of exponents of $K$
+and the exponent $\alpha^N$ of $b_0$.
+\end{proof}
+
+These are sufficient precision budgets, not universal resource lower
+bounds. A H\"older estimate with $\alpha=1/2$ can require an initial
+precision scaling as a target error to the power $2^N$; finite
+composability is therefore not a claim of economical indefinite use.
+Uniform long-time control follows, for example, if an invariant domain
+has $\omega_n(t)\le qt$ with $q<1$ and bounded defects, in which
+case $d_N\le q^Nd_0+\sum_{j<N}q^{N-1-j}\epsilon_j$.
+Neither finite continuity nor small one-round error supplies that
+contraction.
+
+The comparison uses complete instruments or unnormalized record
+branches. A record of probability $p$ can have two orthogonal
+conditional states even when the complete states differ in half trace
+distance only by $p$. Conditioning on that record divides away the
+small probability. Such conditional accuracy cannot be inserted as a
+uniform round certificate without a probability bound. A final
+bounded-loss measurement may discard unused systems; doing so at every
+intermediate round would change the retained process being proved.
+
+\subsection{Quantum continuation and receiver renewal}
+\label{subsec:continuation}
+A fixed controller on the retained record defines one complete CPTP
+history map, even if its decision rule has posterior thresholds.
+Instrument errors therefore add over any fixed finite sequence,
+with the identity acting on old references.
+Q-RAIF~C also supplies the positive-Hamiltonian smooth-source bound
+and a retained receiver--bank renewal family~\cite{QRAIFC}.
+These are imported quantum interfaces, recorded with full assumptions
+and proofs in the source record identified by Appendix~\ref{app:quantum_imports}.
+They preserve the spent receiver and untrimmed cursor; a later installed
+program is needed for another return.
+The finite quantum sequence does not make the semiclassical mean-action
+map below contractive or turn its return into a quantum JT equation.
+
+\subsection{Learning an installed frame for held content}
+
+Consider two body qubits $B_1,B_2$ with an unknown physical sign
+$s\in\{+1,-1\}$. Write $A_s=n_1+s n_2$ for their occupation
+coupling. The odd encoding $E_o|0\rangle=|01\rangle$,
+$E_o|1\rangle=|10\rangle$ is protected when $s=+1$;
+the even encoding obtained by $X_{B_2}E_o$ is protected when $s=-1$.
+In the correct encoding $A_s$ is scalar, so
+$\exp(-i\varphi A_s Z_E)$ cannot disclose or dephase its logical
+qubit. Each corner contains a full $M_2$ of logical operations.
+The decoder and its installed frame are needed to use that corner;
+storage alone is not a readout permission. This distinction is also
+used in Brain Anchor~\cite{BrainAnchor}.
+Protecting an observable algebra is an established error-correction
+framework~\cite{BenyKempfKribs2007}; the question here is how a record
+selects an installed encoding within the physical return.
+
+One initially held logical qubit is entangled with an old reference
+and encoded in $E_o$. It is never re-prepared. Two independent,
+initially supplied Gibbs cells $E_0,E_1$ have gap $\Delta=0.05$ and
+excitation probability $0.1$, with their purifications retained.
+A probe $P$ starts in $|+X\rangle$, and a record $R$ is blank.
+We also write $R$ for its occupied-state projection $|1\rangle\langle1|$.
+The same unknown plant sign that controls $A_s$ rotates the probe by
+$\exp[-is\arcsin(0.8)Z_P/2]$. A controlled flip of $R$ from the
+positive $Y_P$ projection then acquires a sign estimate that is correct
+with probability $0.9$. The diagnostic/storage relation is an assumption
+about the plant, not a label supplied to the controller.
+
+The actual program applies an early phase contact
+$\exp(-0.05i A_sZ_{E_0})$, the diagnostic rotation, the acquisition,
+the record-controlled frame
+\[
+ W_R=R\otimes I+(I-R)\otimes X_{B_2},
+\]
+the late contact $\exp[-i(\pi/4)A_sZ_{E_1}]$, and $W_R$ again
+as a physical decoder. The early contact acts before the frame has
+been learned, so the held content can already be damaged. The fixed
+comparisons replace $W_R$ by $I$ or $X_{B_2}$, with the same probe,
+ports, early contact and time slots. Entanglement infidelity is measured
+against the original encoded Bell pair after decoding, without
+postselection on the record or cursor.
+
+\begin{proposition}[Value of the acquired frame]\label{prop:framevalue}
+For this gate program, set
+\[
+ e=\frac{1-\cos(0.1)}2,\qquad
+ q=\frac{1+0.8^2\sin(0.1)}2.
+\]
+The learned program's losses at $s=+1,-1$ are respectively
+$0.05$ and $0.9e+0.1q$. The fixed odd losses are $0,q$;
+the fixed even losses are $1/2,e$. Under the uniform unknown-sign
+prior, learning therefore gives loss $0.0527214$, below both
+fixed losses $0.2659733$ and $0.2512490$.
+\end{proposition}
+\begin{proof}
+For a Gibbs cell with $\langle Z_E\rangle=0.8$, an occupation
+eigenvalue difference of two multiplies coherence by
+$\cos(2\varphi)\pm0.8i\sin(2\varphi)$.
+For $s=+1$ the early odd contact is scalar. The correct odd decision
+leaves the content intact; the wrong even decision has late real
+coherence zero and infidelity $1/2$.
+For $s=-1$ the early odd contact gives infidelity $e$.
+Changing to the correct even code adds no late dephasing. Remaining
+odd multiplies both contact factors, whose real part is
+$-0.8^2\sin(0.1)$, giving $q$. The diagnostic record is independent
+of the logical input in this gate program. Weight its correct and
+incorrect decisions by $0.9$ and $0.1$, then average the two plant
+signs.
+\end{proof}
+
+An uninformative diagnostic gives average loss $0.2586112$.
+Reversing the physical relation between diagnosis and storage instead
+gives $0.4645009$. Thus installing a rule is not enough: its relation
+to the actual body must be learned correctly. The proposition compares
+two permitted fixed frames, not every possible quantum recovery or
+an observer allowed to inspect the spent cells.
+For a diagnostic with symmetric success probability $p$, the same
+calculation gives mean loss
+$(1-p)(1/4+q/2)+pe/2$. It beats the better fixed frame precisely when
+\[
+ p>\frac{1/4+q/2-\min(q/2,\,1/4+e/2)}{1/4+q/2-e/2}
+   =0.514303\ldots .
+\]
+This threshold concerns the stated gate and contact budget; the
+cost of obtaining $p$ remains part of the physical diagnostic.
+
+\subsection{The encoded body in the physical return}
+
+Put this program on a finite nearest-neighbour cursor, with gate labels
+on its hopping edges~\cite{CahaLandauNagaj2018}. Its positive cursor Hamiltonian is a unitary
+dressing of $2JI-J$ times the path adjacency and lies between $0$ and
+$4J$. After decoding, append a second actual acquisition from $X_P$
+into the already used cell $E_0$. This cell is not blank, independent
+or reset: its old reference and contact correlations are still held.
+The acquisition is $C_X(P,E_0)=(I-X_P)/2+(I+X_P)X_{E_0}/2$.
+After the first $Y$ acquisition the probe retains
+$\langle Y_P\rangle=0.8s$; a subsequent $Z_P$ rotation changes its
+$X$ component to first order. No extra probe or pure-state preparation
+is needed. The first acquisition remains $C_Y(P,R)$, and the
+frame and decoder are unchanged. In the zero-order completed-gate
+comparison, $\langle X_PZ_{E_0}\rangle=0$ and $n_{E_0}=1/2$ for either
+plant sign: this acquisition is sign-blind at that order and probes
+the induced geometric response. Finite couplings can still produce
+sign-dependent readings. The near-half cell occupation is not a reset
+of its retained correlations, and its energy cost stays inside $E_c$.
+Its occupation $n_{E_0}$ then acts on the mechanical spring alongside
+the first record. Unlike the earlier gates, this last acquisition need
+not commute with bare port energy. Its work is included in the full
+supported core; free cursor arrival cannot be assumed for that core.
+Add the sensor and body forces as
+\begin{equation}\label{eq:formedcore}
+ H_c(\Phi,y)=H_b+\lambda(\Phi-\Phi_0)Z_P+
+ \frac\chi2\left[A_s^2(y-d_1)^2+(R+n_{E_0})(y-d_2)^2\right].
+\end{equation}
+Here $H_b$ contains the cursor, bare port energy and an offset
+$E_{\rm off}>|\lambda(\Phi-\Phi_0)|$ on the operating domain.
+Both springs are positive. The first responds to the installed body's
+actual occupation coupling, not to a task score. The second uses the
+actual acquired record. Their force is the expectation in the complete
+retained quantum state.
+
+Use the scalar/JT worldline action of HAFF~D~\cite{HAFFD}, with
+$i\langle\Psi,\dot\Psi\rangle-\langle H_c\rangle$ for this core,
+mechanical energy $e_m$, support potential $U(\Phi)$ and rest mass.
+Writing $F_y=\langle\partial_y H_c\rangle$ and
+$F_\Phi=\langle\partial_\Phi H_c\rangle$, its energy identities are
+\begin{align}
+ \dot e_m&=-P_+-P_--F_y\dot y,&
+ \dot E_c&=F_y\dot y+F_\Phi\dot\Phi,\nonumber\\
+ M&=m_{\rm rest}+U+e_m+E_c,&
+ \dot M&=(U'+F_\Phi)\dot\Phi-P_+-P_-.
+ \label{eq:retainedward}
+\end{align}
+The outgoing scalar power, both JT junctions, the supported mass and
+the sensor all use this same action. The finite equations are locally
+well posed away from zero mass and singular exterior boundaries.
+On a compact regular operating window their continuity supplies the
+modulus needed by Theorem~\ref{thm:retainedcomposition}.
+It does not supply a channel on arbitrary quantum geometries.
+
+For $101$ cursor sites, $J=0.8$, six data qubits and retained-reference
+dimension $8$, take $\lambda=0.05$, $\chi=0.01$ and a proper-time
+window $[0,30]$. The initial supported mass is $10$.
+Take $\mathcal C_-(0)=4.7975$, with the other junction fixed by
+the same initial mass. The initial core energy $1.655$ includes the already active body
+spring; omitting its $0.005$ would break the core ledger.
+Direct evolution of the full purified state gives
+\[
+\begin{array}{c|ccc}
+ &\text{learned frame}&\text{fixed odd}&\text{fixed even}\\\hline
+\text{mean entanglement infidelity}
+ &0.05883044&0.26585700&0.31215165
+\end{array}
+\]
+for the same uniform plant prior. This $T=30$ run is one finite member
+of the model family, not a run in the $\varepsilon\to0$ scaling used
+in the existence proof below. These losses are not the exact gate-program
+values of Proposition~\ref{prop:framevalue}.
+The learned $s=-1,+1$ readings have final occupations
+$0.49963517,0.49949711$; their bare cell-energy gains are
+$0.01998176,0.01997486$, carried inside $E_c$ rather than
+added again as exported heat. Completion probability is at least
+$0.9986007$ across the six policy/sign runs, but the reported loss includes
+the entire cursor state.
+
+Changing the initial geometry tests background sensitivity. For example,
+the matched-mass inputs $\mathcal C_-(0)=4.6975,4.8975$ give
+$s=-1$ occupations $0.49996625,0.49927896$.
+The following result instead keeps the complete input fixed and follows
+the source produced by the acquired record itself.
+
+\begin{proposition}[A learned frame and its own physical return]
+\label{prop:learned-self-return}
+Within the finite scalar/JT mean-action family above, there are finite positive
+clock, cell and coupling choices for which the same retained run
+protects the original entangled content better than either fixed
+frame and reads a nonzero response to its own record-actuated source.
+The unknown-sign prior and its physical diagnostic relation are those
+of Proposition~\ref{prop:framevalue}. The source, support, clock and
+both old cell purifications are included in the initial account.
+The second acquisition uses the same spent $E_0$, without resetting
+the content, record or cursor.
+
+For a matched causal comparison, replace $R+n_{E_0}$ in
+\eqref{eq:formedcore} by $\alpha R+n_{E_0}$, $0\le\alpha\le1$.
+All runs have the same quantum, mechanical and geometric input and
+the same mass junction. The case $\alpha=0$ retains the record and
+its encoding decision but removes its mechanical use.
+The geometry-mediated component of the second reading is nonzero;
+the entire reading contrast need not vanish when sensing is removed.
+\end{proposition}
+\begin{proof}
+The exact gate-program margin over the better fixed frame is
+$m_0=0.19852756\ldots$. A finite wholly idle cursor packet can be
+chosen with incomplete-prefix amplitude below $\eta$, retaining
+every reference and the untrimmed cursor, by
+Lemma~\ref{lem:idlearrival}. For the pure gate-dressed hopping
+comparison the full-vector error is at most $2\eta$.
+The physical core is not freely factorized once the cell gaps and
+forces are restored. Duhamel instead bounds its vector error by
+\[
+ e_\Psi\le2\eta+2\Delta T+
+ T\bigl(|\lambda|D_\Phi+\chi C_y\bigr),\qquad
+ C_y=3(Y+1/2)^2,
+\]
+where $|y|\le Y$ and $|\Phi-\Phi_0|\le D_\Phi$ on the common
+window. Choose a finite arrival time and then positive
+$\Delta,\lambda,\chi$ small enough that $e_\Psi<m_0/4$;
+keep $\beta\Delta=\log9$ and charge the supplied cell preparations.
+The two bounded-loss errors then preserve the strict task margin.
+At zero radiation and coordinate coupling, use the positive static
+support $\Phi=3$, $M=10$, $\mathcal C_-=4.7975$,
+$\mathcal C_+=5.1975$. It has constant $\Phi$ and mass,
+while its mechanical energy bounds
+$y$. Finite-time continuity supplies a common positive operating
+tube for sufficiently small positive radiation and couplings.
+Its rest mass is fixed from the complete initial core energy, including
+the cursor, cells, offset and initially active body spring. Fixed finite
+$J$ permits it to remain positive. Take $d_1=-1/2$, $d_2=y_0=1/2$,
+$\dot y_0>0$ and $\theta_0=\dot\theta_0=0$.
+
+The forwardmost packet site can remain $-3$. Its shortest path
+to the first acquisition has eight edges. With weight $w_f>0$,
+\[
+ \langle R\rangle(t)=a_Rt^{16}+O(t^{17}),\qquad
+ a_R=\frac{w_fJ^{16}p_s}{(8!)^2}>0,
+ \quad p_s\in\{0.1,0.9\}.
+\]
+At zero sensor coupling and $y_0=d_2$, $\dot y_0\ne0$, variation
+at $\alpha=0$ gives the radiation-path coefficient
+\[
+ \delta_\alpha P(t)=D_Pt^{21}+\cdots,\qquad
+ D_P=-\frac{2\gamma k^2y_0\chi\dot y_0a_R}
+ {I^2J_m\,18\,19\,20}\ne0.
+\]
+The balanced outgoing junction has
+$\ddot\Phi=-\kappa P/2-(U'+F_\Phi)\beta_+\beta_-/M-\Phi/L^2$.
+At zero sensor coupling, its corresponding mixed radiation
+response is $Ft^{23}+O(t^{24})$, with
+$F=-\kappa D_P/(2\cdot22\cdot23)>0$.
+The induced mass, invariant and support changes are included;
+their contribution to this term is higher order.
+
+The second acquisition is sixteen edges from the same packet
+front. In the full retained state, inserting this geometric
+response along the $Z_P$ sensor gives a $t^{56}$ coefficient
+\[
+ K_X(s)=-\frac{(16/25)s\lambda F_sw_fJ^{32}}{16!\,40!}
+       \sum_{j=8}^{15}\frac{(j+23)!}{j!}\ne0,
+\]
+where $F_s$ denotes the coefficient $F$ for the specified plant sign.
+Here $j=0,\ldots,16$ indexes the shortest path from $-3$ to $13$.
+Let $W_j$ be its complete gate prefix and let $\rho_0$ include
+the old logical reference and both cell purifications. The insertion
+factor is
+\[
+ 2\operatorname{Im}\operatorname{Tr}
+ \bigl[\rho_0 W_{16}^{\dagger}n_{E_0}W_{16}
+                   W_j^{\dagger}Z_PW_j\bigr]
+ =\begin{cases}
+ 0,&0\le j\le7\text{ or }j=16,\\
+ -(16/25)s,&8\le j\le15.
+ \end{cases}
+\]
+Before the first acquisition its $Y$ dephasing removes the final
+$X$ response. Afterwards, $C_X$ reads
+$(I+X_PZ_{E_0})/2$; the derivative of a $Z_P$ rotation is
+$-\langle Y_PZ_{E_0}\rangle=-(0.8s)(0.8)$.
+The earlier phase contact commutes with $Z_{E_0}$, and the
+record-controlled body gates preserve $Y_PZ_{E_0}$. This uses the
+spent cell and the full prefixes, including encoder and decoder.
+The last position contributes zero because the subsequent sensor
+commutes with the measured cell occupation. Integrating the insertion
+at position $j$ gives $(j+23)!/(j!40!)$; interference with the
+sixteen-hop output amplitude gives the displayed coefficient.
+Thus its leading sensor insertion is entirely after acquisition
+of the actuating record. Under the unobserved uniform sign prior,
+$\overline K_X=(K_X(+1)+K_X(-1))/2\ne0$: the record-production
+coefficients have $p_+=0.9$ and $p_-=0.1$, so $F_+=9F_-$.
+The sign is a plant parameter, never a controller input.
+This coefficient is a geometry-edge response, not the total
+$E_0$ contrast or its leading term at arbitrary coupling.
+Let $\mathscr E_\alpha[y,\phi](t)$ denote the second-cell expectation
+under the same gates, springs and complete input with those histories.
+The geometry-edge diagnostic is
+\[
+ G_\alpha(t)=\mathscr E_\alpha[y_\alpha,\Phi_\alpha](t)
+       -\mathscr E_\alpha[y_\alpha,\Phi^{(0)}](t),
+\]
+where $\Phi^{(0)}$ is the same-input $\alpha=0$ trajectory.
+Differentiating at $\alpha=0$ cancels the common direct spring,
+cursor and $y$ changes, leaving the geometric response above.
+At zero sensor coupling $G_\alpha$ vanishes identically even when
+the total cell contrast does not. This paired propagation is a
+causal diagnostic, not a free alternative source or controller input.
+
+The full finite equations are analytic in their regular tube.
+Take $\Delta=\varepsilon d$, $\chi=\varepsilon c$,
+$\gamma=\varepsilon g$ and $\lambda=\varepsilon^2\ell$ with
+fixed positive $d,c,g,\ell$, and keep $\beta\Delta=\log9$.
+At fixed finite time the radiation path $\chi\to y\to\theta
+\to P\to\Phi$ has order $\gamma\chi=O(\varepsilon^2)$;
+the sensor-surface path has order $\lambda\chi=O(\varepsilon^3)$.
+The final reading adds one factor $\lambda$. Hence
+\[
+ G_{\alpha,s}(t)=\alpha\varepsilon^4g_{4,s}(t)
+                      +O(\varepsilon^5),\qquad0\le\alpha\le1,
+\]
+uniformly on a fixed regular window, with the nonzero $t^{56}$
+coefficient above in $\varepsilon^4g_{4,s}$.
+Higher powers of $\alpha$ require another $\chi$ and enter the
+remainder. The mass and invariant changes do not alter the
+$t^{23}$ radiation coefficient; the sensor-surface path cannot
+cancel this order. In particular $G_{1,s}$ and its sign-prior average
+have nonzero leading analytic functions: the derivative at
+$\alpha=0$ is not being substituted for the actual $\alpha=1$ run.
+These positive choices retain the strict task and domain margins.
+The nonzero analytic
+response has isolated time zeros, whereas the strict task and arrival
+margins hold on an open completion interval. Choose one finite $T$
+there away from those zeros: both the task advantage and the second
+reading then hold in the same retained run and window.
+All actual runs obey \eqref{eq:retainedward}; the second-cell
+population change remains inside $E_c$, not an additional heat
+export. HAFF~D's coupled-return tolerance applies to this same core and
+reference space with
+$L_H=|\lambda|+\chi[4(Y+|d_1|)+2(Y+|d_2|)]$.
+Finite errors smaller than the chosen task and return margins preserve
+both conclusions. The acquired cell continues to act on the mechanical
+spring, rather than being copied into an external log.
+\end{proof}
+
+For the stated $T=30$ numerical parameters, paired propagation gives
+$G_{1,-1}=-3.18616\times10^{-9}$ and
+$G_{1,+1}=-6.76572\times10^{-9}$, and thus the unconditioned
+prior average is $-4.97594\times10^{-9}$. The $t^{56}$ coefficient
+establishes analytic nonzero response; it does not predict the sign or
+magnitude at $T=30$.
+Keeping only post-acquisition sensor differences gives respectively
+$-3.18656\times10^{-9}$ and $-6.76533\times10^{-9}$;
+the pre-acquisition differences in this numerical propagation are below
+$4.1\times10^{-13}$. No perturbative order or mechanism is assigned to
+these small finite-parameter differences.
+Removing sensing makes $G_1$ identically zero, although the total
+port contrast remains nonzero. The return is a small finite
+existence signal, not a practical gravitational performance gain.
+
+The installed frame, its source and its later reading are thus one
+finite mean-action return. The classical geometry responds to the
+complete core expectation; the construction does not assign an
+independent quantum geometry to each record branch.
+The supplied plant relation and primitive
+gates remain inputs. The phase contacts preserve bare populations;
+the spent-cell acquisition changes one and includes its work inside
+$E_c$, not as additional heat export. It is not a renewed thermal
+outlet. Full quantum-material matching, sustained renewal and the
+experiential interpretation remain distinct questions.
+
+\section{What the Return Can Generate}\label{sec:open}
+
+The finite return generates a protective frame for content already
+present, not new content supplied after diagnosis. The reference
+diagnoses a property of the same body that later couples to noise.
+Its record installs the encoder, affects the physical source, and
+changes the next acquired record. The controls, diagnostic relation
+and resource bank are given; their historically acquired use is not.
+This is the mechanism Foundation~III adds to static persistence.
+
+A broader hypothesis is that accessible histories can select their
+own durable operating sectors: episodes reveal which physical
+relations protect an old task, retained records install those
+relations, and their changed source alters future episodes. The
+learned-frame example realizes one finite instance; the compact-noise
+theorem shows when a sequence selects a common sector. These are
+complementary mechanisms, not one theorem. A persistent control that
+moves a reset target need not obey compact-noise convergence, while
+a convergent protected algebra need not keep calibrating or acting.
+
+The hypothesis is testable through three separations. Remove the
+diagnosis--body relation while keeping the record quality fixed;
+learning should lose its protective advantage. Remove actuation
+while keeping information; records may change but the
+geometry-dependent emitted source should not. Exhaust the actual
+reference or output bank while leaving an exact protected algebra;
+active revision can fail even though the old content persists.
+The first two separations have explicit controls above. The third
+requires a finite resource protocol, not a declaration that all
+persisting information must decay.
+
+\section{Physical Interfaces and Their Remaining Burden}\label{sec:ledger}
+
+The results use different inputs. The Type~III lift assumes a compact
+action, legal couplings, a calibration-to-rate rule and, for an exact
+modified semigroup, strict commutation. Its bounded generator follows
+from differentiability on every observable; an unbounded lift needs a
+specified core, not the same hypothesis under a new name.
+The persistence theorem needs one common compact-group action,
+a faithful invariant state, finitely many subgroups and divergent
+cumulative exposures. Peter--Weyl approximation is essential; arbitrary
+infinite-dimensional products of conditional expectations are not
+covered. Summable perturbations can change the final content inside the
+common algebra. Persistent forcing is handled by a separate risk bound.
+
+Physical returns instead need actual instruments and admissible
+retained-state domains. Section~\ref{subsec:continuation} transports
+a proved quantum receiver renewal into its later bounded tasks and
+smooth interacting field source. It does not prepare the Gibbs state
+of an interacting body while leaving arbitrary held content untouched.
+Such universal preparation is obstructed by correlations, as shown in
+Q-RAIF~C. The Gibbs cells of the scalar/JT example are used, not
+renewed; its second read deliberately uses a spent cell.
+
+The strongest next connection would make a history-selected protective
+sector, a priced bank update and the later interacting quantum source
+parts of the same autonomous program. This requires actual clock
+arrival/readiness and local gate permission, finite interacting-resource
+preparation, and the controller/support stress matched to the geometry.
+A common classical action and receiver renewal are already available
+upstream; quantum-local matching, renormalized total stress entering JT
+and all-material thermal renewal are not. A formal thermal state, a
+receiver's fresh marginal, or a small output-field error cannot supply
+these missing structures. The scalar/JT return and the full quantum
+interface remain distinct implementations.
+
+Foundation~I supplies the selected hull and, under its translation
+conditions, an internal half-sided inclusion; standardness and the
+geometric dictionary remain separate inputs. Shared structure from
+Foundation~II is not shared correctness without an identifiable
+reference. Neither functional calibration nor the physical return
+establishes experiential consciousness. These interfaces preserve the
+world, observer and first-person questions without deriving them from
+one qubit score.
+
+\appendix
+\section{A Finite Arrival Bound at Fixed Hopping Energy}\label{app:arrival}
+
+\begin{lemma}[Wholly idle input and a finite completion window]
+\label{lem:idlearrival}
+Consider a finite gate program ending at site $L\ge0$, with identity
+gates before its first edge and throughout an output idle interval.
+For every fixed $J>0$ and $0<\eta<1$, a finite path, a normalized
+input packet supported wholly before the program, and a finite time
+$T$ can be chosen so that the cursor's incomplete-prefix amplitude
+is at most $\eta$. Its Hamiltonian is
+\[
+ H_c=2J\mathbf1-J\operatorname{adjacency}({\rm path}),
+ \qquad 0\le H_c\le4J\mathbf1.
+\]
+Gate dressing leaves this energy bound unchanged. If the completed
+prefix is $W$, the full data, cursor and any retained reference differ
+in vector norm by at most $2\eta$ from the same cursor wavefunction
+tensored with $W\psi$. The arrival error can be strictly below $\eta$
+on an open interval about $T$. Path length, preparation and time are
+resources; the result makes no fixed-deadline claim.
+\end{lemma}
+\begin{proof}
+On the infinite comparison path, choose momentum $k_0=\pi/2$ and
+write $k=k_0+q$. The dispersion is $2J(1+\sin q)$. The envelope
+\[
+ \widehat c(q)=\sqrt{2\pi/\delta}
+ \cos\!\left(\frac{\pi q}{2\delta}\right)
+ \mathbf1_{[-\delta,\delta]}(q),\qquad0<\delta<\pi/2,
+\]
+is normalized under $dq/(2\pi)$. Translate its position mean to an
+integer $j_0$; its position variance is $\pi^2/(4\delta^2)$.
+Linearizing the dispersion gives mean $j_0+2Jt$, the same variance,
+and vector error at most $Jt\delta^3/3$, since
+$|\sin q-q|\le|q|^3/6$. An idle interval with padding $A$ around
+that translated mean therefore has outside amplitude at most
+$\pi/(2\delta A)$ for the linear evolution.
+
+Truncate and normalize the input on $[j_0-R,j_0+R]$. The removed
+probability obeys $p_0\le\pi^2/(4\delta^2R^2)$, so the vector
+change is at most $\sqrt{2p_0}$. Put both path boundaries at least
+$d$ hops from this support. In the hopping expansion, terms below
+order $d$ cannot reach a severed edge. Duhamel and the exponential
+tail give the sufficient boundary estimate
+\[
+ e_{\rm bd}(T)\le2JT\,e^{2JT}\frac{(2JT)^d}{d!}.
+\]
+Consequently the actual finite cursor satisfies
+\[
+ \sqrt{p_{\rm bad}(T)}\le
+ \frac{\pi}{2\delta A}+\frac{JT\delta^3}{3}
+ +\sqrt{2p_0}+e_{\rm bd}(T).
+\]
+Choose $j_0=-R-3$, leaving the forwardmost input site at $-3$.
+The output interval lies after site $L$ if
+$2JT\ge L+R+A+3$. With $S=JT$, take
+\[
+ \delta=(3\eta/(4S))^{1/3},\quad
+ R=\left\lceil\frac{2\sqrt2\pi}{\delta\eta}\right\rceil,
+ \quad A=\left\lceil\frac{2\pi}{\delta\eta}\right\rceil,
+ \quad S\ge\max\{L+5,100\eta^{-2}\}.
+\]
+The first three errors are at most $\eta/4$. Moreover
+$R+A<17S^{1/3}\eta^{-4/3}+2$, so this choice satisfies arrival.
+A finite $d$ makes the boundary term at most $\eta/4$ because
+the factorial dominates at fixed $S$. Applying the construction
+with a smaller target gives strict margins; enlarging the idle
+interval slightly gives an open completion window by continuity.
+The endpoint coefficient can be chosen nonzero: the inverse Fourier
+coefficient at $j_0+R$ is analytic in $\delta$ and not identically
+zero. An arbitrarily small change of $\delta$ avoids its isolated
+zeros while retaining the strict margins and the finite support.
+
+For gate dressing, let $W_j$ be the prefix at site $j$.
+The diagonal gauge $\sum_j|j\rangle\langle j|\otimes W_j$
+conjugates the gate-labeled hopping to $H_c$. The input is wholly
+idle, and $W_j=W$ on the output interval. The untrimmed joint state
+is $\sum_jc_j(T)|j\rangle W_j\psi$. Its difference from
+$\sum_jc_j(T)|j\rangle W\psi$ has squared norm at most
+$4p_{\rm bad}$, including an arbitrary old reference. No cursor
+postselection or erasure is used.
+\end{proof}
+
+This quantitative estimate specializes standard Feynman cursor
+transport to the retained-history return. Fixed $J$ bounds the
+cursor energy while increased accuracy consumes time, space and
+preparation. The positive shift and all data/battery energies remain
+in the apparatus account; a finite path eventually reflects.
+
+\section{Finite Return Protocol}\label{app:physicalreturn}
+
+The numerical realization of Section~\ref{sec:retainedreturn} uses body
+qubits $B_1,B_2$, probe $P$, record $R$ and cells $E_0,E_1$, in that
+order. The old logical reference and the two cell purifications are
+retained throughout. The initial logical/reference state is
+$(|01\rangle|0\rangle+|10\rangle|1\rangle)/\sqrt2$.
+Each cell and its reference start in
+$\sqrt{0.9}|00\rangle+\sqrt{0.1}|11\rangle$; $P$ is $|+X\rangle$
+and $R$ is $|0\rangle$.
+
+The clock sites are $-30,\ldots,70$ and the forward-edge gates, at
+sites $0,2,4,6,8,10,12$, are respectively the early phase contact,
+plant rotation, $C_Y(P,R)$, the frame, late phase contact, decoder
+and $C_X(P,E_0)$. Every reverse edge carries the adjoint gate.
+Other edges carry the identity. At input, with $\delta=0.6$ and
+$a=\pi/(2\delta)$, the clock amplitudes are proportional to
+\[
+ e^{i\pi j/2}\left[
+ \operatorname{sinc}\bigl(\delta(j+10+a)\bigr)+
+ \operatorname{sinc}\bigl(\delta(j+10-a)\bigr)\right]
+\]
+for $|j+10|\le7$, and vanish elsewhere. Here
+$\operatorname{sinc}(z)=\sin z/z$; the finite vector is normalized.
+Its support is wholly before the program. The clock is not measured
+to select completed trajectories.
+
+Mechanical parameters are $I=10$, $J_m=20$, $k=1$, $K=0.1$,
+with potential $k(\theta-y)^2/2+Ky^2/2$ and
+$P_++P_-=\gamma\dot\theta^2$, $\gamma=1/(2\pi)$.
+Take $L=1$, $\kappa=0.01$, $\Phi_0=3$, $M_0=10$,
+$e_m(0)=0.95$, $y_0=0.5$, $d_1=-0.5$, $d_2=0.5$ and
+$\theta_0=\dot\theta_0=\dot\Phi_0=0$.
+The velocity $\dot y_0$ supplies the remaining mechanical energy.
+Use $U(\Phi)=50(\Phi-\Phi_*)^2$, where
+$\Phi_*=3.0750469043\ldots$ is fixed by the reference junction
+equilibrium. The nominal task and self-source comparison uses
+$\mathcal C_-(0)=4.7975$; the separate background tests use
+$4.6975$ and $4.8975$.
+In each case $\mathcal C_+$ is fixed by
+$\beta_--\beta_+=\kappa M_0$, not specified independently.
+Both backgrounds use the same initial core and mechanical state.
+
+The initial body spring energy is $0.005$, the bare cell energy is
+$0.01$, and the offset is $0.04$. With the clock this gives
+$E_c(0)=1.655$ and $m_{\rm rest}=7.1133981076\ldots$.
+The six policy/sign trajectories, the same-input $\alpha$ pair,
+and the matched geometric comparison
+are integrated over proper time $[0,30]$, retaining all purification
+columns. Work integrals for the mechanical force, sensor and support
+potential independently check Eq.~\eqref{eq:retainedward} and both
+junction constraints. Removing the springs also removes their initial
+energy from $E_c(0)$ and adjusts the rest mass to keep $M_0$ fixed.
+The two code policies, initial state, finite path and endpoint score
+are unchanged in these controls.
+The complete numerical reconstruction, prefix calculation and paired
+propagations are in the source supplement
+\texttt{supplemental/finite\_return/}. Actual trajectories
+evolve the mass equation and independent mechanical, core and support
+work integrals, so the mass account is checked against its conserved
+definition as well as both junctions.
+Two integrators and a tighter tolerance change the paired geometric
+reading by less than $1.1\times10^{-15}$. The tighter propagation
+has maximum absolute energy-account residual $7.2\times10^{-11}$;
+the nominal six-policy run has residual below $1.9\times10^{-10}$.
+These are numerical consistency checks, not certified interval bounds.
+
+\section{Feedback background}\label{app:feedback_background}
+\begin{definition}[Feedback regularity package]\label{def:FB}
+Let \(S_{\mathrm{source}}\) be a source datum and let
+\(\delta\sigma\) be an admissible calibration signal. A
+\emph{feedback regularity package} consists of a family
+\[
+\mathscr F^{[\delta\sigma]}
+=
+\{\mathscr F_r^{[\delta\sigma]}\}_{r\ge0}
+\]
+of normal maps on \(\mathcal A_U\) satisfying the following conditions.
+\begin{enumerate}
+\item \textbf{FB-A: CP source lift.}
+  \(\{\mathscr F_r^{[\delta\sigma]}\}_{r\ge0}\) is a pointwise
+  \(\sigma\)-weakly continuous semigroup of normal completely positive
+  unital maps on \(\mathcal A_U\), with
+  \[
+  \mathscr F_0^{[\delta\sigma]}=\mathrm{id}_{\mathcal A_U},
+  \qquad
+  \mathscr F_r^{[0]}=\mathrm{id}_{\mathcal A_U}
+  \quad
+  \forall r\ge0.
+  \]
+\item \textbf{FB-B: small-signal differentiability.}
+  For every \(A\in\mathcal A_U\), the map
+  \(r\mapsto \mathscr F_r^{[\delta\sigma]}(A)\) is
+  \(\sigma\)-weakly differentiable at \(r=0\). We denote the
+  derivative by
+  \[
+  \mathfrak G_{\delta\sigma}(A)
+  :=
+  \left.
+  \frac{d}{dr}\mathscr F_r^{[\delta\sigma]}(A)
+  \right|_{r=0},
+  \]
+  and record the normalization
+  \(\mathfrak G_{\delta\sigma}(\mathbf 1)=0\), which follows from the
+  unitality in FB-A because
+  \(\mathscr F_r^{[\delta\sigma]}(\mathbf 1)=\mathbf 1\) for all
+  \(r\ge0\).
+\item \textbf{FB-C: chain compatibility.}
+  The feedback lift commutes with the ambient source semigroup:
+  \[
+  \mathscr F_r^{[\delta\sigma]}\mathcal E_t
+  =
+  \mathcal E_t\mathscr F_r^{[\delta\sigma]}
+  \qquad
+  \forall r,t\ge0.
+  \]
+  For a return through Foundation~I, also specify which seed,
+  physical permissions and hull family are retained. Every stationary,
+  translation or standardness assumption used for that return must
+  hold for the modified source. These are additional compatibility
+  conditions, not consequences of commutation alone.
+\end{enumerate}
+\end{definition}
+
+\begin{proposition}[The feedback derivative is bounded]
+\label{prop:boundedfeedback}
+The every-observable derivative in FB-B makes
+\(\mathscr F^{[\delta\sigma]}\) uniformly continuous in map norm,
+with bounded normal generator \(\mathfrak G_{\delta\sigma}\).
+It is stronger than differentiability on a generator core.
+\end{proposition}
+\begin{proof}
+Fix the signal and set \(B_r=(\mathscr F_r-\mathrm{id})/r\)
+for \(0<r\le1\). For each \(x\) and each normal functional
+\(\varphi\), FB-B bounds \(\varphi(B_rx)\) near zero;
+contractivity bounds it away from zero. Uniform boundedness on
+the predual gives \(\sup_{0<r\le1}\|B_rx\|<\infty\).
+A second uniform-boundedness argument on the Banach space
+\(\mathcal A_U\) gives \(\sup_{0<r\le1}\|B_r\|<\infty\).
+Hence \(\|\mathscr F_r-\mathrm{id}\|=O(r)\). The uniformly
+continuous semigroup theorem yields a bounded generator, and its
+norm derivative equals the FB-B weak derivative. A map-norm
+limit of normal maps is normal.
+\end{proof}
+
+\begin{remark}[Meaning of the strict commutation input]
+For \(\eta>0\),
+\[
+\mathcal E_t^{[\eta]}
+=
+\mathscr F_{\eta t}^{[\delta\sigma]}\circ \mathcal E_t
+\]
+can differ from \(\mathcal E_t\). FB-C makes this composition an
+autonomous semigroup; noncommuting operations require time ordering.
+The first-order map below is a tangent of this exact CP operation.
+\end{remark}
+
+\begin{proposition}[A nontrivial commuting-dephasing feedback lift]
+\label{prop:fdlift}
+The package FB-A--FB-C has a finite-dimensional normal UCP realization
+that depends nontrivially on \(\delta\sigma\) and changes the source
+dynamics beyond a relabeling.
+\end{proposition}
+
+\begin{proof}
+On \(\mathcal A_U=M_2\otimes M_2\), let \(Z_j\) act on factor \(j\).
+For \(\gamma,\kappa>0\), put \(q(\delta\sigma)=\|\delta\sigma\|^2\) and
+\[
+\mathcal L_0=\gamma(\operatorname{Ad}_{Z_1}-\mathrm{id}),
+\qquad
+\mathfrak G_{\delta\sigma}
+=\kappa q(\delta\sigma)
+(\operatorname{Ad}_{Z_2}-\mathrm{id}),
+\]
+The feedback semigroup is
+\[
+\mathscr F_r^{[\delta\sigma]}(A)
+=a_r A+(1-a_r)Z_2AZ_2,
+\qquad
+a_r=\frac{1+e^{-2\kappa q(\delta\sigma)r}}{2}.
+\]
+It is normal UCP and differentiable, with the stated generator,
+and is the identity at zero signal. The same formula with
+\((Z_2,\kappa q,r)\) replaced by \((Z_1,\gamma,t)\) defines
+\(\mathcal E_t\). The two Pauli conjugations commute, verifying FB-C.
+Both fix the joint diagonal algebra, where the retained structural
+inputs may be placed. For
+\(A=\mathbf1\otimes X\),
+\[
+\mathcal E_t(A)=A,
+\qquad
+\mathcal E_t^{[\eta]}(A)
+=e^{-2\eta\kappa q(\delta\sigma)t}A.
+\]
+Thus nonzero feedback adds a decay channel in this finite-dimensional
+realization. The following proposition implements a lift directly on
+the source algebra.
+\end{proof}
+
+\begin{remark}[What strict commutation can and cannot add]
+Proposition~\ref{prop:fdlift} shows that FB-C does not force the lift to
+be the identity. It also displays the limitation: the commuting
+generators are simultaneously diagonal on joint Pauli sectors, so
+feedback only reweights pre-existing joint modes and does not mix them.
+A time-ordered sequence need not obey FB-C. Its algebraic limit is
+treated in Section~\ref{sec:persistence}; its moving-state realization
+is treated in Section~\ref{sec:bank}.
+\end{remark}
+
+\begin{definition}[Small-coupling regime and modified semigroup]
+\label{def:modified}
+Fix a feedback regularity package
+\(\mathscr F^{[\delta\sigma]}\). A coupling strength \(\eta\ge0\) is in
+the \emph{small-coupling regime} if \(0\le \eta < \eta_*\) for some
+window \(\eta_*>0\) on which the later comparison inputs remain valid.
+For a first-order interpretation on a return horizon \([0,T]\), we
+additionally require \(\eta T\ll1\). The exact composed semigroup below
+exists without this perturbative estimate, but its tangent need not be
+uniformly small at long times.
+For such \(\eta\), define the \emph{feedback-modified semigroup} by
+\[
+\mathcal E_t^{[\eta]}
+:=
+\mathscr F_{\eta t}^{[\delta\sigma]}\circ \mathcal E_t
+\qquad
+(t\ge0).
+\]
+The corresponding \emph{modified source datum} is
+\[
+S_{\mathrm{source}}^{[\eta]}
+:=
+(\mathcal H_U,\mathcal A_U,\Omega,\{\mathcal E_t^{[\eta]}\}_{t\ge0}).
+\]
+\end{definition}
+
+\begin{remark}[Heisenberg-picture convention]
+All semigroups in Definition~\ref{def:modified} act on observables.
+The ambient source \(\mathcal E_t\) is only assumed pointwise
+\(\sigma\)-weakly continuous. FB-B makes the auxiliary feedback
+\(\mathscr F_r\) norm-continuous by
+Proposition~\ref{prop:boundedfeedback}; it imposes no bounded-generator
+condition on the ambient source.
+\end{remark}
+
+\begin{definition}[First-order feedback map]\label{def:Gamma}
+Under FB-B, define the \emph{first-order feedback map} by
+\[
+\Gamma(\delta\sigma,\mathcal E_t)(A)
+:=
+t\,\mathfrak G_{\delta\sigma}(\mathcal E_t(A)),
+\qquad
+A\in\mathcal A_U.
+\]
+Equivalently, for each fixed \(t\ge0\),
+\[
+\mathcal E_t^{[\eta]}(A)
+=
+\mathcal E_t(A)
++
+\eta\,\Gamma(\delta\sigma,\mathcal E_t)(A)
++
+o(\eta)
+\]
+in the \(\sigma\)-weak topology as \(\eta\downarrow 0\).
+\end{definition}
+
+\begin{proof}[Verification of the expansion]
+By Definition~\ref{def:modified},
+\[
+\mathcal E_t^{[\eta]}(A)
+=
+\mathscr F_{\eta t}^{[\delta\sigma]}(\mathcal E_t(A)).
+\]
+Applying the \(r=0\) derivative from FB-B at \(r=\eta t\) gives
+\[
+\mathscr F_{\eta t}^{[\delta\sigma]}(\mathcal E_t(A))
+=
+\mathcal E_t(A)
++
+\eta t\,\mathfrak G_{\delta\sigma}(\mathcal E_t(A))
++
+o(\eta),
+\]
+which is exactly the stated formula.
+\end{proof}
+
+\begin{remark}[The tangent is not uniform at long times]
+The factor \(t\) controls this tangent at fixed time, or on windows
+\(\eta t\ll1\) under a uniform generator bound. It gives no
+infinite-time estimate. An arbitrary normal map need not be an
+admissible CP tangent; unbounded perturbations require a specified core.
+\end{remark}
+
+\section{Quantum continuation source record}\label{app:quantum_imports}
+The imported continuation and renewal statements, full assumptions and
+proofs are retained in \texttt{FIII\_quantum\_imports.tex} in the supplemental
+source notes, with Q-RAIF~C as their primary paper~\cite{QRAIFC}.
+They use a positive physical Hamiltonian, a common material rms bound,
+smooth tested source forms, retained Gibbs-bank purifiers and the
+complete cursor. They do not certify the mean-action return below.
+
+\section{Conditional Source Interfaces}\label{app:interfaces}
+
+The source datum is a standard Type~III$_1$ triple and a pointwise
+$\sigma$-weakly continuous normal UCP semigroup. Foundation~I
+constructs a persistent fixed-algebra projection for a stationary
+source, the seed's modular stable hull, and, under an ambient
+half-sided translation action with unique invariant vacuum, an
+internal half-sided inclusion in each nonscalar translation-closed
+hull. The finite-coordinate rank-cost and strict-improvement assumptions
+belong to its foreground coding theorem. Standardness is still needed
+for the corresponding net. These are named inputs and conclusions of
+Foundation~I, not a geometry derived by the feedback lift.
+
+T-DOME~III supplies local reference/probe calibration signals and
+particular drift-control estimates. Self-model residuals alone can
+make the local metric vanish at calibration. Each use here must remain
+in its declared calibration domain; the diagonal-bank result separately
+uses the stated uniform $L^2$ estimation bound.
+
+\newpage
+\addcontentsline{toc}{section}{References}
+
+\begin{thebibliography}{99}
+\small
+\sloppy
+
+\bibitem{FoundationI}
+S.~Liu, \emph{Foundation I: From Source to Manifestation.
+Accessible Algebras from a Source, Its Noise and a Readable Seed},
+2026; series record DOI: 10.5281/zenodo.19627786.
+
+\bibitem{FoundationII}
+S.~Liu, \emph{Foundation II: Shared Manifestation.
+Shared Structure, Public Calibration and Different Histories},
+2026; series record DOI: 10.5281/zenodo.19641372.
+
+\bibitem{QRAIFC}
+S.~Liu, \emph{Retained Quantum History, Physical Sources and Receiver Renewal in Q-RAIF},
+revised October 2026, manuscript.
+
+\bibitem{Elsner1992}
+L.~Elsner, I.~Koltracht and M.~Neumann,
+\emph{Convergence of sequential and asynchronous nonlinear paracontractions},
+Numer. Math. \textbf{62}, 305--319 (1992).
+\url{https://doi.org/10.1007/BF01396232}.
+
+\bibitem{PaperI}
+S.~Liu, \emph{Geometry Relative to a Cut: Selection, Generation and Modular Inseparability}, 2026;
+series record DOI: 10.5281/zenodo.19607387.
+
+\bibitem{PaperII}
+S.~Liu, \emph{Higher-Dimensional Consistency of Geometry and Modular Flow: Physical Source Identification and a Second-Order Extension},
+2026; series record DOI: 10.5281/zenodo.19607543.
+
+\bibitem{PaperIII}
+S.~Liu, \emph{Finite Self-Models and the Explanatory Gap:
+What a Continuing Observer Can Know About Itself}, 2026; series record DOI: 10.5281/zenodo.19607724.
+
+\bibitem{TDOMEIII}
+S.~Liu, \emph{Keeping a Self-Model Calibrated: Drift Detection,
+the Price of Keeping Up, and Reliability in a Closed Loop}
+(T-DOME~III), 2026;
+series record DOI: 10.5281/zenodo.18591771.
+
+\bibitem{BrainAnchor}
+S.~Liu, \emph{The Brain as a Plastic Observable-Algebra Network:
+Learning Shared Access from Sensorimotor History}, 2026; series record DOI: 10.5281/zenodo.20044329.
+
+\bibitem{HAFFD}
+S.~Liu, \emph{Selection, Maintenance and Gravitational Response: Modular Constraints and a Physical Return} (HAFF~D), 2026;
+series record DOI: 10.5281/zenodo.18388881.
+
+\bibitem{BenyKempfKribs2007}
+C.~B\'eny, A.~Kempf and D.~W.~Kribs,
+\emph{Generalization of Quantum Error Correction via the Heisenberg Picture},
+Phys.\ Rev.\ Lett.\ \textbf{98}, 100502 (2007).
+\url{https://doi.org/10.1103/PhysRevLett.98.100502}.
+
+\bibitem{CahaLandauNagaj2018}
+L.~Caha, Z.~Landau and D.~Nagaj,
+\emph{The Feynman-Kitaev computer's clock: bias, gaps, idling and pulse tuning},
+Phys.\ Rev.\ A \textbf{97}, 062306 (2018).
+\url{https://doi.org/10.1103/PhysRevA.97.062306}.
+
+\bibitem{BreuerPetruccione2002}
+H.-P.~Breuer and F.~Petruccione,
+\emph{The Theory of Open Quantum Systems},
+Oxford University Press (2002).
+
+\bibitem{Nakajima1958}
+S.~Nakajima,
+\emph{On quantum theory of transport phenomena},
+Prog.\ Theor.\ Phys.\ \textbf{20}, 948--959 (1958),
+DOI:~10.1143/PTP.20.948.
+
+\bibitem{Zwanzig1960}
+R.~Zwanzig,
+\emph{Ensemble method in the theory of irreversibility},
+J.\ Chem.\ Phys.\ \textbf{33}, 1338--1341 (1960),
+DOI:~10.1063/1.1731409.
+
+\bibitem{FrigerioVerri1982}
+A.~Frigerio and M.~Verri,
+\emph{Long-time asymptotic properties of dynamical semigroups on \(W^*\)-algebras},
+Math.\ Z.\ \textbf{180}, 275--286 (1982),
+DOI:~10.1007/BF01318911.
+
+\end{thebibliography}
+ 
+\end{document}

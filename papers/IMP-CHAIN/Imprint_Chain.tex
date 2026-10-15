@@ -1,0 +1,1012 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,booktabs,array}
+\usepackage[hidelinks]{hyperref}
+\hypersetup{pdftitle={The Imprint Chain: Records, Self-Calibration, and Physical Feedback},pdfauthor={Sidong Liu}}
+\newtheorem{proposition}{Proposition}[section]
+\newtheorem{theorem}[proposition]{Theorem}
+\newtheorem{corollary}[proposition]{Corollary}
+\newtheorem{hypothesis}[proposition]{Hypothesis}
+\newcommand{\E}{\mathbb E}
+\newcommand{\Prb}{\mathbb P}
+\newcommand{\tr}{\operatorname{tr}}
+\newcolumntype{P}[1]{>{\raggedright\arraybackslash}p{#1}}
+\title{The Imprint Chain:\\Records, Self-Calibration, and Physical Feedback}
+\author{Sidong Liu, PhD\\iBioStratix Ltd\\\texttt{sidongliu@hotmail.com}}
+\date{October 2026}
+\begin{document}
+\emergencystretch=2em
+\raggedbottom
+\maketitle
+
+\begin{abstract}
+An imprint becomes consequential when its history changes the next
+physical inquiry. We construct one process in which repeated readings
+identify an unknown sensor, retained records select its operating
+setting, and that setting controls a persistent world through a
+maintained reading port and a finite-energy field actuator. The world
+continues to evolve during failures; neither recovery nor a new inquiry
+resets it. An exact joint-state formula gives stationary occupation and
+the rate of physical source-producing actions; a finite-prefix bound
+keeps health mixing and the carrier's initial polarization explicit. Equal average port
+availability can give different control performance because the
+ordering of downtime matters. In the specified training and repair law,
+calibration's continuing benefit remains nonzero, falls as inverse
+training age, or becomes exponentially small across a maintenance
+threshold. The ideal calibration protocol also separates a temporal
+record from an equally informative trace written into the carrier.
+A Gaussian continuation supplies a separate scale-sensitive example
+of reading, force and the next actual state. Finite maintenance
+counterexamples show how missing readings and decaying use credit can
+destroy access. The constructions connect records, learning, action and
+return while preserving their resource costs. Their ports, repair laws
+and incoming resources are explicit physical inputs. The broader claim
+that a subject is a historically formed organization of these relations
+remains a hypothesis about formation and experience.
+\end{abstract}
+\section{A chain that returns to the world}
+
+A mark can outlive the interaction that made it. Whether that mark becomes useful depends on a second interaction: somebody or something must read it. The reading itself has conditions, including a sensor, a memory, an orientation and a range of possible actions. When those conditions are partly unknown, a system must distinguish changes in the world from changes in how it encounters the world. If it can retain and revise that distinction, its history can change what it does next.
+
+The imprint proposal is that this return of history into present activity is central to the joint organization of a world and a subject. The subject is not an observer added to an already complete account. It is a history-bearing physical organization whose access, memory and actions become mutually dependent. The resulting account must nevertheless distinguish changes in a description from changes in the described system. Better calibration can improve an estimate while leaving its source untouched. Only a specified physical operation turns the estimate into a change of source.
+
+The Genesis Trilogy assigns these questions to three lines: HAFF studies accessible world structure; Q-RAIF studies the interfaces through which physical distinctions and controls are realized; T-DOME studies memory, persistent organization and self-evaluation. Foundation examines realization, sharing and return at these interfaces. Consciousness asks how world presentation and first-person organization belong together. Imprint tracks the role of formation history across them, and Brain Anchor asks how such organization can develop in a plastic embodied system. These are different responsibilities within one problem, rather than alternative names for one algebra.
+
+The present paper combines them at the level at which an actual composition is available. Its main construction uses the reader of \emph{The World as Imprint}~\cite{WorldImprint}, but replaces independent world samples by repeated access to a controlled carrier. A temporal correlation or a feedback-written trace identifies its setting. We then join that learned setting to a maintained port and a field-realized actuator: later downtime leaves the actual world in place. The resulting joint body--world transition, rather than a concatenation of independent benchmarks, determines what the old history can still achieve.
+
+Informative control is already central to dual-control theory~\cite{KlenskeHennig}. Self-calibrating quantum tomography likewise estimates unknown aspects of an interface under specified controls and with remaining gauge freedoms~\cite{Branczyk}. Gaussian conditioning, Bayes discrimination and finite Markov-chain methods are standard. The contribution is their composition with the specified physical instruments and maintenance: a record's continuing benefit depends on the temporal organization of the body that uses it, with an exact source-producing action rate.
+
+\section{What has to compose}
+
+Let $X_t$ denote a physical world and apparatus state, $M_t$ a retained classical state, and $a_t$ an allowed action selected using $M_t$. A quantum implementation has instruments $\{\mathcal J_{a_t}^y\}_y$ whose components are completely positive and trace non-increasing, with a trace-preserving sum. Each result updates the actual memory,
+\[
+ M_{t+1}=F(M_t,a_t,y_t).
+\]
+The action used next must depend on accessible records, not on a hidden parameter supplied by the investigator. The state transition and the probability of $y_t$ must come from the same instrument. This prevents a statistical model from granting a useful reading while omitting the physical disturbance needed to obtain it.
+
+Three changes are then distinguishable. Updating $M_t$ changes a prediction. Changing $a_t$ can change the reading interface. Applying a controlled channel to $X_t$ changes the physical world or apparatus. A geometric consequence requires an additional map from that change to physical geometric data. None of these implications follows from naming all four objects ``information.''
+
+Memory also includes more than an explicit register. A selected switch position, a changed coupling and an accessible external record can retain the past. A claim that memory was removed must specify which of these remains. Conversely, a mathematical minimum stable hull need not be a realizable finite memory. Foundation's source hull, its shared sector, an internal task workspace, and a half-sided modular inclusion have different types. A common physical realization can connect them; a common symbol cannot.
+
+The following sections instantiate the first three changes in one process. Geometry enters later as a separate, explicitly coupled extension. The separation leaves a concrete synthesis: where the maps are given, outputs become inputs with calculable consequences; where they are not, the missing physical construction remains visible.
+
+\section{An instrument, a retained world, and a physical action}
+\label{sec:model}
+
+The instrument has a hidden label $S\in\{0,1\}$, uniform initially and fixed throughout the experiment. Its effects on a probe are
+\begin{equation}\label{eq:instrument}
+ E_{y\mid s}=\tfrac12(I+y\nu\sigma_s),\qquad
+ \sigma_0=Z,\quad\sigma_1=X,\quad
+ \nu=1-2\eta,\quad 0<\eta<\tfrac12.
+\end{equation}
+The outcome is $y=\pm1$. The probe can be rotated by $U_0=I$ or $U_1=e^{-i\pi Y/4}$. The instrument is the square-root measurement with Kraus operators $\sqrt{E_{y\mid s}}$; probes are discarded after reading.
+
+The world is a distinct qubit restricted to states diagonal in $Z$. Write its classical value as $W=\pm1$. To read it, the apparatus prepares a fresh probe in $|0\rangle$, applies a CNOT from world to probe, rotates the probe by $U_a$, and measures it. On this diagonal domain the world value is unchanged by the read, and
+\begin{equation}\label{eq:law}
+ \Prb(Y=y\mid W=w,S=s,a)=
+ \begin{cases}(1+yw\nu)/2,&a=s,\\1/2,&a\ne s.\end{cases}
+\end{equation}
+This is not nondisturbing access to an arbitrary unknown quantum state. The explicit probe coupling supplies classical copying on the declared domain; elsewhere it dephases the world.
+
+Two additional operations are available on the world. A pulse implements $X$. A bath step flips its value with independent probability $d$, where $0<d<1/2$; put $c=1-2d$. The bath channel is $(1-d)\rho+dX\rho X$. A paid randomization,
+\begin{equation}\label{eq:twirl}
+ \mathcal T(\rho)=\tfrac12(\rho+X\rho X),
+\end{equation}
+maps every diagonal state to $I/2$ and removes its correlations with previously retained classical information. It can be implemented with an independent fair coin, an optional $X$ pulse and disposal of the coin. Its value is not given to the controller as a world label.
+
+These are the apparatus inputs: the sensor family, blank probes, CNOT, a known actuator, bath statistics and permitted rotations. The observer does not receive $S$ or a labeled value of $W$. In particular, using trusted controls to learn a sensor is not the generation of an absolute reference frame without physical assumptions.
+
+\section{A temporal trace can be transferred into the world}
+\label{sec:transfer}
+
+For calibration, use action $a=0$ and the following block. Randomize the world. Read $Y_1$, apply $X$ exactly when $Y_1=-1$, let the bath act once, then read $Y_2$. Discard both probes. Subsequent blocks begin with fresh randomization. There is no bath step between randomization and the first read, and no additional step is included before the block is scored.
+
+\begin{proposition}[Calibration through action and repeated access]\label{prop:pair}
+For the active block,
+\begin{equation}\label{eq:p}
+ \Prb(Y_2=+1\mid S=0)=p:=\frac{1+c\nu^2}{2},\qquad
+ \Prb(Y_2=+1\mid S=1)=\frac12.
+\end{equation}
+Given $S$, $Y_1$ is fair and independent of $Y_2$. Immediately before the second reading, the active world states are
+\begin{equation}\label{eq:worldtrace}
+ \rho_0^{\rm act}=\tfrac12(I+c\nu Z),\qquad
+ \rho_1^{\rm act}=I/2.
+\end{equation}
+In the passive protocol with the same randomization, two reads and bath step but no feedback pulse, both world marginals remain $I/2$. Each reading is fair, but the product $Z_{\mathrm{rec}}=Y_1Y_2$ has precisely the distribution in~\eqref{eq:p}.
+\end{proposition}
+\begin{proof}
+For $S=0$, write $Y_1=W\epsilon_1$, where the independent reading error sign has mean $\nu$. Feedback and bath give $W'=WY_1\xi=\epsilon_1\xi$, with $\E\xi=c$. The next result is $Y_2=\epsilon_1\xi\epsilon_2$, proving~\eqref{eq:p} and~\eqref{eq:worldtrace}. Since $W$ was uniform, $Y_1$ is independent of $\epsilon_1$, hence also of $Y_2$. For $S=1$ each probe result is fair independently of the classical world value. In the passive protocol $W'=W\xi$, so $Y_1Y_2=\epsilon_1\xi\epsilon_2$ when $S=0$, whereas the product is fair when $S=1$. The passive world remains uniform. All noise variables are independent between blocks conditional on $S$.
+\end{proof}
+
+The two routes have the same information about $S$ when all useful records are kept. In one, the useful statistic must be computed from two successive readings. In the other, an action makes it readable in the second outcome alone. The physical states differ: the active world bears a contrast that the passive world marginal lacks. Feedback has transferred a relation involving an earlier result into the carrier. The equal-prior unrestricted error for distinguishing the active world states in~\eqref{eq:worldtrace} is $1/2-c\nu/4$, whereas the specified sensor reading has error $1/2-c\nu^2/4$. At $\nu=0.8,c=0.9$ these are $0.32$ and $0.356$. Carrying and permitted access are thus different even for this same physical trace; the unrestricted benchmark does not grant the controller an additional measurement.
+
+This also specifies a memory intervention. Removing $Y_1$ after the active pulse leaves the useful world trace intact. Removing $Y_1$ before passive comparison destroys the available parity statistic. The difference does not prove free memory reduction: the active protocol used the world, an actuator and a pulse, while the passive one retained a bit. Both belong in the resource account.
+
+An independent fair replay pulse provides another control. If its coin is discarded, the pair of readings is uniform under either $S$. If its command is retained, the known pulse sign can be included in $Y_1Y_2$ and the calibration information returns. Omitting action records can therefore manufacture an apparent inferiority of an open-loop policy. By contrast, fresh independent uniform worlds for every individual read give no information about $S$, even if the two reading orientations are chosen adaptively. Repeated access, rather than activity alone, is what removes that particular obstruction.
+
+\section{Finite records select the later interface}
+
+After $n$ independent blocks, let $k$ count positive second outcomes in the active protocol, or positive products in the passive protocol. Bayes' rule gives
+\begin{equation}\label{eq:posterior}
+ \Prb(S=0\mid n,k)=
+ \frac{p^k(1-p)^{n-k}}{p^k(1-p)^{n-k}+2^{-n}}.
+\end{equation}
+The observer selects $a=0$ if this posterior is at least $1/2$, and $a=1$ otherwise. The choice is an actual switch controlling subsequent probe rotations. Its exact mismatch probability is
+\begin{equation}\label{eq:q}
+ q_n=\frac12\sum_{k=0}^n\min\left\{
+ \binom nk p^k(1-p)^{n-k},\binom nk2^{-n}\right\}.
+\end{equation}
+The full active pair contains no additional information; the full passive pair is equivalent to its product and an ancillary fair bit.
+
+For finite $n$, both hypotheses assign positive probability to every record, so $q_n>0$. Because $p>1/2$, $q_n\to0$. For example, a frequency threshold at $(p+1/2)/2$ has error at most $\exp[-n(p-1/2)^2/2]$ by the bounded-sum tail inequality; the optimal error is no larger. At $\nu=0$ or $d=1/2$, both likelihoods coincide and $q_n=1/2$ for every $n$. If the sensor family additionally allowed an unknown sign, this experiment would not identify it: the statistic depends on $\nu^2$.
+
+T-DOME~III gives a policy-transcript criterion for this obstruction~\cite{TDOMEIII}. A common relabeling of hidden states and parameters must intertwine the sensing and transition kernels, with the same observable action labels, and push forward the initial law. The full record law is then identical for every adaptive policy, so no parameter moved by that symmetry is identifiable from those records. This does not show that every invariant parameter is identifiable. A labelled reference operation can supply a relational standard; jointly relabeling such operations preserves the obstruction only when their labelled kernels are jointly covariant, not merely closed as a family.
+
+The chosen action is sufficient for the fixed next phase, but not for every possible inquiry. Two histories can choose the same action and imply different confidence, hence different values of another read. Retaining the posterior counts permits that further use; retaining only the switch does not. A self-model can consequently have several operational levels without introducing a separate inner observer at each level~\cite{WorldImprint,StableHulls}.
+
+\section{The same learned setting controls a persistent world}
+\label{sec:return}
+
+After calibration, randomize the world once more, retaining the learned setting $a$. Fix that setting throughout a task window. In each task step read the world through a fresh probe; accept feedback with an independent Bernoulli gate of probability $h\in(0,1]$; if accepted and $Y=-1$, apply $X$; then let the bath act. The target is $W=+1$. The loss is the actual occupation probability $L_t=\Prb(W_t=-1)$, not an error assigned by a second decoder. The policy deliberately holds the calibration setting fixed; continued learning from task data is a different allowed extension.
+
+\begin{theorem}[Exact material return of calibration]\label{thm:return}
+Set $\lambda=c(1-h)$ and $b=ch\nu$. Starting the task at $I/2$, a calibration procedure with mismatch probability $q$ gives
+\begin{align}
+ \E W_t&=(1-q)b\frac{1-\lambda^t}{1-\lambda},\label{eq:transient}\\
+ L_\infty(q)&=\frac12-\frac{(1-q)b}{2(1-\lambda)}.\label{eq:steady}
+\end{align}
+For any two such procedures with $q'<q$, the improvement in stationary loss is exactly
+\begin{equation}\label{eq:gain}
+ L_\infty(q)-L_\infty(q')=
+ \frac{b(q-q')}{2(1-\lambda)}>0.
+\end{equation}
+Every finite sequence of the specified operations is a completely positive trace-preserving physical process on world, apparatus and memory.
+\end{theorem}
+\begin{proof}
+Conditional on $a=S$, a read has mean $\nu W$. Averaging over the gate and outcome, the world mean after feedback is $(1-h)m+h\nu$; the bath multiplies it by $c$. Conditional on $a\ne S$, the result is fair, so feedback leaves mean $(1-h)m$ before the bath. Thus the two branch recursions are $m'_{\rm match}=\lambda m_{\rm match}+b$ and $m'_{\rm wrong}=\lambda m_{\rm wrong}$. The initial randomization sets both initial means to zero. Solving and averaging with fixed branch weights $1-q,q$ proves~\eqref{eq:transient}--\eqref{eq:gain}. The hidden branch is fixed along a trajectory, not resampled each step. Physical legality follows from composition of CNOT, local instruments, classically controlled unitaries, disposal and random-unitary channels.
+\end{proof}
+
+\begin{table}[ht]
+\centering
+\begin{tabular}{rrrr}
+\toprule
+Blocks $n$ & Calibration reads & Mismatch $q_n$ & Stationary world loss\\
+\midrule
+0 & 0 & 0.500000 & 0.343478\\
+2 & 4 & 0.314528 & 0.285417\\
+4 & 8 & 0.255999 & 0.267095\\
+8 & 16 & 0.187302 & 0.245590\\
+16 & 32 & 0.104023 & 0.219520\\
+32 & 64 & 0.040489 & 0.199631\\
+64 & 128 & 0.006613 & 0.189027\\
+\bottomrule
+\end{tabular}
+\caption{Exact finite sums for $\eta=0.1$, $d=0.05$, $h=0.4$. Active and passive-pair calibration have the same $q_n$. The known-interface limit is $0.186957$. Every subsequent task step consumes one additional reading.}
+\label{tab:chain}
+\end{table}
+
+This is an explicit connection from retained history to a change in the world. In the specified two-action policy class, deleting every $S$-dependent retained state before selecting $a$ gives $q=1/2$. A history that improves $q$ must therefore improve the stationary occupation. Deleting a probability register while preserving its chosen switch leaves the performance unchanged; the switch is memory. The necessity concerns this task and policy class, not every possible means of stabilizing a bit. Direct resetting to $|0\rangle$ or a broader reading permission would change the problem.
+
+Calibration also changes how often the feedback actuator fires. The stationary pulse rate in this policy is
+\begin{equation}\label{eq:pulse}
+ f_X(q)=\frac h2\left[1-\frac{(1-q)\nu b}{1-\lambda}\right].
+\end{equation}
+To verify it, condition on the fixed matching branch and average $h\Prb(Y=-1)$ in its stationary world. Consequently, $f_X(q)-f_X(q')=h\nu[L_\infty(q)-L_\infty(q')]$. Improved calibration reduces both the world loss and these subsequent feedback pulses. This comparison excludes the calibration acquisition, probe rotations and other apparatus costs; it is not a reduction of total cost at every task duration.
+
+No feedback commutation condition is assumed. Foundation~III's finite feedback treatment likewise distinguishes stepwise legal control from an autonomous commuting source semigroup~\cite{FoundationIII}. Here the composite process is legal for arbitrary duration, although the world marginal need not itself be Markovian when the fixed hidden setting is not retained in the description. Constant calibration error does not prevent useful persistent control.
+
+\section{The record returns through a maintained body}
+\label{sec:joint-return}
+
+A retained setting is useful only if its next reading can actually
+occur. We now put a reading port, its maintenance and the controlled
+world into the \emph{same} process. The world is not randomized when
+the port fails or recovers. Its original bath continues at every
+epoch. The controller keeps the learned setting and receives an
+explicit availability status; an unavailable read is not an outcome
+$Y=0$.
+
+\subsection{One continuing world and a finite-energy correction}
+
+The corrective operation is the physical field encounter of
+Ref.~\cite{QRAIFB}. A fresh coherent drive with occupation $N>0$,
+independent of the complete past, acts through
+$U=\exp[-i\ell XQ]$, with
+\[
+ \ell^2=\frac{\pi^2}{16N},\qquad
+ s_N=\frac{1+e^{-\pi^2/(8N)}}2.
+\]
+On the bit its exact reduced channel is
+$s_NX\rho X+(1-s_N)\rho$, not an exact flip.
+Every epoch has a scheduled incoming packet; the command only
+switches its coupling on or off. Outgoing packets do not return to
+the reading access. Thus a failed gate still consumes an encounter,
+and unavailable epochs still have their incoming drive. On-demand
+emission would require another physical implementation.
+
+For calibration in this version, use the \emph{passive} paired blocks.
+Their identifying law~\eqref{eq:p} has no corrective pulse between
+readings. To implement each paid twirl with this same imperfect
+actuator, trigger it with probability $1/(2s_N)$ and discard the coin.
+The resulting map is exactly $\mathcal T$. This uses a known drive
+family and trigger probability, not an unknown actuator inferred for
+free. With a $k$-bit trigger, the total variation error of a protocol
+with $n+1$ twirls is at most $(n+1)s_N2^{-k-1}$; it must be added to
+the finite-record error. An active calibration block with an
+imperfect flip does \emph{not} have the ideal second-outcome law:
+given a matching setting its joint law is
+\[
+ \Prb(Y_1=y_1,Y_2=y_2)
+ =\tfrac14\{1+c\nu^2y_2[s_N+(1-s_N)y_1]\}.
+\]
+This follows by mixing the successful active flip and the
+unsuccessful passive branch with weights $s_N$ and $1-s_N$.
+Consequently the ideal active/passive equivalence cannot be used
+after discarding $Y_1$. The passive route supplies the common
+finite-energy implementation below.
+
+The reading port has state $z=(e,A)$, with live bit $A$ and training
+age $0\le e\le E$, $E\ge1$. It is ready when
+$r_z=\mathbf1_{\{e=E,A=1\}}$. Request this one port at every epoch;
+the learned setting controls its probe rotation, not its maintenance
+law. After the world's possible reading, correction and bath step,
+a live request increments $e$ to $\min(E,e+1)$, whereas a failed
+request decreases it to $\max(0,e-1)$. Repair every failed request,
+then perform a fresh independent failure test with probability
+$f\in(0,1)$. This makes the next live bit Bernoulli with parameter
+$p_{\rm live}=1-f$. The repair and training operations are specified
+body operations, independent of $W,S$ and the field noise; their
+microscopic preparation and dissipation remain to be derived.
+The calibration prefix presumes a working, prepared port for its
+$2n$ acquired reads; that preparation is paid. Its health during the
+later task is governed by the stated kernel, not certified healthy
+by the old calibration outcome.
+Readiness is checked \emph{before} training. This order prevents a
+repair from retroactively supplying the missing reading.
+
+Let $P$ be the row-stochastic transition matrix of this body:
+\[
+ P_{(e,A),(e',A')}=
+ \begin{cases}
+ p_{\rm live}^{A'}f^{1-A'},&
+ e'=\min(E,e+1)\ \text{if }A=1,\\
+ p_{\rm live}^{A'}f^{1-A'},&
+ e'=\max(0,e-1)\ \text{if }A=0,\\
+ 0,&\text{otherwise}.
+ \end{cases}
+\]
+It is independent of the hidden calibration branch. When ready,
+the world is read and accepts its negative-outcome correction with
+the old probability $h$. When unready, no read or coupling occurs,
+but the bath acts. The health transition then follows $P$.
+All records, the switch and old references remain in the complete
+process. Only the deliberately declared twirls randomize the world;
+there is no reset at a recovery.
+
+\subsection{Exact stationary performance and the cost of intermittency}
+
+\begin{theorem}[A maintained imprint chain]\label{thm:joint-return}
+For the preceding protocol, put $s=s_N$ and let $\pi$ be the unique
+stationary body distribution, as a column vector. Define
+\[
+ D_{zz}=c(1-hs r_z),\qquad
+ \beta_z=chs\nu r_z,\qquad
+ v=(I-P^TD)^{-1}P^T(\beta\odot\pi),\qquad
+ \mathcal M=\mathbf1^Tv.
+\]
+The product $\odot$ is componentwise. For any initial body state and
+the post-calibration twirl, the stationary world loss and the rate
+of actual field couplings are
+\begin{align}
+ L_{\rm body}(q)&=\frac12-\frac{(1-q)\mathcal M}{2},
+ \label{eq:body-loss}\\
+ a_{\rm body}(q)&=\frac h2\left[\rho-(1-q)\nu r^Tv\right],
+ \qquad \rho=r^T\pi. \label{eq:body-rate}
+\end{align}
+In particular, for $q'<q$ the same body and drive have strictly lower
+loss by $(q-q')\mathcal M/2$ and fewer task couplings by
+$h\nu(q-q')r^Tv/2$.
+
+Writing $R=p_{\rm live}/f$, the exact readiness fraction and useful
+polarization obey
+\begin{equation}\label{eq:body-availability}
+ \rho=p_{\rm live}\frac{R^E}{\sum_{j=0}^E R^j},\qquad
+ chs\nu\,\rho\le\mathcal M\le
+ \min\left\{\nu,\frac{chs\nu\,\rho}{1-c}\right\}.
+\end{equation}
+Thus for fixed $c,h,s,\nu>0$ the retained calibration advantage scales
+as $\rho$: it remains bounded away from zero as $E\to\infty$ when
+$f<1/2$, is of order $1/E$ when $f=1/2$, and is exponentially small
+when $f>1/2$. This is a statement about actual stationary occupation,
+not only about recovery time.
+\end{theorem}
+\begin{proof}
+Conditional on the matching branch, let
+$\rho_t(z)=\Prb(z_t=z\mid a=S)$ and
+$v_t(z)=\E[W_t\mathbf1_{\{z_t=z\}}\mid a=S]$.
+A ready step has mean map $m\mapsto c(1-hs)m+chs\nu$;
+an unready step has $m\mapsto cm$.
+Fresh field inputs, bath variables and body failure tests give
+the exact joint recursions
+\[
+ \rho_{t+1}=P^T\rho_t,\qquad
+ v_{t+1}=P^T[Dv_t+\beta\odot\rho_t].
+\]
+In the wrong branch the inhomogeneous term is zero; the initial
+twirl makes its first moment zero. The body chain is irreducible
+and aperiodic, so both branches' body distributions tend to $\pi$.
+Since $\|P^TD\|_1\le c<1$, the inverse exists as a positive Neumann
+series and the matching first moment converges to $v$. This also
+proves independence of initial health, including a health state
+correlated with calibration records. Averaging the fixed branch
+weights proves~\eqref{eq:body-loss}. The negative-outcome probability
+on a ready matching branch is $(1-\nu W)/2$; on a wrong branch it
+is $1/2$. This proves~\eqref{eq:body-rate}.
+Positivity and irreducibility give $\mathcal M>0$ and $r^Tv>0$.
+
+The newly tested live bit is independent of the previous age.
+The age process is the reflected birth--death walk with upward
+probability $p_{\rm live}$ and downward probability $f$, hence
+its stationary weights are proportional to $R^e$. Multiplication
+by the live probability proves the first formula in
+\eqref{eq:body-availability}. The zero-th Neumann term has sum
+$\mathbf1^TP^T(\beta\odot\pi)=chs\nu\rho$.
+Bounding every further term by $c^k$ gives the other bound.
+For any readiness sequence, the conditional world mean starts at
+zero and stays in $[0,\nu]$ under both affine maps, proving the
+additional $\nu$ bound. Finally,
+$\rho\to p_{\rm live}-f$ for $f<1/2$,
+$\rho=1/[2(E+1)]$ for $f=1/2$, and
+$\rho\sim p_{\rm live}(1-R)R^E$ for $f>1/2$.
+The matching lower and upper bounds give the stated scaling.
+\end{proof}
+
+\begin{corollary}[Finite prefixes retain health and old polarization]
+\label{cor:joint-prefix}
+Use the same protocol, but allow any initial joint health--world law
+in each fixed calibration branch, including a residual polarization
+after an imperfect final twirl. Let $\rho_t^+$ and $\rho_t^-$ be the
+conditional body distributions in the matching and wrong branches,
+and let $v_t,w_t$ be their body-weighted world first moments.
+Set
+\[
+ \epsilon_t^\pm=\|\rho_t^\pm-\pi\|_1,\qquad
+ \delta_t=\|v_t-v\|_1,\qquad \beta_*=chs\nu.
+\]
+Then
+\begin{align}
+ \delta_{t+1}&\le c\delta_t+\beta_*\epsilon_t^+,
+ \qquad \|w_t\|_1\le c^t\|w_0\|_1,\label{eq:prefix-recursion}\\
+ \delta_t&\le c^t\delta_0+
+ \beta_*\sum_{k=0}^{t-1}c^{t-1-k}\epsilon_k^+.
+ \label{eq:prefix-convolution}
+\end{align}
+For the actual branch weight $q$, the finite-epoch loss $L_t$ and
+coupling probability $a_t$ satisfy
+\begin{align}
+ |L_t-L_{\rm body}(q)|
+ &\le\tfrac12[(1-q)\delta_t+q c^t\|w_0\|_1],
+ \label{eq:prefix-loss}\\
+ |a_t-a_{\rm body}(q)|
+ &\le\tfrac h2[(1-q)\epsilon_t^++q\epsilon_t^-
+                 +(1-q)\nu\delta_t].\label{eq:prefix-source}
+\end{align}
+The body errors are computed from $\rho_t^\pm=(P^T)^t\rho_0^\pm$;
+they are not replaced by a stationary readiness fraction.
+\end{corollary}
+\begin{proof}
+The conditional recursions in Theorem~\ref{thm:joint-return} hold
+without a twirl or product initial state. In the wrong branch the
+read is fair, so $w_{t+1}=P^TDw_t$. Subtract the stationary matching
+equation to obtain
+\[
+ v_{t+1}-v=P^TD(v_t-v)
+                 +P^T[\beta\odot(\rho_t^+-\pi)].
+\]
+Since $P^T$ is a contraction in the $1$-norm, $0\le D_{zz}\le c$
+and $0\le\beta_z\le\beta_*$, taking norms gives
+\eqref{eq:prefix-recursion}. Iteration gives
+\eqref{eq:prefix-convolution}, with an empty sum at $t=0$.
+The actual loss and coupling probability are
+\[
+ L_t=\tfrac12-\tfrac12[(1-q)\mathbf1^Tv_t+q\mathbf1^Tw_t],
+ \qquad
+ a_t=\tfrac h2[(1-q)r^T\rho_t^++q r^T\rho_t^-
+                        -(1-q)\nu r^Tv_t].
+\]
+Here a coupling is counted when commanded, regardless of its
+success; the wrong branch's fair read makes its rate independent
+of $w_t$. Subtract~\eqref{eq:body-loss}--\eqref{eq:body-rate} and
+use $\|r\|_\infty,\|\mathbf1\|_\infty\le1$ to obtain the bounds.
+They tend to zero because both body distributions mix to $\pi$
+and $c<1$; split the convolution into an early finite sum and a
+tail where $\epsilon_k^+$ is arbitrarily small. No world reset or
+fresh calibration is used in this argument.
+\end{proof}
+
+The same first-moment proof gives the resolvent and coupling rates
+for any finite irreducible, aperiodic readiness chain independent of
+the world, hidden setting and current field noise. The age formula
+and its three scaling regimes are specific to the declared training
+and repair law; they do not extend to an arbitrary body kernel.
+The limits in training age are taken after the stationary limit.
+They do not supply a uniform finite deadline from an initially
+failed, untrained port: that body's recovery time is calculated in
+Corollary~\ref{cor:readiness-exact}, with failure probability $f$.
+The joint recursion above, rather than its stationary limit, governs
+each finite task window and retains the actual recovery transient.
+
+Replacing the body by its average readiness is generally wrong.
+For example, at $E=1,f=0.2$, $N=16$ and the old task parameters,
+$\rho=0.64$ and $\mathcal M=0.542096$.
+With $32$ passive calibration blocks the actual stationary loss is
+$0.239926$, compared with $0.364476$ without informative calibration.
+The mean-readiness substitution instead predicts
+\[
+ \frac12-\frac{1-q_{32}}2
+ \frac{chs_N\nu\rho}{1-c+chs_N\rho}=0.235445.
+\]
+The discrepancy is not finite-sample error: the missing object is
+the correlation of present world polarization with present readiness.
+More decisively, take two body chains with ready fraction $1/2$,
+\[
+ P_\alpha=\begin{pmatrix}\alpha&1-\alpha\\
+                         1-\alpha&\alpha\end{pmatrix}.
+\]
+At $\alpha=1/2$ and $0.9$, the same formula gives matching
+polarizations $0.507304$ and $0.429489$, respectively.
+Equal mean availability does not specify a controlled carrier.
+The stationary theorem uses the \emph{actual} mismatch $q$. For the $32$-block
+example, a $20$-bit twirl trigger adds at most $1.52\times10^{-5}$
+to the record-law error, hence changes the displayed \emph{stationary}
+loss by at most $4.13\times10^{-6}$ for the same body and drive.
+This is not a finite-prefix bound: an imperfect final twirl can also
+leave an old world polarization. Corollary~\ref{cor:joint-prefix}
+retains that polarization and the actual initial health distribution.
+The stationary calibration advantage survives this
+finite trigger precision; it is not an infinite-precision effect.
+
+This gives a useful ordering test. For any two exogenously specified
+readiness paths coupled with $r'_t\ge r_t$ at every epoch, and the
+same task parameters, the conditional matching mean in the first
+is no smaller: the affine map is increasing in the old mean and,
+on $[0,\nu]$, in readiness. Induction and averaging prove lower
+world loss for the more available path. Such a coupling must actually
+hold; a cheaper repair rule is not entitled to it merely because its
+long-run ready fraction is higher.
+
+\subsection{The source and the resource bill}
+
+The new theorem does not give the world a new actuator or a new
+emitter at recovery. In every ready correction it uses the same
+field-realized gate. For a fixed smooth switching profile $g$,
+the zero-cross-term condition holds on each diagonal conditional
+bit state with a fresh independent drive. The exact added outgoing
+stress per activation is the smooth profile
+$F_g(u)=(g'(u))^2/4$, and its integrated energy is
+$\ell^2\bar\omega$~\cite{QRAIFB}. Thus in stationarity the mean added
+source in the phase of a scheduled epoch is
+$a_{\rm body}(q)F_g$. For packets placed at times $u_j$, a finite
+window instead has the sum
+$\sum_j\Prb(\text{coupling at }j)F_g(u-u_j)$.
+No sharp weighted-stress norm or independent old reference is
+inferred from this smooth outgoing-source certificate.
+Changing the retained calibration changes this actual source
+through~\eqref{eq:body-rate}, not through relabeling an unchanged
+field. This statement concerns this actuator's outgoing matter
+stress; it does not identify a full apparatus stress with a JT source.
+
+The same task window pays one incoming packet of energy
+$N\bar\omega$ per epoch, plus an expected switching increment
+$a_{\rm body}(q)\ell^2\bar\omega$. At the numerical example the
+increment is $0.00283001\bar\omega$ per epoch. It also pays one status
+read per epoch, one training operation per live request and one
+repair attempt per failed request. Their stationary rates are
+$1$, $p_{\rm live}$ and $f$, respectively. Actual sensor reads,
+blank probes, CNOTs and the appropriate rotation occur at rate
+$\rho$, not at the rate of all requests. The calibration's $2n$
+reads and $n+1$ twirls remain separate charges. Those twirls use
+$n+1$ further incoming packets and, for exact triggers, an expected
+$(n+1)/(2s_N)$ couplings. Fair-coin resources, trigger precision,
+memory counts, initial body preparation, program, clock, switching
+support and taper are additional resources. The counts establish one common resource
+ledger. They do not turn a supplied repair kernel into a derived
+thermal renewal mechanism.
+
+Every finite prefix is a CPTP process on the encoded body,
+world, controller, probes and fields. Disposed coins and probes may
+be kept as inaccessible references; they are not silently erased
+from the complete state. Old calibration records are not reissued
+at recovery, and old reference marginals are preserved by later
+trace-preserving local operations, though correlations with the
+world can change. Infinite stationary operation means an indefinitely
+supplied sequence of fresh probes, drives and repairs, not a finite
+apparatus returning all its material to its initial state.
+Foundation~III treats finite physical return separately from
+compact-noise convergence and drift~\cite{FoundationIII}.
+
+\section{What the observer pays}
+
+An active calibration block uses two blank probes, two CNOTs, two sensor reads, one bath interval and one fair world-randomization coin. It uses at most one randomization pulse and one feedback pulse. Passive calibration removes the latter but retains the first result until the product is formed. Both count its acquisition. The transition to the task adds one final randomization. Every task step consumes one probe, one CNOT, one read, a gate coin unless $h=1$, a bath interval and at most one feedback pulse. If $a=1$, every task probe also receives $U_1$.
+
+At calibration cap $n\le64$, there are $2145$ possible count states $(n,k)$, encodable in $12$ bits. For the table parameters $p=197/250$, the posterior comparison uses the integers $197^k53^{n-k}$ and $125^n$; the largest numerator-plus-denominator over the cap needs $488$ bits. These figures exclude the program, arithmetic workspace, phase flags, switch, actuator and physical world. They establish a finite implementation, not an optimal memory bound.
+
+For a specified quadratic pulse charge $g_X\int_0^\tau A(t)^2dt$ with $H=A X$, a constant $X$ pulse costs $g_X\pi^2/(4\tau)$ and requires $\tau\ge\pi/(2A_{\max})$. The quarter-turn probe control has the corresponding charge $g_Y\pi^2/(16\tau_Y)$ and amplitude condition $\tau_Y\ge\pi/(4A_{Y,\max})$. The coefficients and durations are separately supplied. Preparation, coupling, measurement, randomness and erasure also have physical costs; no total thermodynamic optimum follows from these quadratic charges.
+
+Known polarized references in \emph{The World as Imprint} distinguish probabilities $0.9$ and $0.5$ using one read each. The present blocks distinguish $0.788$ and $0.5$ using two. They are less efficient per reading. Their significance is the removal of a particular input: a labeled polarized \emph{world} reference is replaced by repeated access and a specified history protocol. Blank probes and trusted controls have not disappeared. Comparisons that hide these differences confuse a new capability with a universal efficiency claim.
+
+\section{Integration across histories and across scales}
+
+A single calibrated parameter is not yet integration across tasks. The two-polarity model of Ref.~\cite{StableHulls} gives a complementary case: a local reference estimates $A$, a paired history estimates $C=AB$, and their independent posterior means $a,c$ give
+\begin{equation}\label{eq:integration}
+ R_B=\frac12-\frac\nu2\E|a|\,\E|c|.
+\end{equation}
+Either history alone leaves remote error $1/2$; one reference and one pair give $(1-\nu^4)/2=0.2952$ at $\nu=0.8$. These histories belong to that companion construction, not an extra subsystem here. Ref.~\cite{ImprintRG} gives the distinct scale-dependent obstruction: block averaging can erase source contrasts, and mixed microscopic relaxation can make an older record useful for prediction even when the source is Markovian.
+
+For a controlled coarse description to substitute for a finer one, the comparison must include its actions and retained state. Writing $C$ for coarse-graining, one needs to control $C\Phi_a-\bar\Phi_{\bar a}C$ on a specified state family and time window, or the resulting task-risk difference. A reduced state that predicts a passive observation can fail after an intervention. The finite qubit example repairs one such insufficiency through retained interface information. Section~\ref{sec:field-return} adds a continuing Gaussian carrier with an exact conditional-state map: its scale-selected observation and subsequent force act on the same field. A general physical coarse control with bounded retained state still requires its own approximation certificate.
+
+The scale companion gives a strict finite-budget example in which
+retained records govern the next allocation between complementary
+ports~\cite{ImprintRG}. The ports and update rule are supplied.
+Here the additional question is what becomes of a useful allocation
+when the means of reading can themselves fail.
+
+\section{One field receives both reading and control}
+\label{sec:field-return}
+
+The scale-allocation comparison above uses fresh preparations; its
+outcome is a source report. A continuing-field construction in
+Ref.~\cite{ImprintRG} makes reading and action parts of the same
+physical transition. A previous noisy block record chooses between
+two current block ports or no new read. The selected result then
+chooses zero or one of two opposite bounded forces on that field.
+Its future square amplitude, not another report, is the controlled
+quantity. The field is not replaced after its history is evaluated.
+
+The $32\times32$ one-round comparison in Ref.~\cite{ImprintRG} has priced risk $.097546$, or certified upper risk $.097763$ with finite record and displacement tolerances, against $.098280$ for the best history-independent port choice. Fixed choices may still use the old record to select the force. Switching work is accounted separately there; task value is not a total apparatus-energy saving. The new step needed for continuation is the conditional state below.
+
+\begin{proposition}[The controlled carrier can be read again]
+\label{prop:gaussian-return}
+Let $K>0$ be the finite precision matrix, $B$ the force direction
+and $\Delta$ the round duration. Define
+\[
+ A=e^{-K\Delta},\quad d=K^{-1}(I-A)B,\quad
+ Q=K^{-1}(I-A^2).
+\]
+Suppose the field conditional on the complete accessible history has
+Gaussian mean $\mu$ and covariance $\Sigma$. A selected read
+$z=h^TX+\xi$, with independent $\xi\sim N(0,r)$, $r>0$, gives
+\[
+ V=h^T\Sigma h+r,\quad k=\Sigma h,\quad
+ \mu^+=\mu+k(z-h^T\mu)/V,\quad
+ \Sigma^+=\Sigma-kk^T/V.
+\]
+For no read, keep $\mu^+=\mu$, $\Sigma^+=\Sigma$.
+Any finite force command selected from the retained history and this
+result gives the next conditional Gaussian state
+\begin{equation}\label{eq:gaussian-return}
+ \mu_{\rm next}=A\mu^++du,\qquad
+ \Sigma_{\rm next}=A\Sigma^+A^T+Q.
+\end{equation}
+Iterating these maps gives a joint observation--control process on
+one carrier, with a history-measurable policy kernel and no reset.
+\end{proposition}
+\begin{proof}
+The first map is conditioning of a Gaussian vector on a noisy linear
+functional. The exact Langevin solution over the force window is
+$X_{\rm next}=AX+du+\zeta$, with independent $\zeta\sim N(0,Q)$.
+The selected command is known when conditioning on the authorized
+history, so this affine map gives~\eqref{eq:gaussian-return}.
+Induction proves the finite sequence statement. Selection of the
+port adds no hidden observation when it is computed from that same
+history.
+\end{proof}
+
+For a target $a^TX_{\rm next}$, the prediction before reading is
+$m=a^TA\mu$, and a candidate port adds conditional mean variance
+$q=(a^TA\Sigma h)^2/V$. These are the inputs to the one-round
+reading-value rule of Ref.~\cite{ImprintRG}. A force changes both
+the actual field and the next predicted mean. The future covariance
+depends on which readings have actually been acquired. The
+unconditional field distribution can be a mixture; it need not stay
+Gaussian or stationary. In particular, deleting old records and
+retaining only a rounded recent value does not justify pretending
+that the full conditional-state map remains exact.
+
+A direct ten-round $8\times8$ implementation uses this update rather
+than restoring the stationary prior. It retains $64$ mean coordinates
+and $2080$ independent covariance entries, in addition to plant and
+program constants. Binary64 storage for those numbers alone uses
+$137216$ bits. This is a finite numerical continuation, with a much
+larger controller than the sixteen-bit single-round example; no
+long-horizon optimality or physical-precision guarantee is inferred.
+Gaussian conditioning, finite forces and selected reads supply the
+return map. They leave the origins of the ports, force permissions,
+reading dissipation and autonomous maintenance to their respective
+physical constructions.
+
+\section{Maintaining the means of reading}\label{sec:access-maintenance}
+
+Changing a port choice is not enough when unused ports can deteriorate.
+We extend the two-port scale experiment with a finite apparatus state.
+This is a companion process, not an additional unmentioned subsystem
+of the qubit experiment. The role of the extension is to make requests,
+maintenance and later availability affect one another in the same
+transition law.
+
+\subsection{A finite readiness and repair protocol}
+
+Each port $i$ has a live bit $A_i$ and a training-age register
+$e_i\in\{0,\ldots,E\}$, with $E\geq1$. A source reading is usable
+only when $A_i=1$ and $e_i=E$. A requested live port receives one
+training operation per episode; it increments its register, capped
+at $E$. Otherwise the register decreases by one, floored at zero.
+Readiness is checked before this update. The training-age law models
+a use-dependent permission or calibration lease; the register is not
+claimed to be a posterior confidence or a statistically proved
+certificate for learned channel relations.
+
+Usable source records have the Gaussian-preparation one-bit laws of
+Ref.~\cite{ImprintRG}. An unready request returns an explicit missing
+result, not a fabricated zero-valued measurement. The reader can
+acquire a status flag for each port. In the comparison below both
+rules receive those flags under the same read permission and charge;
+one rule ignores their distinction when updating its world belief.
+Practice records and status flags do not disclose the source flag or
+hidden regime. Their acquisition, as well as the training operation,
+must be separately charged.
+
+After the episode's readings and register updates, a failed port may
+be repaired. An attempt restores it before a new independent failure
+test, with probability $f\in(0,1)$ of failure. An already live port
+undergoes that same test. Without a repair a failed port stays failed;
+there is no spontaneous recovery. Repairs affect the next episode,
+not the already completed task. Under \emph{request maintenance}, a
+failed port is repaired whenever it was requested in this episode.
+Under \emph{supplied maintenance}, every failed port is repaired.
+Neither rule makes a port immune to the next failure test.
+
+The reader retains a believed regime $b$ and a counter
+$c\in\{1,\ldots,C\}$. It requests only $b$ in the no-probe version.
+A detected contrast raises $c$, capped at $C$; absent a detection it
+lowers $c$ with a specified probability $\sigma$. At zero it switches
+$b$ and resets $c=1$. This is the scale reader with an explicit body.
+The source flag, available instrument outcome, request, training-age
+update and repair action are included in one finite stochastic kernel.
+A stochastic kernel on these classical registers has a CPTP
+realization in an orthogonal encoding; that observation establishes
+legality, not a microscopic derivation of the training or repair law.
+
+\subsection{A finite record of use can destroy future use}
+
+Suppose instead that each port is repaired only when a credit counter
+$v_i\in\{0,\ldots,M\}$ is positive. A registered detection raises it,
+capped at $M$; without a detection it decreases with probability
+$0<\lambda\leq1$. A failed port cannot generate a detection. The repair
+decision uses the counter available before that episode's update.
+
+\begin{theorem}[Absorption under decaying realized-use credit]
+\label{thm:credit-death}
+Assume finite counters, no spontaneous recovery, independent failure
+tests and decrement coins, and a uniform positive probability
+$\zeta>0$ of no detection at either port during an episode conditional
+on any past. From every state, both ports eventually fail with zero
+credit, almost surely. This set is closed. Once there, no source
+record is acquired and the equal-prior source decision has error
+$1/2$. In particular, a finite credit horizon can make the loss
+permanent even when the source regime never changes.
+\end{theorem}
+\begin{proof}
+For $M$ episodes require no detections and decrement coins at both
+ports. At their end both counters are zero, with conditional
+probability at least $(\zeta\lambda^2)^M$. Require no detections in the next episode as well, so the
+zero counters cannot be replenished before its failure test.
+The probability of both ports then failing with zero credit is
+at least $\zeta f^2$: a port already failed can only make this event
+more likely. Thus every block of $M+1$ episodes has conditional
+absorption probability at least
+$(\zeta\lambda^2)^M\zeta f^2>0$. Repeated blocks imply
+almost-sure absorption and a finite geometric upper bound on its
+mean time. Without detections zero counters cannot rise, so no repair
+is authorized thereafter. No acquired record depends on the fresh
+source flag, which is still equally likely.
+\end{proof}
+
+The no-detection condition holds for the prescribed nontrivial
+thresholds and independent fresh preparations: both Bernoulli
+outcomes have positive probability under every source. It would fail
+for a rule granting permanent credit on every episode. The theorem
+concerns this credit architecture; exploration, a protected reserve,
+spontaneous recovery or a different credit rule can change the result.
+It does not say that estimating value from use is always wrong. Brain
+Anchor's own-use maintenance certificate instead uses an explicit
+verification experiment and a fixed component task distribution
+\cite{BrainAnchor}.
+
+\subsection{Silence in the world and silence in the apparatus}
+
+The \emph{blind} rule converts a missing task result into an absent
+detection and uses $\sigma=1$. The \emph{status-aware} rule freezes
+its belief counter while the requested port is unready. Both retain
+the same world-belief counter and have the status signal available;
+the difference is its use in inference, not a free extra source
+label.
+
+\begin{theorem}[A disuse trap and finite readiness recovery]
+\label{thm:readiness-recovery}
+Use no probe, $E\geq1$ and request or supplied maintenance.
+\begin{enumerate}
+\item For the blind rule, any switch triggered by an absent detection
+enters the closed set
+\[
+ \mathcal D=\{c=1,\ e_b<E\}.
+\]
+Thereafter the reader changes port every episode and never obtains a
+usable source record. If the initial counter is finite and a run of
+$C$ absent detections has uniformly positive conditional probability,
+such a switch occurs almost surely. The limiting source error is
+$1/2$.
+\item For the status-aware rule, starting at an unready requested
+port, the belief stays there until readiness returns. Put $p=1-f$.
+The expected number of episodes until its first usable task reading
+is bounded by
+\begin{equation}\label{eq:readiness-time}
+ 1+\frac{1-p^{E+1}}{f p^{E+1}}<\infty.
+\end{equation}
+The bound applies after each unready entry, independently of the
+world regime. It does not bound all subsequent regime-tracking loss.
+\end{enumerate}
+\end{theorem}
+\begin{proof}
+At a switch the new port was not requested in the just completed
+episode, so its register has decreased to at most $E-1$. The new
+counter equals one. If the current requested register is below $E$,
+there is no usable detection; the blind rule switches again. During
+that episode the other register falls to at most $E-1$, so
+$\mathcal D$ is invariant, regardless of live bits. A uniformly
+positive finite run of absent detections supplies the initial switch.
+
+The status-aware rule does not switch while unready. Because it
+continues requesting its port, a failed port receives a repair
+attempt each episode. After at most the first episode its live bits
+are independent Bernoulli variables with parameter $p$. A run of
+$E+1$ live episodes supplies $E$ training increments and a usable
+reading in the next episode, even from register zero. The mean wait
+for $m$ consecutive successes is $(1-p^m)/[(1-p)p^m]$, as follows
+from the finite run-length recurrence. Taking $m=E+1$ and allowing
+the initial episode gives~\eqref{eq:readiness-time}.
+\end{proof}
+
+Intermittent failures prevent a deterministic ``at most $E+1$
+working episodes'' guarantee; the bound is in expectation. Conversely,
+an open-loop training schedule can also escape the trap. This example
+establishes a use for access monitoring within a specified policy
+class, not a universal necessity of reflective consciousness.
+
+\begin{corollary}[Exact price in recovery time]\label{cor:readiness-exact}
+For the held requested port, the worst initial condition is register
+zero and a failed port. Its expected first-readiness time is
+\begin{equation}\label{eq:readiness-exact}
+ T_E(f)=1+\frac{E}{1-2f}+\frac{f}{1-f}
+ -\frac{f^2}{(1-f)(1-2f)^2}
+       \left[1-\left(\frac{f}{1-f}\right)^E\right]
+\end{equation}
+when $f\ne1/2$. At $f=1/2$ it is $(E+1)(E+2)$.
+For fixed $0<f<1/2$ it is $E/(1-2f)+O(1)$; for $f>1/2$ it grows
+exponentially with $E$. These are readiness costs, not the full time
+to identify a new world regime.
+\end{corollary}
+\begin{proof}
+Let $t(e,a)$ be the mean remaining time, with $t(E,1)=0$.
+Average over a newly tested live bit: $z_e=p\,t(e,1)+f\,t(e,0)$.
+For $e<E$, $t(e,1)=1+z_{e+1}$, while
+$t(e,0)=1+z_{\max(0,e-1)}$. Thus
+\[
+ z_0=1+pz_1+fz_0,\qquad
+ z_e=1+pz_{e+1}+fz_{e-1}\quad(0<e<E),\qquad
+ z_E=f(1+z_{E-1}).
+\]
+The increments satisfy
+$z_e-z_{e-1}=-[1-(f/p)^e]/(p-f)$.
+Summing and applying the last boundary condition gives
+\eqref{eq:readiness-exact} for $t(0,0)=1+z_0$.
+At $p=f=1/2$ the increments are $-2e$, giving the displayed
+quadratic expression. All increments are negative, so register zero
+is the worst case; a failed initial port delays rather than advances
+the register. The same recurrences can be checked with exact rational
+arithmetic.
+\end{proof}
+
+The price account now includes source-reading attempts, training,
+status flags, failed requests, repairs and retained registers. An
+episode with a declared cap of $4000$ source attempts permits at
+most two training operations and two status reads; failed or unready
+requests can use fewer actual source records. The cap is a protocol
+input, not a physical bound derived from the readiness law. The corresponding preparation, record
+and repair counts must be reported along each run, rather than
+calling every attempt an informative read. The apparatus stores two
+live bits, two training-age registers and the reader's belief counter;
+credit maintenance additionally stores two $M$-bounded registers.
+Charges can be written, for example, as
+\[
+ V\,\mathbf1_{\{\text{wrong report}\}}+
+ c_{\rm rep}N_{\rm rep}+c_{\rm tr}N_{\rm tr}
+ +c_{\rm status}N_{\rm status}+c_{\rm read}N_{\rm read}.
+\]
+These are declared task prices, not heat or a total physical energy
+bill. They cannot be inserted into HAFF-D's entropy-rate bound without
+a common thermodynamic implementation.
+
+The extension makes one return path explicit:
+history changes requests, requests change maintenance and training,
+and the resulting body state changes what later histories can contain.
+It leaves open how a learner acquires the request architecture, how
+training records establish genuine relational confidence, and how
+repair prices follow from the physical interaction. Those are
+formation questions, not objections to the finite loop's legality.
+
+\section{The physical interface extends beyond the reader}
+
+Q-RAIF's physical responsibility extends beyond estimating a label.
+The finite-energy actuator in Section~\ref{sec:joint-return} provides
+one concrete interface with an actual source. Q-RAIF's separate propagation
+construction distinguishes positive control cost, low-energy
+Lorentzian readout, group velocity and a strict support bound
+\cite{QRAIFA,QRAIFC,QRAIFME}. Those structures cannot be inferred from
+a reader's posterior or identified merely because all are quadratic.
+The present body's repair kernel likewise requires a physical
+implementation beyond its classical CPTP encoding.
+
+HAFF's geometric problem goes further. In the exact conformal example of Consciousness~I~\cite{PaperI}, noise selects a stable accessible algebra, and a standard half-sided modular inclusion \emph{inside} that algebra supplies geometric modular data. The containing stable algebra and the internal Cut are different inclusions, on their appropriate cyclic representations. Their correspondence demonstrates a precise relation between geometry and modular structure. It neither identifies a finite task register with a Cut nor supplies the physical origin of every geometric input.
+
+Actual source response requires another physical interface.
+The field-realized correction used here has activation rate
+$a_{\rm body}(q)$ from~\eqref{eq:body-rate}; its failure probability
+and interrupted access are already in the joint transition.
+Appendix~\ref{app:gravity} gives the local JT response \emph{if} the
+declared outgoing matter source is used with the stated boundary and
+semiclassical assumptions. It does not promote this outgoing source
+to the renormalized total stress of controller, support, clock and
+repair machinery. Nor does it identify this qubit--chiral-field
+construction with Q-RAIF~C's full interacting quantum material.
+Foundation~III provides a finite semiclassical mean-action construction
+in which retained records change the source and its response enters
+an actual later acquisition~\cite{FoundationIII}; it is a separate
+realization, not a full quantum or perpetual implementation of this
+chain. Deriving this device's total local source and matching it to JT
+remain distinct work. Merely discarding a label after preparation leaves
+an unconditioned matter source unchanged.
+
+\section{World and subject as a joint organization}
+
+The finite chain establishes a pattern with a stronger interpretation. The system's past is not only represented in a memory. It determines an interface setting; that setting changes later access; access drives actions; actions change the circumstances of the next reading. The self-model refers to a physical relation in which the system actually participates. It is therefore more than an external description attached to the system.
+
+\begin{hypothesis}[Historically formed subject organization]
+A subject is realized by a persistent organization in which history-dependent access, a revisable model of its own participation, and control of future inquiry are integrated across tasks and used to maintain that organization. World presentation and self-organization are mutually constrained parts of this process, not independently added descriptions.
+\end{hypothesis}
+
+The examples support the compatibility and usefulness of parts of this hypothesis. They do not establish its full realization: their bodies, task families, actuators and update architecture are supplied. Brain Anchor must address how a shared usable organization is acquired, splits or recovers under plasticity~\cite{BrainAnchor}. An improvement in decoding alone does not prove a workspace formed. A stronger test changes an acquired interface relation and asks whether its learned organization transfers to a new task, reorganizes when the relation fails, and changes behavior because of its own history rather than an externally inserted answer.
+
+The experiential proposal is a further claim: a first-person perspective may be the lived organization of this continuing relation, rather than another object represented inside it. Its scientific development requires comparisons in which current input and simple task performance are held approximately fixed while temporal integration, self-attribution or the revisability of access differs. Functional behavior, report and experience must then be related by argument and evidence. A successful calibration device is not by itself that argument, and no general impossibility of such an account follows from its simplicity.
+
+Shared world and distinct perspectives can coexist. Foundation~II
+derives a shared algebra as the intersection of admissible hulls for
+one source and reference state~\cite{FoundationII}. This identifies
+common accessible structure, not automatically correct readings.
+Its calibration examples and common-error symmetries distinguish
+agreement, correctness and shared error. Different histories may
+support reliable access to a shared source without becoming the same
+history. A shared structure can supply a preparation reference when
+the physical preparation and readout permissions are available;
+their availability is not implied by taking an intersection.
+
+Likewise, finite self-knowledge need not mean total opacity. In the
+present model its error comes from overlapping record laws at a
+finite budget. Perfectly distinguishable finite alternatives would
+remove that particular limitation. Consciousness~III supplies its
+own observation and reconstruction model for the wider self-description
+problem, with floors from finite records, a single copy of the
+present state and drift~\cite{PaperIII}.
+
+These statements retain the original ambition: to explain why a world can be available to a system, and how that system can come to read and revise its place in it. The physical examples supply pieces of this explanation without substituting sensor calibration for the entire subject.
+
+\section{What must form, rather than be supplied}
+
+The joint transition calculates a record's task value and later physical availability together, but supplies the request architecture, training criterion, repair law and target. Formation must acquire and revise these relations from interventions: learn which operations preserve access, transfer that organization to a changed task, and detect when maintenance no longer secures the expected reading. A training counter alone is not such a learned certificate. T-DOME and Brain Anchor bear this formation problem; HAFF and Q-RAIF must realize the source and propagation in the same device, while Consciousness retains the experiential question. The finite qubit, Gaussian and conformal constructions constrain those tasks without becoming one device by citation.
+
+\section{Conclusion}
+
+A retained record can alter the next interface and, through an actual
+action, the world presented to the following reading. Calibration
+makes this distinction precise: equally informative protocols can
+leave different traces in the carrier. The maintained chain goes
+further. It follows the same world through failed access, physical
+correction and recovery, while the learned setting survives.
+
+The exact body--world stationary state shows why average availability
+is insufficient. An interrupted reader retains not only a calibration
+error but correlations between its current capability and the world
+it has already controlled. The training and repair law then bounds the
+record's continuing physical value, from a nonzero long-age benefit to
+an exponentially small one. Finite-window bounds retain the initial
+polarization and health mixing instead of importing this stationary
+value into a recovery transient. The same transition gives actual
+couplings and their outgoing source; those counts are separate from
+incoming energy and from a full thermal bill.
+
+The Gaussian continuation preserves the analogous requirement at
+different reading scales: the next inquiry receives the state that
+earlier reading and force actually produced. Credit absorption and
+the missing-reading trap supply counterexamples to maintenance rules
+that ignore that requirement. These results support the imprint
+proposal as a mechanism of continuing organization. Learning the
+maintenance architecture and explaining experience remain its
+larger formation and interpretation problems.
+
+\appendix
+\section{A conditional connection to a gravitational source}\label{app:gravity}
+
+This appendix considers a \emph{separate} matter sector coupled to a calibration-controlled actuator, not a gravitational interpretation of the world qubit. Assume the JT bulk action
+\[
+ I=\frac1{16\pi G}\int\sqrt{-g}\,\Phi(R+2/L^2)+I_{\rm matter},
+ \qquad ds^2=-\frac{4L^2du\,dv}{(1+uv)^2}.
+\]
+Boundary data must be supplied in addition. We use a local patch with an externally driven transparent boundary admitting the pulse, not an autonomous reflecting completion. Set $D=1+uv$, $\kappa=8\pi G$ and the unperturbed dilaton $\bar\Phi=H(1-uv)/D$, $H>0$. In nonchiral conformal matter, subtract the same-background anomaly and take a realizable right-moving compact pulse $\delta T_{uu}=pF(u)$ with other perturbation components zero. This is an input matter source, not a change of coordinates. The local equations and information--dilaton relations are standard JT results~\cite{Moitra,Callebaut}.
+
+With the dilaton perturbation zero before the pulse, put
+\[
+ A=-\kappa p\int_{-\infty}^u(u-s)F(s)ds,\qquad
+ B=-\kappa p\int_{-\infty}^u s(u-s)F(s)ds,\qquad
+ \delta\Phi=\frac{A+vB}{D}.
+\]
+The identities $A''=-\kappa pF$, $B''=uA''$ and $B'=uA'-A$ verify the $uu$, $vv$ and mixed equations. If $E_j=\int u^jF(u)du$, the post-pulse scalar $\mathcal C=\Phi^2-L^2(\nabla\Phi)^2$ changes by
+\begin{equation}\label{eq:JT}
+ \Delta\mathcal C(p)=2\kappa HpE_1+
+ \kappa^2p^2(E_1^2-E_0E_2).
+\end{equation}
+Indeed, after the pulse the numerator of $\Phi$ has the vacuum form $\alpha+\beta u+\gamma v-\alpha uv$, with $\alpha=H+\kappa pE_1$, $\beta=-\kappa pE_0$, $\gamma=\kappa pE_2$; direct substitution gives $\mathcal C=\alpha^2+\beta\gamma$. The comparison uses the same pre-pulse field data. JT curvature remains fixed; the dilaton and its invariant respond.
+
+For a smooth profile with tails, use the same retarded solution
+when its first three absolute moments are finite. At a finite endpoint
+$u$, replace $E_j$ by $E_j(u)=\int_{-\infty}^u s^jF(s)\,ds$:
+Eq.~\eqref{eq:JT} then gives the exact current invariant, not a
+post-pulse vacuum limit. Indeed, for the instantaneous coefficients
+$\alpha=H+\kappa pE_1(u)$, $\beta=-\kappa pE_0(u)$ and
+$\gamma=\kappa pE_2(u)$, the extra derivative is
+$\alpha'(1-uv)+\beta'u+\gamma'v=0$. Thus the same invariant
+calculation applies without assuming that the actuator's tails
+vanish before a finite task window.
+
+For the field-realized actuator of Section~\ref{sec:joint-return},
+no separate emitter is needed for its \emph{outgoing matter} source.
+The incoming beam is the same in the comparison; its additional
+stationary source is $pF_g$ with $p=a_{\rm body}(q)$.
+Using this source in the displayed JT equations is conditional on
+the declared matter and boundary interface, not a derivation of
+the complete apparatus source. A separate emitter remains possible as an alternative interface. One such actuator has the controlled form $\sum_{s,a}|s,a\rangle\langle s,a|\otimes V^{s\oplus a}$, where $V$ prepares the declared pulse from a reference matter state. It is a supplied physical coupling to the actual instrument register and the controller's action, not access by the policy to the unknown value of $S$. Its pulse probability is $p=\Prb(a\ne S)=q_n$. Equation~\eqref{eq:JT} then connects finite calibration to a material response. In particular, it is not the frequency with which the sensor rotation $U_1$ is used.
+
+This mean-source comparison needs the appropriate semiclassical assumptions. Independently calibrated apparatus--matter copies with independent pulse flags suppress the classical source-fraction variance as $1/N$; a single common flag does not. Keeping the gravitational mean finite also requires a scaling such as $G_N=G_1/N$, and finite smeared within-branch stress fluctuations must be controlled separately. A nonlinear invariant of the mean-source solution is not generally the mean of branch invariants. Deleting a pulse label after preparation leaves the matter marginal and its unconditioned source unchanged. Physical vacuum-density shifts also have a mixed stress component, so a null-only source record does not settle the vacuum-energy question. The stress of the switching apparatus, the total calibration cost and high-dimensional gravity are outside this local calculation; the outgoing source certificate and conditional gravitational responses
+are developed in Refs.~\cite{QRAIFB,HAFFD}.
+
+\begin{thebibliography}{99}
+\raggedright
+\bibitem{WorldImprint} S.~Liu, \emph{The World as Imprint: From Trace-Carrying Structure to Self-Reading Mind}, (2026), series record DOI: 10.5281/zenodo.20122718.
+\bibitem{ImprintRG} S.~Liu, \emph{Renormalization and Imprint Filtering: Source Identification, Memory, and Calibration}, (2026), series record DOI: 10.5281/zenodo.20151451.
+\bibitem{StableHulls} S.~Liu, \emph{Stable Hulls as Imprint Integration: Relations, Anchors and the Cost of Joint Reading}, (2026), series record DOI: 10.5281/zenodo.20151508.
+\bibitem{KlenskeHennig} E.~D.~Klenske and P.~Hennig, Dual Control for Approximate Bayesian Reinforcement Learning, \emph{Journal of Machine Learning Research} \textbf{17}(127), 1--30 (2016).
+\bibitem{Branczyk} A.~M.~Bra\'nczyk, D.~H.~Mahler, L.~A.~Rozema, A.~Darabi, A.~M.~Steinberg and D.~F.~V.~James, Self-calibrating Quantum State Tomography, \emph{New Journal of Physics} \textbf{14}, 085003 (2012), arXiv:1112.4492.
+\bibitem{FoundationII} S.~Liu, \emph{Foundation II: Shared Manifestation. Shared Structure, Public Calibration and Different Histories}, 2026, series record DOI: 10.5281/zenodo.19641372.
+\bibitem{FoundationIII} S.~Liu, \emph{Foundation III: The Perfuming Loop. Held Content, Learned Frames and Physical Return}, 2026, series record DOI: 10.5281/zenodo.19642189.
+\bibitem{TDOMEIII} S.~Liu, \emph{Keeping a Self-Model Calibrated: Drift Detection, the Price of Keeping Up, and Reliability in a Closed Loop}, 2026, series record DOI: 10.5281/zenodo.18591771.
+\bibitem{QRAIFA} S.~Liu, \emph{Lorentzian Read-out from Local Unitary Propagation: Clifford Relations, Causal Cones and Spectral Mass}, (2026), series record DOI: 10.5281/zenodo.18525876.
+\bibitem{QRAIFC} S.~Liu, \emph{Retained Quantum History, Physical Sources and Receiver Renewal in Q-RAIF}, working manuscript (2026), series record DOI: 10.5281/zenodo.18528934.
+\bibitem{QRAIFB} S.~Liu, \emph{Thermodynamic Stability Constraints on Persistent Open Quantum Subsystems: Control Algebra, Physical Actuation and Energy Cost}, (2026), series record DOI: 10.5281/zenodo.18525890.
+\bibitem{QRAIFME} S.~Liu, \emph{Recovering Mass--Energy Equivalence within Algebraic Lorentzian Read-out: Spectral Mass, Lattice Windows and Finite Records}, working manuscript (2026), series record DOI: 10.5281/zenodo.20280951.
+\bibitem{HAFFD} S.~Liu, \emph{Selection, Maintenance and Gravitational Response: Modular Constraints and a Physical Return}, 2026, series record DOI: 10.5281/zenodo.18388881.
+\bibitem{PaperI} S.~Liu, \emph{Geometry Relative to a Cut: Selection, Generation and Modular Inseparability}, (2026), series record DOI: 10.5281/zenodo.19607387.
+\bibitem{PaperIII} S.~Liu, \emph{Finite Self-Models and the Explanatory Gap: What a Continuing Observer Can Know About Itself}, (2026), series record DOI: 10.5281/zenodo.19607724.
+\bibitem{BrainAnchor} S.~Liu, \emph{The Brain as a Plastic Observable-Algebra Network: Learning Shared Access from Sensorimotor History}, working manuscript (2026), series record DOI: 10.5281/zenodo.20044329.
+\bibitem{Moitra} U.~Moitra, S.~K.~Sake, S.~P.~Trivedi and V.~Vishal, Jackiw--Teitelboim Model Coupled to Conformal Matter in the Semi-Classical Limit, \emph{Journal of High Energy Physics} \textbf{2020}(4), 199, arXiv:1908.08523.
+\bibitem{Callebaut} N.~Callebaut, The gravitational dynamics of kinematic space, \emph{Journal of High Energy Physics} \textbf{2019}(2), 153, arXiv:1808.10431.
+\end{thebibliography}
+\end{document}

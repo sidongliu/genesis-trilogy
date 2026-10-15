@@ -1,0 +1,602 @@
+% HAFF: Holographic Alaya-Field Framework
+% Paper G: Internal Selection and Revisable Organization
+% October 2026 working revision.
+
+\documentclass[12pt,a4paper]{article}
+\usepackage{amsmath,amssymb,amsfonts,amsthm}
+\usepackage{hyperref}
+\hypersetup{pdftitle={Internal Selection and Revisable Organization: How History Changes Permissions and Physical Sources},pdfauthor={Sidong Liu}}
+\usepackage{geometry}
+\usepackage{booktabs}
+\geometry{margin=1in}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{conjecture}[theorem]{Conjecture}
+
+\newcommand{\ket}[1]{|#1\rangle}
+\newcommand{\bra}[1]{\langle #1|}
+\newcommand{\proj}[1]{|#1\rangle\!\langle #1|}
+\newcommand{\Tr}{\operatorname{Tr}}
+
+\title{Internal Selection and Revisable Organization:\\
+How History Changes Permissions and Physical Sources}
+
+\author{
+  Sidong Liu, PhD \\
+  iBioStratix Ltd \\
+  \texttt{sidongliu@hotmail.com}
+}
+
+\date{October 2026}
+
+\begin{document}
+\emergencystretch=2em
+\raggedbottom
+\hbadness=5000
+\vbadness=5000
+
+\maketitle
+
+\begin{abstract}
+A physical system can use its records to revise the operations through which it reads and acts. We construct this process with an internal program, a fixed executor and a record-driven update. Controlled couplings select protected algebras; overlap of their spectra permits coherent internal choices without a central program label. The same choice changes an outgoing matter source. A qubit loop has two configurations whose records select their own protection, and different initial histories produce late source weights $1/3$ and $2/3$. With rotation noise these choices persist for a calculable window and eventually lose their contrast. An arbitrary quantum record can also be converted into the two sustained source configurations: the largest achievable source-weight contrast equals the trace distance between the record states. Finite execution errors shorten the history window by their accumulated operational error. A separate price concerns sharp readouts. Selecting every sharp qubit measurement on a great circle to worst-case basis-state error $\delta$ requires program dimension of order $\delta^{-1/2}$; pure and mixed programs have the same feasible dimensions for this criterion. These results identify what history can form inside a supplied architecture. They support a broader mechanism in which learned relations become revisable permissions, while leaving primitive couplings and their origin as a distinct generation problem.
+\end{abstract}
+
+\section{Introduction}
+\label{sec:intro}
+
+A record can change what a system is able to do next. A damaged body may install a different protective encoding; a reader may move its probe; an internal estimate may lower the authority given to an unreliable response. These changes concern actual operations. To explain them, a theory of selected structure needs a physical account of how a history selects and revises the relations that carry its own activity.
+
+Papers A--F separate parts of this problem. Channels determine which distinctions are read in Paper~A; couplings and observation windows determine which survive in Paper~B; instruments create records in Paper~E; their retention and renewal have resource prices in Paper~F \cite{Liu2026PaperA,Liu2026PaperB,Liu2026PaperE,Liu2026PaperF}. Paper~C connects sensing and intervention to a body's viability, while Paper~D asks how selected structure and physical sources constrain geometry \cite{Liu2026PaperC,Liu2026PaperD}. Here the question is whether the choice of operation can itself arise from records inside the system.
+
+An operation, a stored description and the device that executes it are different physical objects. We specify an internal program register, a fixed executor and an update instrument. Under these inputs the system selects its couplings, maintains a choice through the records it protects, and changes the matter it emits. The choice need not be a central environmental record. Its origin in a distinguishable history and its effect on a source can be tested separately.
+
+The main construction is a qubit with two record-selected protective configurations. Their history-dependent source weights remain different over a finite noisy window. We then identify the exact information that can pass from a quantum record to this source choice, including a construction that reaches the trace-distance bound. An error bound makes the same finite window robust to imperfect execution. These statements supply a causal interface from history to permission and source; they do not use a reconstructed geometry as a substitute for an actual change of matter.
+
+The cost of selecting operations is separate from the cost of retaining their records. Sharp alternatives require orthogonal program supports. For the one-parameter great-circle qubit family the required register dimension grows as $\delta^{-1/2}$, and mixing cannot improve it under the two basis-state error criterion. Section~\ref{sec:sharp} states this result; Appendix~\ref{app:sharp} contains the full proof and numerical bounds. Section~\ref{sec:cut} places the finite target-register boundary in its proper scope. Section~\ref{sec:formation} develops the broader formation mechanism and its failure conditions.
+
+Breuer's state self-measurement limit \cite{Breuer1995} and Wolpert's physical inference limits \cite{Wolpert2008} concern what an embedded system can know. Here we ask what it can choose and execute. The existence of self-reference is not in dispute: self-reproducing automata, recursive programs and fixed-point constructions provide positive examples \cite{vonNeumann1966,Kleene1952,Lawvere1969}. What requires explanation is the physical relation between a description, its execution and the history that revises it.
+
+\section{A typed model of internal selection}
+\label{sec:model}
+
+An element of an observable algebra is an operator, not a description of an algebra, and a formula naming a selection rule is syntax until an encoding maps it into physical degrees of freedom. The following model makes that encoding explicit.
+
+\begin{definition}[Internal selection model]
+\label{def:model}
+A finite internal selection model consists of
+\begin{enumerate}
+\item a finite-dimensional system $S$, on which selected operations act;
+\item a program register $P$ of dimension $d_P$ and program states $\ket p\in P$, $p\in\mathcal P$, unit vectors that need not be orthogonal;
+\item an executor, a fixed physical operation on $P\otimes S$, which for each program state determines an operation on $S$: a channel $\Phi_p(\rho)=\Tr_P\,\mathcal G(\proj p\otimes\rho)$, a measurement $E^p$ obtained by following $\mathcal G$ with a fixed measurement, or a program-controlled coupling to an environment;
+\item records, the classical outcomes of instruments, and an update rule, a fixed instrument that prepares the next program state from records.
+\end{enumerate}
+A selection rule is internalized if the choice of operation is made by program states under a fixed executor and a fixed update rule. A configuration $(p,\rho)$ is self-grounding if $\rho$ is left stable by the operation selected by $p$ and the update rule, applied to the records that $\rho$ produces, returns $p$.
+\end{definition}
+
+The space of descriptions is the set of program states, the encoding is the register, the evaluation map is the executor, and the admissible fixed points are the self-grounding configurations. The executor's dispatch map, $p\mapsto\Phi_p$, is physical dynamics; it is not itself a program. Whether it can be made one is the question of Section~\ref{sec:cut}.
+
+\section{Selecting one's own accessible algebra}
+\label{sec:own}
+
+Paper~B shows that a system coupled to its environment through commuting operators $A_1,\dots,A_K$ at positive rates $\gamma_k$ has, as its stable algebra, the commutant $\{A_k\}'$, and that environmental records can carry only the label of the block of that algebra. We now let the system choose its own couplings. Take an orthonormal program basis and program-controlled couplings
+\begin{equation}
+A_k=\sum_{p\in\mathcal P}\proj p\otimes A_k^{(p)},
+\label{eq:controlled}
+\end{equation}
+where for each program $p$ the operators $A_1^{(p)},\dots,A_K^{(p)}$ on $S$ commute. Let $\ket{p,x}$ be the product of $\ket p$ with a joint eigenvector of the $A_k^{(p)}$, with eigenvalues $a_k^{(p)}(x)$.
+
+\begin{proposition}[Program selection and central records]
+\label{prop:own}
+For the couplings \eqref{eq:controlled}:
+\begin{enumerate}
+\item they commute, and the algebra fixed by the generated dephasing semigroup is $\{A_1,\dots,A_K\}'$.
+\item Compressed to the subspace $\ket p\otimes S$ of a program $p$, this algebra is $\proj p\otimes\{A_1^{(p)},\dots,A_K^{(p)}\}'$: each program selects the algebra that Paper~B assigns to its own couplings.
+\item The matrix element between $\ket{p,x}$ and $\ket{q,y}$ is multiplied by $\exp[-\frac t2\sum_k\gamma_k(a_k^{(p)}(x)-a_k^{(q)}(y))^2]$. Coherence between two programs survives exactly between joint eigenvectors with equal eigenvalue tuples. Disjoint joint spectra for $p$ and $q$ make every operator connecting those two programs decay. The label projector $\proj p\otimes\mathbf 1_S$ is central in the stable algebra if and only if the joint spectrum of $p$ is disjoint from that of every other program. In that case environmental fragments can record its label.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+The operators are block diagonal in $p$ and commute within each block, so they commute; the basis $\ket{p,x}$ diagonalizes all of them, with eigenvalues $a_k^{(p)}(x)$. Paper~B's proposition on commuting couplings then gives the Schur-multiplier form in (3) and the fixed algebra in (1). Its compression to $\ket p\otimes S$ consists of the operators there that commute with the $A_k^{(p)}$, which is (2). A program label is central precisely when it is constant on each joint eigenspace, which gives the disjointness condition in (3). The record statement is Paper~B's result that fragments carry only block labels, applied to the joint system.
+\end{proof}
+
+When the programs have disjoint joint spectra, their labels belong to the centre of the stable algebra and can become redundant environmental records. Shared eigenvalue tuples protect coherence between the corresponding configurations; the spectra need not coincide completely for this exception to occur. With $A=\proj0\otimes Z+\proj1\otimes X$ on a program qubit and a system qubit, both programs have eigenvalues $\pm1$, and the superposition $(\ket{0,0}+\ket{1,+})/\sqrt2$ is an eigenvector of $A$. Replacing $X$ by $X+3$ makes the spectra disjoint, and the same superposition decays to an equal mixture of the two selections. Both cases are computed in the accompanying check script.
+
+For more than two programs, disjointness from just one alternative is not enough. With $A=\proj p\otimes Z+\proj q\otimes(Z+3\mathbf 1)+\proj r\otimes Z$, the spectra of $p$ and $q$ are disjoint, but $\ket{p,0}\bra{r,0}$ commutes with $A$ and not with $\proj p\otimes\mathbf 1_S$. Thus $p$ is not a central label. The condition in Proposition~\ref{prop:own} concerns the whole program family.
+
+Internal selection can also change a material source. Use the field normalization of Paper~D, in which a coupling through a projector $R$ obeys $U^\dagger j(u)U=j(u)+R g'(u)/2$. The program controls that projector while the executor, drive and switching schedule stay fixed.
+
+\begin{proposition}[A program-selected material source]
+\label{prop:programsource}
+Let $R_p$ be projectors on $S$ and put
+\[
+ A=\sum_p\proj p\otimes R_p,\qquad
+ U=\exp(-i\lambda A\otimes Q),\qquad Q=b+b^\dagger.
+\]
+Take an initial state $\rho_{PS}$ independent of the field state $\sigma$. Set $r=\Tr(\rho_{PS}A)$. The output field marginal is exactly
+\[
+ \sigma_{\mathrm{out}}=(1-r)\sigma+
+ r\,e^{-i\lambda Q}\sigma e^{i\lambda Q}.
+\]
+When the displayed current moments exist, its vacuum-subtracted stress is
+\[
+ T_{\mathrm{out}}(u)=T_{\mathrm{in}}(u)+
+ r\left[g'(u)\langle j(u)\rangle_\sigma+
+                  \frac{g'(u)^2}{4}\right].
+\]
+In a fixed classical program branch $p$, a non-atomic quadrature spectral law and $\lambda\ne0$ give the exact multiplicative domain $\{R_p\}'$ of the induced system channel. Thus changing the program can change both the represented algebra and the field source under the same executor.
+\end{proposition}
+
+\begin{proof}
+Since $A^2=A$, write $U=(1-A)\otimes1+A\otimes e^{-i\lambda Q}$. The off-diagonal terms have zero partial trace over $PS$, because $\Tr(A\rho_{PS}(1-A))=0$. This gives the field mixture even when the program is coherent or correlated with $S$. Squaring $j+A g'/2$ gives the stress formula: initial independence supplies the mixed expectation $\langle A j\rangle=r\langle j\rangle$, and $\langle A^2\rangle=r$. Within branch $p$, the channel is the two-block dephasing channel of Paper~D; a non-atomic spectral law makes its nonzero-gap characteristic value strictly smaller than one, so equality in the Schwarz inequality holds exactly on $\{R_p\}'$.
+\end{proof}
+
+For $R_0=(1+Z)/2$, $R_1=(1+X)/2$ and $\rho_S=(1+0.8Z)/2$, a program bit prepared in $0$ or $1$ gives $r=0.9$ or $0.5$, respectively. Their conditional pointer algebras differ, although the two coupling spectra are identical. The field stress therefore need not reveal the program label as a central sector to respond to its choice. With a classical program mixture $\pi$, $r=0.9\pi_0+0.5\pi_1$. A record-driven program update can change this weight without an externally assigned emission probability. The global algebra $\{A\}'$ stays fixed; the selected branch algebra on $S$ and the outgoing source vary. This separates internal selection from a change of the executor. Paper~D supplies the corresponding JT response for this same wavepacket with matched initial coefficient data; the current statement identifies its physical source, not the origin of the JT action or of a Type III geometric sector. The program, field preparation and switching remain resources of the executor.
+
+\section{A self-grounding selection}
+\label{sec:loop}
+
+A selection rule can take as input a record that the selection itself protects. A small model gives two self-grounding fixed points and their history-dependent selection.
+
+A memory qubit $M$ is subject to rotation noise $H=\frac\omega2Y$. A classical program bit $p$ selects a dephasing coupling of $M$ with rate $\gamma$: through $Z$ for $p=0$ and through $X$ for $p=1$. Strong dephasing in a basis protects a record in that basis against rotation, by the quantum Zeno mechanism \cite{MisraSudarshan1977,FacchiPascazio2002}. Every time $\tau$ the memory is read in the protected basis, and the update rule sets $p$ equal to the outcome. The rule is internalized in the sense of Definition~\ref{def:model}, and it is self-applied: the record that sets the selection is a record in the algebra that the selection protects.
+
+After a read the configuration is one of four: $F_0=(p=0,\ket0)$, $T_1=(p=1,\ket1)$, $F_1=(p=1,\ket-)$ and $T_0=(p=0,\ket+)$. In $F_0$ and $F_1$ the protected record agrees with the program it sets; these are the self-grounding configurations. In $T_1$ and $T_0$ the record has just switched the program to a basis in which that record is not sharp.
+
+\begin{proposition}[Self-grounding configurations]
+\label{prop:loop}
+Without rotation noise, $F_0$ and $F_1$ are absorbing, and from $T_1$ and $T_0$
+\[
+\Pr(\text{absorbed in }F_1\mid T_1)=\tfrac23,\qquad\Pr(\text{absorbed in }F_1\mid T_0)=\tfrac13 .
+\]
+From any initial program and memory state the loop reaches $F_0$ or $F_1$ with probability one.
+\end{proposition}
+
+\begin{proof}
+A read in the basis that is already sharp returns the same outcome, so $F_0$ and $F_1$ repeat. In $T_1$ the memory $\ket1=(\ket+-\ket-)/\sqrt2$ is read in the $X$ basis, giving $F_1$ or $T_0$ with probability $\frac12$ each; in $T_0$ the memory $\ket+$ is read in the $Z$ basis, giving $F_0$ or $T_1$ with probability $\frac12$ each. Writing $a$ and $b$ for the absorption probabilities into $F_1$ from $T_1$ and $T_0$, $a=\frac12+\frac12b$ and $b=\frac12a$, so $a=\frac23$, $b=\frac13$. Every read from a transient configuration ends in an absorbing one with probability $\frac12$, and the first read from an arbitrary initial state produces one of the four configurations.
+\end{proof}
+
+\begin{corollary}[History selects a sustained source]
+\label{cor:historysource}
+In the zero-rotation loop, insert before each read a fresh field interaction of Proposition~\ref{prop:programsource}, using $R_0=(1+Z)/2$ and $R_1=(1+X)/2$. Each cycle uses a distinct tensor-factor port, in the same state and initially independent of the program, memory and all previous ports. The four-state transition law and its absorption probabilities are unchanged. In $F_0$ the output field is $e^{-i\lambda Q}\sigma e^{i\lambda Q}$; in $F_1$ it is $\sigma$. Thus the two self-grounding configurations carry different steady field sources under one executor. Starting from $T_1$ or $T_0$, the late-cycle mean source weight tends to $1/3$ or $2/3$, respectively.
+\end{corollary}
+
+\begin{proof}
+Within either program branch the field coupling is diagonal in the basis of the ensuing read. It changes no outcome probabilities, so the transition matrix of Proposition~\ref{prop:loop} is unchanged. The configurations $F_0=(0,\ket0)$ and $F_1=(1,\ket-)$ are eigenvectors of $A$ with eigenvalues $1$ and $0$. They remain product states of program and memory, and each pass gives the claimed field output. The source weight therefore converges to the indicator of absorption in $F_0$. Its expectation is one minus the corresponding probability of absorption in $F_1$, which gives the stated fractions.
+\end{proof}
+
+The read/update history generates the source difference under one executor.
+Fresh ports and memory operations sustain it. Each cycle supplies a fresh
+product-state field port, a protected-basis read, the program update and
+its protecting environment. For a centered field input the coupling's
+mean switching work is $r_nE_g$, where
+$E_g=\lambda^2\bar\omega=\int g'^2du/4$ and $r_n$ is the actual source
+weight. Noncentered inputs add the displayed current cross term.
+Incoming beam preparation, memory retention and eventual reset have
+their own charges. The $1/3$ and $2/3$ weights arise from absorption
+of the two transient histories, not a continuing supply of new
+source information. Distinct modes of a common bosonic
+field must be orthogonal and prepared in a product state to realize these ports;
+mere time translation does not suffice. For Paper~D's exact packet, a translation
+by $\Delta$ has overlap modulus $4a^2/(4a^2+\Delta^2)$. Source accounting for such
+overlapping pulses requires their joint field state. The full-line packet is a
+scattering idealization; a record decided at a finite time needs a compact switch
+scheduled after that decision, as constructed in Paper~D. With rotation, the
+following lifetime uses the stated continuous dephasing generator.
+
+The dephasing plays no role without noise, because the reads are made in the protected basis. With noise it decides whether the self-grounding configurations last.
+
+\begin{proposition}[Lifetime of a self-grounding selection]
+\label{prop:noise}
+With rotation noise, the probability of leaving $F_0$ (or $F_1$) in one cycle is $\varepsilon=\frac12(1-z(\tau))$, where $z$ solves $\ddot z+2\gamma\dot z+\omega^2z=0$, $z(0)=1$, $\dot z(0)=0$. For $\gamma>|\omega|$,
+\[
+z(\tau)=\frac{\lambda_+e^{\lambda_-\tau}-\lambda_-e^{\lambda_+\tau}}{\lambda_+-\lambda_-},\qquad\lambda_\pm=-\gamma\pm\sqrt{\gamma^2-\omega^2},
+\]
+so $\varepsilon\approx\omega^2\tau/(4\gamma)$ when $\gamma\gg|\omega|$, $\gamma\tau\gg1$ and $\omega^2\tau/\gamma\ll1$. Without protection $\varepsilon=\sin^2(\omega\tau/2)$; with protection in the wrong basis $\varepsilon$ approaches $\frac12$ in the strong-dephasing regime.
+\end{proposition}
+
+\begin{proof}
+In $F_0$ the Bloch vector starts at $z=1$. The rotation gives $\dot x=\omega z$, $\dot z=-\omega x$, and dephasing through $Z$ adds $-2\gamma x$ to $\dot x$. Eliminating $x$ gives the stated equation; a $Z$ read returns $1$ with probability $\frac12(1-z)$. The case $F_1$ is the same with $x$ and $z$ exchanged, since rotation about $y$ treats both records alike. For $\gamma\gg\omega$, $\lambda_+\approx-\omega^2/(2\gamma)$ dominates. Without dephasing $z=\cos\omega\tau$. Dephasing in the wrong basis destroys the record at rate $2\gamma$.
+\end{proof}
+
+For $\omega=0.1$ and $\tau=1$, the escape probability per cycle is $1.42\times10^{-3}$, $2.37\times10^{-4}$ and $2.49\times10^{-5}$ for $\gamma=1$, $10$ and $100$, against $2.50\times10^{-3}$ without protection. Protection in the wrong basis gives $0.433$ at $\gamma=1$ and approaches $0.5$ at the larger rates. At $\gamma=100$ a self-grounding selection lasts on average $4.0\times10^4$ cycles before the loop passes through a transient configuration and settles again, in $F_0$ or $F_1$.
+
+The residence time alone does not determine how long two histories produce different sources. The same four-state process gives that distinction exactly.
+
+\begin{proposition}[History-dependent source window]
+\label{prop:sourcewindow}
+Let $\gamma>0$, $\omega\ne0$ and $\tau>0$. In each cycle first evolve for time $\tau$ with the selected rotation--dephasing generator, then apply the fresh field interaction of Corollary~\ref{cor:historysource}, and then read and update. Put
+\[
+ k=\sqrt{\gamma^2-\omega^2},\quad
+ f=e^{-\gamma\tau}\left(\cosh k\tau+
+                    \gamma\frac{\sinh k\tau}{k}\right),\quad
+ b=\omega e^{-\gamma\tau}\frac{\sinh k\tau}{k},
+\]
+with analytic continuation when $\gamma<|\omega|$ and $\sinh(k\tau)/k=\tau$ at $k=0$. Set $\varepsilon=(1-f)/2$, $q_+=(1+b)/2$, $q_-=(1-b)/2$. In the post-read order $(F_0,T_1,F_1,T_0)$ the transition matrix and the source-weight vector are
+\begin{equation}
+ T=\begin{pmatrix}
+ 1-\varepsilon&\varepsilon&0&0\\
+ 0&0&q_+&q_-\\
+ 0&0&1-\varepsilon&\varepsilon\\
+ q_-&q_+&0&0
+ \end{pmatrix},\qquad
+ r=\begin{pmatrix}1-\varepsilon\\q_-\\\varepsilon\\q_-\end{pmatrix}.
+ \label{eq:sampledsource}
+\end{equation}
+For a post-read distribution $\mu_n$, the next field output has mean stress
+\[
+ T_{\mathrm{in}}(u)+(\mu_n r)
+       \left[g'(u)\langle j(u)\rangle_\sigma+g'(u)^2/4\right].
+\]
+The chain has the unique stationary law
+\[
+ \pi=\frac{(q_-,\varepsilon,q_+,\varepsilon)}{1+2\varepsilon},
+ \qquad r_\infty=\pi r=
+ \frac12-\frac{b}{2(1+2\varepsilon)}.
+\]
+For initial states $T_1$ and $T_0$, define
+\[
+ R^\circ_1=\varepsilon+f\frac{q_-^2}{1-q_+q_-},\qquad
+ R^\circ_0=\varepsilon+f\frac{q_-}{1-q_+q_-}.
+\]
+Their actual source weights satisfy, for every integer $n\ge0$,
+\begin{equation}
+ |\mu_n r-R^\circ_i|
+ \le n\varepsilon+(q_+q_-)^{\lfloor n/2\rfloor},
+ \qquad \mu_0=T_i.
+ \label{eq:historywindow}
+\end{equation}
+Thus a small escape rate preserves different history-selected sources over $1\ll n\ll\varepsilon^{-1}$, although both histories ultimately have the same stationary mean.
+\end{proposition}
+
+\begin{proof}
+The two Bloch generators on $(x,z)$ are
+\[
+ \begin{pmatrix}-2\gamma&\omega\\-\omega&0\end{pmatrix},
+ \qquad
+ \begin{pmatrix}0&\omega\\-\omega&-2\gamma\end{pmatrix}.
+\]
+Exponentiating them gives \eqref{eq:sampledsource}. The source weight is the population of the selected projector immediately before the read, not its value in the preceding post-read state. The intervening field coupling preserves that population. It equals the probability that the next program is $0$. For nonzero rotation and positive dephasing, the Bloch norm strictly decreases from each of the four pure initial states over any positive interval. Hence $0<\varepsilon<1$ and $0<q_\pm<1$. The graph of $T$ is connected and has self-loops, giving uniqueness and convergence. Direct multiplication gives $\pi T=\pi$ and the stated source weight.
+
+For the window bound, replace the two $F$ rows by absorbing rows, retaining $q_\pm$ in the transient rows and retaining the same observable $r$. In this comparison chain the absorption probabilities into $F_0$ are $q_-^2/(1-q_+q_-)$ and $q_-/(1-q_+q_-)$; the corresponding limiting expectations of $r$ are $R^\circ_1$ and $R^\circ_0$. Transient survival after $n$ steps is at most $(q_+q_-)^{\lfloor n/2\rfloor}$. Couple the true and comparison chains until their first escape from an $F$ state. That event has probability at most $n\varepsilon$, and $0\le r\le1$, proving \eqref{eq:historywindow}.
+\end{proof}
+
+The history window and the lifetime of one configuration are different. The characteristic polynomial is
+\[
+ (z-1)\left[z^3+(2\varepsilon-1)z^2+
+ (\varepsilon^2-q_+q_-)z+\varepsilon^2-\varepsilon+q_+q_-\right].
+\]
+For small $\varepsilon$ the slow root is
+$1-\varepsilon/(1-q_+q_-)+O(\varepsilon^2)$, so the late history contrast decays on a scale of about $(1-q_+q_-)/\varepsilon$ cycles. In the strong-protection regime of Proposition~\ref{prop:noise}, this is about $3\gamma/(\omega^2\tau)$, whereas a single configuration has mean residence $1/\varepsilon\approx4\gamma/(\omega^2\tau)$. At $\gamma=100$, $\omega=0.1$, $\tau=1$, the source weights from $T_1$ and $T_0$ are respectively $0.33844$ and $0.66090$ after $1000$ cycles, and $0.49370$ and $0.50579$ after $10^5$ cycles. Both approach $0.4997500$.
+
+The loop selects a protection because the record it protects says so, and its history selects a material source through the same program-controlled executor. Finite noise makes that selection metastable rather than permanent. The rotation--dephasing stage, field interaction and read are sequential operations here; simultaneous rotation during a finite field pulse would require a different transition law. The protecting environment, fresh packets, read instrument and update map are supplied. The loop generates the history-dependent choice, not these resources.
+
+\section{When a history changes the next source}
+\label{sec:recordsource}
+
+The four-state loop starts with explicit configurations. An earlier history need not already be a classical choice among them. Let $R$ be a retained physical record, and let $\Lambda:R\to P\otimes M$ be a fixed preparation channel acting after that history has formed. It can include a measurement, an outcome record and a controlled preparation. The next fresh field port remains independent of $R,P,M$ and old emitted ports. This time ordering gives a direct criterion for what the history can cause.
+
+\begin{proposition}[Record-to-source distinguishability]
+\label{prop:recordsource}
+For two record states $\rho_0,\rho_1$ and the projector $A$ in Proposition~\ref{prop:programsource}, the two source weights satisfy
+\[
+ r_0-r_1=\Tr[(\rho_0-\rho_1)\Lambda^*(A)],\qquad
+ |r_0-r_1|\le D(\rho_0,\rho_1):=\tfrac12\|\rho_0-\rho_1\|_1.
+ \label{eq:recordsource}
+\]
+For the zero-rotation loop, the largest contrast over fixed preparation channels $\Lambda$ equals $D(\rho_0,\rho_1)$. A channel attaining it prepares $F_0$ or $F_1$ from an actual binary record measurement. Both subsequent histories remain in their chosen configuration, so the same contrast occurs in every later fresh source port.
+\end{proposition}
+
+\begin{proof}
+The first equality is the adjoint-channel identity. Complete positivity and unitality of $\Lambda^*$ give $0\le\Lambda^*(A)\le1$. Writing the trace-zero Hermitian operator $\rho_0-\rho_1$ as its positive part minus its negative part bounds the expectation of any effect by $D$. To attain the bound, let $H$ be the spectral projector onto its positive part. Measure $\{H,1-H\}$ and prepare $F_0$ on outcome $H$, $F_1$ otherwise. The resulting source weight is $\Tr(\rho_iH)$ because $F_0,F_1$ have $A$-eigenvalues $1,0$. Their difference is $D$. Proposition~\ref{prop:loop} preserves these configurations and Corollary~\ref{cor:historysource} preserves their source weights.
+\end{proof}
+
+The discrimination identity is a standard trace-distance fact; its role here is to determine exactly how much record information can become a difference in protected configuration and actual source. A nonzero source contrast is possible precisely when the two record states differ, provided this binary measurement and the two preparations are available. A specified executor can fail to use that difference: if $\Lambda^*(A)$ is orthogonal to $\rho_0-\rho_1$ in trace pairing, its outgoing source is the same. Distinguishable histories need not yield distinguishable sources. Conversely, changing a conditional pointer algebra need not change $r$; a maximally mixed $M$ gives $r=1/2$ for both the $Z$ and $X$ selections.
+
+This construction does not preserve an arbitrary coherent input record under measurement. For a classical history stored in orthogonal states the preparation can be controlled without deleting it. An independent old content--reference state $\Omega_{CE}$ is preserved jointly, even conditioned on the new outcome, when all preparation and loop operations act on $R,P,M$ and leave $C,E$ untouched. If $R$ is already correlated with $CE$, the old marginal is preserved by the nonselective channel but conditioning can change its state. This is the distinction required when selection is claimed to retain an earlier body or history.
+
+Ideal execution is not required for a finite history effect. Suppose each complete read/update instrument still outputs the four listed configurations, its actual sampled transition in cycle $j$ is $\widetilde T_j$, and its actual source weight is $\widetilde r_n$, with
+\[
+ \max_x\operatorname{TV}(\widetilde T_j(x,\cdot),T(x,\cdot))\le a_j,
+ \qquad \|\widetilde r_n-r\|_\infty\le c_n .
+\]
+These are errors of the stated four-state instrument and observable, not an identification of every physical error with a flip.
+
+\begin{corollary}[A robust finite source window]
+\label{cor:robustwindow}
+From either transient initial configuration $T_i$, the actual source weight obeys
+\[
+ |\widetilde\mu_n\widetilde r_n-R_i^\circ|
+ \le n\varepsilon+(q_+q_-)^{\lfloor n/2\rfloor}
+                   +\sum_{j=1}^n a_j+c_n .
+\]
+Consequently the contrast between the two histories is at least
+\[
+ \frac{|f|q_+q_-}{1-q_+q_-}
+ -2n\varepsilon-2(q_+q_-)^{\lfloor n/2\rfloor}
+ -2\sum_{j=1}^n a_j-2c_n ,
+\]
+whenever the right-hand side is positive.
+\end{corollary}
+\begin{proof}
+At each step, couple the true row and its ideal counterpart with mismatch probability at most $a_j$. After $n$ steps their distributions differ in total variation by at most $\sum_j a_j$. Expectations of $r\in[0,1]$ differ by at most that amount, and changing the source observable costs at most $c_n$. Apply Eq.~\eqref{eq:historywindow}. Finally,
+$|R_0^\circ-R_1^\circ|=|f|q_+q_-/(1-q_+q_-)$, and use the triangle inequality for the two source weights.
+\end{proof}
+
+For sufficiently small escape and execution errors, this bound certifies a nonempty interval of different physical consequences. Lower escape rates extend that interval only if execution errors and fresh-port correlations remain controlled. Holding a noisy selection indefinitely would need renewed resources or a stronger protection mechanism. The present bound supplies no free infinite stream.
+
+\section{The price of selecting sharp readouts}
+\label{sec:sharp}
+
+The fixed executor may be followed by a fixed measurement, with a fixed ancilla. A program selects effects $E_z^p$ on a labelled target basis $\{\ket{b_z^p}\}$. We use the worst-case basis-state error
+\[
+ \delta_p=\max_z\left(1-\langle b_z^p|E_z^p|b_z^p\rangle\right).
+\]
+The program dimension counts the selectable register; a fixed ancillary state does not enlarge it. This criterion concerns the target outcome probabilities, and does not compare complete instruments in diamond norm.
+
+\begin{theorem}[Cost of sharp selection]
+\label{thm:sharp}
+\begin{enumerate}
+\item If two pure program states select two distinct labelled sharp measurements exactly, they are orthogonal. Exact mixed programs for distinct sharp measurements have orthogonal supports. A register of dimension $d_P$ selects at most $d_P$ distinct labelled sharp measurements exactly.
+\item Let $S$ be a qubit, and suppose that for every Bloch angle $\theta$ on a great circle some pure program state selects the sharp measurement along $\theta$ with error at most $\delta$, where $0<\delta<1$. Then
+\begin{equation}
+d_P\ \ge\ L(\delta):=\max_{M\ge1}\frac{M}{1+\frac13\bigl(2\sqrt\delta+\delta\bigr)^2(M^2-1)},
+\label{eq:lower}
+\end{equation}
+and $L(\delta)\sqrt\delta\to\sqrt3/4\approx0.433$ as $\delta\to0$. Conversely, $N=\lceil\pi/(2\arcsin\sqrt\delta)\rceil$ orthogonal program states with a controlled rotation achieve error $\delta$, and $N\sqrt\delta\to\pi/2$.
+\item Part (2) holds unchanged for mixed program states, with $0<\delta<1$. For each target a pure program in the same register has exactly the same two basis-state errors. Consequently $d_P\ge L(\delta)$ and $\liminf_{\delta\to0}d_P\sqrt\delta\ge\sqrt3/4$; the same grid gives the upper bound. Mixing cannot reduce the required program dimension under this criterion.
+\end{enumerate}
+\end{theorem}
+
+The proof and representative numerical bounds are in Appendix~\ref{app:sharp}. The constants $\sqrt3/4$ and $\pi/2$ are lower and constructive upper bounds; the result establishes the exponent, not an optimal leading constant. Exact orthogonality is the measurement counterpart of the no-programming theorem for unitaries \cite{NielsenChuang1997}. The equality of the pure and mixed costs here follows from the convex joint numerical range of two Hermitian operators \cite{GutkinJonckheereKarow2004}. Three independent errors need not admit the same pure replacement. The asymptotic exponent applies to this great-circle family and this criterion; universal processors have other resource bounds \cite{Kubicki2019}.
+
+A two-axis reader needs only two orthogonal choices \cite{WorldImprint}. Tracking a continuum of axes to increasing accuracy needs a growing register. Storing and refreshing the chosen programs has a further purity and free-energy account \cite{Liu2026PaperE,Liu2026PaperF}. Coherently returning a program does not, by itself, assign it a reset heat. Conversely, a large register does not supply the entropy outlet needed to renew noisy records.
+
+\section{What the executor leaves specified}
+\label{sec:cut}
+
+Rules, programs, their revision and self-grounding selections can be internal.
+Within Definition~\ref{def:model}, a full copy of an executor acting on
+$P\otimes S$ acts on dimension $d_Pd_S$, whereas each selected operation acts
+on $S$ or part of it, of dimension at most $d_S<d_Pd_S$ when $d_P\ge2$.
+It cannot be that full executor. A meta-register $P'$ can select among executors
+on $P\otimes S$ under a fixed meta-executor. At the top of each stipulated finite
+hierarchy the model still supplies an executor as physical dynamics. This is a
+feature of the architecture, not a general prohibition on a system containing
+its own control law.
+
+The top dispatch map is specified dynamics in this architecture.
+A meta-register can make the current executor selectable, at a resource cost set
+by the family to be selected. For the one-parameter great-circle qubit family,
+Theorem~\ref{thm:sharp} gives order $\delta^{-1/2}$ register dimension; it assigns
+no common exponent to every continuous family. Stored classical choices also use
+the record resources described above. The dimension argument excludes a full
+executor acting on the larger space from being an operation on the smaller target;
+it permits storing a description of that executor. In infinite dimension the counting
+argument fails, since a separable Hilbert space is isomorphic to its tensor product
+with $\mathbb C^2$. Kleene and Lawvere fixed points \cite{Kleene1952,Lawvere1969},
+and the order-theoretic results of Scott and Tarski \cite{Scott1972,Tarski1955},
+also permit self-reference. Existence of a self-representing physical executor in
+that setting remains open.
+
+Every stipulated finite hierarchy specifies its top dispatch map. Self-application is different: the loop of Section~\ref{sec:loop} applies a rule to its own protected records and reaches fixed points without adding levels. A claim that every operation is selected faces a separate resource test. By Theorem~\ref{thm:sharp}, an executor selecting every sharp readout exactly would require infinitely many orthogonal program states.
+
+The distinction between structure and knowledge has a concrete meaning here. The dispatch map is physical dynamics; program contents are records. When their coupling spectra are disjoint they can be public environmental records, while overlapping eigenvalue tuples can hide some coherence. Proposition~\ref{prop:programsource} adds a further distinction: a program need not become a central label to change the field source through the operation it selects.
+
+\section{From selectable rules to formed permissions}
+\label{sec:formation}
+
+The loop forms a choice among supplied couplings. A self-frame needs more: history must establish a relation between a task and the body's own reading or action channels. T-DOME~II separates an aligned axis from a signed relation that can actually predict \cite{TDOMEII}. If opposite couplings produce the same retained axis, the axis can be perfectly aligned while its posterior prediction is zero. Outcome-bearing records supply the missing sign. A useful program must encode whichever distinctions its future task consumes.
+
+Self-readout then becomes a problem of attribution. A changed residual can come from the world, from a damaged body, or from a miscalibrated interface. T-DOME~III uses identifiable references and paid maintenance to decide among these causes \cite{TDOMEIII}. Its action is based on retained value and body condition; confidence alone need not determine whether repair is worthwhile. Imprint~W supplies a complementary mechanism in which the system uses its own reading history to choose a later inquiry \cite{WorldImprint}. These are mechanisms for revising programs, with their own record laws and budgets.
+
+Brain Anchor locates formed relations in a body: diagnostic outcomes can alter routes and install a different protected encoding \cite{BrainAnchor}. Such relations can be distributed among components. Calling their aggregate a program register does not imply that a single place stores a full description, or that every relation becomes a central environmental label. Proposition~\ref{prop:own} already gives a finite counterexample to the latter inference. A mathematical encoding is an interface for analysis; a physical implementation must say where its records, actuators and update couplings reside.
+
+Q-RAIF~C gives a further, independent source implementation \cite{Liu2026QRAIFC}. Its actual quantum history enters a complete positive Hamiltonian and changes material motion and interacting field source. The fresh-port projector mixture used here is simpler and has different inputs. The two constructions support the same causal question, but their clocks, controllers and source objects cannot be exchanged merely because both have an internal program. Returning a field response to the same body requires the actual sensor and finite-resource operations, as studied in Foundation~III \cite{FoundationIII}. A reconstructed geometry, a field stress and the total apparatus stress remain distinct.
+
+The more ambitious generation problem concerns how these operational relations become available in the first place. A fixed meta-register only relocates a supplied dispatch map. A more informative mechanism is adaptation of the body: records change local couplings, routes or encodings, and the new relations alter which later records and acts are reliable. This can generate a permission from primitive interactions without generating the primitive interactions themselves.
+
+\begin{conjecture}[Formation of revisable permissions]
+\label{conj:permissions}
+Consider a body with locally adjustable couplings and a finite family of reversible encodings of the same logical content. Let actual diagnostic instruments act on relational degrees of freedom outside that logical algebra, and distinguish configurations with different task values. Suppose exploratory operations reach each necessary diagnostic relation, the best configuration has a nonzero value gap on each stationary interval, and paid update and maintenance resources suffice over that interval. There exist local record-driven update dynamics for which task-relevant relations become usable permissions from initially uncalibrated couplings, while previously encoded content remains within a stated error budget. When the task or body changes slowly enough, the same retained relations support detection and revision, rather than only repeating a fixed choice.
+\end{conjecture}
+
+The proposed mechanism is concrete: exploration creates diagnostic records; local retained relations select a route or encoding; an actuator installs it; subsequent errors and maintenance outcomes modify those relations. History-selected protection, signed self-frames and local body learning support different parts of this mechanism. Its quantitative test compares formed relations with supplied ones under the same preparation, diagnostic, installation and content-loss budgets. Formation must lose its advantage when diagnostics alias task-distinct configurations, exploration cannot reach the relevant coupling, or noise destroys old content before learning and migration finish. A distributed learner that changes only labels while all implemented instruments remain fixed also fails this test.
+
+The conjecture asks for a common finite construction with these inputs and outcomes. It is stronger than the supplied two-choice loop, and is not used in its proof. An infinite stationary guarantee would additionally need a sustainable resource supply and control of rare failures. A finite family chosen by the theorist can demonstrate a formation mechanism; it does not explain the origin of every physical interaction or privilege one universal observable algebra.
+
+\section{Conclusion}
+\label{sec:conclusion}
+\label{sec:nonclaims}
+
+History can select the relations through which a system continues to act. In the finite construction, records choose their own protection and alter the next field source under one executor. Shared coupling spectra show that an internal choice need not become a central label. The exact noisy transition law distinguishes residence in one configuration, a finite history-dependent source window and eventual loss of source contrast. Record-to-source transfer reaches the trace-distance limit, while accumulated execution errors bound how much of that window remains usable.
+
+Selecting accurate sharp readouts has its own dimensional cost. The one-parameter great-circle family requires order $\delta^{-1/2}$ dimension, with the same feasibility for pure and mixed programs under two target errors. This price and the finite target/executor distinction constrain a specified architecture. They allow stored descriptions, self-application and stronger models of executor formation.
+
+The resulting account joins internal description to a physical consequence without making them identical. Its broader question is how a body's learned relations become revisable permissions while content, references and resources survive. The formation conjecture sets out a mechanism and interventions for that question; primitive dynamics, general geometric generation and first-person experience require their own arguments.
+
+The selection registers and target systems are finite-dimensional; the source realization uses the specified bosonic field port of Paper~D. The counting observation concerns this target-register architecture, not every formalism for physical self-reference, and fails in infinite dimension. Internal program changes select actual couplings and can alter their output stress. They do not by themselves explain why this executor exists, reconstruct a geometric sector or establish reflective experience.
+
+Paper~D's sustained selection--response conjecture additionally prices
+thermal entropy export and its gravitational reading~\cite{Liu2026PaperD}.
+The fresh-port program loop here supplies neither that complete thermal
+account nor its joint sharp-exhaust and causal-return implementation.
+
+\appendix
+\section{Proofs and constructions for sharp selection}
+\label{app:sharp}
+
+Here we give the full argument for the readout cost. A readout here is a measurement on $S$ implemented by a fixed executor: a unitary on $P\otimes S\otimes A$, with an ancilla $A$ in a fixed state, followed by a fixed measurement. Purifying the fixed ancilla and dilating the measurement gives projections $F_z$ pulled back to the input space. The embedding $\ket p\mapsto\ket p\ket a$ keeps program overlaps and has span dimension $d_P$; the ancillary dimension is not a selectable program resource. Write $G_z$ for the induced POVM effects on the original $P\otimes S$, after compression to the fixed ancilla state. A pure program $\ket p$ selects effects $E^p_z=(\bra p\otimes\mathbf 1)G_z(\ket p\otimes\mathbf 1)$. Its target is a labelled orthonormal basis $\{\ket{b^p_z}\}$ of $S$, with selection error $\delta_p=\max_z\bigl(1-\langle b^p_z|E^p_z|b^p_z\rangle\bigr)$. For a mixed program $\sigma$, use $E^\sigma_z=\Tr_P[(\sigma\otimes\mathbf 1)G_z]$ and the same error on the target basis states. This is a basis-state error criterion, not a diamond-norm distance between instruments.
+
+\begin{lemma}[Near-orthogonality]
+\label{lem:near}
+For programs $p,q$ and outcomes $z\ne z'$,
+\[
+|\langle q|p\rangle|\,|\langle b^q_{z'}|b^p_z\rangle|\le\sqrt{\delta_p}+\sqrt{\delta_q}+\sqrt{\delta_p\delta_q}.
+\]
+\end{lemma}
+
+\begin{proof}
+Put $v=\ket p\ket{b^p_z}\ket a$ and $w=\ket q\ket{b^q_{z'}}\ket a$. Then $\langle v|F_z|v\rangle=\langle b^p_z|E^p_z|b^p_z\rangle\ge1-\delta_p$, so $\|(\mathbf 1-F_z)v\|\le\sqrt{\delta_p}$, and likewise $\|(\mathbf 1-F_{z'})w\|\le\sqrt{\delta_q}$. Write $v=F_zv+(\mathbf 1-F_z)v$ and $w=F_{z'}w+(\mathbf 1-F_{z'})w$. Since $F_{z'}F_z=0$, the inner product $\langle w|v\rangle=\langle q|p\rangle\langle b^q_{z'}|b^p_z\rangle$ consists of three cross terms bounded by $\sqrt{\delta_p}$, $\sqrt{\delta_q}$ and $\sqrt{\delta_p\delta_q}$.
+\end{proof}
+
+The two-expectation fact used below is the two-Hermitian-operator case of joint numerical-range convexity, equivalent to the Toeplitz--Hausdorff theorem \cite{GutkinJonckheereKarow2004}. A rank-reduction proof makes clear why the replacement stays in the original register.
+
+\begin{lemma}[Matching two error rates]
+\label{lem:twoerrors}
+For any two Hermitian operators $B_0,B_1$ on a finite program register $P$ and any density operator $\sigma$ on $P$, there is a unit vector $\ket p\in P$ such that
+\[
+ \langle p|B_z|p\rangle=\Tr(\sigma B_z),\qquad z=0,1.
+\]
+\end{lemma}
+\begin{proof}
+If $\sigma$ has rank $r\ge2$, the Hermitian operators on its support form a real vector space of dimension $r^2\ge4$. The three real linear constraints
+\[
+ \Tr H=\Tr(HB_0)=\Tr(HB_1)=0
+\]
+therefore have a nonzero Hermitian solution $H$ supported there. Its zero trace implies that it has both positive and negative eigenvalues. Since $\sigma$ is positive definite on its support, the interval of $t$ for which $\sigma+tH\ge0$ contains a neighbourhood of zero and has finite endpoints. At either endpoint the rank strictly decreases, while the trace and both expectations remain unchanged. Repeat on the smaller support until the density operator has rank one.
+\end{proof}
+
+Theorem~\ref{thm:sharp} is proved below with the same fixed ancilla and basis-state error criterion.
+
+\begin{proof}
+(1) With $\delta_p=\delta_q=0$ the lemma gives $\langle q|p\rangle\langle b^q_{z'}|b^p_z\rangle=0$ for all $z\ne z'$. If $\langle q|p\rangle\ne0$, each $\ket{b^p_z}$ is orthogonal to every $\ket{b^q_{z'}}$ with $z'\ne z$, hence proportional to $\ket{b^q_z}$, and the two labelled measurements coincide. Each mixed program's errors are averages of nonnegative pure-component errors. Zero average forces every vector in its spectral decomposition to select the same measurement exactly. The pure result makes the supports for distinct measurements orthogonal. Their nonzero dimensions sum to at most $d_P$.
+
+(2) Choose $M$ targets at angles $\theta_j=2\pi j/M$ with program states $\ket{p_j}$. For $z=0$, $z'=1$ and Bloch angle $\varphi$ between the targets, $|\langle b^{q}_{1}|b^{p}_0\rangle|=|\sin(\varphi/2)|$, so the lemma gives $|\langle p_j|p_l\rangle|\le(2\sqrt\delta+\delta)/\sin(\pi|j-l|/M)$. The Gram matrix $\Gamma$ of the $\ket{p_j}$ has $\Tr\Gamma=M$ and, by the identity $\sum_{k=1}^{M-1}\csc^2(\pi k/M)=(M^2-1)/3$,
+\[
+\Tr\Gamma^2\le M+M\,\tfrac13(2\sqrt\delta+\delta)^2(M^2-1).
+\]
+Then $d_P\ge\operatorname{rank}\Gamma\ge(\Tr\Gamma)^2/\Tr\Gamma^2$, which is \eqref{eq:lower}. With $c=\frac13(2\sqrt\delta+\delta)^2$ the maximum over $M$ lies near $M=c^{-1/2}$ and equals $\frac12c^{-1/2}(1+O(\sqrt c))$, which gives the limit. For the converse, the executor $\sum_j\proj j\otimes R(\theta_j)^\dagger$ followed by a measurement in the computational basis selects the sharp measurement along $\theta_j=2\pi j/N$ exactly; using the nearest $\theta_j$ for a target $\theta$ misaligns the axes by at most $\pi/N$, which costs error $\sin^2(\pi/(2N))\le\delta$.
+
+(3) Fix a target basis $\{\ket{b_0},\ket{b_1}\}$ and define positive operators on the original register $P$ by
+\[
+B_z=\mathbf 1_P-(\mathbf 1_P\otimes\bra{b_z})G_z(\mathbf 1_P\otimes\ket{b_z}),\qquad z=0,1.
+\]
+A mixed program $\sigma$ has target errors $\Tr(\sigma B_z)$. Lemma~\ref{lem:twoerrors} supplies a pure program in the original $P$ matching both errors exactly. Choose it for each target angle. The fixed executor then has a pure-program family with the same error bound $\delta$ and dimension $d_P$, so part (2) applies. Conversely, pure programs are included among mixed programs. This equivalence concerns the two target errors, not preparation costs or equality of the complete instruments; arbitrary additional error constraints need not admit a rank-one replacement.
+\end{proof}
+
+For $k$ positive error operators $B_1,\ldots,B_k$, a mixed program whose errors
+are all at most $\delta$ always has a pure spectral component with every error
+at most $k\delta$: some component has the sum of its errors no larger than the
+mixed sum. Exact matching of all errors need not hold when $k\ge3$: the three
+positive operators $(I+\sigma_x)/2$, $(I+\sigma_y)/2$, $(I+\sigma_z)/2$ all
+have expectation $1/2$ in the maximally mixed qubit, while no pure state matches
+all three.
+The two-error equality is therefore stronger than this general factor-$k$ bound.
+
+\begin{table}[ht]
+\centering
+\begin{tabular}{ccccc}
+\toprule
+$\delta$ & $L(\delta)$ & $N(\delta)$ & $L\sqrt\delta$ & $N\sqrt\delta$\\
+\midrule
+$10^{-2}$ & $4.15$ & $16$ & $0.415$ & $1.600$\\
+$10^{-4}$ & $43.1$ & $158$ & $0.431$ & $1.580$\\
+$10^{-6}$ & $432.8$ & $1571$ & $0.433$ & $1.571$\\
+\bottomrule
+\end{tabular}
+\caption{Common pure- and mixed-program lower bound \eqref{eq:lower} and the grid construction for selecting every sharp qubit measurement on a great circle to worst-case basis-state error $\delta$.}
+\label{tab:cost}
+\end{table}
+
+D'Ariano and Perinotti give finite exact programming for covariant measurements and polynomial approximate programming for general measurements \cite{DArianoPerinotti2005}. This does not remove the sharp-selection constraint.
+
+For $N$ grid programs and a uniformly distributed angle the mean error is $\frac12-\frac{N}{2\pi}\sin\frac\pi N\approx\pi^2/(12N^2)$. Doubling the register dimension therefore divides the leading mean error by four.
+
+
+\begin{thebibliography}{99}
+
+\bibitem{Liu2026PaperA}
+S.~Liu, \emph{Physical Access and Correlation Geometry: The Holographic Alaya--Field Framework}, Zenodo (2026), DOI: 10.5281/zenodo.18361706.
+
+\bibitem{Liu2026PaperB}
+S.~Liu, \emph{Coupling, Records, and Stable Relations: Formation, Protected Content and the Lifetime of a Geometry}, (2026), series record DOI: 10.5281/zenodo.18367060.
+
+\bibitem{Liu2026PaperD}
+S.~Liu, \emph{Selection, Maintenance and Gravitational Response: Modular Constraints and a Physical Return}, (2026), series record DOI: 10.5281/zenodo.18388881.
+
+\bibitem{Liu2026PaperE}
+S.~Liu, \emph{Measurement as Accessibility: Measurement Permissions, Stable Records and Public Readout}, (2026), series record DOI: 10.5281/zenodo.18400065.
+
+\bibitem{Liu2026PaperF}
+S.~Liu, \emph{Records, Dissipation and Intervention: Conditions for a Temporal Direction}, (2026), series record DOI: 10.5281/zenodo.18400425.
+
+\bibitem{LiuPostscript}
+S.~Liu, \emph{Postscript: Persistence, Participation and an Unfinished Self}, Zenodo (2026), DOI: 10.5281/zenodo.18407367.
+
+\bibitem{LiuNoView}
+S.~Liu, \emph{No View from Nowhere: Read-out Closure and the Vacuum Curvature Test in Q-RAIF A}, Zenodo (2026), DOI: 10.5281/zenodo.20284454.
+
+\bibitem{Liu2026QRAIFB}
+S.~Liu, \emph{Thermodynamic Stability Constraints on Persistent Open Quantum Subsystems: Control Algebra, Physical Actuation and Energy Cost}, (2026), series record DOI: 10.5281/zenodo.18525890.
+
+\bibitem{TDOMEIII}
+S.~Liu, \emph{Keeping a Self-Model Calibrated: Drift Detection, the Price of Keeping Up, and Reliability in a Closed Loop}, (2026), series record DOI: 10.5281/zenodo.18591771.
+
+\bibitem{PaperCIII}
+S.~Liu, \emph{Finite Self-Models and the Explanatory Gap: What a Continuing Observer Can Know About Itself}, (2026), series record DOI: 10.5281/zenodo.19607724.
+
+\bibitem{WorldImprint}
+S.~Liu, \emph{The World as Imprint: From Trace-Carrying Structure to Self-Reading Mind}, (2026), series record DOI: 10.5281/zenodo.20122718.
+
+\bibitem{Breuer1995}
+T.~Breuer, \emph{The impossibility of accurate state self-measurements}, Philosophy of Science \textbf{62}, 197--214 (1995).
+
+\bibitem{Wolpert2008}
+D.~H.~Wolpert, \emph{Physical limits of inference}, Physica D \textbf{237}, 1257--1281 (2008).
+
+\bibitem{vonNeumann1966}
+J.~von Neumann, \emph{Theory of Self-Reproducing Automata}, edited by A.~W.~Burks, University of Illinois Press (1966).
+
+\bibitem{NielsenChuang1997}
+M.~A.~Nielsen and I.~L.~Chuang, \emph{Programmable quantum gate arrays}, Phys.\ Rev.\ Lett.\ \textbf{79}, 321 (1997).
+
+\bibitem{DArianoPerinotti2005}
+G.~M.~D'Ariano and P.~Perinotti, \emph{Efficient universal programmable quantum measurements}, Phys.\ Rev.\ Lett.\ \textbf{94}, 090401 (2005).
+
+\bibitem{Kubicki2019}
+A.~M.~Kubicki, C.~Palazuelos, and D.~P\'erez-Garc\'ia, \emph{Resource quantification for the no-programming theorem}, Phys.\ Rev.\ Lett.\ \textbf{122}, 080505 (2019).
+
+\bibitem{GutkinJonckheereKarow2004}
+E.~Gutkin, E.~A.~Jonckheere, and M.~Karow, \emph{Convexity of the joint numerical range: topological and differential geometric viewpoints}, Linear Algebra Appl.\ \textbf{376}, 143--171 (2004), DOI: 10.1016/j.laa.2003.06.011.
+
+\bibitem{MisraSudarshan1977}
+B.~Misra and E.~C.~G.~Sudarshan, \emph{The Zeno's paradox in quantum theory}, J.\ Math.\ Phys.\ \textbf{18}, 756 (1977).
+
+\bibitem{FacchiPascazio2002}
+P.~Facchi and S.~Pascazio, \emph{Quantum Zeno subspaces}, Phys.\ Rev.\ Lett.\ \textbf{89}, 080401 (2002).
+
+\bibitem{Kleene1952}
+S.~C.~Kleene, \emph{Introduction to Metamathematics}, North-Holland (1952).
+
+\bibitem{Lawvere1969}
+F.~W.~Lawvere, \emph{Diagonal arguments and cartesian closed categories}, in \emph{Category Theory, Homology Theory and their Applications II}, Lecture Notes in Mathematics \textbf{92}, 134--145 (1969).
+
+\bibitem{Scott1972}
+D.~Scott, \emph{Continuous lattices}, in \emph{Toposes, Algebraic Geometry and Logic}, Lecture Notes in Mathematics \textbf{274}, 97--136 (1972).
+
+\bibitem{Tarski1955}
+A.~Tarski, \emph{A lattice-theoretical fixpoint theorem and its applications}, Pacific J.\ Math.\ \textbf{5}, 285--309 (1955).
+
+
+\bibitem{Liu2026PaperC}
+S.~Liu, \emph{Causation, Agency, and Existence: Historical Control and Maintained Intervention}, (2026), series record DOI: 10.5281/zenodo.18374805.
+
+\bibitem{TDOMEII}
+S.~Liu, \emph{Reference Frames Selected by History: The Capability and Cost of a Bounded Agent's Self-Frame}, (2026), series record DOI: 10.5281/zenodo.18579703.
+
+\bibitem{Liu2026QRAIFC}
+S.~Liu, \emph{Retained Quantum History, Physical Sources and Receiver Renewal in Q-RAIF}, (2026), series record DOI: 10.5281/zenodo.18528934.
+
+\bibitem{FoundationIII}
+S.~Liu, \emph{Foundation III: The Perfuming Loop---Held Content, Learned Frames and Physical Return}, (2026), series record DOI: 10.5281/zenodo.19642189.
+
+\bibitem{BrainAnchor}
+S.~Liu, \emph{The Brain as a Plastic Observable-Algebra Network: Learning Shared Access from Sensorimotor History}, (2026), series record DOI: 10.5281/zenodo.20044329.
+
+\end{thebibliography}
+
+\end{document}

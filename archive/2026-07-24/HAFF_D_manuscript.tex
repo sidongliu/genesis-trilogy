@@ -1,0 +1,1030 @@
+% Paper D: Gravity as Coarse-Graining Effect
+% A Structural Analysis
+% COMPLETE VERSION — Final Draft
+
+\documentclass[12pt,a4paper]{article}
+\usepackage{amsmath,amssymb,amsfonts,amsthm}
+\usepackage{physics}
+\usepackage{hyperref}
+\usepackage{geometry}
+\usepackage{array}
+\newcolumntype{P}[1]{>{\raggedright\arraybackslash}p{#1}}
+\usepackage{booktabs}
+\geometry{margin=1in}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{conjecture}[theorem]{Conjecture}
+
+\title{Observable-Algebra Selection and Emergent Gravitational Phenomena:\\
+A Conditional Structural Analysis}
+
+\author{
+  Sidong Liu, PhD \\
+  iBioStratix Ltd \\
+  \texttt{sidongliu@hotmail.com}
+}
+
+\date{July 2026}
+
+\begin{document}
+\emergencystretch=2em
+\raggedbottom
+\hbadness=5000
+\vbadness=5000
+
+\maketitle
+
+\begin{abstract}
+We examine a programme-level conjecture that gravitational phenomena may be associated with adiabatic paths of selected observable algebras, while gauge interactions are modelled within a fixed selected algebra.  The paper does not derive the selection dynamics, the empirical equivalence principle, or a Lorentzian metric from the Quantum Fisher Information Metric; the latter is used only as a positive state-space metric and information-geometric analogy.
+In the operator-algebraic sector we formulate conditional modular-stability criteria and explicitly withdraw the former uniqueness theorem.  In a separately supplied holographic CFT regime satisfying assumptions (H1)--(H5), an HSMI/ball modular variation can be related, through imported entanglement-first-law results, to linearized gravitational data.  This is a conditional correspondence rather than a derivation from generic accessible-algebra evolution.
+\end{abstract}
+
+\section{Introduction}
+\label{sec:intro}
+
+\subsection{The Quantization Problem}
+
+Among the four fundamental interactions, gravity occupies a singular position. While the strong, weak, and electromagnetic forces have been successfully incorporated into the framework of quantum field theory, gravity has resisted analogous treatment for nearly a century. The difficulties are well known: naive quantization of general relativity yields a non-renormalizable theory, and more sophisticated approaches—string theory, loop quantum gravity, asymptotic safety—remain either incomplete or empirically unconfirmed \cite{Kiefer2012}.
+
+A common diagnosis attributes this difficulty to the self-referential nature of gravity: the metric tensor both defines the arena in which physics takes place and participates as a dynamical variable within that arena. Quantizing gravity thus appears to require quantizing spacetime itself—a conceptually and technically formidable task.
+
+\subsection{An Alternative Diagnosis}
+
+In this paper, we explore an alternative structural diagnosis. We suggest that the difficulty may arise not because gravity is a particularly subtle force, but because gravity may not be a force at all—at least not in the same categorical sense as gauge interactions.
+
+The proposal rests on a simple observation: all descriptions of physical systems presuppose some decomposition of the total system into subsystems. In quantum mechanics, this corresponds to a tensor factorization of the Hilbert space. However, as has been established in foundational work on quantum information theory \cite{Zanardi2001,Zanardi2004} and developed in our previous analysis \cite{Liu2026PaperA}, there is no canonical or physically privileged factorization for a generic quantum state. Different choices of factorization—or more generally, different choices of accessible observable algebra—yield inequivalent physical descriptions.
+
+We propose that gauge forces and gravity may be distinguished at this structural level:
+
+\begin{sloppypar}
+\begin{itemize}
+    \item \textbf{Gauge forces} describe interactions between degrees of freedom \emph{within} a given subsystem decomposition.
+    \item \textbf{Gravitational phenomena} reflect properties of the decomposition \emph{itself}---specifically, how effective geometry emerges from the pattern of accessible observables.
+\end{itemize}
+\end{sloppypar}
+
+If this reframing is correct, it may help clarify why gravity resists quantization: one cannot straightforwardly quantize the choice of how to divide a system into parts, because that choice is logically prior to the application of quantum dynamics to those parts.
+
+\subsection{Scope and Limitations}
+
+We emphasize at the outset what this paper does and does not attempt.
+
+\textbf{This paper does:}
+\begin{itemize}
+    \item Offer a structural reframing of the distinction between gravity and gauge forces
+    \item Draw on established results concerning coarse-graining and emergent geometry
+    \item Identify this perspective as a possible diagnostic for the quantization problem
+\end{itemize}
+
+\textbf{This paper does not:}
+\begin{itemize}
+    \item Propose new dynamical equations
+    \item Derive the Einstein field equations or their quantum corrections
+    \item Claim to solve the problem of quantum gravity
+    \item Introduce observer-dependent, consciousness-related, or interpretational elements
+\end{itemize}
+
+The analysis is structural in nature. We examine the conceptual architecture underlying descriptions of gravity and gauge forces, and suggest that a categorical distinction at the level of observable algebras may illuminate longstanding difficulties.
+
+\subsection{Outline}
+
+Section~\ref{sec:factorization} reviews the factorization problem and the conditional results inherited from Paper~A. Section~\ref{sec:distinction} develops a proposed distinction between gauge forces and gravity. Section~\ref{sec:technical} states the central conjecture and compares its state-space geometry with the QFIM, while recording the unresolved Lorentzian-signature problem. Section~\ref{sec:modular} defines a class of modular-stable geometric candidate algebras, withdraws the former uniqueness claim, checks parts of the construction in two models, and states a conditional holographic route to linearized gravity. Later sections discuss scope and open questions.
+
+\section{The Factorization Problem}
+\label{sec:factorization}
+
+\subsection{No Canonical Tensor Factorization}
+
+In standard quantum mechanics, composite systems are described by tensor products of subsystem Hilbert spaces: $\mathcal{H}_{\text{total}} = \mathcal{H}_A \otimes \mathcal{H}_B$. This structure is typically taken as given, with subsystems identified by physical intuition or experimental arrangement.
+
+However, for a generic Hilbert space $\mathcal{H}$, there is no unique or canonical way to express it as a tensor product. Any finite-dimensional Hilbert space of dimension $d = d_1 \times d_2$ admits a factorization $\mathcal{H} \cong \mathcal{H}_{d_1} \otimes \mathcal{H}_{d_2}$, but the choice of such a factorization is not determined by the Hilbert space structure alone.
+
+This observation was formalized by Zanardi and collaborators \cite{Zanardi2001,Zanardi2004}, who demonstrated that tensor product structures are determined by the algebra of accessible observables rather than by intrinsic properties of the state space. A change in which observables are accessible corresponds to a change in how the system is effectively decomposed into subsystems.
+
+\subsection{Coarse-Graining and Effective Descriptions}
+
+Building on this foundation, our previous work \cite{Liu2026PaperA} established that:
+
+\begin{proposition}[Conditional coarse-graining separation]
+\label{prop:inequiv}
+Let $\Phi_1\ne\Phi_2$ be finite-dimensional coarse-graining channels with a common output space.  Their outputs differ for generic pure inputs.  Entropy profiles differ only under the additional nondegeneracy hypothesis stated in Paper~A, and metric inequivalence follows only when a supplied reconstruction dictionary separates those profiles modulo diffeomorphisms.
+\end{proposition}
+
+Thus channel inequivalence establishes a difference of effective descriptions, not by itself a difference of spacetime metrics.  The latter is a conditional model claim throughout this paper.
+
+\subsection{Geometry from Entanglement}
+
+The connection between entanglement and geometry has been extensively studied in the context of holographic duality. The Ryu-Takayanagi formula \cite{RyuTakayanagi2006} and its generalizations establish that, in certain settings, geometric quantities (areas of extremal surfaces) are directly related to entanglement entropies of boundary regions:
+\begin{equation}
+S_A = \frac{\text{Area}(\gamma_A)}{4 G_N \hbar}.
+\end{equation}
+
+More broadly, Van Raamsdonk \cite{VanRaamsdonk2010} and others have argued that spacetime connectivity itself may be understood as a manifestation of quantum entanglement: regions that are highly entangled are geometrically ``close,'' while weakly entangled regions are ``far apart'' or even disconnected.
+
+Within the present framework, these results motivate a conditional interpretation: if a reconstruction dictionary maps the selected algebraic/entropic data to geometry, changing those inputs may change the reconstructed geometry.  No general reconstruction theorem is assumed silently.
+
+\begin{remark}[Geometry as Coarse-Graining Dependent]
+In models with a stated reconstruction dictionary, effective spacetime geometry is a derived, coarse-graining-dependent quantity.  Outside those models the construction supplies operator and connectivity data only; topology and metric are not inferred.
+\end{remark}
+
+\begin{remark}[Relation to Prior Work]
+While the non-uniqueness of tensor factorization has been widely discussed in the quantum information literature \cite{Zanardi2001,Zanardi2004}, its implications for distinguishing gravitational phenomena from gauge interactions at a structural level have not, to our knowledge, been made explicit. The present work develops this connection.
+\end{remark}
+
+This observation sets the stage for the distinction we develop in the next section.
+
+\section{A Structural Distinction: Gauge Forces vs.\ Gravity}
+\label{sec:distinction}
+
+\subsection{Forces Within a Factorization}
+
+Consider the standard description of gauge interactions. In quantum electrodynamics, the electromagnetic force is mediated by photon exchange between charged particles. In quantum chromodynamics, gluons mediate the strong force between quarks. In each case, the interaction is described as a coupling between degrees of freedom that are already identified as distinct subsystems.
+
+Formally, gauge theories are constructed on a fixed background: a spacetime manifold $M$ equipped with a principal bundle whose structure group is the gauge group ($U(1)$, $SU(2)$, $SU(3)$, etc.). Matter fields are sections of associated bundles, and gauge fields are connections on the principal bundle. The dynamics describes how these fields interact \emph{given} the background structure.
+
+Crucially, the identification of ``electron here'' and ``photon there'' presupposes a decomposition of the total system into localized subsystems. The gauge interaction operates \emph{within} this decomposition, coupling degrees of freedom that have already been distinguished.
+
+\subsection{Gravity: A Different Category?}
+
+General relativity describes gravity not as a force between objects on a fixed background, but as the curvature of spacetime itself. The metric tensor $g_{\mu\nu}$ is both the arena in which physics unfolds and a dynamical variable subject to the Einstein equations.
+
+This dual role has long been recognized as the source of conceptual and technical difficulties. But the present framework suggests a sharper formulation of the distinction.
+
+If gauge forces operate within a given subsystem decomposition, we propose that gravitational phenomena may be understood as reflecting properties of the decomposition itself. Specifically:
+
+\begin{itemize}
+    \item The effective geometry—the metric, the notion of distance, the causal structure—emerges from the pattern of entanglement among accessible degrees of freedom.
+    \item This pattern is determined by the choice of accessible observable algebra.
+    \item Gravitational phenomena, in this view, are not interactions between pre-existing objects, but manifestations of how effective spacetime structure responds to changes in what is accessible.
+\end{itemize}
+
+We emphasize that this proposal does not deny that gravity is geometrical at the effective level. Rather, it suggests that the \emph{origin} of this geometry may lie in how accessible observables define effective subsystems. The geometry remains real and physically consequential; what changes is the account of where it comes from.
+
+\subsection{An Intuitive Picture}
+
+To fix intuitions, consider the following analogy.
+
+Imagine a map of a territory. On the map, one can trace routes between cities—these routes depend on the geography depicted. Now consider the \emph{projection} used to create the map: Mercator, Robinson, or some other. Different projections yield different maps with different distance relationships and shape distortions.
+
+In this analogy:
+\begin{itemize}
+    \item \textbf{Gauge forces} are like routes on the map—interactions that take place within a given representational structure.
+    \item \textbf{Gravity} is like the projection itself—a property of how the representation is constructed, not a feature operating within it.
+\end{itemize}
+
+Changing the projection does not add new routes; it changes what ``distance'' and ``proximity'' mean. Similarly, changing the accessible observable algebra does not introduce new forces; it changes the effective geometry in which all forces are described.
+
+\begin{remark}[Intuitive Picture]
+This analogy is offered for conceptual orientation, not as a precise technical claim. The formal relationship between observable algebra selection and effective geometry requires the machinery developed in \cite{Liu2026PaperA} and subsequent sections of this paper.
+\end{remark}
+
+\subsection{Implications for Quantization}
+
+If this structural distinction is correct, it may illuminate the difficulty of quantizing gravity.
+
+Quantizing a gauge theory means promoting classical fields to operator-valued distributions on a fixed background, subject to appropriate commutation relations and dynamics. The background—including the decomposition into subsystems—is held fixed while the fields are quantized.
+
+But if gravity reflects the choice of decomposition itself, then ``quantizing gravity'' would require quantizing the selection of how to divide the system into parts. This is a categorically different task. It is not a matter of promoting a classical field to a quantum operator; it is a matter of making the \emph{framework in which quantization is defined} itself subject to quantum uncertainty.
+
+This may explain why straightforward approaches to quantum gravity encounter difficulties: they attempt to apply quantization procedures designed for systems \emph{within} a fixed decomposition to a structure that determines the decomposition itself.
+
+This perspective does not introduce new dynamics or predictions, but may offer diagnostic value: it suggests a structural reason why gravity resists the quantization procedures that succeed for gauge interactions, and points toward the need for approaches that do not presuppose a fixed subsystem decomposition.
+
+\begin{remark}[Diagnostic Value]
+We do not claim that this perspective solves the problem of quantum gravity. Rather, we suggest that it offers diagnostic value: it identifies a structural reason why gravity may resist the techniques that succeed for gauge forces, and points toward the need for approaches that do not presuppose a fixed subsystem decomposition.
+\end{remark}
+
+\subsection{Relation to Background Independence}
+
+The idea that gravity is connected to ``background independence'' is well established in the quantum gravity literature \cite{Rovelli2004,Smolin2006}. The present proposal may be viewed as a sharpening of this intuition in terms of observable algebras.
+
+Background independence is often formulated as the requirement that physical laws not depend on a fixed spacetime metric. In the present framework, this requirement is subsumed under a more general principle: physical content should not depend on a particular choice of accessible observable algebra, or at least should transform covariantly under changes in that choice.
+
+This suggests that a satisfactory theory of quantum gravity may need to be formulated not in terms of fields on a spacetime manifold, but in terms of structures that are prior to—or more fundamental than—the decomposition into spatially localized subsystems.
+
+\begin{remark}[Context-Dependence vs.\ Observer-Dependence]
+A potential misreading of this proposal is that it renders gravity ``observer-dependent'' or subjective. We stress that this is not the case. The selection of accessible observable algebras is constrained by physical interactions and stability criteria (such as decoherence structure and dynamical invariance), not by subjective choice or epistemic limitation. The resulting effective geometry is \emph{context-dependent}—it depends on which physical degrees of freedom are stably accessible—but not \emph{observer-relative} in any subjective sense. This distinction is developed in detail in \cite{Liu2026PaperB}.
+\end{remark}
+
+\subsection{Universality Within a Selected Geometric Sector}
+
+A central puzzle in gravitational physics is the universality of free fall.  The algebraic proposal can encode a limited version of universality, but does not derive the empirical equivalence principle.
+
+Assume a reconstruction dictionary assigns one effective metric to a selected geometric algebra $\mathcal{A}_{\mathrm{geo},\mathbf{c}}$.  All matter representations included in that sector then inhabit the same assigned metric.  This is universality by common representation, conditional on the choice of sector and dictionary; it is not a derivation of universal free fall or of equality between inertial and gravitational mass.
+
+Operators outside $\mathcal{A}_{\mathrm{geo},\mathbf{c}}$ are simply outside the modelled geometric sector.  The present construction makes no claim about their gravitational influence.
+
+\begin{remark}[No dark-sector conclusion]
+It would be inconsistent here to declare a degree of freedom outside $\mathcal{A}_{\mathrm{geo},\mathbf{c}}$ irrelevant to the reconstructed metric and simultaneously let it alter that metric gravitationally.  A dark-sector application would require an enlarged source algebra and an explicit backreaction map.  Neither is supplied, so no dark-matter or dark-energy conclusion is drawn.
+\end{remark}
+
+\section{Technical Formulation}
+\label{sec:technical}
+
+\subsection{Setup and Notation}
+
+We distinguish the operator-algebraic and finite-dimensional regimes result by result.  Modular statements use a Type~III$_1$ ambient factor with a faithful normal state and explicit cyclic/separating hypotheses.  Density matrices, traces, QFIM, and the qubit example are finite-dimensional/Type~I model statements.  The Rindler example is an AQFT model check.  The linearized Einstein equation is imported only in the holographic CFT regime under the assumptions listed in Theorem~\ref{thm:linearized}.
+
+\begin{definition}[Selected geometric algebra]
+\label{def:accessible}
+A \textbf{selected geometric algebra} $\mathcal{A}_{\mathrm{geo},\mathbf{c}}$ is a von Neumann subalgebra chosen as input to a specified algebra-to-geometry reconstruction model.  It is not Paper~E's probe-reachable effect system, pointer/record algebra, or environmental fixed set.  A coarse-graining model must declare the channel or inclusion relating any of those objects to $\mathcal{A}_{\mathrm{geo},\mathbf{c}}$.
+\end{definition}
+
+No assumption is made that such a subalgebra admits a unique or canonical tensor factorization of $\mathcal{H}$.
+
+\begin{remark}
+The conditions introduced in Section~\ref{sec:modular} define a class of modular-stable candidates for $\mathcal{A}_{\mathrm{geo},\mathbf{c}}$; they do not derive a unique member.
+\end{remark}
+
+\subsection{Entanglement Structure and Induced Geometry}
+
+Given a selected geometric algebra $\mathcal{A}_{\mathrm{geo},\mathbf{c}}$, one may consider state restrictions or relative-entropy data on that algebra, subject to the regime qualifications above.
+
+Following insights from holography and tensor network constructions, patterns of entanglement within $\mathcal{A}_{\mathrm{geo},\mathbf{c}}$ may be associated with an effective distance structure on equivalence classes of observables.
+
+Crucially, this effective geometry depends on:
+\begin{itemize}
+    \item the choice of $\mathcal{A}_{\mathrm{geo},\mathbf{c}}$,
+    \item the stability of correlations under coarse-grained dynamics,
+    \item and the redundancy of information encoding.
+\end{itemize}
+
+No claim is made that this geometry is fundamental. It is an effective description, valid within the context defined by $\mathcal{A}_{\mathrm{geo},\mathbf{c}}$.
+
+\subsection{Central Conjecture}
+
+We now state the central conjecture of this paper explicitly.
+
+\begin{conjecture}[Gravity as Adiabatic Algebra Evolution]
+\label{conj:main}
+Gravitational dynamics is conjectured to correspond to an \textbf{adiabatic flow} of selected geometric algebras $\mathcal{A}_{\mathrm{geo},\mathbf{c}}(t)$.  This paper does not derive the selection rule that produces the path.
+
+Specifically:
+\begin{enumerate}
+    \item The global state evolves unitarily: $|\Psi_U(t)\rangle = U(t)|\Psi_U(0)\rangle$.
+    \item A model-dependent rule selects a geometric candidate $\mathcal{A}_{\mathrm{geo},\mathbf{c}}(t)\subset\mathcal M_U$ at each time.
+    \item As the state evolves, the selected candidate may shift: $\mathcal{A}_{\mathrm{geo},\mathbf{c}}(t) \to \mathcal{A}_{\mathrm{geo},\mathbf{c}}(t + dt)$.
+    \item This shift $\dot{\mathcal{A}}_{\mathbf{c}}(t)$ manifests phenomenologically as the dynamical curvature of spacetime—i.e., as gravity.
+\end{enumerate}
+
+In contrast, unitary evolution of observables \emph{within} a fixed algebra $\mathcal{A}_{\mathrm{geo},\mathbf{c}}$ manifests as gauge interactions. The categorical distinction is:
+\begin{itemize}
+    \item \textbf{Gauge dynamics:} Evolution within $\mathcal{A}_{\mathrm{geo},\mathbf{c}}$ (fixed stage, moving actors)
+    \item \textbf{Gravitational dynamics:} Evolution of $\mathcal{A}_{\mathrm{geo},\mathbf{c}}$ itself (moving stage)
+\end{itemize}
+\end{conjecture}
+
+This formulation addresses a key objection: if algebras are kinematical background, how can gravity be dynamical? The answer is that the \emph{selection} of which algebra is stable is itself state-dependent, and state evolution induces algebra flow.
+
+\begin{remark}[Status of Algebraic Variations]
+The adiabatic approximation assumes that algebra transitions occur slowly relative to internal dynamics within $\mathcal{A}_{\mathrm{geo},\mathbf{c}}$. Rapid transitions would correspond to strong gravitational effects or spacetime singularities—regimes where the effective geometric description breaks down. The question of what dynamics, if any, governs non-adiabatic transitions is left open (see Section~\ref{sec:open}).
+\end{remark}
+
+\subsection{Metric from Quantum Information Geometry}
+
+For comparison with information geometry, consider the \textbf{Quantum Fisher Information Metric (QFIM)} on a finite-dimensional family of effective states \cite{Petz1996,Bengtsson2006}.  We do not identify it with the spacetime metric.
+
+Let $\{\lambda^\mu\}$ parameterize a smooth finite-dimensional family of faithful effective states $\rho(\lambda)$. The induced metric $g_{\mu\nu}$ on this state family is given by:
+\begin{equation}
+g_{\mu\nu}(\lambda) = \frac{1}{2} \text{Tr}\left( \rho(\lambda) \{ L_\mu, L_\nu \} \right),
+\label{eq:qfim-d}
+\end{equation}
+where $L_\mu$ is the symmetric logarithmic derivative satisfying
+\begin{equation}
+\partial_\mu \rho = \frac{1}{2}(\rho L_\mu + L_\mu \rho).
+\end{equation}
+
+This construction has several attractive features:
+\begin{itemize}
+    \item It is coordinate-independent and intrinsically quantum.
+    \item It reduces to the classical Fisher metric in appropriate limits.
+    \item It is directly related to distinguishability of quantum states—geometrically ``close'' states are hard to distinguish operationally.
+\end{itemize}
+
+The QFIM is positive semidefinite and Riemannian.  A Lorentzian spacetime metric has indefinite signature and causal structure.  No operation in Eq.~\eqref{eq:qfim-d} supplies the negative direction, so the QFIM currently provides an analogy or a metric on model space only.  Changes in the selected algebra,
+\begin{equation}
+\mathcal{A}_{\mathrm{geo},\mathbf{c}} \to \mathcal{A}_{\mathrm{geo},\mathbf{c}} + \delta\mathcal{A}_{\mathrm{geo},\mathbf{c}},
+\end{equation}
+may change this state-space metric.  Calling the change a spacetime perturbation or gravitational wave requires an additional Lorentzian reconstruction map.
+
+\begin{remark}[Relation to Holographic Results]
+In AdS/CFT, relative entropy and entanglement first-law arguments constrain bulk perturbations \cite{Lashkari2014,Faulkner2014}.  Those results use the holographic dictionary and do not show that an arbitrary boundary QFIM is itself the Lorentzian bulk metric.  Extending the relationship beyond holography is an open conjecture.
+\end{remark}
+
+\subsection{What This Section Does Not Claim}
+
+To prevent misreading, we state explicitly what this technical formulation does \emph{not} attempt:
+
+\begin{itemize}
+    \item It does not derive gravitational field equations.
+    \item It does not specify a dynamics for coarse-graining selection.
+    \item It does not claim empirical adequacy or testable predictions.
+    \item It does not introduce observer-dependent or consciousness-related elements.
+\end{itemize}
+
+The role of this section is to demonstrate internal coherence between the structural claims of Sections~1--3 and existing entanglement--geometry correspondences in the literature.
+
+
+% ============================================================================
+% Section: Algebraic Foundation (integrated from HAFF_Gravity_Phase1)
+% ============================================================================
+\section{Algebraic Foundation: Modular-Stable Candidates}
+\label{sec:modular}
+
+The preceding sections formulated the HAFF gravity conjecture in structural and information-geometric terms.  This section places one candidate class in Tomita--Takesaki modular theory.  It does not translate measurement accessibility or environmental redundancy into modular conditions, and it does not prove uniqueness.  The former uniqueness theorem is explicitly withdrawn below.
+
+
+\subsection{Preliminaries}
+\label{sec:modular-prelim}
+
+We review the mathematical tools required for the main construction. Standard references include Takesaki \cite{Takesaki2003}, Bratteli--Robinson \cite{BratteliRobinson1997}, and Haag \cite{Haag1996}.
+
+\subsubsection{Von Neumann Algebras}
+
+\begin{definition}
+A \textbf{von Neumann algebra} $\mathcal{M}$ acting on a Hilbert space $\mathcal{H}$ is a $*$-subalgebra of $\mathcal{B}(\mathcal{H})$ that contains the identity and is closed in the weak operator topology.
+Equivalently, by von Neumann's bicommutant theorem, $\mathcal{M} = \mathcal{M}''$, where $\mathcal{M}' = \{T \in \mathcal{B}(\mathcal{H}) : [T, M] = 0 \;\forall\, M \in \mathcal{M}\}$ is the commutant.
+\end{definition}
+
+\begin{definition}
+A von Neumann algebra $\mathcal{M}$ is a \textbf{Type~III$_1$ factor} if it has trivial center ($\mathcal{M} \cap \mathcal{M}' = \mathbb{C} \mathbf{1}$), admits no finite or semifinite normal trace, and the Connes spectrum $S(\mathcal{M}) = \mathbb{R}_{\geq 0}$.
+\end{definition}
+
+By a deep result of algebraic QFT, local algebras of observables in any reasonable quantum field theory are Type~III$_1$ factors \cite{Haag1996, Yngvason2005}.
+
+\subsubsection{Tomita--Takesaki Modular Theory}
+\label{sec:TT}
+
+The Tomita--Takesaki theorem is the central structure theorem for von Neumann algebras with a cyclic and separating vector.
+
+\begin{definition}
+Let $\mathcal{M}$ be a von Neumann algebra on $\mathcal{H}$, and let $|\Omega\rangle \in \mathcal{H}$.
+\begin{itemize}
+\item $|\Omega\rangle$ is \textbf{cyclic} for $\mathcal{M}$ if $\mathcal{M}|\Omega\rangle$ is dense in $\mathcal{H}$.
+\item $|\Omega\rangle$ is \textbf{separating} for $\mathcal{M}$ if $M|\Omega\rangle = 0$ implies $M = 0$ for all $M \in \mathcal{M}$.
+\end{itemize}
+\end{definition}
+
+If $|\Omega\rangle$ is cyclic and separating, define the antilinear operator
+\begin{equation}
+S_\Omega : M|\Omega\rangle \mapsto M^*|\Omega\rangle, \qquad M \in \mathcal{M}.
+\end{equation}
+This operator is closable, and its closure admits a polar decomposition:
+\begin{equation}
+S_\Omega = J_\Omega \Delta_\Omega^{1/2},
+\end{equation}
+where $J_\Omega$ is an antiunitary involution (the \textbf{modular conjugation}) and $\Delta_\Omega$ is a positive self-adjoint operator (the \textbf{modular operator}).
+
+\begin{theorem}[Tomita--Takesaki {\cite{Takesaki2003}}]
+\label{thm:TT}
+Let $\mathcal{M}$ be a von Neumann algebra with cyclic and separating vector $|\Omega\rangle$, and let $\Delta_\Omega$, $J_\Omega$ be as above. Then:
+\begin{enumerate}
+\item[(a)] $J_\Omega \mathcal{M} J_\Omega = \mathcal{M}'$ (modular conjugation exchanges the algebra and its commutant).
+\item[(b)] The \textbf{modular automorphism group}
+\begin{equation}
+\sigma_t^\Omega(M) := \Delta_\Omega^{it} M \Delta_\Omega^{-it}, \qquad t \in \mathbb{R},
+\end{equation}
+satisfies $\sigma_t^\Omega(\mathcal{M}) = \mathcal{M}$ for all $t \in \mathbb{R}$.
+\end{enumerate}
+\end{theorem}
+
+Thus, any von Neumann algebra with a faithful state possesses a canonical one-parameter automorphism group.
+
+\subsubsection{The KMS Condition}
+
+\begin{definition}
+Let $\mathcal{M}$ be a von Neumann algebra, $\alpha_t$ a one-parameter automorphism group, and $\omega$ a normal state on $\mathcal{M}$.
+The state $\omega$ satisfies the \textbf{KMS condition} at inverse temperature $\beta$ with respect to $\alpha_t$ if, for all $A, B \in \mathcal{M}$, there exists a function $F_{A,B}(z)$ analytic in the strip $0 < \operatorname{Im}(z) < \beta$ and continuous on its closure, such that
+\begin{equation}
+F_{A,B}(t) = \omega(A \,\alpha_t(B)), \qquad F_{A,B}(t + i\beta) = \omega(\alpha_t(B)\, A)
+\end{equation}
+for all $t \in \mathbb{R}$.
+\end{definition}
+
+\begin{theorem}[Takesaki {\cite{Takesaki2003}}]
+\label{thm:KMS-unique}
+Let $\omega$ be a faithful normal state on a von Neumann algebra $\mathcal{M}$.
+Then $\omega$ is KMS at $\beta = 1$ with respect to $\sigma_t^\omega$, and $\sigma_t^\omega$ is the \emph{unique} one-parameter automorphism group with this property.
+\end{theorem}
+
+The physical content is striking: the modular flow is the unique time evolution for which the given state looks thermal.
+In the Rindler wedge, this flow is the Lorentz boost, and the KMS condition at $\beta = 2\pi$ reproduces the Unruh temperature $T_U = (2\pi)^{-1}$ (in natural units where the acceleration $a = 1$).
+
+\subsubsection{Half-Sided Modular Inclusions}
+
+\begin{definition}[{\cite{Wiesbrock1993}}]
+Let $\mathcal{N} \subset \mathcal{M}$ be an inclusion of von Neumann algebras on $\mathcal{H}$, with $|\Omega\rangle$ cyclic and separating for both.
+The inclusion is a \textbf{half-sided modular inclusion} (HSMI) if
+\begin{equation}
+\sigma_t^{\mathcal{M}}(\mathcal{N}) \subset \mathcal{N} \qquad \text{for all } t \leq 0,
+\end{equation}
+where $\sigma_t^{\mathcal{M}}$ denotes the modular automorphism group of $(\mathcal{M}, |\Omega\rangle)$.
+\end{definition}
+
+\begin{theorem}[Wiesbrock {\cite{Wiesbrock1993}}]
+\label{thm:Wiesbrock}
+Let $\mathcal{N} \subset \mathcal{M}$ be a half-sided modular inclusion with common cyclic and separating vector $|\Omega\rangle$.
+Then there exists a unique one-parameter unitary group $U(a) = e^{-iaP}$, $a \geq 0$, with positive generator $P \geq 0$, such that
+\begin{equation}
+\mathcal{N} = U(1)\mathcal{M} U(1)^*.
+\end{equation}
+Moreover, $U(a)|\Omega\rangle = |\Omega\rangle$ for all $a$.
+\end{theorem}
+
+The physical interpretation is that the translation from $\mathcal{M}$ to $\mathcal{N}$ is encoded algebraically: no background geometry is needed to define the notion of ``shifting a wedge.''
+This is the key tool for extracting spacetime structure from purely algebraic data.
+
+
+\subsection{Modular Definition of Accessible Algebras}
+\label{sec:modular-def}
+
+Let $\mathcal M_U$ be a Type~III$_1$ factor in standard form on $\mathcal H_U$, let $|\Psi_U\rangle$ be cyclic and separating for $\mathcal M_U$, and write $\omega(\cdot)=\langle\Psi_U|\cdot|\Psi_U\rangle$.  Then $\omega$ is faithful and normal on $\mathcal M_U$ and its ambient modular automorphism group $\sigma_t^{\omega,U}$ exists.  Let $\{\mathcal E_t\}_{t\ge0}$ be a normal UCP semigroup acting in the Heisenberg picture on $\mathcal M_U$.
+
+\begin{definition}[Modular-stable geometric candidate]
+\label{def:modular-accessible}
+A von Neumann subalgebra $\mathcal{A}_{\mathrm{geo},\mathbf{c}}\subset\mathcal M_U$ is a \textbf{modular-stable geometric candidate} if it satisfies:
+
+\begin{enumerate}
+\item[\textup{(U1)}] \textbf{Faithful restriction.} The restriction $\omega|_{\mathcal{A}_{\mathrm{geo},\mathbf{c}}}$ is faithful and normal.  In the stated faithful ambient setting, faithfulness is inherited by every unital subalgebra and is therefore a regularity condition, not a selector.
+
+\item[\textup{(U2)}] \textbf{Ambient modular stability.} The candidate is globally invariant under the ambient Type~III modular flow:
+\begin{equation}
+\sigma_t^{\omega,U}(\mathcal{A}_{\mathrm{geo},\mathbf{c}})
+=\mathcal{A}_{\mathrm{geo},\mathbf{c}}
+\qquad(t\in\mathbb R).
+\end{equation}
+
+\item[\textup{(U3)}] \textbf{Semigroup stability.} The candidate is setwise invariant under the named Heisenberg dynamics:
+\begin{equation}
+\mathcal E_t(\mathcal{A}_{\mathrm{geo},\mathbf{c}})
+\subseteq\mathcal{A}_{\mathrm{geo},\mathbf{c}}
+\qquad(t\ge0).
+\end{equation}
+\end{enumerate}
+\end{definition}
+
+\begin{remark}[Typed relation to the measurement objects]
+\label{rem:translation}
+Conditions (U1)--(U3) do not derive Paper~E's probe-reachable operator system $\mathrm{Eff}_{\mathrm{acc}}$ or pointer algebra $\mathcal P_{\mathrm{env}}$.  Nor is setwise semigroup stability the same as the exact fixed set $\operatorname{Fix}(\mathcal E)$.  A downstream model may specify a channel or inclusion from those objects into $\mathcal{A}_{\mathrm{geo},\mathbf{c}}$; absent that map, the relation is motivational only.  In particular, environmental redundancy does not imply faithfulness of a state restriction.
+\end{remark}
+
+\begin{remark}[The role of $\mathcal{E}_t$]
+Condition (U3) names a normal UCP Heisenberg semigroup.  A causal restriction map and a Lindblad time evolution are different types and are not identified.  Each model must provide its own $\mathcal E_t$ and verify setwise invariance.
+\end{remark}
+
+
+\subsection{Withdrawal of the Uniqueness Claim}
+\label{sec:modular-uniqueness}
+
+\begin{remark}[Retracted uniqueness theorem]
+\label{thm:uniqueness}
+The previous theorem asserted uniqueness from (U1)--(U3) and the pointwise condition that only scalars are fixed by both dynamics.  That assertion is withdrawn for four independent reasons.
+\begin{enumerate}
+\item Uniqueness of the modular flow for a \emph{fixed pair} $(\mathcal A,\omega)$ does not select the algebra $\mathcal A$.
+\item A normal CP map may preserve two subalgebras separately without preserving their join, because it is not multiplicative.  Join preservation is valid for the modular automorphisms, but not for a general $\mathcal E_t$.
+\item Pointwise ergodicity constrains fixed elements, whereas (U2)--(U3) are setwise invariance conditions on subalgebras.  No implication from the former to a unique maximal element of the latter lattice was proved.
+\item With a faithful ambient state, $\mathcal M_U$ itself satisfies (U1)--(U3).  A bare maximality rule therefore selects the ambient algebra trivially unless an independent seed, properness, readout, or minimal-hull condition is supplied.
+\end{enumerate}
+Replacing $\mathcal B(\mathcal H_U)$ by a faithful Type~III factor repairs the existence of the ambient modular flow, but does not repair any of these selection failures.  No uniqueness or uniqueness/multiplicity dichotomy is claimed in this version.
+\end{remark}
+
+\begin{remark}[Candidate multiplicity]
+\label{rem:ergodicity}
+The class of modular-stable candidates may contain multiple non-unitarily-equivalent members regardless of pointwise ergodicity.  Classifying that family requires additional structure and is an open problem.
+\end{remark}
+
+\begin{remark}[Selection remains an input]
+A nontrivial selection principle could use a foreground seed and construct a minimal invariant hull, or impose an explicit readout/interface constraint.  Neither construction is proved here.  Candidate status must not be read as measurement accessibility or completeness.
+\end{remark}
+
+
+\subsection{Example 1: Rindler Wedge}
+\label{sec:rindler}
+
+Consider a free massless scalar field $\phi(x)$ in $(1+3)$-dimensional Minkowski spacetime $(\mathbb{R}^{1,3}, \eta_{\mu\nu})$.
+The total Hilbert space is the Fock space $\mathcal{H}_U = \mathcal{F}(\mathcal{H}_1)$ over the one-particle space $\mathcal{H}_1 = L^2(\mathbb{R}^3)$.
+The global state is the Minkowski vacuum $|\Omega\rangle$.
+
+Define the right Rindler wedge:
+\begin{equation}
+\mathcal{W}_R = \{(t, x, y, z) \in \mathbb{R}^{1,3} : x > |t|\}.
+\end{equation}
+The local algebra $\mathcal{R}(\mathcal{W}_R) = \{e^{i\phi(f)} : \operatorname{supp} f \subset \mathcal{W}_R\}''$ is the von Neumann algebra generated by Weyl operators smeared with test functions supported in $\mathcal{W}_R$.
+For this model check we take $\mathcal M_U=\mathcal R(\mathcal W_R)$.  This makes the ambient modular action well defined but does not perform a nontrivial subalgebra selection.
+
+\subsubsection{Verification of (U1): Faithfulness}
+
+The Reeh--Schlieder theorem \cite{Haag1996} guarantees that the Minkowski vacuum $|\Omega\rangle$ is cyclic and separating for $\mathcal{R}(\mathcal{W}_R)$.
+Therefore, the state $\omega(\cdot) = \langle\Omega|\cdot|\Omega\rangle$ is faithful on $\mathcal{R}(\mathcal{W}_R)$.
+
+\subsubsection{Verification of (U2): Modular stability}
+
+By the Bisognano--Wichmann theorem \cite{BisognanoWichmann1975, BisognanoWichmann1976}, the modular operator of $(\mathcal{R}(\mathcal{W}_R), |\Omega\rangle)$ is
+\begin{equation}
+\Delta_\Omega = e^{-2\pi K},
+\end{equation}
+where $K$ is the boost generator in the $x$-direction.
+The modular automorphism group acts as
+\begin{equation}
+\sigma_t^\Omega(\phi(t_0, \mathbf{x})) = \phi(\Lambda_{2\pi t}(t_0, \mathbf{x})),
+\end{equation}
+where $\Lambda_s$ is the Lorentz boost with rapidity $s$.
+Since the Rindler wedge is invariant under Lorentz boosts---$\Lambda_s(\mathcal{W}_R) = \mathcal{W}_R$ for all $s$---the modular flow preserves the wedge algebra:
+\begin{equation}
+\sigma_t^\Omega(\mathcal{R}(\mathcal{W}_R)) = \mathcal{R}(\mathcal{W}_R) \qquad \forall\, t \in \mathbb{R}.
+\end{equation}
+
+\subsubsection{Status of (U3)}
+
+No decoherence semigroup $\mathcal E_t$ has been specified in this AQFT example, so (U3) is not verified.  Haag duality, $\mathcal R(\mathcal W_R)'=\mathcal R(\mathcal W_L)$, does not imply that every proper extension of the wedge algebra contains the entire opposite-wedge algebra, nor does it prove a maximality statement.  The example checks standardness and the geometric modular action only.
+
+\subsubsection{Physical content}
+
+The modular flow $\sigma_t^\Omega$ coincides with the Lorentz boost, and the KMS condition at $\beta = 2\pi$ gives the Unruh temperature $T_U = a/(2\pi)$, where $a$ is the proper acceleration.
+The modular Hamiltonian is
+\begin{equation}
+K_{\mathrm{mod}} = -\ln \Delta_\Omega = 2\pi K = 2\pi \int_{\mathcal{W}_R} d\Sigma^\mu\, x_\nu\, T^{\nu}{}_\mu,
+\end{equation}
+where $d\Sigma^\mu$ is the surface element on the $t = 0$ Cauchy surface.
+This example reproduces the established Bisognano--Wichmann identification of wedge modular flow with boosts.  It does not show that the wedge algebra is uniquely selected by (U1)--(U3).
+
+
+\subsection{Example 2: Qubit Chain with Decoherence}
+\label{sec:qubit}
+
+Consider $n$ qubits with total Hilbert space $\mathcal{H}_U = (\mathbb{C}^2)^{\otimes n}$.
+The system Hamiltonian is the transverse-field Ising model:
+\begin{equation}
+\hat{H} = -J \sum_{i=1}^{n-1} \sigma_z^{(i)} \sigma_z^{(i+1)} - h \sum_{i=1}^{n} \sigma_x^{(i)},
+\end{equation}
+with $J > 0$ and transverse field strength $h$.
+The system is coupled to a thermal environment at inverse temperature $\beta$ through a Schr\"odinger-picture dephasing Lindblad semigroup:
+\begin{equation}
+\label{eq:lindblad}
+\mathcal{T}_t(\rho) = e^{t\mathcal{L}}(\rho), \qquad \mathcal{L}(\rho) = -i[\hat{H}, \rho] + \gamma \sum_i \left(\sigma_z^{(i)} \rho\, \sigma_z^{(i)} - \rho\right),
+\end{equation}
+where $\gamma > 0$ is the dephasing rate.  Its normal UCP Heisenberg dual is denoted $\mathcal E_t:=\mathcal T_t^*$.
+The global state is the thermal state $\omega = Z^{-1} e^{-\beta \hat{H}}$.  For an exact check of (U2)--(U3) below we take the commuting specialization $h=0$.  When $h\ne0$, the diagonal algebra is only approximately stable in a strong-dephasing approximation and is not an exact model of the stated conditions.
+
+\subsubsection{Identification of $\mathcal{A}_{\mathrm{geo},\mathbf{c}}$}
+
+For $h=0$, off-diagonal coherences in the $\sigma_z$ basis are destroyed while the diagonal observables are exactly fixed by the Heisenberg semigroup.  The corresponding pointer/record algebra is
+\begin{equation}
+\mathcal{A}_{\mathrm{geo},\mathbf{c}} = \{f(\sigma_z^{(1)}, \ldots, \sigma_z^{(n)}) : f \text{ is a polynomial}\}'' = \mathcal{A}_{\mathrm{diag}},
+\end{equation}
+the maximal abelian subalgebra (MASA) of $\mathcal{B}(\mathcal{H}_U)$ associated with the computational basis.
+
+\subsubsection{Verification of (U1): Faithfulness}
+
+The thermal state $\omega = Z^{-1}e^{-\beta\hat{H}}$ is a full-rank density matrix for any finite $\beta$ (every eigenvalue of $e^{-\beta\hat{H}}$ is strictly positive).
+Its restriction to $\mathcal{A}_{\mathrm{diag}}$ assigns non-zero probability to every computational-basis state:
+\begin{equation}
+\omega(|s\rangle\langle s|) = \langle s | \rho_{\mathrm{th}} | s \rangle > 0 \qquad \forall\; s,
+\end{equation}
+where the strict positivity follows from $\rho_{\mathrm{th}} = Z^{-1}e^{-\beta\hat{H}}$ being positive definite.
+Note that $|s\rangle$ are computational-basis (not energy-eigen-) states; the diagonal matrix elements of a positive-definite operator are strictly positive regardless of the choice of basis.
+
+\subsubsection{Verification of (U2): Modular stability}
+
+For the finite-dimensional system with faithful thermal state $\rho_{\mathrm{th}}$, the ambient modular flow acts on $\mathcal{B}(\mathcal{H}_U)$ as
+\begin{equation}
+\sigma_t^{\omega,U}(X) = \rho_{\mathrm{th}}^{it}\, X\, \rho_{\mathrm{th}}^{-it} \qquad \forall\, X \in \mathcal{B}(\mathcal{H}_U).
+\end{equation}
+For diagonal operators $A = \sum_s a_s |s\rangle\langle s| \in \mathcal{A}_{\mathrm{diag}}$, we compute
+\begin{equation}
+\sigma_t^{\omega,U}(A) = \rho_{\mathrm{th}}^{it} \left(\sum_s a_s |s\rangle\langle s|\right) \rho_{\mathrm{th}}^{-it} = \sum_s a_s\, (\rho_{\mathrm{th}}^{it}|s\rangle)(\langle s|\rho_{\mathrm{th}}^{-it}).
+\end{equation}
+For $h=0$, $\rho_{\mathrm{th}}$ is diagonal in the computational basis, so $\rho_{\mathrm{th}}^{it}$ commutes with every $A\in\mathcal A_{\mathrm{diag}}$ and (U2) holds exactly.  For $h\ne0$, the displayed conjugation generally leaves $\mathcal A_{\mathrm{diag}}$, which is why that case is not advertised as an exact verification.
+
+\subsubsection{Verification of (U3): Semigroup stability}
+
+Under the Heisenberg dual of the dephasing dynamics, off-diagonal matrix units decay as
+\begin{equation}
+e^{t\mathcal{L}_{\mathrm{deph}}^*}(|s\rangle\langle s'|) = e^{-2\gamma\, d(s,s')\, t}\, |s\rangle\langle s'|,
+\end{equation}
+where $d(s, s')$ is the Hamming distance between strings $s$ and $s'$.
+For $h=0$, the Hamiltonian is diagonal as well, so every diagonal observable is fixed and (U3) holds.  Thus $\mathcal A_{\mathrm{diag}}\subset\operatorname{Fix}(\mathcal E^*)$.  This does not prove maximal setwise invariance: the full ambient matrix algebra is always mapped into itself, and decaying off-diagonal operators can remain inside a setwise-invariant algebra.
+
+\subsubsection{Physical content}
+
+With the additional exact-fixed-point criterion, the pointer algebra is the set of observables that survive this commuting dephasing model.
+The modular flow acts trivially on the pointer basis (since the algebra is abelian), consistent with the fact that classical variables do not undergo non-trivial modular evolution.
+The entanglement entropy of a subsystem $A \subset \{1, \ldots, n\}$ within $\mathcal{A}_{\mathrm{diag}}$ reduces to the classical Shannon entropy:
+\begin{equation}
+S_A = -\sum_{s_A} p(s_A) \ln p(s_A), \qquad p(s_A) = \sum_{s_{\bar{A}}} p(s).
+\end{equation}
+This finite-dimensional example checks that $\mathcal A_{\mathrm{diag}}$ is one modular- and semigroup-stable candidate and, under exact fixation, the pointer algebra.  It neither verifies the Type~III regime nor selects the candidate uniquely.
+
+
+\subsection{Connection to Linearized Gravity}
+\label{sec:linearized}
+
+Having defined a candidate class and checked only parts of it in concrete models, we now isolate the extra assumptions needed to import a known holographic linearized-gravity result.
+
+\subsubsection{Entanglement first law}
+
+\begin{theorem}[Entanglement first law in a density-matrix/regulator setting]
+\label{thm:first-law}
+Let $\rho_0$ be a faithful density matrix and $\rho_\varepsilon=\rho_0+\varepsilon\,\delta\rho+O(\varepsilon^2)$ a normalized perturbation.  Set $K_0=-\log\rho_0$.
+Then, to first order in $\varepsilon$:
+\begin{equation}
+\delta S = \delta \langle K_0 \rangle.
+\end{equation}
+For a Type~III local algebra, neither a reduced density matrix nor its von Neumann entropy exists; the corresponding statement must be formulated through Araki relative entropy and a specified comparison of normal states.
+\end{theorem}
+
+\begin{proof}[Proof sketch]
+The finite-dimensional relative entropy $S(\rho_\varepsilon\|\rho_0)=-S(\rho_\varepsilon)+\langle K_0\rangle_{\rho_\varepsilon}$ plus a constant is non-negative and stationary at $\varepsilon=0$.  Its first variation gives the result.
+\end{proof}
+
+\subsubsection{From algebra perturbation to modular Hamiltonian perturbation}
+
+The conjecture posits a one-parameter family $\mathcal{A}_{\mathrm{geo},\mathbf{c}}(\lambda)$, with $\mathcal{A}_{\mathrm{geo},\mathbf{c}}(0)=\mathcal{A}_{\mathrm{geo},\mathbf{c}}$.  Modular theory treats state perturbations on a fixed algebra and certain specially generated inclusion families differently:
+
+\begin{enumerate}
+\item[(a)] \textbf{State perturbation (fixed algebra):} The global state changes, $|\Psi_U\rangle \to |\Psi_U'\rangle$, but the algebra remains fixed.
+The modular Hamiltonian changes via the Connes cocycle Radon--Nikodym theorem \cite{Connes1994, Takesaki2003}:
+\begin{equation}
+\Delta_{\Psi'}^{it} = (D\omega' : D\omega)_t \; \Delta_\Psi^{it},
+\end{equation}
+where $(D\omega' : D\omega)_t$ is the Connes cocycle.
+
+\item[(b)] \textbf{HSMI translation model (fixed state):} If, as an additional model input, the family is generated by the positive translation supplied by a half-sided modular inclusion, then
+\begin{equation}
+\mathcal{A}_{\mathrm{geo},\mathbf{c}}' = e^{-i\delta a\, P} \mathcal{A}_{\mathrm{geo},\mathbf{c}}\, e^{i\delta a\, P}, \qquad \delta a \ll 1,
+\end{equation}
+yielding
+\begin{equation}
+\label{eq:deltaK-translation}
+\delta K_{\mathrm{mod}} = -i\delta a\, [P, K_{\mathrm{mod}}] + O(\delta a^2).
+\end{equation}
+\end{enumerate}
+
+Equation~\eqref{eq:deltaK-translation} is not a formula for an arbitrary change of von Neumann subalgebra.  It already assumes an HSMI translation generator $P$ and therefore cannot be used to derive the existence of translation geometry without circularity.  Nor has an additive decomposition into state and algebra variations been proved in general.
+
+\subsubsection{Linearized Einstein equations from the entanglement first law}
+
+The key result connecting algebraic perturbation to gravitational dynamics is due to Faulkner et al.\ \cite{Faulkner2014}, with complementary arguments by Jacobson \cite{Jacobson2016}.
+
+\begin{theorem}[Linearized gravity from entanglement, {\cite{Faulkner2014}}]
+\label{thm:linearized-Faulkner}
+In a holographic CFT dual to Einstein gravity in asymptotically AdS spacetime, the entanglement first law $\delta S = \delta\langle K_{\mathrm{mod}}\rangle$, applied to all ball-shaped regions on the boundary, is equivalent to the linearized Einstein equations in the bulk:
+\begin{equation}
+G_{\mu\nu}^{(1)} + \Lambda g_{\mu\nu}^{(1)} = 8\pi G_N\, T_{\mu\nu}^{(1)}.
+\end{equation}
+\end{theorem}
+
+The derivation uses the explicit form of the modular Hamiltonian for a ball-shaped boundary region \cite{CasiniHuertaMyers2011}:
+\begin{equation}
+K_{\mathrm{mod}}^B = 2\pi \int_B d^{d-1}x\, \frac{R^2 - |\mathbf{x} - \mathbf{x}_0|^2}{2R}\, T_{00}(x),
+\end{equation}
+together with the Ryu--Takayanagi formula and the JLMS relation \cite{JLMS2016} between bulk and boundary modular Hamiltonians.
+
+\subsubsection{Conditional theorem within the HAFF framework}
+
+\begin{theorem}[Conditional holographic matching for an HSMI-generated family]
+\label{thm:linearized}
+Let $\mathcal{A}_{\mathrm{geo},\mathbf{c}}$ be a modular-stable candidate in a holographic CFT vacuum representation, and assume:
+\begin{enumerate}
+\item[(H1)] The holographic correspondence (AdS/CFT duality) holds.
+\item[(H2)] The Ryu--Takayanagi formula and its quantum corrections hold.
+\item[(H3)] The JLMS formula relating bulk and boundary modular Hamiltonians holds.
+\item[(H4)] The compared algebra family is an explicitly supplied HSMI/ball-region family whose generator $P$ implements the same boundary-region variation used in the holographic first-law argument.
+\item[(H5)] The regulated entropy variation, or its relative-entropy replacement, satisfies the hypotheses of the Faulkner et al. theorem for all required boundary balls.
+\end{enumerate}
+Then Eq.~\eqref{eq:deltaK-translation} describes the modular-generator variation within that supplied family, and the holographic entanglement first law
+\begin{equation}
+\delta S = \delta\langle K_{\mathrm{mod}}\rangle
+\end{equation}
+matches the linearized Einstein equations in the holographic bulk by the imported Faulkner et al. result.  The conditional chain is:
+\begin{equation}
+\text{HSMI/ball family (H4)}
+\;\Longrightarrow\;\delta K_{\mathrm{mod}}
+\;\xrightarrow{\text{(H5)}}\;
+\delta S=\delta\langle K_{\mathrm{mod}}\rangle
+\;\xrightarrow{\text{(H1)--(H3)}}\;
+G_{\mu\nu}^{(1)}=8\pi G_NT_{\mu\nu}^{(1)}.
+\end{equation}
+This theorem does not show that a generic stability-selected algebra variation is an HSMI translation, nor that HAFF algebra flow is identical to gravitational dynamics.
+\end{theorem}
+
+\subsubsection{The circularity issue}
+
+A fundamental objection to any ``gravity from entanglement'' program is circularity: Jacobson's derivation \cite{Jacobson1995} presupposes a background geometry, but HAFF claims geometry emerges from the algebra.
+Three possible strategies are often discussed:
+
+\begin{enumerate}
+\item[(A)] \textbf{Algebraic programme (Wiesbrock).}
+``Wedge regions'' are defined purely algebraically via modular inclusions, without reference to a background metric.
+Wiesbrock's theorem (Theorem~\ref{thm:Wiesbrock}) recovers a positive translation from a half-sided modular inclusion.  Constructing a sufficient net and showing that the candidates in this paper form such inclusions remain additional tasks.
+
+\item[(B)] \textbf{Bootstrap resolution.}
+Start with a seed geometry, derive linearized Einstein equations via the entanglement first law, update the geometry, and iterate.
+
+\item[(C)] \textbf{Holographic resolution (AdS/CFT).}
+The boundary CFT provides the algebra without reference to bulk geometry; the bulk geometry is entirely derived from boundary data.
+\end{enumerate}
+
+Theorem~\ref{thm:linearized} uses the holographic strategy and assumes the HSMI/ball interface explicitly.  A geometry-free reconstruction from the present candidate class remains open.
+
+
+\section{Relation to Existing Approaches}
+\label{sec:relation}
+
+The perspective developed in this paper does not compete with existing approaches to quantum gravity and emergent spacetime. Rather, it may be understood as offering a \emph{conceptual umbrella} under which several distinct research programs can be situated. We briefly discuss four such connections.
+
+\subsection{AdS/CFT and Holographic Duality}
+
+The AdS/CFT correspondence \cite{Maldacena1999} provides the most concrete realization of geometry emerging from quantum entanglement. In this framework, a $(d+1)$-dimensional gravitational theory in anti-de Sitter space is dual to a $d$-dimensional conformal field theory on its boundary.
+
+The Ryu-Takayanagi formula \cite{RyuTakayanagi2006} and its generalizations establish that geometric quantities in the bulk (areas of extremal surfaces) correspond to entanglement entropies in the boundary theory:
+\begin{equation}
+S_A = \frac{\text{Area}(\gamma_A)}{4 G_N \hbar}.
+\end{equation}
+
+Within the present framework, AdS/CFT supplies a model in which a detailed holographic dictionary relates boundary entanglement data to bulk geometry.  It does not show that an arbitrary selected algebra carries such a dictionary.
+
+\begin{remark}[Not a Replacement]
+We do not claim that the present framework explains or derives AdS/CFT.  It is used here as a conditional input and model of an algebra/entropy-to-geometry interface.
+\end{remark}
+
+\subsection{Tensor Networks and MERA}
+
+Tensor network constructions, particularly the Multi-scale Entanglement Renormalization Ansatz (MERA) \cite{Vidal2008,Swingle2012}, provide discrete models in which geometry emerges from entanglement structure.
+
+In MERA, a quantum state is constructed by successive layers of disentanglers and isometries. The network structure itself defines an effective geometry: the ``depth'' direction in the network corresponds to a radial direction in an emergent spacetime, with properties reminiscent of AdS geometry.
+
+This construction illustrates concretely how:
+\begin{itemize}
+    \item A choice of coarse-graining (the tensor network structure) determines entanglement patterns.
+    \item Entanglement patterns induce effective geometric relationships.
+    \item Different network structures yield different effective geometries from the same boundary data.
+\end{itemize}
+
+The present framework generalizes this observation: tensor networks are specific implementations of coarse-graining structures, and MERA-type emergence is a special case of the algebra-to-geometry correspondence we propose.
+
+\subsection{Jacobson's Thermodynamic Derivation}
+
+Jacobson's remarkable result \cite{Jacobson1995} showed that Einstein's field equations can be derived from thermodynamic considerations applied to local Rindler horizons, assuming the Bekenstein-Hawking entropy formula and the Clausius relation $\delta Q = T \, dS$.
+
+This derivation suggests that gravity may be ``thermodynamic''—an effective description arising from coarse-graining over microscopic degrees of freedom, rather than a fundamental force.
+
+The present perspective is consonant with Jacobson's approach:
+\begin{itemize}
+    \item Both treat gravitational dynamics as emergent rather than fundamental.
+    \item Both connect gravity to entropy and information-theoretic quantities.
+    \item Both suggest that the Einstein equations describe effective, coarse-grained physics.
+\end{itemize}
+
+The present work asks whether this intuition can be organized around selected geometric algebras; it does not establish that organization beyond the conditional models stated above.
+
+\subsection{Background Independence in Loop Quantum Gravity}
+
+Loop quantum gravity \cite{Rovelli2004,Thiemann2007} pursues quantization of gravity while maintaining background independence—the principle that physical laws should not depend on a fixed spacetime metric.
+
+The present framework shares this commitment to background independence, but approaches it differently:
+\begin{itemize}
+    \item Loop quantum gravity seeks to quantize the metric directly, constructing spacetime from spin networks.
+    \item The present approach conjectures a relation between spacetime and paths of selected geometric algebras.
+\end{itemize}
+
+These are not mutually exclusive.  A relation between spin-network states and selected geometric algebras would require an explicit representation/interface map; none is developed here.
+
+\subsection{Summary: A Conceptual Umbrella}
+
+\begin{table}[ht]
+\centering
+\small
+\begin{tabular}{|P{2.8cm}|P{4.5cm}|P{5.5cm}|}
+\hline
+\textbf{Approach} & \textbf{Key Mechanism} & \textbf{Relation to Present Work} \\
+\hline
+AdS/CFT & Holographic duality & Specific instance of algebra $\to$ geometry \\
+\hline
+Tensor Networks & Discrete entanglement structure & Concrete implementation of coarse-graining \\
+\hline
+Jacobson & Thermodynamic derivation & Consonant emergent perspective \\
+\hline
+Loop QG & Background-independent quantization & Shared commitment, different strategy \\
+\hline
+\end{tabular}
+\caption{Relation of the present framework to existing approaches. The present work does not replace any of these programs, but offers a unifying structural perspective.}
+\label{tab:relation}
+\end{table}
+
+We emphasize that the present framework does not claim superiority over these approaches. Each addresses aspects of quantum gravity that the present structural analysis does not. Our contribution is to articulate a perspective in which these diverse programs may be seen as exploring different facets of a common structural insight: that gravity is connected to the selection of how quantum degrees of freedom are organized into effective subsystems.
+
+\section{Explicit Scope Limitations}
+\label{sec:limitations}
+
+To ensure clarity regarding the claims of this paper, we state explicitly what it does and does not assert.
+
+\subsection{What This Paper Claims}
+
+\begin{enumerate}
+    \item \textbf{Structural conjecture:} The paper proposes, rather than proves, that gauge dynamics can be modelled within a fixed selected algebra while gravitational behaviour may be associated with a path of selected geometric algebras.
+    
+    \item \textbf{Candidate mechanism:} Conjecture~\ref{conj:main} identifies a research target; no selection dynamics for the algebra path is derived.
+    
+    \item \textbf{Sector universality:} Given one reconstruction dictionary and one selected sector, all matter representations placed in that sector use the same assigned metric.  This is not a derivation of the equivalence principle.
+    
+    \item \textbf{Information-geometric analogy:} The QFIM supplies a positive state-space metric.  Its relation to a Lorentzian spacetime metric is open.
+    
+    \item \textbf{Conceptual umbrella:} Several existing research programs (holography, tensor networks, thermodynamic gravity) may be situated under this common structural framework.
+\end{enumerate}
+
+\subsection{What This Paper Does Not Claim}
+
+\begin{enumerate}
+    \item \textbf{No new dynamics:} We do not propose equations of motion, Lagrangians, or dynamical principles beyond those already established.
+    
+    \item \textbf{No unconditional derivation of Einstein equations:} The linearized matching (Section~\ref{sec:linearized}) is conditional on (H1)--(H5) and imports the Faulkner et al. holographic result; we do not derive general relativity from arbitrary algebra perturbations.
+    
+    \item \textbf{No empirical predictions:} We do not offer testable predictions that distinguish this perspective from standard approaches.
+    
+    \item \textbf{No resolution of quantum gravity:} We do not claim to solve the problem of quantum gravity; we offer a diagnostic perspective, not a solution.
+
+    \item \textbf{No uniqueness theorem:} The former modular uniqueness theorem is withdrawn.  The candidate class may contain multiple members, and no maximality/ergodicity dichotomy has been established.
+    
+    \item \textbf{No observer-dependence:} The framework does not render gravity subjective or observer-relative. Accessible algebras are constrained by physical criteria, not by epistemic states of observers.
+    
+    \item \textbf{No interpretational commitments:} The analysis is compatible with various interpretations of quantum mechanics and does not require commitment to any particular one.
+\end{enumerate}
+
+\section{Open Questions}
+\label{sec:open}
+
+The candidate framework in Section~\ref{sec:modular} sharpens the open problems facing the HAFF gravity program. The following are the immediate targets for subsequent work.
+
+\subsection{Linearized Einstein Equations without Holography}
+
+Theorem~\ref{thm:linearized} records a conditional holographic matching under (H1)--(H5). A genuinely algebraic derivation would have to construct, rather than assume, a suitable net of half-sided modular inclusions from the candidate data and prove a bulk reconstruction theorem.  Neither step is present here.
+
+\subsection{Classification and Selection of Candidates}
+
+Remark~\ref{thm:uniqueness} withdraws the uniqueness argument independently of any ergodicity assumption.  The immediate problem is to supply a nontrivial seed/readout/properness condition, determine existence of candidates satisfying it, and classify possible multiplicity.  Only after that classification would a moduli-space metric be meaningful.
+
+\subsection{Computing $\delta K_{\mathrm{mod}}$ beyond Linear Order}
+
+The connection to linearized gravity uses an HSMI-generated family.  A first task is to define differentiable variations for more general subalgebra families and determine whether a modular-generator derivative exists.  Higher-order terms cannot be interpreted as nonlinear gravity until that interface and a reconstruction dictionary are established.
+
+\subsection{The Backreaction Problem}
+
+If a future reconstruction map assigns bulk geometry to $\mathcal{A}_{\mathrm{geo},\mathbf{c}}$, one may then ask how geometric data feed back into the selection rule.  At present neither map in this loop is constructed, so uniqueness of a trajectory is not asserted.
+
+\section{Conclusion}
+\label{sec:conclusion}
+
+We have proposed a structural framework in which gravitational phenomena may be associated with adiabatic paths of selected observable algebras as the global quantum state evolves.
+
+The core claims are:
+\begin{enumerate}
+    \item \textbf{Structural conjecture:} Gauge dynamics may be modelled \emph{within} a fixed selected algebra, while gravitational behaviour may be associated with a path of selected geometric algebras.
+    
+    \item \textbf{Candidate mechanism:} A state-dependent algebra path is a research target; this paper does not derive a unique selector or show that such a path manifests as spacetime curvature.
+    
+    \item \textbf{Sector universality:} Given a selected geometric sector and a reconstruction dictionary, matter representations placed in that sector use the same assigned metric. This is not a derivation of the empirical equivalence principle.
+    
+    \item \textbf{Information-geometric analogy:} The QFIM is a positive metric on a finite-dimensional state family; identifying it with a Lorentzian spacetime metric requires an additional reconstruction map.
+\end{enumerate}
+
+This framework does not derive the Einstein equations from first principles or resolve quantum gravity. It organizes a conditional research programme for comparing selected-algebra paths, modular data, and gravitational reconstruction.
+
+The perspective is consistent with, and provides a conceptual umbrella for, existing research programs: holographic duality (where boundary entanglement encodes bulk geometry), tensor networks (where network structure induces effective geometry), and thermodynamic approaches (where Einstein equations emerge from entropy considerations).
+
+Section~\ref{sec:modular} makes a class of modular-stable candidates precise, but it does not select a unique accessible algebra: the former uniqueness claim is withdrawn in Remark~\ref{thm:uniqueness}. The Rindler and qubit-chain examples check parts of the candidate framework in their stated regimes. Under the explicit holographic assumptions (H1)--(H5), the paper examines the conditional correspondence
+\begin{equation}
+\delta\mathcal{A}_{\mathrm{geo},\mathbf{c}} \;\longrightarrow\; \delta K_{\mathrm{mod}} \;\longrightarrow\; \delta S = \delta\langle K_{\mathrm{mod}}\rangle \;\longrightarrow\; G_{\mu\nu}^{(1)} = 8\pi G_N\, T_{\mu\nu}^{(1)},
+\end{equation}
+for the specifically supplied HSMI/ball family of Theorem~\ref{thm:linearized}. In that restricted setting, imported holographic results relate modular perturbations to linearized gravitational data. The adiabatic flow of a generic selected algebra may be read only as a candidate for gravitational dynamics; identifying the two remains open. Removing assumptions (H1)--(H5) is an open problem (Section~\ref{sec:open}).
+
+We conclude with a reflection. The difficulty of quantizing gravity may not be purely technical. If gravity is the evolution of the stage on which quantum mechanics is performed, rather than an actor on that stage, then quantizing gravity requires quantizing the framework of quantization itself. This is not a problem to be solved by better regularization schemes, but a conceptual challenge requiring us to think beyond fixed subsystem decompositions.
+
+The path forward may lie not in quantizing forces, but in understanding what determines the structure of accessibility—and how that structure flows.
+
+\section*{Acknowledgments}
+
+The author thanks the anonymous reviewers for their insightful comments and suggestions, which greatly improved the clarity and rigor of this work.
+
+\begin{thebibliography}{99}
+
+\bibitem{Kiefer2012}
+C. Kiefer, \emph{Quantum Gravity}, 3rd ed., Oxford University Press (2012).
+
+\bibitem{Zanardi2001}
+P. Zanardi, \emph{Virtual Quantum Subsystems}, Phys. Rev. Lett. \textbf{87}, 077901 (2001).
+
+\bibitem{Zanardi2004}
+P. Zanardi, D. A. Lidar, and S. Lloyd, \emph{Quantum Tensor Product Structures are Observable Induced}, Phys. Rev. Lett. \textbf{92}, 060402 (2004).
+
+\bibitem{Liu2026PaperA}
+S.~Liu, \emph{Emergent Geometry from Coarse-Grained Observable Algebras: The Holographic Alaya-Field Framework}, Zenodo (2026), DOI: 10.5281/zenodo.18361706.
+
+\bibitem{Liu2026PaperB}
+S.~Liu, \emph{Accessibility, Stability, and Emergent Geometry: Conceptual Clarifications on the Holographic Alaya-Field Framework}, Zenodo (2026), DOI: 10.5281/zenodo.18367060.
+
+\bibitem{RyuTakayanagi2006}
+S. Ryu and T. Takayanagi, \emph{Holographic Derivation of Entanglement Entropy from AdS/CFT}, Phys. Rev. Lett. \textbf{96}, 181602 (2006).
+
+\bibitem{VanRaamsdonk2010}
+M. Van Raamsdonk, \emph{Building up spacetime with quantum entanglement}, Gen. Relativ. Gravit. \textbf{42}, 2323 (2010).
+
+\bibitem{Rovelli2004}
+C. Rovelli, \emph{Quantum Gravity}, Cambridge University Press (2004).
+
+\bibitem{Smolin2006}
+L. Smolin, \emph{The case for background independence}, in \emph{The Structural Foundations of Quantum Gravity}, eds. D. Rickles, S. French, J. Saatsi, Oxford University Press (2006).
+
+\bibitem{Maldacena1999}
+J. M. Maldacena, \emph{The Large N limit of superconformal field theories and supergravity}, Int. J. Theor. Phys. \textbf{38}, 1113 (1999).
+
+\bibitem{Vidal2008}
+G. Vidal, \emph{Class of quantum many-body states that can be efficiently simulated}, Phys. Rev. Lett. \textbf{101}, 110501 (2008).
+
+\bibitem{Swingle2012}
+B. Swingle, \emph{Entanglement Renormalization and Holography}, Phys. Rev. D \textbf{86}, 065007 (2012).
+
+\bibitem{Jacobson1995}
+T. Jacobson, \emph{Thermodynamics of Spacetime: The Einstein Equation of State}, Phys. Rev. Lett. \textbf{75}, 1260 (1995).
+
+\bibitem{Thiemann2007}
+T. Thiemann, \emph{Modern Canonical Quantum General Relativity}, Cambridge University Press (2007).
+
+\bibitem{Petz1996}
+D. Petz, \emph{Monotone metrics on matrix spaces}, Linear Algebra Appl. \textbf{244}, 81 (1996).
+
+\bibitem{Bengtsson2006}
+I. Bengtsson and K. \.Zyczkowski, \emph{Geometry of Quantum States: An Introduction to Quantum Entanglement}, Cambridge University Press (2006).
+
+\bibitem{Lashkari2014}
+N. Lashkari, M. B. McDermott, and M. Van Raamsdonk, \emph{Gravitational dynamics from entanglement ``thermodynamics''}, JHEP \textbf{04}, 195 (2014).
+
+\bibitem{Faulkner2014}
+T. Faulkner, M. Guica, T. Hartman, R. C. Myers, and M. Van Raamsdonk, \emph{Gravitation from Entanglement in Holographic CFTs}, JHEP \textbf{03}, 051 (2014).
+
+\bibitem{Takesaki2003}
+M.~Takesaki,
+\emph{Theory of Operator Algebras II},
+Encyclopaedia of Mathematical Sciences \textbf{125}, Springer (2003).
+
+\bibitem{BratteliRobinson1997}
+O.~Bratteli and D.~W.~Robinson,
+\emph{Operator Algebras and Quantum Statistical Mechanics},
+Vols.\ 1--2, 2nd ed., Springer (1997).
+
+\bibitem{Haag1996}
+R. Haag, \emph{Local Quantum Physics: Fields, Particles, Algebras}, Springer-Verlag (1996).
+
+\bibitem{Yngvason2005}
+J.~Yngvason,
+\emph{The role of type III factors in quantum field theory},
+Rep.\ Math.\ Phys.\ \textbf{55}, 135 (2005),
+arXiv:math-ph/0411058.
+
+\bibitem{Wiesbrock1993}
+H.-W.~Wiesbrock,
+\emph{Half-sided modular inclusions of von Neumann algebras},
+Commun.\ Math.\ Phys.\ \textbf{157}, 83 (1993).
+
+\bibitem{BisognanoWichmann1975}
+J.~J.~Bisognano and E.~H.~Wichmann,
+\emph{On the duality condition for a Hermitian scalar field},
+J.\ Math.\ Phys.\ \textbf{16}, 985 (1975).
+
+\bibitem{BisognanoWichmann1976}
+J.~J.~Bisognano and E.~H.~Wichmann,
+\emph{On the duality condition for quantum fields},
+J.\ Math.\ Phys.\ \textbf{17}, 303 (1976).
+
+\bibitem{CasiniHuertaMyers2011}
+H.~Casini, M.~Huerta, and R.~C.~Myers,
+\emph{Towards a derivation of holographic entanglement entropy},
+JHEP \textbf{1105}, 036 (2011),
+arXiv:1102.0440.
+
+\bibitem{JLMS2016}
+D.~L.~Jafferis, A.~Lewkowycz, J.~Maldacena, and S.~J.~Suh,
+\emph{Relative entropy equals bulk relative entropy},
+JHEP \textbf{1606}, 004 (2016),
+arXiv:1512.06431.
+
+\bibitem{Jacobson2016}
+T.~Jacobson,
+\emph{Entanglement equilibrium and the Einstein equation},
+Phys.\ Rev.\ Lett.\ \textbf{116}, 201101 (2016),
+arXiv:1505.04753.
+
+\bibitem{Connes1994}
+A.~Connes, \emph{Noncommutative Geometry}, Academic Press (1994).
+
+\bibitem{Haagerup1975}
+U.~Haagerup,
+\emph{The standard form of von Neumann algebras},
+Math.\ Scand.\ \textbf{37}, 271--283 (1975).
+
+\end{thebibliography}
+
+\end{document}

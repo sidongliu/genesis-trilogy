@@ -1,0 +1,2563 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools,booktabs,array}
+\usepackage{fontspec}
+\setmainfont{texgyretermes}[Extension=.otf,UprightFont=*-regular,
+ BoldFont=*-bold,ItalicFont=*-italic,BoldItalicFont=*-bolditalic]
+\usepackage[hidelinks]{hyperref}
+\hypersetup{pdftitle={The Brain as a Plastic Observable-Algebra Network: Learning Shared Access from Sensorimotor History},pdfauthor={Sidong Liu}}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+\newcommand{\E}{\mathbb E}
+\newcommand{\Prb}{\mathbb P}
+\newcommand{\id}{\mathrm{id}}
+\newcommand{\W}{\mathcal W}
+\newcommand{\M}{\mathcal M}
+\newcommand{\B}{\mathcal B}
+\newcommand{\Fix}{\operatorname{Fix}}
+\newcommand{\sgn}{\operatorname{sgn}}
+\newcommand{\Ad}{\operatorname{Ad}}
+\title{The Brain as a Plastic Observable-Algebra Network\\[3pt]
+\large Learning Shared Access from Sensorimotor History}
+\author{Sidong Liu, PhD\\\small iBioStratix Ltd\\\small sidongliu@hotmail.com}
+\date{October 2026}
+\begin{document}
+\emergencystretch=2em
+\raggedbottom
+\maketitle
+
+\begin{abstract}
+Learned relations and maintained operations can jointly form a functional boundary of access. Joint records in a finite channel model reveal unknown source groups and relative orientations; the resulting routing replaces a missing readout and controls a physical carrier. Link-local rerouting changes four-port relation-lesion loss from linear to cubic, and usage records determine which components are worth maintaining. Randomized interventions distinguish useful carrier records from an unrelated artifact. In quantum models, interface history includes past access-dependent damage: identical present logical states and parameter posteriors can require opposite future protection commands. Records also select a code for unknown content already held in the apparatus. Finite local pulses migrate that content while noise stays on, with a bound covering training damage, mistaken relations and migration. After training in the unchanged initial code, every later deterministic encoding retains its unobserved training-loss floor under the stated recovery restrictions. In a four-site example, 64 records give storage infidelity .00383 against .13970 without migration; waiting for 512 records raises it to .02022 despite better identification. A fixed positive Hamiltonian installs the acquired frame, which can subsequently reside in the body's parity. The biological hypothesis concerns learned causal routing and its maintenance. We specify mapping, lesion, replay and recovery tests; neural quantum encoding has a separate empirical burden.
+\end{abstract}
+
+\section{The anchoring problem}
+
+A plastic apparatus must acquire which signals share a source and how one channel translates into another. A channel joins a shared task structure when its records can be used by another consumer. That membership can change while the sensor inventory stays fixed. Our finite model supplies candidate links, sampling, learning and actuation; the useful grouping and its relative orientation are outputs of joint history.
+
+The results follow three steps: learned relations determine substitution and maintenance; interface history determines protection of held content, including damage hidden by the present marginal; and diagnostic records select and install a new encoding without replacing that content. Sections~\ref{sec:joint-held-loop} and \ref{sec:formed-carrier} contain the main held-body theorem groups. Calibration variants and their acquisition bounds are collected in Appendix~\ref{app:quantum-baselines}.
+
+An \emph{operational workspace} consists of an implemented register, its writing channels and its consumers. An \emph{exact algebraic workspace} is a common fixed algebra under specified maps. Finite acquired protection has task-error bounds; it does not create an exact algebra discontinuously. Hardware and diagnostic/storage relations are stated inputs. Section~\ref{sec:biology} gives the biological hypothesis and tests before the constructions.
+
+There are close precedents for parts of this account. Multisensory causal inference models estimate whether cues share a source \cite{Kording2007}. Plastic neural network models form and maintain assemblies \cite{LitwinKumar2014}. Sensorimotor adaptation models distinguish errors attributed to the body from errors attributed to the world \cite{Berniker2008}. Our contribution is a finite construction that makes learned membership, relational memory, shared readout and physical action accountable in one model, then states its interface to the observable-algebra description. Correlation learning and source attribution are established ideas; this construction does not claim their invention.
+
+\section{A brain-centered hypothesis and its tests}
+\label{sec:biology}
+
+The biological hypothesis is that part of a brain-centered observer's accessible world is stabilized by learned relations among its channels. Such relations can concern vision and action, proprioception and motor command, or an internal estimate and an external reference. The body and its environment participate because they determine which interventions and replacements succeed. The proposed boundary is functional and task-dependent; it need not coincide with the skin or with a connected component in an anatomical graph.
+
+The tests below separately change mappings, throughput and retained relations while matching current inputs and single-channel statistics. They are proposals, not reported neural or behavioral data.
+
+\subsection{Operational biological mapping}
+
+The biological bridge concerns learned causal routing and its
+maintenance, not an assertion that neurons implement the qubit
+codes developed here. Multisensory causal-inference work models how human
+cue integration depends on inferred common causes~\cite{Kording2007}.
+Motor-source attribution models distinguish body and environmental
+changes through their different generalization~\cite{Berniker2008}.
+Synaptic-plasticity and homeostatic models can stabilize assemblies
+reflecting earlier stimulation~\cite{LitwinKumar2014}.
+These precedents motivate candidate mechanisms. They do not
+establish this paper's maintenance thresholds, lesion exponent or
+quantum-noise law in a brain.
+
+\begin{center}\small
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{2.6cm}>{\raggedright\arraybackslash}p{3.5cm}>{\raggedright\arraybackslash}p{7.2cm}@{}}
+\toprule
+Model quantity & Biological candidate & Operational contrast\\
+\midrule
+Signed relation and path &
+A learned sensorimotor transformation with alternative routes &
+Alter a mapping while matching each channel's marginal reliability;
+test substitution, transfer to another target and recovery.\\
+Operating port versus link memory &
+An unavailable pathway versus a lost translation &
+Restore throughput without retraining, then separately supply paired
+experience; distinguish immediate access from relearning.\\
+Usage value and repair &
+Task-dependent allocation to keeping a pathway callable &
+Change which intact channel contributes to the task; measure later
+maintenance and recovery with metabolic/load controls.\\
+Evidence clock and installed frame &
+Availability-dependent learning and retained adaptive structure &
+Match current content, vary past deprivation or retained mappings,
+and measure formation time and subsequent use.\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+These rows specify what must be measured before calling a neural
+pattern an access boundary: an identifiable translation, an
+actual consumer, a permitted correction, and a cost or failure
+criterion. A correlation cluster alone supplies none of them.
+The biological repair variable might describe restoration of
+functional availability or resource allocation; equating it to
+anatomical regeneration or subjective ownership would require
+additional evidence. A graph's path count has a behavioral
+prediction only if the surviving routes have correct translations
+and communication permissions.
+
+A formation test would train matched apparatuses or sensorimotor
+tasks with own paired history, an independent replay, and the same
+number of unpaired observations. Preserve single-channel accuracy
+and current task input, then intervene separately on the retained
+transformation and on throughput. The hypothesis predicts
+cause-specific substitutions and corrections that follow the usable
+relation, delayed recovery when that relation has to be reacquired,
+and a maintenance change when its future task value changes.
+A fixed physical lesion account predicts hardware availability
+without that relational dependence; a fully copied adaptive
+controller can match it. With physiological or behavioral controls
+for fatigue, arousal and nonspecific load, failure of the predicted
+relation-specific effect counts against the mechanism rather than
+being relabelled as an invisible boundary.
+
+The noncommutative constructions have a separate experimental
+burden: identify the physical carrier and noise correlations,
+demonstrate the claimed code protection while content is held,
+measure training and migration damage, and price the actual
+operations. No neural result cited here meets that burden.
+The functional biological hypothesis can be tested without
+assuming neural quantum storage, a modular Cut or phenomenal
+experience.
+
+The acquired routing supplies partial formation within designed consumers, links and primitive permissions. A biological realization must additionally support sparse communication, asynchronous correlated trials, changing reliability and local updates, preserving the relation between learned structure and held-out behavior. Distributed routing still pays for querying, communicating and summing.
+
+The connection to selfhood is a further explanatory proposal. A retained relational model can represent how this apparatus, with these channels and actions, reaches its world. It can support a stable practical distinction between a change in the world and a change in access. The present model proves a task in which such retained relations are necessary and useful; it does not infer phenomenal experience from successful decoding. Clinical fragmentation, ownership reports and consciousness states require evidence at their own level. An algebraic decomposition alone cannot diagnose them.
+
+\section{A world of carriers and imperfect channels}
+\label{sec:source}
+
+There are $K$ binary physical carriers. Their observable algebra can be represented as the diagonal algebra in $\bigotimes_{i=1}^K M_2$. A fixed but unknown partition $\pi$ divides the carriers into source blocks. On each trial, block $C$ draws an independent fair sign $X_C$. Carrier $i$ has value
+\begin{equation}
+ V_i=s_iX_{[i]},\qquad s_i\in\{-1,+1\},
+ \label{eq:carrier}
+\end{equation}
+where $[i]$ is its block and the signs $s_i$ are fixed during a stationary regime. Different trials are independent. A channel returns
+\begin{equation}
+ Y_i=V_i\epsilon_i,\qquad
+ \Prb(\epsilon_i=-1)=\eta\in(0,1/2),\qquad \nu=1-2\eta,
+ \label{eq:readout}
+\end{equation}
+with independent readout noise. The corresponding single-qubit POVM is
+\begin{equation}
+ E_y=\tfrac12(I+y\nu Z),\qquad y\in\{-1,+1\}.
+\end{equation}
+Its diagonal realization reads the classical carrier without changing it. Coherence between the two carrier values is not a resource used in this model.
+
+All one-channel records are fair. Their pair moments are
+\begin{equation}
+ \mu_{ij}:=\E(Y_iY_j)=
+ \begin{cases}
+  \nu^2s_is_j,&[i]=[j],\\
+  0,&[i]\ne[j].
+ \end{cases}
+ \label{eq:moments}
+\end{equation}
+Thus grouping is information in the joint records, not in their individual means. Simultaneously reversing every $s_i$ in a block and the corresponding latent $X_C$ changes no observable law. Absolute block orientation is a gauge freedom; relative orientation is identifiable.
+
+The learner knows $K$, $\eta$, the family \eqref{eq:carrier}--\eqref{eq:readout}, and the allowed links. It does not receive $\pi$, $s_i$, source labels, or true carrier values. These values are used only to generate and score the experiment. This division is important: a controller supplied with the correct grouping would demonstrate use of a workspace, not its acquisition.
+
+\section{Learning membership and relative orientation}
+\label{sec:learning}
+
+After $n$ joint trials, store
+\begin{equation}
+ S_{ij}(n)=\sum_{t=1}^nY_{i,t}Y_{j,t},\qquad
+ \widehat\mu_{ij}=S_{ij}(n)/n.
+\end{equation}
+Place an edge between $i$ and $j$ when $|\widehat\mu_{ij}|>\nu^2/2$ and give it sign $\sgn\widehat\mu_{ij}$. Connected components define the learned groups. In each component choose the least-labelled vertex as root and a deterministic breadth-first spanning tree. Set the root sign to $+1$ and obtain $r_j$ by multiplying edge signs along its tree path. Conflicting non-tree signs are retained as conflicts, rather than silently imposing a consistent graph. The tree still gives a definite decoder on such histories. With no records, use isolated vertices.
+
+\begin{theorem}[Finite-record formation]
+\label{thm:formation}
+For any fixed partition and signs in the model above, the learned signed graph is the true union of signed cliques except on an event of probability at most
+\begin{equation}
+ \varepsilon_n=\min\{1,K(K-1)e^{-n\nu^4/8}\}.
+ \label{eq:failure}
+\end{equation}
+On the complement of that event, the components equal $\pi$ and $r_ir_j=s_is_j$ within each block. In particular,
+\begin{equation}
+ n\ge\frac{8}{\nu^4}\log\frac{K(K-1)}{\delta}
+\end{equation}
+is sufficient for signed-graph recovery with probability at least $1-\delta$, for $K\ge2$ and $0<\delta<1$.
+\end{theorem}
+\begin{proof}
+Each record product is in $[-1,1]$ and is independent across trials. Hoeffding's inequality \cite{Hoeffding1963} gives
+\begin{equation}
+ \Prb\bigl(|\widehat\mu_{ij}-\mu_{ij}|\ge\nu^2/2\bigr)
+ \le2e^{-n\nu^4/8}.
+\end{equation}
+If all these deviations are smaller than $\nu^2/2$, every within-block edge is present with its correct sign and every cross-block edge is absent. The union bound over $K(K-1)/2$ pairs proves \eqref{eq:failure}. Products sharing a channel need not be independent. On the good event, the product along any within-block path telescopes to $s_is_j$, so the tree recovers the relative signs.
+\end{proof}
+
+The theorem concerns an explicit finite learner, not an infinite closure operation. It also indicates why noisy channels require a substantial history: the distinguishing correlation has amplitude $\nu^2$. The fourth power in the sample scale is not solely a weakness of this particular threshold rule.
+
+\begin{proposition}[A necessary record scale]
+\label{prop:lower}
+Consider two channels with known positive relative orientation. The alternatives are a shared fair source and two independent fair sources, with the same noise $\eta$. For $n$ iid passive joint readings and equal prior probabilities, the optimal testing error satisfies
+\begin{equation}
+ e_n\ge\max\left\{0,\frac12-\frac14
+ \sqrt{(1+\nu^4)^n-1}\right\}.
+ \label{eq:lower}
+\end{equation}
+Achieving $e_n\le1/4$ therefore requires
+\begin{equation}
+ n\ge\frac{\log2}{\log(1+\nu^4)}.
+\end{equation}
+\end{proposition}
+\begin{proof}
+The independent-source law $Q$ is uniform on the four output pairs. The shared-source law $P$ has likelihood ratio $L=1+\nu^2Y_1Y_2$, so $\E_QL^2=1+\nu^4$. Independence across trials gives $\chi^2(P^n\Vert Q^n)=(1+\nu^4)^n-1$. Since total variation is at most one half the square root of this divergence, $e_n=(1-\mathrm{TV}(P^n,Q^n))/2$ gives the result.
+\end{proof}
+
+The sufficient and necessary bounds have the same $\nu^{-4}$ noise scaling near an uninformative reader. They do not establish optimal constants or the optimal dependence on $K$. Stronger intervention or prior-information permissions would define a different identification problem.
+
+\section{A shared register that can replace a missing readout}
+\label{sec:register}
+
+After training, draw a fresh source trial. A designated target $i$ cannot be read; each of the other $K-1$ channels may be read once. A target-specific consumer uses the learned component containing $i$ to select which records enter its local register. Link counters and signs may be stored at their acquisition interfaces, with separate powered lookup and communication permissions. Align them to the component root using $r_j$ and store their majority sign $Z_C$, together with the integer vote margin. The target estimate is
+\begin{equation}
+ \widehat V_i=r_i Z_C.
+ \label{eq:decoder}
+\end{equation}
+A tie, including a component with no available peers, uses a fair independent coin. The register is a physical classical output of the routing and decoding channel. It can be copied to several consumers; their separate carrier algebras need not have a nontrivial literal intersection.
+
+Let the target have $m$ peers in its true source block. Define
+\begin{align}
+ q_m(\eta)&=\sum_{k>m/2}\binom mk\eta^k(1-\eta)^{m-k}\notag\\
+ &\quad+\frac12\mathbf1_{\{m\text{ even}\}}
+ \binom m{m/2}\eta^{m/2}(1-\eta)^{m/2}.
+ \label{eq:q}
+\end{align}
+This includes $q_0=1/2$.
+
+\begin{theorem}[Task risk of learned access]
+\label{thm:risk}
+Let $R_n=\Prb(\widehat V_i\ne V_i)$, averaging over the independent training and task trials. For fixed true grouping and signs,
+\begin{equation}
+ 0\le R_n-q_m(\eta)
+ \le(1-2q_m(\eta))\Prb(\text{signed graph wrong})
+ \le(1-2q_m(\eta))\varepsilon_n.
+ \label{eq:risk}
+\end{equation}
+\end{theorem}
+\begin{proof}
+On a correct graph, $r_ir_jY_j=V_i\epsilon_j$ for every true peer, so majority decoding has error \eqref{eq:q}. If the true parameters were known, this majority would be the Bayes decision: the other source blocks are independent of the fresh target. Conditional on any training history, no permitted classifier has error below $q_m$. Its complement is also a permitted classifier, so its error cannot exceed $1-q_m$. Splitting over correct and incorrect graphs gives \eqref{eq:risk}.
+\end{proof}
+
+At $\eta=.1$ and $m=3$, $q_m=.028$. The learned grouping enables useful substitution of peer readings for an unavailable target reading. A stored relation, rather than an extra current measurement of the target, supplies the missing information.
+
+\begin{proposition}[A task requiring relational memory]
+\label{prop:memory}
+Give the unknown signs an independent uniform prior. A strategy restricted to fresh peer records, the model prior and independent random coins has missing-target error $1/2$. This remains true if it also receives records and learned routing from an independent donor apparatus. By contrast, target-apparatus relational records allow \eqref{eq:risk}.
+\end{proposition}
+\begin{proof}
+The transformation $s_i\mapsto-s_i$ reverses $V_i$ but changes none of the permitted observations: the target is unreadable and all other channel parameters are unchanged. The prior is invariant under that transformation. The two target values are therefore conditionally equiprobable. An independent donor supplies no information that breaks this target symmetry.
+\end{proof}
+
+This is a conditional necessity of memory for a specified task, not a definition that makes all useful systems conscious. Memory must be identified by what the apparatus retains, not by whether it has a file called a log. Deleting raw records while retaining the learned routing does not remove the relevant memory. Nor does marginal independence from one unknown sign imply irrelevance: $s_is_j$ is independent of $s_i$ under the prior, yet it becomes useful when paired with a reading of channel $j$.
+
+The learned signs form a usable model of the apparatus's own channel relations. Reliability estimation and further inquiry require their own operations.
+
+\section{From a learned relation to a changed physical state}
+\label{sec:action}
+
+The estimate can control an actual carrier. Apply $X$ to the target if $\widehat V_i=-1$, aiming to place it in its $+1$ state. Then let an independent bath flip it with probability $d\in[0,1/2]$. Before the bath, the target is negative exactly when the estimate was wrong. Hence its final negative-state probability is
+\begin{equation}
+ L_n=d+(1-2d)R_n.
+ \label{eq:world}
+\end{equation}
+In particular,
+\begin{equation}
+ 0\le L_n-[d+(1-2d)q_m]
+ \le(1-2d)(1-2q_m)\varepsilon_n.
+\end{equation}
+With three peers, $\eta=.1$ and $d=.05$, the correct-structure value is $47/625=.0752$, whereas a controller subject to Proposition~\ref{prop:memory} leaves the target fair.
+
+All operations have classical stochastic realizations and hence completely positive trace-preserving extensions. This is a material consequence of learning, not a change in the scorer's interpretation of an unchanged carrier. The preparations remain episodic: every task starts with a fresh source draw. A continuously controlled world with a stationary distribution is a separate dynamical problem.
+
+The action also has a specified implementation cost. Set $\hbar=1$ and use a constant pulse $H=A X$ for time $\tau$ with $A\tau=\pi/2$. Up to a global phase this implements $X$. Under the quadratic charge $g\int_0^\tau A^2dt$,
+\begin{equation}
+ C_X=\frac{g\pi^2}{4\tau},\qquad
+ \tau\ge\frac{\pi}{2A_{\max}}.
+\end{equation}
+This is a control metric, not a thermodynamic derivation of the cost of the whole apparatus. Preparing sources, acquiring records and maintaining memory have separate costs. The finite intervention cannot be treated as free merely because it is represented by a legal channel.
+
+\section{Access while channels fail and recover}
+\label{sec:availability}
+
+Retained relations cannot read through a blocked sensor or act through a blocked pulse port. We now allow channel availability to vary and count only records that were physically acquired. The source law remains the fresh-trial law of Section~\ref{sec:source}; continuously controlled worlds require their own dynamical analysis.
+
+\subsection{Certification on the actual record clock}
+
+At trial $t$, choose completed joint acquisitions before the fresh source and sensing noise, or independently of them conditional on the pre-source history. The choice may depend on earlier records, current operating states, independent coins and completed repair outcomes. This condition applies to the completion indicator itself: a predeclared attempt followed by outcome-dependent erasure is not enough. Missing outcomes are erasures, not zeros.
+
+For pair $ij$ let $N_{ij}(t)$ count completed paired readings and $S_{ij}(t)$ sum their products. Put $M=\binom K2$ and, for $n\ge1$, define
+\begin{equation}\label{eq:radius}
+ e_n=\sqrt{\frac2n\log\frac{2\zeta(2) M n^2}{\delta}},\qquad 0<\delta<1.
+\end{equation}
+Here $\zeta(2)=\sum_{n\ge1}n^{-2}=\pi^2/6$.
+
+\begin{proposition}[A certificate valid at every acquired count]
+\label{prop:recordclock}
+For $K\ge2$, with probability at least $1-\delta$, simultaneously for every pair and every physical time with $N_{ij}(t)>0$,
+\[
+ \left|\frac{S_{ij}(t)}{N_{ij}(t)}-\mu_{ij}\right|
+ \le e_{N_{ij}(t)}.
+\]
+Whenever all radii are strictly below $\nu^2/2$, the signed threshold graph is correct. Acquisition decisions and the time of installing that routing may depend on the acquired history.
+\end{proposition}
+\begin{proof}
+For a fixed pair, centre its next completed product by $\mu_{ij}$. Conditional on the pre-source history it has mean zero and range length two. If $I_t$ marks its completed acquisition, Hoeffding's lemma makes
+\[
+ \exp\!\left[\lambda(S_{ij}(t)-\mu_{ij}N_{ij}(t))
+ -\lambda^2N_{ij}(t)/2\right]
+\]
+a nonnegative supermartingale. Stop at the $n$-th acquisition, first localized by a finite physical horizon; Fatou's lemma handles a possibly infinite waiting time. Chernoff's bound gives probability at most $2e^{-ne_n^2/2}=\delta/(\zeta(2)Mn^2)$ for a deviation at that count when it exists. Sum over $n$ and all $M$ pairs. The signed-graph conclusion follows from the half-gap argument of Theorem~\ref{thm:formation}.
+\end{proof}
+
+The certificate prices evidence on its actual clock without charging a pair product as another physical read. With a declared per-pair record cap $H$, its counters use $O(M\log H)$ bits; it remains valid up to that cap. Status, computation and repair have separate costs. Selection on the current product would invalidate the result: two independent fair channels retained only when their product is $+1$ would have empirical correlation one.
+
+\subsection{A physical operating gate}
+
+Let channel $i$ have an operating bit $A_i$. State zero blocks both its readout and target pulse port. A repair port can act while those ports are blocked; it is a separately supplied operation, not a calculation by the disabled reader. Per interval let a working channel fail with probability $h\in(0,1)$ and a failed channel recover with probability $r\in(0,1)$. These are one-step transition probabilities, with no additional same-interval failure after recovery. In this example the operating chains are independent across channels and of fresh source and sensing noise.
+
+The stationary working fraction is $q=r/(r+h)$. If all working channels are acquired, the product-chain ergodic theorem gives
+\begin{equation}\label{eq:pairthroughput}
+ N_{ij}(T)/T\longrightarrow q^2\quad\text{almost surely}.
+\end{equation}
+Thus each fixed-confidence certificate eventually becomes available. For stage confidences $\delta_j$ with $\sum_j\delta_j<\infty$, choose a count cap at least the required $n_*(\delta_j)$ and wait until every pair satisfies its certificate before installation. Each waiting stage is almost surely finite, and Borel--Cantelli gives only finitely many incorrect installations. Merely increasing preselected caps would not suffice: the required count can grow faster than those caps. This is a growing-resource limit. The rate $q^2$ is not a finite-time guarantee of acquiring $n$ samples within $n/q^2$ intervals.
+
+If $r=0$ and $h>0$, all finitely many channels fail permanently almost surely. Every pair has only finitely many records, and task pulses eventually cease. History does not restore the blocked apparatus. At stationarity, a protocol with one status transaction per channel and a repair attempt on each failed channel has per-interval charge
+\[
+ c_{\rm status}+q c_{\rm read}+(1-q)c_{\rm repair},
+\]
+before source preparation, pulses, memory, protection and reset. Failed attempts still consume resources. The relation between supplied energy and $r$ is a property to derive for a physical repair mechanism.
+
+\subsection{The joint value of memory and operation}
+
+After training, use a fresh task trial with independent stationary availability. The designated target is never read; a pulse can reach it only when its target port works. Available peers in its true block are read and aligned. For block size $b$, put
+\begin{equation}\label{eq:availablemajority}
+ Q_b(q)=\sum_{m=0}^{b-1}\binom{b-1}{m}q^m(1-q)^{b-1-m}q_m(\eta).
+\end{equation}
+
+\begin{proposition}[Loss of learned, physically available access]
+\label{prop:availableloss}
+With correct routing, the exact final negative-state probability is
+\begin{equation}\label{eq:availableloss}
+ L_b(q)=\frac{1-q}{2}+q\,[d+(1-2d)Q_b(q)].
+\end{equation}
+If training certifies the routing with failure probability at most $\delta$, its loss $L$ satisfies
+\[
+ 0\le L-L_b(q)\le
+ q(1-2d)(1-2Q_b(q))\delta.
+\]
+For $b\ge2$, $\eta<1/2$ and $d<1/2$, $L_b(q)<1/2$ for every $q>0$ and is strictly decreasing in $q$. Under the independent uniform orientation prior, deleting all target-specific relational memory instead gives loss $1/2$ at every $q$.
+\end{proposition}
+\begin{proof}
+The working target has $\mathrm{Bin}(b-1,q)$ available true peers. Conditional on their set, majority is the known-structure Bayes rule; the symmetric bath maps its error to $d+(1-2d)q_m$. A blocked target receives no pulse and remains fair, proving~\eqref{eq:availableloss}. For each peer set any permitted classifier lies between $q_m$ and $1-q_m$, by applying Bayes optimality also to its complement. Incorrect training is independent of held-out availability, giving the upper increment. Adding available peers cannot increase the known-structure Bayes risk, so $Q_b$ is nonincreasing. With $q>0$ there is positive probability of an informative peer, hence $1/2-Q_b(q)>0$; in $L_b(q)=1/2-(1-2d)q[1/2-Q_b(q)]$, the beneficial term strictly increases with $q$. Finally, flipping only the unread target's orientation preserves the memory-erased data and availability law while reversing the target. The uniform prior leaves both values equiprobable.
+\end{proof}
+
+For $b=4$, $\eta=.1$ and $d=.05$,
+\[
+ Q_4(q)=.5-1.2q+1.2q^2-.472q^3.
+\]
+The exact losses at $q=1,.8,.5,.25$ are $.0752,.18776192,.33845,.447715625$. Repair increases both formation throughput and future opportunities to use the learned routing. It does not supply the missing relation. Conversely, retaining that relation does not open a blocked port. The held-out independence in this proposition matters; a continuing availability path correlated with training requires its conditional analysis rather than the same factor $q$.
+
+\section{Damage to ports and damage to relations}
+\label{sec:reroute}
+
+An unavailable sensor and an erased relation are different injuries.
+A powered link-memory interface can retain its pair counter while a
+sensor or target pulse port is blocked. A working sensor can instead
+lose the sign needed to translate its signal. Each consumer can route
+a peer's vote along a surviving path, multiplying the retained edge
+signs. The supplied communication skeleton, memory queries and path
+search must work for that operation; failed sensing ports do not
+silently become free relays.
+
+\begin{proposition}[A learned graph changes the lesion law]
+\label{prop:reroute}
+Condition on a correctly learned, path-consistent clique of size $b$.
+All its sensing and target ports work. Independently erase each link
+memory with probability $p$, without erasing the primitive consumer
+or communication permissions. A direct-link consumer loses a peer
+when its target link is erased. A path-routing consumer loses it only
+when their surviving graph is disconnected. For $b=4$, $\eta=1/10$
+and $d=1/20$, excess final negative-state probabilities above
+$47/625$ are
+\begin{align}
+ L_{\rm direct}-\frac{47}{625}
+ &=\frac{9p(59p^2-27p+27)}{1250},\notag\\
+ L_{\rm path}-\frac{47}{625}
+ &=\frac{9p^3(54p^3-108p^2+27p+86)}{1250}.
+ \label{eq:reroute_polynomials}
+\end{align}
+An erased single hub that alone holds all usable routing, with no
+other target-specific relation retained, instead has excess
+$531p/1250$. For general $b\ge2$ the path-routing excess is
+$\Theta(p^{b-1})$ as $p\downarrow0$ at informative sensing and bath
+parameters. A training certificate with failure probability $\delta$
+adds at most $\delta$ to a uniform upper bound on final task loss;
+it does not make these conditional polynomial identities exact
+without averaging erroneous graphs. The hub-erasure comparison
+averages the independent uniform orientation prior of
+Proposition~\ref{prop:memory}; it is not a worst-case claim about
+a memory-free rule that happens to guess a fixed orientation correctly.
+\end{proposition}
+\begin{proof}
+Correct path products telescope to $s_is_j$. With $m$ accessible
+peers, the loss is $d+(1-2d)q_m$. Sum that value over the $2^6$
+surviving-edge patterns, weighted by $p$ for each erased edge and
+$1-p$ for each retained edge. Direct routing uses the target's
+degree; path routing uses its connected-component size minus one.
+This gives \eqref{eq:reroute_polynomials}. A failed hub leaves
+loss $1/2$, proving its mixture formula. Every cut separating two
+vertices in a clique contains at least $b-1$ edges, so peer loss
+has probability $O(p^{b-1})$. Erasing all target-adjacent edges
+and keeping the others isolates the target with probability
+$p^{b-1}(1-p)^{\binom{b-1}{2}}$, and strictly increases its loss
+from the intact informative value to $1/2$. This gives the matching
+lower order. Finally split over the training event; a loss in
+$[0,1]$ changes its expectation by at most its failure probability.
+\end{proof}
+
+The difference tests a specified physical organization, not whether
+the observer has a register called self.
+Blocking one peer while retaining its relation gives missing-target
+error $1/10$; restoring its port gives $7/250$. Erasing all relations
+that make that still-working peer callable also gives $1/10$, but
+restoring hardware alone does not restore those relations. Cutting
+one central consumer has a different effect from erasing distributed
+memories, and a fixed-target hub need not have the dispatch path for
+a new target. A supplied copy of the complete learned graph,
+consumers and update rule, however, can reproduce all future
+interventions. The contrast is between declared architectures and
+retained causal information, not between every learned apparatus
+and every supplied register. Several consumers require several
+adders, status and communication circuits; their redundancy is priced.
+
+\section{Maintaining a learned component}
+\label{sec:maintained}
+
+The operating gate above assigns a recovery probability. We now let the
+reader choose paid repair and ask which learned relations are worth
+keeping physically callable. Fix a correctly learned component of size
+$s$ among the $K$ targets. A target is drawn uniformly each interval.
+If $w$ ports in the component work, a working target uses its $w-1$
+working peers; a blocked target remains fair. Put
+\begin{equation}\label{eq:component_loss}
+ D_j=d+(1-2d)q_j(\eta),\qquad
+ \ell_s(w)=\frac{wD_{w-1}+(s-w)/2}{K},
+\end{equation}
+where the first term is zero for $w=0$.
+
+One interval consists of the task, then repair of $a\in\{0,\ldots,s-w\}$
+blocked ports, then independent failure with probability $h\in(0,1)$
+of every available port. Repairs succeed certainly; there is no passive
+recovery. The next working count is $\mathrm{Bin}(w+a,1-h)$. The charge
+is $V\ell_s(w)+ca$, with $V>0$ the task value and $c\ge0$ the repair
+price. Operating status and the repair port are specified permissions.
+This task--repair--failure clock differs from the one-step recovery
+clock of Section~\ref{sec:availability} and from the held-body clock of
+T-DOME~III~\cite{TDOMEIII}.
+
+\begin{theorem}[An exact maintenance threshold at every component size]
+\label{thm:maintenance}
+Let
+\[
+ A_{s,m}=\E\,\ell_s(W),\quad W\sim\mathrm{Bin}(m,1-h),\qquad
+ c_s^*=\frac{V[s/(2K)-A_{s,s}]}{hs}.
+\]
+Among all randomized and history-dependent repair policies, the minimum
+long-run average cost is
+\begin{equation}\label{eq:maintenance_optimum}
+ g_s^*=\min\{VA_{s,s}+chs,\;Vs/(2K)\}.
+\end{equation}
+Repair every failure is optimal for $c\le c_s^*$, and never repair is
+optimal for $c\ge c_s^*$. Both are optimal at equality.
+\end{theorem}
+\begin{proof}
+Write $p=1-h$ and $B_m=s/(2K)-A_{s,m}$. Fair tie-breaking makes $q_j$
+the Bayes error of $j$ independent noisy peer reads, so it is
+nonincreasing in $j$. Binomial size-bias gives
+\[
+ \frac{B_m}{m}=\frac pK
+  \E[1/2-D_{\mathrm{Bin}(m-1,p)}]\quad(m\ge1).
+\]
+Couple the binomial counts by adding trials. The right side is
+nondecreasing in $m$, hence $B_m\le mB_s/s$.
+
+For $g_c=VA_{s,s}+chs$, set
+$b_c(w)=V\ell_s(w)+c(s-w)-g_c$. With $m=w+a$, its Bellman residual is
+\[
+ V\ell_s(w)+ca+\E b_c(\mathrm{Bin}(m,p))-g_c-b_c(w)
+  =V(B_s-B_m)-ch(s-m).
+\]
+It is nonnegative when $c\le c_s^*$ and zero for $a=s-w$.
+Summing the bounded-bias inequality along any policy gives the lower
+bound $g_c$; all-repair attains it. At $c=c_s^*$ this is the baseline
+$Vs/(2K)$. Increasing $c$ only adds $(c-c_s^*)a\ge0$.
+Never repair reaches the all-failed state almost surely and attains
+that baseline. The telescoping proof permits randomized actions and
+arbitrary dependence on acquired history.
+\end{proof}
+
+For $K=8$, $\eta=.1$, $d=.05$, $h=.1$ and $V=1$, exact rational sums give
+\[
+ c_1^*=0,\quad c_2^*=.3645,\quad c_3^*=.40095,\quad
+ c_4^*=.4577391,\quad c_5^*=.47404683.
+\]
+At price $.43$, a four-port component is worth maintaining, whereas a
+three-port component is not. Removing one member's learned relations
+can therefore change the maintenance decision for the other members,
+even if their own hardware has not changed. This is a change in the
+value of callable relations, not an instantaneous physical failure
+propagating through the apparatus.
+
+\begin{corollary}[Loss of relations can reverse a group's maintenance]
+\label{cor:relation_withdrawal}
+For $0<\eta<1/2$, $d<1/2$ and $0<h<1$, the threshold $c_s^*$ is
+strictly increasing with component size. For every $s\ge2$ there is
+a nonempty interval $(c_{s-1}^*,c_s^*)$ in which maintaining the
+$s$-port group is optimal, but maintaining its remaining $s-1$-port
+group is not, if one member's relations are erased and its peers
+can no longer use its records.
+\end{corollary}
+\begin{proof}
+The size-bias identity in Theorem~\ref{thm:maintenance} gives
+\[
+ c_s^*=\frac{Vp}{hK}
+   \E[1/2-D_{\mathrm{Bin}(s-1,p)}].
+\]
+Adding a Bernoulli trial never decreases the integrand.
+It strictly increases it on the positive-probability event that the
+preceding count is zero and the new trial is positive, since
+$D_1<D_0=1/2$. Apply the threshold theorem to the two group sizes.
+This comparison fixes the task price, repair law and all other
+components; it excludes a policy that relearns the erased links.
+\end{proof}
+
+The theorem conditions on correct routing. A learned graph certified
+with error probability $\delta$ gives a model-conditioned statement;
+its unconditional task risk must also average over the erroneous
+graphs. Natural recovery, uncertain repair, a shared repair budget or
+paid status queries change the control problem. The price $c$ is in
+task-cost units, not a derived heat or energy cost.
+
+\subsection{A component can learn its maintenance value}
+\label{subsec:local_maintenance}
+
+The threshold formula assumes known task statistics. A component need
+not receive that formula to decide whether to keep repairing. Permit
+it to acquire a checked post-action outcome on trials targeting its
+own members, at a declared cost per check. The checking port and its
+calibration are additional permissions; an unaided target's theoretical
+fairness does not make its actual outcome freely readable.
+
+While repairing every failure, let $W_t$ be the task-time working count,
+$L_t$ the final negative-state indicator and $I_t$ the indicator that
+the target belongs to this component. Record its own usage value
+\begin{equation}\label{eq:local_usage_value}
+ Z_t=V I_t(1/2-L_t)-c(s-W_t),\qquad
+ \mu=\E Z_t=V B_s-chs.
+\end{equation}
+The last term is the repair charge paid after that task. Discard the
+initial task from this estimate. After its all-repair and fresh-failure
+stage, the subsequent $Z_t$ are independent and identically distributed,
+with range length at most $R=V+cs$.
+The component receives only its own target, outcome, status and charge
+records; it need not know $h$, $\eta$ or $c_s^*$.
+
+\begin{proposition}[A local usage certificate]
+\label{prop:local_usage}
+Fix $0<\delta<1$ and put
+\[
+ e_t=R\sqrt{\frac{\log(2\zeta(2)t^2/\delta)}{2t}},\qquad
+ \bar Z_t=t^{-1}\sum_{j=1}^t Z_j.
+\]
+Continue all-repair until either $\bar Z_t-e_t>0$ or
+$\bar Z_t+e_t<0$. In the first case commit to maintenance and stop
+outcome checking; in the second abandon the component permanently.
+If $\mu\ne0$, this decision occurs in finite expected time.
+The probability of choosing the wrong side is at most $\delta$, and
+the expected limiting average maintenance cost exceeds $g_s^*$ by
+at most $\delta|\mu|$. Finite-cost outcome checks before commitment
+have zero long-run average cost.
+\end{proposition}
+\begin{proof}
+Under all-repair, all ports are restored before fresh independent
+failures, so the next task-time availability is a fresh binomial draw.
+Source, sensing noise and target choice are also fresh. This proves
+the claimed i.i.d.\ law and its mean. Hoeffding's inequality and a union
+bound give
+\[
+ \Prb(\exists t:|\bar Z_t-\mu|>e_t)
+ \le\sum_{t\ge1}\frac{\delta}{\zeta(2)t^2}=\delta.
+\]
+On the complementary event the commitment is correct.
+Choose $t_0\ge3$ such that $e_t\le|\mu|/2$ for every $t\ge t_0$.
+If undecided at $t\ge t_0$, then
+$|\bar Z_t-\mu|\ge|\mu|/2$. Hence
+\[
+ \Prb(T>t)\le2e^{-at},\quad
+ \E T\le t_0+\frac{2e^{-at_0}}{1-e^{-a}}<\infty,\qquad
+ a=\frac{\mu^2}{2R^2}.
+\]
+The two committed policies have average-cost difference $|\mu|$
+by Theorem~\ref{thm:maintenance}. A wrong commitment therefore gives
+at most $\delta|\mu|$ in expectation. With bounded check cost,
+the expected total checking charge is finite and vanishes after
+division by a growing horizon.
+\end{proof}
+
+This is a stationary, growing-record result. A finite counter cap
+allows the same confidence guarantee up to that cap but can leave the
+component undecided; it does not promise uniform finite-resource
+identification arbitrarily close to the threshold. At $\mu=0$ there
+need be no finite commitment. After a change in the task, a committed
+component needs fresh evidence or probes to revise its decision.
+The outcome-feedback links and initial preparation remain supplied.
+Local decision information does not establish a complete decentralized
+communication or thermodynamic implementation.
+
+Permanent abandonment also creates an information cost. Finite records
+have overlapping laws on both sides of the threshold when the sensing
+and failure probabilities are interior. A rule that abandons almost
+surely on the negative side must abandon at some finite time with
+positive probability on the positive side. It then loses $\mu>0$ per
+interval asymptotically. Without probes or passive recovery, perfect
+learning of which access to discard is impossible in both regimes.
+The role of a self-model is thus predictive: past usage can price
+future access, but a permanently closed port cannot supply the evidence
+that would correct its own devaluation.
+
+\subsection{Formation is accelerated by repair, not created from nothing}
+\label{subsec:formation_clock}
+
+Maintenance of established relations and formation of new ones have
+different clocks. Let a new channel join an eight-channel apparatus
+whose other seven ports are kept available during formation.
+In the test case its true source block has three peers; their
+identities and orientations are not given to the learner.
+A finite buffer holds $e\in\{0,\ldots,E\}$ acquired joint trials
+involving that channel. Each working interval adds one fresh trial;
+each disabled interval discards one old trial, with reflection at
+zero. This declared decay is a memory policy, not a fabricated
+negative observation. At $e=E$ the retained trials are tested for
+the seven pair relations of an eight-channel apparatus.
+With $\nu=.8$ and confidence $1-.05$,
+\[
+ E=\left\lceil8\nu^{-4}\log(14/.05)\right\rceil=111.
+\]
+Status and all buffer updates have holding, processing and reset
+costs. A literal trial-vector buffer at this cap holds $8E=888$
+record bits, besides status, count and routing memory; keeping the
+other seven ports available is also a resource of this experiment.
+Acquisition and retention here depend on the operating path,
+not on the current record values.
+
+A working channel survives to the next interval with probability
+$1-h=.9$. A disabled one first recovers naturally with probability
+$r=.05$, or certainly when paid repair is selected; any newly
+available port then undergoes the same survival step. This is a
+recovery--failure clock, distinct from the maintenance clock above.
+Writing $W_e,F_e$ for the expected remaining intervals to reach
+$E$ from working and failed status gives, for $e<E$,
+\begin{equation}\label{eq:formation_clock}
+ \begin{split}
+ W_e&=1+(1-h)W_{e+1}+hF_{e+1},\\
+ F_e&=1+\alpha W_{\max(0,e-1)}
+           +(1-\alpha)F_{\max(0,e-1)},\\
+ W_E&=F_E=0,
+ \end{split}
+\end{equation}
+where $\alpha=r(1-h)$ without paid repair and $\alpha=1-h$
+with every failure repaired.
+
+\begin{proposition}[Finite first formation under natural recovery]
+\label{prop:formation_clock}
+In this evidence-buffer protocol, starting failed at zero,
+natural recovery alone has finite expected certification time:
+\[
+ \E\tau_E\le\frac{E+1}{r(1-h)^E}<\infty .
+\]
+At the stated parameters, exact rational solution of
+\eqref{eq:formation_clock} gives $68994.56750217099$ intervals
+without paid repair and $139.59375$ when all failures are repaired.
+These are hitting times of the declared evidence count, not
+unconditional guarantees of correct relations or thermodynamic
+prices of a repair.
+\end{proposition}
+\begin{proof}
+In any block of $E+1$ intervals, recovery followed by $E$ working
+reads has probability at least $r(1-h)^E$ from either status and
+any evidence count. The Markov property gives a geometric bound
+on the number of such blocks. The first-step equations are
+\eqref{eq:formation_clock}; eliminating their finite transient
+states gives the displayed means. The surviving $E$ trial vectors
+are iid at fixed coupling parameters because selection used only
+an independent operating path. The half-gap union bound gives
+their separate $95\%$ relation certificate.
+\end{proof}
+
+Paid repair accelerates first formation under this natural-recovery law. Absorbing gates, outcome-dependent selection or different evidence decay require another hitting-time analysis. A formation/maintenance band for finite horizons or discounting also needs a decision calculation. Subsequent task loss must include certificate failures. Held-content acquisition and migration have the separate constraints of Section~\ref{sec:formed-carrier}.
+
+\section{When agreement concerns only an artifact}
+\label{sec:artifact}
+
+Shared records need not concern the physical object being controlled. Consider an alternative model with independent fair physical carriers but reports
+\begin{equation}
+ Y_i=s_iZ_{[i]}\epsilon_i,
+ \label{eq:artifact}
+\end{equation}
+where an external artifact $Z$ has the same source-block law as $X$. Equations~\eqref{eq:readout} and \eqref{eq:artifact} induce exactly the same joint distribution of passive records. No number of passive observations separates them. In the artifact model, a controller using only these records and their history remains independent of the true target, which stays fair after the feedback and bath.
+
+Now allow a known local intervention before each training read. Independently for each channel choose a fair command $J_i\in\{-1,+1\}$, flip its physical carrier if $J_i=-1$, and retain the de-rotated record $\widetilde Y_i=J_iY_i$.
+
+\begin{proposition}[An intervention-based distinction]
+\label{prop:intervene}
+In the physical-carrier model, de-rotation preserves the original full record law. In the artifact model, if the artifact is unaffected by the physical flip and has no access to a copy of its command, the de-rotated record vector is uniform on $\{-1,+1\}^K$. The learner has the recovery guarantee \eqref{eq:failure} in the first model and the same bound on the probability of any spurious edge in the second.
+\end{proposition}
+\begin{proof}
+In the first model, $Y_i=J_iV_i\epsilon_i$, so $\widetilde Y_i=V_i\epsilon_i$. In the second, condition on the entire artifact output vector. Multiplication by the independent fair command vector makes every possible de-rotated output equally likely. Its off-diagonal means are zero. Apply the pairwise concentration and union bound from Theorem~\ref{thm:formation}.
+\end{proof}
+
+This test adds an operational relation to the acted-on carrier. It does not solve unrestricted causal discovery. An artifact that receives the commands can report $Y_i=J_is_iZ_{[i]}\epsilon_i$ and imitate the physical response. An unknown ineffective actuator creates another ambiguity. Excluding these alternatives is a physical condition of the experiment, not something proved by a high correlation score. The randomized commands and their temporary records also belong in the budget.
+
+\section{Finite resources and changing relations}
+\label{sec:budget}
+
+Training uses $Kn$ single-channel readings. The active version adds $Kn$ independent fair command bits and at most $Kn$ physical flips, with expected flip count $Kn/2$. Each pair count can be stored as an integer in $[-N,N]$ for a declared cap $N$, costing $\lceil\log_2(2N+1)\rceil$ bits. The pair counters therefore require
+\begin{equation}
+ \binom K2\lceil\log_2(2N+1)\rceil
+\end{equation}
+bits, in addition to a trial counter, current records and temporary commands. Graph edges require two bits each for absence, positive sign or negative sign. Root labels, tree signs, margins, control state and tie coins must be represented as well. Pair updates take $O(K^2)$ additions per trial. A pair product is not counted as a new physical reading.
+
+With $K=8$ and $N=256$, the pair counters use 280 bits and the signed graph uses 56 bits. The trial counter needs nine bits. For the experiments below, $\eta=.1$, so the edge decision can be implemented as the integer comparison $25|S_{ij}|>8n$; no infinite-precision threshold is needed. Each task uses the same seven permitted peer reads across the compared rules, even when a learned component discards some of them. Donor-routing and shuffled-record comparisons are diagnostic interventions with additional history storage, not claims of equal total-resource deployments.
+
+A moving window gives a finite adaptation rule. Store the latest $n$ complete trial vectors, remove the departing pair products, and add the new ones. The ring uses $Kn$ bits; $n=128$, $K=8$ requires 1024 bits beyond the counters and routing. Once the whole window lies in a stationary new regime, Theorem~\ref{thm:formation} applies to that regime. The transition interval can contain contradictory relations and is not covered by that stationary bound.
+
+The relevant memory intervention depends on the statistic used. Reordering complete trial vectors leaves all pair counts unchanged. Independently permuting the trial indices of separate channels destroys their within-trial pairing and changes the evidence. A demand that every learning mechanism fail under complete-vector reordering would incorrectly exclude this one.
+
+\section{An eight-channel experiment}
+\label{sec:numerics}
+
+We use two unknown blocks of four carriers, independent uniformly random signs, $\eta=.1$ and $d=.05$. Three independent seed blocks, 27001--27003, each contain 400 independent apparatus histories. Every apparatus has a fresh partition and signs; an independent donor apparatus supplies the replay control. At each record budget, the learner receives a prefix of actual joint records, not independently generated pair products. Conditional task error is evaluated by finite summation over fresh sources and readout noise, using polynomial convolution. This removes task-sampling noise, not uncertainty from the 1200 sampled training histories.
+
+\begin{table}[ht]
+\centering
+\caption{Held-out missing-target error and exact signed-graph recovery. The last column is the fraction of command-tested artifact histories producing any edge.}
+\label{tab:static}
+\begin{tabular}{rrrrr}
+\toprule
+Joint records & Own routing & Donor routing & Correct graph & Artifact edge\\
+\midrule
+8   & .30635 & .50993 & .05583 & 1.00000\\
+16  & .29092 & .50831 & .13417 & .99917\\
+32  & .14354 & .51087 & .55333 & .78000\\
+64  & .05874 & .51031 & .89000 & .21250\\
+128 & .02999 & .50993 & .99417 & .00750\\
+256 & .02800 & .51009 & 1.00000 & .00000\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+At 128 joint records, the own-routing error is $.029993\pm.000751$ and the resulting physical loss is $.076993\pm.000676$; uncertainties are standard errors across histories. The independent-donor error is $.50993\pm.00722$, compatible with the exact prior-average value $1/2$. Independently breaking within-trial channel pairing gives .49967 at this budget. At 256 records, all 1200 learned graphs are correct and the observed error is exactly the known-structure value .028. This observation does not make the population failure probability zero: \eqref{eq:failure} is still approximately $1.14\times10^{-4}$. At 128 records the same bound is approximately .0798 and is looser than the sampled failure rate.
+
+The hard-threshold rule need not improve every metric at every additional reading. An exact four-channel enumeration with one true block gives signed-graph recovery probabilities .6562 and .43059844 after one and two records, respectively, while task errors decrease from .1684288 to .1559872. A decreasing upper bound is not a monotonicity theorem for the algorithm.
+
+For changing relations, each apparatus undergoes four 256-trial regimes: the original grouping, reversal of the target's sign, eight independent sources, and a newly drawn pair of four-channel blocks. The learner uses a 128-trial sliding window and receives no regime labels. A frozen comparator retains the routing acquired at the predeclared time 256; it is never evaluated before that time. The seeds are 37001--37003 with 400 histories each. Each snapshot is tested on fresh task trials from the indicated regime.
+
+\begin{table}[ht]
+\centering
+\caption{Adaptation after 128 new-regime training trials. Components count learned routing groups, not conscious subjects.}
+\label{tab:dynamic}
+\begin{tabular}{lrrr}
+\toprule
+New regime & Learned error & Frozen error & Components\\
+\midrule
+Target sign reversed & .02942 & .97001 & 2.00\\
+Independent sources & .50000 & .50000 & 7.99\\
+New two-block source & .02885 & .49777 & 2.00\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Immediately after reversal, the old relation is actively misleading: both rules have error approximately .970. The adaptive rule passes through an uninformative phase, then relearns the orientation. Under independent sources, it removes most links but cannot create missing-target information that the world no longer supplies. When shared sources return with a new grouping, useful components reform. These are formation, loss and recovery of a task structure within a specified architecture. They are not observations of anatomical growth or a continuously controlled neural process.
+
+\section{Exact workspaces as an algebraic level}
+\label{sec:algebra}
+
+The finite register has a commutative observable algebra, but it is an output of a channel from distributed records. It need not be a literal common subalgebra of the original carriers. For example, two separate registers may carry the same classical bit while their embedded carrier algebras intersect only in the scalars. Content sharing is then a property of the state and copying channel, not of an algebraic intersection alone.
+
+An exact common workspace can nevertheless be defined when an apparatus comes with a common ambient algebra and comparison maps. The following condition is broader than comparison by automorphisms. Its faithful-state hypothesis connects it to the stationary-state framework of Frigerio \cite{Frigerio1978}; we give the discrete finite-family argument here.
+
+\begin{theorem}[Common-state fixed workspace]
+\label{thm:ucp}
+Let $\M$ be a von Neumann algebra with faithful normal state $\omega$, and let $R_1,\ldots,R_\ell$ be normal unital completely positive maps preserving $\omega$. Then
+\begin{equation}
+ \W=\bigcap_{j=1}^{\ell}\Fix(R_j)
+\end{equation}
+is a von Neumann subalgebra. There is a faithful normal $\omega$-preserving conditional expectation $E:\M\to\W$. In particular, if the comparison family includes the identity, its exact equalizer is this fixed algebra.
+\end{theorem}
+The proof is in Appendix~\ref{app:workspace-proof}.
+
+A compact group with a point-ultraweakly continuous action by $\omega$-preserving automorphisms is another sufficient case: Haar averaging directly gives the expectation onto $\M^G$. In contrast, the equalizer of arbitrary UCP maps is generally only an operator system. A positive-tolerance set
+\begin{equation}
+ \{x:\max_{j,k}\|R_j(x)-R_k(x)\|\le\delta\}
+\end{equation}
+is not generally an algebra. Multiplicative closure is a property to establish, not a consequence of approximate agreement.
+
+To express multi-channel access, one may additionally have subalgebras $\B_i\subset\M$ with faithful normal expectations onto them and require $\W=\bigcap_i\B_i$. This last equality is an input or a separate conclusion; Theorem~\ref{thm:ucp} does not derive it from arbitrary channel choices. Restricted to $\B_i$, the workspace expectation gives the linear decomposition
+\begin{equation}
+ \B_i=\W\oplus\ker(E|_{\B_i}).
+\end{equation}
+Its kernel need not be a private algebra. A private factor $\mathcal P_i$ satisfying $\B_i=\W\vee\mathcal P_i$ and $\W\cap\mathcal P_i=\mathbb CI$ requires further structure. The next example supplies it explicitly.
+
+\subsection{A shared factor with nonzero coupling}
+
+Take $\M=M_2^{S}\otimes M_2^{P_1}\otimes M_2^{P_2}$ with normalized trace, and
+\begin{equation}
+ \B_1=M_2^S\otimes M_2^{P_1}\otimes I,\qquad
+ \B_2=M_2^S\otimes I\otimes M_2^{P_2}.
+\end{equation}
+Let $D_j$ depolarize private factor $P_j$. The comparisons $\{\id,D_1,D_2\}$ have
+\begin{equation}
+ \W=M_2^S\otimes I\otimes I=\B_1\cap\B_2.
+\end{equation}
+The channel expectations are $D_2$ onto $\B_1$ and $D_1$ onto $\B_2$. The two indicated private factors give genuine algebraic complements.
+
+Couple all three factors with
+\begin{equation}
+ G=X_S\otimes Z_{P_1}\otimes Z_{P_2},\qquad
+ U_\theta=e^{-i\theta G}.
+\end{equation}
+For $a\in M_2^S$, put $a_\pm=(a\pm XaX)/2$. Direct multiplication gives
+\begin{align}
+ U_\theta(a\otimes I\otimes I)U_\theta^*
+ &=\bigl(a_++\cos(2\theta)a_-\bigr)\otimes I\otimes I\notag\\
+ &\quad-i\sin(2\theta)Xa_-\otimes Z\otimes Z.
+\end{align}
+Both depolarizations remove the final term. Therefore
+\begin{equation}
+ \sup_{\substack{a\in\W\\\|a\|\le1}}
+ \max_{R,R'\in\{\id,D_1,D_2\}}
+ \|R(U_\theta aU_\theta^*)-R'(U_\theta aU_\theta^*)\|
+ =|\sin(2\theta)|.
+ \label{eq:tolerance}
+\end{equation}
+The upper bound uses $\|a_-\|\le\|a\|$; $a=Z_S$ attains it. If a coupling history gives $\theta(t)=\int_0^t k(s)ds$, the exact finite-window tolerance is $\sup_{0\le t\le T}|\sin2\theta(t)|$. Unlike a coupling restricted to the private factors, this one actually moves workspace observables.
+
+The learned register of Sections~\ref{sec:learning}--\ref{sec:numerics} and this protected factor answer different parts of the anchoring problem. The register demonstrates formation of a usable relation. The factor demonstrates an exact common noncommutative sector and quantifies its disturbance. The next construction makes quantum protection depend on acquired records. A neural implementation would still have to identify its comparison operations and protection mechanism, not simply rename a correlation graph an algebra.
+
+\section{Learning a physically protected quantum sector}
+\label{sec:quantum_learning}
+
+Collective noise can preserve quantum information in a degenerate coupling
+sector~\cite{ZanardiRasetti1997}. Such protection can also be engineered by
+control rather than assumed to occur naturally~\cite{Quiroz2024}.
+We use the two-qubit collective-dephasing code to connect three quantities:
+the interface learned from records, the quantum information it preserves,
+and the source generated by that same coupling. The code family, common field
+port and programmable couplings are supplied; neither the matching command
+nor, in the candidate-family construction, the usable pair is supplied.
+
+Let two degenerate qubits encounter a right-moving free scalar current
+$j=\partial_u\phi$, with $[j(u),j(v)]=i\delta'(u-v)/2$.
+For a real smooth compact switch $f$, define
+\begin{equation}
+ Q_f=\int f(u)j(u)\,du=\sqrt{k}\,(b+b^\dagger),\quad
+ k=\int_0^\infty\frac{\omega|\hat f(\omega)|^2}{4\pi}d\omega>0,
+ \qquad F_f=\tfrac14 f'^2.
+ \label{eq:quantum_field}
+\end{equation}
+The field-mode convention and source calculation are those of
+Q-RAIF~B~\cite{QRAIFB}. Each encounter uses a fresh independent vacuum field
+port, initially independent of the body and retained memory. Distinct
+wave packets in one vacuum field do not automatically have this independence.
+Independent arms or field copies are therefore part of this realization.
+The command $a$ enters the interaction as
+\begin{equation}
+ A_a=Z_1+\alpha aZ_2,\qquad
+ U_a=e^{-iA_aQ_f},\qquad
+ 0<\alpha_{\min}\le\alpha\le\alpha_{\max}.
+ \label{eq:programmable_noise}
+\end{equation}
+The static positive gain $\alpha$ is unknown. There is no noncommuting body
+Hamiltonian during an encounter. Logical gates may act between encounters.
+When a regularized time-ordered interaction is defined,
+time ordering of $f(u)A_aj(u)$ can add a factor $e^{i\vartheta_f A_a^2}$:
+its higher Magnus terms vanish because the current commutator is scalar.
+This is not generally a scalar phase on the full body.
+
+Write $\mathcal C=\operatorname{span}\{|01\rangle,|10\rangle\}$ and let
+$Z_L$ have eigenvalues $+1,-1$ in this order. On this code,
+$A_a=mZ_L$, $m=1-\alpha a$, and $A_a^2=m^2I_L$, so the extra phase is scalar.
+The reduced logical channel is exactly
+\begin{equation}
+ \mathcal D_a(\rho)=\frac{1+r_a}{2}\rho+
+       \frac{1-r_a}{2}Z_L\rho Z_L,
+ \qquad r_a=e^{-2k(1-\alpha a)^2}.
+ \label{eq:learned_dephasing}
+\end{equation}
+This follows by evaluating the vacuum characteristic function
+$\langle e^{itQ_f}\rangle=e^{-kt^2/2}$ at the two coupling eigenvalues.
+At $a=1/\alpha$, the full fixed algebra is
+$\mathbb C\oplus M_2\oplus\mathbb C$; at generic $\alpha a\ne0,\pm1$
+it is diagonal. Finite-record protection below does not require reaching
+that isolated exact matching point.
+
+\subsection{Finite history, finite command precision}
+
+On separate calibration trials prepare $|+_L\rangle$, use $a=+h$ or
+$a=-h$, and measure $X_L$. There are $N$ independent trials per setting,
+with $h>0$. Their means $r_+,r_-$ obey
+\begin{equation}
+ \log r_+-\log r_-=8k\alpha h.
+ \label{eq:calibration_contrast}
+\end{equation}
+Neither a gain label nor an error-free reference reading is supplied.
+Preparation of the logical test state and its readout are specified permissions.
+
+\begin{theorem}[A learned quantum-protection certificate]
+\label{thm:quantum_certificate}
+Put
+\[
+ r_{\min}=e^{-2k(1+\alpha_{\max}h)^2},\qquad
+ \eta_N=\sqrt{2\log(4/\zeta)/N},\qquad
+ \delta_N=\frac{\eta_N}{2kh r_{\min}},
+\]
+where $0<\zeta<1$ and $\eta_N\le r_{\min}/2$.
+Clip the two sample means to $[r_{\min}/2,1]$ and project
+their log-ratio estimate, divided by $8kh$, onto
+$[\alpha_{\min},\alpha_{\max}]$. Suppose its implementation has additional
+absolute gain error at most $\epsilon_{\rm num}$ and is projected again
+onto this interval. Choose $a$ by rounding its reciprocal with error at
+most $q_a/2$, using a grid that covers the reciprocal interval.
+With probability at least $1-\zeta$,
+\begin{equation}
+ |1-\alpha a|\le b_N:=
+ \frac{\delta_N+\epsilon_{\rm num}}{\alpha_{\min}}
+       +\frac{\alpha_{\max}q_a}{2}.
+ \label{eq:quantum_mismatch_bound}
+\end{equation}
+For $M$ subsequent identical encounters the half-diamond distance to the
+logical identity, which also equals its entanglement infidelity, satisfies
+\begin{equation}
+ \epsilon_M=\frac{1-e^{-2Mk(1-\alpha a)^2}}2
+       \le\frac{1-e^{-2Mk b_N^2}}2.
+ \label{eq:quantum_lifetime}
+\end{equation}
+If arbitrary prescribed logical unitaries are interleaved, the
+half-diamond error relative to their noiseless composition is at most
+$\min\{1,Mkb_N^2\}$, including a retained ancilla.
+\end{theorem}
+\begin{proof}
+Hoeffding's inequality for $\pm1$ records bounds the probability that
+either sample mean differs from its true mean by more than $\eta_N$
+by $4e^{-N\eta_N^2/2}=\zeta$. Clipping cannot enlarge the error. The
+logarithm has derivative at most $2/r_{\min}$ on the clipped interval,
+so each log error is at most $2\eta_N/r_{\min}$. Their difference divided
+by $8kh$ gives $\delta_N$; interval projection cannot increase it.
+Reciprocal conversion gives
+$|1-\alpha/\widehat\alpha|\le
+ (\delta_N+\epsilon_{\rm num})/\alpha_{\min}$, and rounding adds
+at most $\alpha_{\max}q_a/2$.
+Independent encounter channels multiply the off-diagonal factor.
+A dephasing channel with flip probability $p$ has half-diamond distance
+$p$ from the identity: its two Pauli branches give the upper bound and
+$|+_L\rangle$ attains it. Its entanglement infidelity is also $p$.
+For interleaved gates use a hybrid telescoping sum and contractivity,
+with $(1-e^{-2km^2})/2\le km^2$ for each port.
+\end{proof}
+
+The gain need not stay unchanged throughout operation. If it remains
+in the stated interval and moves by at most $D$ from its calibration
+value, replace $\delta_N+\epsilon_{\rm num}$ by
+$\delta_N+\epsilon_{\rm num}+D$ in the bound. For a known schedule
+of mismatches $m_j$, the identity-channel error is
+$(1-e^{-2k\sum_jm_j^2})/2$. Additional independent local dephasing
+at rate $\gamma$ on each qubit multiplies the logical coherence by
+$e^{-4\gamma T}$ over total storage time $T$ without interleaved
+rotations; perfect matching does not remove it.
+
+At $k=.2$, $h=.5$, $\alpha\in[.8,1.2]$, $\zeta=.01$, $N=10^6$ per setting and $q_a=2^{-12}$, the uniform ideal-arithmetic bound is $\delta_N=.04819$, $\epsilon_{100}\le.06786$. A pilot at $\alpha=1.1$, $N=4096$ gives mean error $.03294\pm.00029$ over 20,000 histories, compared with $.16484$ for frozen $a=1$ and $.43064$ for a command matched to an independent $.9$-gain apparatus. These sampled means are distinct from the certificate.
+
+Two positive-outcome counters need
+$2\lceil\log_2(N+1)\rceil$ bits, in addition to the trial counter,
+command, temporary outcome and arithmetic workspace. The stated
+$N=10^6$ needs 40 counter bits and a 21-bit trial counter.
+The reciprocal interval admits a finite grid; its representation and
+the precision ensuring $\epsilon_{\rm num}$ are separate costs.
+The protocol consumes $2N$ logical preparations, $2N$ measurements
+and, in the independent-encounter realization, $2N+M$ fresh field ports.
+Section~\ref{subsec:one_field} instead uses a single operating field.
+Their production, calibration, gate
+actuation, memory retention and reset are not free.
+
+\subsection{Protection and source come from the same interaction}
+
+For one field, the exact stress transformation is
+\begin{equation}
+ U_a^\dagger T_{uu}U_a
+ =T_{uu}+f'A_aj+\tfrac14 f'^2 A_a^2.
+ \label{eq:learned_stress_identity}
+\end{equation}
+On the code, the centered independent field therefore has added mean
+stress $(1-\alpha a)^2F_f$. Its energy is
+$(1-\alpha a)^2E_f$, where
+$E_f=\int F_fdu=k\bar\omega$.
+The command learned from history simultaneously changes quantum
+preservation and an actual source. HAFF~D computes its response in a
+given gravity model~\cite{HAFFD}; geometry is not derived by calling
+the code a Cut.
+
+The calibration has its own source. At fixed static gain, the $2N$
+tests add total field energy
+\begin{equation}
+ E_{\rm calibration}=2N(1+\alpha^2h^2)E_f.
+ \label{eq:calibration_field_energy}
+\end{equation}
+This is energy supplied by switching, not heat priced by a Landauer
+bound. A reduction in operating stress is not a reduction in total
+cycle cost unless calibration, state preparation and readout are
+included. The source formula holds conditional on the learned
+command; averaging over histories gives $\E[(1-\alpha a)^2]F_f$,
+not the source at the average command.
+
+\subsection{A working interface cannot always diagnose its own defect}
+
+\begin{proposition}[A sign-blind protected interface]
+\label{prop:quantum_selfblind}
+Fix $a_0>0$ and $0<d<1$, with both gains
+$\alpha_\pm=(1\pm d)/a_0$ in the permitted interval.
+All logical protocols confined to $\mathcal C$ and to this same
+working command have identical record laws for the two gains,
+even with arbitrary adaptive logical instruments and retained ancillas.
+The equivalence also holds if each outcome instrument is covariant under
+field parity with invariant outcome labels, including projective stress
+measurements. The two gains nevertheless
+require different matching commands. When permitted, additional probes
+at $a_0\pm h$ distinguish them, since
+\begin{equation}
+ \log r(a_0+h)-\log r(a_0-h)
+ =8k\alpha h(1-\alpha a_0)
+ \label{eq:off_frame_contrast}
+\end{equation}
+has opposite signs on the two branches.
+\end{proposition}
+\begin{proof}
+At $a_0$ the residual couplings are $\mp dZ_L$. Both give the same
+reduced logical channel. For joint field instruments, field parity
+$\Pi$ sends $Q_f,j$ to $-Q_f,-j$, preserves the vacuum and
+$T_{uu}$, and conjugates the two code couplings into one another.
+Their scalar time-ordering phases coincide. Parity-invariant
+outcome instruments and any logical intervention therefore preserve
+this relation. Induction over a common adaptive record history gives
+the same full record law, including a retained ancilla. Expanding
+the squares at $a_0\pm h$ proves the contrast formula.
+\end{proof}
+
+This is an operational limit with specified permissions. Access to a
+signed field quadrature or to states outside the code can break it.
+Stress-only gravitational readback does not: the two branches have
+the same source and, at common initial data, the same mean response.
+Successful preservation can thus conceal a defect relevant to the
+next change of coupling. Retuning the interface to suppress its actual
+source requires an extra reference or an off-frame intervention, not
+merely a longer history of unchanged working-point records. Preserving
+the logical state by active recovery is a different task, as the
+following construction shows.
+
+\subsection{Recovery without identifying the interface}
+
+Environment-assisted correction can restore quantum information even
+when a reduced channel is noisy~\cite{GregorattiWerner2002}. In the
+present field model the correcting measurement need not know the gain.
+Its availability determines whether interface learning is needed for
+the specified storage task.
+
+\begin{proposition}[Accessible parity and the unobserved noise]
+\label{prop:parity_recovery}
+After one code-supported interaction with residual $m=1-\alpha a$,
+suppose a beam splitter sends a fraction $0\le\xi\le1$ of the
+displaced mode to an accessible port and leaves the rest unobserved. Both incoming
+modes are vacuum. Equivalently, their effective code unitary is
+\[
+ \exp\{-imZ_L[\sqrt{\xi}\,Q_A+\sqrt{1-\xi}\,Q_E]\},
+\]
+where $Q_A,Q_E$ are independent vacuum smearings of variance $k$.
+Measuring the accessible mode's parity and applying $Z_L$ after an odd
+outcome leaves the logical channel
+\begin{equation}
+ \rho_{01}\longmapsto e^{-2k(1-\xi)m^2}\rho_{01},
+ \qquad \rho_{ii}\longmapsto\rho_{ii}.
+ \label{eq:partial_parity_recovery}
+\end{equation}
+The recovery is independent of $m$. At $\xi=1$ it is exactly the identity,
+including on states entangled with a retained reference. The accessible
+parity outcomes have probabilities
+\[
+ p_\pm=\frac{1\pm e^{-2k\xi m^2}}2.
+\]
+Neither these probabilities nor the corrected logical channel distinguish
+the two signs of $m$. The source emitted by the original coupling remains
+$m^2 F_f(u)$; restoring the state does not undo that emission.
+\end{proposition}
+\begin{proof}
+Write the accessible coupling as
+\[
+ e^{-im\sqrt{\xi}Z_LQ_A}
+ = I_L\cos(m\sqrt{\xi}Q_A)-iZ_L\sin(m\sqrt{\xi}Q_A).
+\]
+Cosine applied to the vacuum has even parity and sine has odd parity.
+The two conditional logical operations are therefore $I_L$ and $Z_L$
+times field vectors. Their squared norms are $p_+$ and $p_-$ by the
+vacuum characteristic function. Conditional $Z_L$ removes the second
+operation. The inaccessible coupling commutes with both the accessible
+one and the correction, so its reduced dephasing remains unchanged.
+All statements hold with an arbitrary spectator reference. At full
+collection, the nonselective field-parity measurement also leaves stress
+expectations unchanged, since stress commutes with field parity; the
+subsequent body-only correction cannot change them. With partial
+collection, the asserted source is that emitted before the collector.
+\end{proof}
+
+At full collection this is a counterexample to any unconditional claim
+that unknown gain must be learned before quantum content can survive.
+It supplies additional permissions: collecting the relevant output field,
+measuring its parity and executing a conditional logical pulse. These
+operations are not included in passive storage. The binary record has
+entropy $h_2(p_-)$ and is independent of the stored logical state, but its
+entropy alone is not a net heat bill. Collection, readout, retention and
+reset must be priced with any accessible side information.
+
+For independent operating encounters, the specified parity recovery has
+storage error
+\[
+ \epsilon_M^{\rm rec}=\frac{1-e^{-2Mk(1-\xi)m^2}}2.
+\]
+For $\xi<1$, repeat the proof of
+Theorem~\ref{thm:protection_acquisition} with $M(1-\xi)$ in place of $M$,
+including in the condition on the gain interval. At $\xi=1$, preservation imposes no gain
+acquisition price. Retuning to lower $m^2F_f$ still requires distinguishing
+the interface. For a single reused field, full parity can likewise correct
+the complete commuting pulse train at its end if that field remains
+collectible; separate encounter recoveries cannot be assumed after earlier
+output has escaped.
+
+The vacuum preparation cannot be silently replaced by an unknown thermal
+mode. For one oscillator in a thermal state of mean occupation
+$\bar n$, measuring only its output parity and using the same odd-outcome
+correction gives $p_{\rm even}\rho+p_{\rm odd}Z_L\rho Z_L$, where
+$p_{\rm even}-p_{\rm odd}=1/(2\bar n+1)$. To see this, condition on
+the input parity. The correction is right for an even input and is
+reversed for an odd input, independently of $m$. At $m=0$ it can therefore
+introduce an error into a noiseless interaction. An input-parity
+measurement followed by an output-parity measurement does restore the
+identity if $Z_L$ is applied exactly when the two outcomes differ. The
+input measurement commutes with the thermal state, but its outcome must
+be retained and used. This is a finite-mode statement about extra
+measurement access and a preparation record, not a construction of a
+global parity detector or a cyclic apparatus in a continuous KMS field.
+
+Matching reduces coupling, noise and source together. Environmental recovery can restore content while leaving source and gain ambiguity intact; its collection and correction permissions change the task.
+
+\subsection{A continuing body can query its own interface}
+\label{sec:continuing-body}
+
+The earlier calibration uses freshly prepared logical test states. Once content
+has been stored, preparing those states would replace what is being kept.
+Proposition~\ref{prop:parity_recovery} supplies another route. Its full corrected
+instrument, not only its average, is
+\[
+ \mathcal I_\pm(\rho)=
+ \frac{1\pm e^{-2k\xi(1-\alpha a)^2}}2\mathcal D_{\xi,\alpha,a}(\rho),
+\]
+where $\mathcal D$ has coherence multiplier
+$e^{-2k(1-\xi)(1-\alpha a)^2}$. Thus at $\xi=1$ each query leaves an
+arbitrary held logical state unchanged while reporting the gain-dependent
+parity statistic. The same body can keep its content and keep learning its
+interface. At partial collection the query itself damages content, and that
+damage must be included in the lifetime.
+
+Q-RAIF~B~\cite{QRAIFB} gives a finite-meter implementation and a stronger
+coherent identity. With the retained mode's parity $\Pi$, controlled parity
+$R=|0_L\rangle\langle0_L|\otimes I+|1_L\rangle\langle1_L|\otimes\Pi$
+obeys $R e^{-imZ_LQ_f}R=I_L\otimes e^{-imQ_f}$. No gain estimate is
+needed to protect the marginal, even for an unknown thermal mode. Its first
+joint operation and complete mode access are additional permissions. A signed
+quadrature record after this echo also resolves the working-point sign
+ambiguity; a parity-only record does not. Which self-diagnosis is possible
+depends on the body's instruments, not only on the amount of stored history.
+
+\begin{theorem}[Finite-window calibration on held content]
+\label{thm:continuing-body}
+Assume fresh independent vacuum ports with known $k$, and
+$0<\alpha_{\min}\le\alpha\le\alpha_{\max}$,
+$0<\xi_{\min}\le\xi\le\xi_{\max}\le1$.
+The initial apparatus parameters are independent of the held logical state
+and reference. Each parameter may depend on previous records, but is fixed
+before the next outcome. In a calibration block use $N$ corrected parity
+queries at each of $0,+h,-h$. Relative to the block's initial parameters,
+let the calibration drift be bounded by $D_\alpha,D_\xi$. Put
+\begin{align*}
+ r_{\min}&=e^{-2k\xi_{\max}(1+\alpha_{\max}h)^2},&
+ \eta&=\sqrt{2\log(6/\zeta)/N},\\
+ B&=4k\xi_{\max}h(1+\alpha_{\max}h)D_\alpha
+       +2k(1+\alpha_{\max}h)^2D_\xi,& e&=\eta+B.
+\end{align*}
+Suppose $e\le r_{\min}/2$. Clip sample means to $[r_{\min}/2,1]$,
+set $\widehat K$ to the projection of $-\log\widehat r_0/2$ onto
+$[k\xi_{\min},k\xi_{\max}]$, and set
+\[
+ \widehat\xi=\widehat K/k,\qquad
+ \widehat\alpha=\operatorname{proj}_{[\alpha_{\min},\alpha_{\max}]}
+ \frac{\log\widehat r_+-\log\widehat r_-}{8h\widehat K}.
+\]
+With probability at least $1-\zeta$ their initial-parameter errors are bounded by
+\[
+ \delta_\xi=\frac{e}{kr_{\min}},\qquad
+ \delta_\alpha=\frac{e}{k\xi_{\min}r_{\min}}
+                       \left(\frac1{2h}+\alpha_{\max}\right).
+\]
+During the following $L$ operating encounters let the total gain and collection
+drift from the same block origin be at most $D_\alpha^{\rm op},D_\xi^{\rm op}$.
+Allow implemented gain error $\epsilon_{\rm num}$, interval projection and
+reciprocal command rounding at most $q_a/2$. Define
+\[
+ b=\frac{\delta_\alpha+\epsilon_{\rm num}+D_\alpha^{\rm op}}
+          {\alpha_{\min}}+\frac{\alpha_{\max}q_a}2,
+ \qquad \xi_-=\max\{\xi_{\min},
+                 \widehat\xi-\delta_\xi-D_\xi^{\rm op}\}.
+\]
+On the certified event, the block's total dephasing exposure satisfies
+\begin{equation}
+ \Lambda:=k\sum_{\text{calibration and operation }j}
+                    (1-\xi_j)(1-\alpha_ja_j)^2
+ \le 3Nk(1-\xi_{\min})(1+\alpha_{\max}h)^2
+        +Lk(1-\xi_-)b^2.
+ \label{eq:continuing-exposure}
+\end{equation}
+For commuting storage, conditional on the actual parameter path and records,
+its error is $(1-e^{-2\Lambda})/2$. Averaging over an unknown path averages
+this exponential, rather than replacing the path by its posterior mean.
+For prescribed logical gates interleaved with these encounters, its
+half-diamond error relative to the ideal gates is at most $\min\{1,\Lambda\}$.
+Several blocks use the sum of their exposures and failure probabilities.
+\end{theorem}
+\begin{proof}
+Each record minus its predictable conditional mean is a bounded martingale
+difference. The conditional Hoeffding bound and union over the three settings
+give deviation $\eta$ with failure probability at most $\zeta$.
+The derivatives of $r=e^{-2k\xi(1-\alpha a)^2}$ on the stated rectangle bound
+its drift by $B$. Clipping and the logarithm then give log errors at most
+$2e/r_{\min}$. Projection bounds $|\widehat K-k\xi|$ by $e/r_{\min}$.
+The contrast error divided by $8h$ is at most $e/(2hr_{\min})$;
+dividing by $\widehat K\ge k\xi_{\min}$ adds at most
+$\alpha_{\max}e/(k\xi_{\min}r_{\min})$. This proves both estimates.
+Reciprocal conversion gives $b$ and collection drift gives $\xi_-$.
+The corrected instrument makes each exposure additive for commuting storage.
+For arbitrary interleaved gates, each step's half-diamond error is
+$(1-e^{-2\lambda_j})/2\le\lambda_j$; telescoping channels proves the sum.
+The calibration exposures use $|1-\alpha a|\le1+\alpha_{\max}h$.
+\end{proof}
+
+The theorem does not grant an unknown temperature and unknown collection fraction
+two separate labels: these vacuum data identify their specified combination
+$K=k\xi$. An unknown Gaussian input variance would require another reference
+to separate it from collection. The certificate can also be too loose to accept
+a block; more exposure cannot repair already lost coherence. For the static
+two-setting example $N=4096,k=.2,\alpha=1.1,h=.5$, keeping the calibration
+error below $.01$ needs $1-\xi\le4.7335\times10^{-6}$. At full collection
+the content stays intact; learning still has a price and can lower the source.
+
+\subsection{When to inquire and when to maintain collection}
+\label{sec:quantum-inquiry-price}
+
+Let $\pi$ be the retained posterior over a fixed positive gain with finite
+second moment, independent of
+the unknown logical input. With full collection the parity record does not
+disturb that input. Fix a nonempty compact set $\mathcal A$ of permitted
+operating commands and define
+\[
+ V_{\mathcal A}(\pi)=\min_{a\in\mathcal A}
+       \mathbb E_\pi(1-\alpha a)^2,\qquad
+ a_{\mathcal A}(\pi)\in\operatorname*{arg\,min}_{a\in\mathcal A}
+       \mathbb E_\pi(1-\alpha a)^2.
+\]
+Writing $\mu=\mathbb E_\pi\alpha$ and $v=\mathbb E_\pi\alpha^2$,
+an interval constraint projects $\mu/v$ onto that interval; a finite command
+grid selects its nearest point. If $\mu/v$ is permitted, the value is
+$1-\mu^2/v$. Probe permissions can differ from operating permissions.
+All costs below are in units of $E_f=\int F_fdu$, with a separately
+supplied apparatus price.
+
+\begin{proposition}[Exact price of one inquiry]
+\label{prop:priced-inquiry}
+At one opportunity use a permitted probe command $a_p$ and retain its corrected parity
+outcome $s$. Let $\pi_s$ be its Bayesian posterior and
+$\Delta_{\mathcal A}=V_{\mathcal A}(\pi)-\sum_sP(s)V_{\mathcal A}(\pi_s)$.
+Compare $M$ subsequent opportunities using $a_{\mathcal A}(\pi_s)$ with
+the same $M+1$ opportunities all using $a_{\mathcal A}(\pi)$;
+subsequent settings do not update from their parity outcomes in this comparison.
+If $c$ is the extra read, retention and processing price of the inquiry, it
+strictly lowers this total account exactly when
+\begin{equation}
+ M\Delta_{\mathcal A}>
+ \mathbb E_\pi(1-\alpha a_p)^2-V_{\mathcal A}(\pi)+c.
+ \label{eq:priced-inquiry}
+\end{equation}
+Here $\Delta_{\mathcal A}\ge0$; an uninformative probe has
+$\Delta_{\mathcal A}=0$.
+\end{proposition}
+\begin{proof}
+Minimizing $1-2a\mu+a^2v$ over the permitted set gives the stated command.
+The minimum of affine functions of a distribution is concave, so averaging
+posteriors cannot increase its Bayes value. The two total energy accounts
+differ by the right side of Eq.~\eqref{eq:priced-inquiry} minus
+$M\Delta_{\mathcal A}$.
+\end{proof}
+
+The permitted command set affects inquiry value; examples are in
+Appendix~\ref{app:inquiry-examples}.
+
+The same retained history can price repair. Suppose collection can be changed
+from $\xi_0$ to $\xi_1>\xi_0$ at cost $c_R$, the operating command remains
+$a$, and $M$ fresh encounters remain. Let $R_{\rm past}(\alpha)$ be the
+coherence multiplier already accumulated under that history. With one unit of
+entanglement infidelity worth $W$, repair is preferable to no repair exactly when
+\begin{equation}
+ c_R<\frac W2\mathbb E_\pi\left[
+ R_{\rm past}(\alpha)
+ \left(e^{-2Mk(1-\xi_1)(1-\alpha a)^2}
+       -e^{-2Mk(1-\xi_0)(1-\alpha a)^2}\right)\right].
+ \label{eq:collection-repair}
+\end{equation}
+This follows by subtracting the two phase-channel entanglement infidelities.
+Already lost information is not restored by the repair. Examples of history-dependent repair are in Appendix~\ref{app:inquiry-examples}.
+
+\subsection{One body through inquiry, drift and maintenance}
+\label{sec:joint-held-loop}
+
+A posterior describes what the apparatus knows about its interface. Keeping
+quantum content also requires a history of what that interface has already
+done to the content. These two histories can be correlated. We now combine
+them in one finite process, with the body never re-prepared.
+
+Let $x$ range over a finite family of interface states
+$(\alpha_x,\xi_x)$. Between encounters the hidden state moves by a supplied
+Markov matrix $T_{xy}$, independently of the logical input. A permitted
+maintenance action acts first through another supplied matrix $K$; it can
+restore collection but cannot restore lost coherence. Both act only on the
+interface state. The initial interface distribution is independent of the
+arbitrary logical input; correlations created during the history are retained.
+Incoming ports are independent vacuum preparations.
+An action also selects a permitted command $a$ and whether to retain the
+corrected parity record. Put
+\[
+ \tau_x(a)=e^{-2k(1-\xi_x)(1-\alpha_xa)^2},\qquad
+ p_{s,x}(a)=\frac{1+s e^{-2k\xi_x(1-\alpha_xa)^2}}2.
+\]
+
+For a retained history define $b_x=P(x\mid\text{history})$ and
+$c_x=b_xR_x$, where $R_x$ is the conditional mean of the past coherence
+multiplier given that same history and current $x$. Thus $0\le c_x\le b_x$.
+The conditional channel on the unknown initial logical state fixes its
+populations and multiplies its coherence by $\sum_xc_x$.
+
+\begin{theorem}[History sufficient for held-body decisions]
+\label{thm:coherence-belief}
+For commuting phase storage, $(b,c)$, the remaining horizon and the remaining
+resource credits are a sufficient state for inquiry, command and maintenance
+decisions. After maintenance set
+$\bar b_y=\sum_xb_xK_{xy}$ and $\bar c_y=\sum_xc_xK_{xy}$.
+If outcome $s$ is retained, its probability and updated state are
+\begin{align}
+ q_s&=\sum_x\bar b_xp_{s,x}(a),\notag\\
+ b'_y&=q_s^{-1}\sum_x\bar b_xp_{s,x}(a)T_{xy},\notag\\
+ c'_y&=q_s^{-1}\sum_x\bar c_xp_{s,x}(a)\tau_x(a)T_{xy}.
+ \label{eq:coherence-belief}
+\end{align}
+Zero-probability branches are omitted. Without a retained outcome the update is
+$b'=\bar bT$, $c'=(\bar c\tau)T$, with componentwise multiplication by
+$\tau$. The terminal entanglement infidelity is
+$(1-\sum_xc_x)/2$.
+
+Assign a nonnegative linear source charge
+$e\sum_x\bar b_x(1-\alpha_xa)^2$ and specified read and maintenance
+prices. With finite command and maintenance sets and integer credits, ordinary
+backward recursion over Eq.~\eqref{eq:coherence-belief} gives the optimal
+finite-horizon policy for these costs. Its value is a concave, piecewise-affine
+function of $(b,c)$ at fixed credits and horizon.
+\end{theorem}
+\begin{proof}
+For each hidden path the corrected instrument is a scalar likelihood times
+a phase channel, even with a retained reference. Phase multipliers multiply
+along the path. Summing path weights gives $b$; summing their weights times
+past multipliers gives $c$. Maintenance and hidden drift mix these two masses
+by the same matrices. A retained outcome adds its likelihood to both and its
+new phase multiplier to $c$ only. This proves the updates and the channel.
+Entanglement fidelity of a phase channel is $(1+\sum c_x)/2$.
+
+Every permitted finite policy is a finite decision tree. Its expected source
+and apparatus charges are linear in $b$, and its terminal loss is affine in
+$(b,c)$. There are finitely many such trees. Minimizing their affine accounts
+gives the stated value and backward recursion. This is the usual finite-horizon
+partially observed control construction~\cite{SmallwoodSondik1973}; the
+additional physical state here is the coherence-weighted mass $c$.
+\end{proof}
+
+This state records conditional mean loss, not a measurement of the unknown
+content. A gain transition does not erase past phase errors. Omitting $c$ or
+setting $c=b$ after an inquiry would replace the body by a fresh one in the
+calculation. If each remaining stage costs at most $\ell_{\max}$ and one
+unit of terminal infidelity is worth $W$, the value for $n$ stages obeys
+\[
+ |J_n(b,c)-J_n(\widetilde b,\widetilde c)|
+ \le(n\ell_{\max}+W/2)\|b-\widetilde b\|_1
+       +(W/2)\|c-\widetilde c\|_1.
+\]
+For each policy its coefficients obey these bounds; taking the minimum
+preserves them. This bounds finite representation error at a decision state.
+It does not remove rounding error accumulated in an implemented filter.
+
+\begin{proposition}[Equal posterior and equal body, different next command]
+\label{prop:history-hidden-damage}
+Neither the gain posterior alone nor that posterior together with the current
+reduced logical state is generally sufficient for optimal future protection.
+There are two physically allowed histories with identical values of both,
+but opposite optimal commands on the same two-point command set.
+\end{proposition}
+\begin{proof}
+Take equal gain weights on $.8,1.2$ and collection $.9$. In the first
+history use command $1/.8$ with one vacuum encounter of strength
+$k_A=-\log(.2)/[2(.1)(1-1.2/.8)^2]$. In the second use $1/1.2$ with
+$k_B=-\log(.2)/[2(.1)(1-.8/1.2)^2]$. Correct but do not retain the
+syndromes. The posterior therefore stays equal, while the coherence masses
+are $c_A=(.5,.1)$ and $c_B=(.1,.5)$. Both histories give exactly the same
+logical channel, with coherence $.6$, on every initial state and reference.
+For one further encounter with $k=.2$, and permitted commands
+$\{1.25,5/6\}$, the subsequent coherences are
+\[
+\begin{array}{c|cc}
+ &1.25&5/6\\\hline
+ c_A&.59900498&.59778271\\
+ c_B&.59502492&.59955654
+\end{array}
+\]
+Maximizing preservation selects $1.25$ in the first history and $5/6$ in
+the second. Both past preparations have finite energy, although large and
+different; their costs are sunk, not silently identified. The decision
+comparison concerns the same permitted future encounter.
+\end{proof}
+
+The two logical marginals agree on every initial input and reference; the hidden body--interface correlations and controller histories differ. Retaining how loss depended on access selects the next command without inspecting unknown content.
+
+The history also has a sharp task value. The exact coherence gaps are
+\[
+ d_A=\tfrac12(1-e^{-1/225})-\tfrac1{10}(1-e^{-1/100}),\qquad
+ d_B=\tfrac12(1-e^{-1/100})-\tfrac1{10}(1-e^{-1/225}).
+\]
+A controller that retains neither history and only has the
+common posterior and body marginal must use the same action probability $p$
+in both cases. Its worst-case excess infidelity is
+\[
+ \max\{(1-p)d_A/2,pd_B/2\}\ge
+ \frac{d_Ad_B}{2(d_A+d_B)}.
+\]
+Equality holds at $p=d_A/(d_A+d_B)$. One retained bit distinguishing the
+histories permits both optimal actions and removes this excess. Their expected
+source coefficients are $.125$ and $1/18$, respectively, under the common
+gain posterior. Thus the useful imprint concerns past access-dependent damage
+and changes a material consequence; it is not merely an estimate of present gain.
+
+For a joint finite example take four hidden states
+$\alpha\in\{.6,1.4\}$, $\xi\in\{.75,.99\}$, initially equally likely,
+and $k=.6$. After each encounter the gain flips with probability $.04$;
+independently, good collection degrades with probability $.15$ and bad
+collection stays bad. A maintenance permission restores collection to $.99$
+without changing gain. The four-encounter window permits at most two retained
+parity bits and one maintenance action, with commands $\{.7,1,1.3\}$.
+Set $W=8$, source charge $e=.05$, retained-bit price $.002$ and maintenance
+price $.12$. The objective is their sum plus $W$ times terminal infidelity.
+Each row below minimizes within the indicated permissions, not just a single
+fixed command:
+\begin{center}
+\begin{tabular}{@{}lrrr@{}}
+\toprule
+Permissions & Total account & Infidelity & $\sum_j\mathbb E m_j^2$\\
+\midrule
+No retained reads or maintenance & .455100 & .052678 & .673600\\
+Maintenance, no retained reads & .323406 & .021426 & .640000\\
+Reads, no maintenance & .410110 & .047033 & .596863\\
+Reads and maintenance & .297162 & .017964 & .588965\\
+\bottomrule
+\end{tabular}
+\end{center}
+In the last row, the first action restores collection, uses $.7$ and retains
+its parity. Later commands and the timing of the second read depend on those
+actual outcomes. With the same ordinary prior but twenty earlier unrecorded
+encounters at $a=1.3$ and $k=.6$, the correct initial masses are instead
+$c_x=b_xe^{-24(1-\xi_x)(1-1.3\alpha_x)^2}$. The first action then reads
+at $1.3$ without maintaining collection. Its expected maintenance count is
+$.862169$, rather than one. The changed decision comes from retained exposure,
+not from supplying the hidden gain to the policy.
+
+Separate hidden-path/phase-mass propagation checks the recursion. On 200,000 trials, simulated infidelity $.01850\pm.00030$ agrees with finite-sum value $.017964$. Prices, transitions and maintenance permissions are inputs. The selected policy has at most $4\,2^2$ decision nodes and two retained record bits; its binary64 search and physical controller require additional resources.
+
+The same coupling contributes $m_j^2F_f$ to each profile before collection in
+the matched field realization. The collected oscillator stores mean energy
+$\hbar\omega\xi_jkm_j^2$ in Q-RAIF~B's resonant port, while the uncollected
+fraction carries the remainder. Receivers, clocks and their recycling are
+priced separately from the supplied objective above. A finite maintenance
+schedule is thus connected to a physical source; it does not yet constitute
+a locally captured continuous-field apparatus with thermal export.
+
+\begin{remark}[Beyond commuting storage]
+For prescribed noncommuting logical gates, replace each scalar mass $c_x$ by
+a trace-scaled completely positive map $\mathcal C_x$ from the initial body
+to its present state. It satisfies
+$\operatorname{tr}\mathcal C_x(\rho)=b_x\operatorname{tr}\rho$.
+Maintenance and hidden drift mix these maps. A retained outcome composes
+them with its conditional phase channel, the prescribed gate and likelihood,
+then divides by $q_s$. The finite family of maps, represented by their Choi
+matrices, gives the corresponding sufficient state. Fidelity relative to a
+prescribed target unitary is linear in these matrices, so the finite-policy
+argument still applies. This extension uses content-independent record
+likelihoods and stated gate permissions; general instruments whose outcomes
+depend on the unknown input require a different information state.
+\end{remark}
+
+Preservation and source minimization need not be the same task. With different
+Gaussian variances in different field species, logical records determine a
+noise-weighted coupling Gram matrix rather than the stress Gram matrix.
+HAFF-D~\cite{HAFFD} gives two indistinguishable noise laws with different
+sources and a reference-switching protocol that separates them. A self-model
+can therefore be sufficient to protect content while still insufficient to
+predict the consequences of its actions.
+
+\section{A carrier formed while its content is already present}
+\label{sec:formed-carrier}
+
+The pair-selection theorem prepares its task state after choosing a carrier.
+An apparatus that already holds content faces a different problem: finding
+better access takes time, and moving content can damage it. We now connect
+the signed relations learned earlier to a physical re-encoding, keeping the
+unknown input and any reference throughout the process.
+
+\subsection{Unknown noise relations and a learned code frame}
+
+There are $K$ degenerate sites with $n_i=|1\rangle\langle1|_i$. Their unknown
+noise vectors are $\boldsymbol g_i=s_i\boldsymbol e_{[i]}$, with unit orthogonal
+vectors for the unknown source blocks. At least one block contains two sites.
+The diagnostic records are those of Eqs.~\eqref{eq:carrier}--\eqref{eq:readout}.
+They can be produced by noisy sign comparators on independent Gaussian
+diagnostic quadratures with these same coupling labels. Their connection
+to the storage bath is specified physically; an artifact with the same
+record distribution would not supply it. Diagnostic randomness is independent
+of storage noise and the unknown input at fixed coupling parameters.
+
+The storage bath and noise during the gates have the effective generator
+\begin{equation}\label{eq:carrier-noise}
+ \mathfrak L(\rho)=\gamma\sum_s
+ \left(A_s\rho A_s-\tfrac12\{A_s^2,\rho\}\right),\qquad
+ A_s=2\sum_i g_{is}n_i,\quad\gamma>0.
+\end{equation}
+This is a supplied finite-dimensional noise law. It is not derived from the
+finite-band collector in Q-RAIF~B. Initially one unknown logical qubit is in
+two designated dual rails, with all other sites blank. Its encoding and those
+blank preparations are initial resources.
+
+The learned signed graph selects an edge $i<j$ and sign $\sigma$. Retain that
+frame label and use the isometry
+\begin{align}
+ E_{ij}^+|0\rangle&=|01\rangle_{ij},&
+ E_{ij}^+|1\rangle&=|10\rangle_{ij},\notag\\
+ E_{ij}^-|0\rangle&=|00\rangle_{ij},&
+ E_{ij}^-|1\rangle&=|11\rangle_{ij},
+ \label{eq:formed-frame}
+\end{align}
+with every other site in $|0\rangle$. For arbitrary true noise vectors put
+\begin{equation}\label{eq:formed-variance}
+ V_{ij}^\sigma=\|\boldsymbol g_i-\sigma\boldsymbol g_j\|^2.
+\end{equation}
+An interval of length $t$ multiplies this code's logical coherence by
+$e^{-2\gamma tV_{ij}^\sigma}$. A correctly identified edge and sign give
+$V_{ij}^\sigma=0$. Each $A_s$ then acts as a scalar on the code, so the
+noncommutative corner $E_{ij}^\sigma M_2(E_{ij}^\sigma)^*$ is fixed by the
+noise. This uses the usual noiseless-code mechanism
+\cite{ZanardiRasetti1997}. The frame identifying where that mechanism acts
+is acquired from records.
+
+\subsection{A local circuit with noise left on}
+
+Let the known connected hardware graph have diameter $D$. It supplies local
+SWAP pulses on its edges and local $X$ pulses. A transposition of sites at
+distance $d$ uses $2d-1$ adjacent SWAPs. At most two endpoint transpositions
+place the original rail labels at $i,j$, hence at most $4D-2$ SWAPs suffice.
+Finally apply $X_j$ if $\sigma=-1$. This circuit maps the initial dual-rail
+isometry to Eq.~\eqref{eq:formed-frame} without measuring the logical content.
+
+The primitive pulse Hamiltonians can be chosen positive:
+\begin{equation}\label{eq:formed-gates}
+ H_{ij}=\hbar J_{ij}\frac{I-\mathrm{SWAP}_{ij}}2,
+ \quad t_{ij}=\frac\pi{J_{ij}};\qquad
+ H_j=\hbar A_j\frac{I-X_j}2,
+ \quad t_j=\frac\pi{A_j}.
+\end{equation}
+Their exponentials are exactly SWAP and $X$. The diagnostic history chooses
+the circuit, not an unknown-state preparation. The elementary interactions,
+their amplitude limits and the circuit controller are supplied permissions.
+
+Finite pulse precision can be included. If the integrated angles differ
+from $\pi$ by at most $\epsilon_\ell$, the compiled unitary channel has
+half-diamond error at most $\frac12\sum_\ell\epsilon_\ell$. A projector
+pulse has two relative phases, so its error is at most half its angle
+error; a hybrid sum gives the circuit bound. Add this term to
+Eq.~\eqref{eq:formed-error}, using actual durations in the noise term.
+Five pulses each accurate to $2^{-16}$ add at most $3.815\times10^{-5}$.
+The clock and amplitude control that enforce these tolerances are resources.
+
+\begin{theorem}[Formation on held content]
+\label{thm:formed-carrier}
+Acquire $n$ joint records in time $T_0=n\tau$ while the content remains in its
+initial dual rails. Let their variance be $V_0$, let every compiled migration
+last at most $T_g^{\max}$, and allow subsequent storage for at most $T_1$.
+With $\delta_n=\min\{1,K(K-1)e^{-n\nu^4/8}\}$, the half-diamond error
+of the frame-labelled output, averaged over diagnostic records and compared
+with the ideal encoding of the original input in those same frames, is at most
+\begin{equation}\label{eq:formed-error}
+ \min\left\{1,\;
+ p_0+\frac{\delta_n}2 e^{-2\gamma T_0V_0}
+           (1-e^{-8\gamma T_1})+16\gamma T_g^{\max}\right\},\qquad
+ p_0=\frac{1-e^{-2\gamma T_0V_0}}2.
+\end{equation}
+It also bounds the entanglement infidelity averaged over the acquired
+frame-labelled records. Both statements allow an arbitrary retained
+reference. No replacement of the logical input occurs.
+
+Let $F$ denote the installed frame label. For a frame $f$ of positive
+probability, define under the fixed true apparatus
+\[
+ \delta_f=\Prb(\text{signed graph wrong}\mid F=f).
+\]
+The conditional output at that frame obeys the same
+bound with $\delta_f$ in place of $\delta_n$. The certificate controls
+$\sum_f\Prb(F=f)\delta_f\le\delta_n$; it need not control each
+$\delta_f$ by $\delta_n$.
+\end{theorem}
+\begin{proof}
+Diagonalizing $A_s$ gives the dephasing factor stated after
+Eq.~\eqref{eq:formed-variance}. During training it is
+$r_0=e^{-2\gamma T_0V_0}$. On a correct graph the selected pair is noiseless;
+on an incorrect graph its variance is at most four. Ignoring gate noise,
+the average error is therefore bounded by
+$p_0+\delta_n r_0(1-e^{-8\gamma T_1})/2$. The graph certificate is
+independent of the logical content and storage fluctuations at fixed
+parameters.
+
+For gate noise write $\Phi(\rho)=\sum_sA_s\rho A_s$ and
+$B=\sum_sA_s^2$. Complete positivity gives
+$\|\Phi\|_\diamond=\|B\|$; the anticommutator term has norm at most
+$\|B\|$. Thus $\|\mathfrak L\|_\diamond/2\le\gamma\|B\|$.
+SWAPs preserve the one-excitation sector, including under this diagonal
+noise. The final $X_j$ allows at most two excitations. On each stage's
+invariant accessible subspace,
+\[
+ B=4\left\|\sum_{i\text{ occupied}}\boldsymbol g_i\right\|^2\le16.
+\]
+A Duhamel comparison with the noiseless gate and contraction of subsequent
+channels give half-diamond error at most $16\gamma T_g^{\max}$.
+This restricted-input bound includes reference systems. Summing it with
+the storage error proves Eq.~\eqref{eq:formed-error}. The classical
+frame label makes the comparison blockwise; averaging blocks cannot
+increase the bound. Conditioning on a particular frame replaces the
+graph-failure allowance by $\delta_f$, with the same independent
+training channel and uniform gate-duration bound.
+\end{proof}
+
+Keeping the installed label is part of keeping access. Discarding raw logs
+while retaining the frame does not erase the relevant memory. If
+$F_e(f)$ denotes the fidelity of the actual conditional output with the
+original maximally entangled logical test in the intended code $f$,
+the reported mean infidelity is
+$\sum_f\Prb(F=f)[1-F_e(f)]$. The frame probabilities are generated by
+diagnostics independent of that logical input. This compares actual
+conditional outputs with their respective pure targets; it is not an
+assertion about the Uhlmann fidelity of two mixed labelled states.
+The conditional failure probabilities are analysis quantities, not
+additional information supplied to the controller. A later physical
+decoding circuit has its own noise and charge.
+
+The logical sector also has an explicit readout route. Supply one local
+$Z$-measurement port at the original first rail, with effects
+$(I\pm\nu Z)/2$, and allow the same exchange pulse to have a variable angle.
+Decode with $W_f^*$ using the retained frame $f$. No additional rotation
+reads $Z_L$. On the original two rails an exchange angle $\pi/2$ implements
+$e^{i\pi X_L/4}$ up to a phase, so the same port reads $-Y_L$ instead.
+The compressed effects are
+\[
+ (I_L\pm\nu Z_L)/2,\qquad (I_L\mp\nu Y_L)/2.
+\]
+For $\nu>0$ their generated algebra is $M_2$. These are alternative
+measurements, not jointly readable copies of an unknown state. The port,
+its calibration and the phase-controlled pulse are additional access
+resources. Noisy decoding and rotation add at most $4\gamma K^2T_{\rm access}$
+plus their pulse-area errors to the preceding trace-distance bound.
+Thus the acquired frame supports an implemented noncommuting readout,
+with a price, rather than only an abstract fixed corner.
+
+Small coupling defects need not destroy the acquired ability abruptly.
+If $\boldsymbol g_i=s_i\boldsymbol e_{[i]}+\boldsymbol d_i$ with
+$\|\boldsymbol d_i\|\le\epsilon_g$, correct identification gives
+$V_{ij}^\sigma\le4\epsilon_g^2$. A robust error bound is
+\[
+ \min\{1,\;p_0+\delta_n/2+
+ (1-e^{-8\gamma T_1\epsilon_g^2})/2+
+ 16\gamma(1+\epsilon_g)^2T_g^{\max}\},
+\]
+using the actual $V_0$ in $p_0$. The simpler bad-history term $\delta_n/2$
+also covers the increased variance of incorrectly selected pairs.
+If diagnostic pair means also deviate by at most $\beta<\nu^2/2$ from
+their stated values, the half-gap proof replaces $\delta_n$ by
+$\min\{1,K(K-1)e^{-n(\nu^2-2\beta)^2/8}\}$.
+These are finite-time abilities; an exact fixed algebra need not survive
+the same perturbation.
+
+\subsection{The price of learning before it is too late}
+
+For a shared pair with equally likely relative sign $\pm1$, restrict the
+passive choice to the two encodings in Eq.~\eqref{eq:formed-frame}.
+A choice independent of this apparatus's relational history is right with
+probability $1/2$. The wrong code has variance four. Its exact prior-average
+storage infidelity over exposure $\kappa=\gamma t$ is therefore
+\begin{equation}\label{eq:frame-memory-price}
+ \epsilon_{\rm blind}=\frac{1-e^{-8\kappa}}4.
+\end{equation}
+An independent donor's history cannot improve this value. Own records
+certifying the sign with error at most $\delta$ instead give ideal-selection
+loss at most $\delta(1-e^{-8\kappa})/2$, before acquisition and gates.
+The restriction matters: environmental recovery or a different code family
+can change the task. It is the retained relation's value for these actual
+encodings, not a universal necessity of a self-model for preservation.
+
+\begin{proposition}[No later encoding removes unobserved training loss]
+\label{prop:training_irreversibility}
+Fix the storage couplings and an initial logical qubit in its dual
+rails. Before migration it undergoes only the unobserved phase
+channel with coherence $r_0=e^{-2\gamma V_0T}$.
+Diagnostic records are independent of this phase noise and of
+the unknown input at those fixed couplings. After training, allow
+any deterministic, diagnostic-record-controlled CPTP encoding,
+migration and processing, but no access to the escaped bath or a
+syndrome correlated with its phase error. Its fresh ancillas are
+independent of the logical input; a spectator reference is not an
+accessible donor of that input. Entanglement fidelity
+to the original input in each intended labelled encoding is at most
+\begin{equation}\label{eq:training_irreversibility}
+ F_e\le\frac{1+r_0}{2}.
+\end{equation}
+If $T$ is a finite causal stopping time adapted to these diagnostics
+and parameter-independent coins, the averaged fidelity is at most
+$[1+\E e^{-2\gamma V_0T}]/2$. Thus every such later protocol has
+infidelity at least $\E p_0(T)$, even with perfect identification,
+noiseless gates and an arbitrary untouched spectator reference.
+Here entanglement fidelity uses the normalized maximally entangled
+logical test; this is not a lower bound on infidelity of every
+individual input state (a noise eigenstate can survive unchanged).
+\end{proposition}
+\begin{proof}
+For a fixed record and duration, compose subsequent processing
+with a CPTP decoder that is exact on the intended output code.
+Its logical channel is some $\mathcal R$. With normalized Bell
+state $\Phi$ and Choi state $J_{\mathcal R}$, fidelity after the
+training phase channel is
+\[
+ \frac{1+r_0}{2}\langle\Phi|J_{\mathcal R}|\Phi\rangle+
+ \frac{1-r_0}{2}\langle\Phi_Z|J_{\mathcal R}|\Phi_Z\rangle,
+ \qquad |\Phi_Z\rangle=(Z\otimes I)|\Phi\rangle .
+\]
+The two Bell vectors are orthogonal, their two nonnegative
+overlaps sum to at most $\operatorname{tr}J_{\mathcal R}=1$,
+and the first coefficient is larger. The expression is at most
+$(1+r_0)/2$. Decoding cannot lower fidelity to the correspondingly
+decoded pure target, so it also upper-bounds fidelity before
+that decoder. Record independence ensures the same phase
+channel conditional on each diagnostic branch. Condition on
+the record-dependent duration and average. Ideal migration
+attains equality when it adds no further damage.
+\end{proof}
+
+The proposition keeps the content in its original code until diagnostics
+finish. Blind or partial migration before identification changes the
+training channel and lies outside it; Eq.~\eqref{eq:frame-memory-price}
+prices one specified blind alternative.
+
+For $\gamma V_0>0$, longer training reduces mistaken relations but increases irreversible loss $p_0$. Perfect migration preserves only what remains. Escaped-bath recovery (Proposition~\ref{prop:parity_recovery}) or postselection changes the stated permissions and task; revising a description supplies no new copy of lost unknown content.
+
+For a finite example use four sites in a chain, source blocks $\{0,3\}$ and
+$\{1,2\}$, signs $(+,+,-,-)$, $\eta=.1$, $\gamma=2\times10^{-5}$,
+and initial rails $0,1$. The total window is 4096 time units. Each joint
+diagnostic trial takes one unit, and $J=A=\pi$ makes each local gate last
+one unit. None of the block or sign labels is given to the learner. It
+prefers the first negative learned edge, then the first positive edge;
+with no edge it retains the initial code. A breadth-first search on the
+known hardware gives a shortest SWAP word for the two rail labels. Exact
+Lindblad propagation includes noise throughout every pulse and the remaining
+storage interval. Three independent seed blocks, 63101--63103, contain
+20,000 diagnostic histories each.
+
+\begin{center}
+\begin{tabular}{@{}rrr@{}}
+\toprule
+Joint records & Exact graph fraction & Mean storage infidelity\\
+\midrule
+8   & .30615 & .04324\\
+32  & .82188 & .00851\\
+64  & .97083 & .00383\\
+128 & .99922 & .00528\\
+512 & 1.00000 & .02022\\
+\bottomrule
+\end{tabular}
+\end{center}
+At 64 records the mean is $.003833\pm.000050$, against the exact unmoved
+value $.139703$. At 128 records Eq.~\eqref{eq:formed-error} gives $.01525$
+as a model-conditioned upper bound; the sampled mean is $.005283$.
+The uniform bound is looser at 64 records. That budget has the best observed
+loss among the seven tested budgets, not a proof of an optimal learning
+schedule. At 256 and 512 records every sampled selected code is correct;
+the growing loss comes from longer unprotected training.
+
+Independent diagnostic controls at 64 records give approximately $.11372$
+using a donor apparatus and $.13935$ using fresh unpaired fair reports,
+against $.00381$ using own records. The controls use the same read count
+and primitive family; preparing a donor is an additional experimental
+resource. Independent matrix-ODE propagation agrees with vectorized
+exponentials to $2\times10^{-11}$. Explicit noisy-unitary trajectories
+with a retained reference agree with the correctly chosen circuit's loss
+within one sampling standard error.
+
+Training uses $Kn$ reads while the body is exposed. With a count cap $N$,
+the pair sums need $\binom K2\lceil\log_2(2N+1)\rceil$ bits. Add the count,
+signed graph, temporary records and hardware sequencer. A retained frame
+needs $\lceil\log_2\binom K2\rceil+1$ logical bits; the four-site case uses
+four. At 64 records the six pair sums use 48 bits. These capacities exclude
+the computation workspace and physical storage implementation. Quadratic
+gate charges give $g_{ij}\pi J_{ij}$ per SWAP and $g_j\pi A_j$ per $X$.
+Peak activation energy is at most $\hbar J_{ij}$ or $\hbar A_j$; noise-active
+switching does not imply zero net work. The successful three-gate route has
+quadratic charge $3\pi^2$ at unit metric weights. Blank preparations,
+diagnostic probes, comparator calibration, clock, retention and reset remain
+separate accounts. The effective generator alone does not fix their heat.
+
+\subsection{Re-encoding, sources and the functional boundary}
+
+If another frame is later learned, the ideal operation $W_{\rm new}W_{\rm old}^*$
+moves the already damaged logical state and its reference correlations.
+It does not prepare another copy. For repeated noisy conversions a safe
+full-space bound is $4\gamma K^2$ times their total duration; it follows
+from $\sum_sA_s^2\le4K^2$. Previous exposures and mistaken-frame events
+must still be accumulated. The sharper first-formation gate bound cannot
+be reused without checking leakage and the accessible subspace.
+
+The same occupation operators have a field realization. For centered current
+fields initially independent of one another and of the body and reference,
+with a common switch, the Weyl interaction
+$\exp(-i\sum_sA_sQ_{f,s})$ adds mean stress
+$\sum_s\langle A_s^2\rangle F_f$. A correct even code has $A_sE^-=0$
+and zero increment. A correct odd code has $A_sE^+=2g_{is}E^+$ and
+increment $4F_f$, although both preserve content. Thus a physically chosen
+frame can alter a source as well as access. This occupation coupling
+differs from a $Z$ coupling by a field-driving scalar; that scalar cannot
+be removed from stress merely because it does not affect dephasing.
+The statement is an exact field-pulse consequence, not a calculation of
+the total stress of the noise-active migration apparatus. Its diagnostic
+and re-encoding costs remain even when subsequent coupling is dark.
+
+History selects the implemented noncommutative sector within supplied sites, noise and elementary permissions. The functional test is to vary retained relations at fixed single-channel statistics and measure encoding, transfer and lifetime; a modular Cut or experience requires a further bridge.
+
+\subsection{A physical program installs the acquired frame}
+\label{sec:installed-program}
+
+An acquired frame must reach the actuator. Let a finite learner store its
+frame in orthogonal states $|f\rangle$ of a program register $F$.
+The installation circuit has a fixed number $r$ of slots, padding shorter
+branches with identities. In slot $j$ use the fixed controlled unitary
+\[
+ V_j=\sum_f |f\rangle\langle f|\otimes U_{j,f}.
+\]
+These are physical program-controlled operations; the unknown true noise
+labels do not enter their choice. The hardware contains the permitted
+circuits, while this apparatus's records determine the occupied program.
+Q-RAIF~C supplies the positive history-clock construction
+\cite{QRAIFC}. Its finite register contains the held body, program and
+any retained reference, rather than a newly prepared test state.
+
+\begin{proposition}[Autonomous installation from a retained frame]
+\label{prop:installed-program}
+For $m\ge r$, pad the controlled gates to $m$ slots. The time-independent
+Hamiltonian
+\[
+ H_F=JmI+\sum_{j=1}^m J\sqrt{j(m-j+1)}
+ \bigl(|j\rangle\langle j-1|\otimes V_j+\mathrm{h.c.}\bigr)
+\]
+is nonnegative. At $T=\pi/(2J)$ it installs the frame-conditioned circuit
+$W_f$ exactly, uniformly over held body states and retained references.
+For the two-site sign family, one active edge and eight total edges
+implement $I$ or $X_2$ according to the learned sign, with nine clock
+states. At $J=.02$ the installation time is $78.5398$ and initial clock
+mean energy is $.16$, in units $\hbar=1$.
+If the supplied two-site dephasing generator remains active, its
+additional half-diamond error during installation is at most $16\gamma T$.
+Training loss and mistaken-frame exposure must still be added.
+\end{proposition}
+\begin{proof}
+Write $W_j=V_j\cdots V_1$. Conjugating by
+$\sum_j|j\rangle\langle j|\otimes W_j$ makes the hopping term the
+spin-$m/2$ chain $2JJ_x$, whose spectrum is $[-Jm,Jm]$ and whose
+rotation transfers endpoint $0$ to $m$ at $T$.
+The completed circuit is $\sum_f|f\rangle\langle f|\otimes W_f$;
+the identity holds on the full tensor product, not just its marginals.
+The two-site relay is $|0\rangle\langle0|_F\otimes I+
+|1\rangle\langle1|_F\otimes X_2$.
+The noise acts on the body, also during superposed clock prefixes.
+Here $\sum_sA_s^2\le16I$ on its entire two-site space.
+The Duhamel and diamond-norm estimate used in
+Theorem~\ref{thm:formed-carrier}, applied with the clock as a retained
+ancilla, therefore gives $16\gamma T$.
+\end{proof}
+
+This supplies installation after acquisition, not a preparation factory
+for the diagnostic streams. A finite reversible acquisition circuit
+could occupy earlier clock slots if its instruments and sources were
+also supplied. Its outcomes and computational garbage would remain in
+the register. The clock, initial purity and elementary controlled
+interactions are resources. A nine-state matrix check verifies the
+endpoint identity; it is not a continuum implementation of the storage
+bath or a permanent clock.
+
+The retained frame need not remain in a named register. For the two
+isometries $E^+,E^-$ of Eq.~\eqref{eq:formed-frame}, a fixed controlled
+NOT from site 1 to site 2 obeys
+\[
+ \mathrm{CX}_{1,2}E^+|\psi\rangle
+   =|\psi\rangle_1|1\rangle_2,\qquad
+ \mathrm{CX}_{1,2}E^-|\psi\rangle
+   =|\psi\rangle_1|0\rangle_2.
+\]
+It decodes every held logical state and its reference correlations
+without a separate frame log. The body's parity carries the frame.
+Discarding the external program is therefore not necessarily the
+memory-erasure intervention in Eq.~\eqref{eq:frame-memory-price}.
+That comparison requires eliminating every target-specific usable
+relation allowed by its experiment class.
+
+For deterministic programming of distinct unitaries on a common full
+data space, orthogonal programs are necessary
+\cite{NielsenChuang1997}. If a fixed processor implements $U_f$ from
+pure program $p_f$, linearity makes its final program independent of
+the data. Preservation of inner products gives
+$\langle p_g|p_f\rangle I=
+\langle p'_g|p'_f\rangle U_g^*U_f$; unitaries differing by more than
+a scalar require both overlaps to vanish. This standard result prices
+exact programming. It does not impose an extra external log on the
+restricted isometries above: the relevant distinction can move into
+the carrier. Physical access depends on the surviving relation, wherever
+the apparatus has put it.
+
+\section{Place in the wider theory}
+
+This paper supplies acquired routing, maintenance thresholds and
+history-dependent protection of content that remains held. Its register,
+action and fixed-algebra constructions have different permissions;
+Sections~\ref{sec:register}, \ref{sec:action} and \ref{sec:algebra} state
+their connections. The protection command also changes the source of
+the same field coupling, at fixed activation. These outputs connect
+Imprint's relational histories to a physical Q-RAIF interface and to
+HAFF-D's conditional source response~\cite{HAFFD}.
+
+A useful self-model must retain how past access damaged the body,
+not merely the present parameter posterior. This complements
+T-DOME~III's priced instrument repair~\cite{TDOMEIII}; the repair
+clocks and physical bodies remain different. The sign-blind working
+interface supplies a concrete unobservable fibre of the kind separated
+from current-frame error in Consciousness~III~\cite{ConsciousnessIII}.
+Its resolution needs another permitted experiment. The
+diagnostic/storage relation is a physical assumption, not an inference
+from passive agreement.
+
+Here the acquired encoding changes access and emitted stress.
+Foundation~III carries the separate finite semiclassical mean-action
+construction in which a source response enters later acquisition
+\cite{FoundationIII}. Joining it to this noise-active quantum migration,
+or to continuous modular geometry, still needs a common source and
+state interface.
+
+\section{Conclusion}
+
+Joint records create usable channel relations: they make an unavailable reading recoverable, permit physical feedback, and change which components are worth maintaining. Distributed routing changes the four-port lesion law from linear to cubic. Usage records can learn a maintenance decision, while natural recovery permits slow first formation. These results require actual consumers and interventions; passive agreement alone can concern an unrelated artifact.
+
+The held-body results sharpen what must be remembered. A parameter posterior and the current logical marginal can coincide while past access-dependent damage requires opposite next commands. The sufficient phase-storage state retains both ordinary and coherence-weighted interface beliefs; its Choi-map extension covers prescribed noncommuting gates. Acquired relations also select a new noncommutative carrier for unknown content already present. Finite local gates and a positive autonomous program install that frame while preserving the same input and reference. The frame can move into bodily parity after the external log is discarded. Training, wrong frames and migration all enter the error bound. When training precedes every migration and phase-correlated recovery is unavailable, every deterministic later encoding retains that unobserved training-loss floor: learning more can leave less to save.
+
+These mechanisms support a task-dependent biological hypothesis about learned causal routing and maintained access. The early test section specifies mapping, throughput, history and maintenance interventions, with matched marginal statistics and load controls. The apparatus still receives its candidate links, primitive operations, noise family and diagnostic/storage relation. Neural realization of the quantum codes, continuous modular geometry and experience each require their own evidence.
+
+\appendix
+\section{Reproducible finite summation}
+\label{app:sum}
+
+For any learned routing and fixed true apparatus, align each selected peer to the target prediction. Multiplying its vote by the true target value produces $a_j\epsilon_j$ for a true peer, with $a_j\in\{-1,+1\}$. Peers in a different true block share an additional independent fair sign for that block. The sum distribution for a block is obtained by multiplying the Laurent polynomials
+\begin{equation}
+ (1-\eta)z^{a_j}+\eta z^{-a_j}.
+\end{equation}
+For a non-target block, average its coefficient vector with its reversal. Convolve the resulting block distributions. The coefficients of negative powers, plus half the coefficient of $z^0$, give the exact conditional task error. This procedure handles correlations among selected records from the same source; sampling pair products independently would not.
+
+The implementation uses floating-point polynomial arithmetic and checks probability normalization. Exact rational enumerations for four-channel histories and for the three-peer task give $q_3=7/250$ and $L=47/625$. The reported Monte Carlo uncertainty comes only from sampled apparatuses and training histories. The experiment uses fixed record budgets $8,16,32,64,128,256$, not data-dependent stopping. The moving-window experiment evaluates fresh task distributions at each snapshot and does not feed those held-out values into the learner.
+
+\section{Common-state workspace proof}
+\label{app:workspace-proof}
+
+\begin{proof}[Proof of Theorem~\ref{thm:ucp}]
+For fixed $x$, Schwarz gives $R_j(x^*x)-x^*x\ge0$. State preservation and faithfulness make this difference zero; likewise for $xx^*$. Thus every common fixed element is in every $R_j$'s multiplicative domain. Products and adjoints of common fixed elements are fixed. Normality makes the fixed set ultraweakly closed, proving the algebra assertion.
+
+Choose positive weights summing to one and set $T=\sum_jw_jR_j$. Each map contracts the GNS norm $\|x\|_{2,\omega}^2=\omega(x^*x)$. If $Tx=x$, then
+\begin{equation}
+ \sum_jw_j\|R_jx-x\|_{2,\omega}^2
+ =\sum_jw_j\|R_jx\|_{2,\omega}^2-\|x\|_{2,\omega}^2\le0.
+\end{equation}
+Faithfulness yields $R_jx=x$ for all $j$, so $\Fix(T)=\W$. The Cesàro averages $A_N=N^{-1}\sum_{k=0}^{N-1}T^k$ converge in GNS norm by the Hilbert-space mean ergodic theorem. They are uniformly bounded on each $x\in\M$, and every ultraweak cluster point represents this same GNS limit; uniqueness follows from faithfulness. Since $\|(TA_N-A_N)x\|\le2\|x\|/N$, normality of $T$ puts that limit in $\Fix(T)$. The limit defines a UCP projection $E$ onto $\W$, preserving $\omega$. Multiplicative-domain identities give $E(axb)=aE(x)b$ for $a,b\in\W$.
+
+For a bounded increasing positive net $x_\lambda\uparrow x$, let $y=\sup E(x_\lambda)\le E(x)$. Normality of $\omega$ gives $\omega(y)=\omega(x)=\omega(E(x))$, so faithfulness gives $y=E(x)$. Hence $E$ is normal. If $x\ge0$ and $E(x)=0$, then $\omega(x)=0$ and $x=0$, proving faithfulness.
+\end{proof}
+
+\section{Examples of priced inquiry and collection repair}
+\label{app:inquiry-examples}
+
+For equal prior weights on $\alpha=.8,1.2$, $k=.2$ and $c=.001$,
+$a_{\mathcal A}(\pi)=.96153846$ when permitted. A probe at $a_p=1$ has identical parity laws for both
+gains and gives no benefit. A probe at $a_p=1.3$ lowers future expected
+source coefficient by $.00071773055$ at an immediate extra price
+$.12013846$, provided both posterior commands are permitted. It becomes
+worthwhile at $M=168$. For $\mathcal A=[.9,1.3]$, the odd-outcome optimum
+$.83433591$ is forbidden and is replaced by $.9$. The first profitable
+integer is then $M=225$; at $M=168$ the inquiry increases the account by
+$.03037710$. This is an
+exact comparison of two specified policies in a static gain family, not an
+optimal adaptive schedule or a complete apparatus heat account. Command rounding
+changes a permitted unconstrained optimum by exactly $v(a-\mu/v)^2$, at most
+$\alpha_{\max}^2q_a^2/4$ for a covered reciprocal grid of spacing $q_a$.
+
+Start with the equal
+two-gain prior above and take $a=1.3,M=100$, collection $.9\to.99$ and
+twenty previous encounters at $.9$. If their syndromes are used for correction
+but not retained for gain estimation, the posterior stays equal and the value
+is $.117540W$; resetting the state silently would overstate it as $.150650W$.
+If all twenty even outcomes are instead retained, the posterior is
+$(.7486366,.2513634)$ and the repair value is $.060516W$.
+The repair action and its price are supplied
+physical permissions; the posterior, exposure and resulting decision come
+from this body's history.
+
+\section{Calibration baselines and field variants}
+\label{app:quantum-baselines}
+
+\subsection{Learning without a supplied bath temperature}
+\label{subsec:unknown_bath}
+
+The vacuum contrast used above assumes the input variance $k$ is known.
+The physical match can also be learned when the noise strength is unknown.
+Let each calibration port have the same centered Gaussian state $\omega$,
+independent of the body and other ports, with
+\[
+ \omega(e^{itQ_f})=e^{-K_\omega t^2/2},\qquad
+ 0<K_{\min}\le K_\omega\le K_{\max}.
+\]
+Then $r(a)=e^{-2K_\omega(1-\alpha a)^2}$. For the free-current KMS state
+at inverse temperature $\beta$ in the $u$ clock, in natural units,
+\begin{equation}
+ K_\beta=\int_0^\infty\frac{\omega|\hat f(\omega)|^2}{4\pi}
+                 \coth\frac{\beta\omega}{2}\,d\omega.
+ \label{eq:thermal_variance}
+\end{equation}
+The Bose occupation multiplies each vacuum covariance by
+$2n_\beta(\omega)+1=\coth(\beta\omega/2)$; the quasi-free Weyl
+functional gives the displayed characteristic function
+\cite{DerezinskiGerard2023}. Smooth compact current smearings make this
+integral finite, including at zero frequency. This is a state on the
+current algebra, not a trace-class density matrix for an infinite field.
+
+Three exact means at $0,+h,-h$ determine both quantities:
+\begin{equation}
+ K_\omega=-\tfrac12\log r(0),\qquad
+ \alpha=\frac{\log r(h)-\log r(-h)}{8hK_\omega}.
+ \label{eq:unknown_variance_calibration}
+\end{equation}
+The gain is not inferred by substituting a vacuum temperature. The
+zero-command experiment isolates the same bath before estimating the
+relative body coupling.
+
+\begin{theorem}[Joint gain and noise calibration]
+\label{thm:unknown_variance_certificate}
+Acquire $N$ independent $X_L$ records at each of the three settings.
+Set
+\[
+ r_{\min}=e^{-2K_{\max}(1+\alpha_{\max}h)^2},\quad
+ \eta_N=\sqrt{2\log(6/\zeta)/N}\le r_{\min}/2,\quad
+ \delta_N=\frac{\eta_N}{K_{\min}r_{\min}}
+                \left(\frac1{2h}+\alpha_{\max}\right).
+\]
+Clip means to $[r_{\min}/2,1]$. Project the estimate of $K_\omega$
+onto $[K_{\min},K_{\max}]$ before using the ratio in
+Eq.~\eqref{eq:unknown_variance_calibration}, and project the resulting
+gain estimate onto its allowed interval. With probability at least
+$1-\zeta$, its gain error is at most $\delta_N$ and its variance error
+at most $\eta_N/r_{\min}$. The command and numerical-error bound of
+Eq.~\eqref{eq:quantum_mismatch_bound} then applies with this $\delta_N$.
+If independent operating ports have centered Gaussian variances
+$K_j\le K_{\max}$, possibly different from the calibration variance,
+the passive storage error obeys
+\begin{equation}
+ \epsilon_M=\frac{1-e^{-2\sum_j K_j m_j^2}}2
+     \le\frac{1-e^{-2M K_{\max}b_N^2}}2.
+ \label{eq:thermal_lifetime}
+\end{equation}
+Here the gain stays fixed, or has the bounded drift already included
+in $b_N$.
+\end{theorem}
+\begin{proof}
+The union bound over three sample means gives probability
+$6e^{-N\eta_N^2/2}=\zeta$ for any error greater than $\eta_N$.
+Clipping and the log derivative give log errors at most
+$2\eta_N/r_{\min}$. Hence the projected variance estimate has error
+at most $\eta_N/r_{\min}$. Write
+$L=\log r(h)-\log r(-h)=8hK_\omega\alpha$.
+Then $|\widehat L-L|\le4\eta_N/r_{\min}$, and
+\[
+ \left|\frac{\widehat L}{8h\widehat K}-\alpha\right|
+ \le\frac{|\widehat L-L|}{8hK_{\min}}
+       +\frac{\alpha_{\max}|K_\omega-\widehat K|}{K_{\min}}
+ \le\delta_N.
+\]
+Gain projection cannot enlarge this error. Reciprocal conversion and
+rounding are unchanged. Independent Gaussian encounter channels give
+the product of their characteristic functions, proving the last bound.
+\end{proof}
+
+Three settings are sufficient, not necessary. If
+$h\alpha_{\max}<1$, define $u_\pm=\sqrt{-\log r(\pm h)/2}$.
+The signs of $1\mp\alpha h$ are then known, and just two means give
+\begin{equation}
+ K_\omega=\frac{(u_-+u_+)^2}{4},\qquad
+ \alpha=\frac{u_--u_+}{h(u_-+u_+)}.
+ \label{eq:two_unknown_bath}
+\end{equation}
+There is a finite-record certificate for this shortcut too. Put
+$u_{\min}=\sqrt{K_{\min}}(1-h\alpha_{\max})$ and clip its sample
+means to $[r_{\min}/2,e^{-2u_{\min}^2}]$.
+For $\eta_N=\sqrt{2\log(4/\zeta)/N}\le r_{\min}/2$, project the
+two-mean gain estimate onto its interval. Its error is at most
+\[
+ \delta_N^{(2)}=\frac{\eta_N}{2h r_{\min}u_{\min}^2}
+\]
+with probability at least $1-\zeta$. Indeed, the derivative of
+$\sqrt{-\log r/2}$ has magnitude at most
+$1/(2r_{\min}u_{\min})$ on the clipped domain. Each partial derivative
+of $(y-x)/[h(x+y)]$ is at most $1/(2h u_{\min})$ for $x,y\ge u_{\min}$.
+Applying these two bounds gives the stated error. Neither certificate
+claims optimal constants or a minimum number of settings.
+
+The stress increment is still $m^2F_f$: it follows from the current
+commutator and the centered independent input, not from its vacuum
+covariance. The total stress includes the incoming bath. In the $u$-KMS
+state of this single chiral field,
+\[
+ \omega_\beta(T_{uu})=\int_0^\infty\frac{\omega n_\beta(\omega)}{2\pi}
+        d\omega=\frac{\pi}{12\beta^2}.
+\]
+Temperature changes the noise lifetime and supplies a real background
+source; it does not change the increment from the same residual coupling.
+For the three-setting protocol, calibration adds
+$N(3+2\alpha^2h^2)E_f$ before preparations, readout and controller costs.
+The two-setting shortcut adds $2N(1+\alpha^2h^2)E_f$. A thermal bath and
+fresh ports remain preparations to be implemented and priced. This
+calibration removes a supplied temperature label, not the need for a
+physical thermal source or a continuous clocked apparatus.
+
+Within the supplied one-temperature KMS family, the same records also
+calibrate its background. The function $K_\beta$ is strictly decreasing:
+\[
+ -\frac{dK_\beta}{d\beta}
+ =\int_0^\infty\frac{\omega^2|\hat f(\omega)|^2}{8\pi}
+                 \operatorname{csch}^2\frac{\beta\omega}{2}\,d\omega>0.
+\]
+For $0<\beta_{\min}\le\beta\le\beta_{\max}<\infty$, its minimum slope magnitude
+$\mu_\beta$ is attained at $\beta_{\max}$ and is positive. Project
+$\widehat K$ onto this family's variance interval and invert it. The
+three-setting certificate gives
+\begin{equation}
+ |\widehat\beta-\beta|\le\frac{\eta_N}{r_{\min}\mu_\beta},\qquad
+ \left|\frac{\pi}{12\widehat\beta^2}-\frac{\pi}{12\beta^2}\right|
+ \le\frac{\pi\eta_N}{6\beta_{\min}^3 r_{\min}\mu_\beta}.
+ \label{eq:background_calibration}
+\end{equation}
+Numerical inversion error is an additional term. This is thermometry
+conditional on the one-temperature family, not a test of that family.
+One smearing variance does not determine an arbitrary Gaussian bath's
+energy: two independent modes at frequencies $1$ and $4$, with equal
+weights in $Q_f$, have the same variance for occupations $(1,0)$ and
+$(0,1)$ but different incoming energies. Extra spectral probes are needed
+to distinguish them.
+
+\subsection{A necessary record-acquisition price}
+
+The certificate does not make learning free. Consider any calibration
+protocol with $n$ fresh vacuum queries of the code-supported Weyl
+interaction, commands $|a_j|\le A_{\rm cal}$, and no initially supplied
+gain label. Preparations, logical instruments, retained ancillas and
+classical adaptive setting choices may otherwise be arbitrary and
+independent of the unknown gain. The final command lies in a specified
+positive interval $a\ge a_{\rm dec}>0$. The following lower bound
+even permits reading the query's field output. A regularized
+time-ordering phase is scalar within each classical code query and
+does not supply another gain-sensitive operation.
+
+\begin{theorem}[Passive protection requires acquisition]
+\label{thm:protection_acquisition}
+Suppose that at every $\alpha\in[\alpha_{\min},\alpha_{\max}]$,
+the protocol produces a command with $M$ independent-encounter passive
+storage error at most $0<\epsilon<1/2$, with probability at least
+$1-\zeta$, where $0<\zeta<1/2$. Put
+\[
+ b=\sqrt{\frac{-\log(1-2\epsilon)}{2Mk}}.
+\]
+If $2b/a_{\rm dec}<\alpha_{\max}-\alpha_{\min}$, then
+\begin{equation}
+ n\ge
+ \frac{M a_{\rm dec}^2}{2A_{\rm cal}^2[-\log(1-2\epsilon)]}
+       \log\frac1{4\zeta(1-\zeta)}.
+ \label{eq:necessary_acquisition}
+\end{equation}
+The operating field is discarded; no environment-assisted recovery is
+used during storage. For fixed gain and command bounds, the necessary query count is
+of order $M\log(1/\zeta)/\epsilon$ at small error. The
+certificate of Theorem~\ref{thm:quantum_certificate} has this same
+order when its command and numerical errors are reduced with
+the requested protection tolerance; it need not have optimal constants.
+\end{theorem}
+\begin{proof}
+For one command $a$, the isometries from logical body to body plus
+vacuum field satisfy
+\[
+ V_\alpha^*V_\beta
+ =\langle e^{ia(\alpha-\beta)Z_LQ_f}\rangle
+ =e^{-ka^2(\alpha-\beta)^2/2}I_L.
+\]
+For any two possibly different input states, their output root
+fidelity is therefore at least this scalar times their input root
+fidelity: use maximizing input purifications and the displayed
+isometry overlap. Subsequent gain-independent instruments cannot
+decrease fidelity. For a classical adaptive setting, apply the
+same bound in each record block and sum the root fidelities.
+After $n$ queries the two full output states thus have squared
+fidelity at least $e^{-nkA_{\rm cal}^2(\alpha-\beta)^2}$.
+Their optimum equal-prior discrimination error is at least
+\[
+ \tfrac12\left(1-
+    \sqrt{1-e^{-nkA_{\rm cal}^2(\alpha-\beta)^2}}\right),
+\]
+by the trace-distance--fidelity inequality~\cite{FuchsGraaf1998}, which also applies to
+ancillas and mixtures.
+
+On a successful protection event, $|1-\alpha a|\le b$,
+so the estimate $1/a$ has error at most $b/a_{\rm dec}$.
+Choose two gains separated by any
+$\Delta\alpha>2b/a_{\rm dec}$ inside the interval. Nearest-gain
+classification from this estimate has error at most $\zeta$ under
+either gain. The discrimination bound implies
+$nkA_{\rm cal}^2\Delta\alpha^2\ge
+ \log[1/(4\zeta(1-\zeta))]$.
+Let the separation decrease to $2b/a_{\rm dec}$ and substitute $b$.
+Conversely, the earlier certificate reaches this residual scale with
+$N=O(M\log(1/\zeta)/\epsilon)$ at fixed $k,h$ and gain bounds,
+if $q_a$ and $\epsilon_{\rm num}$ are $O(\sqrt{\epsilon/M})$.
+\end{proof}
+
+The count is for physical queries, not for stored bits or heat. It
+excludes uncharged gain-dependent references and coherent setting
+superpositions that could use an additional relative phase. It also
+does not cover arbitrary non-vacuum probes or unlimited coupling
+amplitudes. Those would be different resources, not exceptions to
+this bounded-query statement. The logarithmic counters may compress
+the retained evidence without reducing how much had to be acquired.
+
+\subsection{Which bath relations can be learned and cancelled}
+
+Exact common noise is not the only case that can be tested. Suppose
+there are finitely many independent vacuum field species with the same
+switch, and the coupling to species $s$ is
+$A_{s,a}=g_{1s}Z_1+a g_{2s}Z_2$. The real vectors
+$\boldsymbol g_1,\boldsymbol g_2$ are unknown. Put
+$C_{ij}=\boldsymbol g_i\cdot\boldsymbol g_j$ and
+\begin{equation}
+ V(a)=C_{11}-2aC_{12}+a^2C_{22}.
+ \label{eq:bath_gram_variance}
+\end{equation}
+On the odd code, all coupling operators are multiples of $Z_L$,
+so $r(a)=e^{-2kV(a)}$ and their time-ordering phases remain scalar.
+
+\begin{proposition}[A bath relation and its uncancellable part]
+\label{prop:bath_gram}
+The exact record means at $a=0,+h,-h$ identify
+\begin{align}
+ C_{11}&=-\frac{\log r(0)}{2k},\nonumber\\
+ C_{12}&=\frac{\log r(h)-\log r(-h)}{8kh},\nonumber\\
+ C_{22}&=\frac{2\log r(0)-\log r(h)-\log r(-h)}{4kh^2}.
+ \label{eq:gram_reconstruction}
+\end{align}
+If $C_{22}>0$ and the permitted command interval contains
+$a_*=C_{12}/C_{22}$, the smallest residual variance is
+\begin{equation}
+ V_*=C_{11}-\frac{C_{12}^2}{C_{22}}\ge0.
+ \label{eq:uncancellable_variance}
+\end{equation}
+It is zero exactly when $\boldsymbol g_1$ is proportional to
+$\boldsymbol g_2$. For identical profiles the summed added field stress
+is $V(a)F_f$, independently of the logical input state.
+\end{proposition}
+\begin{proof}
+Insert the quadratic variance in $\log r(a)=-2kV(a)$ and take its
+three finite differences. Completing the square gives
+$V(a)=V_*+C_{22}(a-a_*)^2$. Cauchy--Schwarz gives nonnegativity and
+its equality criterion. Each independent field receives the shift
+$j_s\mapsto j_s+A_{s,a}f'/2$. Its initially centered, independent
+input removes the cross term in the mean stress, and
+$A_{s,a}^2|_{\mathcal C}=(g_{1s}-ag_{2s})^2I_L$. Summing gives $V(a)F_f$.
+\end{proof}
+
+For example, $\boldsymbol g_1=(1,0)$ and
+$\boldsymbol g_2=(1,.3)$ have $a_*=1/1.09$ and
+$V_*=.08257$. No amount of estimation removes this floor using a
+single scalar command. Different field profiles or temperatures give
+different weights to preservation and energy; their objectives then
+need not have the same minimizing command. Finite records estimate
+the three means, not an exact zero of $V_*$. Bounds on the gains and
+a nonzero lower bound on $C_{22}$ are needed to turn the three-setting
+identification into a uniform finite-sample tuning certificate.
+
+The usable pair can itself be an output rather than a supplied answer.
+Consider $J$ permitted candidate pairs with unknown bath Gram matrices
+and a finite command grid $\mathcal G\subset[-A,A]$. Each pair has
+the odd-code preparation and testing permissions above; its other
+couplings are switched off during its tests. Prepare the held task
+state in the selected pair only after this acquisition stage.
+This uses a specified family of possible encodings, not a preselected
+protected pair.
+
+\begin{theorem}[Selecting quantum access from records]
+\label{thm:quantum_pair_selection}
+For each pair acquire $N$ independent tests at $0,+h,-h$.
+Suppose all $3J$ true means are at least a known $r_{\min}>0$.
+Put
+\[
+ \eta=\sqrt{2\log(6J/\zeta)/N}\le r_{\min}/2,\qquad
+ \Delta=\frac{\eta}{kr_{\min}}
+       \left(1+\frac A h+\frac{2A^2}{h^2}\right).
+\]
+Use means clipped to $[r_{\min}/2,1]$ in
+Eq.~\eqref{eq:gram_reconstruction}, and minimize the resulting
+$\widehat V_j(a)$ over all $j$ and $a\in\mathcal G$.
+With probability at least $1-\zeta$, the chosen pair and command obey
+\begin{equation}
+ V_{\rm selected}\le
+       \min_{j,a\in\mathcal G}V_j(a)+2\Delta.
+ \label{eq:pair_oracle}
+\end{equation}
+After $M$ fresh encounters its identity-channel error is at most
+$[1-e^{-2Mk(V_{\rm grid}+2\Delta)}]/2$, where
+$V_{\rm grid}=\min_{j,a\in\mathcal G}V_j(a)$.
+Uniform numerical evaluation error $\epsilon_{\rm eval}$ adds
+$2\epsilon_{\rm eval}$ to the variance bound.
+\end{theorem}
+\begin{proof}
+The probability of an error larger than $\eta$ in any sample mean
+is at most $6Je^{-N\eta^2/2}=\zeta$.
+On the complementary event the log errors are at most
+$2\eta/r_{\min}$. The three reconstructed Gram entries have
+errors at most
+$\eta/(kr_{\min})$, $\eta/(2kh r_{\min})$ and
+$2\eta/(kh^2r_{\min})$, respectively. Therefore
+$|\widehat V_j(a)-V_j(a)|\le\Delta$ uniformly on the grid.
+Compare the selected estimated minimum with the true grid minimizer
+and apply the bound twice. The channel formula gives the task bound.
+The same argument includes the additional evaluation error.
+\end{proof}
+
+The estimate need not be a positive Gram matrix for this comparison
+to hold. The true variance is nonnegative; its finite estimated
+minimum is a selection statistic. This oracle bound compares the
+specified pair-and-command family, not every quantum code.
+It costs $3JN$ physical tests and $3J$ counters, before selecting
+the encoding and operating the logical gates. For identical field
+profiles, the same selected variance bounds the added stress.
+Thus records can select which bodily pair realizes usable quantum
+access, as well as tune its protection. Access to every candidate,
+test-state preparation and subsequent encoding remain physical inputs.
+
+\subsection{Repeated use of one field}
+\label{subsec:one_field}
+
+Independence is sufficient for the product-channel certificate, but
+is not necessary for controlled storage. Keep the same logical body,
+command and static gain. Start one field in vacuum, independently
+of the body and its retained ancilla, and apply $M$ translated copies
+$f_j$ of a nonnegative compact switch with mutually disjoint supports.
+No noncommuting logical gate acts during this storage protocol.
+
+\begin{proposition}[A correlated-field protection window]
+\label{prop:one_field}
+Let $Q_j=\int f_jj\,du$, $k=\langle Q_j^2\rangle$ and
+$m=1-\alpha a$. The exact logical channel has coherence factor
+\begin{equation}
+ r_M=e^{-2m^2k_M},\qquad
+ k_M=\left\langle\left(\sum_jQ_j\right)^2\right\rangle
+ =Mk+2\sum_{i<j}C_{ij},
+ \label{eq:correlated_window}
+\end{equation}
+where
+\begin{equation}
+ C_{ij}=-\frac1{4\pi}\int\!\!\int
+       \frac{f_i(u)f_j(v)}{(u-v)^2}\,du\,dv<0.
+ \label{eq:separated_covariance}
+\end{equation}
+Consequently $0\le k_M\le Mk$, and the identity-storage error is
+no larger than the independent-field bound in
+Eq.~\eqref{eq:quantum_lifetime}. The added mean stress and energy are
+exactly
+\begin{equation}
+ F_{\rm out}(u)=\frac{m^2}{4}\sum_j f_j'(u)^2,
+ \qquad E_{\rm out}=Mm^2E_f.
+ \label{eq:one_field_source}
+\end{equation}
+\end{proposition}
+\begin{proof}
+The disjoint supports make $[Q_i,Q_j]=0$, since the current
+commutator is supported at coincidence. On the code the encounter
+unitaries therefore combine into
+$\exp[-imZ_L\sum_jQ_j]$, up to a scalar phase. Its vacuum
+characteristic function gives the coherence factor. Away from
+coincident points the vacuum two-point function is
+$\langle j(u)j(v)\rangle=-1/[4\pi(u-v)^2]$.
+Smearing gives the negative covariance; $k_M$ is a variance and
+is nonnegative. The total current shift is
+$mZ_L\sum_jf_j'/2$. In the initially independent vacuum its mean
+stress has no cross term with the incoming current. Disjoint derivative
+supports remove the cross terms among the shifts, giving the source
+and energy formulas.
+\end{proof}
+
+This is reuse of one field with its correlations kept, not a sequence
+of independent ports in disguise. It applies to storage with the
+specified sign and support conditions. Reversing the sign of one of
+two separated switches makes their covariance contribution positive,
+so the same improvement need not hold. Interleaved noncommuting
+gates or record-dependent changes of the command require their joint
+field analysis rather than the product-channel theorem. The
+calibration tests above still use independent ports. This operating
+window is finite and the input is vacuum, not a thermal exhaust.
+
+\begin{thebibliography}{9}
+\bibitem{QRAIFC}
+S.~Liu, \emph{Retained Quantum History, Physical Sources and Receiver Renewal in Q-RAIF} (Q-RAIF~C), 2026.
+
+\bibitem{NielsenChuang1997}
+M.~A.~Nielsen and I.~L.~Chuang,
+``Programmable quantum gate arrays,''
+\href{https://arxiv.org/abs/quant-ph/9703032}{arXiv:quant-ph/9703032} (1997).
+
+\bibitem{SmallwoodSondik1973}
+R.~D.~Smallwood and E.~J.~Sondik,
+``The Optimal Control of Partially Observable Markov Processes over a Finite Horizon,''
+\emph{Operations Research} \textbf{21}(5), 1071--1088 (1973).
+\href{https://doi.org/10.1287/opre.21.5.1071}{doi:10.1287/opre.21.5.1071}.
+
+\bibitem{FuchsGraaf1998}
+C.~A.~Fuchs and J.~van~de~Graaf,
+``Cryptographic Distinguishability Measures for Quantum Mechanical States,''
+\href{https://arxiv.org/abs/quant-ph/9712042}{arXiv:quant-ph/9712042}, revised version (1998).
+
+\bibitem{ZanardiRasetti1997}
+P.~Zanardi and M.~Rasetti,
+``Noiseless Quantum Codes,''
+\emph{Physical Review Letters} \textbf{79}, 3306--3309 (1997).
+\href{https://doi.org/10.1103/PhysRevLett.79.3306}{doi:10.1103/PhysRevLett.79.3306}.
+
+\bibitem{Quiroz2024}
+G.~Quiroz et al.,
+``Dynamically Generated Decoherence-Free Subspaces and Subsystems on Superconducting Qubits,''
+\href{https://arxiv.org/abs/2402.07278}{arXiv:2402.07278} (2024).
+
+\bibitem{GregorattiWerner2002}
+M.~Gregoratti and R.~F.~Werner,
+``Quantum Lost and Found,''
+\href{https://arxiv.org/abs/quant-ph/0209025}{arXiv:quant-ph/0209025} (2002).
+
+\bibitem{DerezinskiGerard2023}
+J.~Dereziński and C.~Gérard,
+\emph{Mathematics of Quantization and Quantum Fields},
+Cambridge University Press (2023), Chapter~17, pp.~423--474.
+\href{https://doi.org/10.1017/9781009290876.018}{doi:10.1017/9781009290876.018}.
+
+\bibitem{QRAIFB}
+S.~Liu, \emph{Thermodynamic Stability Constraints on Persistent Open Quantum
+Subsystems: Control Algebra, Physical Actuation and Energy Cost}
+(Q-RAIF~B), 2026; concept DOI: 10.5281/zenodo.18525890.
+
+\bibitem{FoundationIII}
+S.~Liu, \emph{Foundation III: The Perfuming Loop. Held Content, Learned Frames and Physical Return}, 2026; series record DOI: 10.5281/zenodo.19642189.
+
+\bibitem{HAFFD}
+S.~Liu, \emph{Selection, Maintenance and Gravitational Response: Modular Constraints and a Physical Return}
+(HAFF~D), 2026; concept DOI: 10.5281/zenodo.18388881.
+
+\bibitem{TDOMEIII}
+S.~Liu, \emph{Keeping a Self-Model Calibrated: Drift Detection, the Price of Keeping Up, and Reliability in a Closed Loop} (T-DOME~III), 2026; July 2026 record DOI: 10.5281/zenodo.18591771.
+
+\bibitem{ConsciousnessIII}
+S.~Liu, \emph{Finite Self-Models and the Explanatory Gap: What a Continuing Observer Can Know About Itself} (Consciousness~III), 2026; July 2026 record DOI: 10.5281/zenodo.19607724.
+
+\bibitem{Kording2007}
+K.~P.~Körding, U.~Beierholm, W.~J.~Ma, S.~Quartz, J.~B.~Tenenbaum and L.~Shams,
+``Causal Inference in Multisensory Perception,''
+\emph{PLoS ONE} \textbf{2}(9), e943 (2007).
+\href{https://doi.org/10.1371/journal.pone.0000943}{doi:10.1371/journal.pone.0000943}.
+
+\bibitem{LitwinKumar2014}
+A.~Litwin-Kumar and B.~Doiron,
+``Formation and maintenance of neuronal assemblies through synaptic plasticity,''
+\emph{Nature Communications} \textbf{5}, 5319 (2014).
+\href{https://doi.org/10.1038/ncomms6319}{doi:10.1038/ncomms6319}.
+
+\bibitem{Berniker2008}
+M.~Berniker and K.~Körding,
+``Estimating the sources of motor errors for adaptation and generalization,''
+\emph{Nature Neuroscience} \textbf{11}, 1454--1461 (2008).
+\href{https://doi.org/10.1038/nn.2229}{doi:10.1038/nn.2229}.
+
+\bibitem{Hoeffding1963}
+W.~Hoeffding,
+``Probability Inequalities for Sums of Bounded Random Variables,''
+\emph{Journal of the American Statistical Association} \textbf{58}(301), 13--30 (1963).
+\href{https://doi.org/10.1080/01621459.1963.10500830}{doi:10.1080/01621459.1963.10500830}.
+
+\bibitem{Frigerio1978}
+A.~Frigerio,
+``Stationary states of quantum dynamical semigroups,''
+\emph{Communications in Mathematical Physics} \textbf{63}, 269--276 (1978).
+\href{https://doi.org/10.1007/BF01196936}{doi:10.1007/BF01196936}.
+\end{thebibliography}
+\end{document}

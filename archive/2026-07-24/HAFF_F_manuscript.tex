@@ -1,0 +1,534 @@
+% Paper F: Temporal Asymmetry as Accessibility Propagation
+% A Structural Analysis of Causal Direction
+% COMPLETE VERSION --- Final Draft
+
+\documentclass[12pt,a4paper]{article}
+\usepackage{amsmath,amssymb,amsfonts,amsthm}
+\usepackage{physics}
+\usepackage{hyperref}
+\usepackage{geometry}
+\usepackage{array}
+\newcolumntype{P}[1]{>{\raggedright\arraybackslash}p{#1}}
+\usepackage{booktabs}
+\usepackage{tcolorbox}
+\geometry{margin=1in}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{conjecture}[theorem]{Conjecture}
+
+\title{Accessibility Propagation and Temporal Direction:\\
+A Conditional Structural Analysis}
+
+\author{
+  Sidong Liu, PhD \\
+  iBioStratix Ltd \\
+  \texttt{sidongliu@hotmail.com}
+}
+
+\date{July 2026}
+
+\begin{document}
+\emergencystretch=2em
+\raggedbottom
+\hbadness=5000
+\vbadness=5000
+
+\maketitle
+
+\begin{abstract}
+We examine how a preferred temporal direction may be represented by accessibility propagation in specified record-forming protocols. Under a supplied dynamics, fragmentation, pointer label, and low-record boundary condition, algebra inclusion and redundancy growth define protocol-relative comparisons; they do not derive a fundamental time parameter or a universal causal partial order. Causal influence additionally requires an intervention model and is treated as a diagnostic rather than a consequence of redundancy alone. The former generic-expansion and measure-zero retrocausation claims are withdrawn: the appendix gives a conditional finite-dimensional record-growth witness together with its exact unitary reversal.
+\end{abstract}
+
+\section{Introduction}
+\label{sec:intro}
+
+\subsection{The Problem of Time's Arrow}
+
+Among the deepest puzzles in physics is the origin of temporal asymmetry. The fundamental laws of physics---Newtonian mechanics, electromagnetism, quantum mechanics---are time-reversal invariant or nearly so. Yet our experience of the world is profoundly asymmetric: eggs break but do not unbreak; we remember the past but not the future; causes precede effects.
+
+This tension between microscopic reversibility and macroscopic irreversibility has been recognized since Boltzmann's work on statistical mechanics \cite{Boltzmann1896}. The standard resolution appeals to special initial conditions: the universe began in a low-entropy state, and the second law of thermodynamics reflects the statistical tendency to evolve toward higher entropy \cite{Penrose1989,Carroll2010}.
+
+While this explanation is widely accepted, it raises further questions:
+\begin{itemize}
+    \item Why should initial conditions be ``special''? What selects them?
+    \item Is the thermodynamic arrow the only arrow, or are there independent sources of temporal asymmetry?
+    \item In quantum gravity, where time itself may be emergent, how does any notion of ``before'' and ``after'' arise?
+\end{itemize}
+
+The present work does not claim to resolve these questions definitively. Instead, it offers a structural reframing: temporal asymmetry may be understood as a consequence of how accessible algebras propagate information.
+
+\subsection{Central Thesis}
+
+We propose that temporal asymmetry can be understood as follows:
+
+\begin{quote}
+\textbf{Revised thesis:} In a specified branching/record model with a low-redundancy boundary condition and an external dynamical parameter, record redundancy can grow along the thermodynamic arrow.  Algebraic inclusion and redundancy can summarize that ordered history, but do not derive time or its arrow without those inputs.
+\end{quote}
+
+This thesis uses Paper~E's pointer/record sector \cite{Liu2026PaperE}.  Paper~E distinguishes probe-reachable effects, pointer records, and dynamical fixed points; it does not define one accessible algebra by intersecting three constraints.  Here redundancy concerns a classical pointer label encoded in specified environmental fragments.
+
+The key insight is that the redundancy constraint is inherently asymmetric:
+\begin{itemize}
+    \item \textbf{Record-producing protocol}: A measurement-like branching interaction can correlate one pointer label with many fragments.
+    \item \textbf{Time-reversed protocol}: The inverse unitary removes those records when the precisely reversed state and control are supplied.
+\end{itemize}
+
+The observed asymmetry therefore comes from the low-record boundary, restricted controls, and statistical ensemble.  It is not a theorem about accessibility structure alone.
+
+\subsection{Scope and Limitations}
+
+We state explicitly what this paper does and does not attempt.
+
+\textbf{This paper does:}
+\begin{itemize}
+    \item Give a conditional records-based description of temporal asymmetry
+    \item Give an algebraic description of record ordering conditional on a dynamical model and low-redundancy boundary
+    \item Connect this account to the thermodynamic and quantum arrows
+    \item Define a protocol-relative causal-influence diagnostic combining records and interventions
+    \item Provide a star-graph witness (Appendix A) of reversible record formation from a low-record boundary
+    \item Situate the analysis within the broader HAFF framework
+\end{itemize}
+
+\textbf{This paper does not:}
+\begin{itemize}
+    \item Derive the second law of thermodynamics from first principles
+    \item Explain why initial conditions are low-entropy
+    \item Resolve metaphysical debates about the nature of time (A-theory vs.\ B-theory, presentism vs.\ eternalism)
+    \item Address free will, agency, or the phenomenology of temporal experience
+    \item Propose new dynamical equations or empirical predictions
+\end{itemize}
+
+The analysis is structural. We examine how temporal asymmetry relates to accessibility structure, without claiming that this analysis exhausts the content of the problem.
+
+\begin{remark}[Relation to Papers D and E]
+Paper~D \cite{Liu2026PaperD} conjectures a relation between geometry and paths of selected modular-stable algebras. Paper~E \cite{Liu2026PaperE} separates probe effects from pointer records and fixed points. The present paper studies record growth in a conditional model. These are related but differently typed programme components:
+\begin{itemize}
+    \item D: conditional geometric-algebra dynamics
+    \item E: measurement effects and objective records
+    \item F: record propagation under a supplied time evolution
+\end{itemize}
+\end{remark}
+
+\subsection{Outline}
+
+Section~\ref{sec:background} reviews the status of time in various physical theories. Section~\ref{sec:accessibility} identifies the dynamical, mereological, and boundary inputs needed for redundancy growth. Section~\ref{sec:causation} defines a protocol-relative influence diagnostic. Section~\ref{sec:relations} compares the present approach to existing accounts of temporal asymmetry. Section~\ref{sec:noncommitments} states explicit non-commitments. Section~\ref{sec:connection} discusses connections to the HAFF framework. Section~\ref{sec:conclusion} concludes. Appendix~\ref{app:model} gives a conditional model of reversible record formation.
+
+\section{Background: Time in Physics}
+\label{sec:background}
+
+Before developing the accessibility-based account, we briefly review the status of time in major physical theories. The purpose is to identify a common structural assumption: that time is an external parameter, given rather than derived.
+
+\subsection{Time in Classical and Quantum Mechanics}
+
+In Newtonian mechanics, time is an absolute parameter. The equations of motion are time-reversal invariant: if $\mathbf{x}(t)$ is a solution, so is $\mathbf{x}(-t)$ (with velocities reversed). There is no intrinsic arrow.
+
+In quantum mechanics, time evolution is governed by the Schr\"odinger equation:
+\begin{equation}
+i\hbar \frac{\partial}{\partial t} |\psi\rangle = \hat{H} |\psi\rangle.
+\end{equation}
+This equation is unitary and reversible. The apparent irreversibility of measurement is an interpretational issue, not a feature of the formalism itself.
+
+\subsection{Time in Quantum Gravity}
+
+In canonical approaches to quantum gravity, the Wheeler-DeWitt equation takes the form:
+\begin{equation}
+\hat{H} |\Psi\rangle = 0,
+\end{equation}
+where $|\Psi\rangle$ is the wave function of the universe. This equation contains no time parameter; the universe is described by a static state satisfying a constraint equation \cite{DeWitt1967}.
+
+The Page-Wootters mechanism \cite{PageWootters1983} recovers effective time evolution from correlations between a ``clock'' subsystem and the rest of the universe within a timeless universal state. However, this mechanism explains how time \emph{ordering} emerges from correlations but does not explain why this ordering is \emph{asymmetric}.
+
+\subsection{The Common Thread}
+
+Across these theories, time appears either as an external parameter or as an emergent concept requiring additional input.  The model below uses an external parameter and asks how records become asymmetric relative to a low-redundancy boundary; it does not constitute a third, input-free derivation of time.
+
+\section{Accessibility and Directionality}
+\label{sec:accessibility}
+
+We now develop the central technical content in its conditional form: a specified record-forming dynamics can generate an ordered history relative to a low-redundancy boundary condition.  The construction summarizes that history; it does not remove its dynamical or boundary-condition inputs.
+
+\subsection{Recap: The Redundancy Constraint}
+
+Paper~E \cite{Liu2026PaperE} treats redundancy as a property of a classical pointer label $X$ and a supplied fragment family $\{E_k\}$.  The relevant quantity is Holevo or explicitly accessible information $\chi(X:E_k)$, not an entropy assigned to an operator.
+
+\subsection{The Redundancy Index}
+
+We introduce a quantitative measure of redundancy:
+
+\begin{definition}[Redundancy Index]
+\label{def:redundancy}
+For a classical pointer label $X$, a joint classical--quantum state $\rho_{XE}$, and a declared fragmentation $E=\bigotimes_kE_k$, define
+\begin{equation}
+\mathcal{R}_\delta(X;\rho,\{E_k\})
+=\sum_{k=1}^{N}\Theta\!\left(
+\chi(X:E_k)_\rho-(1-\delta)H(X)\right),
+\end{equation}
+with a finite-resolution label for continuous outcomes.
+\end{definition}
+
+High redundancy supports objective readability of the pointer label.  It does not imply a unique global outcome or characterize every noncommutative observable.
+
+\subsection{Asymmetry of Redundancy Flow}
+
+The earlier version of this paper stated a generic phase-volume proposition for redundancy growth.  That proposition is withdrawn.  Unitary spreading of correlations alone does not imply Darwinist redundancy: Haar-typical highly entangled states generally encode information nonlocally, so that small fragments reveal very little about a pointer label \cite{Page1993,HaydenPreskill2007}.  High redundancy is instead characteristic of branching or record states generated by a suitable interaction from a low-record boundary condition.  Appendix~\ref{app:model} gives such a conditional witness and also displays its exact unitary reversal; it does not derive a universal volume ratio.
+
+\subsection{Temporal Direction from Redundancy Gradient}
+
+Algebra inclusion and record redundancy supply two distinct comparisons.  They need not point in the same direction: decoherence may increase the number of records while contracting the surviving noncommutative algebra toward a pointer algebra.
+
+\begin{definition}[Protocol-Relative Configuration Comparisons]
+\label{def:ordering}
+Fix a dynamics, a fragment family, a pointer label $X$, and two configurations $\alpha,\beta$ along the resulting history.  Define
+\begin{equation}
+\begin{aligned}
+\mathcal{A}_\alpha \preceq_{\mathrm{inc}} \mathcal{A}_\beta
+&\quad\Longleftrightarrow\quad
+\mathcal{A}_\alpha\subseteq\mathcal{A}_\beta,\\
+\alpha\preceq_{\mathcal R}\beta
+&\quad\Longleftrightarrow\quad
+\mathcal R_\delta(X;\rho_\alpha,\{E_k\})
+\leq \mathcal R_\delta(X;\rho_\beta,\{E_k\}).
+\end{aligned}
+\end{equation}
+Each relation is a preorder on its declared domain.  Their intersection may be used as a model-dependent comparison when both inequalities happen to be aligned, but no universal temporal partial order is asserted.
+\end{definition}
+
+\subsection{Audit of Temporal Inputs}
+
+The construction uses temporal orientation at several points: the Schr\"odinger parameter $t$, the unitary $U(t)$ (or a chosen dynamical semigroup), the comparison of record redundancy at different parameter values, the words ``before'' and ``after,'' and a low-redundancy condition at one end of the history.  Consequently, the algebraic comparisons above compress an already timed record-forming process.  They do not derive a time parameter or its orientation from an unordered algebra alone.
+
+\subsection{The Statistical Nature of the Arrow}
+
+In the conditional record models considered here, the microscopic dynamics may remain time-reversal invariant while a low-record boundary condition selects an oriented history.  Redundancy can then grow along the same orientation as the thermodynamic arrow.  No generic measure on interactions or states is supplied from which an overwhelming phase-volume statement would follow.
+
+\begin{quote}
+\textbf{A redundancy gradient is a record of an oriented dynamics, not an input-free definition of time.}
+\end{quote}
+
+\subsection{Relation to Thermodynamic Arrow}
+
+The accessibility arrow and the thermodynamic arrow are closely related but not identical:
+
+\begin{table}[ht]
+\centering
+\small
+\begin{tabular}{|P{3.5cm}|P{4.5cm}|P{4.5cm}|}
+\hline
+\textbf{Feature} & \textbf{Thermodynamic Arrow} & \textbf{Accessibility Arrow} \\
+\hline
+Defined by & Entropy increase relative to a macrostate choice & Growth of records for a declared pointer label and fragmentation \\
+\hline
+Requires & Coarse-graining and a low-entropy boundary & Dynamics, fragmentation, and a low-redundancy boundary \\
+\hline
+Fundamental quantity & $S = -k_B \text{Tr}(\rho \ln \rho)$ & $\mathcal{R}_\delta(X;\rho,\{E_k\})$ \\
+\hline
+Applies to & Specified thermodynamic descriptions & Specified branching/record models \\
+\hline
+\end{tabular}
+\caption{Comparison of thermodynamic and accessibility arrows.}
+\label{tab:arrows}
+\end{table}
+
+The redundancy arrow is therefore an algebraic restatement of part of the records-based thermodynamic arrow, not a more fundamental replacement for it.  Extending it to quantum-gravitational settings would require a concrete fragment structure and record dynamics there.
+
+\section{Causation as Constraint Propagation}
+\label{sec:causation}
+
+Having specified a protocol-relative record direction, we ask what causal information can be summarized by it.  The result is a diagnostic layered on an intervention model, not a derivation of causation from redundancy alone.
+
+\subsection{Causation Without Fundamental Time}
+
+Traditional accounts of causation distinguish temporal order from intervention or counterfactual dependence.  Redundancy records can witness the former, but cannot by themselves supply the latter.
+
+\begin{definition}[Protocol-Relative Causal-Influence Diagnostic]
+\label{def:causal}
+Fix a record-forming protocol with external parameter $t$, pointer labels $X_A,X_B$, and an intervention family on $X_A$.  Write $X_A\rightsquigarrow_{\mathsf P}X_B$ when:
+\begin{enumerate}
+    \item both labels have operational records in the declared fragments;
+    \item the $X_A$ records form no later than the $X_B$ records according to $t$; and
+    \item interventions on $X_A$, with the rest of the protocol held fixed, change the distribution of $X_B$.
+\end{enumerate}
+This is a protocol-relative influence test.  It is not asserted to be transitive, antisymmetric, or independent of the supplied intervention family.
+\end{definition}
+
+Redundancy thus makes an influence readable across fragments; the intervention structure, not redundancy alone, carries the causal content.
+
+\subsection{Retrocausation Remains Open}
+
+A persistent question in philosophy of physics is whether retrocausation---effects preceding causes---is possible.  The redundancy construction does not settle it.  In the star model of Appendix~\ref{app:model}, exact evolution by $U(-t)$ erases the records created by $U(t)$.  A statistical suppression estimate would require a specified ensemble, macroregion, and measure; even an estimate proportional to $e^{-\alpha N}$ would be positive and would not establish physical uninstantiability.  The earlier ``Suppression of Retrocausation'' proposition and its universal phase-volume claim are therefore withdrawn.
+
+\subsection{Causal Structure Without Spacetime}
+
+The diagnostic $\rightsquigarrow_{\mathsf P}$ is not a causal partial order.  In particular, pairwise counterfactual dependence need not be transitive: an intervention on $X_A$ can affect $X_B$, and one on $X_B$ can affect $X_C$, without the stipulated intervention on $X_A$ changing $X_C$ after conditioning or cancellation.  Any partial-order result would require additional assumptions such as an acyclic structural causal model and a faithful intervention semantics.
+
+\section{Relation to Existing Approaches}
+\label{sec:relations}
+
+We situate the accessibility-based account relative to existing approaches to temporal asymmetry.
+
+\subsection{Comparison Table}
+
+\begin{table}[ht]
+\centering
+\small
+\begin{tabular}{|P{2.8cm}|P{3.5cm}|P{3.5cm}|P{3cm}|}
+\hline
+\textbf{Approach} & \textbf{Source of Arrow} & \textbf{What It Presupposes} & \textbf{Relation to HAFF} \\
+\hline
+Thermodynamic & Entropy increase & Coarse-graining and past hypothesis & Redundancy tracks records within this arrow \\
+\hline
+Cosmological & Low-entropy Big Bang & Boundary conditions & Supplies rather than follows from the needed boundary \\
+\hline
+Decoherence & Interference suppression & System-environment split & Supplies pointer/record dynamics \\
+\hline
+Causal set & Fundamental partial order & Causal order as primitive & No derivation claimed here \\
+\hline
+Page-Wootters & Correlations in static $|\Psi\rangle$ & Timeless formulation & Record direction still needs boundary data \\
+\hline
+\textbf{Accessibility} & \textbf{Redundancy expansion} & \textbf{Interaction structure} & \textbf{---} \\
+\hline
+\end{tabular}
+\caption{Comparison of approaches to temporal asymmetry.}
+\label{tab:comparison}
+\end{table}
+
+\subsection{Key Distinctions}
+
+\textbf{Thermodynamic arrow}: Redundancy growth describes the proliferation of records along an already oriented, low-record history.  It is not more fundamental than the thermodynamic arrow and does not derive the relevant coarse-graining without mereological input.
+
+\textbf{Page-Wootters}: Both approaches can organize correlations relationally.  The present construction does not derive direction without a low-redundancy boundary condition.
+
+\textbf{Retrocausality programs}: Some approaches explore retrocausal models \cite{Price2012}.  The present record model neither excludes them nor derives their frequency; such a claim needs an ensemble and a measure beyond the model specified here.
+
+\section{What This Paper Does NOT Claim}
+\label{sec:noncommitments}
+
+To prevent misreading, we state explicitly what this paper does \emph{not} claim.
+
+\begin{enumerate}
+    \item \textbf{No claim that time is unreal or illusory.} The framework reframes temporal asymmetry as emergent from accessibility structure, but this does not imply that time is ``merely subjective'' or non-existent.
+    
+    \item \textbf{No adjudication between A-theory and B-theory of time.} The framework is compatible with both presentism and eternalism.
+    
+    \item \textbf{No explanation of initial conditions.} We assume a low-redundancy boundary condition.  This is a records version of a past hypothesis, not a consequence of the algebraic ordering \cite{Albert2000,Wallace2010}.
+    
+    \item \textbf{No resolution of the problem of time in quantum gravity.} The framework clarifies what temporal asymmetry \emph{means} in accessibility terms but does not derive time from the Wheeler-DeWitt equation.
+    
+    \item \textbf{No claims about consciousness or subjective time.} The phenomenology of temporal experience is not addressed.
+    
+    \item \textbf{No novel empirical predictions.} The analysis is structural, not dynamical.
+    
+    \item \textbf{No probability claim about retrocausation.} No ensemble or measure has been supplied from which its frequency could be computed.
+    
+    \item \textbf{No modification of quantum mechanics.} The framework assumes standard unitary evolution throughout.
+\end{enumerate}
+
+\section{Connection to HAFF Framework}
+\label{sec:connection}
+
+This paper contributes a records-based diagnostic to the HAFF programme; it does not complete a closed derivation of geometry, measurement, and time.
+
+\subsection{The D + E + F Diagnostic Triangle}
+
+Papers D, E, and F address related but non-identical typed structures.  Paper D studies conditional algebraic and modular inputs to geometry, Paper E separates probe effects from pointer records and exact fixed points, and the present paper studies records in a supplied dynamics.  They should not be read as a closed derivation from one common algebra:
+
+\begin{table}[ht]
+\centering
+\small
+\begin{tabular}{|P{1.5cm}|P{2.5cm}|P{4cm}|P{4.5cm}|}
+\hline
+\textbf{Paper} & \textbf{Phenomenon} & \textbf{Traditional View} & \textbf{HAFF Reframing} \\
+\hline
+D & Gravity & Force between masses & Conditional geometry from selected algebraic data \\
+\hline
+E & Measurement & Primitive process & Probe effects and pointer/record sectors \\
+\hline
+F & Time & Fundamental parameter & Record ordering conditional on dynamics and boundary data \\
+\hline
+\end{tabular}
+\caption{The D + E + F diagnostic triangle.}
+\label{tab:triad}
+\end{table}
+
+The shared motivation is that effective geometry, measurement records, and temporal evidence depend on selection and stability structures.  The revised papers do not establish a symmetric theorem-level unification of the three phenomena.
+
+\subsection{Structural Link: D + E + F}
+
+The three papers form a programme-level comparison rather than a symmetric closed structure:
+\begin{itemize}
+    \item \textbf{D (Gravity)}: Geometry is conditional on specified modular and holographic reconstruction data.
+    \item \textbf{E (Measurement)}: Probe reachability, pointer records, and dynamical fixed points are distinct typed objects; redundancy supports objective readability rather than a unique outcome.
+    \item \textbf{F (Time)}: Redundancy growth can record an oriented history once dynamics, fragmentation, and a low-record boundary are supplied.
+\end{itemize}
+
+\subsection{Boundary Note: Toward Layer III}
+
+The completion of Layer II (diagnostic unification) sets the stage for Layer III: the structural limits of the framework itself.
+
+A question suggested by D + E + F is how their supplied selection data are themselves chosen and justified.  Because the three papers no longer use a single untyped ``accessible algebra,'' this is a family of interface questions rather than one closed fixed-point problem.
+
+Layer III (Paper G) discusses this issue at the level of philosophy of science and metalanguage.  Its non-self-grounding proposal is motivation only, not a theorem that closes the physical programme.
+
+A theory that claims to explain everything must know where it must stop.
+
+\section{Conclusion}
+\label{sec:conclusion}
+
+\subsection{Summary of Results}
+
+We have proposed a structural account of temporal asymmetry and causation based on accessibility propagation. The central results are:
+
+\begin{enumerate}
+    \item \textbf{Protocol-relative temporal direction}: Algebra inclusion and redundancy define preorders on a declared, already timed record-forming history. Their aligned intersection can supply a model-dependent direction, not a universal temporal partial order.
+    
+    \item \textbf{Conditional accessibility arrow}: In the supplied low-record star model, redundancy grows along the chosen orientation. Generic expansion and exponential suppression of contraction are not established, and exact unitary reversal remains possible.
+    
+    \item \textbf{Causal-influence diagnostic}: Redundant records can make an influence readable, while the causal content comes from the separately supplied intervention protocol.
+    
+    \item \textbf{Retrocausation remains open}: No ensemble or measure is supplied that would make reversed trajectories measure zero or physically uninstantiable.
+    
+    \item \textbf{Programme relation}: Papers D, E, and F offer related but differently typed structural diagnostics for gravity, measurement, and temporal records; they do not form one completed derivation.
+\end{enumerate}
+
+\subsection{Closing Remark}
+
+The arrow of time has puzzled physicists and philosophers for over a century. We do not claim to have dissolved this puzzle. What we have done is reframe it:
+
+\begin{quote}
+The question is not only ``Why does entropy increase?'' but also ``Under which record-forming conditions does accessibility acquire a preferred direction?''
+\end{quote}
+
+The conditional star model shows one way in which such a direction can arise from an oriented boundary condition and specified interaction. It does not establish a generic Hilbert-space asymmetry. The remaining task is to characterize the ensembles, causal semantics, and boundary data under which the diagnostic extends beyond that witness.
+
+\section*{Acknowledgments}
+
+The author thanks the anonymous reviewers for their insightful comments and suggestions, which greatly improved the clarity and rigor of this work.
+
+\appendix
+
+\section{A Conditional Star-Graph Record Model}
+\label{app:model}
+
+This appendix gives a finite-dimensional witness that a specified measurement interaction can create redundant records from a low-record product state.  The model is conditional: it neither makes record states Haar-generic nor derives an arrow without an external parameter and boundary condition.
+
+\subsection{The Star-Graph Interaction Setup}
+
+Consider a central system $S$ (the ``source'' of accessibility) and an environment $E$ consisting of $N$ independent subsystems (fragments) $E_1, E_2, \ldots, E_N$. The total Hilbert space is:
+\begin{equation}
+\mathcal{H}_{\text{tot}} = \mathcal{H}_S \otimes \mathcal{H}_{E_1} \otimes \mathcal{H}_{E_2} \otimes \cdots \otimes \mathcal{H}_{E_N}.
+\end{equation}
+
+The interaction Hamiltonian is chosen to be of the ``pre-measurement'' type:
+\begin{equation}
+\hat{H}_{\text{int}} = g \sum_{k=1}^{N} \hat{O}_S \otimes \hat{M}_k,
+\end{equation}
+where $\hat{O}_S$ carries the pointer label $X$, the $\hat{M}_k$ monitor that label, and $g$ is the coupling strength.  This star graph and the tensor factorization of the fragments are mereological inputs, not consequences of redundancy.
+
+\subsection{Dynamics of Redundancy}
+
+Assume the low-record product boundary condition
+\begin{equation}
+|\Psi(0)\rangle = \left(\sum_i c_i|o_i\rangle_S\right)
+\otimes |e_0\rangle_{E_1}\otimes\cdots\otimes|e_0\rangle_{E_N}.
+\end{equation}
+This is a records version of a past hypothesis: it is assumed rather than derived \cite{Albert2000,Wallace2010}.
+
+Under the unitary evolution $U(t) = e^{-i\hat{H}_{\text{int}}t/\hbar}$, the state evolves into an entangled superposition. For $\hat{O}_S$ with eigenstates $|o_i\rangle$:
+\begin{equation}
+|\Psi(t)\rangle = \sum_i c_i |o_i\rangle_S \otimes |E_i^{(1)}(t)\rangle \otimes |E_i^{(2)}(t)\rangle \otimes \cdots \otimes |E_i^{(N)}(t)\rangle,
+\end{equation}
+where $|E_i^{(k)}(t)\rangle$ are the conditional states of the fragments.
+
+For a declared prior $p_i=|c_i|^2$, the operational quantity is the Holevo information $\chi(X:E_k)_{\rho(t)}$.  If the chosen interaction has a monitoring window in which the conditional states $|E_i^{(k)}(t)\rangle$ become sufficiently distinguishable, then fragments cross the threshold in Definition~\ref{def:redundancy} and $\mathcal R_\delta(t)$ increases.  An ideal controlled measurement can reach $\chi(X:E_k)=H(X)$ for every $k$, hence $\mathcal R_\delta=N$.  This conclusion is a property of that interaction and window, not of arbitrary Hamiltonians.
+
+\subsection{Exact Reversal and the Absence of a Generic Volume Claim}
+
+The same model also makes the boundary-condition dependence explicit.  Evolution by $U(-t)=U(t)^\dagger$ exactly reverses the record-forming unitary:
+\begin{equation}
+U(-t)|\Psi(t)\rangle=|\Psi(0)\rangle.
+\end{equation}
+Thus record contraction is dynamically allowed.  To assign it a probability or a phase-volume suppression one would have to declare a state ensemble, macroregions, and a measure.  Dimension counting alone does not establish the former formula
+\begin{equation}
+\frac{\operatorname{Vol}(\mathcal R\downarrow)}
+{\operatorname{Vol}(\mathcal R\uparrow)}\sim e^{-\alpha N},
+\end{equation}
+which is withdrawn here.
+
+Nor does generic high entanglement repair the argument.  For Haar-typical pure states, small subsystems are nearly maximally mixed and information about a reference or pointer label is predominantly stored in nonlocal correlations \cite{Page1993,HaydenPreskill2007}.  Small environmental fragments therefore carry little separately accessible information.  Quantum-Darwinist redundancy is a special branching/record structure, not the generic large-volume sector of Hilbert space.
+
+\subsection{What the Witness Establishes}
+
+The model establishes only the following compatibility statement:
+\begin{itemize}
+    \item a chosen branching interaction can convert a low-record product state into a state with many readable records;
+    \item the same unitary has an exact record-erasing inverse; and
+    \item interpreting the forward branch as an arrow requires the low-record boundary condition and the supplied orientation of $t$.
+\end{itemize}
+Accordingly, the accessibility comparison in the main text is an algebraic description of record formation within a timed model, not a proof of structural irreversibility.
+
+\begin{thebibliography}{99}
+
+\bibitem{Liu2026PaperA}
+S.~Liu, \emph{Emergent Geometry from Coarse-Grained Observable Algebras: The Holographic Alaya-Field Framework}, Zenodo (2026), DOI: 10.5281/zenodo.18361706.
+
+\bibitem{Liu2026PaperB}
+S.~Liu, \emph{Accessibility, Stability, and Emergent Geometry: Conceptual Clarifications on the Holographic Alaya-Field Framework}, Zenodo (2026), DOI: 10.5281/zenodo.18367060.
+
+\bibitem{Liu2026PaperC}
+S.~Liu, \emph{Causation, Agency, and Existence: Structural Constraints and Interpretive Bridges}, Zenodo (2026), DOI: 10.5281/zenodo.18374805.
+
+\bibitem{Liu2026PaperD}
+S.~Liu, \emph{Observable-Algebra Selection and Emergent Gravitational Phenomena: A Conditional Structural Analysis}, Zenodo (2026), DOI: 10.5281/zenodo.18388881.
+
+\bibitem{Liu2026PaperE}
+S.~Liu, \emph{Measurement as Accessibility: A Structural Analysis of Observable Algebra Selection}, Zenodo (2026), DOI: 10.5281/zenodo.18400065.
+
+\bibitem{Boltzmann1896}
+L. Boltzmann, \emph{Vorlesungen \"uber Gastheorie}, J. A. Barth, Leipzig (1896).
+
+\bibitem{Penrose1989}
+R. Penrose, \emph{The Emperor's New Mind}, Oxford University Press (1989).
+
+\bibitem{Carroll2010}
+S. Carroll, \emph{From Eternity to Here: The Quest for the Ultimate Theory of Time}, Dutton (2010).
+
+\bibitem{Albert2000}
+D. Z. Albert, \emph{Time and Chance}, Harvard University Press (2000).
+
+\bibitem{Wallace2010}
+D. Wallace, \emph{Gravity, entropy, and cosmology: in search of clarity}, Brit. J. Phil. Sci. \textbf{61}, 513--540 (2010).
+
+\bibitem{DeWitt1967}
+B. S. DeWitt, \emph{Quantum Theory of Gravity. I. The Canonical Theory}, Phys. Rev. \textbf{160}, 1113 (1967).
+
+\bibitem{PageWootters1983}
+D. N. Page and W. K. Wootters, \emph{Evolution without evolution: Dynamics described by stationary observables}, Phys. Rev. D \textbf{27}, 2885 (1983).
+
+\bibitem{Zurek2003}
+W. H. Zurek, \emph{Decoherence, einselection, and the quantum origins of the classical}, Rev. Mod. Phys. \textbf{75}, 715 (2003).
+
+\bibitem{Zurek2009}
+W. H. Zurek, \emph{Quantum Darwinism}, Nature Physics \textbf{5}, 181 (2009).
+
+\bibitem{Page1993}
+D. N. Page, \emph{Average entropy of a subsystem}, Phys. Rev. Lett. \textbf{71}, 1291--1294 (1993).
+
+\bibitem{HaydenPreskill2007}
+P. Hayden and J. Preskill, \emph{Black holes as mirrors: quantum information in random subsystems}, JHEP \textbf{09}, 120 (2007).
+
+\bibitem{Price2012}
+H. Price, \emph{Does Time-Symmetry Imply Retrocausality?}, Found. Phys. \textbf{42}, 724 (2012).
+
+\bibitem{Zanardi2001}
+P. Zanardi, \emph{Virtual Quantum Subsystems}, Phys. Rev. Lett. \textbf{87}, 077901 (2001).
+
+\bibitem{Zanardi2004}
+P. Zanardi, D. A. Lidar, and S. Lloyd, \emph{Quantum Tensor Product Structures are Observable Induced}, Phys. Rev. Lett. \textbf{92}, 060402 (2004).
+
+\end{thebibliography}
+
+\end{document}
