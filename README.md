@@ -8,7 +8,7 @@ HAFF develops the world side: coupling-selected structure, measurement, agency, 
 
 Foundation, Consciousness, Imprint and Brain Anchor extend these questions to realized and shared structure, physical return, finite self-reading, useful traces and learned bodily access. Each retains its own explanatory task. A functional self-model or successful self-calibration does not by itself establish subjective experience.
 
-**Current GitHub revision: 16 October 2026.** This revision restores the formation questions to the main arguments and separates two long sets of technical certificates from their papers. The matching Zenodo update is awaiting author review; existing Zenodo versions remain available.
+**Current GitHub revision: 16 October 2026.** This revision restores the formation questions to the main arguments and separates two long sets of technical certificates from their papers. The matching Zenodo versions have now been published and verified across all 36 existing record lines. See [the exact version DOIs](ZENODO_RECORDS.csv); earlier versions remain available.
 
 This October 2026 edition contains 29 individual documents and seven collected volumes. These are research preprints. The papers distinguish proved results within specified models, conditional physical laws, and stronger conjectures.
 

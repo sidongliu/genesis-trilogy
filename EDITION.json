@@ -7,7 +7,7 @@
   "supplement_pages": 132,
   "collection_pages": 976,
   "scientific_scope": "Finite semiclassical mean-action A; sustained thermal B and joint sharp-return C conjectural",
-  "zenodo_matching_version": "pending_author_review",
+  "zenodo_matching_version": "published_and_verified",
   "records": [
     {
       "id": "BRAIN",
@@ -17,7 +17,9 @@
       "engine": "xelatex",
       "concept_doi": "10.5281/zenodo.20044329",
       "legacy_record": "Brain_Anchor",
-      "github_dir": "papers/BRAIN"
+      "github_dir": "papers/BRAIN",
+      "version_doi": "10.5281/zenodo.23427279",
+      "zenodo_record_id": 23427279
     },
     {
       "id": "C-I",
@@ -27,7 +29,9 @@
       "engine": "xelatex",
       "concept_doi": "10.5281/zenodo.19607387",
       "legacy_record": "CI",
-      "github_dir": "papers/C-I"
+      "github_dir": "papers/C-I",
+      "version_doi": "10.5281/zenodo.23427296",
+      "zenodo_record_id": 23427296
     },
     {
       "id": "C-II",
@@ -37,7 +41,9 @@
       "engine": "xelatex",
       "concept_doi": "10.5281/zenodo.19607543",
       "legacy_record": "CII",
-      "github_dir": "papers/C-II"
+      "github_dir": "papers/C-II",
+      "version_doi": "10.5281/zenodo.23427297",
+      "zenodo_record_id": 23427297
     },
     {
       "id": "C-III",
@@ -47,7 +53,9 @@
       "engine": "xelatex",
       "concept_doi": "10.5281/zenodo.19607724",
       "legacy_record": "CIII",
-      "github_dir": "papers/C-III"
+      "github_dir": "papers/C-III",
+      "version_doi": "10.5281/zenodo.23427300",
+      "zenodo_record_id": 23427300
     },
     {
       "id": "F-I",
@@ -57,7 +65,9 @@
       "engine": "xelatex",
       "concept_doi": "10.5281/zenodo.19627786",
       "legacy_record": "Foundation_I",
-      "github_dir": "papers/F-I"
+      "github_dir": "papers/F-I",
+      "version_doi": "10.5281/zenodo.23427337",
+      "zenodo_record_id": 23427337
     },
     {
       "id": "F-II",
@@ -67,7 +77,9 @@
       "engine": "xelatex",
       "concept_doi": "10.5281/zenodo.19641372",
       "legacy_record": "Foundation_II",
-      "github_dir": "papers/F-II"
+      "github_dir": "papers/F-II",
+      "version_doi": "10.5281/zenodo.23427342",
+      "zenodo_record_id": 23427342
     },
     {
       "id": "F-III",
@@ -77,7 +89,9 @@
       "engine": "xelatex",
       "concept_doi": "10.5281/zenodo.19642189",
       "legacy_record": "Foundation_III",
-      "github_dir": "papers/F-III"
+      "github_dir": "papers/F-III",
+      "version_doi": "10.5281/zenodo.23427348",
+      "zenodo_record_id": 23427348
     },
     {
       "id": "HAFF-A",
@@ -87,7 +101,9 @@
       "engine": "pdflatex",
       "concept_doi": "10.5281/zenodo.18361706",
       "legacy_record": "HAFF_A",
-      "github_dir": "papers/HAFF-A"
+      "github_dir": "papers/HAFF-A",
+      "version_doi": "10.5281/zenodo.23427266",
+      "zenodo_record_id": 23427266
     },
     {
       "id": "HAFF-ABS",
@@ -97,7 +113,9 @@
       "engine": "pdflatex",
       "concept_doi": "10.5281/zenodo.18416482",
       "legacy_record": "HAFF_Abstract",
-      "github_dir": "papers/HAFF-ABS"
+      "github_dir": "papers/HAFF-ABS",
+      "version_doi": "10.5281/zenodo.23427389",
+      "zenodo_record_id": 23427389
     },
     {
       "id": "HAFF-B",
@@ -107,7 +125,9 @@
       "engine": "pdflatex",
       "concept_doi": "10.5281/zenodo.18367060",
       "legacy_record": "HAFF_B",
-      "github_dir": "papers/HAFF-B"
+      "github_dir": "papers/HAFF-B",
+      "version_doi": "10.5281/zenodo.23427392",
+      "zenodo_record_id": 23427392
     },
     {
       "id": "HAFF-C",
@@ -117,7 +137,9 @@
       "engine": "pdflatex",
       "concept_doi": "10.5281/zenodo.18374805",
       "legacy_record": "HAFF_C",
-      "github_dir": "papers/HAFF-C"
+      "github_dir": "papers/HAFF-C",
+      "version_doi": "10.5281/zenodo.23427395",
+      "zenodo_record_id": 23427395
     },
     {
       "id": "HAFF-D",
@@ -127,7 +149,9 @@
       "engine": "pdflatex",
       "concept_doi": "10.5281/zenodo.18388881",
       "legacy_record": "HAFF_D",
-      "github_dir": "papers/HAFF-D"
+      "github_dir": "papers/HAFF-D",
+      "version_doi": "10.5281/zenodo.23427396",
+      "zenodo_record_id": 23427396
     },
     {
       "id": "HAFF-E",
@@ -137,7 +161,9 @@
       "engine": "pdflatex",
       "concept_doi": "10.5281/zenodo.18400065",
       "legacy_record": "HAFF_E",
-      "github_dir": "papers/HAFF-E"
+      "github_dir": "papers/HAFF-E",
+      "version_doi": "10.5281/zenodo.23427400",
+      "zenodo_record_id": 23427400
     },
     {
       "id": "HAFF-F",
@@ -147,7 +173,9 @@
       "engine": "xelatex",
       "concept_doi": "10.5281/zenodo.18400425",
       "legacy_record": "HAFF_F",
-      "github_dir": "papers/HAFF-F"
+      "github_dir": "papers/HAFF-F",
+      "version_doi": "10.5281/zenodo.23427403",
+      "zenodo_record_id": 23427403
     },
     {
       "id": "HAFF-G",
@@ -157,7 +185,9 @@
       "engine": "xelatex",
       "concept_doi": "10.5281/zenodo.18402907",
       "legacy_record": "HAFF_G",
-      "github_dir": "papers/HAFF-G"
+      "github_dir": "papers/HAFF-G",
+      "version_doi": "10.5281/zenodo.23427408",
+      "zenodo_record_id": 23427408
     },
     {
       "id": "HAFF-PS",
@@ -167,7 +197,9 @@
       "engine": "pdflatex",
       "concept_doi": "10.5281/zenodo.18407367",
       "legacy_record": "HAFF_Postscript",
-      "github_dir": "papers/HAFF-PS"
+      "github_dir": "papers/HAFF-PS",
+      "version_doi": "10.5281/zenodo.23427414",
+      "zenodo_record_id": 23427414
     },
     {
       "id": "IMP-CHAIN",
@@ -177,7 +209,9 @@
       "engine": "pdflatex",
       "concept_doi": "10.5281/zenodo.20151594",
       "legacy_record": "Imprint_Chain",
-      "github_dir": "papers/IMP-CHAIN"
+      "github_dir": "papers/IMP-CHAIN",
+      "version_doi": "10.5281/zenodo.23427430",
+      "zenodo_record_id": 23427430
     },
     {
       "id": "IMP-RG",
@@ -187,7 +221,9 @@
       "engine": "pdflatex",
       "concept_doi": "10.5281/zenodo.20151451",
       "legacy_record": "Imprint_RG_Filtering",
-      "github_dir": "papers/IMP-RG"
+      "github_dir": "papers/IMP-RG",
+      "version_doi": "10.5281/zenodo.23427433",
+      "zenodo_record_id": 23427433
     },
     {
       "id": "IMP-SH",
@@ -197,7 +233,9 @@
       "engine": "xelatex",
       "concept_doi": "10.5281/zenodo.20151508",
       "legacy_record": "Imprint_Stable_Hulls",
-      "github_dir": "papers/IMP-SH"
+      "github_dir": "papers/IMP-SH",
+      "version_doi": "10.5281/zenodo.23427435",
+      "zenodo_record_id": 23427435
     },
     {
       "id": "IMP-W",
@@ -207,7 +245,9 @@
       "engine": "pdflatex",
       "concept_doi": "10.5281/zenodo.20122718",
       "legacy_record": "World_as_Imprint",
-      "github_dir": "papers/IMP-W"
+      "github_dir": "papers/IMP-W",
+      "version_doi": "10.5281/zenodo.23427438",
+      "zenodo_record_id": 23427438
     },
     {
       "id": "QR-A",
@@ -217,7 +257,9 @@
       "engine": "xelatex",
       "concept_doi": "10.5281/zenodo.18525876",
       "legacy_record": "QRAIF_A",
-      "github_dir": "papers/QR-A"
+      "github_dir": "papers/QR-A",
+      "version_doi": "10.5281/zenodo.23427439",
+      "zenodo_record_id": 23427439
     },
     {
       "id": "QR-B",
@@ -227,7 +269,9 @@
       "engine": "pdflatex",
       "concept_doi": "10.5281/zenodo.18525890",
       "legacy_record": "QRAIF_B",
-      "github_dir": "papers/QR-B"
+      "github_dir": "papers/QR-B",
+      "version_doi": "10.5281/zenodo.23427445",
+      "zenodo_record_id": 23427445
     },
     {
       "id": "QR-C",
@@ -237,7 +281,9 @@
       "engine": "pdflatex",
       "concept_doi": "10.5281/zenodo.18528934",
       "legacy_record": "QRAIF_C",
-      "github_dir": "papers/QR-C"
+      "github_dir": "papers/QR-C",
+      "version_doi": "10.5281/zenodo.23427449",
+      "zenodo_record_id": 23427449
     },
     {
       "id": "QR-ME",
@@ -247,7 +293,9 @@
       "engine": "xelatex",
       "concept_doi": "10.5281/zenodo.20280951",
       "legacy_record": "QRAIF_Mass_Energy",
-      "github_dir": "papers/QR-ME"
+      "github_dir": "papers/QR-ME",
+      "version_doi": "10.5281/zenodo.23427453",
+      "zenodo_record_id": 23427453
     },
     {
       "id": "QR-NC",
@@ -257,7 +305,9 @@
       "engine": "xelatex",
       "concept_doi": "10.5281/zenodo.20283057",
       "legacy_record": "QRAIF_Null_Cluster",
-      "github_dir": "papers/QR-NC"
+      "github_dir": "papers/QR-NC",
+      "version_doi": "10.5281/zenodo.23427458",
+      "zenodo_record_id": 23427458
     },
     {
       "id": "QR-NV",
@@ -267,7 +317,9 @@
       "engine": "xelatex",
       "concept_doi": "10.5281/zenodo.20284454",
       "legacy_record": "QRAIF_No_View",
-      "github_dir": "papers/QR-NV"
+      "github_dir": "papers/QR-NV",
+      "version_doi": "10.5281/zenodo.23427462",
+      "zenodo_record_id": 23427462
     },
     {
       "id": "TD-I",
@@ -277,7 +329,9 @@
       "engine": "pdflatex",
       "concept_doi": "10.5281/zenodo.18574342",
       "legacy_record": "TDOME_I",
-      "github_dir": "papers/TD-I"
+      "github_dir": "papers/TD-I",
+      "version_doi": "10.5281/zenodo.23427474",
+      "zenodo_record_id": 23427474
     },
     {
       "id": "TD-II",
@@ -287,7 +341,9 @@
       "engine": "pdflatex",
       "concept_doi": "10.5281/zenodo.18579703",
       "legacy_record": "TDOME_II",
-      "github_dir": "papers/TD-II"
+      "github_dir": "papers/TD-II",
+      "version_doi": "10.5281/zenodo.23427488",
+      "zenodo_record_id": 23427488
     },
     {
       "id": "TD-III",
@@ -297,7 +353,9 @@
       "engine": "pdflatex",
       "concept_doi": "10.5281/zenodo.18591771",
       "legacy_record": "TDOME_III",
-      "github_dir": "papers/TD-III"
+      "github_dir": "papers/TD-III",
+      "version_doi": "10.5281/zenodo.23427496",
+      "zenodo_record_id": 23427496
     },
     {
       "id": "HAFF_Complete_Collection",
@@ -307,7 +365,9 @@
       "engine": "pdflatex",
       "concept_doi": "10.5281/zenodo.18452194",
       "legacy_record": "HAFF_Complete_Collection",
-      "github_dir": "collections/HAFF_Complete_Collection"
+      "github_dir": "collections/HAFF_Complete_Collection",
+      "version_doi": "10.5281/zenodo.23427415",
+      "zenodo_record_id": 23427415
     },
     {
       "id": "QRAIF_Complete_Collection",
@@ -317,7 +377,9 @@
       "engine": "pdflatex",
       "concept_doi": "10.5281/zenodo.18548704",
       "legacy_record": "QRAIF_Complete_Collection",
-      "github_dir": "collections/QRAIF_Complete_Collection"
+      "github_dir": "collections/QRAIF_Complete_Collection",
+      "version_doi": "10.5281/zenodo.23427467",
+      "zenodo_record_id": 23427467
     },
     {
       "id": "TDOME_Complete_Collection",
@@ -327,7 +389,9 @@
       "engine": "pdflatex",
       "concept_doi": "10.5281/zenodo.18593180",
       "legacy_record": "TDOME_Complete_Collection",
-      "github_dir": "collections/TDOME_Complete_Collection"
+      "github_dir": "collections/TDOME_Complete_Collection",
+      "version_doi": "10.5281/zenodo.23427524",
+      "zenodo_record_id": 23427524
     },
     {
       "id": "Genesis_Trilogy_Collection",
@@ -337,7 +401,9 @@
       "engine": "pdflatex",
       "concept_doi": "10.5281/zenodo.18608021",
       "legacy_record": "Genesis_Trilogy_Collection",
-      "github_dir": "collections/Genesis_Trilogy_Collection"
+      "github_dir": "collections/Genesis_Trilogy_Collection",
+      "version_doi": "10.5281/zenodo.23427369",
+      "zenodo_record_id": 23427369
     },
     {
       "id": "Foundation_Trilogy_Complete_Collection",
@@ -347,7 +413,9 @@
       "engine": "pdflatex",
       "concept_doi": "10.5281/zenodo.19642398",
       "legacy_record": "Foundation_Trilogy_Collection",
-      "github_dir": "collections/Foundation_Trilogy_Complete_Collection"
+      "github_dir": "collections/Foundation_Trilogy_Complete_Collection",
+      "version_doi": "10.5281/zenodo.23427355",
+      "zenodo_record_id": 23427355
     },
     {
       "id": "Consciousness_Trilogy_Complete_Collection",
@@ -357,7 +425,9 @@
       "engine": "pdflatex",
       "concept_doi": "10.5281/zenodo.19608174",
       "legacy_record": "Consciousness_Trilogy_Collection",
-      "github_dir": "collections/Consciousness_Trilogy_Complete_Collection"
+      "github_dir": "collections/Consciousness_Trilogy_Complete_Collection",
+      "version_doi": "10.5281/zenodo.23427329",
+      "zenodo_record_id": 23427329
     },
     {
       "id": "Consciousness_Series_Complete_Collection",
@@ -367,7 +437,10 @@
       "engine": "pdflatex",
       "concept_doi": "10.5281/zenodo.19643449",
       "legacy_record": "Consciousness_Series_Complete_Collection",
-      "github_dir": "collections/Consciousness_Series_Complete_Collection"
+      "github_dir": "collections/Consciousness_Series_Complete_Collection",
+      "version_doi": "10.5281/zenodo.23427301",
+      "zenodo_record_id": 23427301
     }
-  ]
+  ],
+  "zenodo_records_manifest": "ZENODO_RECORDS.csv"
 }

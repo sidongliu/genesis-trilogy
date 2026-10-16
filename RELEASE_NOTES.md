@@ -6,4 +6,4 @@ The finite same-history semiclassical mean-action result A is retained. Sustaine
 
 HAFF-D and Q-RAIF C have separate technical supplements with the original proof, equation and citation numbering. Collections retain the main papers and link to the supplements. Repeated member source trees/PDFs have been removed from collection directories; papers/ is the canonical location. July and earlier historical archives remain unchanged.
 
-This GitHub revision precedes the matching Zenodo update. Cite the exact version consulted.
+The matching Zenodo versions are published. All 36 current records, their attachment checksums and the preserved prior versions have been checked; the main PDFs, technical supplements and Genesis supplement archive were downloaded for verification. See ZENODO_RECORDS.csv and cite the exact version consulted.
