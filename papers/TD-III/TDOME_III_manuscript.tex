@@ -44,7 +44,33 @@ and Reliability in a Closed Loop}
 
 % ============================================================
 \begin{abstract}
-A learned instrument model helps an observer decide which parts of its own access are worth maintaining. We study this decision together with drift detection and paid calibration. Smooth even record laws delay linear-drift detection to order $\varepsilon^{-4/5}$, compared with $\varepsilon^{-2/3}$ for first-order probes. For scalar Gaussian transitions, no free background information and quadratic loss, the all-policy long-run cost lies between $C-\tfrac12k_BTG\nu^2$ and $C$, with $C\propto\nu^{2/3}$. The bounds have the same slow-drift leading term; the upper bound uses a Gaussian prior and reads with controllable continuous precision, while integer reads inherit the relaxation lower bound. In an acting body, stationary correlations identify gain and actuator success, and labelled standards supply orientation. Adaptive reference timing has a strict advantage and an exact optimum in a finite-rate example. When the body's working state gates reading and processing, latched repair changes future access and the kernel between acquired records. Retained body history raises task value and, under positive gain and sign drift, can reverse optimal repair at equal sign confidence. Two posterior moments determine terminal access value; continuing enquiry can require a third moment and the joint belief. In a two-observer quadratic task, estimation-optimal and task-optimal authority weights differ. These constructions use one acquired model for task permission, future enquiry and repair under declared physical supplies.
+A self-frame learned from history can choose the next reading; when
+its coupling drifts, the same history must also support diagnosis
+and decisions about future access. We study this continued
+revision and its price. Smooth even record laws delay linear-drift
+detection to order $\varepsilon^{-4/5}$, compared with
+$\varepsilon^{-2/3}$ for first-order probes.
+For scalar Gaussian transitions, no free background information and
+quadratic loss, the all-policy long-run cost lies between
+$C-\tfrac12k_BTG\nu^2$ and $C$, with $C\propto\nu^{2/3}$;
+Gaussian priors and controllable continuous precision attain the
+slow-drift leading term. An acting body supplies some relational
+standards, while jointly relabelled orientation remains unidentifiable.
+When that body's working state gates reading and processing, the
+retained model is held through disability and a latched repair
+changes the kernel between acquired records.
+Within declared permissions, body history strictly raises harvest.
+At positive gain and sign drift, legally acquired histories with equal
+sign confidence can require opposite paid repairs.
+Two posterior moments determine terminal access value, but continuing
+enquiry can require a third moment and the joint belief.
+Thus one acquired model can authorize a task, price further evidence
+and select maintenance without reducing those decisions to one
+confidence score.
+Exact adaptive reference timing and finite-register filters supply
+further realizations under stated budgets.
+The resource accounts distinguish supplied preparations, records and
+drive from retained model bits and the remaining processor costs.
 \end{abstract}
 
 \medskip
@@ -57,9 +83,30 @@ A learned instrument model helps an observer decide which parts of its own acces
 \subsection{The question}
 \label{subsec:question}
 
-Paper~I bounds the usable value of a stored record by $k_BT\,I(X{:}M)$ and associates every feedback protocol with an implicit matching distribution~\cite{Liu2026TDOME_I}. This distribution need not be represented inside the agent. When an agent does represent its own readout channel and decodes with a wrong model, it loses part of the record's value and can fall below an agent without memory. Paper~II studies a retained self-frame that selects reads under a channel budget; in-frame records cannot locate its missing task direction~\cite{Liu2026TDOME_II}. Here such a represented model is checked against an external reference or the pointer value selected by the body's working state. The later body constructions show how acquired records form that model and change its next operations.
+A frame formed from records is not thereby correct forever.
+Nor is continual updating valuable regardless of what the task changes.
+The relevant question is how the acquired task--interface relation
+continues to organize useful access.
+Paper~I prices task information and the loss from acting on a mismatched
+posterior~\cite{Liu2026TDOME_I}.
+Paper~II constructs a two-bit reading frame from a finite unknown-coupling
+history and compares it with a history-independent direction at one
+test read~\cite{Liu2026TDOME_II}.
+Its retained code selects a subsequent channel; it does not supply a
+complete continuing model.
 
-We ask how quickly drift is detected, what calibration costs, and how the retained model changes action when the body's function determines future access.
+Here records check a represented model against references or against
+the pointer value selected by the body's working state.
+The model also determines whether an available task is worth
+executing, what a further reading could reveal and whether access
+should be restored after disability.
+These are different decisions from the same history.
+A high confidence in orientation can accompany low maintenance value;
+even equal confidence can require opposite repairs.
+
+We ask how quickly a formed frame's error becomes detectable, what
+revision costs, and how history learns the value of maintaining
+the physical access on which later revision depends.
 
 \subsection{Position within the series}
 \label{subsec:sequence}
@@ -68,24 +115,32 @@ This paper completes the T-DOME (Thermodynamic Dynamics of Observer-Memory Entan
 
 
 
-The three T-DOME papers follow a route that the programme calls memory--self--\allowbreak introspection. An agent keeps records of its world (Paper~I), organizes its access to them through a model of itself (Paper~II), and checks that model against references while it acts (this paper). The links share their objects. The gain--bias channel whose calibrated loss Paper~I computes is the instrument of Section~\ref{sec:loop_world}; the even residual law that Paper~II derives from a budgeted frame is the detection model of Section~\ref{sec:detection}; the conditional drift law cited in Paper~I is proved in Section~\ref{sec:price}. Each link is established in a stated model.
+The three T-DOME papers follow a route that the programme calls memory--self--\allowbreak introspection. An agent keeps records of its world (Paper~I), organizes its access to them through a model of itself (Paper~II), and checks that model against references while it acts (this paper). Several interfaces match exactly without identifying every model as one device. The gain--bias channel whose calibrated loss Paper~I computes is the instrument of Section~\ref{sec:loop_world}; the even residual law that Paper~II derives from a budgeted frame is the detection model of Section~\ref{sec:detection}; the conditional drift law cited in Paper~I is proved in Section~\ref{sec:price}. Each link is established in a stated model.
 
 \subsection{Main results}
 \label{subsec:results}
 
-The analytical chain runs from detection (Section~\ref{sec:detection})
-through all-policy Gaussian maintenance costs (Section~\ref{sec:price})
-to tracking (Section~\ref{sec:loop}) and implementation
-(Appendix~\ref{sec:cost}).
-The joint body model of Section~\ref{sec:autonomous} supplies the main
-acting example. Section~\ref{subsec:body_access} then makes working
-access conditional on the observer's body: actual history changes
-harvest, permission to act, and paid repair. Sign confidence is not
-a sufficient repair statistic. Terminal access has a two-moment
-value, while continued enquiry generally needs the joint belief.
-The older numerical checks and gain--bias bank models are retained
-in Appendices~\ref{sec:example}--\ref{sec:loop_world}; the finite-filter
-implementation certificates are in Appendix~\ref{app:filter_certificates}.
+The main line runs from a formed frame to diagnosis, priced revision
+and history-selected maintenance.
+Section~\ref{sec:detection} distinguishes noticing a mismatch from
+identifying its direction. Section~\ref{sec:price} gives an all-policy
+Gaussian comparison for the cost of keeping up.
+Section~\ref{sec:autonomous} then supplies the body, records,
+actuator and complete declared ledger, including the limits of what
+its own actions identify.
+
+Section~\ref{subsec:body_access} is the main acting result.
+The working body determines whether reading and processing can occur.
+Its actual acquired history raises task value and can change the
+optimal paid repair at equal sign confidence.
+Propositions~\ref{prop:access_moments}--\ref{prop:enquiry_moments}
+separate the summary sufficient for a last task from the belief needed
+for further enquiry.
+General prior estimation, natural-gradient comparisons, the long
+three-parameter reference analysis and a static repair witness are
+retained in Appendices~\ref{sec:SRCR}--\ref{app:repair_static}.
+The numerical banks, physical budgets and finite-filter certificates
+remain in the subsequent appendices.
 
 \subsection{Relation to internal selection}
 \label{subsec:haff_g}
@@ -95,7 +150,7 @@ Paper~G of HAFF gives a typed model of internal selection: a program register ho
 \subsection{Related work}
 \label{subsec:related}
 
-The Fisher information metric was introduced by Rao~\cite{Rao1945} and characterized by \v{C}encov~\cite{Cencov1982}; Amari developed the natural gradient and information geometry~\cite{Amari1998,AmariNagaoka2000}. The Bayesian Cram\'er--Rao (van Trees) inequality~\cite{vanTrees1968} and its recursive form for filtering, the posterior Cram\'er--Rao bound of Tichavsk\'y, Muravchik and Nehorai~\cite{Tichavsky1998}, are the estimation tools of Sections~\ref{sec:SRCR}--\ref{sec:price}; the Kalman filter~\cite{Kalman1960} attains the latter in the linear Gaussian case. The trade-off between noise and lag in adaptive estimation, and the persistent-excitation condition, are standard in adaptive control~\cite{AstromWittenmark1995}. Thermodynamic length and minimum-dissipation protocols are due to Crooks and Sivak~\cite{Crooks2007,SivakCrooks2012}, and Fisher information enters entropy production through thermodynamic uncertainty relations and information geometry~\cite{BaratoSeifert2015,Ito2018}. Second-order cybernetics, the control of the observing system itself, goes back to von Foerster, building on Ashby's cybernetics~\cite{Ashby1956,vonFoerster2003}. The data-processing bound for hypothesis tests used in Section~\ref{sec:detection} is standard~\cite{CoverThomas2006}. We do not claim that the telescoping inequality behind Theorem~\ref{thm:driftlaw} is new to filtering theory; its use here is to settle the drift law of Paper~I for all policies and to give it a thermodynamic reading.
+The Fisher information metric was introduced by Rao~\cite{Rao1945} and characterized by \v{C}encov~\cite{Cencov1982}; Amari developed the natural gradient and information geometry~\cite{Amari1998,AmariNagaoka2000}. The Bayesian Cram\'er--Rao (van Trees) inequality~\cite{vanTrees1968} and its recursive form for filtering, the posterior Cram\'er--Rao bound of Tichavsk\'y, Muravchik and Nehorai~\cite{Tichavsky1998}, are the estimation tools of the Gaussian comparison in Section~\ref{sec:price} and Appendix~\ref{sec:SRCR}; the Kalman filter~\cite{Kalman1960} attains the filtering bound in the linear Gaussian case. The trade-off between noise and lag in adaptive estimation, and the persistent-excitation condition, are standard in adaptive control~\cite{AstromWittenmark1995}. Thermodynamic length and minimum-dissipation protocols are due to Crooks and Sivak~\cite{Crooks2007,SivakCrooks2012}, and Fisher information enters entropy production through thermodynamic uncertainty relations and information geometry~\cite{BaratoSeifert2015,Ito2018}. Second-order cybernetics, the control of the observing system itself, goes back to von Foerster, building on Ashby's cybernetics~\cite{Ashby1956,vonFoerster2003}. The data-processing bound for hypothesis tests used in Section~\ref{sec:detection} is standard~\cite{CoverThomas2006}. We do not claim that the telescoping inequality behind Theorem~\ref{thm:driftlaw} is new to filtering theory; its use here is to settle the drift law of Paper~I for all policies and to give it a thermodynamic reading.
 
 % ============================================================
 \section{Setting}
@@ -116,6 +171,41 @@ for its two-channel reader, the even information law~\cite{Liu2026TDOME_II}
 An off-frame read resolves its sign fibre. The Gaussian drift law cited
 by Paper~I is proved here; its assumptions do not identify either reader
 with the bounded acting body below.
+
+Paper~II also supplies a genuine finite formation comparison.
+In its static two-channel Gaussian task, 4096 full probes select a
+signed-coordinate code retained in two bits.
+At unit signal and noise, its one-read test risk is at most
+$1.414155$, below the history-independent foreground's oracle level
+$1.5$. Both use one test read; the oracle coefficient is free to the
+comparator, so retained memory and total cost are not matched. The
+result demonstrates the value of using history to select a reading,
+not a separation from every general learning rule.
+Its four-code menu, instrumentation and processing are given.
+The 77 declared working bits and a separate two-bit output are not
+the complete physical apparatus.
+The code's task-relatedness matters: independent-coupling replay
+loses its value, while freezing it in its original static task
+preserves it.
+
+That result establishes formation, not the filter used in this paper.
+The bounded joint instrument below has its own transition law,
+labelled standards and reference supply. Its posterior is revised
+from its actual acquired history, rather than receiving the
+instrument's true state.
+Foundation~III separately demonstrates history-selected protection
+of already-held content and physical return~\cite{Liu2026FIII};
+its encoding and resource protocol are not this body's maintenance
+controller.
+
+A current-task compression need not be a recursive model.
+In Paper~I's diagonal-pointer task the gross work lost by compressing
+history $H$ to $M$ is $k_BT I(X:H\mid M)$.
+Preserving that posterior removes the current loss, not necessarily
+the information needed for the next update.
+The distinction becomes a physical decision here: the sufficient
+summary for a last available invocation can fail to price a later
+enquiry.
 
 \subsection{Fisher information and the Cram\'er--Rao bounds}
 \label{subsec:fisher}
@@ -275,41 +365,6 @@ use of the access budget, even though all three schedules have the
 same $\varepsilon^{-2/3}$ scaling of the necessary detection time at fixed $p>0$.
 
 Detection is not correction. An even record can signal that the frame has moved but not in which direction (Proposition~\ref{prop:first_order_nonidentifiability}). One off-frame read or one reference read supplies the sign and a first-order signal at the same time. This is the division of labour in Paper~II's calibratable frame and in Section~\ref{sec:loop_world}: most reads serve the task through the frame, and a small budget of reads outside it keeps the frame correct.
-
-% ============================================================
-\section{Estimating the mismatch with a prior self-model}
-\label{sec:SRCR}
-
-For an agent that retains a model of its instrument, earlier calibration records supply a prior $\pi$ on the drift parameter $\delta\vartheta$. Its Fisher information measures how firmly that estimate is held. Paper~II's foreground uses such a retained model; Paper~I's implicit protocol distribution alone does not require one.
-
-\begin{definition}[Rigidity of a self-model]
-\label{def:ego_rigidity}
-The rigidity of a prior self-model $\pi$ is its Fisher information
-\begin{equation}
-\label{eq:ego_rigidity}
-\mathcal I_{\mathrm{self}}:=\int\bigl(\partial_{\delta\vartheta}\log\pi(\delta\vartheta)\bigr)^2\,\pi(\delta\vartheta)\,d(\delta\vartheta).
-\end{equation}
-\end{definition}
-
-\begin{theorem}[Van Trees bound with a prior self-model]
-\label{thm:SRCR}
-Let $\delta\vartheta$ lie in a compact interval $[a,b]$, let the prior $\pi$ be $C^1$ with finite rigidity and vanish at $a$ and $b$, and let the record consist of $n_{\mathrm{eff}}$ conditionally independent samples (or a joint experiment with that exact information), each with Fisher information $\mathcal I_1(\delta\vartheta)$ under a regular likelihood. Then every estimator $\delta\hat\vartheta$ based on the record satisfies
-\begin{equation}
-\label{eq:SRCR}
-\E\bigl[(\delta\hat\vartheta-\delta\vartheta)^2\bigr]\ \ge\ \frac1{n_{\mathrm{eff}}\,\E_\pi[\mathcal I_1(\delta\vartheta)]+\mathcal I_{\mathrm{self}}}.
-\end{equation}
-\end{theorem}
-
-\begin{proof}
-The van Trees inequality~\cite{vanTrees1968} bounds the Bayesian mean squared error of any estimator by the inverse of the prior-averaged Fisher information of the record plus the Fisher information of the prior; the boundary conditions remove the boundary term of its integration by parts. Conditional independence makes the record's information $n_{\mathrm{eff}}\mathcal I_1$.
-\end{proof}
-
-The prior helps when it is well placed and hinders when it is not. In the conjugate Gaussian location model, with constant per-sample precision $\bar{\mathcal I}_1$, the posterior mean is the precision-weighted average
-\begin{equation}
-\label{eq:optimal_estimator}
-\hat\vartheta=\frac{n_{\mathrm{eff}}\bar{\mathcal I}_1\,\hat\vartheta_{\mathrm{MLE}}+\mathcal I_{\mathrm{self}}\,\vartheta_0}{n_{\mathrm{eff}}\bar{\mathcal I}_1+\mathcal I_{\mathrm{self}}}
-\end{equation}
-of the maximum-likelihood estimate and the prior centre $\vartheta_0$. A rigid self-model centred on the wrong value pulls every estimate toward it and resists recalibration; a soft one follows the noise. Without a model of the drift one can only say that an optimal rigidity exists when the loss is lower semicontinuous on a compact set of rigidities. Under a random-walk drift the optimum is exact (Corollary~\ref{cor:rigidity}).
 
 % ============================================================
 \section{The price of keeping up}
@@ -500,48 +555,23 @@ The stationary part is a steady-state computation: for an $m$-fold integrator ob
 \section{The calibration loop}
 \label{sec:loop}
 
-\subsection{The natural-gradient update}
-\label{subsec:update_law}
+A formed frame remains useful only while its relation to the task
+supports the next decision. Residuals can reveal drift without locating
+its cause; a reference can supply the missing distinction.
+The local natural-gradient comparison in
+Appendix~\ref{app:natural_calibration} makes this concrete:
+in-frame information degenerates at calibration, while an off-frame
+probe gives a nondegenerate metric. Its exact update, assumptions
+and proof are retained there. Appendix~\ref{sec:SRCR} separately prices
+the information in a prior self-model.
+Neither computation makes a correct likelihood or persistent
+excitation an automatic product of having memory.
 
-A loop that keeps the self-model current can move $\vartheta$ along the steepest descent of a frame loss in the geometry of its own records,
-\begin{equation}
-\label{eq:update_law}
-\dot\vartheta=-\eta\,g(\vartheta)^{-1}\nabla_\vartheta L(\vartheta,t),
-\end{equation}
-where $\eta>0$ is the adaptation rate, $g$ is the Fisher metric of the records the loop uses, and $L(\vartheta,t)$ is the risk of acting at time $t$ with self-model $\vartheta$. For Paper~II's rank-one frame $v$, $L(v,t)=s^2+\rho^2\bigl(1-(v\cdot u_t)^2\bigr)$, which is smallest for the frame aligned with $u_t$. The update is invariant under reparametrization of $\Theta$; this matters because no coordinate system on a space of frames or instrument models is preferred. It is a definite algorithm. An implementation must supply the likelihood, evaluate or approximate its score and realize the update law; accumulating an unlabelled second moment of residuals is not in general a Fisher computation.
-
-The metric must be nondegenerate where the loop operates, and records read through the frame fail exactly there.
-
-\begin{proposition}[The in-frame metric degenerates at calibration]
-\label{prop:degenerate}
-For Paper~II's two-channel reader with the frame at angle $\theta$ to the coupling, the metric of in-frame records is $F(\theta)$ of~\eqref{eq:fisher_even_II}, and the natural gradient of $L=s^2+\rho^2\sin^2\theta$ in this metric is
-\[
-\frac{\partial_\theta L}{F(\theta)}=\frac{\rho^2\sin2\theta}{F(\theta)}=\frac{2\rho^2}{\kappa\,\theta}\bigl(1+O(\theta^2)\bigr),
-\]
-which diverges at $\theta=0$. If a fraction $p\in(0,1]$ of the records are off-frame probes, the metric $(1-p)F(\theta)+pF_\perp(\theta)$ is at least $p\rho^2\cos^2\theta/(\rho^2+s^2)$, and for $|\theta|<\pi/2$ its absolute natural gradient is bounded by $2(\rho^2+s^2)|\tan\theta|/p$.
-\end{proposition}
-
-\begin{proof}
-The first statement follows from $F(\theta)=\kappa\theta^2+O(\theta^4)$ (Corollary~\ref{cor:three_records}). In~\eqref{eq:fisher_probe} the factor $\rho^2\sin^2\theta+\rho^2+s^2$ is at least the denominator's base $\rho^2+s^2-\rho^2\sin^2\theta$, so $F_\perp(\theta)\ge\rho^2\cos^2\theta/(\rho^2+s^2-\rho^2\sin^2\theta)\ge\rho^2\cos^2\theta/(\rho^2+s^2)$; divide $\rho^2\sin2\theta$ by $p$ times this.
-\end{proof}
-
-A loop that uses only in-frame records therefore takes ever larger natural-gradient steps as it approaches calibration, and by Proposition~\ref{prop:first_order_nonidentifiability} its records do not even fix the sign of the step. This is the geometric form of Paper~II's blind spot, and the remedy is the same: a fixed fraction of reads outside the frame makes the metric positive at calibration, with value $pF_\perp(0)=p\rho^2/(\rho^2+s^2)$.
-
-The local strong-convexity tracking theorem and proof are retained in
-Appendix~\ref{subsec:lyapunov}. Its assumptions require a nondegenerate
-metric and a smooth geodesic neighborhood; they do not repair the
-in-frame degeneracy. Persistent excitation is a separate input.
-
-\begin{definition}[Persistent excitation]
-\label{def:PE_constant}
-The records are persistently exciting with constant $\alpha_{\mathrm{PE}}>0$ if for some window $T$
-\begin{equation}
-\label{eq:PE_constant}
-\frac1T\int_t^{t+T}g(\vartheta(s))\,ds\ \succeq\ \alpha_{\mathrm{PE}}\,I\qquad\text{for all }t.
-\end{equation}
-\end{definition}
-
-Pointwise regularity and a positive entropy rate of the environment do not by themselves give a uniform lower bound of this kind, and no equality between $\alpha_{\mathrm{PE}}$ and $m_L$ is assumed. Proposition~\ref{prop:degenerate} is a concrete failure of persistent excitation: in-frame records near calibration have $\alpha_{\mathrm{PE}}\to0$, and probes restore it.
+The body loop below adds a different question. Restoring access is
+valuable only through what an acquired model expects that access to
+permit. A record can therefore change the next task, the value of
+further evidence and the repair decision without making any one
+scalar confidence sufficient for all three.
 
 \subsection{The four links of the loop}
 \label{subsec:four_part}
@@ -569,7 +599,7 @@ These implementation charges are not a universal persistence budget.
 \section{A joint loop and its reference standard}
 \label{sec:autonomous}
 
-The memory--self--introspection route can be joined around a body that the observer reads and changes. Records consume memory purity; a model of the instrument selects feedback and harvest levels; calibration revises that model. We first give the ledger and its identification boundary, then a finite-block operating regime and a continuing joint filter that uses its body history to revise both its instrument model and its reference decisions. A further construction lets the body determine whether those readings and updates can occur; latched recovery, when physically available, preserves later access. A labelled operation supplies orientation relative to its dispatch map, the calibration counterpart of HAFF Paper~G's final cut~\cite{Liu2026HAFF_G}. Record purity, field preparation and timing are supplied resources in these constructions.
+The memory--self--introspection route can be joined around a body that the observer reads and changes. Records consume memory purity; a model of the instrument selects feedback and harvest levels; calibration revises that model. We first give the ledger and its identification boundary, then a finite-block operating regime and a continuing joint filter that uses its body history to revise both its instrument model and its reference decisions. A further construction lets the body determine whether those readings and updates can occur; latched recovery, when physically available, preserves later access. A labelled operation supplies orientation relative to its dispatch map, the calibration instance of HAFF Paper~G's protocol-relative dispatch boundary~\cite{Liu2026HAFF_G}. Record purity, field preparation and timing are supplied resources in these constructions.
 
 \subsection{The model}
 \label{subsec:J_model}
@@ -707,189 +737,33 @@ Let $\mathcal G$ act also on the labels of all symmetry-breaking operations by r
 Apply the assumed joint covariance in Theorem~\ref{thm:gauge}. Set-theoretic closure of a kernel family alone does not imply covariance.
 \end{proof}
 
-The model locates an operational reference standard in a labelled kernel: an external reference, an actuator reset or level assignment, a known environmental asymmetry, or a previously interpreted record. Jointly relabelling every such kernel preserves the record law. A system can nevertheless construct relational standards and carry them between operations. Paper~G places the final cut of internal selection at the dispatch map of the top executor~\cite{Liu2026HAFF_G}; here the corresponding calibration object is the labelled operation whose orientation the loop uses. The symmetry theorem does not derive the physical origin of that operation.
+The model locates an operational reference standard in a labelled kernel: an external reference, an actuator reset or level assignment, a known environmental asymmetry, or a previously interpreted record. Jointly relabelling every such kernel preserves the record law. A system can nevertheless construct relational standards and carry them between operations. Paper~G distinguishes a supplied dispatch map from a universal boundary of explanation~\cite{Liu2026HAFF_G}; here the protocol-relative calibration boundary is the labelled operation whose orientation the loop uses. The symmetry theorem does not derive the physical origin of that operation.
 
-\subsection{Three self-parameters, three laws}
-\label{subsec:J_laws}
+\subsection{Identification and reference timing}
 
-The magnitude and the setting are invariant under the sign symmetry; the sign is not.
+Acting supplies some relational information and leaves other
+distinctions unresolved. In the stationary nondegenerate body model,
+Proposition~\ref{prop:loopmoments} identifies persistence, squared
+gain and actuator success from its record correlations.
+It does not identify absolute sign or supply a joint information
+rate for a drifting instrument.
+Appendix~\ref{app:three-laws} retains the three-parameter comparison
+and all its proofs.
+Fresh-record read-and-flip policies with independent sign and bath
+inversions approach chance (Theorem~\ref{thm:inversion}).
+Earlier stable records or labelled standards change that experiment.
 
-\begin{proposition}[Free loop information changes the exponent]
-\label{prop:J0}
-In Theorem~\ref{thm:driftlaw} let unlabelled reads carry $J_0>0$ per use at no extra cost, and let the loss be $cP$. Put $P_f=\tfrac12\bigl(-\nu^2+\sqrt{\nu^4+4\nu^2/J_0}\bigr)$. If $c\le(w/J)J_0(2P_f+\nu^2)/(P_f(P_f+\nu^2))$, which holds for $\nu\le\nu_\times=2wJ_0^{3/2}/(Jc)\,(1+o(1))$, every policy pays at least $cP_f=c\nu/\sqrt{J_0}\,(1+O(\nu\sqrt{J_0}))$ per use, and with Gaussian reads this is attained with no references.
-\end{proposition}
-
-\begin{proof}
-$\phi(P)=\nu^2/(P(P+\nu^2))$ is convex and decreasing, so $h$ of Theorem~\ref{thm:driftlaw} is convex. $P_f$ solves $\phi(P)=J_0$, and $|\phi'(P_f)|=J_0(2P_f+\nu^2)/(P_f(P_f+\nu^2))$, so under the condition $h'\le0$ on $(0,P_f]$ and the infimum is $h(P_f)=cP_f$. As $\nu\to0$, $P_f=\nu/\sqrt{J_0}-\nu^2/2+O(\nu^3)$. The Kalman filter on the free reads alone has stationary variance $P_f$.
-\end{proof}
-
-The body moments establish static identifiability under Proposition~\ref{prop:loopmoments}'s nondegeneracy conditions. A joint information-rate bound for the correlated record stream is a further step: the information of one overlapping product is not that rate. Proposition~\ref{prop:J0} gives an exact Gaussian realization of the linear-in-$\nu$ price when a genuine free observation channel is supplied. For self-labels the marginal Bernoulli information is $1/(1-\vartheta^2)$; retaining the earlier food read changes the conditional likelihood and its information.
-
-\begin{theorem}[Sign inversions]
-\label{thm:inversion}
-Suppose that sign inversions and body-bath flips are independent Bernoulli
-events with probabilities $\eta,d\in(0,1)$ per use. The agent knows the initial
-sign, has no symmetry-breaking operation, and reads only records formed in
-the current cycle. Put
-\[
- b_* = \max\{|1-2\eta|,|1-2d|\}.
-\]
-For every read-and-flip policy,
-\[
- \left|P(B_t=-1)-\tfrac12\right|\le\tfrac12 b_*^t.
-\]
-In particular the loss converges to $1/2$. If
-$\eta\le\min\{d,1-d\}$, its lower bound is
-$\tfrac12[1-(1-2\eta)^t]$.
-\end{theorem}
-\begin{proof}
-Let $a_j$ be the exclusive-or of the bath flip and the instrument inversion.
-Condition on the apparent-body trajectory, the $a_j$, and all independent
-reading and actuation randomness. This is more information than the agent
-receives. Conditional inversion probabilities are
-\[
- q_1=\frac{\eta(1-d)}{\eta(1-d)+d(1-\eta)},\qquad
- q_0=\frac{\eta d}{\eta d+(1-\eta)(1-d)}.
-\]
-Conditional on that information, the absolute sign bias is
-$\prod_{j=1}^t|1-2q_{a_j}|$. The absolute conditional body bias has the same
-value, since the apparent body is then fixed. Hence
-\[
- |\E B_t|\le
- \left(\sum_{a=0}^1P(a)|1-2q_a|\right)^t
- =\bigl(|1-\eta-d|+|\eta-d|\bigr)^t=b_*^t.
-\]
-The $a_j$ are independent with a law unaffected by the policy. This proves
-both sides of the bound. The special case follows from
-$b_*=1-2\eta$ under the stated condition.
-\end{proof}
-
-The limit $\tfrac12$ is the loss of an agent that does nothing. An inversion is the image under $\gamma$ of a world kick that the loop corrected, so the records never show it. The food fares worse: after an inversion the flip pushes it the wrong way, the harvest runs at a loss, and an agent that never reads its energy store cannot tell. Reading the store is a self-label, whose standard is the agent's own level assignment. The Bayes-optimal policy, computed by backward induction over all adaptive policies for eight cycles, respects the bound in every case with $\eta\le d$ (for $g=0.9$, $d=0.1$, $s=0.95$, $\eta=0.05$: $0.307$ against $0.285$ at $t=8$). Consciousness~III shows that an observer can be confidently and undetectably wrong on a two-point fibre of its protocol~\cite{Liu2026CIII}; Theorem~\ref{thm:inversion} adds that acting does not change the protocol in the relevant sense, and that inversions make the error grow to chance. The hypothesis of fresh records matters. If a stored record of an earlier body state, made by the environment's fixed couplings, is read again later, the two reads compare $\sigma$ at the two times, so the world's stable records detect changes of the sign though not the sign. Records of Paper~F's kind~\cite{Liu2026HAFF_F} thus carry an agent's calibration across time, and the standard sits in the past.
-
-\begin{proposition}[Reference cost under exogenous and adaptive timing]
-\label{prop:sqrtlaw}
-Let a reference cost $w>0$ and reveal the current sign exactly, and let body
-loss cost $V>0$ per use. For $0\le r<1$, define
-\[
- F_r(G)=\frac G2-\frac{1-r^G}{2(1-r)},\qquad
- C_r=\inf_{G\in\mathbb N}\frac{w+VF_r(G)}G.
-\]
-Reference times fixed in advance, or randomized independently of the record,
-give long-run average cost at least $C_{b_*}$, where $b_*$ is defined in
-Theorem~\ref{thm:inversion}. For reference times chosen from the records,
-the bound $C_{r_*}$ holds with
-\[
- r_* = \max_{a=0,1}|1-2q_a|.
-\]
-If $\eta\to0$ with $d\in(0,1)$ and $w,V$ fixed, these benchmarks satisfy
-\[
- C_{b_*}=\sqrt{2wV\eta}\,(1+o(1)),\qquad
- C_{r_*}=\sqrt{2wV\eta\,
-       \min\{d/(1-d),(1-d)/d\}}\,(1+o(1)).
-\]
-When a finite gap attains the first infimum, an ideal periodic
-read-and-control policy attains it; otherwise the no-reference limit
-gives its value $V/2$. It need not bound record-adaptive schedules.
-\end{proposition}
-\begin{proof}
-With an exogenous gap, the mean loss at age $j$ after a reference is at
-least $(1-b_*^j)/2$, by the proof of Theorem~\ref{thm:inversion}.
-For an adaptive gap one cannot use this unconditional mean after
-conditioning on the absence of another reference. Instead, the same proof
-gives the conditional bound $(1-r_*^j)/2$ for every apparent-event history.
-The event that a policy has not yet requested another reference is determined
-by such a history and its private randomness, so this bound also holds on
-each adaptive gap. Summing over complete gaps and the terminal incomplete
-gap gives at least $KC_r-O(w)$ over $K$ uses. Equivalently, the piecewise
-linear interpolation of $F_r$ is convex, and an exogenous mixture of gap
-lengths cannot beat the best single length for the corresponding benchmark.
-Writing $r=1-2a$ gives
-$F_r(G)=aG(G-1)/2+O(a^2G^3)$; minimization has
-$G\sim\sqrt{2w/(Va)}$ and cost $\sqrt{2wVa}(1+o(1))$.
-For small $\eta$, $(1-b_*)/2=\eta$ and
-$(1-r_*)/2=\eta\min\{d/(1-d),(1-d)/d\}(1+O(\eta))$.
-Ideal reads reveal the apparent state, and ideal flips can hold it aligned
-with the optimal sign estimate, attaining the exogenous benchmark.
-\end{proof}
-\begin{remark}[Record-adaptive references improve the benchmark]
-Take $\eta=d=1/10$, $w=1/10$ and $V=1$. Read the apparent body exactly.
-After accounting for the preceding commanded flip, request a reference
-precisely when the apparent body has changed sign. Then control the body
-using the last reference's sign estimate. Such events have probability
-$p=2\eta(1-\eta)=9/50$. Between them the conditional inversion probability
-is $q_0=1/82$. The stationary posterior sign bias is
-\[
- z=p+(1-p)(1-2q_0)z=\frac9{10}.
-\]
-The loss is $1/20$, and references cost $9/500$, giving total cost
-$17/250=0.068$. The exogenous-gap benchmark is $1/10$.
-An exact finite-state computation with sensing gain and flip success both
-$0.999$ gives cost $0.0687253$, so the separation persists away from the ideal
-limit. The bound for adaptive timing is $C_{r_*}=0.0429971$ here.
-\end{remark}
-
-
-
-\begin{proposition}[Exact adaptive value at equal inversion and bath rates]
-\label{prop:adaptive_exact}
-In Proposition~\ref{prop:sqrtlaw}, take $\eta=d=1/10$, $w=1/10$ and $V=1$.
-The minimum long-run average cost, with ideal apparent-body reads and ideal
-flips, over all adaptive reference policies is
-\[
- \rho_* = \frac{2089311}{43698622}=0.0478118280\ldots.
-\]
-Request a reference after an apparent innovation or after five consecutive
-quiet transitions since the last reference. This policy attains the value,
-which also bounds policies with less informative sensing or control.
-\end{proposition}
-\begin{proof}
-An apparent innovation has probability $p=9/50$ and conditional sign bias
-zero; a quiet transition has probability $z=41/50$ and multiplies the bias
-by $u=40/41$. The oracle therefore has states $k=1,2,\ldots$ for $k$ quiet
-transitions after a reference and a zero-bias state. At state $k$, continued
-control has loss $l_k=(1-u^k)/2$; a reference resets the bias and costs $w$.
-For threshold $K=5$, a renewal cycle has
-\[
- D_K=\sum_{j=0}^{K-1}z^j,\qquad
- C_K=w+\sum_{j=1}^{K-1}z^jl_j,\qquad \rho_*=C_K/D_K.
-\]
-To verify global optimality, set $v_k=w$ for $k\ge5$ and set
-$v_k=l_k-\rho_*+pw+zv_{k+1}$ backwards for $k=4,3,2,1$.
-Exact rational arithmetic gives
-\[
- -\rho_*+pw+zv_1=0,\quad v_k<w\ (1\le k<5),\quad l_5>\rho_*.
-\]
-Thus $v_k=\min\{w,l_k-\rho_*+pw+zv_{k+1}\}$ for every $k$;
-monotonicity of $l_k$ proves the stopping inequality for all $k\ge5$.
-The zero-bias state also stops, since $1/2>\rho_*$. These bounded Bellman
-inequalities telescope over every adaptive, randomized or nonstationary
-policy, leaving a bounded terminal term. Dividing by the horizon proves
-the lower bound. Ideal readings reveal the apparent innovations, and ideal
-flips attain their conditional Bayes body loss, so the threshold policy is
-an admissible implementation of the oracle optimum. Less informative
-records are a garbling of this oracle. A less reliable flip can be
-simulated by an ideal actuator using a private coin, with its storage
-and reset charged to the policy. Neither restriction improves the
-oracle value.
-\end{proof}
-
-In the exogenous benchmark with $V=1$, the small-$\eta$ calculation is within $4\%$ of $\sqrt{2w\eta}$ over the tested $\eta\le10^{-4}$ range. A periodic noisy-reference policy gives excess cost within a factor $2$--$3$ of $\sqrt{2wV(1-2L_0)\eta}$, where $L_0=0.052$ is its no-inversion loss. Its fitted exponent is $0.41$--$0.43$, consistent with the growing reference-block size. Proposition~\ref{prop:adaptive_exact} settles the stated finite-rate ideal example. Proposition~\ref{prop:sqrtlaw} supplies the general adaptive lower bound; its constant need not be sharp.
-
-\begin{table}[t]
-\centering
-\small
-\begin{tabular}{@{}P{3.0cm}P{1.7cm}P{4.0cm}P{3.9cm}@{}}
-\toprule
-Self-parameter & Sign symmetry & Without any standard & With references or labels\\
-\midrule
-Setting (switches) & invariant & detected by the loop (Proposition~\ref{prop:loopmoments}); found by search & not needed\\[3pt]
-Magnitude (random walk $\nu$) & invariant & static body moments identify gain; a valid Gaussian free channel gives price $c\nu/\sqrt{J_0}$ (Proposition~\ref{prop:J0}) & $\nu^{2/3}$ (Theorem~\ref{thm:driftlaw}); marginal self-labels avoid pointer preparation; full retained history determines their information\\[3pt]
-Sign (inversion rate $\eta$) & variant & loss $\to\tfrac12$ for fresh-record read-and-flip policies (Theorem~\ref{thm:inversion}) & positive square-root lower bound for adaptive timing; exact finite-rate optimum in Proposition~\ref{prop:adaptive_exact}\\
-\bottomrule
-\end{tabular}
-\caption{What acting buys for each self-parameter of the joint model.}
-\label{tab:threelaws}
-\end{table}
+Reference timing is itself a decision from history.
+Predetermined gaps and record-adaptive requests have different bounds
+(Proposition~\ref{prop:sqrtlaw}).
+At equal inversion and bath rates $1/10$, ideal reads and flips, and
+reference price $1/10$, the exact all-adaptive optimum is
+$2089311/43698622=0.0478118280\ldots$.
+It requests a reference after an apparent innovation or five quiet
+transitions (Proposition~\ref{prop:adaptive_exact}).
+The full Bellman certificate and noisy comparison remain in that
+appendix. This finite-rate result is not a universal drift exponent
+or an optimal repair policy for the access-gated body.
 
 \subsection{Operating and continuing regimes}
 A bounded two-gain block model has a supplied-resource operating margin
@@ -1040,104 +914,14 @@ For a fully known instrument and fixed active pipeline, let $v$ denote net value
  U_\ell=\pi_{{\rm w},\ell}v-(1-\pi_{{\rm w},\ell})\kappa\ell-C_{\rm base},
  \qquad U_1-U_0=\frac{(r_1^{\rm rec}-d)v-2d\kappa}{2(r_1^{\rm rec}+d)}.
 \]
-This identifies the priced gain from making future calls possible. Flag costs that depend on the latch must be added, not hidden in a common base. For an uncertain instrument, the future task value and the evidence lost while disabled must also enter the control problem. The known-parameter price threshold motivates a stronger history-dependent hypothesis.
+This identifies the priced gain from making future calls possible. Flag costs that depend on the latch must be added, not hidden in a common base. For an uncertain instrument, the future task value and the evidence lost while disabled must also enter the control problem. The known-parameter price threshold leads to a history-dependent repair comparison.
 
-\begin{proposition}[Equal sign confidence, opposite paid repairs]
-\label{prop:repair_witness}
-There is a static, clocked version of Definition~\ref{def:access_joint} in
-which two legally acquired histories at the same working slot have equal
-sign confidence and opposite optimal repair decisions. Take $d=1/20$,
-$s=49/50$, $H=12$, and a uniform prior on the four static states
-$(\sigma,g)\in\{\pm1\}\times\{3/20,g_+\}$. At slot $t=10$, compare the
-history with positive readings at slots $1$ and $10$ and disability at
-slots $2,\ldots,9$, with ten working readings of which eight are positive.
-Choose $g_+$ so that their sign confidences agree, with
-\[
- 0.959375749239844<g_+<0.959375749239846.
-\]
-Both confidences are $0.876966618\ldots$, whereas their posterior means of the unsigned gain are
-$0.678161237\ldots$ and $0.249069192\ldots$.
-
-Each working invocation acquires one body reading and permits the food
-protocol of Proposition~\ref{prop:body_memory_value}, or abstention from
-that food task. This witness does not acquire or read back the harvest-work
-self-label of Definition~\ref{def:joint}: its histories contain body
-readings, gate outcomes and the priced clock. The harvest work still
-enters the physical ledger. Food switching costs $\kappa/2$ per executed task and
-latched recovery costs $\kappa$ per disabled slot. Every working invocation
-also pays a declared mandatory processing charge $c_{\rm p}$. A paid clock
-signals the slot and horizon; base record, flag, drive and clock supplies
-have the same wall-time charges for both latch choices. In this witness,
-body-reading erasure and food reset are supplied operations, excluded
-from $V(b)$ below rather than assigned zero universal cost.
-Proposition~\ref{prop:repair_rates} establishes the corresponding
-opposite-repair phenomenon with the terminal reading and reset charges
-included. At
-$\kappa=2/25$, $c_{\rm p}=0$, the optimal latch differences satisfy
-\[
- Q_1(b)-Q_0(b)\in(0.00559146,0.00559147),\qquad
- Q_1(b')-Q_0(b')=-0.004272.
-\]
-At $\kappa=9/4000$, $c_{\rm p}=3/25$, their differences satisfy
-\[
-\begin{aligned}
- Q_1(b)-Q_0(b)&\in(0.00587980,0.00587982),\\
- Q_1(b')-Q_0(b')&\in(-0.00432522,-0.00432520).
-\end{aligned}
-\]
-\end{proposition}
-\begin{proof}
-For a gain $g$ put $a_g=(1+g)/2$ and $b_g=(1-g)/2$. The posterior after
-$n$ readings, $k$ positive, is proportional to
-$a_g^kb_g^{n-k}$ for sign $+1$ and $b_g^ka_g^{n-k}$ for sign $-1$.
-Let $c_{n,k}(x)$ be its positive-sign probability with gains $3/20,x$.
-The rational function $c_{2,2}(x)-c_{10,8}(x)$ has negative and positive
-values at the displayed rational endpoints. Its denominator is positive,
-so continuity gives an exact root. Both histories can be generated by the
-same legal policy that holds latch zero until slot ten. Their gate paths
-have probabilities $d^2(1-d)^7$ and $(1-d)^9$, independent of the static
-instrument; every required reading has positive likelihood. Gate and
-clock records therefore leave the count-based posteriors unchanged.
-
-Write $m(b)=\E_b[\sigma g]$ and
-\[
- F(x)=\ln2-H_2((1+x)/2),\qquad
- V(b)=\max\{0,F(s|m(b)|)-\kappa/2\}-c_{\rm p},\qquad
- A(b)=\E_b V(b^Y),
-\]
-where $b^Y$ is the posterior after one further working reading.
-Only two future slots remain. If slot eleven works, its optimal
-continuation is common to the two current latches. It writes latch zero:
-a recovery switched on at slot twelve cannot create a working opportunity
-within this horizon. If slot eleven is disabled, the stored latch pays
-$\kappa\ell$ there; recovery makes slot twelve working with probability
-$r_\ell$, otherwise the same charge is paid once more. Consequently
-\begin{equation}\label{eq:short_repair}
- Q_1(b)-Q_0(b)
- =d\bigl[(r_1-d)A(b)-\kappa(2-r_1)\bigr],\qquad
- r_1=d+s(1-2d).
-\end{equation}
-This is the full Bellman difference for the stated action family.
-
-The numerical intervals follow from rational enclosures, including the
-gain-root bracket. For $0\le x<1$ use
-\[
- F(x)=\sum_{j=1}^{24}\frac{x^{2j}}{2j(2j-1)}+R_{24}(x),\qquad
- 0\le R_{24}(x)\le\frac{x^{50}}{50\cdot49(1-x^2)}.
-\]
-Rational interval evaluation gives, for the first price pair,
-$A(b)\in(0.2236,0.2237)$ and $A(b')=0$.
-For the second it gives $A(b)\in(0.1360,0.1361)$ and
-$A(b')\in(-0.0954,-0.0953)$; retaining more digits gives the stated intervals.
-Substitution in~\eqref{eq:short_repair} proves the strict decisions.
-\end{proof}
-
-The histories distinguish how much a future callable task is worth even
-when their confidence about its orientation is identical. The processing
-charge $3/25$ is a stipulated implementation price, not a universal
-erasure lower bound. The first witness needs no such charge. We now use
-the close gains and positive drift rates of the continuing instrument,
-with reading and food-reset charges from its ledger.
+An exact static witness in Appendix~\ref{app:repair_static} already
+gives equal sign confidence and opposite paid repairs from legally
+acquired histories. The main comparison now uses the close gains
+and positive drift of the continuing instrument, including the stated
+body-reading and food-reset charges. The object to retain is the
+task-relevant joint belief, not confidence alone.
 
 \begin{proposition}[Two moments determine terminal access value]
 \label{prop:access_moments}
@@ -1365,33 +1149,474 @@ as an independent reward.
 \subsection{The memory--self--introspection route}
 \label{subsec:logic_chain}
 
+The route now has three distinct constructive roles.
+Paper~I identifies which correlations a specified task consumes.
+Paper~II forms a finite retained task--channel relation that selects
+later reads. This paper asks how that relation remains revisable
+when the instrument and the body change.
+Even records can detect drift before a frozen frame fails without
+identifying the correction's sign. References and relational standards
+provide additional distinctions; they are physical permissions with
+prices, not an automatic consequence of noticing error.
 
+The acting results add maintenance value to calibration confidence.
+A history-dependent body model determines whether a task should use
+its switching and reset budget, what another acquired outcome can
+change, and whether a disabled body is worth making callable again.
+Proposition~\ref{prop:repair_rates} gives opposite paid repairs from
+equal sign confidence at positive drift.
+Proposition~\ref{prop:enquiry_moments} shows why terminal compression
+need not close further enquiry.
+These are uses of one acquired relation, not separately preinstalled
+answers for each decision.
 
-The shared channel, loss metric and frame residual were specified in Section~\ref{subsec:sequence}. The body adds a further use of the learned model: deciding which future access is worth restoring. Proposition~\ref{prop:repair_rates} proves that sign confidence can select the wrong repair even at positive drift rates; Propositions~\ref{prop:access_moments}--\ref{prop:enquiry_moments} identify the extra retained information needed for terminal and prospective tasks. The body--permission coupling carries a relational standard. Wiring, transition laws and resource supplies remain specified inputs, and joint relabelling preserves the absolute-orientation obstruction of Theorem~\ref{thm:gauge}. A cyclic processor with holding and preparation costs, and a continuous self-frame with matrix-valued loop gains, remain stronger targets.
+The mechanisms have different supplied structures.
+The Gaussian formation task gives a finite menu; the bounded acting
+model supplies its transition family, labelled standards, body gate
+and resource streams. The finite filters certify approximation of
+that model, not its truth.
+A shared body--world inference problem would need an explicit joint
+likelihood before these separate results became one larger device.
+Freezing a correct static frame remains a useful control, not a
+generic failure of subject formation.
 
-\subsection{What is established and what is open}
+\subsection{Established results and stronger targets}
 \label{subsec:claims}
 
-Within the stated models the results are proved, and several are sharp. The detection bound holds for every test; it is reached within a factor of about $1.3$ when the drift path is known, and its order is reached by a simple residual-variance test under Brownian drift. The scalar quadratic drift law holds for every schedule and estimator; Gaussian prior/readings and controllable real precision attain its optimum, so the price of keeping up is known exactly to leading order, with its constant. The task-risk formula of Section~\ref{sec:loop_world} is exact for every joint law of the reports.
+The detection bound applies to every test. Its known-path check reaches
+errors at about $1.3$ times the necessary horizon, and the residual
+variance test has the sharp Brownian order.
+The scalar quadratic drift law bounds every admissible schedule and
+estimator; Gaussian priors/readings and controllable real precision
+attain its slow-drift leading term.
+Whole-read schedules retain the relaxation boundary.
+The joint model supplies exact identifiability obstructions, a
+finite-rate adaptive-reference optimum and a complete ledger for its
+specified resources. Its body-gated extension supplies an acquired-history
+harvest gap, an event kernel through unobserved disability and
+positive-drift repair counterexamples.
+The bank's one-step task-risk formula in
+Appendix~\ref{sec:loop_world} remains exact for every joint report law
+within its linear action family.
 
-The main open problems are these. The drift law is proved for a scalar parameter and a Gaussian random walk; vector parameters, non-Gaussian increments (for which the same proof gives a weaker bound with the increment variance replaced by the inverse Fisher information of the increment law) and smoother drift (Conjecture~\ref{conj:smooth}) remain. Paper~II conjectures that probe calibration of a $D$-channel frame is rate optimal for spherical Brownian/local isotropic diffusion, not for every rotation-invariant drift law~\cite{Liu2026TDOME_II}; the telescoping of Theorem~\ref{thm:driftlaw} applied per background direction is a possible route, but the directions of a frame on a sphere are not independent random walks. No rule is given that learns the task risk of Proposition~\ref{prop:task_risk} online, and the gain proxy of Section~\ref{sec:loop_world} is not shown to be the best measure of reliability. Fisher information is the natural local quantity for these questions; nothing here shows that a physical system must compute it.
+Several stronger claims still need work.
+The scalar Gaussian drift law does not settle vector or smoother
+drift (Conjecture~\ref{conj:smooth}).
+For non-Gaussian increments its information recursion uses increment
+Fisher information, not variance alone.
+Paper~II's probe-calibration conjecture concerns spherical Brownian
+or local isotropic diffusion, not every rotation-invariant law;
+independent scalar recursions cannot simply be assigned to a frame's
+coupled directions.
+No online rule here learns the true-error quantities in
+Proposition~\ref{prop:task_risk}; the gain proxy is not proved
+task-optimal, and no organism is required to compute Fisher information.
 
-The positive-rate repair witness establishes a finite-horizon mechanism,
-not an optimal recurrent policy. Its extension must combine continuing
-maintenance, a finite processor and the cost of acquiring its decision
-information. A physical cycle must supply holding, processing, reference
-preparation and heat transport together. BRAIN's component-maintenance
-model~\cite{Liu2026BRAIN} treats the corresponding question when learned
-relations span several ports; it has a different repair clock and
-cannot inherit the single-body event kernel without an explicit mapping.
+The repair witness is finite-horizon, not a recurrent optimality theorem.
+Continued maintenance without an elapsed-time counter must account
+for later evidence, evidence lost in disability and finite processing.
+Holding, computation, reference preparation and heat transport still
+need one attainable cyclic ledger.
+The continuing filter's operational advantage cannot inherit the
+finite-block margin from a different body protocol.
+BRAIN's several-port maintenance task~\cite{Liu2026BRAIN} has its own
+repair clock and cannot inherit the single-body event kernel without
+a mapping.
 
-\subsection{Function and experience}
+\subsection{Function and reflective organization}
 \label{subsec:function}
 
-Reflexivity in this paper means second-order control: a system that monitors and adjusts its own monitoring. The results say what such control can detect, what it costs and what it buys in a loop. The access gate also makes the reliability of future self-knowledge depend on physical maintenance. Its working and disabled states are operational permissions, not claims about sleep, death or experience. They do not show that a calibrated self-model is, or produces, experience. The Consciousness series treats the relation between functional self-models and first-person organization with its own arguments~\cite{Liu2026CIII}.
+The self-model here is not merely an external observer's estimate.
+Its retained distinctions select the same system's subsequent task,
+enquiry and access repair. This gives the memory--self--introspection
+route a functional organization whose formation and continued value
+can be tested. It does not make every persistent system need a
+self-frame: a known static interface or unrestricted access can
+remove the corresponding need.
+
+Consciousness~III proposes that reflective continuity depends on
+maintained dispositional knowledge and causal return~\cite{Liu2026CIII}.
+The present task supplies a mechanism such a proposal must respect:
+matching content or confidence can miss cause-specific action, whereas
+matching all permitted interventional laws leaves no further
+discriminator in that class.
+The bridge requires independent evidence about reflection.
+Working and disabled states here are physical permissions, not
+models of sleep, death or phenomenal presence.
+The contribution is a learned relation that guides its own continued
+access, not a proof that a calibrated controller experiences.
 
 % ============================================================
 \appendix
+
+\section{Estimating the mismatch with a prior self-model}
+\label{sec:SRCR}
+
+For an agent that retains a model of its instrument, earlier calibration records supply a prior $\pi$ on the drift parameter $\delta\vartheta$. Its Fisher information measures how firmly that estimate is held. Paper~II's foreground uses such a retained model; Paper~I's implicit protocol distribution alone does not require one.
+
+\begin{definition}[Rigidity of a self-model]
+\label{def:ego_rigidity}
+The rigidity of a prior self-model $\pi$ is its Fisher information
+\begin{equation}
+\label{eq:ego_rigidity}
+\mathcal I_{\mathrm{self}}:=\int\bigl(\partial_{\delta\vartheta}\log\pi(\delta\vartheta)\bigr)^2\,\pi(\delta\vartheta)\,d(\delta\vartheta).
+\end{equation}
+\end{definition}
+
+\begin{theorem}[Van Trees bound with a prior self-model]
+\label{thm:SRCR}
+Let $\delta\vartheta$ lie in a compact interval $[a,b]$, let the prior $\pi$ be $C^1$ with finite rigidity and vanish at $a$ and $b$, and let the record consist of $n_{\mathrm{eff}}$ conditionally independent samples (or a joint experiment with that exact information), each with Fisher information $\mathcal I_1(\delta\vartheta)$ under a regular likelihood. Then every estimator $\delta\hat\vartheta$ based on the record satisfies
+\begin{equation}
+\label{eq:SRCR}
+\E\bigl[(\delta\hat\vartheta-\delta\vartheta)^2\bigr]\ \ge\ \frac1{n_{\mathrm{eff}}\,\E_\pi[\mathcal I_1(\delta\vartheta)]+\mathcal I_{\mathrm{self}}}.
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+The van Trees inequality~\cite{vanTrees1968} bounds the Bayesian mean squared error of any estimator by the inverse of the prior-averaged Fisher information of the record plus the Fisher information of the prior; the boundary conditions remove the boundary term of its integration by parts. Conditional independence makes the record's information $n_{\mathrm{eff}}\mathcal I_1$.
+\end{proof}
+
+The prior helps when it is well placed and hinders when it is not. In the conjugate Gaussian location model, with constant per-sample precision $\bar{\mathcal I}_1$, the posterior mean is the precision-weighted average
+\begin{equation}
+\label{eq:optimal_estimator}
+\hat\vartheta=\frac{n_{\mathrm{eff}}\bar{\mathcal I}_1\,\hat\vartheta_{\mathrm{MLE}}+\mathcal I_{\mathrm{self}}\,\vartheta_0}{n_{\mathrm{eff}}\bar{\mathcal I}_1+\mathcal I_{\mathrm{self}}}
+\end{equation}
+of the maximum-likelihood estimate and the prior centre $\vartheta_0$. A rigid self-model centred on the wrong value pulls every estimate toward it and resists recalibration; a soft one follows the noise. Without a model of the drift one can only say that an optimal rigidity exists when the loss is lower semicontinuous on a compact set of rigidities. Under a random-walk drift the optimum is exact (Corollary~\ref{cor:rigidity}).
+
+% ============================================================
+\section{Natural-gradient calibration}
+\label{app:natural_calibration}
+This local comparison uses assumptions (C1)--(C3) of
+Section~\ref{subsec:standing_C}.
+
+\subsection{The natural-gradient update}
+\label{subsec:update_law}
+
+A loop that keeps the self-model current can move $\vartheta$ along the steepest descent of a frame loss in the geometry of its own records,
+\begin{equation}
+\label{eq:update_law}
+\dot\vartheta=-\eta\,g(\vartheta)^{-1}\nabla_\vartheta L(\vartheta,t),
+\end{equation}
+where $\eta>0$ is the adaptation rate, $g$ is the Fisher metric of the records the loop uses, and $L(\vartheta,t)$ is the risk of acting at time $t$ with self-model $\vartheta$. For Paper~II's rank-one frame $v$, $L(v,t)=s^2+\rho^2\bigl(1-(v\cdot u_t)^2\bigr)$, which is smallest for the frame aligned with $u_t$. The update is invariant under reparametrization of $\Theta$; this matters because no coordinate system on a space of frames or instrument models is preferred. It is a definite algorithm. An implementation must supply the likelihood, evaluate or approximate its score and realize the update law; accumulating an unlabelled second moment of residuals is not in general a Fisher computation.
+
+The metric must be nondegenerate where the loop operates, and records read through the frame fail exactly there.
+
+\begin{proposition}[The in-frame metric degenerates at calibration]
+\label{prop:degenerate}
+For Paper~II's two-channel reader with the frame at angle $\theta$ to the coupling, the metric of in-frame records is $F(\theta)$ of~\eqref{eq:fisher_even_II}, and the natural gradient of $L=s^2+\rho^2\sin^2\theta$ in this metric is
+\[
+\frac{\partial_\theta L}{F(\theta)}=\frac{\rho^2\sin2\theta}{F(\theta)}=\frac{2\rho^2}{\kappa\,\theta}\bigl(1+O(\theta^2)\bigr),
+\]
+which diverges at $\theta=0$. If a fraction $p\in(0,1]$ of the records are off-frame probes, the metric $(1-p)F(\theta)+pF_\perp(\theta)$ is at least $p\rho^2\cos^2\theta/(\rho^2+s^2)$, and for $|\theta|<\pi/2$ its absolute natural gradient is bounded by $2(\rho^2+s^2)|\tan\theta|/p$.
+\end{proposition}
+
+\begin{proof}
+The first statement follows from $F(\theta)=\kappa\theta^2+O(\theta^4)$ (Corollary~\ref{cor:three_records}). In~\eqref{eq:fisher_probe} the factor $\rho^2\sin^2\theta+\rho^2+s^2$ is at least the denominator's base $\rho^2+s^2-\rho^2\sin^2\theta$, so $F_\perp(\theta)\ge\rho^2\cos^2\theta/(\rho^2+s^2-\rho^2\sin^2\theta)\ge\rho^2\cos^2\theta/(\rho^2+s^2)$; divide $\rho^2\sin2\theta$ by $p$ times this.
+\end{proof}
+
+A loop that uses only in-frame records therefore takes ever larger natural-gradient steps as it approaches calibration, and by Proposition~\ref{prop:first_order_nonidentifiability} its records do not even fix the sign of the step. This is the geometric form of Paper~II's blind spot, and the remedy is the same: a fixed fraction of reads outside the frame makes the metric positive at calibration, with value $pF_\perp(0)=p\rho^2/(\rho^2+s^2)$.
+
+The local strong-convexity tracking theorem and proof are retained in
+Appendix~\ref{subsec:lyapunov}. Its assumptions require a nondegenerate
+metric and a smooth geodesic neighborhood; they do not repair the
+in-frame degeneracy. Persistent excitation is a separate input.
+
+\begin{definition}[Persistent excitation]
+\label{def:PE_constant}
+The records are persistently exciting with constant $\alpha_{\mathrm{PE}}>0$ if for some window $T$
+\begin{equation}
+\label{eq:PE_constant}
+\frac1T\int_t^{t+T}g(\vartheta(s))\,ds\ \succeq\ \alpha_{\mathrm{PE}}\,I\qquad\text{for all }t.
+\end{equation}
+\end{definition}
+
+Pointwise regularity and a positive entropy rate of the environment do not by themselves give a uniform lower bound of this kind, and no equality between $\alpha_{\mathrm{PE}}$ and $m_L$ is assumed. Proposition~\ref{prop:degenerate} is a concrete failure of persistent excitation: in-frame records near calibration have $\alpha_{\mathrm{PE}}\to0$, and probes restore it.
+
+\section{Standards and adaptive reference timing}
+\label{app:three-laws}
+
+\subsection{Three self-parameters, three laws}
+\label{subsec:J_laws}
+
+The magnitude and the setting are invariant under the sign symmetry; the sign is not.
+
+\begin{proposition}[Free loop information changes the exponent]
+\label{prop:J0}
+In Theorem~\ref{thm:driftlaw} let unlabelled reads carry $J_0>0$ per use at no extra cost, and let the loss be $cP$. Put $P_f=\tfrac12\bigl(-\nu^2+\sqrt{\nu^4+4\nu^2/J_0}\bigr)$. If $c\le(w/J)J_0(2P_f+\nu^2)/(P_f(P_f+\nu^2))$, which holds for $\nu\le\nu_\times=2wJ_0^{3/2}/(Jc)\,(1+o(1))$, every policy pays at least $cP_f=c\nu/\sqrt{J_0}\,(1+O(\nu\sqrt{J_0}))$ per use, and with Gaussian reads this is attained with no references.
+\end{proposition}
+
+\begin{proof}
+$\phi(P)=\nu^2/(P(P+\nu^2))$ is convex and decreasing, so $h$ of Theorem~\ref{thm:driftlaw} is convex. $P_f$ solves $\phi(P)=J_0$, and $|\phi'(P_f)|=J_0(2P_f+\nu^2)/(P_f(P_f+\nu^2))$, so under the condition $h'\le0$ on $(0,P_f]$ and the infimum is $h(P_f)=cP_f$. As $\nu\to0$, $P_f=\nu/\sqrt{J_0}-\nu^2/2+O(\nu^3)$. The Kalman filter on the free reads alone has stationary variance $P_f$.
+\end{proof}
+
+The body moments establish static identifiability under Proposition~\ref{prop:loopmoments}'s nondegeneracy conditions. A joint information-rate bound for the correlated record stream is a further step: the information of one overlapping product is not that rate. Proposition~\ref{prop:J0} gives an exact Gaussian realization of the linear-in-$\nu$ price when a genuine free observation channel is supplied. For self-labels the marginal Bernoulli information is $1/(1-\vartheta^2)$; retaining the earlier food read changes the conditional likelihood and its information.
+
+\begin{theorem}[Sign inversions]
+\label{thm:inversion}
+Suppose that sign inversions and body-bath flips are independent Bernoulli
+events with probabilities $\eta,d\in(0,1)$ per use. The agent knows the initial
+sign, has no symmetry-breaking operation, and reads only records formed in
+the current cycle. Put
+\[
+ b_* = \max\{|1-2\eta|,|1-2d|\}.
+\]
+For every read-and-flip policy,
+\[
+ \left|P(B_t=-1)-\tfrac12\right|\le\tfrac12 b_*^t.
+\]
+In particular the loss converges to $1/2$. If
+$\eta\le\min\{d,1-d\}$, its lower bound is
+$\tfrac12[1-(1-2\eta)^t]$.
+\end{theorem}
+\begin{proof}
+Let $a_j$ be the exclusive-or of the bath flip and the instrument inversion.
+Condition on the apparent-body trajectory, the $a_j$, and all independent
+reading and actuation randomness. This is more information than the agent
+receives. Conditional inversion probabilities are
+\[
+ q_1=\frac{\eta(1-d)}{\eta(1-d)+d(1-\eta)},\qquad
+ q_0=\frac{\eta d}{\eta d+(1-\eta)(1-d)}.
+\]
+Conditional on that information, the absolute sign bias is
+$\prod_{j=1}^t|1-2q_{a_j}|$. The absolute conditional body bias has the same
+value, since the apparent body is then fixed. Hence
+\[
+ |\E B_t|\le
+ \left(\sum_{a=0}^1P(a)|1-2q_a|\right)^t
+ =\bigl(|1-\eta-d|+|\eta-d|\bigr)^t=b_*^t.
+\]
+The $a_j$ are independent with a law unaffected by the policy. This proves
+both sides of the bound. The special case follows from
+$b_*=1-2\eta$ under the stated condition.
+\end{proof}
+
+The limit $\tfrac12$ is the loss of an agent that does nothing. An inversion is the image under $\gamma$ of a world kick that the loop corrected, so the records never show it. The food fares worse: after an inversion the flip pushes it the wrong way, the harvest runs at a loss, and an agent that never reads its energy store cannot tell. Reading the store is a self-label, whose standard is the agent's own level assignment. The Bayes-optimal policy, computed by backward induction over all adaptive policies for eight cycles, respects the bound in every case with $\eta\le d$ (for $g=0.9$, $d=0.1$, $s=0.95$, $\eta=0.05$: $0.307$ against $0.285$ at $t=8$). Consciousness~III shows that an observer can be confidently and undetectably wrong on a two-point fibre of its protocol~\cite{Liu2026CIII}; Theorem~\ref{thm:inversion} adds that acting does not change the protocol in the relevant sense, and that inversions make the error grow to chance. The hypothesis of fresh records matters. If a stored record of an earlier body state, made by the environment's fixed couplings, is read again later, the two reads compare $\sigma$ at the two times, so the world's stable records detect changes of the sign though not the sign. Records of Paper~F's kind~\cite{Liu2026HAFF_F} thus carry an agent's calibration across time, and the standard sits in the past.
+
+\begin{proposition}[Reference cost under exogenous and adaptive timing]
+\label{prop:sqrtlaw}
+Let a reference cost $w>0$ and reveal the current sign exactly, and let body
+loss cost $V>0$ per use. For $0\le r<1$, define
+\[
+ F_r(G)=\frac G2-\frac{1-r^G}{2(1-r)},\qquad
+ C_r=\inf_{G\in\mathbb N}\frac{w+VF_r(G)}G.
+\]
+Reference times fixed in advance, or randomized independently of the record,
+give long-run average cost at least $C_{b_*}$, where $b_*$ is defined in
+Theorem~\ref{thm:inversion}. For reference times chosen from the records,
+the bound $C_{r_*}$ holds with
+\[
+ r_* = \max_{a=0,1}|1-2q_a|.
+\]
+If $\eta\to0$ with $d\in(0,1)$ and $w,V$ fixed, these benchmarks satisfy
+\[
+ C_{b_*}=\sqrt{2wV\eta}\,(1+o(1)),\qquad
+ C_{r_*}=\sqrt{2wV\eta\,
+       \min\{d/(1-d),(1-d)/d\}}\,(1+o(1)).
+\]
+When a finite gap attains the first infimum, an ideal periodic
+read-and-control policy attains it; otherwise the no-reference limit
+gives its value $V/2$. It need not bound record-adaptive schedules.
+\end{proposition}
+\begin{proof}
+With an exogenous gap, the mean loss at age $j$ after a reference is at
+least $(1-b_*^j)/2$, by the proof of Theorem~\ref{thm:inversion}.
+For an adaptive gap one cannot use this unconditional mean after
+conditioning on the absence of another reference. Instead, the same proof
+gives the conditional bound $(1-r_*^j)/2$ for every apparent-event history.
+The event that a policy has not yet requested another reference is determined
+by such a history and its private randomness, so this bound also holds on
+each adaptive gap. Summing over complete gaps and the terminal incomplete
+gap gives at least $KC_r-O(w)$ over $K$ uses. Equivalently, the piecewise
+linear interpolation of $F_r$ is convex, and an exogenous mixture of gap
+lengths cannot beat the best single length for the corresponding benchmark.
+Writing $r=1-2a$ gives
+$F_r(G)=aG(G-1)/2+O(a^2G^3)$; minimization has
+$G\sim\sqrt{2w/(Va)}$ and cost $\sqrt{2wVa}(1+o(1))$.
+For small $\eta$, $(1-b_*)/2=\eta$ and
+$(1-r_*)/2=\eta\min\{d/(1-d),(1-d)/d\}(1+O(\eta))$.
+Ideal reads reveal the apparent state, and ideal flips can hold it aligned
+with the optimal sign estimate, attaining the exogenous benchmark.
+\end{proof}
+\begin{remark}[Record-adaptive references improve the benchmark]
+Take $\eta=d=1/10$, $w=1/10$ and $V=1$. Read the apparent body exactly.
+After accounting for the preceding commanded flip, request a reference
+precisely when the apparent body has changed sign. Then control the body
+using the last reference's sign estimate. Such events have probability
+$p=2\eta(1-\eta)=9/50$. Between them the conditional inversion probability
+is $q_0=1/82$. The stationary posterior sign bias is
+\[
+ z=p+(1-p)(1-2q_0)z=\frac9{10}.
+\]
+The loss is $1/20$, and references cost $9/500$, giving total cost
+$17/250=0.068$. The exogenous-gap benchmark is $1/10$.
+An exact finite-state computation with sensing gain and flip success both
+$0.999$ gives cost $0.0687253$, so the separation persists away from the ideal
+limit. The bound for adaptive timing is $C_{r_*}=0.0429971$ here.
+\end{remark}
+
+
+
+\begin{proposition}[Exact adaptive value at equal inversion and bath rates]
+\label{prop:adaptive_exact}
+In Proposition~\ref{prop:sqrtlaw}, take $\eta=d=1/10$, $w=1/10$ and $V=1$.
+The minimum long-run average cost, with ideal apparent-body reads and ideal
+flips, over all adaptive reference policies is
+\[
+ \rho_* = \frac{2089311}{43698622}=0.0478118280\ldots.
+\]
+Request a reference after an apparent innovation or after five consecutive
+quiet transitions since the last reference. This policy attains the value,
+which also bounds policies with less informative sensing or control.
+\end{proposition}
+\begin{proof}
+An apparent innovation has probability $p=9/50$ and conditional sign bias
+zero; a quiet transition has probability $z=41/50$ and multiplies the bias
+by $u=40/41$. The oracle therefore has states $k=1,2,\ldots$ for $k$ quiet
+transitions after a reference and a zero-bias state. At state $k$, continued
+control has loss $l_k=(1-u^k)/2$; a reference resets the bias and costs $w$.
+For threshold $K=5$, a renewal cycle has
+\[
+ D_K=\sum_{j=0}^{K-1}z^j,\qquad
+ C_K=w+\sum_{j=1}^{K-1}z^jl_j,\qquad \rho_*=C_K/D_K.
+\]
+To verify global optimality, set $v_k=w$ for $k\ge5$ and set
+$v_k=l_k-\rho_*+pw+zv_{k+1}$ backwards for $k=4,3,2,1$.
+Exact rational arithmetic gives
+\[
+ -\rho_*+pw+zv_1=0,\quad v_k<w\ (1\le k<5),\quad l_5>\rho_*.
+\]
+Thus $v_k=\min\{w,l_k-\rho_*+pw+zv_{k+1}\}$ for every $k$;
+monotonicity of $l_k$ proves the stopping inequality for all $k\ge5$.
+The zero-bias state also stops, since $1/2>\rho_*$. These bounded Bellman
+inequalities telescope over every adaptive, randomized or nonstationary
+policy, leaving a bounded terminal term. Dividing by the horizon proves
+the lower bound. Ideal readings reveal the apparent innovations, and ideal
+flips attain their conditional Bayes body loss, so the threshold policy is
+an admissible implementation of the oracle optimum. Less informative
+records are a garbling of this oracle. A less reliable flip can be
+simulated by an ideal actuator using a private coin, with its storage
+and reset charged to the policy. Neither restriction improves the
+oracle value.
+\end{proof}
+
+In the exogenous benchmark with $V=1$, the small-$\eta$ calculation is within $4\%$ of $\sqrt{2w\eta}$ over the tested $\eta\le10^{-4}$ range. A periodic noisy-reference policy gives excess cost within a factor $2$--$3$ of $\sqrt{2wV(1-2L_0)\eta}$, where $L_0=0.052$ is its no-inversion loss. Its fitted exponent is $0.41$--$0.43$, consistent with the growing reference-block size. Proposition~\ref{prop:adaptive_exact} settles the stated finite-rate ideal example. Proposition~\ref{prop:sqrtlaw} supplies the general adaptive lower bound; its constant need not be sharp.
+
+\begin{table}[t]
+\centering
+\small
+\begin{tabular}{@{}P{3.0cm}P{1.7cm}P{4.0cm}P{3.9cm}@{}}
+\toprule
+Self-parameter & Sign symmetry & Without any standard & With references or labels\\
+\midrule
+Setting (switches) & invariant & detected by the loop (Proposition~\ref{prop:loopmoments}); found by search & not needed\\[3pt]
+Magnitude (random walk $\nu$) & invariant & static body moments identify gain; a valid Gaussian free channel gives price $c\nu/\sqrt{J_0}$ (Proposition~\ref{prop:J0}) & $\nu^{2/3}$ (Theorem~\ref{thm:driftlaw}); marginal self-labels avoid pointer preparation; full retained history determines their information\\[3pt]
+Sign (inversion rate $\eta$) & variant & loss $\to\tfrac12$ for fresh-record read-and-flip policies (Theorem~\ref{thm:inversion}) & positive square-root lower bound for adaptive timing; exact finite-rate optimum in Proposition~\ref{prop:adaptive_exact}\\
+\bottomrule
+\end{tabular}
+\caption{What acting buys for each self-parameter of the joint model.}
+\label{tab:threelaws}
+\end{table}
+
+\section{A static witness for history-dependent repair}
+\label{app:repair_static}
+
+\begin{proposition}[Equal sign confidence, opposite paid repairs]
+\label{prop:repair_witness}
+There is a static, clocked version of Definition~\ref{def:access_joint} in
+which two legally acquired histories at the same working slot have equal
+sign confidence and opposite optimal repair decisions. Take $d=1/20$,
+$s=49/50$, $H=12$, and a uniform prior on the four static states
+$(\sigma,g)\in\{\pm1\}\times\{3/20,g_+\}$. At slot $t=10$, compare the
+history with positive readings at slots $1$ and $10$ and disability at
+slots $2,\ldots,9$, with ten working readings of which eight are positive.
+Choose $g_+$ so that their sign confidences agree, with
+\[
+ 0.959375749239844<g_+<0.959375749239846.
+\]
+Both confidences are $0.876966618\ldots$, whereas their posterior means of the unsigned gain are
+$0.678161237\ldots$ and $0.249069192\ldots$.
+
+Each working invocation acquires one body reading and permits the food
+protocol of Proposition~\ref{prop:body_memory_value}, or abstention from
+that food task. This witness does not acquire or read back the harvest-work
+self-label of Definition~\ref{def:joint}: its histories contain body
+readings, gate outcomes and the priced clock. The harvest work still
+enters the physical ledger. Food switching costs $\kappa/2$ per executed task and
+latched recovery costs $\kappa$ per disabled slot. Every working invocation
+also pays a declared mandatory processing charge $c_{\rm p}$. A paid clock
+signals the slot and horizon; base record, flag, drive and clock supplies
+have the same wall-time charges for both latch choices. In this witness,
+body-reading erasure and food reset are supplied operations, excluded
+from $V(b)$ below rather than assigned zero universal cost.
+Proposition~\ref{prop:repair_rates} establishes the corresponding
+opposite-repair phenomenon with the terminal reading and reset charges
+included. At
+$\kappa=2/25$, $c_{\rm p}=0$, the optimal latch differences satisfy
+\[
+ Q_1(b)-Q_0(b)\in(0.00559146,0.00559147),\qquad
+ Q_1(b')-Q_0(b')=-0.004272.
+\]
+At $\kappa=9/4000$, $c_{\rm p}=3/25$, their differences satisfy
+\[
+\begin{aligned}
+ Q_1(b)-Q_0(b)&\in(0.00587980,0.00587982),\\
+ Q_1(b')-Q_0(b')&\in(-0.00432522,-0.00432520).
+\end{aligned}
+\]
+\end{proposition}
+\begin{proof}
+For a gain $g$ put $a_g=(1+g)/2$ and $b_g=(1-g)/2$. The posterior after
+$n$ readings, $k$ positive, is proportional to
+$a_g^kb_g^{n-k}$ for sign $+1$ and $b_g^ka_g^{n-k}$ for sign $-1$.
+Let $c_{n,k}(x)$ be its positive-sign probability with gains $3/20,x$.
+The rational function $c_{2,2}(x)-c_{10,8}(x)$ has negative and positive
+values at the displayed rational endpoints. Its denominator is positive,
+so continuity gives an exact root. Both histories can be generated by the
+same legal policy that holds latch zero until slot ten. Their gate paths
+have probabilities $d^2(1-d)^7$ and $(1-d)^9$, independent of the static
+instrument; every required reading has positive likelihood. Gate and
+clock records therefore leave the count-based posteriors unchanged.
+
+Write $m(b)=\E_b[\sigma g]$ and
+\[
+ F(x)=\ln2-H_2((1+x)/2),\qquad
+ V(b)=\max\{0,F(s|m(b)|)-\kappa/2\}-c_{\rm p},\qquad
+ A(b)=\E_b V(b^Y),
+\]
+where $b^Y$ is the posterior after one further working reading.
+Only two future slots remain. If slot eleven works, its optimal
+continuation is common to the two current latches. It writes latch zero:
+a recovery switched on at slot twelve cannot create a working opportunity
+within this horizon. If slot eleven is disabled, the stored latch pays
+$\kappa\ell$ there; recovery makes slot twelve working with probability
+$r_\ell$, otherwise the same charge is paid once more. Consequently
+\begin{equation}\label{eq:short_repair}
+ Q_1(b)-Q_0(b)
+ =d\bigl[(r_1-d)A(b)-\kappa(2-r_1)\bigr],\qquad
+ r_1=d+s(1-2d).
+\end{equation}
+This is the full Bellman difference for the stated action family.
+
+The numerical intervals follow from rational enclosures, including the
+gain-root bracket. For $0\le x<1$ use
+\[
+ F(x)=\sum_{j=1}^{24}\frac{x^{2j}}{2j(2j-1)}+R_{24}(x),\qquad
+ 0\le R_{24}(x)\le\frac{x^{50}}{50\cdot49(1-x^2)}.
+\]
+Rational interval evaluation gives, for the first price pair,
+$A(b)\in(0.2236,0.2237)$ and $A(b')=0$.
+For the second it gives $A(b)\in(0.1360,0.1361)$ and
+$A(b')\in(-0.0954,-0.0953)$; retaining more digits gives the stated intervals.
+Substitution in~\eqref{eq:short_repair} proves the strict decisions.
+\end{proof}
+
+The histories distinguish how much a future callable task is worth even
+when their confidence about its orientation is identical. The processing
+charge $3/25$ is a stipulated implementation price, not a universal
+erasure lower bound. The first witness needs no such charge.
+Proposition~\ref{prop:repair_rates} in the main text gives a further
+comparison at positive drift with the stated reading and reset charges.
+
 
 \section{Worked example}
 \label{sec:example}
@@ -1898,13 +2123,13 @@ S.~Liu, \emph{Causation, Agency, and Existence: Historical Control and Maintaine
 S.~Liu, \emph{Measurement as Accessibility: Measurement Permissions, Stable Records and Public Readout}, revised version, Zenodo (2026), DOI: 10.5281/zenodo.18400065.
 
 \bibitem{Liu2026HAFF_F}
-S.~Liu, \emph{Records, Dissipation and Intervention: Conditions for a Temporal Direction}, revised version, Zenodo (2026), DOI: 10.5281/zenodo.18400425.
+S.~Liu, \emph{Records, Order and Intervention: Conditions for a Temporal Direction}, revised version, Zenodo (2026), DOI: 10.5281/zenodo.18400425.
 
 \bibitem{Liu2026Chain}
 S.~Liu, \emph{The Imprint Chain: Records, Self-Calibration, and Physical Feedback}, (2026), series record DOI: 10.5281/zenodo.20151594.
 
 \bibitem{Liu2026HAFF_G}
-S.~Liu, \emph{Internal Selection and Revisable Organization: How History Changes Permissions and Physical Sources} (HAFF Paper~G), 2026; July 2026 record DOI: 10.5281/zenodo.18402907.
+S.~Liu, \emph{Structural Limits of Unification: Internal Selection, Revisable Permissions and Physical Sources} (HAFF Paper~G), 2026; July 2026 record DOI: 10.5281/zenodo.18402907.
 
 \bibitem{Liu2026QRAIF_B}
 S.~Liu, \emph{Thermodynamic Stability Constraints on Persistent Open Quantum Subsystems: Control Algebra, Physical Actuation and Energy Cost} (Q-RAIF~B), 2026; series record DOI: 10.5281/zenodo.18525890.

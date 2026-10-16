@@ -1,0 +1,234 @@
+{
+  "id": "TD-I",
+  "zenodo_record": "TDOME_I",
+  "concept_doi": "10.5281/zenodo.18574342",
+  "source_tex": "fable review/zenodo_upload_staging/TDOME_I_manuscript.tex",
+  "source_sha256": "fb4545f87500210ca006f7ead8ddb5f964c57bfcbec08c37cf3b43b339b781b2",
+  "source_bytes": 85423,
+  "lines": 2252,
+  "s0_pdf": "TDOME_I_manuscript.pdf",
+  "s0_pdf_sha256": "08e8458d3564ef7af094f447f6af90b11c0168dd81889d8afdef3d1d7df2b3a4",
+  "s0_pdf_producer": "pdfTeX-1.40.27",
+  "s0_pdf_pages": 27,
+  "supplement": [
+    {
+      "path": "TDOME_I_supplement/fig_paper1_markov_ceiling.pdf",
+      "sha256": "9f6fe453e278beb97bc186c9029b7bd126208cd14e0023dd5d80ae723a149f15"
+    },
+    {
+      "path": "TDOME_I_supplement/fig_survival.pdf",
+      "sha256": "8a9e5195323e01bfb89ade0c867eaff44bdec39ef8268e27feef0d0ea3159be2"
+    },
+    {
+      "path": "TDOME_I_supplement/markov_ceiling_boundary.csv",
+      "sha256": "8a87390375fba2d5d557d9a66e1eb4ef07f35fb985c584dd510a3ff0446b16cf"
+    },
+    {
+      "path": "TDOME_I_supplement/markov_ceiling_data.csv",
+      "sha256": "66ef16bf2c6141494f7b4725e3fc07bac8bbff435ec177b41b1c84a37b42dc65"
+    },
+    {
+      "path": "TDOME_I_supplement/paper1_markov_ceiling_demo.py",
+      "sha256": "11b5a0aceeb71d02387ddc31a44a6af5bccba48a36faa40b90d63ab1f6bc9d28"
+    }
+  ],
+  "extra_dependencies": [],
+  "note": "working copy; edit only here. S0 original stays untouched.",
+  "later_revisions": [
+    {
+      "date": "2026-10-05",
+      "round": "autonomous batch 1",
+      "integrator": "Claude main session",
+      "drafted_by": "agent C (research/autonomous_claude_20261004/agentC_ef_td1)",
+      "pre_edit_equals_s0_original": true,
+      "changes": "full rewrite (27 -> 21 pages); title \"Memory as a Usable Resource: Correlations, Records and Complete Thermodynamic Accounting\"; exact ledger with both endpoint terms (SF-6); failed Lorentz-Drude backflow example withdrawn and replaced by: no backflow at any temperature and interaction energy -2 pi lambda(1-e^{-gamma t}) (SF-3/4/5), two-qubit autonomous recurrence saturating the budget, collision-model ledger; value of a stored record (<= kT I(X:M) <= kT I_acc <= kT chi, attained); every protocol assumes a posterior (tangent argument; mismatch price); metric G = J_XM - J_M and calibrated loss kT(1+g^2/(1-b^2))/(4n); amortization; drift-law conjecture handed to TD-III; read-harvest-reset cycle bound (never profitable without a second copy); memory-influence relation redefined (SF-7); Landauer scope fixed (SF-8). Supplement unchanged; fig_survival.pdf is no longer referenced (file kept).",
+      "checks": "agent C checks/check_tdi.py; main session re-derived the extraction lemma, Thm value, Thm \"every protocol assumes a posterior\", the calibrated-loss trace formula and the cycle bound; mismatch numbers (0.4287, -0.2359) recomputed by hand",
+      "cross_model": "Thm value, Thm posterior, Prop calibration, Prop cycle are new and same-model checked only; LD and two-qubit results inherited from Codex followup_v1 and Claude review on 10-03",
+      "pdf": "research/autonomous_claude_20261004/main/TD_I_batch1b.pdf",
+      "build": "pdflatex x3: 21 pages, 0 errors/undefined/overfull/warnings",
+      "sha256": "e2f7f4c628333bc6a494926a9c6c8a4928913d79805a39a02a5ca86fdca0ae20",
+      "before_snapshot": "research/autonomous_claude_20261004/main/TD_I_before_batch1.tex",
+      "snapshot": "research/autonomous_claude_20261004/main/TD_I_batch1b.tex"
+    },
+    {
+      "date": "2026-10-05",
+      "round": "autonomous batch 1",
+      "integrator": "Claude main session",
+      "changes": "dependency edits after the TD-II/C-III rewrites: three descriptions of Paper II; after Conjecture 20, the exponents are noted as established in a Gaussian self-model among stationary constant-rate policies (C-III), with C-III added to the bibliography",
+      "sha256": "e3d4bcad12e9309b1fbc67aca9d78b60be2636970f299594b1e9a5a75cc863d9",
+      "before_snapshot": "research/autonomous_claude_20261004/main/TD_I_before_batch1c.tex",
+      "snapshot": "research/autonomous_claude_20261004/main/TD_I_batch1c.tex",
+      "pdf": "research/autonomous_claude_20261004/main/TD_I_batch1c.pdf"
+    },
+    {
+      "date": "2026-10-05",
+      "round": "autonomous batch 1",
+      "integrator": "Claude main session",
+      "changes": "drift-law conjecture turned into a proposition proved in TD-III (constant 3*4^(-2/3), all schedules); results bullet and closing paragraph updated; the paragraph about stationary policies replaced",
+      "sha256": "da2749b1af77c961972e88e3ea19213eb38c9e8b09c5ea2c68da7efc1236679a",
+      "before_snapshot": "research/autonomous_claude_20261004/main/TD_I_before_batch1e.tex",
+      "snapshot": "research/autonomous_claude_20261004/main/TD_I_batch1e.tex",
+      "pdf": "research/autonomous_claude_20261004/main/TD_I_batch1e.pdf"
+    },
+    {
+      "date": "2026-10-06",
+      "round": "autonomous batch 1, independent check V2",
+      "integrator": "Claude main session",
+      "source_of_fixes": "research/autonomous_claude_20261004/agentV2_tdome_c3/notes.md (## REPORT; harness blocked report.md)",
+      "cross_model": "same-model only",
+      "changes": "calibrated-loss proposition: tail condition E[L 1{|theta_hat-theta|>eps}]=o(1/n) added and \"covariance\" read as second-moment matrix (V2 counterexample: plug-in frequency estimate has E L = infinity for every n); note that add-one-half estimates satisfy it; value theorem: equality needs full-support posteriors, otherwise supremum; cycle bound: \"attained\" -> \"approached\", reached only as a limit with perfect records",
+      "verification": "V2: value and posterior theorems CONFIRMED-NUMERIC (proof seen early), calibrated loss WRONG-as-stated -> fixed, all numbers reproduce, cycle bound and amortization corollary CONFIRMED-INDEPENDENT",
+      "sha256": "32869d5f38f1c1f75143f9b590c17922b73fdfebe19fe4bd58e18ce782e9f259",
+      "before_snapshot": "research/autonomous_claude_20261004/main/TD_I_before_batch1i.tex",
+      "snapshot": "research/autonomous_claude_20261004/main/TD_I_batch1i.tex",
+      "pdf": "research/autonomous_claude_20261004/main/TD_I_batch1i.pdf"
+    },
+    {
+      "date": "2026-10-07",
+      "round": "autonomous batch 1",
+      "integrator": "Claude main session",
+      "cross_model": "same-model only",
+      "changes": "closing paragraph: the single autonomous model now exists in TD-III (second copy = purity the agent did not make; binding costs are that purity and body upkeep)",
+      "sha256": "e557e72ed5c5c7b6737c83da15eda503ff60fa7655b84336da68a1e94bf2b1a3",
+      "before_snapshot": "research/autonomous_claude_20261004/main/TD_I_before_batch1l.tex",
+      "snapshot": "research/autonomous_claude_20261004/main/TD_I_batch1l.tex",
+      "pdf": "research/autonomous_claude_20261004/main/TD_I_batch1l.pdf"
+    },
+    {
+      "date": "2026-10-07",
+      "round": "Sol 6.1 ultra subject integration and continuing joint filter",
+      "integrator": "Codex subject integrator",
+      "requested_model": "gpt-6.1-sol",
+      "requested_reasoning_effort": "ultra",
+      "review_mode": "Same-model responsibility separation with root; not blind review or cross-model certification.",
+      "prose_scope": "Full current manuscripts and the full TD-III candidate read before integration; whole-paper consistency/prose pass, including abstracts, results, proofs, interfaces and discussions. Memory-self-introspection and C-III's bridge hypothesis retained.",
+      "immutable_snapshot_policy": "The snapshot paths below name copied fixed files, not live mutable paper pointers; hashes and final provenance copies are in ultra_subject/FREEZE.sha256.",
+      "publication": "Local October working copies only; old packages, July sources, staging and public repositories unchanged.",
+      "changes": "Gaussian drift proposition now states transition law, conditional Fisher bound, absence of free unlabeled information and global quadratic loss; controllable real precision attainment distinguished from integer-read relaxation. Local divergence and bounded-gain transition bridges made explicit. Copy-only net-cycle theorem excludes additional purity or correlated side information; work-producing blank reset booked as a resource. Every protocol has an implied posterior; matching is required for full record value, not for any partial gain. Calibration uses tail-controlled leading loss and its posterior Fisher form; proof includes bias in the error second moment. Closing route now cites both supplied-resource block operating margin and continuing finite joint filter without claiming apparatus survival.",
+      "checks": "Whole-source pass and drift/cycle interfaces checked against archived upstream_repairs.tex and mature TD-III candidate. Final pdflatex x3 in isolated build_td1: 22 pages; no warnings, errors, undefined references or over/underfull boxes. Inherited unmodified model scripts not rerun.",
+      "before_sha256": "e557e72ed5c5c7b6737c83da15eda503ff60fa7655b84336da68a1e94bf2b1a3",
+      "sha256": "cf934a18f38a979f8c27da58d1eadaa699356a09cbddadf0d37ad930e388f26a",
+      "before_snapshot": "research/resumption_codex_20261007/ultra_subject/before/TDOME_I.tex",
+      "before_provenance": "research/resumption_codex_20261007/ultra_subject/before/TD_I_PROVENANCE.json",
+      "snapshot": "research/resumption_codex_20261007/ultra_subject/snapshots/TDOME_I.tex",
+      "provenance_snapshot": "research/resumption_codex_20261007/ultra_subject/snapshots/TD_I_PROVENANCE.json",
+      "pdf": "research/resumption_codex_20261007/ultra_subject/snapshots/TDOME_I.pdf",
+      "pdf_sha256": "60b5dd3136e24c0bef7bf10fb6de680acea34806011483a839659d61ec294104",
+      "build_pages": 22
+    },
+    {
+      "date": "2026-10-08",
+      "round": "Claude round34 response: reviewed corrections and extensions",
+      "integrator": "Codex root, sole writer of papers for this batch",
+      "changes_and_review_scope": "Sol 6.1 ultra abstract and PDF metadata revision; root read complete diff. Existing model proofs not re-certified this batch.",
+      "model_note": "Physics and geometry: gpt-6-astra / ultra; subject: gpt-6.1-sol / ultra. Root reviewed candidates and independently checked listed new results. Known-background, non-blind review; not full-theory certification.",
+      "sha256": "08d0b76a1e4adb5d09c44910e06e604646c5934c2fd7f16232b59a15e94294b3",
+      "before_sha256": "cf934a18f38a979f8c27da58d1eadaa699356a09cbddadf0d37ad930e388f26a",
+      "before_snapshot": "research/round34_response_codex_20261008/integration_before/TD-I/TDOME_I_manuscript.tex",
+      "before_provenance_snapshot": "research/round34_response_codex_20261008/integration_before/TD-I/PROVENANCE.json",
+      "snapshot": "research/round34_response_codex_20261008/frozen/TD-I/TDOME_I_manuscript.tex",
+      "provenance_snapshot": "research/round34_response_codex_20261008/frozen/TD-I/PROVENANCE.json",
+      "pdf": "research/round34_response_codex_20261008/frozen/TD-I/TDOME_I_manuscript.pdf",
+      "review": "research/round34_response_codex_20261008/REVIEW_AND_HANDOFF.md",
+      "build": "Isolated pdflatex via latexmk; final log has no warning, undefined reference, overfull or underfull box. Title/Author present. Not an all-page visual or publication acceptance.",
+      "publication": "Working source only; July staging and public GitHub/Zenodo unchanged."
+    },
+    {
+      "date": "2026-10-12",
+      "round": "Approved manuscript revision group 2, TD-I v1",
+      "integrator": "Codex root; executor candidate gpt-6.1-sol/high",
+      "before_sha256": "08d0b76a1e4adb5d09c44910e06e604646c5934c2fd7f16232b59a15e94294b3",
+      "sha256": "9071a988dc863944aab1cf5a0411806a9a3dfa9e738d31389327fb54d29cf9e2",
+      "changes": "Complete manuscript revision: interval versus device-cycle endpoint bookkeeping, actual two-partly-mixed-record harvest/parity/reset task, finite-history versus any specified fixed-window analytical separation, corrected supplement classification/data scope. Earlier mature LD, thermodynamic, posterior and calibration results retained with their assumptions. Source/record/bath preparation, drives, clock and full-device renewal not derived.",
+      "review_scope": "Root read entire old source and supplement, complete candidate and final delta; independently enumerated mixed-record/parity task and finite-window Bayes law/count DP; independently checked thermal-swap heat and computational AST plus three short supplement trials. Earlier full numerical sweeps and entire upstream literature not re-certified. Same-model known-background review, not Claude audit or author acceptance.",
+      "supplement_revision": {
+        "path": "TDOME_I_supplement/paper1_markov_ceiling_demo.py",
+        "before_sha256": "11b5a0aceeb71d02387ddc31a44a6af5bccba48a36faa40b90d63ab1f6bc9d28",
+        "sha256": "0f188a3bd1aa3f12e43768f322d256ee4772f6004f025d267ec5c18abbb91eb1",
+        "scope": "Documentation, band comment and main banner only; computational functions/classes and configurations unchanged; original figure and two CSVs byte-preserved. Historical 160 long trials not replayed."
+      },
+      "candidate": "revision_execution_20261011/worker/TD-I/v1",
+      "before_snapshot": "revision_execution_20261011/root_checks/TD_I_before.tex",
+      "snapshot": "revision_execution_20261011/root_checks/TD_I_after.tex",
+      "provenance_snapshot": "revision_execution_20261011/root_checks/TD_I_PROVENANCE_after.json",
+      "pdf": "revision_execution_20261011/root_checks/TD_I_root_build.pdf",
+      "review": "revision_execution_20261011/root_checks/TD_I_v1_review.md",
+      "publication": "Working source only; staging and public repositories unchanged; final author review and exact-version upload authorization required."
+    },
+    {
+      "date": "2026-10-12",
+      "round": "Final corpus dependency and bibliography synchronization",
+      "integrator": "Codex root",
+      "sha256": "9ec84073f4b450e98f659bd02878fbb880d2a226398339a55aa4c14987210ce3",
+      "changes": "bib:Liu2026QRAIF_B",
+      "before_snapshot": "revision_execution_20261011/root_checks/dependency_sync/TD-I/before.tex",
+      "snapshot": "revision_execution_20261011/root_checks/dependency_sync/TD-I/after.tex",
+      "review": "revision_execution_20261011/root_checks/DEPENDENCY_SYNC_REVIEW.md",
+      "cross_model": "Root exact-match integration after full-manuscript approvals; independent audit pending.",
+      "publication": "Author final review and explicit version upload authorization required."
+    },
+    {
+      "date": "2026-10-12",
+      "round": "Whole-corpus linear read, focused interface corrections v1",
+      "integrator": "Codex root; sole formal writer",
+      "before_sha256": "9ec84073f4b450e98f659bd02878fbb880d2a226398339a55aa4c14987210ce3",
+      "sha256": "90b3e838e5ddb47a6d887d3cfdb68a198ba19eddf90e72ff95879b03232f1eb8",
+      "changes": "Restore the inhomogeneous initial-correlation term in the exact fixed-projection, time-dependent Nakajima-Zwanzig equation; keep arbitrary correlated inputs and the complete thermodynamic balance.",
+      "before_snapshot": "linear_review_20261012/repair_v1/before/TD-I/TDOME_I_manuscript.tex",
+      "snapshot": "linear_review_20261012/repair_v1/after/TD-I/TDOME_I_manuscript.tex",
+      "provenance_snapshot": "linear_review_20261012/repair_v1/after/TD-I/PROVENANCE.json",
+      "review": "linear_review_20261012/repair_v1/REVIEW_ENTRY.md",
+      "review_scope": "Root read all 29 launch manuscripts, appendices and bibliographies and all 7 collection frontmatters; reviewed this delta. New NZ, planar drift and weighted probe-time identities checked by fresh root calculations. Earlier numerical sweeps and all cited primary proofs not replayed; not blind, cross-model or author acceptance.",
+      "writing": "my-writing used to keep new text concrete and avoid repeated limitations; no statistical watermark claim.",
+      "publication": "Working source only. July staging and public platforms unchanged. Exact-version author approval required."
+    },
+    {
+      "date": "2026-10-15",
+      "revision": "postaudit_20261014",
+      "integrator": "Codex root",
+      "baseline": "review_build_summaryfix_20261013_v3",
+      "before_sha256": "90b3e838e5ddb47a6d887d3cfdb68a198ba19eddf90e72ff95879b03232f1eb8",
+      "sha256": "e84c8df02665e66b57f64625218286c02ddc1a4d9d0462f61a4c71c017c02dd7",
+      "audit": "research/synthesis/claude/final_adversarial_review_20261013",
+      "dispositions": "revision_postaudit_20261014/DISPOSITION.csv",
+      "review": "revision_postaudit_20261014/REVIEW.md",
+      "status": "Post-adversarial-review working revision; author approval and independent re-review not claimed.",
+      "supplementary_files": [
+        {
+          "path": "OctoberReview/papers/TD-I/supplemental/source_notes/README.md",
+          "local": "supplemental/source_notes/README.md",
+          "sha256": "0b55cfffd92277f1f1806d355afdb585fa8ba159fb4c5b49d1717f9e13e13891"
+        },
+        {
+          "path": "OctoberReview/papers/TD-I/supplemental/source_notes/TDI_protocol_source.tex",
+          "local": "supplemental/source_notes/TDI_protocol_source.tex",
+          "sha256": "54cd2e6103c49285ccd5c2e1e55b838b6ba2e0599969ea6465d6d19068054b52"
+        }
+      ]
+    },
+    {
+      "date": "2026-10-15",
+      "revision": "references_v7r2_20261015",
+      "integrator": "Codex root",
+      "baseline": "v7r1",
+      "before_sha256": "e84c8df02665e66b57f64625218286c02ddc1a4d9d0462f61a4c71c017c02dd7",
+      "sha256": "e40efe2a7dac46d8a88d3aa6c07e33d2a407583a9c099570977d67de58860c42",
+      "changes": "Removed working-revision status from 6 self-citations; retained author, title, year, DOI and citation keys. No text outside bibliography changed.",
+      "review": "revision_references_v7r2_20261015/REVIEW.md",
+      "publication": "No upload; exact-version author approval required."
+    },
+    {
+      "date": "2026-10-16",
+      "round": "Direction restoration P5 interfaces",
+      "integrator": "Codex root",
+      "before_sha256": "e40efe2a7dac46d8a88d3aa6c07e33d2a407583a9c099570977d67de58860c42",
+      "sha256": "8792ab6099991d508950d65852c99732fd63f79dafcbbfa03c457ac67d5b9d31",
+      "changes": "Complete baseline read; compression gross-work loss derived by conditional mutual-information chain rule and tested in three finite joint laws. Temporal interface follows actual F order theorem. 57 old labels/19 proofs unchanged, one corollary added.",
+      "snapshot": "research/direction_revision_execution_20261016/root/tdi_candidate/TDOME_I_manuscript.tex",
+      "pdf": "research/direction_revision_execution_20261016/root/tdi_candidate/TDOME_I_manuscript.pdf",
+      "review": "research/direction_revision_execution_20261016/root/TDI_HC_REVIEW.md",
+      "scope": "Informed root review; not external review. No rerun of old long simulations, no all-page visual or new full bibliography verification. Title retained.",
+      "publication": "Local working source only; public snapshot unchanged."
+    }
+  ]
+}

@@ -1,0 +1,227 @@
+{
+  "id": "QR-A",
+  "zenodo_record": "QRAIF_A",
+  "concept_doi": "10.5281/zenodo.18525876",
+  "source_tex": "fable review/zenodo_upload_staging/QRAIF_A_manuscript.tex",
+  "source_sha256": "ceb39a4fedd0d32577394df1447f39c92b374bba8a2528a5e3af511cc6423ac7",
+  "source_bytes": 28355,
+  "lines": 398,
+  "s0_pdf": "QRAIF_A_manuscript.pdf",
+  "s0_pdf_sha256": "ec8e2ab5b524b810da49d6859c4dcddeff2bf0f0b7b44d0ef917596c635e8c65",
+  "s0_pdf_producer": "xdvipdfmx (20250205)",
+  "s0_pdf_pages": 10,
+  "supplement": [],
+  "extra_dependencies": [],
+  "note": "working copy; edit only here. S0 original stays untouched.",
+  "later_revisions": [
+    {
+      "date": "2026-10-06",
+      "round": "autonomous batch 1",
+      "integrator": "Claude main session",
+      "drafted_by": "agent E (research/autonomous_claude_20261004/agentE_qraif_ace; diagnostic.md, notes.md, checks/, FREEZE.sha256)",
+      "changes": "rewritten: title \"Lorentzian Read-out from Local Unitary Propagation: Clifford Relations, Causal Cones and Spectral Mass\". Sylvester obstruction (no positive control/information form is congruent to a Lorentzian one); in translation-invariant local unitary propagation a first-order Hermitian symbol has a hyperbolic characteristic polynomial, all bands on one quadratic shell iff Euclidean Clifford relations, then characteristic form omega^2 - G_HS of signature (1,d) and gamma^0=beta, gamma^i=beta alpha_i generate Cl(1,d); dimension bound d+[mu!=0] <= 2 nu_2(s)+1 (qubit: massless d<=3); group velocities in conv(neighbourhood) with proof; split-step walk speeds 1, cos theta, (theta cot theta)^(1/2); BCC Weyl automaton round cone inscribed in cubic causal cone, ~half of a one-site state outside it, four nodes. July \"Pauli gives only (3,0)\" corrected (Weyl cone). Conjecture on minimal carriers labelled. No acknowledgment.",
+      "checks": "agent E checks (A_algebra, B_lattice, R_representation, R2_general all PASS). Main session re-derived the single-shell/Clifford equivalence, the Lorentzian Clifford relations for gamma^0, gamma^i, the dimension bound, the polytope proposition (ballistic argument) and the split-step speeds and their ordering. Numerical only: Weyl QCA max group speed sqrt(3/2)c, node chiralities, 47-50% outside the cone.",
+      "cross_model": "same-model only; several references cited from memory, see agent notes",
+      "sha256": "fa99c8f440345abbfaee0c44fb8a105bc223a4c7b12ab114d3a19242c4e797d3",
+      "before_snapshot": "research/autonomous_claude_20261004/main/QR_A_before_batch1f.tex",
+      "snapshot": "research/autonomous_claude_20261004/main/QR_A_batch1f.tex",
+      "pdf": "research/autonomous_claude_20261004/main/QR_A_batch1f.pdf"
+    },
+    {
+      "date": "2026-10-07",
+      "round": "autonomous batch 1",
+      "integrator": "Claude main session",
+      "cross_model": "same-model only",
+      "drafted_by": "agent K (research/autonomous_claude_20261004/agentK_cone; results.md, notes.md, checks 1-5 with outputs, candidate_section.tex, FREEZE.sha256)",
+      "changes": "new Section 6 \"Several species: when do the cones become one?\": mixing never merges cones (HS bound 1/2 min(s1,s2)(Q1-Q2)^2, attained; interlacing pushes extreme speeds apart; Luttinger and lattice examples); loops of one speed are Lorentzian at that speed; Yukawa speed flow (matches Anber-Donoghue at N=1; general-N rate (6N+1)g^2/24pi^2); consensus theorem through a common mediator (convergence iff accumulated coupling diverges; log rate exponent 7/15 at N=1); speed splittings at a unitary CFT fixed point in D>=3 are irrelevant unless an extra conserved spin-2 current exists (number of IR cones = decoupled sectors; converse only for two currents in 3D); 1+1 dimensions generically several cones; lattice: causal polytope never renormalized, bound states stay inside, loops carry the read-out speed, lattice matching leaves O(g^2/16pi^2) differences (Collins et al.), composites have their own cone (two-walker bound state); kinematic common cone of the minimal Weyl automaton; marginal running far too slow; Conjecture (one cone needs strong coupling or a symmetry). Status table row added; first open problem replaced by pointer.",
+      "checks": "agent K checks 1-5 PASS (quadratic no-go attained; one-loop flow; consensus; lattice bound state outside-cone weight 0; lattice bubble A_s/A_0 -> 0.6398 vs 0.64). Main session re-derived the mixing bound, the consensus Gronwall argument and the CFT spin/unitarity argument; bibliography details checked by web search (Mack, Minwalla pages corrected to 781-846, GGV and Maldacena-Zhiboedov kept at journal plus arXiv level only, Bednik-Pujolas-Sibiryakov, Sundrum, Sibiryakov confirmed; Anber-Donoghue, Huh-Sachdev, Bisio-DAriano-Perinotti read in source by agent K)",
+      "sha256": "bdee8c500d290f9c8fee4e4f48f102720c1307714e92b5396a0a815a196f71bd",
+      "before_snapshot": "research/autonomous_claude_20261004/main/QR_A_before_batch1o.tex",
+      "snapshot": "research/autonomous_claude_20261004/main/QR_A_batch1o.tex",
+      "pdf": "research/autonomous_claude_20261004/main/QR_A_batch1o.pdf"
+    },
+    {
+      "date": "2026-10-07",
+      "round": "Codex resumption integration",
+      "integrator": "Codex root",
+      "changes": "Intermittent accumulated couplings suffice for a common cone in the supplied one-loop star model; correct chiral cone endpoint, CFT marginality/current-count, speed normalization and two-dimensional inference; distinguish fixed principal blocks from matched low-momentum slopes.",
+      "checks": "Full current QR-A and repaired draft read; core algebra/ODE proofs independently checked by root, new intermittent result independently checked by Sol agent; original lattice Monte Carlo table not rerun. Primary Anber-Donoghue beta functions, Sibiryakov theorem, MZ Section 8 and Hendrickx-Tsitsiklis theorem checked in stated scope.",
+      "model_note": "New delegated checks explicitly GPT-6.1 Sol ultra; no Astra review yet; not blind or a certification of the full theory.",
+      "sha256": "9b2f47e5ac0dea02b69607c01651cd2d69aff9e5d317452e4cba47d0ba887ad7",
+      "before_snapshot": "research/resumption_codex_20261007/physics/before/QR-A.tex",
+      "before_provenance_snapshot": "research/resumption_codex_20261007/physics/before/QR-A_PROVENANCE.json",
+      "snapshot": "research/resumption_codex_20261007/physics/after/QR-A.tex",
+      "provenance_snapshot": "research/resumption_codex_20261007/physics/after/QR-A_PROVENANCE.json",
+      "pdf": "research/resumption_codex_20261007/physics/build_A/QRAIF_A_manuscript.pdf"
+    },
+    {
+      "date": "2026-10-07",
+      "round": "Codex resumption final metadata and source review",
+      "integrator": "Codex root",
+      "changes": "Explicit truthful title/author PDF metadata; physical manuscript integration retained.",
+      "checks": "Source fully read; intermittent consensus proof and one-loop coefficients checked in the recorded primary-source scope. No unrestricted factorization/current-count or fixed-point-existence claim.",
+      "sha256": "233b66b08dd459d2a78019eceebaa5cd3458781218bf1b50a8505806881f5eb5",
+      "final_snapshot": "research/resumption_codex_20261007/physics/frozen_v2/QR-A.tex",
+      "final_provenance_snapshot": "research/resumption_codex_20261007/physics/frozen_v2/QR-A_PROVENANCE.json",
+      "model_note": "Delegates explicitly gpt-6.1-sol / ultra. Root deployment is controlled by the main-session selection; no tool-side model switch or Astra certification claimed."
+    },
+    {
+      "date": "2026-10-07",
+      "round": "Codex continuation: audited interface repairs",
+      "integrator": "audit_physics_oct07 (gpt-6.1-sol / ultra), unique writer for this batch",
+      "changes": "A5: single-shell implies Hilbert-Schmidt isometry, not conversely; retain the operator-square equivalence and add an actual two-shift lattice counterexample. Synchronize cited October working versions without changing public DOI records.",
+      "sha256": "f48a612dccbea2593e1092dda225bc98c669dfa98f8b87b2b7d54b506260daab",
+      "before_snapshot": "research/continuation_codex_20261007/physics/before/QR-A.tex",
+      "before_provenance_snapshot": "research/continuation_codex_20261007/physics/before/QR-A_PROVENANCE.json",
+      "snapshot": "research/continuation_codex_20261007/physics/frozen/QR-A.tex",
+      "provenance_snapshot": "research/continuation_codex_20261007/physics/frozen/QR-A_PROVENANCE.json",
+      "pdf": "research/continuation_codex_20261007/physics/frozen/QR-A.pdf",
+      "verification": "Complete July baseline (398 lines), pre-edit source (718 lines), and revised 720-line source read in this implementation turn. The repair is algebraically derived and independently checked in repair_checks.py. Intermittent consensus and earlier source/lattice results are retained, not large-table rerun or full novelty/bibliography revalidation. Isolated latexmk/pdflatex build and final log checks recorded in review.md.",
+      "prose_scope": "Complete old/current manuscript read; changed paragraphs and bibliography entries read back in context using my-writing's direct, non-template prose guidance, without applying a Chinese banned-word list to technical English. Not all-page visual acceptance or statistical watermark certification."
+    },
+    {
+      "date": "2026-10-12",
+      "round": "Approved full-manuscript reconstruction, Group 3",
+      "integrator": "Codex root",
+      "drafted_by": "manuscript_revision_executor (gpt-6.1-sol/high); sole candidate writer",
+      "changes": "Complete 784-line reconstruction retaining exact shell/Clifford, dimension, lattice and several-species responsibilities. Add calibrated operator-residual/remainder squared-band certificate and same-walk finite-record parameter intervals; distinguish ideal dictionary from actual noisy transport. Correct RG scale, fixed-neighbourhood scope, contact-binding/loop attribution and strong-coupling/compositeness overreach. Natural full-body prose, updated upstream working titles.",
+      "sha256": "e4a32db7d6329f4bc5b85564c3330f366ad1fe38123050a0af85b1a14504b491",
+      "before_snapshot": "revision_execution_20261011/root_checks/QR_A_v1_before.tex",
+      "before_provenance_snapshot": "revision_execution_20261011/root_checks/QR_A_v1_PROVENANCE_before.json",
+      "snapshot": "revision_execution_20261011/root_checks/QR_A_v1_after.tex",
+      "provenance_snapshot": "revision_execution_20261011/root_checks/QR_A_v1_PROVENANCE_after.json",
+      "pdf": "revision_execution_20261011/root_checks/QR_A_v1_root_build.pdf",
+      "verification": "Root full old/new source and final scope/prose delta read; independently derived residual bound and same-setting interval monotonicity; root different-code 500 Hermitian checks and nominal-vs-good-event interval enclosure, plus actually ran worker 100 remainder/60 fixed-block checks. Old large lattice/RG tables retained evidence, not rerun. Root isolated build and review scope in QR_A_v1_review.md.",
+      "prose_scope": "Full text including proofs/appendices/bibliography read; my-writing applied to organization and repetition, not technical word bans. No author-voice approval or statistical watermark certification.",
+      "literature_scope": "Primary Anber-Donoghue, Bednik-Pujolas-Sibiryakov and Collins official abstract/metadata reconfirmed in this turn; not all original proofs or bibliography re-audited.",
+      "model_note": "Informed root review, not blind, cross-platform or author acceptance; publication remains unauthorized."
+    },
+    {
+      "date": "2026-10-12",
+      "round": "Final corpus dependency and bibliography synchronization",
+      "integrator": "Codex root",
+      "sha256": "b753007365bc25904e09df12078ca447ff4b8c8e55a0cd61ae2d1f1b0ba7f5db",
+      "changes": "bib:Liu2026HAFFD, S1",
+      "before_snapshot": "revision_execution_20261011/root_checks/dependency_sync/QR-A/before.tex",
+      "snapshot": "revision_execution_20261011/root_checks/dependency_sync/QR-A/after.tex",
+      "review": "revision_execution_20261011/root_checks/DEPENDENCY_SYNC_REVIEW.md",
+      "cross_model": "Root exact-match integration after full-manuscript approvals; independent audit pending.",
+      "publication": "Author final review and explicit version upload authorization required."
+    },
+    {
+      "date": "2026-10-12",
+      "round": "Whole-corpus linear read, focused interface corrections v1",
+      "integrator": "Codex root; sole formal writer",
+      "before_sha256": "b753007365bc25904e09df12078ca447ff4b8c8e55a0cd61ae2d1f1b0ba7f5db",
+      "sha256": "468830126c34f0509632a66939fb256e48909cebd58f1fb0b3de8dde10605b25",
+      "changes": "State the accumulated-influence or fixed-point conditions in the common-speed status table, rather than connectivity alone.",
+      "before_snapshot": "linear_review_20261012/repair_v1/before/QR-A/QRAIF_A_manuscript.tex",
+      "snapshot": "linear_review_20261012/repair_v1/after/QR-A/QRAIF_A_manuscript.tex",
+      "provenance_snapshot": "linear_review_20261012/repair_v1/after/QR-A/PROVENANCE.json",
+      "review": "linear_review_20261012/repair_v1/REVIEW_ENTRY.md",
+      "review_scope": "Root read all 29 launch manuscripts, appendices and bibliographies and all 7 collection frontmatters; reviewed this delta. New NZ, planar drift and weighted probe-time identities checked by fresh root calculations. Earlier numerical sweeps and all cited primary proofs not replayed; not blind, cross-model or author acceptance.",
+      "writing": "my-writing used to keep new text concrete and avoid repeated limitations; no statistical watermark claim.",
+      "publication": "Working source only. July staging and public platforms unchanged. Exact-version author approval required."
+    },
+    {
+      "date": "2026-10-13",
+      "round": "Global audit repair and manuscript consolidation",
+      "integrator": "Codex root; sole formal writer",
+      "before_sha256": "468830126c34f0509632a66939fb256e48909cebd58f1fb0b3de8dde10605b25",
+      "sha256": "710e7dcaffb1ede7df00f4e0dfd1303f610aab4bec38d226dcd809ca6a0fb316",
+      "changes": [
+        "Synchronize QR-C working title in bibliography only; no scientific statement, proof, label or DOI changed."
+      ],
+      "before_snapshot": "revision_repair_20261013/before/QR-A/QRAIF_A_manuscript.tex",
+      "snapshot": "revision_repair_20261013/after/QR-A/QRAIF_A_manuscript.tex",
+      "review": "revision_repair_20261013/REVIEW.md",
+      "evidence_scope": "Known-background root review and fixed audit deltas; native GPT-6.1/high long-paper candidate work. Not Claude independent audit or author acceptance.",
+      "publication": "Local working revision; exact-version author review and explicit upload authorization required."
+    },
+    {
+      "date": "2026-10-15",
+      "revision": "postaudit_20261014",
+      "integrator": "Codex root",
+      "baseline": "review_build_summaryfix_20261013_v3",
+      "before_sha256": "710e7dcaffb1ede7df00f4e0dfd1303f610aab4bec38d226dcd809ca6a0fb316",
+      "sha256": "f127fe599ebb7f83147add51c6b3fc4d71f5c421a3326d6350e5b770fae24b14",
+      "audit": "research/synthesis/claude/final_adversarial_review_20261013",
+      "dispositions": "revision_postaudit_20261014/DISPOSITION.csv",
+      "review": "revision_postaudit_20261014/REVIEW.md",
+      "status": "Post-adversarial-review working revision; author approval and independent re-review not claimed.",
+      "supplementary_files": [
+        {
+          "path": "OctoberReview/papers/QR-A/supplemental/README.md",
+          "local": "supplemental/README.md",
+          "sha256": "df1387611d3d1d3850629150a43a5cce57b562f6b951c176a406cff81764502f"
+        },
+        {
+          "path": "OctoberReview/papers/QR-A/supplemental/ROOT_QR_NUMERICS.json",
+          "local": "supplemental/ROOT_QR_NUMERICS.json",
+          "sha256": "0d0d3cb5aad7dfcdb0be8b4712b6ce70df90220eddabc41ceeea0e596f2d9108"
+        },
+        {
+          "path": "OctoberReview/papers/QR-A/supplemental/bound_walk.py",
+          "local": "supplemental/bound_walk.py",
+          "sha256": "48bbe293a5272cae2905eb3d70f5720e621c541fb6e71ed5e4b6cbced21e8590"
+        }
+      ]
+    },
+    {
+      "date": "2026-10-15",
+      "revision": "minor_v5_20261015",
+      "integrator": "Codex root",
+      "baseline": "review_build_postaudit_20261015_v4",
+      "before_sha256": "f127fe599ebb7f83147add51c6b3fc4d71f5c421a3326d6350e5b770fae24b14",
+      "sha256": "5a75b506692de379ba4415eb3979fd8cef5e2b3937465a173f3a788162593360",
+      "audit": "research/synthesis/claude/postaudit_v4_review_20261015",
+      "dispositions": "revision_minor_v5_20261015/DISPOSITION.csv",
+      "review": "revision_minor_v5_20261015/REVIEW.md",
+      "status": "Bounded minor revision; new edits root-reviewed, not a fresh cross-model acceptance or publication approval.",
+      "changed_source_assets": [
+        {
+          "path": "OctoberReview/papers/QR-A/QRAIF_A_manuscript.tex",
+          "before": "f127fe599ebb7f83147add51c6b3fc4d71f5c421a3326d6350e5b770fae24b14",
+          "after": "5a75b506692de379ba4415eb3979fd8cef5e2b3937465a173f3a788162593360"
+        }
+      ]
+    },
+    {
+      "date": "2026-10-15",
+      "revision": "references_v7r2_20261015",
+      "integrator": "Codex root",
+      "baseline": "v7r1",
+      "before_sha256": "5a75b506692de379ba4415eb3979fd8cef5e2b3937465a173f3a788162593360",
+      "sha256": "9c5dc832dae615bd31da90af0a3adda951e82589cb6022d92d2849ba03f2c810",
+      "changes": "Removed working-revision status from 6 self-citations; retained author, title, year, DOI and citation keys. No text outside bibliography changed.",
+      "review": "revision_references_v7r2_20261015/REVIEW.md",
+      "publication": "No upload; exact-version author approval required."
+    },
+    {
+      "date": "2026-10-16",
+      "revision": "direction_revision_QR-A",
+      "integrator": "Codex root",
+      "before_sha256": "9c5dc832dae615bd31da90af0a3adda951e82589cb6022d92d2849ba03f2c810",
+      "sha256": "8bb18123c44c436d78d2d8d74f2c8da68a085475f9d0006082e0df14d4727447",
+      "changes": "Control/propagation/positive-energy interfaces moved forward and synchronized to QR-B all-state work criterion and QR-ME boost representation; orthogonal-coordinate wording. Original title retained.",
+      "review": "research/direction_revision_execution_20261016/root/P2_INTERFACES_REVIEW.md",
+      "evidence": "research/direction_revision_execution_20261016/root/qra_candidate/DELTA.json",
+      "verification": "Informed root source/proof/interface review and compilation; old long simulations not rerun, no fresh external certification.",
+      "publication": "Local working copy only; public staging and remotes unchanged."
+    },
+    {
+      "date": "2026-10-16",
+      "round": "direction-postopus-20261016",
+      "integrator": "Codex root",
+      "basis": "Opus direction review at private book c8beff7; root targeted response, not external acceptance.",
+      "changes": "Scope/title/cross-reference corrections; D and QR-C technical appendices separated without loss. See direction_postopus_fix_20261016/DISPOSITION.md and per-paper diff.",
+      "before_sha256": "26ebc9ad6e20ef254e9e910ac99e51edf288fb074a044c6fd59eecc9931e2d2f",
+      "sha256": "b24ee4483a4199c462966c9d1e4d36f766bcd16108203f315571013118eba4bb",
+      "source_assets": {
+        "QRAIF_A_manuscript.tex": "b24ee4483a4199c462966c9d1e4d36f766bcd16108203f315571013118eba4bb"
+      },
+      "checks": "Original proof blocks and label sets retained; separate build/numbering evidence in fix package.",
+      "publication": false
+    }
+  ]
+}

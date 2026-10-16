@@ -1,90 +1,96 @@
 {
   "title": "The Genesis Trilogy",
   "official_pdf": "Genesis_Trilogy_Collection.pdf",
+  "intro_page": 3,
+  "metadata": {
+    "title": "The Genesis Trilogy",
+    "author": "Sidong Liu",
+    "subject": "World, interface and subject: direction-restoration working edition"
+  },
   "members": [
     {
       "id": "HAFF-A",
-      "pdf": "HAFF-A.pdf",
-      "title": "Physical Access and Correlation Geometry: The Holographic Alaya-Field Framework",
-      "sha256": "2ce1a2949f1626ea1bd756ad765372cda3d743ea1e1e71490c8a259ed938ec49"
+      "title": "Physical Coarse-Graining and the Problem of Emergent Geometry: The Holographic Alaya-Field Framework",
+      "pdf": "../../papers/HAFF-A/HAFF_A_manuscript.pdf",
+      "sha256": "aeb993b808410c9e1e721d87830e967f7919bac4ca2c761caf23cdfadffe56e1"
     },
     {
       "id": "HAFF-B",
-      "pdf": "HAFF-B.pdf",
       "title": "Coupling, Records, and Stable Relations: Formation, Protected Content and the Lifetime of a Geometry",
-      "sha256": "b771cb17933fa803c53d7d7707c946f58b7c945690e233c70d94851452ff1ee3"
+      "pdf": "../../papers/HAFF-B/HAFF_B_manuscript.pdf",
+      "sha256": "01c18c5f13d1455c74c0c66fa52affa57644ce2c408d6867aaa21572ea2df922"
     },
     {
       "id": "HAFF-C",
-      "pdf": "HAFF-C.pdf",
       "title": "Causation, Agency, and Existence: Historical Control and Maintained Intervention",
-      "sha256": "e275266c86733fcfddf737fdec950d2e2c0f3cea8c9a989d72bd2dfa8e65c3c2"
+      "pdf": "../../papers/HAFF-C/HAFF_C_manuscript.pdf",
+      "sha256": "ffc28f2267de9eecd44e53b8e62ae6d48dd4234ef245ef1dd028a42c1b35a57e"
     },
     {
       "id": "HAFF-D",
-      "pdf": "HAFF-D.pdf",
       "title": "Selection, Maintenance and Gravitational Response: Modular Constraints and a Physical Return",
-      "sha256": "d133291d41bdc39ab3a5c6c368603fcda0d093a77136a5e74357040555d22446"
+      "pdf": "../../papers/HAFF-D/HAFF_D_manuscript.pdf",
+      "sha256": "797e179a7609c85a9ff4c41aabcffb29559058c462d5716e7fdca183f1618726"
     },
     {
       "id": "HAFF-E",
-      "pdf": "HAFF-E.pdf",
       "title": "Measurement as Accessibility: Measurement Permissions, Stable Records and Public Readout",
-      "sha256": "eba24a76b4a9ae814aff0510f52c983a0bccde6065b0e5e8b3a2d19caf774b2c"
+      "pdf": "../../papers/HAFF-E/HAFF_E_manuscript.pdf",
+      "sha256": "3c32e462a17356e955b7506da639693256726b7efc6a96ff21cff6166b37d83e"
     },
     {
       "id": "HAFF-F",
-      "pdf": "HAFF-F.pdf",
-      "title": "Records, Dissipation and Intervention: Conditions for a Temporal Direction",
-      "sha256": "9b60b8b063c6281c924ac9289c780415e0958bff8671a46d97d873d9a86139f2"
+      "title": "Records, Order and Intervention: Conditions for a Temporal Direction",
+      "pdf": "../../papers/HAFF-F/HAFF_F_manuscript.pdf",
+      "sha256": "b3fcd223c5b0e12400790e11991f841c53be5dbbc1cc15d4484ac3ba627509ea"
     },
     {
       "id": "HAFF-G",
-      "pdf": "HAFF-G.pdf",
-      "title": "Internal Selection and Revisable Organization: How History Changes Permissions and Physical Sources",
-      "sha256": "221d71f3b9d75655a03eb7b936c579b8068c8016fcdf19b570de7f6cef580e40"
+      "title": "Structural Limits of Unification: Internal Selection, Revisable Permissions and Physical Sources",
+      "pdf": "../../papers/HAFF-G/HAFF_G_manuscript.pdf",
+      "sha256": "56dcf780eee9d0d6f95125ebb80d00de697859aceb02b1c1e026547b0f864620"
     },
     {
       "id": "HAFF-PS",
-      "pdf": "HAFF-PS.pdf",
-      "title": "Postscript: Persistence, Participation and an Unfinished Self",
-      "sha256": "2d0c7487b6c00cde82f276b4e8daf991ac4c4602099520ef4ccb53e04b7b11b4"
+      "title": "On the Closure of Structure: Origins, Persistence and Renewed Participation",
+      "pdf": "../../papers/HAFF-PS/HAFF_Postscript_manuscript.pdf",
+      "sha256": "464811c0db67acb267fdf3c2c24ec3254804bcf6867067f596accea441926b7a"
     },
     {
       "id": "QR-A",
-      "pdf": "QR-A.pdf",
       "title": "Lorentzian Read-out from Local Unitary Propagation: Clifford Relations, Causal Cones and Spectral Mass",
-      "sha256": "56b26183b23d8e3e678719107c6fafea08be84aa27d59f4c2311e2c9dca67e87"
+      "pdf": "../../papers/QR-A/QRAIF_A_manuscript.pdf",
+      "sha256": "ed226dde8b63095a28c1aa96711fe87ff7ea1083310d1f2abc5a25b2b3c6bc80"
     },
     {
       "id": "QR-B",
-      "pdf": "QR-B.pdf",
       "title": "Thermodynamic Stability Constraints on Persistent Open Quantum Subsystems: Control Algebra, Physical Actuation and Energy Cost",
-      "sha256": "8c5be28402a9f9bac86918269583592cd21e686de896b9d4b787a7815f25d9ef"
+      "pdf": "../../papers/QR-B/QRAIF_B_manuscript.pdf",
+      "sha256": "00ef5590a201565f051e74c8c470e245444f1ba38d0b0aa87baf34f0b3f091af"
     },
     {
       "id": "QR-C",
-      "pdf": "QR-C.pdf",
-      "title": "Retained Quantum History, Physical Sources and Receiver Renewal in Q-RAIF",
-      "sha256": "376d6ca53ee6d75d671942e4ea686db40575b9f249c55f5b62631bcbf0cbc16e"
+      "title": "Representing Control in the World: Retained History, Physical Sources and Renewal in Q-RAIF",
+      "pdf": "../../papers/QR-C/QRAIF_C_manuscript.pdf",
+      "sha256": "b01b95523714700b48a132154a22d1bc5ecdf5dad16fd359f6d1f1c261fe58c3"
     },
     {
       "id": "TD-I",
-      "pdf": "TD-I.pdf",
       "title": "Memory as a Usable Resource: Correlations, Records and Complete Endpoint Accounting",
-      "sha256": "70564b78e0a58581fbbb10f3764e3aa8b471b4511cf1d88e99be2a9b497d3712"
+      "pdf": "../../papers/TD-I/TDOME_I_manuscript.pdf",
+      "sha256": "ef56d2588fde7dd9d5d6717d295e07c603997384c9885426650ef4a02be040aa"
     },
     {
       "id": "TD-II",
-      "pdf": "TD-II.pdf",
       "title": "Reference Frames Selected by History: The Capability and Cost of a Bounded Agent's Self-Frame",
-      "sha256": "685c06f055f9eea9ebaa3b73ae016effc3828e49f40687d5b3fb3d6089e66457"
+      "pdf": "../../papers/TD-II/TDOME_II_manuscript.pdf",
+      "sha256": "fb5c4a85723a24541a4b0ea55be647c65ccc74c3ff989ed35ad26123a2536d92"
     },
     {
       "id": "TD-III",
-      "pdf": "TD-III.pdf",
       "title": "Keeping a Self-Model Calibrated: Drift Detection, the Price of Keeping Up, and Reliability in a Closed Loop",
-      "sha256": "c0a6bcd400a36d5cd0327fa6012e3293053ef6c1e4135f508e306dee5754fc99"
+      "pdf": "../../papers/TD-III/TDOME_III_manuscript.pdf",
+      "sha256": "d4297a0c1878b9292d9236168179f7af1200eb202c9e91155b0fd54908fcf586"
     }
   ]
 }

@@ -1,0 +1,323 @@
+{
+  "id": "F-II",
+  "zenodo_record": "Foundation_II",
+  "concept_doi": "10.5281/zenodo.19641372",
+  "source_tex": "fable review/zenodo_upload_staging/Foundation_II.tex",
+  "source_sha256": "3b32e0321c0f677c730deb23a84353f825dbb9b13439b1c51f4a32cc45a61c46",
+  "source_bytes": 66064,
+  "lines": 1718,
+  "s0_pdf": "Foundation_II.pdf",
+  "s0_pdf_sha256": "4844e6d6696fe1a6c008ce80206b57142bb530e98331ddc979ba90f534c57f0d",
+  "s0_pdf_producer": "xdvipdfmx (20250205)",
+  "s0_pdf_pages": 22,
+  "supplement": [
+    {
+      "path": "research/d1d2/claude_v3/d2_v3.py",
+      "sha256": "b8a46c1263434169112c83be0d2ae8df49763e11e7fd7bb6868ae7674939f137"
+    },
+    {
+      "path": "research/d1d2/claude_v3/d2_v3_output.json",
+      "sha256": "cba93f4492f47cc82cd4cf2f34c219892578bca51f438d87ec07e7d07dbb9b38"
+    },
+    {
+      "path": "research/d1d2/claude_v3/d2_v3_output_fixedwindow.json",
+      "sha256": "94bdce89090515e6a520d34a641baad8e0b2ab0ee66b55eae1ebe2c3ef35267f"
+    },
+    {
+      "path": "research/f2_writeback/claude/make_f2_section.py",
+      "sha256": "12ec717abbe432e55fbedd676a777c8aa0168ade7c022e573572d89605e13c4d"
+    },
+    {
+      "path": "research/f2_writeback/claude/f2_numbers.json",
+      "sha256": "9ed096c7ea86b2034519755368ab1db88517f19416c432cc243d81f7e61254dc"
+    },
+    {
+      "path": "research/f2_writeback/claude/witness_check.py",
+      "sha256": "928c449ac369d610bee5422559c8c4a22ea5f635515ca8b160a4da0b9084fa97"
+    },
+    {
+      "path": "research/synthesis/codex/round20_v1/d2_checks.py",
+      "sha256": "e49279aeafb5decfe64d2da4ae27dec885c0f7fc822d55c1a8ac2442fcff838a"
+    },
+    {
+      "path": "research/synthesis/codex/round20_v1/d2_output.json",
+      "sha256": "73a1ea48432ff4a7e8264372d15a1d1ec7ebdf0ee4a81d7640f4a373673d3804"
+    }
+  ],
+  "extra_dependencies": [],
+  "note": "working copy; edit only here. S0 original stays untouched; July working copy archived under archive/.",
+  "rewrite": {
+    "date": "2026-10-04",
+    "status": "working copy revised (round 21): main theorem's Paper I dependence replaced by a Cut input after the C-I rewrite; corollary restated; new Section 5 'Agreement and correctness in a calibration model' (numbers generated from research/d1d2/claude_v3); open problem and ledger updated; date line; July working copy archived",
+    "july_working_copy_archive": "archive/Foundation_II_july2026_workingcopy.tex",
+    "july_sha256": "3b32e0321c0f677c730deb23a84353f825dbb9b13439b1c51f4a32cc45a61c46",
+    "rewrite_sha256": "1b5ec014ac35a5a931b9ff5fdbee354cb4956832a86940ea2d40bf0f7ec960c1",
+    "build": "xelatex x3 in a scratch directory: 27 pages, 0 undefined references, 0 overfull boxes",
+    "section_source": "research/f2_writeback/claude/make_f2_section.py (reads research/d1d2/claude_v3/d2_v3_output.json and d2_v3_output_fixedwindow.json)",
+    "revision": "v2 (round 21): reference state versus shared state separated (Cut input uses the reference state; new Corollary on the common modular flow under the shared/private regime assumption; non-empty Type III_1 compatibility witness, checked in a finite analogue); geometry wording (translations are not elements of the shared algebra; reconstruction in the reference representation); section 5 protocol made exact (gain floor, quantisation, weight clipping, budgets, bits, sources) with an Appendix B and the binary-record identity; agreement set is not an algebra (M3 example); whole-paper prose pass of the July text (abstract, introduction, remarks, open problems, ledger, appendix) including removal of internal process wording; wrong hard-coded cross references fixed",
+    "round22": "short fixes after Codex round 22: shared-hull phrasing (stable subalgebra of the overlap, not 'the part where the states agree'), 'agreement set' wording in the model section and open problem, reference-wording in the model summary, Appendix B order of operations (calibration update before decoding, exchange afterwards), geometry sentence, datum sentence; generator make_f2_section.py updated and section regenerated",
+    "round23": "Appendix B: both observers read on the same world state before any exchange (was 'same pre-fault-window state')"
+  },
+  "later_revisions": [
+    {
+      "date": "2026-10-05",
+      "round": "autonomous batch 1",
+      "integrator": "Claude main session",
+      "changes": "dependency edit: T-DOME I described as treating memory kernels, records and their value, not supplying the Stage A projected record process. xelatex 27 pages clean.",
+      "sha256": "34758129688629a43f63d3cd53691f73a4f8ae85a08e356a22eddf268c216ea4",
+      "before_snapshot": "research/autonomous_claude_20261004/main/F_II_before_batch1b.tex",
+      "snapshot": "research/autonomous_claude_20261004/main/F_II_batch1b.tex",
+      "pdf": "research/autonomous_claude_20261004/main/F_II_batch1b.pdf"
+    },
+    {
+      "date": "2026-10-06",
+      "round": "autonomous batch 1",
+      "integrator": "Claude main session",
+      "cross_model": "same-model only",
+      "changes": "appendix proposition on the imported Foundation I package rewritten to the revised F-I (stationary source: E_fix as Stage A projection with vanishing memory kernel; seed as Stage B frame; stable hull as Stage C pair; hull between seed and Fix(E)); the overclaimed inclusion in A_c^HAFF replaced; HAFF setting item now states Fix(E) for a stationary source; Cut input A1 notes that F-I proves the inclusion given ambient translations",
+      "sha256": "2a48a6f693a159564f36854ef62449061047ee6235f29943f9ec8835786d6768",
+      "before_snapshot": "research/autonomous_claude_20261004/main/F_II_before_batch1h.tex",
+      "snapshot": "research/autonomous_claude_20261004/main/F_II_batch1h.tex",
+      "pdf": "research/autonomous_claude_20261004/main/F_II_batch1h.pdf"
+    },
+    {
+      "date": "2026-10-06",
+      "round": "autonomous batch 1, independent check V3",
+      "integrator": "Claude main session",
+      "source_of_fixes": "research/autonomous_claude_20261004/agentV3_f1/notes.md (## REPORT; harness blocked report.md)",
+      "cross_model": "same-model only",
+      "before_snapshot": "research/autonomous_claude_20261004/main/F_II_batch1h.tex",
+      "changes": "Cut input A1: F-I inclusion stated with the unique-invariant-vector condition",
+      "sha256": "58e75ee2526b91d9a902458fb81c30877f3df7c4244fa5dae4ea404b154869e2",
+      "snapshot": "research/autonomous_claude_20261004/main/F_II_batch1j.tex",
+      "pdf": "research/autonomous_claude_20261004/main/F_II_batch1j.pdf"
+    },
+    {
+      "date": "2026-10-07",
+      "round": "autonomous batch 1",
+      "integrator": "Claude main session",
+      "cross_model": "same-model only",
+      "changes": "relation to Paper II: shared sector containing T gives all observers one linearized geometry (C-II); appendix proposition on Paper II updated (Einstein equation derived given the consistency condition, which remains its input; not imported)",
+      "sha256": "7f15a98aae6ffc4aec50fcd782477e6e08610fdf8b22707020735d48725cd421",
+      "before_snapshot": "research/autonomous_claude_20261004/main/F_II_before_batch1k.tex",
+      "snapshot": "research/autonomous_claude_20261004/main/F_II_batch1k.tex",
+      "pdf": "research/autonomous_claude_20261004/main/F_II_batch1k.pdf"
+    },
+    {
+      "date": "2026-10-08",
+      "round": "Claude round34 response: reviewed corrections and extensions",
+      "integrator": "Codex root, sole writer of papers for this batch",
+      "changes_and_review_scope": "Targeted C-II dependency correction; not full-source scientific or prose acceptance.",
+      "model_note": "Physics and geometry: gpt-6-astra / ultra; subject: gpt-6.1-sol / ultra. Root reviewed candidates and independently checked listed new results. Known-background, non-blind review; not full-theory certification.",
+      "sha256": "d57d406edf4a823b4b595d92a190c7fa19d09f2a29a4fbb296e9374cf26215f8",
+      "before_sha256": "7f15a98aae6ffc4aec50fcd782477e6e08610fdf8b22707020735d48725cd421",
+      "before_snapshot": "research/round34_response_codex_20261008/integration_before/F-II/Foundation_II.tex",
+      "before_provenance_snapshot": "research/round34_response_codex_20261008/integration_before/F-II/PROVENANCE.json",
+      "snapshot": "research/round34_response_codex_20261008/frozen/F-II/Foundation_II.tex",
+      "provenance_snapshot": "research/round34_response_codex_20261008/frozen/F-II/PROVENANCE.json",
+      "pdf": "research/round34_response_codex_20261008/frozen/F-II/Foundation_II.pdf",
+      "review": "research/round34_response_codex_20261008/REVIEW_AND_HANDOFF.md",
+      "build": "Isolated xelatex via latexmk; final log has no warning, undefined reference, overfull or underfull box. Title/Author present. Not an all-page visual or publication acceptance.",
+      "publication": "Working source only; July staging and public GitHub/Zenodo unchanged."
+    },
+    {
+      "date": "2026-10-09",
+      "round": "Shared structure, common errors and a reference prepared inside it",
+      "integrator": "Codex root",
+      "sha256": "bb6c790caaf3bc074b645e77e3460416b0aa35bdbd6e0ad01feaec4c4c72111e",
+      "changes": "Main argument rebuilt around same-source sharing, noncommuting compact noise realization, common-frame symmetry and effective normalizer actions, priced positive-energy reference and conditional geometric identification; independent-source theorem retained in appendices; abstract, introduction, conclusion and interfaces rewritten.",
+      "before_snapshot": "research/foundation_sharing_writeback_codex_20261009/before/F-II/Foundation_II.tex",
+      "snapshot": "research/foundation_sharing_writeback_codex_20261009/frozen/F-II/Foundation_II.tex",
+      "review": "research/foundation_sharing_writeback_codex_20261009/REVIEW_AND_HANDOFF.md",
+      "checks": "Full prior source read; root proof review, own exact finite checks and final text reading; isolated xelatex build. Same-model self-review, not fresh independent audit.",
+      "cross_model": "Integrated text and new strengthenings await post-14 independent audit; old evidence not upgraded.",
+      "publication": "Working draft only; author final review and explicit upload authorization required."
+    },
+    {
+      "date": "2026-10-12",
+      "round": "Approved manuscript plan: parallel sharing, F-II v2",
+      "integrator": "Codex root; parallel_sharing candidate writer",
+      "before_sha256": "bb6c790caaf3bc074b645e77e3460416b0aa35bdbd6e0ad01feaec4c4c72111e",
+      "sha256": "a9f1288920891d3ba80b6a4bf0262a95ee9a09a5f5563c43feb92e6c90f56934",
+      "changes": "Target-specific public-calibration identification iff criterion and finite-record affinity bound; paid qubit reference preserving distinct old histories; compact independent-source theorem and proofs; simulation shortened without changing protocol or measured values; two root-reviewed counterexamples distinguish seed/algebra dimension and equal flows/equal states.",
+      "before_snapshot": "revision_execution_20261011/root_checks/F_II_parallel_before.tex",
+      "before_provenance_snapshot": "revision_execution_20261011/root_checks/F_II_parallel_PROVENANCE_before.json",
+      "snapshot": "revision_execution_20261011/root_checks/F_II_parallel_after.tex",
+      "provenance_snapshot": "revision_execution_20261011/root_checks/F_II_parallel_PROVENANCE_after.json",
+      "pdf": "revision_execution_20261011/root_checks/F_II_parallel_root_build.pdf",
+      "review": "revision_execution_20261011/root_checks/F_II_parallel_review.md",
+      "checks": "Root full 1999-line pre-rewrite draft and complete v1/v2 candidate reading; targeted proof review; own 90 exact ML enumerations, explicit quantum pointer with old-reference preservation, correlated-history and finite-algebra counterexamples. Existing D2 simulations were not rerun; retained numbers checked against previous text. Imported compact-G persistence proof read in F-III; primary literature not fully reaudited.",
+      "build": "Root isolated XeLaTeX three passes, 18 pages; final warnings/undefined/overfull/underfull zero; Title/Author present; actual visual inspection pages 1,8,14,16, not all-page acceptance.",
+      "prose": "Full candidate prose/appendices read using my-writing; not author voice approval or statistical watermark certification.",
+      "cross_model": "Known-background same-platform root/worker review, not Claude/Astra independent second review.",
+      "publication": "Working source only; S0/July staging/public GitHub/Zenodo unchanged; final author review and exact-version upload authorization required."
+    },
+    {
+      "date": "2026-10-12",
+      "round": "Final corpus dependency and bibliography synchronization",
+      "integrator": "Codex root",
+      "sha256": "8950bb9987ccdc57a0ae3618ad0ca19a7a743aa8e9b45bacfbf2934fe601fbef",
+      "changes": "bib:FoundationIII, bib:PaperI, bib:PaperII, bib:HAFFA, bib:HAFFD; current series identification replaces obsolete working-title history",
+      "before_snapshot": "revision_execution_20261011/root_checks/dependency_sync/F-II/before.tex",
+      "snapshot": "revision_execution_20261011/root_checks/dependency_sync/F-II/after.tex",
+      "review": "revision_execution_20261011/root_checks/DEPENDENCY_SYNC_REVIEW.md",
+      "cross_model": "Root exact-match integration after full-manuscript approvals; independent audit pending.",
+      "publication": "Author final review and explicit version upload authorization required."
+    },
+    {
+      "date": "2026-10-15",
+      "revision": "postaudit_20261014",
+      "integrator": "Codex root",
+      "baseline": "review_build_summaryfix_20261013_v3",
+      "before_sha256": "8950bb9987ccdc57a0ae3618ad0ca19a7a743aa8e9b45bacfbf2934fe601fbef",
+      "sha256": "c6b3541e4dc534f7e2e0ee91b8ff656b745a1edf11b0a1aabf732612fbc3d12c",
+      "audit": "research/synthesis/claude/final_adversarial_review_20261013",
+      "dispositions": "revision_postaudit_20261014/DISPOSITION.csv",
+      "review": "revision_postaudit_20261014/REVIEW.md",
+      "status": "Post-adversarial-review working revision; author approval and independent re-review not claimed.",
+      "supplementary_files": [
+        {
+          "path": "OctoberReview/papers/F-II/supplemental/reproducibility/README.md",
+          "local": "supplemental/reproducibility/README.md",
+          "sha256": "753a6ece4be224806ebbf0c50f96c5ddaabc726c04e480a636a45e10fbb5a691"
+        },
+        {
+          "path": "OctoberReview/papers/F-II/supplemental/reproducibility/SOURCE_MAP.json",
+          "local": "supplemental/reproducibility/SOURCE_MAP.json",
+          "sha256": "c4c456b3273d6393bcb4e7a1e61d010cef16fed65c598502ff1eea09728f9eac"
+        },
+        {
+          "path": "OctoberReview/papers/F-II/supplemental/reproducibility/run_check.py",
+          "local": "supplemental/reproducibility/run_check.py",
+          "sha256": "b85cc7a96674bcf06243c4151a122ccddf8aee8606a1cfef478c991433ac14f1"
+        },
+        {
+          "path": "OctoberReview/papers/F-II/supplemental/reproducibility/source_tree/OctoberReview/research/d1d2/claude_v3/d2_v3.py",
+          "local": "supplemental/reproducibility/source_tree/OctoberReview/research/d1d2/claude_v3/d2_v3.py",
+          "sha256": "b8a46c1263434169112c83be0d2ae8df49763e11e7fd7bb6868ae7674939f137"
+        },
+        {
+          "path": "OctoberReview/papers/F-II/supplemental/reproducibility/source_tree/OctoberReview/research/d1d2/claude_v3/d2_v3_output.json",
+          "local": "supplemental/reproducibility/source_tree/OctoberReview/research/d1d2/claude_v3/d2_v3_output.json",
+          "sha256": "e1852c3549db7c2ab54310233f1769096a1ba6731d3e8ccb03daec89fb6cfad1"
+        },
+        {
+          "path": "OctoberReview/papers/F-II/supplemental/reproducibility/source_tree/OctoberReview/research/d1d2/claude_v3/d2_v3_output_fixedwindow.json",
+          "local": "supplemental/reproducibility/source_tree/OctoberReview/research/d1d2/claude_v3/d2_v3_output_fixedwindow.json",
+          "sha256": "72443c5f842c9e99bad5802b536d52d8b505da4f1010b972d4e12d7792dab947"
+        },
+        {
+          "path": "OctoberReview/papers/F-II/supplemental/reproducibility/source_tree/OctoberReview/research/f2_writeback/claude/f2_numbers.json",
+          "local": "supplemental/reproducibility/source_tree/OctoberReview/research/f2_writeback/claude/f2_numbers.json",
+          "sha256": "f09a5fe767a6e4e5725c260254d67bf87b32e3ae94395da3d0a9352e1ee283bf"
+        },
+        {
+          "path": "OctoberReview/papers/F-II/supplemental/reproducibility/source_tree/OctoberReview/research/f2_writeback/claude/make_f2_section.py",
+          "local": "supplemental/reproducibility/source_tree/OctoberReview/research/f2_writeback/claude/make_f2_section.py",
+          "sha256": "6711ae6ed376c9e9249539865da0c26373e6d8ddc6d2539ce58e68817999f93e"
+        },
+        {
+          "path": "OctoberReview/papers/F-II/supplemental/reproducibility/source_tree/OctoberReview/research/f2_writeback/claude/witness_check.py",
+          "local": "supplemental/reproducibility/source_tree/OctoberReview/research/f2_writeback/claude/witness_check.py",
+          "sha256": "928c449ac369d610bee5422559c8c4a22ea5f635515ca8b160a4da0b9084fa97"
+        },
+        {
+          "path": "OctoberReview/papers/F-II/supplemental/reproducibility/source_tree/OctoberReview/research/synthesis/codex/round20_v1/d2_checks.py",
+          "local": "supplemental/reproducibility/source_tree/OctoberReview/research/synthesis/codex/round20_v1/d2_checks.py",
+          "sha256": "e49279aeafb5decfe64d2da4ae27dec885c0f7fc822d55c1a8ac2442fcff838a"
+        },
+        {
+          "path": "OctoberReview/papers/F-II/supplemental/reproducibility/source_tree/OctoberReview/research/synthesis/codex/round20_v1/d2_output.json",
+          "local": "supplemental/reproducibility/source_tree/OctoberReview/research/synthesis/codex/round20_v1/d2_output.json",
+          "sha256": "73a1ea48432ff4a7e8264372d15a1d1ec7ebdf0ee4a81d7640f4a373673d3804"
+        },
+        {
+          "path": "OctoberReview/papers/F-II/supplemental/source_notes/FII_full_calibration_protocol.tex",
+          "local": "supplemental/source_notes/FII_full_calibration_protocol.tex",
+          "sha256": "18f55c62d04e5ef31d113f97dde07d7305bc3874dc6d8b826f22de05f049535b"
+        },
+        {
+          "path": "OctoberReview/papers/F-II/supplemental/source_notes/FII_protocol.tex",
+          "local": "supplemental/source_notes/FII_protocol.tex",
+          "sha256": "18f55c62d04e5ef31d113f97dde07d7305bc3874dc6d8b826f22de05f049535b"
+        },
+        {
+          "path": "OctoberReview/papers/F-II/supplemental/source_notes/FII_sharedmechanism_discussion.tex",
+          "local": "supplemental/source_notes/FII_sharedmechanism_discussion.tex",
+          "sha256": "a7806de8e5874f9bae13534c5c3a16b526428ba8398c9ff6c3003df6598ec7c8"
+        },
+        {
+          "path": "OctoberReview/papers/F-II/supplemental/source_notes/README.md",
+          "local": "supplemental/source_notes/README.md",
+          "sha256": "046c6960bc6036e08984ea3a71eaec24532baec26962b7727bd28691ea27ca19"
+        }
+      ]
+    },
+    {
+      "date": "2026-10-15",
+      "revision": "minor_v5_20261015",
+      "integrator": "Codex root",
+      "baseline": "review_build_postaudit_20261015_v4",
+      "before_sha256": "c6b3541e4dc534f7e2e0ee91b8ff656b745a1edf11b0a1aabf732612fbc3d12c",
+      "sha256": "4ab702e63c0181cbdce44a7368f3e36245cc8526a8f17ed8f1c305db7267cc64",
+      "audit": "research/synthesis/claude/postaudit_v4_review_20261015",
+      "dispositions": "revision_minor_v5_20261015/DISPOSITION.csv",
+      "review": "revision_minor_v5_20261015/REVIEW.md",
+      "status": "Bounded minor revision; new edits root-reviewed, not a fresh cross-model acceptance or publication approval.",
+      "changed_source_assets": [
+        {
+          "path": "OctoberReview/papers/F-II/Foundation_II.tex",
+          "before": "c6b3541e4dc534f7e2e0ee91b8ff656b745a1edf11b0a1aabf732612fbc3d12c",
+          "after": "4ab702e63c0181cbdce44a7368f3e36245cc8526a8f17ed8f1c305db7267cc64"
+        },
+        {
+          "path": "OctoberReview/papers/F-II/supplemental/source_notes/FII_protocol.tex",
+          "before": "18f55c62d04e5ef31d113f97dde07d7305bc3874dc6d8b826f22de05f049535b",
+          "after": null
+        },
+        {
+          "path": "OctoberReview/papers/F-II/supplemental/source_notes/README.md",
+          "before": "046c6960bc6036e08984ea3a71eaec24532baec26962b7727bd28691ea27ca19",
+          "after": "e38a06dff09b2b7a7689c15d7aea153373189168b4636fc4b7edf1d389257095"
+        }
+      ]
+    },
+    {
+      "date": "2026-10-15",
+      "revision": "references_v7r2_20261015",
+      "integrator": "Codex root",
+      "baseline": "v7r1",
+      "before_sha256": "4ab702e63c0181cbdce44a7368f3e36245cc8526a8f17ed8f1c305db7267cc64",
+      "sha256": "d18b5cc1c15ca7f121b6ddde65b19b6ce3c25393912e84b41ec4bfdc12da277c",
+      "changes": "Removed working-revision status from 9 self-citations; retained author, title, year, DOI and citation keys. No text outside bibliography changed.",
+      "review": "revision_references_v7r2_20261015/REVIEW.md",
+      "publication": "No upload; exact-version author approval required."
+    },
+    {
+      "date": "2026-10-16",
+      "round": "Direction restoration P5 shared formation and return",
+      "integrator": "Codex root",
+      "before_sha256": "d18b5cc1c15ca7f121b6ddde65b19b6ce3c25393912e84b41ec4bfdc12da277c",
+      "sha256": "b4b566b93abaa196e0a029af13edb2d1455f07f336b7ee918edd3acfe7f76590",
+      "changes": "Shared pulse tested through weak mixture, keeping its finite source as the first-order tangent; common physics and apparatus/source costs explicit. Shared algebra, target calibration and sourced response distinguished.",
+      "snapshot": "research/direction_revision_execution_20261016/root/f2_candidate/Foundation_II.tex",
+      "review": "research/direction_revision_execution_20261016/root/FII_FIII_REVIEW.md",
+      "scope": "Root read complete main source, reviewed changes and proofs touched; previous large simulations and external theorems not reverified, no whole-PDF visual acceptance.",
+      "publication": "Local revision only. Published inputs unchanged."
+    },
+    {
+      "date": "2026-10-16",
+      "round": "direction-postopus-20261016",
+      "integrator": "Codex root",
+      "basis": "Opus direction review at private book c8beff7; root targeted response, not external acceptance.",
+      "changes": "Scope/title/cross-reference corrections; D and QR-C technical appendices separated without loss. See direction_postopus_fix_20261016/DISPOSITION.md and per-paper diff.",
+      "before_sha256": "b4b566b93abaa196e0a029af13edb2d1455f07f336b7ee918edd3acfe7f76590",
+      "sha256": "3e2af2307b5dbcc905d0f3f078ef73be58238570094dda681557ce50de59dcb4",
+      "source_assets": {
+        "Foundation_II.tex": "3e2af2307b5dbcc905d0f3f078ef73be58238570094dda681557ce50de59dcb4"
+      },
+      "checks": "Original proof blocks and label sets retained; separate build/numbering evidence in fix package.",
+      "publication": false
+    }
+  ]
+}

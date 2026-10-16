@@ -1,0 +1,299 @@
+{
+  "id": "C-III",
+  "zenodo_record": "CIII",
+  "concept_doi": "10.5281/zenodo.19607724",
+  "source_tex": "fable review/zenodo_upload_staging/CIII_Finite_Self_Models.tex",
+  "source_sha256": "a92fa67b1bad1de0b47752943adf598261870bc12e6dc17c66d24b393786bbc5",
+  "source_bytes": 27589,
+  "lines": 740,
+  "s0_pdf": "CIII_Finite_Self_Models.pdf",
+  "s0_pdf_sha256": "c3a8d9cc189766d2e4e33cf77508366e27dd8766d2b703ee10b9f8296bf26dc1",
+  "s0_pdf_producer": "xdvipdfmx (20250205)",
+  "s0_pdf_pages": 11,
+  "supplement": [],
+  "extra_dependencies": [],
+  "note": "working copy; edit only here. S0 original stays untouched.",
+  "rewrite": {
+    "date": "2026-10-04",
+    "round": 21,
+    "status": "Dependency edits after the C-I rewrite: removal of the (Amb), (C), (SFa) premises; BKM metric named correctly (the Hessian of relative entropy, not 'BKM/QFIM'); the general local expansion on Type III algebras is stated as an input of this paper, with Paper I computing the Hessian exactly only for local excitations of chiral nets; bibliography. Prose pass NOT done.",
+    "pre_edit_equals_s0_original": true,
+    "source_sha256": "a92fa67b1bad1de0b47752943adf598261870bc12e6dc17c66d24b393786bbc5",
+    "rewrite_sha256": "e3154f9af7acc8e5cb64597a154a5d57ab54807f783780e39ae1bdb937f693c1",
+    "build": "xelatex/pdflatex x3 in a scratch directory: 11 pages, 0 undefined references, 0 errors, 0 overfull boxes",
+    "round22": "round 22: BKM expansion stated for faithful normal states and a regular family (assumed on Type III), BKM not QFIM, and Paper I's Hessian described accurately (half-line algebra of a chiral net along local-diffeomorphism families); prose pass still NOT done"
+  },
+  "later_revisions": [
+    {
+      "date": "2026-10-05",
+      "round": "autonomous batch 1",
+      "integrator": "Claude main session",
+      "drafted_by": "agent D (research/autonomous_claude_20261004/agentD_td2_c3)",
+      "pre_edit_equals_s0_original": false,
+      "changes": "main argument rewritten; title \"Finite Self-Models and the Explanatory Gap: What a Continuing Observer Can Know About Itself\"; no floor from dimension (kept as boundary result); exact four-term decomposition; Bloch-ball unobservable term 1/4 nat; learnable dispositions; binary-effect floor on any von Neumann algebra; single-copy limit (Bloch ball 0.340 vs 0.360 nat); self-shaped fibres via TD-II; exact Gaussian drift floor 1/2 ln(1+P/v) and price of keeping up (exponents of TD-I Conjecture 20 for stationary constant-rate policies); monitoring propositions; two-sided resolution-order asymptotic; hypothesis \"dispositional self-acquaintance\" with reasons, strongest objection and three failable predictions. No acknowledgments.",
+      "checks": "agent D checks/c3_checks.py; main session re-derived the single-copy limit (posterior Bloch vector n_y/5), the drift floor (Kalman fixed point and Gaussian relative entropy) and the price corollary",
+      "cross_model": "new results same-model checked only",
+      "sha256": "1812a975b8cd83dafcfa33c68185cfb4092c5bbbaf22b6a87e003291da8c3460",
+      "before_snapshot": "research/autonomous_claude_20261004/main/C_III_before_batch1c.tex",
+      "snapshot": "research/autonomous_claude_20261004/main/C_III_batch1c.tex",
+      "pdf": "research/autonomous_claude_20261004/main/C_III_batch1c.pdf"
+    },
+    {
+      "date": "2026-10-05",
+      "round": "autonomous batch 1",
+      "integrator": "Claude main session",
+      "changes": "drift-law sentence: TD-III proves the law for all schedules and shows the constant-rate floor here is optimal among all policies",
+      "sha256": "578009707edb1fc5e7ed2bc4670a859c36fd89709070070fce84bc107307afa8",
+      "before_snapshot": "research/autonomous_claude_20261004/main/C_III_before_batch1e.tex",
+      "snapshot": "research/autonomous_claude_20261004/main/C_III_batch1e.tex",
+      "pdf": "research/autonomous_claude_20261004/main/C_III_batch1e.pdf"
+    },
+    {
+      "date": "2026-10-06",
+      "round": "autonomous batch 1, independent check V2",
+      "integrator": "Claude main session",
+      "source_of_fixes": "research/autonomous_claude_20261004/agentV2_tdome_c3/notes.md (## REPORT; harness blocked report.md)",
+      "cross_model": "same-model only",
+      "changes": "drift floor: Gaussian prior on theta_0 stated",
+      "verification": "V2: single-copy limit (E S = 1/3 exactly, 0.339678), drift floor and price corollary CONFIRMED-INDEPENDENT",
+      "sha256": "44a7ec84108ae461de5f6a34dd695f48183fd0234511e2fab0a5951077155eb6",
+      "before_snapshot": "research/autonomous_claude_20261004/main/C_III_before_batch1i.tex",
+      "snapshot": "research/autonomous_claude_20261004/main/C_III_batch1i.tex",
+      "pdf": "research/autonomous_claude_20261004/main/C_III_batch1i.pdf"
+    },
+    {
+      "date": "2026-10-07",
+      "round": "autonomous batch 1",
+      "integrator": "Claude main session",
+      "cross_model": "same-model only",
+      "changes": "introduction sentence on C-II updated; appendix: C-II exact multipole series with conditional Fisher information instantiates the resolution-order proposition with alpha = 4 under a supplied readout noise",
+      "sha256": "10f6dcbe1743b87e3072fae5fdd72d19f70e97ef778a852c7390e24f11cba4e5",
+      "before_snapshot": "research/autonomous_claude_20261004/main/C_III_before_batch1k.tex",
+      "snapshot": "research/autonomous_claude_20261004/main/C_III_batch1k.tex",
+      "pdf": "research/autonomous_claude_20261004/main/C_III_batch1k.pdf"
+    },
+    {
+      "date": "2026-10-07",
+      "round": "autonomous batch 1",
+      "integrator": "Claude main session",
+      "cross_model": "not reviewed",
+      "changes": "after the monitoring propositions: acting is not a change of permissions when it commutes with the fibre symmetry; sign inversions drive every policy without a standard to chance (TD-III Sec. 10)",
+      "sha256": "887b5b2af99c9e3ab6c46413e33f213d3e195b720b85923de462b130f2281d5f",
+      "before_snapshot": "research/autonomous_claude_20261004/main/C_III_before_batch1m.tex",
+      "snapshot": "research/autonomous_claude_20261004/main/C_III_batch1m.tex",
+      "pdf": "research/autonomous_claude_20261004/main/C_III_batch1m.pdf"
+    },
+    {
+      "date": "2026-10-07",
+      "round": "Sol 6.1 ultra subject integration and continuing joint filter",
+      "integrator": "Codex subject integrator",
+      "requested_model": "gpt-6.1-sol",
+      "requested_reasoning_effort": "ultra",
+      "review_mode": "Same-model responsibility separation with root; not blind review or cross-model certification.",
+      "prose_scope": "Full current manuscripts and the full TD-III candidate read before integration; whole-paper consistency/prose pass, including abstracts, results, proofs, interfaces and discussions. Memory-self-introspection and C-III's bridge hypothesis retained.",
+      "immutable_snapshot_policy": "The snapshot paths below name copied fixed files, not live mutable paper pointers; hashes and final provenance copies are in ultra_subject/FREEZE.sha256.",
+      "publication": "Local October working copies only; old packages, July sources, staging and public repositories unchanged.",
+      "changes": "Gaussian price corollary specifies controllable real precision and both slow-drift expansion conditions; integer reads are a relaxation. Predictive relative-entropy floor uses the realized Gaussian variance telescope, not Jensen applied to averaged MSE. Self-shaped fibres are conditional on fixed current model/history. Single-copy and substrate-independent interpretations explicitly retain their unknown-state/prior/permission premises without weakening the dispositional-self-acquaintance route. Square-root claims and proposed drift experiment confined to actual slow-drift regime. Acting/monitoring obstruction now uses joint covariance, not bare commuting actions; invariance alone does not prove learnability. Fresh-current-record sign-inversion scope distinguished from retained historical relational standards. Added finite continuing joint filter as an operational self-model revision mechanism while preserving model-family and processor-resource limits.",
+      "checks": "Full paper and changed abstract/claim/proof/bridge/conclusion passages read. Gaussian predictive recursion and upstream all-policy interface reviewed. Final xelatex x3 in isolated build_c3:15 pages, no warnings, errors, undefined references or over/underfull boxes; no broad experimental or phenomenological verification claimed.",
+      "before_sha256": "887b5b2af99c9e3ab6c46413e33f213d3e195b720b85923de462b130f2281d5f",
+      "sha256": "edb8e7a0abff758f9f568134753b40971b9a10d1eecb113051e6f1891a1ebe66",
+      "before_snapshot": "research/resumption_codex_20261007/ultra_subject/before/CIII.tex",
+      "before_provenance": "research/resumption_codex_20261007/ultra_subject/before/C_III_PROVENANCE.json",
+      "snapshot": "research/resumption_codex_20261007/ultra_subject/snapshots/CIII.tex",
+      "provenance_snapshot": "research/resumption_codex_20261007/ultra_subject/snapshots/C_III_PROVENANCE.json",
+      "pdf": "research/resumption_codex_20261007/ultra_subject/snapshots/CIII.pdf",
+      "pdf_sha256": "a99c16cc66594f5033a88303b578ba32556821392ecc1c3369171f601ad0b82b",
+      "build_pages": 15
+    },
+    {
+      "date": "2026-10-07",
+      "round": "Actual access and attainable continuing self-description",
+      "integrator": "Codex root; sole C-III writer in this batch",
+      "before_sha256": "edb8e7a0abff758f9f568134753b40971b9a10d1eecb113051e6f1891a1ebe66",
+      "sha256": "e7c9eeda42b680b6bc279a0cf1052dc981fbbc79d0ae74528e41f0598c0114c9",
+      "before_snapshot": "research/continuation_codex_20261007/consciousness/before/CIII.tex",
+      "before_provenance": "research/continuation_codex_20261007/consciousness/before/CIII_PROVENANCE.json",
+      "snapshot": "research/continuation_codex_20261007/consciousness/frozen/CIII.tex",
+      "provenance_snapshot": "research/continuation_codex_20261007/consciousness/frozen/CIII_PROVENANCE.json",
+      "pdf": "research/continuation_codex_20261007/consciousness/frozen/CIII.pdf",
+      "changes": "Joint likelihood-score information for actual acquired records, allowing history-adaptive parameter-neutral access; no-repair floor and independently sharper affine example; positive repair attains original fibre limit under fresh iid expressions and sufficient growing memory; rigorous specified-family (9/2560)2^(-2B) fixed-bit floor for every decoder. Monitoring uses integrable Araki conditional risk on general algebras and matrix entropy difference only on finite matrices; record dependence distinguished from effective computation. Single-copy initial target and self-specific physical interpretation clarified; full-protocol law required for adaptive four-term decomposition. Abstract/results/bridge/conclusion and BRAIN/HAFF-G working-version references synchronized.",
+      "checks": "Root hand derivation and separately implemented 8-slot adaptive likelihood trees, exhaustive rational access paths, 384-node Fbar quadrature and conditional-assessment calibration. Reused author-designated Sol6.1 ultra geometry reviewer independently derived and checked the access identity, attainment, fixed-memory coefficient and scope fixes; supplied ready-to-integrate propositions. Neither side reran old long tables or the upstream all-policy experiment.",
+      "review": "research/continuation_codex_20261007/consciousness_review/review.md",
+      "review_mode": "Independent responsibility separation; not blind, cross-platform or Astra certification. Root read reviewer results before own separate numerical implementation.",
+      "reading_and_prose": "Root and reviewer restored entire July 740-line and pre-edit 424-line texts. Root read each integrated proposition, proof, interpretation and changed abstract/conclusion. Actual writeback review at source 5083a7fb confirmed the conditional-kernel, predictable FI, conditional-iid and decoder-tape refinements; root then applied the reviewer's remaining positive-floor and growing-memory phrasing recommendations, yielding the final hash above. New claims remain affirmative and resource-specific; experiential hypothesis kept. Removed two internal literature-reading parentheticals from paper prose, but retained honest reading scope here: this batch did not reread those older cited primary papers.",
+      "build": "Isolated latexmk/XeLaTeX final build: 17 pages, no warning, undefined reference/citation or over/underfull box; factual Title/Author metadata. No all-page visual inspection claimed.",
+      "remaining_inputs": "State/readout family and prior, neutral static-parameter access condition, failure/repair law and resource source, sufficiently growing memory for attainable zero risk, effective processing implementation, and experiential bridge. TD-III body-dependent access is a different conditional model, not an indiscriminate NF identification.",
+      "publication": "Local October manuscript only; no changes to July/staging, old frozen evidence or public services."
+    },
+    {
+      "date": "2026-10-08",
+      "round": "Claude round34 response: reviewed corrections and extensions",
+      "integrator": "Codex root, sole writer of papers for this batch",
+      "changes_and_review_scope": "Sol 6.1 ultra development; root checked predictable neutral-access limit and adaptive-count qualification. Not a fixed-memory asymptotic theorem.",
+      "model_note": "Physics and geometry: gpt-6-astra / ultra; subject: gpt-6.1-sol / ultra. Root reviewed candidates and independently checked listed new results. Known-background, non-blind review; not full-theory certification.",
+      "sha256": "6d29891a2ac9683dbdf0abe62243a46da62cdfe2edaf316827c7547997cd0a11",
+      "before_sha256": "e7c9eeda42b680b6bc279a0cf1052dc981fbbc79d0ae74528e41f0598c0114c9",
+      "before_snapshot": "research/round34_response_codex_20261008/integration_before/C-III/CIII_Finite_Self_Models.tex",
+      "before_provenance_snapshot": "research/round34_response_codex_20261008/integration_before/C-III/PROVENANCE.json",
+      "snapshot": "research/round34_response_codex_20261008/frozen/C-III/CIII_Finite_Self_Models.tex",
+      "provenance_snapshot": "research/round34_response_codex_20261008/frozen/C-III/PROVENANCE.json",
+      "pdf": "research/round34_response_codex_20261008/frozen/C-III/CIII_Finite_Self_Models.pdf",
+      "review": "research/round34_response_codex_20261008/REVIEW_AND_HANDOFF.md",
+      "build": "Isolated xelatex via latexmk; final log has no warning, undefined reference, overfull or underfull box. Title/Author present. Not an all-page visual or publication acceptance.",
+      "publication": "Working source only; July staging and public GitHub/Zenodo unchanged."
+    },
+    {
+      "date": "2026-10-09",
+      "round": "Causal self-access: world, sensing and record-frame diagnosis",
+      "integrator": "Codex root",
+      "sha256": "b8eb716d4703f7b696bd7c830263609b2b4ac70f442f1ffa02acf2cfab9de4f6",
+      "changes": "Interventional discrimination boundary; paid causal diagnosis and actual repair; positive finite gates; precise experience-bridge predictions.",
+      "before_snapshot": "research/causal_self_access_codex_20261009/before/C-III/CIII_Finite_Self_Models.tex",
+      "snapshot": "research/causal_self_access_codex_20261009/frozen/C-III/CIII_Finite_Self_Models.tex",
+      "review": "research/causal_self_access_codex_20261009/REVIEW_AND_HANDOFF.md",
+      "checks": "Complete C-III source reading; exact rational decision trees; separate channel/matrix implementation; isolated builds and changed-page visual review.",
+      "cross_model": "Root informed development; independent audit pending after 14 October.",
+      "publication": "Local draft only; author final review and explicit upload permission required."
+    },
+    {
+      "date": "2026-10-10",
+      "round": "Three bearing bridges: actual programs, source correlations and continuing repair",
+      "integrator": "Codex root",
+      "sha256": "0fab47c6cdf74f3d1d4eb80249a7371d8936f28d0e8313a5989ee3fd64a8e742",
+      "before_snapshot": "research/three_bearing_bridges_codex_20261009/before/C-III/CIII_Finite_Self_Models.tex",
+      "snapshot": "research/three_bearing_bridges_codex_20261009/frozen/C-III/CIII_Finite_Self_Models.tex",
+      "review": "research/three_bearing_bridges_codex_20261009/REVIEW_AND_HANDOFF.md",
+      "cross_model": "Informed root development and exact/matrix/path self-review; independent audit pending.",
+      "publication": "Local only; author final review and explicit exact-version permission required."
+    },
+    {
+      "date": "2026-10-12",
+      "round": "Parallel C-III v1 root",
+      "integrator": "Codex root",
+      "drafted_by": "parallel_subject native GPT-6.1-sol/high",
+      "sha256": "aa30c311f0fd6e1b6dad22bc1340438a4123da0fab522d29c431326c702429e4",
+      "worker_source_sha256": "f53b94bc16346ef578ca57746fa6ebdced1d72f4cb0a3babf94ace886477c487",
+      "before_snapshot": "revision_execution_20261011/root_checks/C_III_parallel_before.tex",
+      "before_provenance_snapshot": "revision_execution_20261011/root_checks/C_III_parallel_PROVENANCE_before.json",
+      "snapshot": "revision_execution_20261011/root_checks/C_III_parallel_after.tex",
+      "provenance_snapshot": "revision_execution_20261011/root_checks/C_III_parallel_PROVENANCE_after.json",
+      "pdf": "revision_execution_20261011/root_checks/C_III_parallel.pdf",
+      "changes": "Decision price of causal-statistic compression, reachable confidence-only repair gap, expanded experiential argument and competing/testable hypotheses; all retained estimation and same-body results preserved. Root synchronizes formal HAFF-G bibliography title.",
+      "verification": "Root complete current1062/candidate1199 source read, new conditional decision proof and physical gate/record/menu boundaries rederived. Earlier different Fraction 29/120 and4/11 checks; new32 finite quantum Donald identities, actual positive controlled-NOT and routine contraction. Old large simulation/enumeration and primary literature not all rerun/reproved; no experience/autonomous perpetual apparatus claim.",
+      "prose_scope": "Full retained/new prose and public source read with my-writing; not author voice certification or statistical watermark check.",
+      "publication": "Working copy only; author final review and exact-version upload approval required."
+    },
+    {
+      "date": "2026-10-12",
+      "round": "Final corpus dependency and bibliography synchronization",
+      "integrator": "Codex root",
+      "sha256": "52ff3089a8c6222825ceb9d37a1f878afd75555e25368ce2466b56e82455c444",
+      "changes": "bib:PaperI, bib:PaperII, S6",
+      "before_snapshot": "revision_execution_20261011/root_checks/dependency_sync/C-III/before.tex",
+      "snapshot": "revision_execution_20261011/root_checks/dependency_sync/C-III/after.tex",
+      "review": "revision_execution_20261011/root_checks/DEPENDENCY_SYNC_REVIEW.md",
+      "cross_model": "Root exact-match integration after full-manuscript approvals; independent audit pending.",
+      "publication": "Author final review and explicit version upload authorization required."
+    },
+    {
+      "date": "2026-10-13",
+      "round": "Global audit repair and manuscript consolidation",
+      "integrator": "Codex root; sole formal writer",
+      "before_sha256": "52ff3089a8c6222825ceb9d37a1f878afd75555e25368ce2466b56e82455c444",
+      "sha256": "7256f46b6267135a67eb1576f4b6918f730d0a97059dcd276511f78155c460f5",
+      "changes": [
+        "Synchronize QR-C working title in bibliography only; no scientific statement, proof, label or DOI changed."
+      ],
+      "before_snapshot": "revision_repair_20261013/before/C-III/CIII_Finite_Self_Models.tex",
+      "snapshot": "revision_repair_20261013/after/C-III/CIII_Finite_Self_Models.tex",
+      "review": "revision_repair_20261013/REVIEW.md",
+      "evidence_scope": "Known-background root review and fixed audit deltas; native GPT-6.1/high long-paper candidate work. Not Claude independent audit or author acceptance.",
+      "publication": "Local working revision; exact-version author review and explicit upload authorization required."
+    },
+    {
+      "date": "2026-10-15",
+      "revision": "postaudit_20261014",
+      "integrator": "Codex root",
+      "baseline": "review_build_summaryfix_20261013_v3",
+      "before_sha256": "7256f46b6267135a67eb1576f4b6918f730d0a97059dcd276511f78155c460f5",
+      "sha256": "32bfc0a2ac198f735a6e992072bf6ccda363007128e0d26d91727326710d318d",
+      "audit": "research/synthesis/claude/final_adversarial_review_20261013",
+      "dispositions": "revision_postaudit_20261014/DISPOSITION.csv",
+      "review": "revision_postaudit_20261014/REVIEW.md",
+      "status": "Post-adversarial-review working revision; author approval and independent re-review not claimed.",
+      "supplementary_files": [
+        {
+          "path": "OctoberReview/papers/C-III/supplemental/source_notes/CIII_quantum_route.tex",
+          "local": "supplemental/source_notes/CIII_quantum_route.tex",
+          "sha256": "06454c518d89b90cabf3dd5a5b07118920417799a035025be7b6891cb1449dee"
+        },
+        {
+          "path": "OctoberReview/papers/C-III/supplemental/source_notes/CIII_smallball.tex",
+          "local": "supplemental/source_notes/CIII_smallball.tex",
+          "sha256": "0bb0ad3bebb4992ebc9063c82154e80599a1b094ee8e85e06d0ac101b20b3473"
+        },
+        {
+          "path": "OctoberReview/papers/C-III/supplemental/source_notes/README.md",
+          "local": "supplemental/source_notes/README.md",
+          "sha256": "276b11bcc29b34d87fd6fc88034a3373ec0cc0fc33030ab35a3006f9035fbbfe"
+        }
+      ]
+    },
+    {
+      "date": "2026-10-15",
+      "revision": "minor_v5_20261015",
+      "integrator": "Codex root",
+      "baseline": "review_build_postaudit_20261015_v4",
+      "before_sha256": "32bfc0a2ac198f735a6e992072bf6ccda363007128e0d26d91727326710d318d",
+      "sha256": "3abb8aa947aabefcaeb29ced42b2d638855054c7596db6ca7cccc42a94144bd9",
+      "audit": "research/synthesis/claude/postaudit_v4_review_20261015",
+      "dispositions": "revision_minor_v5_20261015/DISPOSITION.csv",
+      "review": "revision_minor_v5_20261015/REVIEW.md",
+      "status": "Bounded minor revision; new edits root-reviewed, not a fresh cross-model acceptance or publication approval.",
+      "changed_source_assets": [
+        {
+          "path": "OctoberReview/papers/C-III/CIII_Finite_Self_Models.tex",
+          "before": "32bfc0a2ac198f735a6e992072bf6ccda363007128e0d26d91727326710d318d",
+          "after": "3abb8aa947aabefcaeb29ced42b2d638855054c7596db6ca7cccc42a94144bd9"
+        }
+      ]
+    },
+    {
+      "date": "2026-10-15",
+      "revision": "references_v7r2_20261015",
+      "integrator": "Codex root",
+      "baseline": "v7r1",
+      "before_sha256": "3abb8aa947aabefcaeb29ced42b2d638855054c7596db6ca7cccc42a94144bd9",
+      "sha256": "83526877fbfd219a865e0a438b4af56bf300bfd7b455b20e995c99dd0a575034",
+      "changes": "Removed working-revision status from 9 self-citations; retained author, title, year, DOI and citation keys. No text outside bibliography changed.",
+      "review": "revision_references_v7r2_20261015/REVIEW.md",
+      "publication": "No upload; exact-version author approval required."
+    },
+    {
+      "date": "2026-10-16",
+      "round": "Direction restoration P5",
+      "integrator": "Codex root",
+      "before_sha256": "83526877fbfd219a865e0a438b4af56bf300bfd7b455b20e995c99dd0a575034",
+      "sha256": "a3523ff7c183c2192b44d71f886fbf8d0ba9c642b5d4a2963999da18f11b1d41",
+      "changes": "Consolidated dispositional and causal-return proposals into one two-layer bridge, with exact experiment-class limits and a physical instrument/decoder interface to geometry; linked finite historical frame formation.",
+      "snapshot": "research/direction_revision_execution_20261016/worker/ciii_candidate/CIII_Finite_Self_Models.tex",
+      "review": "research/direction_revision_execution_20261016/root/CIII_REVIEW.md",
+      "scope": "Root full baseline source read and complete changed passages reviewed; inherited proof blocks unchanged. Compilation and structure checks passed; no new old-simulation or external-literature certification.",
+      "publication": "Local working revision only; no public synchronization."
+    },
+    {
+      "date": "2026-10-16",
+      "round": "direction-postopus-20261016",
+      "integrator": "Codex root",
+      "basis": "Opus direction review at private book c8beff7; root targeted response, not external acceptance.",
+      "changes": "Scope/title/cross-reference corrections; D and QR-C technical appendices separated without loss. See direction_postopus_fix_20261016/DISPOSITION.md and per-paper diff.",
+      "before_sha256": "5beb4bc2fd7faaae041d5fd0b57178377f8705ffcccc5e0cd102c940b5c8c4c5",
+      "sha256": "6c5d8877543ccd71520b288d26e2c42dc99f04f727bafd8cc3dfef9261edea43",
+      "source_assets": {
+        "CIII_Finite_Self_Models.tex": "6c5d8877543ccd71520b288d26e2c42dc99f04f727bafd8cc3dfef9261edea43"
+      },
+      "checks": "Original proof blocks and label sets retained; separate build/numbering evidence in fix package.",
+      "publication": false
+    }
+  ]
+}

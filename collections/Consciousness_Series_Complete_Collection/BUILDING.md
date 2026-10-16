@@ -1,9 +1,11 @@
 # The Consciousness Series
 
-Author: Sidong Liu.
+Member PDFs, TeX and scientific supplements are kept once in `../../papers/`; this volume does not duplicate them. Keep the repository directory layout when downloading.
 
-The reference collection preserves the introduction and member paper pages by native PDF concatenation. The supplied source files supplies the actual introduction, all component PDFs and each member's source and dependencies.
+From the repository root:
 
-Install PyMuPDF and run `python3 assemble.py --output rebuilt.pdf`. Add `--compile-frontmatter` to rebuild `frontmatter.tex` with XeLaTeX and latexmk. To rebuild the member papers, follow `member_sources/ID/BUILDING.md`; replace the corresponding ID.pdf and update its SHA-256 in assembly.json when intentionally using a new build.
+```sh
+python3 tools/assemble_collection.py Consciousness_Series_Complete_Collection --output rebuilt.pdf
+```
 
-`Consciousness_Series_Complete_Collection.tex` is a newly generated pdfpages convenience entry, not the source of the reference PDF. The supported reference assembly route is assemble.py, which preserves internal links and page geometry. Tool versions, PDF IDs and timestamps can prevent byte-identical regeneration. The source packages contain no old monolithic collection body.
+Requires PyMuPDF. Rebuild the introduction with XeLaTeX if needed, then use the assembler. `Consciousness_Series_Complete_Collection.tex` is a pdfpages convenience entry; it preserves pages but need not preserve the reference PDF's hyperlinks. The linked D/QR-C technical supplements remain in their paper directories.

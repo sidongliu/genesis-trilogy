@@ -1,0 +1,272 @@
+{
+  "id": "C-II",
+  "zenodo_record": "CII",
+  "concept_doi": "10.5281/zenodo.19607543",
+  "source_tex": "fable review/zenodo_upload_staging/CII_Higher_Dimensional.tex",
+  "source_sha256": "56a75cfdd971e6ac0ca290fe51ceec99b7a567ded77c4e28c6609cefed1ae3a5",
+  "source_bytes": 37258,
+  "lines": 645,
+  "s0_pdf": "CII_Higher_Dimensional.pdf",
+  "s0_pdf_sha256": "57c5d8a6496be07bf80f324e08c728dec2b0ebfefc5ab62c25fafc08288aeebb",
+  "s0_pdf_producer": "xdvipdfmx (20250205)",
+  "s0_pdf_pages": 14,
+  "supplement": [],
+  "extra_dependencies": [],
+  "note": "working copy; edit only here. S0 original stays untouched.",
+  "rewrite": {
+    "date": "2026-10-04",
+    "round": 21,
+    "status": "Dependency edits after the C-I rewrite: sentences describing Paper I's content (abstract, introduction, relation remark, section 2.1, section 2 closing, section 4 interpretation, section 7) now describe the Cut-geometry correspondence and the single cross-ratio modulus (C-I Remark 3.7); bibliography. No change to theorems. Prose pass NOT done.",
+    "pre_edit_equals_s0_original": true,
+    "source_sha256": "56a75cfdd971e6ac0ca290fe51ceec99b7a567ded77c4e28c6609cefed1ae3a5",
+    "rewrite_sha256": "c87ace64f2e5fe53e453836cd9cc6348a71da267ce6fc4db5ddcd773c36e538a",
+    "build": "xelatex/pdflatex x3 in a scratch directory: 14 pages, 0 undefined references, 0 errors, 0 overfull boxes",
+    "round23": "Section 2.1: a nested pair of balls does carry a Moebius invariant (inversive distance); the earlier statement that it carries no scalar modulus is removed; the obstruction is restated"
+  },
+  "later_revisions": [
+    {
+      "date": "2026-10-07",
+      "round": "autonomous batch 1",
+      "integrator": "Claude main session",
+      "cross_model": "same-model only",
+      "drafted_by": "agent I (research/autonomous_claude_20261004/agentI_c2; diagnostic.md, notes.md, checks c1-c9 with outputs, FREEZE.sha256)",
+      "changes": "main-argument rewrite; new subtitle \"The Geometric Functional of a Ball and the Linearized Einstein Equation\". The geometric functional is constructed (area of the geodesic ball boundary minus (d-1)/R times volume) instead of axiomatized; exact identity: its first variation equals minus the CHM-weighted integral of the linearized Einstein tensor at every radius, with no field equation (flat linear part of the Jacobson-Visser first law of causal diamonds, stated); the coefficient is fixed by the region moves of the modular family and by agreement beyond leading order; equivalence: modular consistency for all balls <=> linearized Einstein equation with coupling 2pi/eta, leading order implies all radii, converse; uniqueness among linear, gauge-, rotation-, frame-invariant intrinsic ball functionals with failure examples (fixed-radius area 16% short at next order in d=3, fourth-order law, trace-free version); conservation of the source from the causal diamond; one rest frame gives only the Hamiltonian constraint (stationary source vs time reverse), open set of frames gives the full equation with sinh^(-2) rapidity amplification; Weyl curvature invisible to ball functionals; selection: every selected algebra containing T gives the same linearized geometry, relative entropy depends on the algebra, conjecture that selection enters at second order or through the source; exact multipole series with conditional Fisher information log I_k = -4k log k + O(k) (alpha = 4 in C-III). Inputs stated: CFT with CHM modular Hamiltonians, Minkowski background, linear order, constant eta, the consistency condition. No acknowledgment.",
+      "checks": "agent I checks c1-c9 PASS (symbolic identity d=2,3,4; geodesic shooting without linearization to 1e-10; coefficient, quadric lemma, transfer/stability, Fisher spectrum, conservation and single-frame counterexample, tau lemma, finite-size transfer). Main session re-derived the exact identity (boundary-shift cancellation, both integrations by parts, G_uu = R^(d)/2 at linear order) and the equivalence theorem.",
+      "open_checks": "uniqueness theorem divides distributions at physicist rigor; Prop 6.2(b) perturbative; Jacobson-Visser attribution checked at abstract level; other literature and bibliographic data recalled from memory",
+      "sha256": "f239ddcc96fd4c1addc74a04d71006853898f6be23aaaf537da8de083bcc6566",
+      "before_snapshot": "research/autonomous_claude_20261004/main/C_II_before_batch1k.tex",
+      "snapshot": "research/autonomous_claude_20261004/main/C_II_batch1k.tex",
+      "pdf": "research/autonomous_claude_20261004/main/C_II_batch1k.pdf"
+    },
+    {
+      "date": "2026-10-07",
+      "round": "autonomous batch 1",
+      "integrator": "Claude main session",
+      "cross_model": "same-model only",
+      "changes": "inputs paragraph: Minkowski-with-signature input split (signature per species derived in QR-A; common cone an IR output under stated conditions; fixed point remains input); boosted-ball family needs the common cone",
+      "sha256": "5226d6143626c670ff156d76a758e049c667e2f34aee24baedc8ef1811a71ca8",
+      "before_snapshot": "research/autonomous_claude_20261004/main/C_II_before_batch1o.tex",
+      "snapshot": "research/autonomous_claude_20261004/main/C_II_batch1o.tex",
+      "pdf": "research/autonomous_claude_20261004/main/C_II_batch1o.pdf"
+    },
+    {
+      "date": "2026-10-07",
+      "round": "Codex resumption, mature Sol integration",
+      "integrator": "ultra_imprint_integrate (explicit GPT-6.1 Sol / ultra)",
+      "cross_model": "Not cross-model or blind review; completed Sol candidate and prior reports were read.",
+      "drafted_by": "geometry_sol61/CII_Higher_Dimensional_candidate.tex, review.md, checks.py and checks_output.json; earlier Claude source retained",
+      "source_sha256": "5226d6143626c670ff156d76a758e049c667e2f34aee24baedc8ef1811a71ca8",
+      "sha256": "c458e9b5dfcfbd8de9e192882e1cdb577ff88d5993febae05bfbbbeccb4450b7",
+      "before_snapshot": "research/resumption_codex_20261007/ultra_geometry/archive_before/C_II.tex",
+      "before_provenance_snapshot": "research/resumption_codex_20261007/ultra_geometry/archive_before/C_II_PROVENANCE.json",
+      "snapshot": "research/resumption_codex_20261007/ultra_geometry/frozen/C_II.tex",
+      "pdf": "research/resumption_codex_20261007/ultra_geometry/frozen/C_II.pdf",
+      "provenance_snapshot": "research/resumption_codex_20261007/ultra_geometry/frozen/C_II_PROVENANCE.json",
+      "changes": "Integrated completed geometry_sol61 candidate: homogeneous-source counterexample replaces false any-nonzero-source uniqueness; conserved amplitudes and common-measure Radon proof identify intrinsic response at one radius using all centres and open frames, G=2pi/(eta c)T; full modular generator separated from one-sided CHM charge; fixed-reference multiplier separated from moving-radius family; strict selected relative-entropy loss retained; quartic entropy expansion restricted to faithful controlled regulators, exact same/opposite-charge thermal BKM kernels and exponential-moment bound; Fisher nuisance scope made explicit; selected stress-containing algebras determine common sourced Einstein tensor, not a unique metric. Integrator removed internal c1-c9 locators/process framing while retaining substantive numerical evidence, repaired wording, made local-regulator entropy scope precise, corrected conditional status of coherent example in July correction note, and added factual PDF title/author metadata.",
+      "reading": "Complete current source and complete candidate read, including retained July/Claude text, abstract, conclusion, appendices and bibliography; full candidate diff also read. Shared principle, AGENTS, checkpoint, six-line plan, merge and current RESUME restored. No claim to have reread all cited original literature.",
+      "verification": "Scientific/prose readback of full manuscript and all changed passages. Integrator checked common Radon density/dense-frame argument and coefficient; root independently rederived Radon proof and key finite-mode BKM kernels. Existing Sol/Claude numerical tests read, not rerun.",
+      "build": "latexmk -xelatex in own isolated build directory; XeTeX 0.999997 / TeX Live 2025; 23 pages; final log has no warnings, undefined references, duplicate labels, overfull or underfull reports. PDF title and author checked. Not a full-page visual audit.",
+      "open_checks": "MC, conformal ambient theory/cone, eta and metric initial/boundary data remain inputs. Continuum quartic BKM regularity and uniform entropy remainder, actual finite-observer noisy identification, and novelty audit remain unproved.",
+      "notes": "research/resumption_codex_20261007/ultra_geometry/notes.md",
+      "freeze": "research/resumption_codex_20261007/ultra_geometry/FREEZE.json",
+      "provenance": "Preserves all S0 and previous revision history; immutable freeze records copied provenance, never the changing live provenance. No statistical text-watermark removal claimed."
+    },
+    {
+      "date": "2026-10-07",
+      "round": "Codex resumption, physical scalar source and edge datum v2",
+      "integrator": "ultra_imprint_integrate (explicit GPT-6.1 Sol / ultra)",
+      "cross_model": "Not blind or cross-model review; same explicit Sol thread extended its mature integration. Parent supplied research direction and Wald connection, and independently checked the Wald coefficient; final cross-paper judgment remains with parent.",
+      "source_sha256": "c458e9b5dfcfbd8de9e192882e1cdb577ff88d5993febae05bfbbbeccb4450b7",
+      "sha256": "be4458ffca4de0b34a36267b41ed88cddb792c2952d5a625ca09e1f06860478a",
+      "before_snapshot": "research/resumption_codex_20261007/ultra_geometry/frozen/C_II.tex",
+      "before_provenance_snapshot": "research/resumption_codex_20261007/ultra_geometry/frozen/C_II_PROVENANCE.json",
+      "snapshot": "research/resumption_codex_20261007/ultra_geometry/frozen_v2/C_II.tex",
+      "pdf": "research/resumption_codex_20261007/ultra_geometry/frozen_v2/C_II.pdf",
+      "provenance_snapshot": "research/resumption_codex_20261007/ultra_geometry/frozen_v2/C_II_PROVENANCE.json",
+      "changes": "Added actually local compact-test-function Weyl preparation in the same free complex scalar model: smooth conserved traceless stress, positive finite spatial energy, finite Radon Fourier measure with all moments and nonzero support away from k=0. Explicit constraint-compatible Poisson/wave Einstein response supplies a common source/geometry satisfying bulk MC; no finite Fourier-measure claim for h. Corrected free-scalar interface throughout: physical one-sided H=bulk K+surface Q, strict locality removes Q only for that chosen ball, all-centre readings require Q absent/unchanged or explicitly accessible and subtracted. Proved raw-H/pure-area all-small-ball obstruction from R^(d-1) edge versus R^(d+1) bulk/geometry. Defined normal-ordered collar-limit expectations and separate readout permissions/cost gaps. Same-model U(1) stationary noise retains stress/field-square seed in a proper stable hull. Added short Wald coefficient match from the same nonminimal curvature coupling: eta delta F-delta Q plus raw delta H equals bulk MC, with supplied volume term and leading coherent/metric order explicit. Rewrote abstract for content and propagated boundary distinction through existing first-law/entropy/MC/selection/limits passages; no new paper or change to F-I/candidates/v1 freeze.",
+      "reading": "Full v1 source and candidate read in prior integration; entire v1-to-v2 diff and all affected retained prose read back. Casini--Mazzitelli--Teste 2015 original PDF sec. 5.1 pp. 13-14 Eqs. 57-58 and surrounding text read, not whole paper; Iyer--Wald 1994 original PDF Noether decomposition Eq. 53 and entropy Eq. 93 with surrounding applicability pp. 10 and 16-18 read, not whole paper. Bibliographic details verified on arXiv. Original PDF text, not a claimed visual-page audit.",
+      "verification": "Integrator analytic checks: compact Cauchy support, lightcone IR/UV finite moments and stress convolution, positive energy/nonzero spectral mass, Lorenz Cauchy constraints and conserved propagation, edge asymptotics, same-model invariant selection, and Wald binormal contraction. Newly written source_edge_check.py independently run with SymPy: improved tensor trace/divergence, exact sphere edge integral and small-ball edge/bulk powers, initial C/Cdot and Wald factor all PASS; plane waves are only local coefficient checks, not the finite-energy witness. Earlier geometry numerical code not rerun. Parent endorsed scalar route; does not constitute a claimed blind independent audit of every new proof.",
+      "build": "latexmk -xelatex in own isolated build_CII directory; XeTeX 0.999997 / TeX Live 2025; 26 pages; final log has no warnings, undefined references, duplicate labels, overfull or underfull reports. PDF title and author checked. Not a full-page visual audit.",
+      "open_checks": "MC/Einstein coupling, ambient conformal cone, area density and gravitational initial data remain inputs. Wald remark matches the local density/coefficient with an already supplied volume term, not a general ball first law or second law. Collar-limit finite sampling/resolution costs, phase-reference/switching/reset costs, dynamically generated MC, continuum quartic BKM remainder and full novelty audit remain unproved.",
+      "notes": "research/resumption_codex_20261007/ultra_geometry/notes.md",
+      "check_code": "research/resumption_codex_20261007/ultra_geometry/frozen_v2/source_edge_check.py",
+      "check_output": "research/resumption_codex_20261007/ultra_geometry/frozen_v2/source_edge_output.json",
+      "freeze": "research/resumption_codex_20261007/ultra_geometry/FREEZE_v2.json",
+      "provenance": "All S0/prior history retained. v1 freeze remains immutable; v2 freezes its own copied provenance, not live metadata. No statistical text-watermark removal claimed."
+    },
+    {
+      "date": "2026-10-08",
+      "round": "Claude round34 response: reviewed corrections and extensions",
+      "integrator": "Codex root, sole writer of papers for this batch",
+      "changes_and_review_scope": "Astra ultra development; root read new smooth-factorization, Radon iff and neutral-preparation proofs, independently checked constant-source metric. Additional seed and operation permission remain inputs.",
+      "model_note": "Physics and geometry: gpt-6-astra / ultra; subject: gpt-6.1-sol / ultra. Root reviewed candidates and independently checked listed new results. Known-background, non-blind review; not full-theory certification.",
+      "sha256": "951dfca6e21d5f6083943562c1f8ccbd47bd43a60a03c5a340c5bd22967a7396",
+      "before_sha256": "be4458ffca4de0b34a36267b41ed88cddb792c2952d5a625ca09e1f06860478a",
+      "before_snapshot": "research/round34_response_codex_20261008/integration_before/C-II/CII_Higher_Dimensional.tex",
+      "before_provenance_snapshot": "research/round34_response_codex_20261008/integration_before/C-II/PROVENANCE.json",
+      "snapshot": "research/round34_response_codex_20261008/frozen/C-II/CII_Higher_Dimensional.tex",
+      "provenance_snapshot": "research/round34_response_codex_20261008/frozen/C-II/PROVENANCE.json",
+      "pdf": "research/round34_response_codex_20261008/frozen/C-II/CII_Higher_Dimensional.pdf",
+      "review": "research/round34_response_codex_20261008/REVIEW_AND_HANDOFF.md",
+      "build": "Isolated xelatex via latexmk; final log has no warning, undefined reference, overfull or underfull box. Title/Author present. Not an all-page visual or publication acceptance.",
+      "publication": "Working source only; July staging and public GitHub/Zenodo unchanged."
+    },
+    {
+      "date": "2026-10-08",
+      "round": "round35 response",
+      "integrator": "Codex root",
+      "changes": "Neutral source defined per real field component, local Wick-square zero-tangent contrast; bounded time-smoothed accessible preparations with finite positive energy under explicit translation permissions and a unique vacuum.",
+      "sha256": "c9ef2dcbb454e2cfc4d8b006341ca999deae22c53d29b9f0991c3a038b01f51c",
+      "before_snapshot": "research/round35_response_codex_20261008/before/C-II/CII_Higher_Dimensional.tex",
+      "snapshot": "research/round35_response_codex_20261008/frozen/C-II/CII_Higher_Dimensional.tex",
+      "pdf": "research/round35_response_codex_20261008/frozen/C-II/CII_Higher_Dimensional.pdf",
+      "verification": "Claude round35 fixes checked at affected interfaces; new extensions root-only, awaiting Claude. Isolated compilation: no unresolved references or over/underfull boxes; QR-B retains four baseline class/package/float warnings, others none. No whole-paper style or publication acceptance."
+    },
+    {
+      "date": "2026-10-09",
+      "round": "round36 response / final Claude takeover",
+      "integrator": "Codex root",
+      "sha256": "21fff199b80913928b5a0586a26142e876da6f55b74130fd192647ae7bf5b3fc",
+      "before_snapshot": "research/round36_response_codex_20261009/before/C-II/CII_Higher_Dimensional.tex",
+      "snapshot": "research/round36_response_codex_20261009/frozen/C-II/CII_Higher_Dimensional.tex",
+      "pdf": "research/round36_response_codex_20261009/frozen/C-II/CII_Higher_Dimensional.pdf",
+      "changes": "Bounded-pulse domain and energy constants, corrected shrinking-support limit, common preparation inside translation-permitted shared hulls, conditional Radon identification and first-order total-energy distinction.",
+      "checks": "Root read HAFF-D and QR-B fully and C-II locally around affected results, independently derived algebra, ran own checks, and isolated xelatex builds; precise scope in REVIEW_AND_HANDOFF.md.",
+      "cross_model": "Round36 reviewed predecessor scopes and suggested C-II strengthenings; new horizon/echo/clock results and the final integrated wording await post-14 independent review."
+    },
+    {
+      "date": "2026-10-12",
+      "round": "Parallel manuscript revision: second-order geometry and source",
+      "integrator": "Codex root; sole formal manuscript writer",
+      "drafted_by": "gpt-6.1-sol/high gravity worker v1, with root finite-vacuum-permission proposition and prose refinement",
+      "before_sha256": "21fff199b80913928b5a0586a26142e876da6f55b74130fd192647ae7bf5b3fc",
+      "worker_sha256": "c4df4afd2de24dd6fdeab4495b73287571108aa91d096d7988d59714ab63832e",
+      "sha256": "a8b12f79114b5367ea73a52ae646ce115f74f49b0b1dd20fd4ac8e80d969c5ea",
+      "changes": "Complete argument restructuring with retained linear/Radon/preparation/entropy results; corrected extrinsic small-ball functional, second-order tensor equivalence, curved scalar propagation and next-order source, substantive common quantum/modular geometry conjecture. Root proves obstruction to identifying a finite accessible algebra with exact forward-invariant positive unique-vacuum permission; finite-duration bounded pulse remains intact.",
+      "before_snapshot": "revision_execution_20261011/root_checks/C_II_parallel_before.tex",
+      "before_provenance_snapshot": "revision_execution_20261011/root_checks/C_II_parallel_PROVENANCE_before.json",
+      "snapshot": "revision_execution_20261011/root_checks/C_II_parallel_after.tex",
+      "provenance_snapshot": "revision_execution_20261011/root_checks/C_II_parallel_PROVENANCE_after.json",
+      "pdf": "revision_execution_20261011/root_checks/C_II_parallel.pdf",
+      "review": "revision_execution_20261011/root_checks/C_II_parallel_review.md",
+      "checks": "Complete 2273-line worker source plus moved/removed old source and root addition read. All 22 old proofs retained up to whitespace. Separate geometry report, initial note, exact checks and fixed inputs reviewed; root independently derived Gauss/normal/source identities and finite-vacuum obstruction. Root diagnostics: 36 exact Fisher Schur, 8 bent-slice, 27 positive-vacuum algebra, 9 normal-coefficient checks. Old noise table/80-digit and continuum quantum BKM archives not fully replayed.",
+      "build": "Final isolated XeLaTeX: 35 pages; no warning, undefined reference/citation or box; Title/Author present. Final pages 18/22 inspected, earlier assembled pages 16/18/21/22 also inspected; not all-page visual acceptance.",
+      "prose": "Complete candidate and root additions read for content-led academic English using my-writing. Removed redundant concluding disclaimer, retained physical failures/strong conjectures. Not author-approved voice or statistical-watermark clearance.",
+      "remaining_inputs": "Common conformal cone, area density, physical MC mechanism, preparation and stress/collar readout. MC2 is corrected local stress consistency, not actual curved modular Hamiltonian. Total quantum renormalized source, finite-radius nonlinear dictionary and full apparatus bridge remain substantive conjecture.",
+      "cross_model": "Same-platform non-blind root verification with independently derived same-model support, not Claude audit.",
+      "publication": "Local working source only; no July/staging or public writes. Author final exact-version review and upload permission required."
+    },
+    {
+      "date": "2026-10-12",
+      "round": "Final corpus dependency and bibliography synchronization",
+      "integrator": "Codex root",
+      "sha256": "2aec2fba5ad7b4ac3c0880186429aef8e08bcc78301a681b61a550b058220821",
+      "changes": "bib:PaperI",
+      "before_snapshot": "revision_execution_20261011/root_checks/dependency_sync/C-II/before.tex",
+      "snapshot": "revision_execution_20261011/root_checks/dependency_sync/C-II/after.tex",
+      "review": "revision_execution_20261011/root_checks/DEPENDENCY_SYNC_REVIEW.md",
+      "cross_model": "Root exact-match integration after full-manuscript approvals; independent audit pending.",
+      "publication": "Author final review and explicit version upload authorization required."
+    },
+    {
+      "date": "2026-10-13",
+      "round": "Global audit repair and manuscript consolidation",
+      "integrator": "Codex root; sole formal writer",
+      "before_sha256": "2aec2fba5ad7b4ac3c0880186429aef8e08bcc78301a681b61a550b058220821",
+      "sha256": "a649c0fdc9bf22c09cae728e800755c4484ce9a2f1c8e3d7495e8ff9ece343ab",
+      "changes": [
+        "Synchronize QR-C working title in bibliography only; no scientific statement, proof, label or DOI changed."
+      ],
+      "before_snapshot": "revision_repair_20261013/before/C-II/CII_Higher_Dimensional.tex",
+      "snapshot": "revision_repair_20261013/after/C-II/CII_Higher_Dimensional.tex",
+      "review": "revision_repair_20261013/REVIEW.md",
+      "evidence_scope": "Known-background root review and fixed audit deltas; native GPT-6.1/high long-paper candidate work. Not Claude independent audit or author acceptance.",
+      "publication": "Local working revision; exact-version author review and explicit upload authorization required."
+    },
+    {
+      "date": "2026-10-15",
+      "revision": "postaudit_20261014",
+      "integrator": "Codex root",
+      "baseline": "review_build_summaryfix_20261013_v3",
+      "before_sha256": "a649c0fdc9bf22c09cae728e800755c4484ce9a2f1c8e3d7495e8ff9ece343ab",
+      "sha256": "39a8929f21dc9359c9a89bae114f26f300130ca2def3153f53e4177df18a8f60",
+      "audit": "research/synthesis/claude/final_adversarial_review_20261013",
+      "dispositions": "revision_postaudit_20261014/DISPOSITION.csv",
+      "review": "revision_postaudit_20261014/REVIEW.md",
+      "status": "Post-adversarial-review working revision; author approval and independent re-review not claimed.",
+      "supplementary_files": [
+        {
+          "path": "OctoberReview/papers/C-II/supplemental/source_notes/CII_BKM_mode_calculation.tex",
+          "local": "supplemental/source_notes/CII_BKM_mode_calculation.tex",
+          "sha256": "c99efa8902a262bb01bb408ebcc18624b99b762c231a0c22641939b03af6bcb8"
+        },
+        {
+          "path": "OctoberReview/papers/C-II/supplemental/source_notes/README.md",
+          "local": "supplemental/source_notes/README.md",
+          "sha256": "2e37e8eb569f7ce052bf6798fdbe5bfe8331063b2178f7165a28416d98b6825e"
+        }
+      ]
+    },
+    {
+      "date": "2026-10-15",
+      "revision": "minor_v5_20261015",
+      "integrator": "Codex root",
+      "baseline": "review_build_postaudit_20261015_v4",
+      "before_sha256": "39a8929f21dc9359c9a89bae114f26f300130ca2def3153f53e4177df18a8f60",
+      "sha256": "e96fedfc85b5e6502fd54b6126dbd1c82735b81144e939a096a4836a26a32162",
+      "audit": "research/synthesis/claude/postaudit_v4_review_20261015",
+      "dispositions": "revision_minor_v5_20261015/DISPOSITION.csv",
+      "review": "revision_minor_v5_20261015/REVIEW.md",
+      "status": "Bounded minor revision; new edits root-reviewed, not a fresh cross-model acceptance or publication approval.",
+      "changed_source_assets": [
+        {
+          "path": "OctoberReview/papers/C-II/CII_Higher_Dimensional.tex",
+          "before": "39a8929f21dc9359c9a89bae114f26f300130ca2def3153f53e4177df18a8f60",
+          "after": "e96fedfc85b5e6502fd54b6126dbd1c82735b81144e939a096a4836a26a32162"
+        }
+      ]
+    },
+    {
+      "date": "2026-10-15",
+      "revision": "optional_v6_20261015",
+      "integrator": "Codex root",
+      "baseline": "review_build_minor_20261015_v5",
+      "before_sha256": "e96fedfc85b5e6502fd54b6126dbd1c82735b81144e939a096a4836a26a32162",
+      "sha256": "9e35e3983aa205c9b8de6960e056e8a7eec0a621381d5b147a48aec680286287",
+      "audit": "research/synthesis/claude/v5_minor_review_20261015",
+      "dispositions": "revision_optional_v6_20261015/DISPOSITION.csv",
+      "review": "revision_optional_v6_20261015/REVIEW.md",
+      "status": "Optional clarity corrections after acceptance of v5; root-reviewed, not a new Claude review or publication approval.",
+      "changed_source_assets": [
+        {
+          "path": "OctoberReview/papers/C-II/CII_Higher_Dimensional.tex",
+          "before": "e96fedfc85b5e6502fd54b6126dbd1c82735b81144e939a096a4836a26a32162",
+          "after": "9e35e3983aa205c9b8de6960e056e8a7eec0a621381d5b147a48aec680286287"
+        }
+      ]
+    },
+    {
+      "date": "2026-10-15",
+      "revision": "references_v7r2_20261015",
+      "integrator": "Codex root",
+      "baseline": "v7r1",
+      "before_sha256": "9e35e3983aa205c9b8de6960e056e8a7eec0a621381d5b147a48aec680286287",
+      "sha256": "b49ab7b69c5b3f2bad6e8d630438d8cd52de72c4d8a83192d7166a8206f1f90c",
+      "changes": "Removed working-revision status from 6 self-citations; retained author, title, year, DOI and citation keys. No text outside bibliography changed.",
+      "review": "revision_references_v7r2_20261015/REVIEW.md",
+      "publication": "No upload; exact-version author approval required."
+    },
+    {
+      "date": "2026-10-16",
+      "revision": "direction-restoration P3 G4",
+      "integrator": "Codex root",
+      "before_sha256": "b49ab7b69c5b3f2bad6e8d630438d8cd52de72c4d8a83192d7166a8206f1f90c",
+      "sha256": "265f97801132c441eed3b812e8ddbe701cb517eec2c9fc651c58e301192c6744",
+      "changes": "Same neutral preparation gives a positive source tangent, matched modular/Wald data and conditional geometric-law identification. Finite B-preserving adaptive protocols cannot distinguish rho from rho composed with E on selected source readings. C-I premise and QR-C title synchronized.",
+      "snapshot": "research/direction_revision_execution_20261016/root/cii_candidate/CII_Higher_Dimensional.tex",
+      "pdf": "research/direction_revision_execution_20261016/root/cii_candidate/CII_Higher_Dimensional.pdf",
+      "review": "research/direction_revision_execution_20261016/root/cii_candidate/REVIEW.md",
+      "verification": "Root read full baseline across sessions and new interfaces; analytic composition and finite adaptive-instrument check. All 25 old proofs and 100 old labels retained. 35→36 pages, clean compile. MC, gravity coupling and physical apparatus sources remain inputs; no new external audit."
+    }
+  ]
+}

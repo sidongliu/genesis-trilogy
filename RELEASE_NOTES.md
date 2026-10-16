@@ -1,9 +1,9 @@
-# October 2026
+# 16 October 2026 revision
 
-This edition contains 29 individual documents and seven collected volumes spanning HAFF, Q-RAIF, T-DOME, Foundation, Consciousness, Imprint and Brain Anchor. The reading maps connect physical access, retained history, subject formation and physical return.
+The central question is how world structure, physical interfaces and historically organized subjects form. The revised papers put the mechanisms and remaining inputs first. Process-selected stable blocks and coherence-decay relations, identifiable event order, conditional control/propagation bridges and history-selected readings support that question. They do not establish a general derivation of space, time, world/control alignment, gravitation or first-person experience.
 
-The finite scalar/JT return is a semiclassical mean-action construction with the same retained history and fixed initial mass and geometric constraints. Sustained thermal renewal and joint sharp entropy export with informative adaptive return remain strong conjectures. Functional self-reading retains a separate explanatory bridge to experience.
+The finite same-history semiclassical mean-action result A is retained. Sustained fixed-capacity thermal renewal B and sharp complete export with effective return C remain strong conjectures.
 
-This bibliography cleanup removes working-revision status labels from self-citations while retaining authors, titles, years and DOIs. It does not change the arguments or their scope. The earlier HAFF-A rounding correction to `1.505919931` is retained. A separate archive preserves the files published on 24 July 2026.
+HAFF-D and Q-RAIF C have separate technical supplements with the original proof, equation and citation numbering. Collections retain the main papers and link to the supplements. Repeated member source trees/PDFs have been removed from collection directories; papers/ is the canonical location. July and earlier historical archives remain unchanged.
 
-Each collected volume includes a dedicated cover, linked contents and the complete component papers with their original pagination and section bookmarks. Scientific supplements are supplied separately.
+This GitHub revision precedes the matching Zenodo update. Cite the exact version consulted.

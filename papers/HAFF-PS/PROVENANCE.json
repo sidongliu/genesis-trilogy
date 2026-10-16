@@ -1,0 +1,144 @@
+{
+  "id": "HAFF-PS",
+  "zenodo_record": "HAFF_Postscript",
+  "concept_doi": "10.5281/zenodo.18407367",
+  "source_tex": "fable review/zenodo_upload_staging/HAFF_Postscript_manuscript.tex",
+  "source_sha256": "7b23c9bdf3ff522b3e336eb493a6b34e263723c3e3ed37b1387fa9e501064afb",
+  "source_bytes": 8033,
+  "lines": 119,
+  "s0_pdf": "HAFF_Postscript_manuscript.pdf",
+  "s0_pdf_sha256": "e464131ac04fbcf66798b35f243c3b4b5ea0e669b03e91d0f0951fa47e087efe",
+  "s0_pdf_producer": "pdfTeX-1.40.27",
+  "s0_pdf_pages": 3,
+  "supplement": [],
+  "extra_dependencies": [],
+  "note": "working copy; edit only here. S0 original stays untouched.",
+  "later_revisions": [
+    {
+      "date": "2026-10-05",
+      "round": "autonomous batch 1",
+      "integrator": "Claude main session",
+      "changes": "boundary sentence now locates the finite boundary at the dispatch map of the top executor (Paper G); the separation called \"the Cut\" is distinguished from the technical Cut of the Consciousness series. Rest of the postscript untouched.",
+      "sha256": "34fc28c2d410b87b3ddb00c15160c9bc61ec7810b9b6b59e29002ba7dae26604",
+      "before_snapshot": "research/autonomous_claude_20261004/main/HAFF_PS_before_batch1d.tex",
+      "snapshot": "research/autonomous_claude_20261004/main/HAFF_PS_batch1d.tex",
+      "pdf": "research/autonomous_claude_20261004/main/HAFF_PS_batch1d.pdf"
+    },
+    {
+      "date": "2026-10-05",
+      "round": "autonomous batch 1",
+      "integrator": "Claude main session",
+      "cross_model": "not reviewed",
+      "changes": "postscript rewritten around HAFF-F purity law and HAFF-B window selection: heat death read as an exhausted record budget; the July identification of origin and terminus as the same maximal-entropy configuration is withdrawn (it contradicts the low-record boundary condition, a stock of purity, proved in HAFF-F) and replaced by a record-budget schematic B(t); \"the Cut\" no longer used for the accessible/total separation; Penrose citation described as conformal cyclic cosmology; prose pass over the whole postscript; closing italic line kept",
+      "sha256": "bc7bea66cacfaeda783bf4c5aafae453932094b0534bbc8a07774ba921350633",
+      "before_snapshot": "research/autonomous_claude_20261004/main/HAFF_PS_before_batch1e.tex",
+      "snapshot": "research/autonomous_claude_20261004/main/HAFF_PS_batch1e.tex",
+      "pdf": "research/autonomous_claude_20261004/main/HAFF_PS_batch1e.pdf"
+    },
+    {
+      "date": "2026-10-08",
+      "round": "Claude round34 response: reviewed corrections and extensions",
+      "integrator": "Codex root, sole writer of papers for this batch",
+      "changes_and_review_scope": "Targeted cross-paper repair, not full-source scientific or prose acceptance.",
+      "model_note": "Physics and geometry: gpt-6-astra / ultra; subject: gpt-6.1-sol / ultra. Root reviewed candidates and independently checked listed new results. Known-background, non-blind review; not full-theory certification.",
+      "sha256": "dbcc90ef13035ce352374cda0a03bb54c69cd2c82c216467123bb4cec8f15d5b",
+      "before_sha256": "bc7bea66cacfaeda783bf4c5aafae453932094b0534bbc8a07774ba921350633",
+      "before_snapshot": "research/round34_response_codex_20261008/integration_before/HAFF-PS/HAFF_Postscript_manuscript.tex",
+      "before_provenance_snapshot": "research/round34_response_codex_20261008/integration_before/HAFF-PS/PROVENANCE.json",
+      "snapshot": "research/round34_response_codex_20261008/frozen/HAFF-PS/HAFF_Postscript_manuscript.tex",
+      "provenance_snapshot": "research/round34_response_codex_20261008/frozen/HAFF-PS/PROVENANCE.json",
+      "pdf": "research/round34_response_codex_20261008/frozen/HAFF-PS/HAFF_Postscript_manuscript.pdf",
+      "review": "research/round34_response_codex_20261008/REVIEW_AND_HANDOFF.md",
+      "build": "Isolated pdflatex via latexmk; final log has no warning, undefined reference, overfull or underfull box. Title/Author present. Not an all-page visual or publication acceptance.",
+      "publication": "Working source only; July staging and public GitHub/Zenodo unchanged."
+    },
+    {
+      "date": "2026-10-09",
+      "round": "Whole-theory gap scan and five bridge families",
+      "integrator": "Codex root",
+      "sha256": "6e96e7ed43a7925d96c63252a3a78daf16f6bfe2c7ffb07313a9cfb8364b3f6e",
+      "changes": "Fresh-record budget distinguished from noisy renewal and protected historical records; no universal structure disappearance inference.",
+      "before_snapshot": "research/global_gap_closure_codex_20261009/before/HAFF-PS/HAFF_Postscript_manuscript.tex",
+      "snapshot": "research/global_gap_closure_codex_20261009/frozen/HAFF-PS/HAFF_Postscript_manuscript.tex",
+      "review": "research/global_gap_closure_codex_20261009/REVIEW_AND_HANDOFF.md",
+      "checks": "Root informed derivation, own symbolic/finite checks and isolated before/after builds. See report for actual reading scope.",
+      "cross_model": "New statements and final integrated text await independent post-14 review.",
+      "publication": "Local draft only; author final review and explicit upload authorization required."
+    },
+    {
+      "date": "2026-10-12",
+      "round": "Parallel postscript v1",
+      "integrator": "Codex root",
+      "drafted_by": "parallel_global (native gpt-6.1-sol/high)",
+      "changes": "Full argument on persistence, participation and incomplete self-knowledge; rigorous whole-memory partial-reset joint entropy/conditional heat price; finite-work renewal bound with full endpoint conditions; cosmological mechanism and continuation/experience counterpositions kept distinct.",
+      "sha256": "18f6413947a33d31c766b668a4fbfec33daffd020fec0eac53db417fbe277f4a",
+      "before_snapshot": "revision_execution_20261011/root_checks/HAFF_PS_parallel_before.tex",
+      "before_provenance_snapshot": "revision_execution_20261011/root_checks/HAFF_PS_parallel_PROVENANCE_before.json",
+      "snapshot": "revision_execution_20261011/root_checks/HAFF_PS_parallel_after.tex",
+      "provenance_snapshot": "revision_execution_20261011/root_checks/HAFF_PS_parallel_PROVENANCE_after.json",
+      "pdf": "revision_execution_20261011/root_checks/HAFF_PS_parallel.pdf",
+      "verification": "Root read complete old/current and new source, rederived whole-XMC entropy concavity, Gibbs identity and cyclic-energy conditions; independent 24 quantum targets with dimension3 memory, 96 noise cases, actual full-system/bath tensor SWAP and thermal identity checks. No autonomous closure, restricted-reference universal recovery, cosmic lifetime or experience proof asserted; external literature verification retained within worker documented abstract/selected-text scope.",
+      "prose_scope": "Complete source/proof/philosophical argument and bibliography read with my-writing; not author-voice or watermark acceptance.",
+      "worker_source_sha256": "5a1f63643c3600f52eb9c447f9ead82669c9e3295accf6bd1e56a49e4302c6c1",
+      "root_clarification": "Cyclic work bound explicitly requires zero total retained energy change including internal couplings, and no uncounted energy flow; degenerate local memory alone is insufficient. Independent full-rank SWAP counterexample has delta internal energy -0.8, bath heat 0.8788898309 and driven work 0.0788898309."
+    },
+    {
+      "date": "2026-10-15",
+      "revision": "postaudit_20261014",
+      "integrator": "Codex root",
+      "baseline": "review_build_summaryfix_20261013_v3",
+      "before_sha256": "18f6413947a33d31c766b668a4fbfec33daffd020fec0eac53db417fbe277f4a",
+      "sha256": "722438b9b0e5cc4616b60dc7c3f6bef2b4c4de6117c8f49f33db2954bc688cdd",
+      "audit": "research/synthesis/claude/final_adversarial_review_20261013",
+      "dispositions": "revision_postaudit_20261014/DISPOSITION.csv",
+      "review": "revision_postaudit_20261014/REVIEW.md",
+      "status": "Post-adversarial-review working revision; author approval and independent re-review not claimed.",
+      "supplementary_files": []
+    },
+    {
+      "date": "2026-10-15",
+      "revision": "references_v7r2_20261015",
+      "integrator": "Codex root",
+      "baseline": "v7r1",
+      "before_sha256": "722438b9b0e5cc4616b60dc7c3f6bef2b4c4de6117c8f49f33db2954bc688cdd",
+      "sha256": "1e5bf1e2f9253ac08fa4435fa9229d4c8a31ef3556b9a0445a163b5097e2e548",
+      "changes": "Removed working-revision status from 9 self-citations; retained author, title, year, DOI and citation keys. No text outside bibliography changed.",
+      "review": "revision_references_v7r2_20261015/REVIEW.md",
+      "publication": "No upload; exact-version author approval required."
+    },
+    {
+      "date": "2026-10-16",
+      "round": "direction-postopus-20261016",
+      "integrator": "Codex root",
+      "basis": "Opus direction review at private book c8beff7; root targeted response, not external acceptance.",
+      "changes": "Scope/title/cross-reference corrections; D and QR-C technical appendices separated without loss. See direction_postopus_fix_20261016/DISPOSITION.md and per-paper diff.",
+      "before_sha256": "581191c194d13bc4ad27c99e818188241cf13f663ab4108422c3ed977d3716f7",
+      "sha256": "0a2afb9e0cdff31aa8ad61472a4e3a3207c20c9e890b800b523fddb8e79f149e",
+      "source_assets": {
+        "HAFF_Postscript_manuscript.tex": "0a2afb9e0cdff31aa8ad61472a4e3a3207c20c9e890b800b523fddb8e79f149e"
+      },
+      "checks": "Original proof blocks and label sets retained; separate build/numbering evidence in fix package.",
+      "publication": false
+    },
+    {
+      "date": "2026-10-16",
+      "round": "direction-sonnet-minor-20261016",
+      "integrator": "Codex root",
+      "changes": "Remove five residual matched-budget implications identified in Sonnet review 7b6adcf; clarify free exact-coefficient exception. No mathematical change.",
+      "before_sha256": "0a2afb9e0cdff31aa8ad61472a4e3a3207c20c9e890b800b523fddb8e79f149e",
+      "sha256": "c1f18ad499d07ba7c3069291908c147421be1eef079262d74f539136f5ffa281",
+      "publication": false
+    }
+  ],
+  "direction_revision_20261016": [
+    {
+      "phase": "whole-theory direction restoration",
+      "date": "2026-10-16",
+      "candidate": "OctoberReview/research/direction_revision_execution_20261016/root/ps_candidate",
+      "review": "research/direction_revision_execution_20261016/root/FINAL_GROUP_REVIEW.md",
+      "scope": "Restore cosmological origin/return as explicit conjecture, separate operational/resource closure; existing proof unchanged.",
+      "external_review": "pending",
+      "publication": "not authorized for this revision"
+    }
+  ]
+}

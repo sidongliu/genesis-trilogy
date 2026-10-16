@@ -1,0 +1,328 @@
+{
+  "id": "TD-II",
+  "zenodo_record": "TDOME_II",
+  "concept_doi": "10.5281/zenodo.18579703",
+  "source_tex": "fable review/zenodo_upload_staging/TDOME_II_manuscript.tex",
+  "source_sha256": "da3369eeb036738933b38822cb5ab493c617cca47870b0e57f7c314c4f026636",
+  "source_bytes": 87775,
+  "lines": 2313,
+  "s0_pdf": "TDOME_II_manuscript.pdf",
+  "s0_pdf_sha256": "f9e99650e256430765097fc50b15125385fe2e083aa74d4333fe7dfabc57c2a2",
+  "s0_pdf_producer": "pdfTeX-1.40.27",
+  "s0_pdf_pages": 28,
+  "supplement": [
+    {
+      "path": "TDOME_II_supplement/fig_ego.pdf",
+      "sha256": "b97665268f3b6e7d5c35b5ceaa138e828c617abe442870004f329ff17d798dc5"
+    },
+    {
+      "path": "TDOME_II_supplement/fig_paper2_kstar_scaling.pdf",
+      "sha256": "f48de8d01a8e623bf58e928450e8a8f85ed037ebd7f3d9ae79fda720d4537641"
+    },
+    {
+      "path": "TDOME_II_supplement/kstar_scaling_data.csv",
+      "sha256": "e3887364423a65e182ebce3bb39fe366b7081f7db9fa4007407b6bde0aa504c6"
+    },
+    {
+      "path": "TDOME_II_supplement/paper2_kstar_scaling_demo.py",
+      "sha256": "ef216d9df47f8f010e204c98c56319f9b862a75267eaa37b3149e4dc59853e5f"
+    }
+  ],
+  "extra_dependencies": [],
+  "note": "working copy; edit only here. S0 original stays untouched.",
+  "later_revisions": [
+    {
+      "date": "2026-10-05",
+      "round": "autonomous batch 1",
+      "integrator": "Claude main session",
+      "drafted_by": "agent D (research/autonomous_claude_20261004/agentD_td2_c3; design_note.md, notes.md, checks/, FREEZE.sha256)",
+      "pre_edit_equals_s0_original": true,
+      "changes": "main argument rewritten; title \"Reference Frames Selected by History: The Capability and Cost of a Bounded Agent's Self-Frame\"; budgeted reader with Haar coupling; capability theorem (every budgeted policy has an implied frame); frame-information theorem I(U;P) >= Lambda*_{D,k}(c) (attained) and price corollary; in-frame identifiability and blind spot (world noise vs own misalignment indistinguishable); two-channel even residual derives TD-III's even residual model; exact frozen/fixed frame drift curves; exact stationary risk of a calibratable frame with reliability weight; five-agent closed loop (theory = simulation); two conjectures. Removed: raw-archive sweep, gauge bundle/holonomy, the two-channel qubit example built on the failed Lorentz-Drude function, top-k demo. July supplement files kept on disk but no longer referenced. No acknowledgments.",
+      "checks": "agent D checks/td2_*.py; main session re-derived the capability theorem, the frame-information theorem (data processing, Gibbs variational inequality, Jensen, attaining tilt), the price corollary, the blind-spot theorem, the even-residual Fisher formula and the stationary moment recursion of the calibratable frame",
+      "cross_model": "new results same-model checked only",
+      "sha256": "5d37ff7af5bdaed3690c6014187dffe8218f15728b7ea81ba9812d3583f50d59",
+      "before_snapshot": "research/autonomous_claude_20261004/main/TD_II_before_batch1c.tex",
+      "snapshot": "research/autonomous_claude_20261004/main/TD_II_batch1c.tex",
+      "pdf": "research/autonomous_claude_20261004/main/TD_II_batch1c.pdf"
+    },
+    {
+      "date": "2026-10-05",
+      "round": "autonomous batch 1",
+      "integrator": "Claude main session",
+      "changes": "two sentences on TD-III updated: TD-III now uses this paper's even residual law as its detection model and compares detection time with t*",
+      "sha256": "25db818e4c858e097942e4a84df200f3129980c1b25e688f3a2d63af2f15dfc3",
+      "before_snapshot": "research/autonomous_claude_20261004/main/TD_II_before_batch1e.tex",
+      "snapshot": "research/autonomous_claude_20261004/main/TD_II_batch1e.tex",
+      "pdf": "research/autonomous_claude_20261004/main/TD_II_batch1e.pdf"
+    },
+    {
+      "date": "2026-10-06",
+      "round": "autonomous batch 1, independent check V2",
+      "integrator": "Claude main session",
+      "source_of_fixes": "research/autonomous_claude_20261004/agentV2_tdome_c3/notes.md (## REPORT; harness blocked report.md)",
+      "cross_model": "same-model only",
+      "changes": "rate theorem: attainment restricted to k/D <= c < 1 (kappa >= 0), lower branch noted; stationary-risk proof: contraction factors of modulus less than one; gamma* in [0,1] when lambda_1 >= 0",
+      "verification": "V2: capability, blind-spot, even-residual, stationary risk CONFIRMED-INDEPENDENT; rate bound confirmed, table reproduced",
+      "sha256": "f9c01cced67703af301a34c07344234202285fdf537775fb6613ad8faaa69bb9",
+      "before_snapshot": "research/autonomous_claude_20261004/main/TD_II_before_batch1i.tex",
+      "snapshot": "research/autonomous_claude_20261004/main/TD_II_batch1i.tex",
+      "pdf": "research/autonomous_claude_20261004/main/TD_II_batch1i.pdf"
+    },
+    {
+      "date": "2026-10-07",
+      "round": "autonomous batch 1",
+      "integrator": "Claude main session",
+      "cross_model": "not reviewed",
+      "changes": "two sentences: shared-coupling pushes as an alternative to references for the blind spot (TD-III Sec. 10); open-problem paragraph updated (binary frame joined to a world-changing loop in TD-III; continuous frame is next)",
+      "sha256": "b08da83a44a47b43dd025a55f329fb983a39692af171ffc38078c1ca1790f878",
+      "before_snapshot": "research/autonomous_claude_20261004/main/TD_II_before_batch1m.tex",
+      "snapshot": "research/autonomous_claude_20261004/main/TD_II_batch1m.tex",
+      "pdf": "research/autonomous_claude_20261004/main/TD_II_batch1m.pdf"
+    },
+    {
+      "date": "2026-10-08",
+      "round": "Claude round34 response: reviewed corrections and extensions",
+      "integrator": "Codex root, sole writer of papers for this batch",
+      "changes_and_review_scope": "Targeted necessary-versus-sufficient identification repair; not a full-paper review.",
+      "model_note": "Physics and geometry: gpt-6-astra / ultra; subject: gpt-6.1-sol / ultra. Root reviewed candidates and independently checked listed new results. Known-background, non-blind review; not full-theory certification.",
+      "sha256": "1ae152558dbdc6db4f96578db959d4a443de5097d9c5300f2bea4d9c079ce64a",
+      "before_sha256": "b08da83a44a47b43dd025a55f329fb983a39692af171ffc38078c1ca1790f878",
+      "before_snapshot": "research/round34_response_codex_20261008/integration_before/TD-II/TDOME_II_manuscript.tex",
+      "before_provenance_snapshot": "research/round34_response_codex_20261008/integration_before/TD-II/PROVENANCE.json",
+      "snapshot": "research/round34_response_codex_20261008/frozen/TD-II/TDOME_II_manuscript.tex",
+      "provenance_snapshot": "research/round34_response_codex_20261008/frozen/TD-II/PROVENANCE.json",
+      "pdf": "research/round34_response_codex_20261008/frozen/TD-II/TDOME_II_manuscript.pdf",
+      "review": "research/round34_response_codex_20261008/REVIEW_AND_HANDOFF.md",
+      "build": "Isolated pdflatex via latexmk; final log has no warning, undefined reference, overfull or underfull box. Title/Author present. Not an all-page visual or publication acceptance.",
+      "publication": "Working source only; July staging and public GitHub/Zenodo unchanged."
+    },
+    {
+      "date": "2026-10-09",
+      "round": "Whole-theory gap scan and five bridge families",
+      "integrator": "Codex root",
+      "sha256": "be85b7b5d95efd127d6f11f7893aadbe1a71aae239f4269018e4714701c64fb0",
+      "changes": "Bounded-risk quantum-reference extension, exact invariant-measurement phase-token capability and pre-use lifetime; abstract/results synchronized.",
+      "before_snapshot": "research/global_gap_closure_codex_20261009/before/TD-II/TDOME_II_manuscript.tex",
+      "snapshot": "research/global_gap_closure_codex_20261009/frozen/TD-II/TDOME_II_manuscript.tex",
+      "review": "research/global_gap_closure_codex_20261009/REVIEW_AND_HANDOFF.md",
+      "checks": "Root informed derivation, own symbolic/finite checks and isolated before/after builds. See report for actual reading scope.",
+      "cross_model": "New statements and final integrated text await independent post-14 review.",
+      "publication": "Local draft only; author final review and explicit upload authorization required."
+    },
+    {
+      "date": "2026-10-12",
+      "round": "Approved manuscript plan: parallel subject, TD-II v2",
+      "integrator": "Codex root; parallel_subject candidate writer",
+      "before_sha256": "be85b7b5d95efd127d6f11f7893aadbe1a71aae239f4269018e4714701c64fb0",
+      "sha256": "12a31df300b0bc8730b10596bd469e6c014609016b98b694fc22466d8e9efe54",
+      "changes": "Signed-memory information necessity separate from attainable axis alignment; physically legal orthogonal read protocol retaining noiseless stationary risk; real sign-flip counterexample to unrestricted drift-optimality conjecture, now restricted to spherical diffusion; learned protective body relation as separate implementation support; root corrections to even-law regularity, allowed nonnegative reliability weight and conditional thermodynamic erasure pricing; full prose and upstream bibliography revision.",
+      "before_snapshot": "revision_execution_20261011/root_checks/TD_II_parallel_before.tex",
+      "before_provenance_snapshot": "revision_execution_20261011/root_checks/TD_II_parallel_PROVENANCE_before.json",
+      "snapshot": "revision_execution_20261011/root_checks/TD_II_parallel_after.tex",
+      "provenance_snapshot": "revision_execution_20261011/root_checks/TD_II_parallel_PROVENANCE_after.json",
+      "pdf": "revision_execution_20261011/root_checks/TD_II_parallel_root_build.pdf",
+      "review": "revision_execution_20261011/root_checks/TD_II_parallel_review.md",
+      "checks": "Root full 702-line pre-rewrite source and full fixed v1 candidate, then v2 diff reading; independent sphere-MGF/KL derivation with 28 vMF examples, g-moment rederivation (2000 cases), orthogonal reconstruction, exact phase-reference charge-block calculation; Chernoff/rare-sign-flip proof and legal axis-learning resource review. Old full loop Monte Carlo and threshold scans not rerun.",
+      "build": "Root isolated pdflatex three passes, 20 pages; final warnings/undefined/overfull/underfull zero; Title/Author present; actual visual pages 1,5,6,17,18, not all-page acceptance.",
+      "prose": "Full candidate text and public comments read with my-writing; technical conditions, counterexamples, two conjectures and distinct experience responsibility retained; no statistical watermark or author approval claim.",
+      "cross_model": "Known-background same-platform root/worker review, not Claude/Astra independent second review.",
+      "publication": "Working source only; S0/July staging/public GitHub/Zenodo unchanged; final author review and exact-version upload authorization required."
+    },
+    {
+      "date": "2026-10-12",
+      "round": "Final corpus dependency and bibliography synchronization",
+      "integrator": "Codex root",
+      "sha256": "23a9d23a1130944c3c81599f3a1544e33710c934ff611b71538bedb6a1da7566",
+      "changes": "bib:Liu2026HAFF_B, bib:Liu2026TDOME_III; remove stale numeric section locator",
+      "before_snapshot": "revision_execution_20261011/root_checks/dependency_sync/TD-II/before.tex",
+      "snapshot": "revision_execution_20261011/root_checks/dependency_sync/TD-II/after.tex",
+      "review": "revision_execution_20261011/root_checks/DEPENDENCY_SYNC_REVIEW.md",
+      "cross_model": "Root exact-match integration after full-manuscript approvals; independent audit pending.",
+      "publication": "Author final review and explicit version upload authorization required."
+    },
+    {
+      "date": "2026-10-12",
+      "round": "Whole-corpus linear read, focused interface corrections v1",
+      "integrator": "Codex root; sole formal writer",
+      "before_sha256": "23a9d23a1130944c3c81599f3a1544e33710c934ff611b71538bedb6a1da7566",
+      "sha256": "8385ef80e5190e9a669476b0ef8fd76c667328af3fbb1d65a674695b8466c2bb",
+      "changes": "Specify the scalar first/second moment conditions and O(D) symmetry; add exact directed planar-drift risks using complex harmonic multipliers; keep Brownian results and numerical parameters; clarify the drift-boundaries/conjectures heading.",
+      "before_snapshot": "linear_review_20261012/repair_v1/before/TD-II/TDOME_II_manuscript.tex",
+      "snapshot": "linear_review_20261012/repair_v1/after/TD-II/TDOME_II_manuscript.tex",
+      "provenance_snapshot": "linear_review_20261012/repair_v1/after/TD-II/PROVENANCE.json",
+      "review": "linear_review_20261012/repair_v1/REVIEW_ENTRY.md",
+      "review_scope": "Root read all 29 launch manuscripts, appendices and bibliographies and all 7 collection frontmatters; reviewed this delta. New NZ, planar drift and weighted probe-time identities checked by fresh root calculations. Earlier numerical sweeps and all cited primary proofs not replayed; not blind, cross-model or author acceptance.",
+      "writing": "my-writing used to keep new text concrete and avoid repeated limitations; no statistical watermark claim.",
+      "publication": "Working source only. July staging and public platforms unchanged. Exact-version author approval required."
+    },
+    {
+      "date": "2026-10-12",
+      "round": "Linear-read final scope clarification v2",
+      "integrator": "Codex root",
+      "before_sha256": "8385ef80e5190e9a669476b0ef8fd76c667328af3fbb1d65a674695b8466c2bb",
+      "sha256": "9fe9ce3685ce7c212357e77f5da9dfd343e42891ad7092926fbc99b4275cfc56",
+      "changes": "Limit the narrative monotonicity comparison to the Brownian curves; directed planar drift can oscillate.",
+      "before_snapshot": "linear_review_20261012/repair_v2/before/TD-II/TDOME_II_manuscript.tex",
+      "snapshot": "linear_review_20261012/repair_v2/after/TD-II/TDOME_II_manuscript.tex",
+      "review": "linear_review_20261012/repair_v1/REVIEW_ENTRY.md",
+      "review_scope": "Root delta read-back; repair_v1 mathematical checks retained. Not cross-model or author acceptance.",
+      "publication": "No public writes; exact-version author approval required."
+    },
+    {
+      "date": "2026-10-12",
+      "round": "Linear-read final bibliography synchronization v3",
+      "integrator": "Codex root",
+      "before_sha256": "9fe9ce3685ce7c212357e77f5da9dfd343e42891ad7092926fbc99b4275cfc56",
+      "sha256": "0615d2d79dfe42e87427d393391a613dccbf08e9fe787820eaf2b70c36fdf9b9",
+      "changes": "Synchronize the remaining TD-II citation of Foundation III's title; no scientific, numerical or computational change.",
+      "review": "linear_review_20261012/repair_v1/REVIEW_ENTRY.md",
+      "snapshot": "linear_review_20261012/repair_v3/after/TD-II/TDOME_II_manuscript.tex",
+      "publication": "No public writes; exact-version author review and authorization required."
+    },
+    {
+      "date": "2026-10-15",
+      "revision": "postaudit_20261014",
+      "integrator": "Codex root",
+      "baseline": "review_build_summaryfix_20261013_v3",
+      "before_sha256": "0615d2d79dfe42e87427d393391a613dccbf08e9fe787820eaf2b70c36fdf9b9",
+      "sha256": "c3bdf5afe03660172fa083adea9883f166e59ad952c5f887153a7e5319efd655",
+      "audit": "research/synthesis/claude/final_adversarial_review_20261013",
+      "dispositions": "revision_postaudit_20261014/DISPOSITION.csv",
+      "review": "revision_postaudit_20261014/REVIEW.md",
+      "status": "Post-adversarial-review working revision; author approval and independent re-review not claimed.",
+      "supplementary_files": [
+        {
+          "path": "OctoberReview/papers/TD-II/supplemental/reproducibility/README.md",
+          "local": "supplemental/reproducibility/README.md",
+          "sha256": "faf97e92d229faa554a9e359893ddc17444db4fe94abc83c8640e9b3b0d7121e"
+        },
+        {
+          "path": "OctoberReview/papers/TD-II/supplemental/reproducibility/SOURCE_MAP.json",
+          "local": "supplemental/reproducibility/SOURCE_MAP.json",
+          "sha256": "4bc9f1981c500626b8bf6a966fd32058a5ee560f6fd4df9d88f76c1fc1867bc3"
+        },
+        {
+          "path": "OctoberReview/papers/TD-II/supplemental/reproducibility/run_check.py",
+          "local": "supplemental/reproducibility/run_check.py",
+          "sha256": "b85cc7a96674bcf06243c4151a122ccddf8aee8606a1cfef478c991433ac14f1"
+        },
+        {
+          "path": "OctoberReview/papers/TD-II/supplemental/reproducibility/source_tree/OctoberReview/research/autonomous_claude_20261004/agentD_td2_c3/checks/td2_checks.py",
+          "local": "supplemental/reproducibility/source_tree/OctoberReview/research/autonomous_claude_20261004/agentD_td2_c3/checks/td2_checks.py",
+          "sha256": "d22d6982b9dfc7cf9898f74d08d69ab9d811162e4a0e5017401b0db300e29a3b"
+        },
+        {
+          "path": "OctoberReview/papers/TD-II/supplemental/reproducibility/source_tree/OctoberReview/research/autonomous_claude_20261004/agentD_td2_c3/checks/td2_checks_output.json",
+          "local": "supplemental/reproducibility/source_tree/OctoberReview/research/autonomous_claude_20261004/agentD_td2_c3/checks/td2_checks_output.json",
+          "sha256": "c1e1367d09ab0ea59f1d247f2a7ef4b7c3f5a3b47dc367c2673ff27064518cae"
+        },
+        {
+          "path": "OctoberReview/papers/TD-II/supplemental/reproducibility/source_tree/OctoberReview/research/autonomous_claude_20261004/agentD_td2_c3/checks/td2_loop.py",
+          "local": "supplemental/reproducibility/source_tree/OctoberReview/research/autonomous_claude_20261004/agentD_td2_c3/checks/td2_loop.py",
+          "sha256": "12582caad721a9d60b4d23ea0fd8625f59203ba6a5bee5528d8d1b2cbf8ef10f"
+        },
+        {
+          "path": "OctoberReview/papers/TD-II/supplemental/reproducibility/source_tree/OctoberReview/research/autonomous_claude_20261004/agentD_td2_c3/checks/td2_loop_output.json",
+          "local": "supplemental/reproducibility/source_tree/OctoberReview/research/autonomous_claude_20261004/agentD_td2_c3/checks/td2_loop_output.json",
+          "sha256": "3ebfbc4a93f4382291069af359a33c904be64cd53462bdfb46f2d8d851903489"
+        },
+        {
+          "path": "OctoberReview/papers/TD-II/supplemental/reproducibility/source_tree/OctoberReview/research/autonomous_claude_20261004/agentD_td2_c3/checks/td2_threshold.py",
+          "local": "supplemental/reproducibility/source_tree/OctoberReview/research/autonomous_claude_20261004/agentD_td2_c3/checks/td2_threshold.py",
+          "sha256": "47820307d34d117518c2c0059d21422adc19a0d13d7f9ba6769245f59dec3fcd"
+        },
+        {
+          "path": "OctoberReview/papers/TD-II/supplemental/reproducibility/source_tree/OctoberReview/research/autonomous_claude_20261004/agentD_td2_c3/checks/td2_threshold_output.json",
+          "local": "supplemental/reproducibility/source_tree/OctoberReview/research/autonomous_claude_20261004/agentD_td2_c3/checks/td2_threshold_output.json",
+          "sha256": "d7fb78cf46b4b602f3acd45973ceef82668ccc5f0573d3d9b034c25f44cd34c0"
+        },
+        {
+          "path": "OctoberReview/papers/TD-II/supplemental/source_notes/README.md",
+          "local": "supplemental/source_notes/README.md",
+          "sha256": "f40a080bae408b4ca8e50dc65cd139c8a5e34afb42fae51bf0e914426f08fc5a"
+        },
+        {
+          "path": "OctoberReview/papers/TD-II/supplemental/source_notes/TDII_prior_revision.tex",
+          "local": "supplemental/source_notes/TDII_prior_revision.tex",
+          "sha256": "a020d0d00120b701a75829a65a30b6530b35eb8e71b2e63b164b2b4593ae787a"
+        }
+      ]
+    },
+    {
+      "date": "2026-10-15",
+      "revision": "minor_v5_20261015",
+      "integrator": "Codex root",
+      "baseline": "review_build_postaudit_20261015_v4",
+      "before_sha256": "c3bdf5afe03660172fa083adea9883f166e59ad952c5f887153a7e5319efd655",
+      "sha256": "ae3deefbf2d6904b72963758bee69d6bba16e39424b88e4ff7a9c38b8fdff844",
+      "audit": "research/synthesis/claude/postaudit_v4_review_20261015",
+      "dispositions": "revision_minor_v5_20261015/DISPOSITION.csv",
+      "review": "revision_minor_v5_20261015/REVIEW.md",
+      "status": "Bounded minor revision; new edits root-reviewed, not a fresh cross-model acceptance or publication approval.",
+      "changed_source_assets": [
+        {
+          "path": "OctoberReview/papers/TD-II/TDOME_II_manuscript.tex",
+          "before": "c3bdf5afe03660172fa083adea9883f166e59ad952c5f887153a7e5319efd655",
+          "after": "ae3deefbf2d6904b72963758bee69d6bba16e39424b88e4ff7a9c38b8fdff844"
+        },
+        {
+          "path": "OctoberReview/papers/TD-II/supplemental/reproducibility/README.md",
+          "before": "faf97e92d229faa554a9e359893ddc17444db4fe94abc83c8640e9b3b0d7121e",
+          "after": "a6b07e5e2396a7dc6c6e4f0d4b99ae4fd667a4fece2e3b7a2fdfc8d5a88d8342"
+        },
+        {
+          "path": "OctoberReview/papers/TD-II/supplemental/reproducibility/SOURCE_MAP.json",
+          "before": "4bc9f1981c500626b8bf6a966fd32058a5ee560f6fd4df9d88f76c1fc1867bc3",
+          "after": "21ffe92387bd443f102b0d72ea27b60fb51f1d634d32cd4c8d3383403a5a4447"
+        }
+      ]
+    },
+    {
+      "date": "2026-10-15",
+      "revision": "references_v7r2_20261015",
+      "integrator": "Codex root",
+      "baseline": "v7r1",
+      "before_sha256": "ae3deefbf2d6904b72963758bee69d6bba16e39424b88e4ff7a9c38b8fdff844",
+      "sha256": "3d300345c18fe6def8c87a56e6528c64ea5fabd7aacd6e9a1e928d82e2ef2bbe",
+      "changes": "Removed working-revision status from 8 self-citations; retained author, title, year, DOI and citation keys. No text outside bibliography changed.",
+      "review": "revision_references_v7r2_20261015/REVIEW.md",
+      "publication": "No upload; exact-version author approval required."
+    },
+    {
+      "date": "2026-10-16",
+      "round": "Direction restoration P5 finite formation",
+      "integrator": "Codex root",
+      "writer": "Single GPT-6.1 Sol/high requested worker; candidate only",
+      "before_sha256": "3d300345c18fe6def8c87a56e6528c64ea5fabd7aacd6e9a1e928d82e2ef2bbe",
+      "sha256": "8c1274345eaeac4561d154bdb3a2e3f33decebdaf854130276c4a631a723adfa",
+      "changes": "Finite equal-budget history-selected two-bit frame, clipped quantized integer training guarantee; replay versus freezing distinction; retain title and all old proofs.",
+      "snapshot": "research/direction_revision_execution_20261016/worker/tdii_candidate/TDOME_II_manuscript.tex",
+      "review": "research/direction_revision_execution_20261016/root/TDII_REVIEW.md",
+      "scope": "Root earlier complete baseline read, current complete delta/proof/script review and both checks rerun; worker complete candidate read plus three PDF pages. Not external review. No old long simulation rerun.",
+      "publication": "Local formal source only; published snapshot unchanged."
+    },
+    {
+      "date": "2026-10-16",
+      "round": "direction-postopus-20261016",
+      "integrator": "Codex root",
+      "basis": "Opus direction review at private book c8beff7; root targeted response, not external acceptance.",
+      "changes": "Scope/title/cross-reference corrections; D and QR-C technical appendices separated without loss. See direction_postopus_fix_20261016/DISPOSITION.md and per-paper diff.",
+      "before_sha256": "8c1274345eaeac4561d154bdb3a2e3f33decebdaf854130276c4a631a723adfa",
+      "sha256": "1786592226b105ce154422f66603b052101584560f6f6bf8ee956d3cc4d17c6e",
+      "source_assets": {
+        "TDOME_II_manuscript.tex": "1786592226b105ce154422f66603b052101584560f6f6bf8ee956d3cc4d17c6e"
+      },
+      "checks": "Original proof blocks and label sets retained; separate build/numbering evidence in fix package.",
+      "publication": false
+    },
+    {
+      "date": "2026-10-16",
+      "round": "direction-sonnet-minor-20261016",
+      "integrator": "Codex root",
+      "changes": "Remove five residual matched-budget implications identified in Sonnet review 7b6adcf; clarify free exact-coefficient exception. No mathematical change.",
+      "before_sha256": "1786592226b105ce154422f66603b052101584560f6f6bf8ee956d3cc4d17c6e",
+      "sha256": "adbb5b48dd4097a303e704ca9f86d31c2fe8ad648c527251874a914e9e9aa2d7",
+      "publication": false
+    }
+  ]
+}

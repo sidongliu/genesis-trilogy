@@ -1,0 +1,373 @@
+{
+  "version": "2026-10-16",
+  "papers": 29,
+  "collections": 7,
+  "technical_supplements": 2,
+  "paper_pages": 646,
+  "supplement_pages": 132,
+  "collection_pages": 976,
+  "scientific_scope": "Finite semiclassical mean-action A; sustained thermal B and joint sharp-return C conjectural",
+  "zenodo_matching_version": "pending_author_review",
+  "records": [
+    {
+      "id": "BRAIN",
+      "kind": "paper",
+      "title": "The Brain as a Plastic Observable-Algebra Network: Learning Shared Access from Sensorimotor History",
+      "main": "Brain_Anchor_v2.tex",
+      "engine": "xelatex",
+      "concept_doi": "10.5281/zenodo.20044329",
+      "legacy_record": "Brain_Anchor",
+      "github_dir": "papers/BRAIN"
+    },
+    {
+      "id": "C-I",
+      "kind": "paper",
+      "title": "Geometry Relative to a Cut: Selection, Generation and Modular Inseparability",
+      "main": "CI_Inseparability.tex",
+      "engine": "xelatex",
+      "concept_doi": "10.5281/zenodo.19607387",
+      "legacy_record": "CI",
+      "github_dir": "papers/C-I"
+    },
+    {
+      "id": "C-II",
+      "kind": "paper",
+      "title": "Higher-Dimensional Consistency of Geometry and Modular Flow: Physical Source Identification and a Second-Order Extension",
+      "main": "CII_Higher_Dimensional.tex",
+      "engine": "xelatex",
+      "concept_doi": "10.5281/zenodo.19607543",
+      "legacy_record": "CII",
+      "github_dir": "papers/C-II"
+    },
+    {
+      "id": "C-III",
+      "kind": "paper",
+      "title": "Finite Self-Models and the Explanatory Gap: What a Continuing Observer Can Know About Itself",
+      "main": "CIII_Finite_Self_Models.tex",
+      "engine": "xelatex",
+      "concept_doi": "10.5281/zenodo.19607724",
+      "legacy_record": "CIII",
+      "github_dir": "papers/C-III"
+    },
+    {
+      "id": "F-I",
+      "kind": "paper",
+      "title": "Foundation I: From Source to Manifestation. Accessible Algebras from a Source, Its Noise and a Readable Seed",
+      "main": "Foundation_I_v2.tex",
+      "engine": "xelatex",
+      "concept_doi": "10.5281/zenodo.19627786",
+      "legacy_record": "Foundation_I",
+      "github_dir": "papers/F-I"
+    },
+    {
+      "id": "F-II",
+      "kind": "paper",
+      "title": "Foundation II: Shared Manifestation. Shared Structure, Public Calibration and Different Histories",
+      "main": "Foundation_II.tex",
+      "engine": "xelatex",
+      "concept_doi": "10.5281/zenodo.19641372",
+      "legacy_record": "Foundation_II",
+      "github_dir": "papers/F-II"
+    },
+    {
+      "id": "F-III",
+      "kind": "paper",
+      "title": "Foundation III: The Perfuming Loop. Held Content, Learned Frames and Physical Return",
+      "main": "Foundation_III.tex",
+      "engine": "xelatex",
+      "concept_doi": "10.5281/zenodo.19642189",
+      "legacy_record": "Foundation_III",
+      "github_dir": "papers/F-III"
+    },
+    {
+      "id": "HAFF-A",
+      "kind": "paper",
+      "title": "Physical Coarse-Graining and the Problem of Emergent Geometry: The Holographic Alaya-Field Framework",
+      "main": "HAFF_A_manuscript.tex",
+      "engine": "pdflatex",
+      "concept_doi": "10.5281/zenodo.18361706",
+      "legacy_record": "HAFF_A",
+      "github_dir": "papers/HAFF-A"
+    },
+    {
+      "id": "HAFF-ABS",
+      "kind": "paper",
+      "title": "The Holographic Alaya-Field Framework: World, Interface and Subject",
+      "main": "HAFF_Abstract.tex",
+      "engine": "pdflatex",
+      "concept_doi": "10.5281/zenodo.18416482",
+      "legacy_record": "HAFF_Abstract",
+      "github_dir": "papers/HAFF-ABS"
+    },
+    {
+      "id": "HAFF-B",
+      "kind": "paper",
+      "title": "Coupling, Records, and Stable Relations: Formation, Protected Content and the Lifetime of a Geometry",
+      "main": "HAFF_B_manuscript.tex",
+      "engine": "pdflatex",
+      "concept_doi": "10.5281/zenodo.18367060",
+      "legacy_record": "HAFF_B",
+      "github_dir": "papers/HAFF-B"
+    },
+    {
+      "id": "HAFF-C",
+      "kind": "paper",
+      "title": "Causation, Agency, and Existence: Historical Control and Maintained Intervention",
+      "main": "HAFF_C_manuscript.tex",
+      "engine": "pdflatex",
+      "concept_doi": "10.5281/zenodo.18374805",
+      "legacy_record": "HAFF_C",
+      "github_dir": "papers/HAFF-C"
+    },
+    {
+      "id": "HAFF-D",
+      "kind": "paper",
+      "title": "Selection, Maintenance and Gravitational Response: Modular Constraints and a Physical Return",
+      "main": "HAFF_D_manuscript.tex",
+      "engine": "pdflatex",
+      "concept_doi": "10.5281/zenodo.18388881",
+      "legacy_record": "HAFF_D",
+      "github_dir": "papers/HAFF-D"
+    },
+    {
+      "id": "HAFF-E",
+      "kind": "paper",
+      "title": "Measurement as Accessibility: Measurement Permissions, Stable Records and Public Readout",
+      "main": "HAFF_E_manuscript.tex",
+      "engine": "pdflatex",
+      "concept_doi": "10.5281/zenodo.18400065",
+      "legacy_record": "HAFF_E",
+      "github_dir": "papers/HAFF-E"
+    },
+    {
+      "id": "HAFF-F",
+      "kind": "paper",
+      "title": "Records, Order and Intervention: Conditions for a Temporal Direction",
+      "main": "HAFF_F_manuscript.tex",
+      "engine": "xelatex",
+      "concept_doi": "10.5281/zenodo.18400425",
+      "legacy_record": "HAFF_F",
+      "github_dir": "papers/HAFF-F"
+    },
+    {
+      "id": "HAFF-G",
+      "kind": "paper",
+      "title": "Structural Limits of Unification: Internal Selection, Revisable Permissions and Physical Sources",
+      "main": "HAFF_G_manuscript.tex",
+      "engine": "xelatex",
+      "concept_doi": "10.5281/zenodo.18402907",
+      "legacy_record": "HAFF_G",
+      "github_dir": "papers/HAFF-G"
+    },
+    {
+      "id": "HAFF-PS",
+      "kind": "paper",
+      "title": "On the Closure of Structure: Origins, Persistence and Renewed Participation",
+      "main": "HAFF_Postscript_manuscript.tex",
+      "engine": "pdflatex",
+      "concept_doi": "10.5281/zenodo.18407367",
+      "legacy_record": "HAFF_Postscript",
+      "github_dir": "papers/HAFF-PS"
+    },
+    {
+      "id": "IMP-CHAIN",
+      "kind": "paper",
+      "title": "The Imprint Chain: Records, Self-Calibration, and Physical Feedback",
+      "main": "Imprint_Chain.tex",
+      "engine": "pdflatex",
+      "concept_doi": "10.5281/zenodo.20151594",
+      "legacy_record": "Imprint_Chain",
+      "github_dir": "papers/IMP-CHAIN"
+    },
+    {
+      "id": "IMP-RG",
+      "kind": "paper",
+      "title": "Renormalization and Imprint Filtering: Source Identification, Memory, and Calibration",
+      "main": "Imprint_RG_Filtering.tex",
+      "engine": "pdflatex",
+      "concept_doi": "10.5281/zenodo.20151451",
+      "legacy_record": "Imprint_RG_Filtering",
+      "github_dir": "papers/IMP-RG"
+    },
+    {
+      "id": "IMP-SH",
+      "kind": "paper",
+      "title": "Stable Hulls as Imprint Integration: Relations, Anchors and the Cost of Joint Reading",
+      "main": "Imprint_Stable_Hulls.tex",
+      "engine": "xelatex",
+      "concept_doi": "10.5281/zenodo.20151508",
+      "legacy_record": "Imprint_Stable_Hulls",
+      "github_dir": "papers/IMP-SH"
+    },
+    {
+      "id": "IMP-W",
+      "kind": "paper",
+      "title": "The World as Imprint: From Trace-Carrying Structure to Self-Reading Mind",
+      "main": "Imprint_World_as_Imprint.tex",
+      "engine": "pdflatex",
+      "concept_doi": "10.5281/zenodo.20122718",
+      "legacy_record": "World_as_Imprint",
+      "github_dir": "papers/IMP-W"
+    },
+    {
+      "id": "QR-A",
+      "kind": "paper",
+      "title": "Lorentzian Read-out from Local Unitary Propagation: Clifford Relations, Causal Cones and Spectral Mass",
+      "main": "QRAIF_A_manuscript.tex",
+      "engine": "xelatex",
+      "concept_doi": "10.5281/zenodo.18525876",
+      "legacy_record": "QRAIF_A",
+      "github_dir": "papers/QR-A"
+    },
+    {
+      "id": "QR-B",
+      "kind": "paper",
+      "title": "Thermodynamic Stability Constraints on Persistent Open Quantum Subsystems: Control Algebra, Physical Actuation and Energy Cost",
+      "main": "QRAIF_B_manuscript.tex",
+      "engine": "pdflatex",
+      "concept_doi": "10.5281/zenodo.18525890",
+      "legacy_record": "QRAIF_B",
+      "github_dir": "papers/QR-B"
+    },
+    {
+      "id": "QR-C",
+      "kind": "paper",
+      "title": "Representing Control in the World: Retained History, Physical Sources and Renewal in Q-RAIF",
+      "main": "QRAIF_C_manuscript.tex",
+      "engine": "pdflatex",
+      "concept_doi": "10.5281/zenodo.18528934",
+      "legacy_record": "QRAIF_C",
+      "github_dir": "papers/QR-C"
+    },
+    {
+      "id": "QR-ME",
+      "kind": "paper",
+      "title": "Recovering Mass-Energy Equivalence within Algebraic Lorentzian Read-out: Spectral Mass, Lattice Windows and Finite Records",
+      "main": "QRAIF_Mass_Energy_manuscript.tex",
+      "engine": "xelatex",
+      "concept_doi": "10.5281/zenodo.20280951",
+      "legacy_record": "QRAIF_Mass_Energy",
+      "github_dir": "papers/QR-ME"
+    },
+    {
+      "id": "QR-NC",
+      "kind": "paper",
+      "title": "The Null Cluster as Structural Imprint: A Closed Source Task and the Null-Boundary Programme",
+      "main": "QRAIF_Null_Cluster_manuscript.tex",
+      "engine": "xelatex",
+      "concept_doi": "10.5281/zenodo.20283057",
+      "legacy_record": "QRAIF_Null_Cluster",
+      "github_dir": "papers/QR-NC"
+    },
+    {
+      "id": "QR-NV",
+      "kind": "paper",
+      "title": "No View from Nowhere: Source Selection, Physical Reaction and Read-out Closure in Q-RAIF",
+      "main": "QRAIF_No_View_manuscript.tex",
+      "engine": "xelatex",
+      "concept_doi": "10.5281/zenodo.20284454",
+      "legacy_record": "QRAIF_No_View",
+      "github_dir": "papers/QR-NV"
+    },
+    {
+      "id": "TD-I",
+      "kind": "paper",
+      "title": "Memory as a Usable Resource: Correlations, Records and Complete Endpoint Accounting",
+      "main": "TDOME_I_manuscript.tex",
+      "engine": "pdflatex",
+      "concept_doi": "10.5281/zenodo.18574342",
+      "legacy_record": "TDOME_I",
+      "github_dir": "papers/TD-I"
+    },
+    {
+      "id": "TD-II",
+      "kind": "paper",
+      "title": "Reference Frames Selected by History: The Capability and Cost of a Bounded Agent's Self-Frame",
+      "main": "TDOME_II_manuscript.tex",
+      "engine": "pdflatex",
+      "concept_doi": "10.5281/zenodo.18579703",
+      "legacy_record": "TDOME_II",
+      "github_dir": "papers/TD-II"
+    },
+    {
+      "id": "TD-III",
+      "kind": "paper",
+      "title": "Keeping a Self-Model Calibrated: Drift Detection, the Price of Keeping Up, and Reliability in a Closed Loop",
+      "main": "TDOME_III_manuscript.tex",
+      "engine": "pdflatex",
+      "concept_doi": "10.5281/zenodo.18591771",
+      "legacy_record": "TDOME_III",
+      "github_dir": "papers/TD-III"
+    },
+    {
+      "id": "HAFF_Complete_Collection",
+      "kind": "collection",
+      "title": "The Holographic Alaya-Field Framework",
+      "main": "HAFF_Complete_Collection.tex",
+      "engine": "pdflatex",
+      "concept_doi": "10.5281/zenodo.18452194",
+      "legacy_record": "HAFF_Complete_Collection",
+      "github_dir": "collections/HAFF_Complete_Collection"
+    },
+    {
+      "id": "QRAIF_Complete_Collection",
+      "kind": "collection",
+      "title": "Quantum Reference Algebra for Information Flow",
+      "main": "QRAIF_Complete_Collection.tex",
+      "engine": "pdflatex",
+      "concept_doi": "10.5281/zenodo.18548704",
+      "legacy_record": "QRAIF_Complete_Collection",
+      "github_dir": "collections/QRAIF_Complete_Collection"
+    },
+    {
+      "id": "TDOME_Complete_Collection",
+      "kind": "collection",
+      "title": "Thermodynamic Dynamics of Observer-Memory Entanglement",
+      "main": "TDOME_Complete_Collection.tex",
+      "engine": "pdflatex",
+      "concept_doi": "10.5281/zenodo.18593180",
+      "legacy_record": "TDOME_Complete_Collection",
+      "github_dir": "collections/TDOME_Complete_Collection"
+    },
+    {
+      "id": "Genesis_Trilogy_Collection",
+      "kind": "collection",
+      "title": "The Genesis Trilogy",
+      "main": "Genesis_Trilogy_Collection.tex",
+      "engine": "pdflatex",
+      "concept_doi": "10.5281/zenodo.18608021",
+      "legacy_record": "Genesis_Trilogy_Collection",
+      "github_dir": "collections/Genesis_Trilogy_Collection"
+    },
+    {
+      "id": "Foundation_Trilogy_Complete_Collection",
+      "kind": "collection",
+      "title": "Foundation Trilogy",
+      "main": "Foundation_Trilogy_Complete_Collection.tex",
+      "engine": "pdflatex",
+      "concept_doi": "10.5281/zenodo.19642398",
+      "legacy_record": "Foundation_Trilogy_Collection",
+      "github_dir": "collections/Foundation_Trilogy_Complete_Collection"
+    },
+    {
+      "id": "Consciousness_Trilogy_Complete_Collection",
+      "kind": "collection",
+      "title": "Consciousness Trilogy",
+      "main": "Consciousness_Trilogy_Complete_Collection.tex",
+      "engine": "pdflatex",
+      "concept_doi": "10.5281/zenodo.19608174",
+      "legacy_record": "Consciousness_Trilogy_Collection",
+      "github_dir": "collections/Consciousness_Trilogy_Complete_Collection"
+    },
+    {
+      "id": "Consciousness_Series_Complete_Collection",
+      "kind": "collection",
+      "title": "The Consciousness Series",
+      "main": "Consciousness_Series_Complete_Collection.tex",
+      "engine": "pdflatex",
+      "concept_doi": "10.5281/zenodo.19643449",
+      "legacy_record": "Consciousness_Series_Complete_Collection",
+      "github_dir": "collections/Consciousness_Series_Complete_Collection"
+    }
+  ]
+}

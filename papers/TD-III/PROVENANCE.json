@@ -1,0 +1,700 @@
+{
+  "id": "TD-III",
+  "zenodo_record": "TDOME_III",
+  "concept_doi": "10.5281/zenodo.18591771",
+  "source_tex": "fable review/zenodo_upload_staging/TDOME_III_manuscript.tex",
+  "source_sha256": "d0fea25c86efc4a5f72cbf7a7b805b6ae9b478034a7e516ef43e781055b0bf59",
+  "source_bytes": 78011,
+  "lines": 2061,
+  "s0_pdf": "TDOME_III_manuscript.pdf",
+  "s0_pdf_sha256": "a6568d5af988392ee2ac451ab5ef002434419e745d8741da72cde201b42bfb2e",
+  "s0_pdf_producer": "pdfTeX-1.40.27",
+  "s0_pdf_pages": 27,
+  "supplement": [
+    {
+      "path": "TDOME_III_supplement/alpha_min_curve.csv",
+      "sha256": "8dcf92a9409d3492e81e93f0df7595648b46a68df70870542e0fb7afe5b56047"
+    },
+    {
+      "path": "TDOME_III_supplement/alpha_opt_curve.csv",
+      "sha256": "f656845d6c96c65332a091b653d2d4841f8eda406dd34221b1b6f6c9660c95a5"
+    },
+    {
+      "path": "TDOME_III_supplement/fig_alpha_opt.pdf",
+      "sha256": "32e3068c259cdecf02c3d96212d3b21c934099092cfc3fd5d11f6d3e83c26ac8"
+    },
+    {
+      "path": "TDOME_III_supplement/fig_delusion_trap.pdf",
+      "sha256": "eac29af89d25ccca5c802275e0d6f7cbe7037be15d46fe1266d96ec6656df84c"
+    },
+    {
+      "path": "TDOME_III_supplement/fig_fisher_residual.pdf",
+      "sha256": "baf074dadad2c01d794b03e046e970c614b69cbac1ead158c3a42f804500ad2e"
+    },
+    {
+      "path": "TDOME_III_supplement/fig_phase_with_boundary.pdf",
+      "sha256": "73277562b742e38987be159d3245ef91ce53e5ce2dc9754d003547345a3bf906"
+    },
+    {
+      "path": "TDOME_III_supplement/fisher_residual_data.csv",
+      "sha256": "80a5c328058565006eb04d98e541d6e8579876f4dacea15414451a630370afbc"
+    },
+    {
+      "path": "TDOME_III_supplement/fisher_residual_demo.py",
+      "sha256": "55d0b142ea2b0da6ca7df468d4aa0238afa9caf56268c65d821466c449fcba53"
+    },
+    {
+      "path": "TDOME_III_supplement/gen_fig_ego.py",
+      "sha256": "f047fa2155e6259643f094d6bb24f0d7ceee2c164182ca75b81046194add31be"
+    },
+    {
+      "path": "TDOME_III_supplement/gen_fig_loop.py",
+      "sha256": "f78645320bef8b3130dcfa2cdbb3ac7023b4832c6e0d9c26768a1902b8406435"
+    },
+    {
+      "path": "TDOME_III_supplement/tdome_demo.py",
+      "sha256": "818dde631732a1c421eb7463cbc9718b18e33bf53d1283756a1cdc1730e42425"
+    }
+  ],
+  "extra_dependencies": [],
+  "note": "working copy; edit only here. S0 original stays untouched.",
+  "rewrite": {
+    "date": "2026-10-04",
+    "round": 22,
+    "status": "working copy revised (round 22 write-back): new Section 9 'A Drifting Instrument in a Closed Loop' (reference-read efficiency, memory under drift with a crossover speed, one-step task risk of an authority allocation, a two-source example where estimation-optimal and task-optimal weights differ, one-observer and two-observer finite simulations with a four-cell comparison), new Appendix A (protocols), abstract, contribution list, ledger paragraph, discussion table, does/does-not lists and scope of the demonstration updated. Prose of Sections 3-8 (July text) NOT re-read line by line in this pass; only the passages named above and the new Section 9 and Appendix were written under the section-10 rule.",
+    "july_working_copy_archive": "archive/TDOME_III_july2026_workingcopy.tex",
+    "july_sha256": "d0fea25c86efc4a5f72cbf7a7b805b6ae9b478034a7e516ef43e781055b0bf59",
+    "rewrite_sha256": "7164881b1dd2e1407122fbb81579a645219a524df83bd212020eed7491065f5c",
+    "build": "pdflatex x3 in a scratch directory: 34 pages, 0 undefined references, 0 errors, 0 overfull boxes",
+    "section_source": "research/td3_writeback/claude/make_td3_section.py (reads research/d3/codex/v0/closed_loop_output.json, research/d1d2/claude/d3_repro_output.json, research/synthesis/codex/round20_v1/kernel_output.json, research/chain/claude_v2/chain_v2_output.json; recomputes the exact enumeration and the crossover speeds; records every number in td3_numbers.json)",
+    "exact_check": "research/synthesis/claude/round22/verify_authority_bias.py (bias-aware task-risk formula and example, residual 6.9e-18)",
+    "revision": "v3: memory proposition restated so that clipping and rounding are allowed (recursion with orthogonal noise, X_M fixed-point inequality; checked numerically including clipping near +-1); new proposition on the error of the decoded state with the normal-drift numbers (limsup 0.5123, same as Codex's D3 report)",
+    "round23_fixes": "after Codex round 23: memory proposition uses the direct fixed point X_sharp (decoded-state limsup 0.4518; the unrolled form 0.5123 is also valid) and states its conditions (0<alpha<=1, drift predictable from the pre-reference information, exact variance and 0<alpha<1 for the linear-drift comparison); decoded-state grid contains the endpoints; task-risk weights are F-measurable (may use the round's reference reads), q>0 for the closed form, example replaced by the in-model one (M=20, x=.2, (a,c,r,h,d)=(.65,.25,.10,.8,-.7); table .007525/.00750125/.00749333); communication ledger 22 bits per sender (44 per pair) for every cell; crossover wording (scale, not location); standing assumptions limited to Sections 3-8; the July alpha_opt scan restated with its four reversals and soft-minimum status; section 9.5 scope duplicate removed"
+  },
+  "later_revisions": [
+    {
+      "date": "2026-10-05",
+      "round": "autonomous batch 1",
+      "integrator": "Claude main session",
+      "changes": "dependency edits after the TD-I rewrite: series-table row for Paper I; survival functional citation without the old equation number; memory-kernel item notes that a kernel does not make history usable. pdflatex 34 pages clean.",
+      "sha256": "37eecb2c35399c392906aa27aeb170a3946699fc3e1024752be221534febf86e",
+      "before_snapshot": "research/autonomous_claude_20261004/main/TD_III_before_batch1b.tex",
+      "snapshot": "research/autonomous_claude_20261004/main/TD_III_batch1b.tex",
+      "pdf": "research/autonomous_claude_20261004/main/TD_III_batch1b.pdf"
+    },
+    {
+      "date": "2026-10-05",
+      "round": "autonomous batch 1",
+      "integrator": "Claude main session",
+      "drafted_by": "agent F (research/autonomous_claude_20261004/agentF_td3; notes.md, checks/ with 5 deterministic scripts and outputs, FREEZE.sha256)",
+      "changes": "rewritten: title \"Keeping a Self-Model Calibrated: Drift Detection, the Price of Keeping Up, and Reliability in a Closed Loop\". Detection rebuilt on the even residual law derived in TD-II (every regular even model has Fisher information kappa theta^2 and relative entropy kappa theta^4/8; detection time eps^(-4/5) in-frame vs eps^(-2/3) with probes; residual-variance test detects Brownian drift at order sigma^(-2/3), before the frozen model fails). Drift law (Theorem: posterior Cramer-Rao recursion telescoped; every schedule incl. adaptive pays at least C - 1/2 k_BT G nu^2 with C = 3*4^(-2/3) w^(1/3)(k_BT G nu)^(2/3) J^(-1/3); persistent Kalman estimate attains C) proves TD-I's conjecture for this class; C-III Gaussian floor optimal among all policies; thermodynamic price of order k_BT nu^(2/3) per use with thermal references; exact optimal rigidity; conjecture for smoother drift. In-frame natural-gradient metric degenerates at calibration, probes repair it. July TD-II dependencies (gauge bundle, ego, four bias terms, quaternion example, heuristic controller demo and its 4 figures) removed; Section 9 and Appendix A kept with re-derived numbers. Main session added the continuity hypothesis on the loss in the drift-law theorem (needed for the eta->0 step). No acknowledgment. The 11 July supplement files in this folder are no longer referenced; the October checks are in the agent folder.",
+      "checks": "agent F checks/ (detection, variance test, drift law: 0/20000 random schedules below the floor, value iteration within 1.3e-5; extra; section 9 numbers). Main session re-derived the PCRB recursion for the random walk, the telescoping and range steps, both constants of the corollary (C and rho*, value 3 w rho*), the thermodynamic corollary (J=G=1/(1-g^2), 0.055 and 0.012 k_BT), the C-III corollary incl. the path-by-path argument for adaptive schedules, and the even-model expansions and detection exponents.",
+      "cross_model": "same-model only; novelty of the telescoping argument in the sensor-scheduling literature not searched",
+      "sha256": "dc53dfa912ad3d9ed1082fc858f5c72992a6f15bbda40b62edcaa430e0ca721d",
+      "before_snapshot": "research/autonomous_claude_20261004/main/TD_III_before_batch1e.tex",
+      "snapshot": "research/autonomous_claude_20261004/main/TD_III_batch1e.tex",
+      "pdf": "research/autonomous_claude_20261004/main/TD_III_batch1e.pdf"
+    },
+    {
+      "date": "2026-10-06",
+      "round": "autonomous batch 1, independent check V2",
+      "integrator": "Claude main session",
+      "source_of_fixes": "research/autonomous_claude_20261004/agentV2_tdome_c3/notes.md (## REPORT; harness blocked report.md)",
+      "cross_model": "same-model only",
+      "changes": "drift law: per-read Fisher bound J for every theta_k or in conditional expectation given earlier records; thermodynamic-price corollary rescoped to leading order as nu -> 0 at fixed g, 0.055 k_BT marked as quadratic-loss value where calibration errors are not small, rigorous version on |g|<=g_max stated, table caption adjusted; detection table residual-test row corrected (84, 356, 1565 with exact chi^2 threshold) and T sigma^(2/3) sentence corrected (3.9 -> 3.4 toward K=3.28)",
+      "verification": "V2: drift law, Paper I drift-law corollary, C-III all-policies corollary, even models, detection time, degenerate metric CONFIRMED-INDEPENDENT; thermodynamic corollary GAP (scope) fixed; residual-test row corrected",
+      "sha256": "de4d63d5446f466b2e6764bb73fe1f3e6c357fe0fdc9f53bffee07fc10d07a61",
+      "before_snapshot": "research/autonomous_claude_20261004/main/TD_III_before_batch1i.tex",
+      "snapshot": "research/autonomous_claude_20261004/main/TD_III_batch1i.tex",
+      "pdf": "research/autonomous_claude_20261004/main/TD_III_batch1i.pdf"
+    },
+    {
+      "date": "2026-10-07",
+      "round": "autonomous batch 1",
+      "integrator": "Claude main session",
+      "cross_model": "same-model only",
+      "drafted_by": "agent J (research/autonomous_claude_20261004/agentJ_joint; model.md, notes.md, checks c1-c8 with outputs, candidate_section.tex, FREEZE.sha256)",
+      "changes": "new Section 10 \"An autonomous loop and its reference standard\": joint model (records from memory purity, drifting instrument with magnitude/sign/setting, QR-B flip, TD-I harvest and reset, references or self-labels, persistent body) on one ledger; reading tax (each read costs at least H_2((1+g)/2), so the thermodynamic floor survives free references; factor 1.21 at g=0.55 with thermal preparation); the second copy is purity; ledger theorem; gauge theorem (acting cannot see the symmetry of its loop, for every adaptive policy); closed loop identifies c, g^2 and s but never the sign; no internal standard (records move a dispatch label, never produce one; calibration-side counterpart of the HAFF-G final cut); free loop information changes the price exponent from 2/3 to 1 below nu_x; sign-inversion theorem (loss -> 1/2 for every policy without a standard); square-root price of a standard; viability table; consequences for TD-II (pushes remove the blind spot only through a shared coupling), HAFF-C (viability not certifiable without a standard), several observers. Abstract, results list, Remark scope (i) and Discussion updated; four bibliography entries added (HAFF-C DOI checked against HAFF-F bibliography after the main session first entered a wrong DOI, corrected before compile).",
+      "checks": "agent J checks c1-c8 (reductions to TD-I/QR-B/Imprint Chain; gauge enumeration TV 1.2e-16; Bayes-optimal backward induction never beats the inversion bound; sqrt law within 4%; J0 exponent slope 1.0000; viability; closed-loop moments exact; push frame). Main session re-derived the reading tax, the gauge theorem, the closed-loop moment identities, the J0 proposition and its threshold, the sign-inversion theorem (incl. q_0, q_1 and the eta <= d case) and the sqrt-law argument, and the 1.21 factor.",
+      "open_checks": "viability table entries are computed Bayes values with truncated belief, bounded by the drift law only to leading order; conjectures F, P, Sigma labelled",
+      "sha256": "fc1c30e3fcc6d65153c5d3e199641400e19e6cee4e91a0db0565f2cd146cc5f3",
+      "before_snapshot": "research/autonomous_claude_20261004/main/TD_III_before_batch1l.tex",
+      "snapshot": "research/autonomous_claude_20261004/main/TD_III_batch1l.tex",
+      "pdf": "research/autonomous_claude_20261004/main/TD_III_batch1l.pdf"
+    },
+    {
+      "date": "2026-10-07",
+      "round": "Sol 6.1 ultra subject integration and continuing joint filter",
+      "integrator": "Codex subject integrator",
+      "requested_model": "gpt-6.1-sol",
+      "requested_reasoning_effort": "ultra",
+      "review_mode": "Same-model responsibility separation with root; not blind review or cross-model certification.",
+      "prose_scope": "Full current manuscripts and the full TD-III candidate read before integration; whole-paper consistency/prose pass, including abstracts, results, proofs, interfaces and discussions. Memory-self-introspection and C-III's bridge hypothesis retained.",
+      "immutable_snapshot_policy": "The snapshot paths below name copied fixed files, not live mutable paper pointers; hashes and final provenance copies are in ultra_subject/FREEZE.sha256.",
+      "publication": "Local October working copies only; old packages, July sources, staging and public repositories unchanged.",
+      "changes": "Integrated the complete mature Sol 6.1 candidate by apply_patch, then repaired whole-paper interfaces and resource wording. Adaptive reference constant replaces false full-policy exogenous claim (.068 counterexample); stronger no-reference absolute mixing bound; reset blanks can fund work and remove the old information cap unless reset work is nonnegative; conditional-copy ledger books retained side information and remaining processor resets. Gaussian loss/transition/real-precision attainability kept separate from physical bounded instrument. Same squeezed drive prices both gate error and switching/field cost. Positive block operating margin .02396035846 kBT after supplied food and record purity, not whole-apparatus net. Added continuing bounded gain/sign/body joint filter, finite 350-bit ideal log-grid, projective error recurrence, independently derived sharp TV constant, bounded one-step risk bound and existence of a finite plant/controller invariant distribution under supplied streams. Body, gain and model are never block-reprepared; same gates/records/reference cap used for periodic and history-adaptive policies. Threshold .01 failure retained; .04 improvement confirmed at a second seed. Processor cyclic implementation remains open.",
+      "checks": "Accepted archived td3/ and td3_sol61/ review packages; no duplicate full old audit. Copied economy.py corrected reference_purity_input from m ln2/L to mn ln2/L, added total_record_purity_input and reran its exact block outputs. Independently copied cq-density-matrix check gives body margin .023960358463282594, table residual 7.49e-15. online_joint.py: 128 paths x32768 seed7100726 (periodic and thresholds .01/.02/.04), and 128x65536 seed7100727 (periodic and .04), burn8192; mean and trajectory SE recorded separately. Root read theorem/script and rederived the mathematical filter argument, but did not rerun the long simulations; no blind/cross-model claim. Ideal grid rounding is mathematical: binary64 random max error 5.72875e-14 exceeds Delta=5.68434e-14 slightly, and is not a machine certificate. Root also read primary Le Gland-Oudjane PDF Lemma3.8/Prop3.9(ii); integrator checked metadata/abstract. Sharp tanh(e/4) TV inequality proved directly rather than attributed to that article. Final pdflatex x3:44 pages; clean final log.",
+      "before_sha256": "fc1c30e3fcc6d65153c5d3e199641400e19e6cee4e91a0db0565f2cd146cc5f3",
+      "sha256": "91d1ca090d113ab961ebe46f5045a24b006c48419a94a65a55890a5f9f63d473",
+      "before_snapshot": "research/resumption_codex_20261007/ultra_subject/before/TDOME_III.tex",
+      "before_provenance": "research/resumption_codex_20261007/ultra_subject/before/TD_III_PROVENANCE.json",
+      "snapshot": "research/resumption_codex_20261007/ultra_subject/snapshots/TDOME_III.tex",
+      "provenance_snapshot": "research/resumption_codex_20261007/ultra_subject/snapshots/TD_III_PROVENANCE.json",
+      "pdf": "research/resumption_codex_20261007/ultra_subject/snapshots/TDOME_III.pdf",
+      "pdf_sha256": "3bf75425a1cc7f91ad4a5a7791a83d6c63af28870dd2299da71ea55e00c45b0f",
+      "build_pages": 44,
+      "accepted_candidate": "research/resumption_codex_20261007/ultra_subject/inputs/TDOME_III_candidate.tex",
+      "candidate_sha256": "d05eb24f279e90aeb37f173c3e1e620365471bce8c311cc0c5f7ac287c039f4c",
+      "open_interfaces": "Known bounded support and transition law, +1 reference labels, fresh record purity, food stream, same prepared drive/phase and callable timed ports remain inputs. Abstract 350-bit state is not an implemented reversible processor; no invariant uniqueness, optimal reference policy, whole-apparatus profit or autonomous survival proved."
+    },
+    {
+      "date": "2026-10-07",
+      "round": "continuation citation P3 only",
+      "integrator": "Codex subject integrator",
+      "requested_model": "gpt-6.1-sol",
+      "requested_reasoning_effort": "ultra",
+      "changes": "QR-B bibliography now names the actual current October working title and distinguishes that working revision from the series DOI. No scientific body text added; the permissions-dependent subject candidate is being developed separately for independent review.",
+      "before_sha256": "91d1ca090d113ab961ebe46f5045a24b006c48419a94a65a55890a5f9f63d473",
+      "sha256": "47f3b336072b3671ef302d84e7870f4db8383578a5beff853d686c65d34824df",
+      "before_snapshot": "research/continuation_codex_20261007/subject/before/TDOME_III.tex",
+      "before_provenance": "research/continuation_codex_20261007/subject/before/TD_III_PROVENANCE.json",
+      "before_provenance_sha256": "e6ddd5cb08d99b8daaae77c3aa04fab65ccd4d3fa82f2da6cb42c09068afef82",
+      "isolated_build": "research/continuation_codex_20261007/subject/build_citation/TDOME_III.tex",
+      "build": "pdflatex x3; 44 pages; final log has no undefined references, LaTeX/package warnings, errors or overfull boxes.",
+      "pdf": "research/continuation_codex_20261007/subject/build_citation/TDOME_III.pdf",
+      "pdf_sha256": "18bb3a6532cba09bdca98d73caab0186f2eb79d5e6314a719dc27b302afe73b4",
+      "publication": "Local working copy only; no July, staging, frozen audit or public artifacts changed."
+    },
+    {
+      "date": "2026-10-07",
+      "round": "continuation: body-conditioned access and priced latched recovery",
+      "integrator": "Codex subject integrator",
+      "requested_model": "gpt-6.1-sol",
+      "requested_reasoning_effort": "ultra",
+      "review_mode": "Root separately rederived the candidate and wrote a second finite-check implementation after reading it; same-model responsibility separation, not blind review or cross-model certification. The finite-horizon Bellman conjecture remains unverified.",
+      "changes": "New Section 10.7 makes the body determine actual availability of the main instrument, references, model processing and food protocol. Disability holds the model/latch and supplies no fresh acquired or delayed banked readings; a separately wired standby can execute only an earlier stored repair command. Explicit nonunital CPTP repair and enable-flag purity input distinguish that actuator from a free self-controlled unitary. Proved geometric working gaps and event resolvent from the existing gain/sign/body transition family, wall-clock occupancy, relative body calibration and its absolute-relabelling boundary, finite-information absorbing counterfactual with common positive complete stopping histories, and an oracle calibration floor across unobserved disability. A separate four-state event filter has a uniform 150-ideal-coordinate-bit certificate and bounded one-step 2TV regret; the prior ungated 350-bit controller and its continuing trajectories retain their distinct scope. Static three-body-history food task gives a strict posterior-martingale/Jensen gain and conditional memory necessity; flip-first and posterior-level protocol ceilings are kept separate. Added wall-clock resource table and known-parameter fixed-latch price identity. Added explicitly unproved finite-horizon repair conjecture with same deadline/cost/action family, history-reachable beliefs, opposite Bellman rankings at equal sign confidence, and failure conditions. Abstract, introduction, results, task template and functional/first-person interfaces updated; disability is not identified with sleep or experience loss.",
+      "before_sha256": "47f3b336072b3671ef302d84e7870f4db8383578a5beff853d686c65d34824df",
+      "sha256": "f259ee8a6551a1f980181588f1610cd576ddfd1e4c0ed52ab19905a54c3c77c9",
+      "before_snapshot": "research/continuation_codex_20261007/subject/before_integration/TDOME_III.tex",
+      "before_provenance": "research/continuation_codex_20261007/subject/before_integration/TD_III_PROVENANCE.json",
+      "before_provenance_sha256": "c6c14c5ac6c9326592aa1ceb1a36dc76c0093b6183607cf625b21941522cc805",
+      "snapshot": "research/continuation_codex_20261007/subject/snapshots/TDOME_III.tex",
+      "provenance_snapshot": "research/continuation_codex_20261007/subject/snapshots/TD_III_PROVENANCE.json",
+      "pdf": "research/continuation_codex_20261007/subject/snapshots/TDOME_III.pdf",
+      "pdf_sha256": "c5d1cb5c42d5cdd3a2c92e906deb24c2e69774ec5888f273525c9f4dcc530534",
+      "build_pages": 50,
+      "isolated_build": "research/continuation_codex_20261007/subject/build_integrated/TDOME_III.tex",
+      "build_checks": "Final scientific source compiled with pdflatex three passes; final log has no LaTeX/package warnings, undefined references, errors or over/underfull boxes. Build source and live source match. No all-page visual certification.",
+      "accepted_candidate": "research/continuation_codex_20261007/subject/CANDIDATE.md",
+      "candidate_sha256": "45c632f0409a6985eff211a6d42100b2ebc761b040bba28abec936bc43cb16eb",
+      "checks": "independent_checks.py uses standard-library Fraction arithmetic: independently computes the eight-state wall-kernel first-return Schur complement and four-state geometric resolvent, stationary law, gain/sign/product eigenmodes, and complete finite body-food-drive branches. All key rational residuals are exactly zero. The static g=3/5, s=49/50 witness gives J1=0.06359386525878075, J3=0.12026719147296977; it is a separate necessity witness, not the original drifting simulation. Its neighbouring squeezed drive N=5.020096625223408 is separated from current N=5.018975748..., while the conservative 150-coordinate-bit certificate applies to the current drive. Root separately read/rederived event kernel, oracle floor, coarse filter bound, strict Jensen/history gain and price identity, and supplied body_root_checks.py with body_root_checks_output.json. Integrator did not run that root script. No repeated long simulations, new exact binary64 machine certificate, processor-throughput check or cyclic hardware implementation.",
+      "check_code": "research/continuation_codex_20261007/subject/independent_checks.py",
+      "check_code_sha256": "f55ecf820027e5bba617841617b05060a9fdeb98a8002addf1e98d2f2609f4e5",
+      "check_output": "research/continuation_codex_20261007/subject/check_results.json",
+      "check_output_sha256": "b204623ccf3bbe00be05e23c20ed1c4ef66d43d246291f489984226f628d08a6",
+      "reading_and_prose_scope": "Integrator read complete July TD-III source (2061 lines), complete pre-integration current source (1453 lines), and complete integrated source including retained old arguments, bibliography and new formal conjecture (1609 lines). Whole-source consistency and prose pass, not a fresh independent proof audit of every retained result. TD-I 463-525 and 606-614, C-III 222-280, F-III 1090-1192 were targeted upstream interfaces only, not whole-text certification. C-III's later access-score candidate is reviewed by a different designated thread, not certified here.",
+      "literature_scope": "Sinopoli et al. author PDF, abstract/introduction/model pages 0-5, consulted as primary-source adjacent intermittent-observation work; not a full-paper reading or complete novelty survey. The body/processor permissions, physical latching and priced task construction are the claimed scope, not invention of intermittent filtering.",
+      "open_interfaces": "Working/standby coupling and dispatch orientation, known bounded transition/drive family, supplied pure record/enable streams, food source, callable hardware and timing remain physical inputs. Body working block gives a relative standard, not an absolute-orientation origin. The fresh enable flag costs ln2 supplied purity nats per wall slot, not a proved whole-apparatus energy total. Ideal model bits exclude latch, workspace, arithmetic and reliable hold. Net memory benefit requires paying added processing/holding costs; no old block margin is imported. Full processor cyclic operation, optimal posterior-dependent repair, unknown setting/actuator learning, all-apparatus sustainability and experience remain open.",
+      "immutable_snapshot_policy": "Before and after paths name actual copied files. This continuation freezes its own new snapshots and records; older audit/research frozen files are untouched.",
+      "publication": "Local October TD-III working copy only; no other papers, shared principles/status, July sources, staging, old frozen audit or public artifacts changed."
+    },
+    {
+      "date": "2026-10-07",
+      "round": "continuation final PDF metadata correction",
+      "integrator": "Codex root after subject thread returned ownership",
+      "changes": "Added hyperref pdftitle matching the printed title and pdfauthor Sidong Liu; no scientific, prose, date, software, licensing or source-history change.",
+      "skill": "my-writing SKILL.md and watermark-and-text-hygiene.md read completely for ordinary metadata hygiene; not a watermark-policy audit or author-voice certification.",
+      "before_sha256": "f259ee8a6551a1f980181588f1610cd576ddfd1e4c0ed52ab19905a54c3c77c9",
+      "sha256": "f4c688f06902f84da151717d02c1a77e956e6053a96994d1f2edfcfbb32c8714",
+      "before_snapshot": "research/continuation_codex_20261007/subject_metadata_v2/before/TDOME_III.tex",
+      "before_provenance": "research/continuation_codex_20261007/subject_metadata_v2/before/TD_III_PROVENANCE.json",
+      "before_provenance_sha256": "2cfb502efb2dc27879827a349c1531f02f66366edb94695af7c3cd47a82d2bdf",
+      "snapshot": "research/continuation_codex_20261007/subject_metadata_v2/frozen/TDOME_III.tex",
+      "provenance_snapshot": "research/continuation_codex_20261007/subject_metadata_v2/frozen/TD_III_PROVENANCE.json",
+      "pdf": "research/continuation_codex_20261007/subject_metadata_v2/frozen/TDOME_III.pdf",
+      "pdf_sha256": "d1f8102b400a6c962e91774d3b1ebfaaa221b986dae998752dfa3444e217140a",
+      "build_pages": 50,
+      "checks": "pdflatex x3; final log has no warnings, undefined references or over/underfull boxes; pdfinfo now has the full title and Sidong Liu. Old and new pdftotext full page-separated text both hash to 99baaae76998e88bc099e642519f57f1036bc73ce4b752ebd2242c47661c8d09. Not an all-page visual inspection or new scientific audit.",
+      "immutable_snapshot_policy": "The earlier subject/FREEZE.sha256 and its scientific snapshots remain unchanged. Latest copied files and metadata note are frozen separately in subject_metadata_v2.",
+      "publication": "Local October working copy only; no public upload or third-party detector. Statistical text watermarks unverified for all vendors."
+    },
+    {
+      "date": "2026-10-08",
+      "round": "Claude round34 response: reviewed corrections and extensions",
+      "integrator": "Codex root, sole writer of papers for this batch",
+      "changes_and_review_scope": "Sol 6.1 ultra development; root independently evaluated Bellman certificate and equal-confidence/opposite-repair example, then restored abstract and architecture qualifications in a separate reviewed copy. Dynamic conjecture remains open; long-run experiments not rerun.",
+      "model_note": "Physics and geometry: gpt-6-astra / ultra; subject: gpt-6.1-sol / ultra. Root reviewed candidates and independently checked listed new results. Known-background, non-blind review; not full-theory certification.",
+      "sha256": "83188a28eb486351177e493cd8e62f771e3c8ed6203914252cfea0743933cb79",
+      "before_sha256": "f4c688f06902f84da151717d02c1a77e956e6053a96994d1f2edfcfbb32c8714",
+      "before_snapshot": "research/round34_response_codex_20261008/integration_before/TD-III/TDOME_III_manuscript.tex",
+      "before_provenance_snapshot": "research/round34_response_codex_20261008/integration_before/TD-III/PROVENANCE.json",
+      "snapshot": "research/round34_response_codex_20261008/frozen/TD-III/TDOME_III_manuscript.tex",
+      "provenance_snapshot": "research/round34_response_codex_20261008/frozen/TD-III/PROVENANCE.json",
+      "pdf": "research/round34_response_codex_20261008/frozen/TD-III/TDOME_III_manuscript.pdf",
+      "review": "research/round34_response_codex_20261008/REVIEW_AND_HANDOFF.md",
+      "build": "Isolated pdflatex via latexmk; final log has no warning, undefined reference, overfull or underfull box. Title/Author present. Not an all-page visual or publication acceptance.",
+      "publication": "Working source only; July staging and public GitHub/Zenodo unchanged."
+    },
+    {
+      "date": "2026-10-08",
+      "round": "round35 response",
+      "integrator": "Codex root",
+      "changes": "Static paid-repair witness explicitly excludes harvest-work self-labels; noisy control simulated by ideal control plus charged private randomization; introduction, result table and open questions aligned with body-dependent access.",
+      "sha256": "09c542066ad5e7bb84785dd6f572c38e14b796ab0af867a31b656a55d46599d9",
+      "before_snapshot": "research/round35_response_codex_20261008/before/TD-III/TDOME_III_manuscript.tex",
+      "snapshot": "research/round35_response_codex_20261008/frozen/TD-III/TDOME_III_manuscript.tex",
+      "pdf": "research/round35_response_codex_20261008/frozen/TD-III/TDOME_III_manuscript.pdf",
+      "verification": "Claude round35 fixes checked at affected interfaces; new extensions root-only, awaiting Claude. Isolated compilation: no unresolved references or over/underfull boxes; QR-B retains four baseline class/package/float warnings, others none. No whole-paper style or publication acceptance."
+    },
+    {
+      "date": "2026-10-09",
+      "round": "subject and maintained access",
+      "integrator": "Codex root",
+      "sha256": "c4a5b0b6ba2ecb7cfc9d8c70cf66de3c5528203476f7c0e8b700417961b62a8e",
+      "changes": "Terminal two-moment access value; positive-drift paid-repair witnesses replacing a conjecture; corrected root bracket and permissions; full-body reading and revision-note prose cleanup.",
+      "before_snapshot": "research/subject_maintenance_writeback_codex_20261009/before/TD-III/TDOME_III_manuscript.tex",
+      "snapshot": "research/subject_maintenance_writeback_codex_20261009/frozen/TD-III/TDOME_III_manuscript.tex",
+      "checks": "Root full-source reading, existing informed cross-model P3 review, own small calculations, isolated builds. Exact scope in REVIEW_AND_HANDOFF.md.",
+      "cross_model": "Current new integrated text and general/local maintenance proofs await post-14 independent audit."
+    },
+    {
+      "date": "2026-10-09",
+      "round": "Foundation return and persistent access",
+      "integrator": "Codex root",
+      "sha256": "dea3056901dab4c12dc5a0174e24bd84e3a92170a4109045414a77c7461e0bad",
+      "changes": "Foundation III working title and bank section reference synchronized; no scientific argument altered.",
+      "before_snapshot": "research/foundation_return_writeback_codex_20261009/before/TD-III/TDOME_III_manuscript.tex",
+      "snapshot": "research/foundation_return_writeback_codex_20261009/frozen/TD-III/TDOME_III_manuscript.tex",
+      "review": "research/foundation_return_writeback_codex_20261009/REVIEW_AND_HANDOFF.md",
+      "checks": "Targeted bibliography read-back and diff check only; isolated rebuild. Prior scientific review not upgraded.",
+      "cross_model": "Current text awaits the planned post-14 independent audit; reference-only edits do not upgrade evidence.",
+      "publication": "Local working draft only. Author final review and separate upload authorization required."
+    },
+    {
+      "date": "2026-10-09",
+      "round": "Shared structure, common errors and a reference prepared inside it",
+      "integrator": "Codex root",
+      "sha256": "b4eaa13050f0bb4e0bfefdfac9738d1560730f3c22d6b5adfee7bbd2e4a12def",
+      "changes": "Foundation II current working subtitle synchronized in bibliography only.",
+      "before_snapshot": "research/foundation_sharing_writeback_codex_20261009/before/TD-III/TDOME_III_manuscript.tex",
+      "snapshot": "research/foundation_sharing_writeback_codex_20261009/frozen/TD-III/TDOME_III_manuscript.tex",
+      "review": "research/foundation_sharing_writeback_codex_20261009/REVIEW_AND_HANDOFF.md",
+      "checks": "Bibliography diff and isolated build; scientific body byte-identical.",
+      "cross_model": "Integrated text and new strengthenings await post-14 independent audit; old evidence not upgraded.",
+      "publication": "Working draft only; author final review and explicit upload authorization required."
+    },
+    {
+      "date": "2026-10-12",
+      "round": "Full manuscript integration: retained-history self-model, paid maintenance and two-call enquiry",
+      "integrator": "Codex root",
+      "sha256": "2291982d3193027b02d2eeebedfb51d6f77bce1f6a0d81c77d9211d6da429461",
+      "worker_sha256": "d856a503e53fc4987f30d7802bd68e26d84a2aade8514a42cd7201a9b587c701",
+      "before_snapshot": "revision_execution_20261011/root_checks/TD_III_parallel_before.tex",
+      "snapshot": "revision_execution_20261011/root_checks/TD_III_parallel_after.tex",
+      "review": "revision_execution_20261011/root_checks/TD_III_parallel_review.md",
+      "changes": "Full worker manuscript reviewed, 35 old proofs retained; root corrects sufficient embeddings, friction units/equality, absolute angular bound, process wording and clipped-filter supersolution.",
+      "checks": "Full reading, old/new proof comparison, own four-state Bayes tree and exact pilot Bellman check, primary friction equations, clean 52-page build.",
+      "cross_model": "Informed same-model root review; post-14 independent audit remains.",
+      "publication": "Author final review and exact-version upload permission required."
+    },
+    {
+      "date": "2026-10-12",
+      "round": "Final corpus dependency and bibliography synchronization",
+      "integrator": "Codex root",
+      "sha256": "eca2abfcd1480222ec6bffeecd9c830432c64be3431b3c344702258f64f8465d",
+      "changes": "bib:Liu2026HAFF_C, bib:Liu2026HAFF_G, bib:Liu2026FII, bib:Liu2026FIII, S7, S8, L3",
+      "before_snapshot": "revision_execution_20261011/root_checks/dependency_sync/TD-III/before.tex",
+      "snapshot": "revision_execution_20261011/root_checks/dependency_sync/TD-III/after.tex",
+      "review": "revision_execution_20261011/root_checks/DEPENDENCY_SYNC_REVIEW.md",
+      "cross_model": "Root exact-match integration after full-manuscript approvals; independent audit pending.",
+      "publication": "Author final review and explicit version upload authorization required."
+    },
+    {
+      "date": "2026-10-12",
+      "round": "Whole-corpus linear read, focused interface corrections v1",
+      "integrator": "Codex root; sole formal writer",
+      "before_sha256": "eca2abfcd1480222ec6bffeecd9c830432c64be3431b3c344702258f64f8465d",
+      "sha256": "5e262fd11265e44b70211a3eb1e906f08f3156de4567733ba8ba85324501293f",
+      "changes": "Specify prefix-density rather than horizon-fraction probing; derive the general weighted-time budget and sharp early/late scheduling coefficients; synchronize Paper I drift-law attribution.",
+      "before_snapshot": "linear_review_20261012/repair_v1/before/TD-III/TDOME_III_manuscript.tex",
+      "snapshot": "linear_review_20261012/repair_v1/after/TD-III/TDOME_III_manuscript.tex",
+      "provenance_snapshot": "linear_review_20261012/repair_v1/after/TD-III/PROVENANCE.json",
+      "review": "linear_review_20261012/repair_v1/REVIEW_ENTRY.md",
+      "review_scope": "Root read all 29 launch manuscripts, appendices and bibliographies and all 7 collection frontmatters; reviewed this delta. New NZ, planar drift and weighted probe-time identities checked by fresh root calculations. Earlier numerical sweeps and all cited primary proofs not replayed; not blind, cross-model or author acceptance.",
+      "writing": "my-writing used to keep new text concrete and avoid repeated limitations; no statistical watermark claim.",
+      "publication": "Working source only. July staging and public platforms unchanged. Exact-version author approval required."
+    },
+    {
+      "date": "2026-10-12",
+      "round": "Linear-read final scope clarification v2",
+      "integrator": "Codex root",
+      "before_sha256": "5e262fd11265e44b70211a3eb1e906f08f3156de4567733ba8ba85324501293f",
+      "sha256": "4fb27461193e88b9d4b32745580dc2949d577dd122ada5b379e9fc57382fbd21",
+      "changes": "Distinguish the weighted entropy upper bound and necessary-time scaling from an unconditional test-achievability claim.",
+      "before_snapshot": "linear_review_20261012/repair_v2/before/TD-III/TDOME_III_manuscript.tex",
+      "snapshot": "linear_review_20261012/repair_v2/after/TD-III/TDOME_III_manuscript.tex",
+      "review": "linear_review_20261012/repair_v1/REVIEW_ENTRY.md",
+      "review_scope": "Root delta read-back; repair_v1 mathematical checks retained. Not cross-model or author acceptance.",
+      "publication": "No public writes; exact-version author approval required."
+    },
+    {
+      "date": "2026-10-13",
+      "round": "Global audit repair and manuscript consolidation",
+      "integrator": "Codex root; sole formal writer",
+      "before_sha256": "4fb27461193e88b9d4b32745580dc2949d577dd122ada5b379e9fc57382fbd21",
+      "sha256": "b90da7e743a7eeb875dd002d30d3a6b72a16fe45112ed71544458a5241097a25",
+      "changes": [
+        "A3: implicit matching distribution is not an explicit acquired self-model; Gaussian/J0=0/quadratic and continuous-precision conditions restored to leading drift claims.",
+        "Compress old bank parameter scans, duplicate recaps and repeated protocols. All original formal statements, proofs and labels retained exactly; full preserved baseline records removed diagnostic rows."
+      ],
+      "before_snapshot": "revision_repair_20261013/before/TD-III/TDOME_III_manuscript.tex",
+      "snapshot": "revision_repair_20261013/after/TD-III/TDOME_III_manuscript.tex",
+      "review": "revision_repair_20261013/REVIEW.md",
+      "evidence_scope": "Known-background root review and fixed audit deltas; native GPT-6.1/high long-paper candidate work. Not Claude independent audit or author acceptance.",
+      "publication": "Local working revision; exact-version author review and explicit upload authorization required."
+    },
+    {
+      "date": "2026-10-15",
+      "revision": "postaudit_20261014",
+      "integrator": "Codex root",
+      "baseline": "review_build_summaryfix_20261013_v3",
+      "before_sha256": "b90da7e743a7eeb875dd002d30d3a6b72a16fe45112ed71544458a5241097a25",
+      "sha256": "123b975729a4e31958a7aa9725289ab5ebc0002b215beb5c0ecce4d7be7857a9",
+      "audit": "research/synthesis/claude/final_adversarial_review_20261013",
+      "dispositions": "revision_postaudit_20261014/DISPOSITION.csv",
+      "review": "revision_postaudit_20261014/REVIEW.md",
+      "status": "Post-adversarial-review working revision; author approval and independent re-review not claimed.",
+      "supplementary_files": [
+        {
+          "path": "OctoberReview/papers/TD-III/supplemental/reproducibility/README.md",
+          "local": "supplemental/reproducibility/README.md",
+          "sha256": "59e3b21972007f36f36188fd3cfd59183f5c3a4400f192b40b32b14a06215a75"
+        },
+        {
+          "path": "OctoberReview/papers/TD-III/supplemental/reproducibility/SOURCE_MAP.json",
+          "local": "supplemental/reproducibility/SOURCE_MAP.json",
+          "sha256": "86b300c5ad285ec53794e9590027063b46389707bffa2d40629816f2a7ece44b"
+        },
+        {
+          "path": "OctoberReview/papers/TD-III/supplemental/reproducibility/run_check.py",
+          "local": "supplemental/reproducibility/run_check.py",
+          "sha256": "b85cc7a96674bcf06243c4151a122ccddf8aee8606a1cfef478c991433ac14f1"
+        },
+        {
+          "path": "OctoberReview/papers/TD-III/supplemental/reproducibility/source_tree/OctoberReview/research/autonomous_claude_20261004/agentF_td3/checks/check_detection.py",
+          "local": "supplemental/reproducibility/source_tree/OctoberReview/research/autonomous_claude_20261004/agentF_td3/checks/check_detection.py",
+          "sha256": "4e720de00b4f88dd6ee275d58a47c63dd06f67e8475a234b756d5435ef53fc67"
+        },
+        {
+          "path": "OctoberReview/papers/TD-III/supplemental/reproducibility/source_tree/OctoberReview/research/autonomous_claude_20261004/agentF_td3/checks/check_detection_output.json",
+          "local": "supplemental/reproducibility/source_tree/OctoberReview/research/autonomous_claude_20261004/agentF_td3/checks/check_detection_output.json",
+          "sha256": "f4744276fb2c5d512a55f0fb0306bf36fdb04e2f7e458084ca71f488f68bc7c8"
+        },
+        {
+          "path": "OctoberReview/papers/TD-III/supplemental/reproducibility/source_tree/OctoberReview/research/autonomous_claude_20261004/agentF_td3/checks/check_drift_law.py",
+          "local": "supplemental/reproducibility/source_tree/OctoberReview/research/autonomous_claude_20261004/agentF_td3/checks/check_drift_law.py",
+          "sha256": "d8fa98d190b6efc01bf61e685b31453ceca96158f8dfaf2ad06b79b553b7e369"
+        },
+        {
+          "path": "OctoberReview/papers/TD-III/supplemental/reproducibility/source_tree/OctoberReview/research/autonomous_claude_20261004/agentF_td3/checks/check_drift_law_output.json",
+          "local": "supplemental/reproducibility/source_tree/OctoberReview/research/autonomous_claude_20261004/agentF_td3/checks/check_drift_law_output.json",
+          "sha256": "612346a1af0e9e6d4540e4984c31fe9bec14daf1b6cd71c0eed8558a0bbe84d1"
+        },
+        {
+          "path": "OctoberReview/papers/TD-III/supplemental/reproducibility/source_tree/OctoberReview/research/autonomous_claude_20261004/agentF_td3/checks/check_extra.py",
+          "local": "supplemental/reproducibility/source_tree/OctoberReview/research/autonomous_claude_20261004/agentF_td3/checks/check_extra.py",
+          "sha256": "305180ed90842656015ace3a574c19c5d94b217ab028bd4afec21e9eee3b6b87"
+        },
+        {
+          "path": "OctoberReview/papers/TD-III/supplemental/reproducibility/source_tree/OctoberReview/research/autonomous_claude_20261004/agentF_td3/checks/check_extra_output.json",
+          "local": "supplemental/reproducibility/source_tree/OctoberReview/research/autonomous_claude_20261004/agentF_td3/checks/check_extra_output.json",
+          "sha256": "5e283058a59eac512912f04faa6ef6c42e3e7b6146871309e18b64128a1d7cbf"
+        },
+        {
+          "path": "OctoberReview/papers/TD-III/supplemental/reproducibility/source_tree/OctoberReview/research/autonomous_claude_20261004/agentF_td3/checks/check_section9.py",
+          "local": "supplemental/reproducibility/source_tree/OctoberReview/research/autonomous_claude_20261004/agentF_td3/checks/check_section9.py",
+          "sha256": "80d02abd0442bc51a89999c7d8cacb162cfc596daf37db94baa3b96927abd23d"
+        },
+        {
+          "path": "OctoberReview/papers/TD-III/supplemental/reproducibility/source_tree/OctoberReview/research/autonomous_claude_20261004/agentF_td3/checks/check_section9_output.json",
+          "local": "supplemental/reproducibility/source_tree/OctoberReview/research/autonomous_claude_20261004/agentF_td3/checks/check_section9_output.json",
+          "sha256": "ceaf036b196a291822981387b09a27ce641baadb55862f0654bc7047ae0cdaef"
+        },
+        {
+          "path": "OctoberReview/papers/TD-III/supplemental/reproducibility/source_tree/OctoberReview/research/autonomous_claude_20261004/agentF_td3/checks/check_variance_test.py",
+          "local": "supplemental/reproducibility/source_tree/OctoberReview/research/autonomous_claude_20261004/agentF_td3/checks/check_variance_test.py",
+          "sha256": "496f4778c58b2a158d1bdf98f0ba097c4113aa512d3b6c75da3f99bea0362225"
+        },
+        {
+          "path": "OctoberReview/papers/TD-III/supplemental/reproducibility/source_tree/OctoberReview/research/autonomous_claude_20261004/agentF_td3/checks/check_variance_test_output.json",
+          "local": "supplemental/reproducibility/source_tree/OctoberReview/research/autonomous_claude_20261004/agentF_td3/checks/check_variance_test_output.json",
+          "sha256": "1df61fd5fd3dfb02eddba46fbe1503cb094f7e8642f058775849bf85ed336747"
+        },
+        {
+          "path": "OctoberReview/papers/TD-III/supplemental/reproducibility/source_tree/OctoberReview/research/autonomous_claude_20261004/agentJ_joint/checks/c1_reductions.py",
+          "local": "supplemental/reproducibility/source_tree/OctoberReview/research/autonomous_claude_20261004/agentJ_joint/checks/c1_reductions.py",
+          "sha256": "e3c2434d6c9190d60cfe79f2d93d37d205b1e46a49bb4b8f9d5f7c82389ee5f5"
+        },
+        {
+          "path": "OctoberReview/papers/TD-III/supplemental/reproducibility/source_tree/OctoberReview/research/autonomous_claude_20261004/agentJ_joint/checks/c2_gauge_enum.py",
+          "local": "supplemental/reproducibility/source_tree/OctoberReview/research/autonomous_claude_20261004/agentJ_joint/checks/c2_gauge_enum.py",
+          "sha256": "6c345acbc41af6c8a950abfbf0176c37ff18c037cc5fd4cdd4879b3296dccf98"
+        },
+        {
+          "path": "OctoberReview/papers/TD-III/supplemental/reproducibility/source_tree/OctoberReview/research/autonomous_claude_20261004/agentJ_joint/checks/c3_sign_inversion.py",
+          "local": "supplemental/reproducibility/source_tree/OctoberReview/research/autonomous_claude_20261004/agentJ_joint/checks/c3_sign_inversion.py",
+          "sha256": "c7d574b2f956eff081c44e4f2a71d16df1b828653bebf411fcadac642ebce787"
+        },
+        {
+          "path": "OctoberReview/papers/TD-III/supplemental/reproducibility/source_tree/OctoberReview/research/autonomous_claude_20261004/agentJ_joint/checks/c4_jump_price.py",
+          "local": "supplemental/reproducibility/source_tree/OctoberReview/research/autonomous_claude_20261004/agentJ_joint/checks/c4_jump_price.py",
+          "sha256": "d8ad355bbc6ae8cf89153dead48bea678a5b8e9cb4ea2fb5a8b88ffe16c1f819"
+        },
+        {
+          "path": "OctoberReview/papers/TD-III/supplemental/reproducibility/source_tree/OctoberReview/research/autonomous_claude_20261004/agentJ_joint/checks/c5_driftlaw_J0.py",
+          "local": "supplemental/reproducibility/source_tree/OctoberReview/research/autonomous_claude_20261004/agentJ_joint/checks/c5_driftlaw_J0.py",
+          "sha256": "4af644ff5e4bf7ede5815c2bbd37b0633d33c0cdd8be8644de566aed33b1b021"
+        },
+        {
+          "path": "OctoberReview/papers/TD-III/supplemental/reproducibility/source_tree/OctoberReview/research/autonomous_claude_20261004/agentJ_joint/checks/c7_closedloop_moments.py",
+          "local": "supplemental/reproducibility/source_tree/OctoberReview/research/autonomous_claude_20261004/agentJ_joint/checks/c7_closedloop_moments.py",
+          "sha256": "6e5acfc3f3a1363bd4b0f73f76fe0ca073fcd418a4ac62cd0f86e28b6b8df7e1"
+        },
+        {
+          "path": "OctoberReview/papers/TD-III/supplemental/reproducibility/source_tree/OctoberReview/research/autonomous_claude_20261004/agentJ_joint/checks/c8_push_frame.py",
+          "local": "supplemental/reproducibility/source_tree/OctoberReview/research/autonomous_claude_20261004/agentJ_joint/checks/c8_push_frame.py",
+          "sha256": "b974ccfc0104bdf7bc2f28613c6a29ca2ca5d89ce80d93fd20ceffc3f4885db5"
+        },
+        {
+          "path": "OctoberReview/papers/TD-III/supplemental/reproducibility/source_tree/OctoberReview/research/autonomous_claude_20261004/agentJ_joint/checks/common.py",
+          "local": "supplemental/reproducibility/source_tree/OctoberReview/research/autonomous_claude_20261004/agentJ_joint/checks/common.py",
+          "sha256": "c07fb20b166cd4cad10dc1b05f355e1451d7c272eb35d017942c073dcc864cb6"
+        },
+        {
+          "path": "OctoberReview/papers/TD-III/supplemental/reproducibility/source_tree/OctoberReview/research/autonomous_claude_20261004/agentJ_joint/checks/out/c1_reductions.json",
+          "local": "supplemental/reproducibility/source_tree/OctoberReview/research/autonomous_claude_20261004/agentJ_joint/checks/out/c1_reductions.json",
+          "sha256": "d9da4566d8ec733086c6a6ac49284ac02d07bc35647284fc65846d991a1740ac"
+        },
+        {
+          "path": "OctoberReview/papers/TD-III/supplemental/reproducibility/source_tree/OctoberReview/research/autonomous_claude_20261004/agentJ_joint/checks/out/c2_gauge_enum.json",
+          "local": "supplemental/reproducibility/source_tree/OctoberReview/research/autonomous_claude_20261004/agentJ_joint/checks/out/c2_gauge_enum.json",
+          "sha256": "38d82b8dd4fb2aa985fc8b8caedc7740626ffeaacf7d2a959518c9b9361a4ad6"
+        },
+        {
+          "path": "OctoberReview/papers/TD-III/supplemental/reproducibility/source_tree/OctoberReview/research/autonomous_claude_20261004/agentJ_joint/checks/out/c3_sign_inversion.json",
+          "local": "supplemental/reproducibility/source_tree/OctoberReview/research/autonomous_claude_20261004/agentJ_joint/checks/out/c3_sign_inversion.json",
+          "sha256": "8725c6924b38e5746c8bbc062cde20d38bc2442abb945591e80a0212fadd9b76"
+        },
+        {
+          "path": "OctoberReview/papers/TD-III/supplemental/reproducibility/source_tree/OctoberReview/research/autonomous_claude_20261004/agentJ_joint/checks/out/c4_jump_price.json",
+          "local": "supplemental/reproducibility/source_tree/OctoberReview/research/autonomous_claude_20261004/agentJ_joint/checks/out/c4_jump_price.json",
+          "sha256": "40e89aefe1f8c5c431c3b572052e49abbc1ac1288e7b35fe0e187a20eb04fde7"
+        },
+        {
+          "path": "OctoberReview/papers/TD-III/supplemental/reproducibility/source_tree/OctoberReview/research/autonomous_claude_20261004/agentJ_joint/checks/out/c5_driftlaw_J0.json",
+          "local": "supplemental/reproducibility/source_tree/OctoberReview/research/autonomous_claude_20261004/agentJ_joint/checks/out/c5_driftlaw_J0.json",
+          "sha256": "2c46754071959a657d0331727b102dd56d0884e49d9a0a7e79565b4d54f07c81"
+        },
+        {
+          "path": "OctoberReview/papers/TD-III/supplemental/reproducibility/source_tree/OctoberReview/research/autonomous_claude_20261004/agentJ_joint/checks/out/c7_closedloop_moments.json",
+          "local": "supplemental/reproducibility/source_tree/OctoberReview/research/autonomous_claude_20261004/agentJ_joint/checks/out/c7_closedloop_moments.json",
+          "sha256": "d5b12c62d8c33d5a029bdc711786c7edd8e262d30655fa18a31ac89f70dbde37"
+        },
+        {
+          "path": "OctoberReview/papers/TD-III/supplemental/reproducibility/source_tree/OctoberReview/research/autonomous_claude_20261004/agentJ_joint/checks/out/c8_push_frame.json",
+          "local": "supplemental/reproducibility/source_tree/OctoberReview/research/autonomous_claude_20261004/agentJ_joint/checks/out/c8_push_frame.json",
+          "sha256": "283074e2f799a21441449a2508a6bd55c05f0498977ad805a97aed9007289ab1"
+        },
+        {
+          "path": "OctoberReview/papers/TD-III/supplemental/reproducibility/source_tree/OctoberReview/research/chain/claude_v2/chain_v2.py",
+          "local": "supplemental/reproducibility/source_tree/OctoberReview/research/chain/claude_v2/chain_v2.py",
+          "sha256": "94c8a4576657ffe7614339b0cd50fc3dcd87d491aa5b2e0091146d94c43ef52f"
+        },
+        {
+          "path": "OctoberReview/papers/TD-III/supplemental/reproducibility/source_tree/OctoberReview/research/chain/claude_v2/chain_v2_output.json",
+          "local": "supplemental/reproducibility/source_tree/OctoberReview/research/chain/claude_v2/chain_v2_output.json",
+          "sha256": "1544bae945b7b0a8b7a9fad6141a29ae5e233c2d198a0e6f8b5208bd1d133674"
+        },
+        {
+          "path": "OctoberReview/papers/TD-III/supplemental/reproducibility/source_tree/OctoberReview/research/continuation_codex_20261007/subject/check_results.json",
+          "local": "supplemental/reproducibility/source_tree/OctoberReview/research/continuation_codex_20261007/subject/check_results.json",
+          "sha256": "b204623ccf3bbe00be05e23c20ed1c4ef66d43d246291f489984226f628d08a6"
+        },
+        {
+          "path": "OctoberReview/papers/TD-III/supplemental/reproducibility/source_tree/OctoberReview/research/continuation_codex_20261007/subject/independent_checks.py",
+          "local": "supplemental/reproducibility/source_tree/OctoberReview/research/continuation_codex_20261007/subject/independent_checks.py",
+          "sha256": "f55ecf820027e5bba617841617b05060a9fdeb98a8002addf1e98d2f2609f4e5"
+        },
+        {
+          "path": "OctoberReview/papers/TD-III/supplemental/reproducibility/source_tree/OctoberReview/research/d1d2/claude/d3_repro.py",
+          "local": "supplemental/reproducibility/source_tree/OctoberReview/research/d1d2/claude/d3_repro.py",
+          "sha256": "9e749d519b2c4c027e92953dca1ae178ea44a178a7eb64022d0d9e8fe6b971ce"
+        },
+        {
+          "path": "OctoberReview/papers/TD-III/supplemental/reproducibility/source_tree/OctoberReview/research/d1d2/claude/d3_repro_output.json",
+          "local": "supplemental/reproducibility/source_tree/OctoberReview/research/d1d2/claude/d3_repro_output.json",
+          "sha256": "14e127bea3083625f0b2784403ed6413829714dd944f8a3af78e9a03ef457a01"
+        },
+        {
+          "path": "OctoberReview/papers/TD-III/supplemental/reproducibility/source_tree/OctoberReview/research/d1d2/claude/platform_e0.py",
+          "local": "supplemental/reproducibility/source_tree/OctoberReview/research/d1d2/claude/platform_e0.py",
+          "sha256": "f045d56caf10cbf9c4bde6157c7ee4786c174a3be39cab8f752ab3dc1fd1c566"
+        },
+        {
+          "path": "OctoberReview/papers/TD-III/supplemental/reproducibility/source_tree/OctoberReview/research/d3/codex/v0/closed_loop.py",
+          "local": "supplemental/reproducibility/source_tree/OctoberReview/research/d3/codex/v0/closed_loop.py",
+          "sha256": "db232af21a6c6fad6f76ceef0baaab9e0a4a9abe22eb15808ab0487b301ae3cf"
+        },
+        {
+          "path": "OctoberReview/papers/TD-III/supplemental/reproducibility/source_tree/OctoberReview/research/d3/codex/v0/closed_loop_output.json",
+          "local": "supplemental/reproducibility/source_tree/OctoberReview/research/d3/codex/v0/closed_loop_output.json",
+          "sha256": "3f388d5f629774782a1ee222b952754c461fa498a30c7565aec9358612877795"
+        },
+        {
+          "path": "OctoberReview/papers/TD-III/supplemental/reproducibility/source_tree/OctoberReview/research/resumption_codex_20261007/ultra_subject/economy.py",
+          "local": "supplemental/reproducibility/source_tree/OctoberReview/research/resumption_codex_20261007/ultra_subject/economy.py",
+          "sha256": "2e9a3c31fe015ec914cc5f98934dfcab47ad9b22c47a2d078200687fe14e997d"
+        },
+        {
+          "path": "OctoberReview/papers/TD-III/supplemental/reproducibility/source_tree/OctoberReview/research/resumption_codex_20261007/ultra_subject/economy_output.json",
+          "local": "supplemental/reproducibility/source_tree/OctoberReview/research/resumption_codex_20261007/ultra_subject/economy_output.json",
+          "sha256": "8ee17221bdea13016432cc6239d5ce56c4a79de7583668a397237782183f936f"
+        },
+        {
+          "path": "OctoberReview/papers/TD-III/supplemental/reproducibility/source_tree/OctoberReview/research/resumption_codex_20261007/ultra_subject/online_joint.py",
+          "local": "supplemental/reproducibility/source_tree/OctoberReview/research/resumption_codex_20261007/ultra_subject/online_joint.py",
+          "sha256": "19c75bd9679c23cf1ef9711ac4977a2b7a0bb6703d6a6ad9c191f9c3c6512909"
+        },
+        {
+          "path": "OctoberReview/papers/TD-III/supplemental/reproducibility/source_tree/OctoberReview/research/resumption_codex_20261007/ultra_subject/online_joint_confirmation.json",
+          "local": "supplemental/reproducibility/source_tree/OctoberReview/research/resumption_codex_20261007/ultra_subject/online_joint_confirmation.json",
+          "sha256": "0152139dd95caa35dc5403ea6cedd6203410275ac524bf591991e1a31c445d52"
+        },
+        {
+          "path": "OctoberReview/papers/TD-III/supplemental/reproducibility/source_tree/OctoberReview/research/resumption_codex_20261007/ultra_subject/online_joint_output.json",
+          "local": "supplemental/reproducibility/source_tree/OctoberReview/research/resumption_codex_20261007/ultra_subject/online_joint_output.json",
+          "sha256": "174d3d70f3f6f2d129da27b1c5bcf12a257cc88f1c752138e00f5e53236b9d06"
+        },
+        {
+          "path": "OctoberReview/papers/TD-III/supplemental/reproducibility/source_tree/OctoberReview/research/round34_response_codex_20261008/subject/checks/check_subject.py",
+          "local": "supplemental/reproducibility/source_tree/OctoberReview/research/round34_response_codex_20261008/subject/checks/check_subject.py",
+          "sha256": "1cb8d06778a1ea692c521ac22eb91f68ebf47e5ef6f76094b130bfd5a26952d7"
+        },
+        {
+          "path": "OctoberReview/papers/TD-III/supplemental/reproducibility/source_tree/OctoberReview/research/round34_response_codex_20261008/subject/checks/check_subject_output.json",
+          "local": "supplemental/reproducibility/source_tree/OctoberReview/research/round34_response_codex_20261008/subject/checks/check_subject_output.json",
+          "sha256": "fa1bb5690591c80c9b24ff665d301a6d5b9ae0450551784f92a1c265c81906c6"
+        },
+        {
+          "path": "OctoberReview/papers/TD-III/supplemental/source_notes/README.md",
+          "local": "supplemental/source_notes/README.md",
+          "sha256": "7b00f023969066b2bf4b13219294f4399758963c1c78e973735618c735996980"
+        },
+        {
+          "path": "OctoberReview/papers/TD-III/supplemental/source_notes/TDIII_imported_settings.tex",
+          "local": "supplemental/source_notes/TDIII_imported_settings.tex",
+          "sha256": "e6ec599cb207e369b744cfb621b26f122a0bd58a0bbda2a328cf2dc7419ccc20"
+        }
+      ]
+    },
+    {
+      "date": "2026-10-15",
+      "revision": "minor_v5_20261015",
+      "integrator": "Codex root",
+      "baseline": "review_build_postaudit_20261015_v4",
+      "before_sha256": "123b975729a4e31958a7aa9725289ab5ebc0002b215beb5c0ecce4d7be7857a9",
+      "sha256": "ecdecabdddee717c11123ed01bbbec955103f64a8fe033f30d8e6a71a97ed035",
+      "audit": "research/synthesis/claude/postaudit_v4_review_20261015",
+      "dispositions": "revision_minor_v5_20261015/DISPOSITION.csv",
+      "review": "revision_minor_v5_20261015/REVIEW.md",
+      "status": "Bounded minor revision; new edits root-reviewed, not a fresh cross-model acceptance or publication approval.",
+      "changed_source_assets": [
+        {
+          "path": "OctoberReview/papers/TD-III/TDOME_III_manuscript.tex",
+          "before": "123b975729a4e31958a7aa9725289ab5ebc0002b215beb5c0ecce4d7be7857a9",
+          "after": "ecdecabdddee717c11123ed01bbbec955103f64a8fe033f30d8e6a71a97ed035"
+        },
+        {
+          "path": "OctoberReview/papers/TD-III/supplemental/reproducibility/README.md",
+          "before": "59e3b21972007f36f36188fd3cfd59183f5c3a4400f192b40b32b14a06215a75",
+          "after": "681e47dd06e99c10c0aa410fdc098a21f84c5c6c2da8d424657cc2b51eb70576"
+        },
+        {
+          "path": "OctoberReview/papers/TD-III/supplemental/reproducibility/SOURCE_MAP.json",
+          "before": "86b300c5ad285ec53794e9590027063b46389707bffa2d40629816f2a7ece44b",
+          "after": "48e342b391f0ef5830b3e551c57784d71596cceadcf06cc0c1a42b822662344a"
+        },
+        {
+          "path": "OctoberReview/papers/TD-III/supplemental/stopped_score/README.md",
+          "before": null,
+          "after": "702bf682c801cb2a6a33f5892b25ded9d58dfb0350ea8b308ce67f327bb89e59"
+        },
+        {
+          "path": "OctoberReview/papers/TD-III/supplemental/stopped_score/check_stopped_score.py",
+          "before": null,
+          "after": "131928752a40b03b73c7f800e1e4f795a16057255d74c5bf9d3c5f5958fb1e4f"
+        },
+        {
+          "path": "OctoberReview/papers/TD-III/supplemental/stopped_score/stopped_average.json",
+          "before": null,
+          "after": "c1b9e76c3f534ac6f0ee4bff59f13df175e8f860834040630c529a9849735a7e"
+        }
+      ]
+    },
+    {
+      "date": "2026-10-15",
+      "revision": "optional_v6_20261015",
+      "integrator": "Codex root",
+      "baseline": "review_build_minor_20261015_v5",
+      "before_sha256": "ecdecabdddee717c11123ed01bbbec955103f64a8fe033f30d8e6a71a97ed035",
+      "sha256": "0b40b379a7266d67048b4a41d8fe4138afd5b7db13d00414f38a162ac267a1e6",
+      "audit": "research/synthesis/claude/v5_minor_review_20261015",
+      "dispositions": "revision_optional_v6_20261015/DISPOSITION.csv",
+      "review": "revision_optional_v6_20261015/REVIEW.md",
+      "status": "Optional clarity corrections after acceptance of v5; root-reviewed, not a new Claude review or publication approval.",
+      "changed_source_assets": [
+        {
+          "path": "OctoberReview/papers/TD-III/TDOME_III_manuscript.tex",
+          "before": "ecdecabdddee717c11123ed01bbbec955103f64a8fe033f30d8e6a71a97ed035",
+          "after": "0b40b379a7266d67048b4a41d8fe4138afd5b7db13d00414f38a162ac267a1e6"
+        }
+      ]
+    },
+    {
+      "date": "2026-10-15",
+      "revision": "references_v7r2_20261015",
+      "integrator": "Codex root",
+      "baseline": "v7r1",
+      "before_sha256": "0b40b379a7266d67048b4a41d8fe4138afd5b7db13d00414f38a162ac267a1e6",
+      "sha256": "f4fa2ed7e158d43f87db71429ad7c75e19a3710ae23662d9c8e89c71ff876631",
+      "changes": "Removed working-revision status from 10 self-citations; retained author, title, year, DOI and citation keys. No text outside bibliography changed.",
+      "review": "revision_references_v7r2_20261015/REVIEW.md",
+      "publication": "No upload; exact-version author approval required."
+    },
+    {
+      "date": "2026-10-16",
+      "round": "direction-postopus-20261016",
+      "integrator": "Codex root",
+      "basis": "Opus direction review at private book c8beff7; root targeted response, not external acceptance.",
+      "changes": "Scope/title/cross-reference corrections; D and QR-C technical appendices separated without loss. See direction_postopus_fix_20261016/DISPOSITION.md and per-paper diff.",
+      "before_sha256": "a725285adffc9b96e9344984b1903e44f00714683b22a930d1c07a1aaf45897d",
+      "sha256": "2e9cbfd3a32aa3ccd74a0947ee11e63227d06ab2711623a06cf87f2191622968",
+      "source_assets": {
+        "TDOME_III_manuscript.tex": "2e9cbfd3a32aa3ccd74a0947ee11e63227d06ab2711623a06cf87f2191622968"
+      },
+      "checks": "Original proof blocks and label sets retained; separate build/numbering evidence in fix package.",
+      "publication": false
+    }
+  ],
+  "direction_revision_20261016": [
+    {
+      "phase": "whole-theory direction restoration",
+      "date": "2026-10-16",
+      "candidate": "OctoberReview/research/direction_revision_execution_20261016/worker/tdiii_candidate",
+      "review": "research/direction_revision_execution_20261016/root/FINAL_GROUP_REVIEW.md",
+      "scope": "Root read full baseline and changed prose; retained proof blocks verified; two obsolete final-Cut attributions corrected.",
+      "external_review": "pending",
+      "publication": "not authorized for this revision"
+    }
+  ]
+}

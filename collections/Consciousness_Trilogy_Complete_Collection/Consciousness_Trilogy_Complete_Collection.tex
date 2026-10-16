@@ -1,12 +1,9 @@
 \documentclass{article}
 \usepackage{pdfpages}
-% Convenience TeX assembly entry for this collection.
-% The reference PDF uses assemble.py (PyMuPDF), preserving links and page geometry.
-% This pdfpages alternative is not the original compilation source and may alter navigation.
-% Extract the matching source ZIP beside this file before compiling.
+% PDF-page assembly; source manuscripts are kept once under ../../papers/.
 \begin{document}
 \includepdf[pages=-,fitpaper=true]{frontmatter.pdf}
-\includepdf[pages=-,fitpaper=true]{C-I.pdf}
-\includepdf[pages=-,fitpaper=true]{C-II.pdf}
-\includepdf[pages=-,fitpaper=true]{C-III.pdf}
+\includepdf[pages=-,fitpaper=true]{../../papers/C-I/CI_Inseparability.pdf}
+\includepdf[pages=-,fitpaper=true]{../../papers/C-II/CII_Higher_Dimensional.pdf}
+\includepdf[pages=-,fitpaper=true]{../../papers/C-III/CIII_Finite_Self_Models.pdf}
 \end{document}

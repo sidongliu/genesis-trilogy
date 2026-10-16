@@ -2,12 +2,15 @@
 
 Selection, Maintenance and Gravitational Response: Modular Constraints and a Physical Return
 
-Author: Sidong Liu.
+The complete technical appendices are a companion supplement. Keep both sources and PDFs together. The pair uses reciprocal xr-hyper references; alternate builds until auxiliary files settle. The first pass may lack the other auxiliary file; the final pass must have no unresolved references.
 
-Compile `HAFF_D_manuscript.tex` in this directory with pdflatex:
+Build in a working copy:
 
 ```sh
-latexmk -norc -use-make- -pdf -interaction=nonstopmode -halt-on-error -no-shell-escape HAFF_D_manuscript.tex
+for round in 1 2 3; do
+  pdflatex -interaction=nonstopmode -halt-on-error HAFF_D_manuscript.tex
+  pdflatex -interaction=nonstopmode -halt-on-error HAFF_D_supplement.tex
+done
 ```
 
-Requires a current TeX Live distribution and the packages named by the source. XeLaTeX documents may require TeX Gyre and Latin Modern fonts. All project-local dependencies are supplied with relative paths. Supplementary code has its own dependency and run instructions; some historical full runs are costly. Build in a copy to retain the reference PDF. Recompiled PDFs may differ in metadata, IDs and font embedding.
+The reference PDF is supplied; regenerated IDs, dates or font embedding may differ. Scientific scripts have their own stated assumptions and dependencies.

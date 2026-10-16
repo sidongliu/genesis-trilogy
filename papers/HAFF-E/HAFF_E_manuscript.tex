@@ -56,6 +56,17 @@ The three answers are different kinds of object. Each probe's implementable effe
 
 The central claim of the paper is that measurement, in the operational sense used here, is a property of an interaction context: what a declared probe family can implement, what the declared dynamics leaves fixed, and what declared fragments record. We do not explain why one global outcome occurs, and we assume the Born rule.
 
+The formation claim is nevertheless physical. Initially independent
+memories acquire correlations with a pointer through actual unitary
+couplings; their conditional distinguishability determines what a later
+reader can report. Record formation is therefore more than attaching a
+label to a supplied channel. Its limits are also physical: the same
+reduced dephasing may be produced with a port that records nothing,
+and a second contact can undo a record. The apparatus and elementary
+system--port split remain inputs. Their selection is the separate
+problem of Papers~A and B, not an unexplained premise hidden inside
+the word \emph{measurement}.
+
 \subsection{Results}
 
 Section~\ref{sec:background} fixes the typed data of a context. Section~\ref{sec:tests} states the three tests and separates two notions of redundancy, one based on Holevo information and one based on what a measurement can read. Section~\ref{sec:model} introduces a record model in which fresh memories collide once with a pointer, and computes:
@@ -724,13 +735,35 @@ record-controlled physical sources and retained-port acquisition
 \cite{Liu2026PaperD,Liu2026QRAIFC}; they grant neither free sharp
 effects nor fresh inputs in place of spent ports.
 
-The measured record law is also the output consumed by Paper~F and
-T-DOME~I's joint memory accounts and Foundation~II's distinction between
-agreement and correctness \cite{Liu2026PaperF,Liu2026TDOME_I,FoundationII}.
-Its entropy, preparation cost and action value retain their different
-resource conditions. Shared geometry further requires source preparation,
-site labels, calibrated readers and a reconstruction rule; the finite
-orientation certificate here supplies one of those permissions.
+The record law supplies two different downstream relations.
+For Paper~F, once-only contact and isolation of spent ports protect
+earlier records against later operations on the carrier. Redundancy
+alone supplies no event order: the pointer-controlled gates in
+Eq.~\eqref{eq:collision} commute, so their full terminal state is
+unchanged by permuting the contacts. Paper~F's order-identification
+protocol adds actual retained intervention tags and record--swap
+stations; the tags reveal predecessor relations under its specified
+one-pass architecture. Neither an order inferred from those relations
+nor a direction relative to its declared acquisition boundary derives a continuous
+time parameter \cite{Liu2026PaperF}.
+
+For Foundation~II, common content means a common target label and
+declared record channels, not literal intersection of the readers'
+separate register algebras. The two fragments can share an accurately
+readable classical label even when their embedded local algebras
+intersect only in the scalars. The joint preparation and the response
+laws must establish this common content; consensus alone cannot fix
+its orientation or remove a common error \cite{FoundationII}.
+The calibrated protocol above supplies that relation and its error,
+not a theorem that arbitrary readers agree on a world.
+
+T-DOME~I consumes the actual record and its posterior for a task;
+its action value need not equal the record entropy
+\cite{Liu2026TDOME_I}. Preparation, reading, storage and eventual renewal
+retain their separate resource conditions. Shared geometry additionally
+requires source preparation, site labels and a reconstruction rule;
+the finite orientation certificate here supplies one of those
+permissions, not all of them.
 
 \section{Conclusion}
 \label{sec:conclusion}
@@ -768,7 +801,7 @@ reconstruction as independent explanatory questions.
 \small
 
 \bibitem{Liu2026PaperA}
-S.~Liu, \emph{Physical Access and Correlation Geometry: The Holographic Alaya--Field Framework}, 2026; series record DOI: 10.5281/zenodo.18361706.
+S.~Liu, \emph{Physical Coarse-Graining and the Problem of Emergent Geometry: The Holographic Alaya--Field Framework}, 2026; series record DOI: 10.5281/zenodo.18361706.
 
 \bibitem{Liu2026PaperB}
 S.~Liu, \emph{Coupling, Records, and Stable Relations: Formation, Protected Content and the Lifetime of a Geometry}, 2026; series record DOI: 10.5281/zenodo.18367060.
@@ -777,10 +810,10 @@ S.~Liu, \emph{Coupling, Records, and Stable Relations: Formation, Protected Cont
 S.~Liu, \emph{Selection, Maintenance and Gravitational Response: Modular Constraints and a Physical Return}, 2026; series record DOI: 10.5281/zenodo.18388881.
 
 \bibitem{Liu2026QRAIFC}
-S.~Liu, \emph{Retained Quantum History, Physical Sources and Receiver Renewal in Q-RAIF}, 2026.
+S.~Liu, \emph{Representing Control in the World: Retained History, Physical Sources and Renewal in Q-RAIF}, 2026.
 
 \bibitem{Liu2026PaperF}
-S.~Liu, \emph{Records, Dissipation and Intervention: Conditions for a Temporal Direction}, revised version of \emph{Accessibility Propagation and Temporal Direction}, Zenodo (2026), DOI: 10.5281/zenodo.18400425.
+S.~Liu, \emph{Records, Order and Intervention: Conditions for a Temporal Direction}, revised version of \emph{Accessibility Propagation and Temporal Direction}, Zenodo (2026), DOI: 10.5281/zenodo.18400425.
 
 \bibitem{Liu2026TDOME_I}
 S.~Liu, \emph{Memory as a Usable Resource: Correlations, Records and Complete Endpoint Accounting}, revised version of \emph{Non-Markovian Memory and Temporal Accumulation}, Zenodo (2026), DOI: 10.5281/zenodo.18574342.
@@ -839,4 +872,5 @@ P. Zanardi, D. A. Lidar, and S. Lloyd, \emph{Quantum Tensor Product Structures a
 \end{thebibliography}
 
 \end{document}
+
 

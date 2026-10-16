@@ -1,0 +1,347 @@
+{
+  "id": "F-I",
+  "zenodo_record": "Foundation_I",
+  "concept_doi": "10.5281/zenodo.19627786",
+  "source_tex": "fable review/zenodo_upload_staging/Foundation_I_v2.tex",
+  "source_sha256": "63379e647fdd4000f4239f42c35c1148825e04bcced98290c1be2d267af23409",
+  "source_bytes": 102673,
+  "lines": 3158,
+  "s0_pdf": "Foundation_I_v2.pdf",
+  "s0_pdf_sha256": "fe5caac7285da4e4b7a6adc8c63d1561a79fc038abc978dc0ae71eba2313a3a8",
+  "s0_pdf_producer": "xdvipdfmx (20250205)",
+  "s0_pdf_pages": 36,
+  "supplement": [],
+  "extra_dependencies": [],
+  "note": "working copy; edit only here. S0 original stays untouched.",
+  "rewrite": {
+    "date": "2026-10-04",
+    "round": 21,
+    "status": "Dependency edits after the C-I rewrite: abstract, introduction, Stage D remark, target theorem item (Cut input replaces the Paper I admissibility hypotheses), open-problems bridge item, conclusion, ledger, bibliography; the anchored relative-shell proposition moved to Appendix C with a note that the chain does not use it; the shell-threshold trilemma remarks removed (they concerned the retired shell route and are not proved in the text). Prose pass NOT done for the July text (several 'honest/calibration' passages remain).",
+    "pre_edit_equals_s0_original": true,
+    "source_sha256": "63379e647fdd4000f4239f42c35c1148825e04bcced98290c1be2d267af23409",
+    "rewrite_sha256": "d11bc5f523e95fcf78957f122eb14a769afc6c699c96d3051fdb7b74c4c93ef5",
+    "build": "xelatex/pdflatex x3 in a scratch directory: 35 pages (S0 PDF: 36), 0 undefined references, 0 errors, 0 overfull boxes",
+    "july_working_copy_archive": "archive/Foundation_I_v2_july2026_workingcopy.tex",
+    "round22": "round 22: standardness stated where the net is wanted (translations follow from the modular data; net and modular data determine each other for a standard Cut); Cut input marked standard if the net is wanted"
+  },
+  "later_revisions": [
+    {
+      "date": "2026-10-04/05",
+      "round": "autonomous batch 1",
+      "integrator": "Claude main session",
+      "changes": "dependency edit: HAFF-D exact pointer-algebra check described as the commuting (h=0) dephasing model, matching HAFF-D. xelatex: 35 pages, 0 errors/undefined/overfull. Prose pass not done.",
+      "sha256": "9b93813136cc234ba53a99dc90dcbfed98684b9f1c7c3cbb10b58a66ee36d7a1",
+      "before_snapshot": "research/autonomous_claude_20261004/main/F_I_before_batch1.tex",
+      "snapshot": "research/autonomous_claude_20261004/main/F_I_batch1.tex",
+      "pdf": "research/autonomous_claude_20261004/main/F_I_batch1.pdf"
+    },
+    {
+      "date": "2026-10-05",
+      "round": "autonomous batch 1",
+      "integrator": "Claude main session",
+      "changes": "dependency edits after the TD-I rewrite: imported survival identity now carries the interaction-energy term (two places); the projected record process is marked as assumed by Foundation I (TD-I does not supply it); the corollary formerly called \"Pure-dephasing envelope\" relied on a function misattributed to TD-I as the Lorentz-Drude pure-dephasing solution; it is now the damped-oscillator envelope of the damped Jaynes-Cummings coherence factor (coupling 2 lambda_i, width gamma_i, strong coupling), with a note that the LD pure-dephasing modulus decreases strictly. Main argument and prose NOT revised (F-I reconstruction pending). xelatex 36 pages clean.",
+      "sha256": "71070027b2fbf3271bd2854fccf129ddd35e5ca75b29f33405e8d8169646e01a",
+      "before_snapshot": "research/autonomous_claude_20261004/main/F_I_before_batch1b.tex",
+      "snapshot": "research/autonomous_claude_20261004/main/F_I_batch1b.tex",
+      "pdf": "research/autonomous_claude_20261004/main/F_I_batch1b.pdf"
+    },
+    {
+      "date": "2026-10-05",
+      "round": "autonomous batch 1",
+      "integrator": "Claude main session",
+      "changes": "dependency edits after the TD-II rewrite: the ego prior and the foreground basis are now stated as inputs (the new TD-II forms frames from records and ranks directions by task weight); PS2/PS3 no longer cite a TD-II rate-distortion optimum. Main argument still pending reconstruction.",
+      "sha256": "4ab700c3da59ebd48be042d8eb0e7497e7f4d8a8c0475b154d6ef70d60e7fd13",
+      "before_snapshot": "research/autonomous_claude_20261004/main/F_I_before_batch1c.tex",
+      "snapshot": "research/autonomous_claude_20261004/main/F_I_batch1c.tex",
+      "pdf": "research/autonomous_claude_20261004/main/F_I_batch1c.pdf"
+    },
+    {
+      "date": "2026-10-06",
+      "round": "autonomous batch 1",
+      "integrator": "Claude main session",
+      "cross_model": "same-model only",
+      "drafted_by": "agent H (research/autonomous_claude_20261004/agentH_f1; diagnostic.md, notes.md, checks/hull_finite.py and characters.py with outputs, FREEZE.sha256)",
+      "changes": "main-argument reconstruction (3129 -> about 1300 lines); new subtitle \"Accessible Algebras from a Source, Its Noise and a Readable Seed\". Stationary-source theorem derives the four former assumptions (fixed set is a vN algebra, modular invariance, unique state-preserving normal expectation commuting with the dynamics, vanishing NZ memory kernel on the fixed sector); non-stationary qubit example; asymptotic partner state. Hull structure (unique expectation, restricted modular data; for stable seeds the modular hull, between seed and fixed algebra, proper when noise acts, join-preserving); records commuting with the state generate only themselves; finite-dimension and chiral-vacuum propositions. Cut inheritance (every nonscalar hull closed under forward translations contains a half-sided modular inclusion on its vacuum-cyclic space; translations restricted ambient ones). Galois law via Izumi-Longo-Popa (minimal compact symmetry: hull = fixed-point algebra of the seed stabilizer). SU(2)_1 net: minimality, current seed generates the U(1) current algebra under the modular flow alone (Mellin-Wiener), hull characters sum_j m_j(K)(q^{j^2}-q^{(j+1)^2})/phi(q) determine K up to conjugacy, three hulls under one-axis dephasing, plateau of length about 1/s. Foreground selection from TD-II capability theorem with Davis-Kahan bound; budget proposition statement unchanged. Response: stress excitations see every Virasoro-containing hull alike; current excitation strictly less in the Virasoro hull (Petz). Three labelled conjectures. Removed: Lemma A (circular), the conditional theorem, PS2 package (July corollary error: centred vs uncentred omission losses, dropped (sum E lambda_i)^2 and factor beta), four-tail package, Appendix C. Abstract overclaim \"subset of A_c^HAFF\" replaced by inclusion in Fix(E). No acknowledgment.",
+      "checks": "agent H checks ALL PASS. Main session re-derived Theorem stationary (a)-(d) incl. the normality argument, Example qubit, Theorem Cut inheritance (a)-(c), Lemma vacuum-space criterion, Theorem Galois (with the ILP statement as recalled), Proposition minimality, Lemma current seed (Mellin-Wiener and second quantization), and checked the SU(2)_1 character formula and the three-hull count (closed subgroups between SO(2) and SO(3)).",
+      "open_checks": "literature statements (ILP 1998 hypotheses, Takesaki, Borchers, Wiesbrock/AZ, GLW, BGL, Rehren, GKO, Petz, Davis-Kahan, Wiener) recalled from memory, not re-read; Thm 5.1(c) and Cor 8.2(b) and the character-determines-stabilizer lemma deserve an independent check",
+      "sha256": "fe0b4d27d2833f46d256eb5b3263907c9276a20178b90587f00d5a80b2701f91",
+      "before_snapshot": "research/autonomous_claude_20261004/main/F_I_before_batch1h.tex",
+      "snapshot": "research/autonomous_claude_20261004/main/F_I_batch1h.tex",
+      "pdf": "research/autonomous_claude_20261004/main/F_I_batch1h.pdf"
+    },
+    {
+      "date": "2026-10-06",
+      "round": "autonomous batch 1, independent check V3",
+      "integrator": "Claude main session",
+      "source_of_fixes": "research/autonomous_claude_20261004/agentV3_f1/notes.md (## REPORT; harness blocked report.md)",
+      "cross_model": "same-model only",
+      "before_snapshot": "research/autonomous_claude_20261004/main/F_I_before_batch1j.tex",
+      "changes": "minimality now includes faithfulness (ILP definition) with a proof line in Prop. minimal (also cited as known: Carpi 1999, Xu); Cut-inheritance \"in particular\" claim and its echoes in abstract, introduction and conclusion qualified by uniqueness of the translation-invariant vector (V3 counterexample A(0,inf) (x) M_2 with seed 1 (x) sigma_z: hull has no proper Cut); Thm su2 Gamma wording (Gamma = Gamma_3 for stress seeds; one of Gamma_sigma, Gamma_2, Gamma_3 for current seeds); response corollary (a) f supported in (0,inf); type-I remark uses implementing unitaries in A_U; objection to the Virasoro conjecture rewritten: Carpi 1999 rules out c<1 subnets, conjecture reduced to a lifting problem; finite-resolution remark after the seed-distinction theorem (C_n and U(1) hulls agree below level n^2); citations added: Watanabe 1979, Carpi 1999, Jencova-Petz survey",
+      "verification": "V3: literature statements checked against sources (ILP needs faithfulness; Takesaki, Choi, Borchers/Wiesbrock/AZ, GLW, Rehren, strong additivity, minimality, Petz, Davis-Kahan, Wiener confirmed); Cut (c), response (b), angles lemma, su2 theorem and table, plateau, chiral vacuum CONFIRMED; main session confirmed the Carpi 1999 bibliographic data by web search",
+      "sha256": "c39ace2b8b9a48b1938f7060b71083f495124828bfb95cc1b025fed184e08e25",
+      "snapshot": "research/autonomous_claude_20261004/main/F_I_batch1j.tex",
+      "pdf": "research/autonomous_claude_20261004/main/F_I_batch1j.pdf"
+    },
+    {
+      "date": "2026-10-07",
+      "round": "autonomous batch 1",
+      "integrator": "Claude main session",
+      "cross_model": "same-model only",
+      "changes": "response section: gravitational consequence from C-II (every selected algebra containing T reconstructs the same linearized geometry; relative entropy depends on the algebra); C-II bibliography entry added",
+      "sha256": "6f9ce46d1aa009d4b61c0752f918f16fc25a5edacd2874a367fc6f6b27e2f843",
+      "before_snapshot": "research/autonomous_claude_20261004/main/F_I_before_batch1k.tex",
+      "snapshot": "research/autonomous_claude_20261004/main/F_I_batch1k.tex",
+      "pdf": "research/autonomous_claude_20261004/main/F_I_batch1k.pdf"
+    },
+    {
+      "date": "2026-10-07",
+      "round": "Codex resumption, mature Sol integration",
+      "integrator": "ultra_imprint_integrate (explicit GPT-6.1 Sol / ultra)",
+      "cross_model": "Not cross-model or blind review; completed Sol candidate and prior reports were read.",
+      "drafted_by": "geometry_sol61/Foundation_I_candidate.tex, review.md, checks.py and checks_output.json; earlier Claude source retained",
+      "source_sha256": "6f9ce46d1aa009d4b61c0752f918f16fc25a5edacd2874a367fc6f6b27e2f843",
+      "sha256": "dade7c943286e90ae8e917162ff926ba3a8881568216f017c1d21312c68c81da",
+      "before_snapshot": "research/resumption_codex_20261007/ultra_geometry/archive_before/F_I.tex",
+      "before_provenance_snapshot": "research/resumption_codex_20261007/ultra_geometry/archive_before/F_I_PROVENANCE.json",
+      "snapshot": "research/resumption_codex_20261007/ultra_geometry/frozen/F_I.tex",
+      "pdf": "research/resumption_codex_20261007/ultra_geometry/frozen/F_I.pdf",
+      "provenance_snapshot": "research/resumption_codex_20261007/ultra_geometry/frozen/F_I_PROVENANCE.json",
+      "changes": "Integrated completed geometry_sol61 candidate: corrected normality proof via monotone nets and faithful state; nonorthogonal qubit projections; Gamma_3 covariance stated globally; corrected SO(2)/O(2) angle distributions; nonisomorphic standard Cut triples are subnets on the inherited ray, not different spacetime metrics; exact one-channel algebraic closure does not price all hull operations; passive plateau does not prove a universal correction rate; stress relative entropy and full modular restrictions distinguished from arbitrary one-sided energies; window conjecture means largest hull. Integrator additionally made seed self-adjoint wording precise, removed a duplicated covariance clause, and added factual PDF title/author metadata.",
+      "reading": "Complete current source and complete candidate read, including retained July/Claude text, abstract, conclusion, appendices and bibliography; full candidate diff also read. Shared principle, AGENTS, checkpoint, six-line plan, merge and current RESUME restored. No claim to have reread all cited original literature.",
+      "verification": "Scientific/prose readback of full manuscript and all changed passages. Root read the complete F-I diff; stationary normality, Cut inheritance, modular-current argument, Galois assumptions and scope checked algebraically. Archived numerical tests not rerun.",
+      "build": "latexmk -xelatex in own isolated build directory; XeTeX 0.999997 / TeX Live 2025; 22 pages; final log has no warnings, undefined references, duplicate labels, overfull or underfull reports. PDF title and author checked. Not a full-page visual audit.",
+      "open_checks": "Seed, ambient net/translations and task choice remain inputs. Source-to-Type-III generation, hull-maintenance resource implementation and novelty audit not closed.",
+      "notes": "research/resumption_codex_20261007/ultra_geometry/notes.md",
+      "freeze": "research/resumption_codex_20261007/ultra_geometry/FREEZE.json",
+      "provenance": "Preserves all S0 and previous revision history; immutable freeze records copied provenance, never the changing live provenance. No statistical text-watermark removal claimed."
+    },
+    {
+      "date": "2026-10-07",
+      "integrator": "Codex root continuation",
+      "status": "Audit A2 corrected in the existing working paper; stationary-source and hull results unchanged.",
+      "pre_edit_sha256": "dade7c943286e90ae8e917162ff926ba3a8881568216f017c1d21312c68c81da",
+      "sha256": "32b0bd180f40bd836cdb38a8a2affd63d2291496524c8a8c992ff738169f899c",
+      "before_snapshot": "research/continuation_codex_20261007/root_repairs/before/F_I.tex",
+      "before_provenance_snapshot": "research/continuation_codex_20261007/root_repairs/before/F_I_PROVENANCE.json",
+      "snapshot": "research/continuation_codex_20261007/root_repairs/frozen/F_I.tex",
+      "provenance_snapshot": "research/continuation_codex_20261007/root_repairs/frozen/F_I_PROVENANCE.json",
+      "changes": "Finite-window Gamma_in is the maximum summed squared block-width bound imported from HAFF-B, not the largest pairwise decoherence rate. Its explicit definition is now in the text; the operator-norm estimate is retained.",
+      "verification": "Root independently reproduced the selected M4-block counterexample and the correct bound in root_repairs/checks.py. Changed text and upstream HAFF-B rates read in context. No fresh whole-F-I publication certification or full literature audit.",
+      "build": "Isolated latexmk -xelatex; 22 pages; final log has no warnings, undefined references, overfull or underfull reports. PDF Title and Author present. No full-page visual audit.",
+      "remote": "July baseline, old frozen evidence, public GitHub and Zenodo untouched."
+    },
+    {
+      "date": "2026-10-08",
+      "round": "Claude round34 response: reviewed corrections and extensions",
+      "integrator": "Codex root, sole writer of papers for this batch",
+      "changes_and_review_scope": "Astra ultra development; root read complete diff, restoring distinct closure types, conditional Galois classification and Cut prerequisites.",
+      "model_note": "Physics and geometry: gpt-6-astra / ultra; subject: gpt-6.1-sol / ultra. Root reviewed candidates and independently checked listed new results. Known-background, non-blind review; not full-theory certification.",
+      "sha256": "2f47aa7068a7d381ed0aa41125c14138c01cf57d38ed7617b64af39c0ef0af87",
+      "before_sha256": "32b0bd180f40bd836cdb38a8a2affd63d2291496524c8a8c992ff738169f899c",
+      "before_snapshot": "research/round34_response_codex_20261008/integration_before/F-I/Foundation_I_v2.tex",
+      "before_provenance_snapshot": "research/round34_response_codex_20261008/integration_before/F-I/PROVENANCE.json",
+      "snapshot": "research/round34_response_codex_20261008/frozen/F-I/Foundation_I_v2.tex",
+      "provenance_snapshot": "research/round34_response_codex_20261008/frozen/F-I/PROVENANCE.json",
+      "pdf": "research/round34_response_codex_20261008/frozen/F-I/Foundation_I_v2.pdf",
+      "review": "research/round34_response_codex_20261008/REVIEW_AND_HANDOFF.md",
+      "build": "Isolated xelatex via latexmk; final log has no warning, undefined reference, overfull or underfull box. Title/Author present. Not an all-page visual or publication acceptance.",
+      "publication": "Working source only; July staging and public GitHub/Zenodo unchanged."
+    },
+    {
+      "date": "2026-10-12",
+      "round": "Approved whole-manuscript revision, group 1 / Foundation I",
+      "integrator": "Codex root, sole canonical writer",
+      "drafted_by": "manuscript_revision_executor (gpt-6.1-sol / high), fixed worker/F-I/v1; root scope corrections incorporated",
+      "before_sha256": "2f47aa7068a7d381ed0aa41125c14138c01cf57d38ed7617b64af39c0ef0af87",
+      "sha256": "6f4c7f589fcbf5a891db7cc2de37b5ad1255084f32aa909daff312c2c257f408",
+      "changes": "Full readback and manuscript revision retaining the source/noise/seed/hull/standard-Cut and SU(2)_1 classification. New physical-effect versus ideal-spectral seed distinction, exact partially mixed fresh-port sharp-instrument approximation on retained references, finite adaptive task transfer, explicit bounded-function probe and post-read-state counterexample. Cesaro expectation separated from relaxation; B largest-block and central-record scopes and TD-II projector-menu assumptions corrected.",
+      "checks": "Root read old 1471 lines and new 1694 lines including fixed-version delta and HANDOFF; new and retained proofs checked. Separate explicit S x old-reference x fresh-port density evolution, majority instrument and trace-distance checks, bounded-function positive-H gate and nonrelaxing trajectory checks. Worker reran inherited hull/character diagnostics; root did not independently rerun all historic scripts or certify all primary proofs.",
+      "before_snapshot": "revision_execution_20261011/root_checks/FI_before.tex",
+      "before_provenance_snapshot": "revision_execution_20261011/root_checks/FI_PROVENANCE_before.json",
+      "snapshot": "revision_execution_20261011/root_checks/FI_v1_after.tex",
+      "provenance_snapshot": "revision_execution_20261011/root_checks/FI_v1_PROVENANCE_after.json",
+      "pdf": "revision_execution_20261011/root_checks/FI_v1_root_build.pdf",
+      "build": "Isolated latexmk/XeLaTeX: 26 pages; final log has no Warning, undefined, Overfull or Underfull. Title and Author present. Root did not inspect every page visually.",
+      "review": "revision_execution_20261011/root_checks/FI_v1_review.md",
+      "model_note": "Informed same-platform root review with separate calculations; not blind, not Claude or cross-model audit. C-I single-sided stress-orbit strengthening pending separate review and dependency update.",
+      "publication": "Local working manuscript only; July staging and public repositories unchanged. Author final review and exact-version upload authorization required."
+    },
+    {
+      "date": "2026-10-12",
+      "round": "Group 1 / Foundation I v2 C-I interface integration",
+      "integrator": "Codex root, sole canonical writer",
+      "drafted_by": "manuscript_revision_executor (gpt-6.1-sol / high), fixed worker/F-I/v2",
+      "before_sha256": "6f4c7f589fcbf5a891db7cc2de37b5ad1255084f32aa909daff312c2c257f408",
+      "sha256": "95d22eb01a91528265643f7a079ba7dc24cab841ad153e545a5bab1640930e60",
+      "upstream_ci_sha256": "5b04323fc9ec84a2a7170808f8c2bba3ba0fb705a0306dc873e951e1d60a6a59",
+      "changes": "C-I positive log-bump theorem connected to Gamma_sigma/Gamma2/Gamma3 stress-seed hulls and a standard one-sided Cut in the Virasoro vacuum space. Arbitrary stress seed retains Gamma3, current seed and prior instrument/character proofs unchanged. Abstract, introduction, conclusion and C-I title synchronized.",
+      "checks": "Root read full v1 and entire v2 delta with adjacent Gamma/F1/SU2 assumptions; new dependency proof checked against fixed C-I construction. Existing independent root instrument checks retain v1 scope, not rerun or recast as a new audit. Root visually checked fixed worker v2 page 15 and earlier v1 page 6, not all pages.",
+      "before_snapshot": "revision_execution_20261011/root_checks/FI_v1_after.tex",
+      "before_provenance_snapshot": "revision_execution_20261011/root_checks/FI_v2_PROVENANCE_before.json",
+      "snapshot": "revision_execution_20261011/root_checks/FI_v2_after.tex",
+      "provenance_snapshot": "revision_execution_20261011/root_checks/FI_v2_PROVENANCE_after.json",
+      "pdf": "revision_execution_20261011/root_checks/FI_v2_root_build.pdf",
+      "review": "revision_execution_20261011/root_checks/FI_v2_review.md",
+      "build": "Isolated latexmk/XeLaTeX: 26 pages, final log no Warning/undefined/Overfull/Underfull, Title/Author present.",
+      "model_note": "Informed same-platform root review; no Claude/cross-model acceptance, no blanket all-seed modular-only theorem.",
+      "publication": "Local manuscripts only; author final review and exact-version upload authorization required."
+    },
+    {
+      "date": "2026-10-12",
+      "round": "Final corpus dependency and bibliography synchronization",
+      "integrator": "Codex root",
+      "sha256": "fadc9141f928f4f90b3ed373c0d667bc770bf0f6321d5a4a601fd4a99a328723",
+      "changes": "bib:PaperCII, bib:HAFFD, S4",
+      "before_snapshot": "revision_execution_20261011/root_checks/dependency_sync/F-I/before.tex",
+      "snapshot": "revision_execution_20261011/root_checks/dependency_sync/F-I/after.tex",
+      "review": "revision_execution_20261011/root_checks/DEPENDENCY_SYNC_REVIEW.md",
+      "cross_model": "Root exact-match integration after full-manuscript approvals; independent audit pending.",
+      "publication": "Author final review and explicit version upload authorization required."
+    },
+    {
+      "date": "2026-10-13",
+      "round": "Global audit repair and manuscript consolidation",
+      "integrator": "Codex root; sole formal writer",
+      "before_sha256": "fadc9141f928f4f90b3ed373c0d667bc770bf0f6321d5a4a601fd4a99a328723",
+      "sha256": "8764df97de6a9aaeafd8e9e9e032aa67affe28768d89560c2b1f5a02632c16d2",
+      "changes": [
+        "A4: one-axis corollary inherits the mother theorem's seed and operation-family conditions.",
+        "Consolidate repeated stationary-partner discussion; counterexamples and every original proof retained."
+      ],
+      "before_snapshot": "revision_repair_20261013/before/F-I/Foundation_I_v2.tex",
+      "snapshot": "revision_repair_20261013/after/F-I/Foundation_I_v2.tex",
+      "review": "revision_repair_20261013/REVIEW.md",
+      "evidence_scope": "Known-background root review and fixed audit deltas; native GPT-6.1/high long-paper candidate work. Not Claude independent audit or author acceptance.",
+      "publication": "Local working revision; exact-version author review and explicit upload authorization required."
+    },
+    {
+      "date": "2026-10-15",
+      "revision": "postaudit_20261014",
+      "integrator": "Codex root",
+      "baseline": "review_build_summaryfix_20261013_v3",
+      "before_sha256": "8764df97de6a9aaeafd8e9e9e032aa67affe28768d89560c2b1f5a02632c16d2",
+      "sha256": "4e336797ae57e9e006bc211a16f5a0c243c2d0e8092ae10d1e61623e8e28a136",
+      "audit": "research/synthesis/claude/final_adversarial_review_20261013",
+      "dispositions": "revision_postaudit_20261014/DISPOSITION.csv",
+      "review": "revision_postaudit_20261014/REVIEW.md",
+      "status": "Post-adversarial-review working revision; author approval and independent re-review not claimed.",
+      "supplementary_files": [
+        {
+          "path": "OctoberReview/papers/F-I/supplemental/reproducibility/README.md",
+          "local": "supplemental/reproducibility/README.md",
+          "sha256": "331928e58352344849726e3cf7522c323620d26c5acd7e3202b6cc356a0d5509"
+        },
+        {
+          "path": "OctoberReview/papers/F-I/supplemental/reproducibility/SOURCE_MAP.json",
+          "local": "supplemental/reproducibility/SOURCE_MAP.json",
+          "sha256": "9cc495890b3075af0c7c71e7f29250309162c8191ae78cca1d630a9b9f506831"
+        },
+        {
+          "path": "OctoberReview/papers/F-I/supplemental/reproducibility/run_check.py",
+          "local": "supplemental/reproducibility/run_check.py",
+          "sha256": "b85cc7a96674bcf06243c4151a122ccddf8aee8606a1cfef478c991433ac14f1"
+        },
+        {
+          "path": "OctoberReview/papers/F-I/supplemental/reproducibility/source_tree/OctoberReview/research/autonomous_claude_20261004/agentH_f1/checks/characters.py",
+          "local": "supplemental/reproducibility/source_tree/OctoberReview/research/autonomous_claude_20261004/agentH_f1/checks/characters.py",
+          "sha256": "b1f630c3b6e4e283e5f45df114de1b41adb06eda6566e64045682fdbda14cfe2"
+        },
+        {
+          "path": "OctoberReview/papers/F-I/supplemental/reproducibility/source_tree/OctoberReview/research/autonomous_claude_20261004/agentH_f1/checks/hull_finite.py",
+          "local": "supplemental/reproducibility/source_tree/OctoberReview/research/autonomous_claude_20261004/agentH_f1/checks/hull_finite.py",
+          "sha256": "9f90eb1f9b3444b4946d41fd454786dc0c1f221f077ce4a1e3a9cc84bb0113ad"
+        },
+        {
+          "path": "OctoberReview/papers/F-I/supplemental/reproducibility/source_tree/OctoberReview/revision_execution_20261011/worker/F-I/v1/check_permission_bridge.py",
+          "local": "supplemental/reproducibility/source_tree/OctoberReview/revision_execution_20261011/worker/F-I/v1/check_permission_bridge.py",
+          "sha256": "bbfd3576574a0f773d7313cbaca3b79302292c054c398bfad758c9158f9a84d4"
+        },
+        {
+          "path": "OctoberReview/papers/F-I/supplemental/reproducibility/source_tree/OctoberReview/revision_execution_20261011/worker/F-I/v1/check_permission_bridge_output.json",
+          "local": "supplemental/reproducibility/source_tree/OctoberReview/revision_execution_20261011/worker/F-I/v1/check_permission_bridge_output.json",
+          "sha256": "267bdfedce067963526b0c76e20774711d7dd39c9a60e9febe3da76a8ceb134c"
+        },
+        {
+          "path": "OctoberReview/papers/F-I/supplemental/reproducibility/source_tree/OctoberReview/revision_execution_20261011/worker/F-I/v1/inherited_characters_output.txt",
+          "local": "supplemental/reproducibility/source_tree/OctoberReview/revision_execution_20261011/worker/F-I/v1/inherited_characters_output.txt",
+          "sha256": "7cb59c5930f8212ebee532cb5ab25e1fc12ded2adc3cec59143b5295d435da40"
+        },
+        {
+          "path": "OctoberReview/papers/F-I/supplemental/reproducibility/source_tree/OctoberReview/revision_execution_20261011/worker/F-I/v1/inherited_hull_output.txt",
+          "local": "supplemental/reproducibility/source_tree/OctoberReview/revision_execution_20261011/worker/F-I/v1/inherited_hull_output.txt",
+          "sha256": "969f5aa02d03b09ad93ffaff8c6ff4f2f6ad95946d96e82d9c81ed26caba32bf"
+        },
+        {
+          "path": "OctoberReview/papers/F-I/supplemental/source_notes/FI_full_diagnostic_protocol.tex",
+          "local": "supplemental/source_notes/FI_full_diagnostic_protocol.tex",
+          "sha256": "6162757258563a7b6cb19ad69f9954f168b981cc103b19d4aa1301de03809a6c"
+        },
+        {
+          "path": "OctoberReview/papers/F-I/supplemental/source_notes/FI_prior_corrections.tex",
+          "local": "supplemental/source_notes/FI_prior_corrections.tex",
+          "sha256": "42891faaeee459054f2926449f2a40d8cccdb7349744e02baec6b1d8b45f841f"
+        },
+        {
+          "path": "OctoberReview/papers/F-I/supplemental/source_notes/README.md",
+          "local": "supplemental/source_notes/README.md",
+          "sha256": "a22ced721c37ff6ed418da97c2d3abe80d562da10400373324d7c43d329362dd"
+        }
+      ]
+    },
+    {
+      "date": "2026-10-15",
+      "revision": "minor_v5_20261015",
+      "integrator": "Codex root",
+      "baseline": "review_build_postaudit_20261015_v4",
+      "before_sha256": "4e336797ae57e9e006bc211a16f5a0c243c2d0e8092ae10d1e61623e8e28a136",
+      "sha256": "9bc51e687570be89f5d111a46c2515b359b4a1e9ab28c93da1824b163b1facab",
+      "audit": "research/synthesis/claude/postaudit_v4_review_20261015",
+      "dispositions": "revision_minor_v5_20261015/DISPOSITION.csv",
+      "review": "revision_minor_v5_20261015/REVIEW.md",
+      "status": "Bounded minor revision; new edits root-reviewed, not a fresh cross-model acceptance or publication approval.",
+      "changed_source_assets": [
+        {
+          "path": "OctoberReview/papers/F-I/Foundation_I_v2.tex",
+          "before": "4e336797ae57e9e006bc211a16f5a0c243c2d0e8092ae10d1e61623e8e28a136",
+          "after": "9bc51e687570be89f5d111a46c2515b359b4a1e9ab28c93da1824b163b1facab"
+        }
+      ]
+    },
+    {
+      "date": "2026-10-15",
+      "revision": "references_v7r2_20261015",
+      "integrator": "Codex root",
+      "baseline": "v7r1",
+      "before_sha256": "9bc51e687570be89f5d111a46c2515b359b4a1e9ab28c93da1824b163b1facab",
+      "sha256": "e8b2558fc56279edd4ddceff5880579882b18d657633d31967e603e16d769628",
+      "changes": "Removed working-revision status from 9 self-citations; retained author, title, year, DOI and citation keys. No text outside bibliography changed.",
+      "review": "revision_references_v7r2_20261015/REVIEW.md",
+      "publication": "No upload; exact-version author approval required."
+    },
+    {
+      "date": "2026-10-16",
+      "revision": "direction_revision_P1_FI",
+      "integrator": "Codex root",
+      "before_sha256": "e8b2558fc56279edd4ddceff5880579882b18d657633d31967e603e16d769628",
+      "sha256": "9407e92ed3ce29d36a3c295ac0c4f6345b9506d4313b34650cb0458177e82ef7",
+      "changes": "Separated the finite source/permission interface from the chiral net/Cut realization; derived the finite central-seed hull from existing propositions, corrected the scope of the supplied-translation input, and moved the centred-loss qualification beside its coding model. Title retained; all 26 old proof blocks and 48 old labels retained.",
+      "review": "research/direction_revision_execution_20261016/ROOT_REVIEW.md",
+      "checks": "Root read the manuscript and the changed interfaces; candidate XeLaTeX build 26 pages (published 25), no final-log warnings or undefined references. Mechanical delta in root/fi_candidate/DELTA.json. No fresh external theorem audit or Claude review.",
+      "publication": "Working manuscript only; published baseline and all frozen release artifacts unchanged. G1 finite-to-net bridge remains unproved."
+    },
+    {
+      "date": "2026-10-16",
+      "round": "direction-postopus-20261016",
+      "integrator": "Codex root",
+      "basis": "Opus direction review at private book c8beff7; root targeted response, not external acceptance.",
+      "changes": "Scope/title/cross-reference corrections; D and QR-C technical appendices separated without loss. See direction_postopus_fix_20261016/DISPOSITION.md and per-paper diff.",
+      "before_sha256": "409ac7bafd5fc84c4e237e795964d8e3f67d88c1174e5cfa279881491c9e67e1",
+      "sha256": "0ca445c6d97c1bf2a3d2d4a6923fea4f111aa51e229e8ac414291bf5f15aaa9c",
+      "source_assets": {
+        "Foundation_I_v2.tex": "0ca445c6d97c1bf2a3d2d4a6923fea4f111aa51e229e8ac414291bf5f15aaa9c"
+      },
+      "checks": "Original proof blocks and label sets retained; separate build/numbering evidence in fix package.",
+      "publication": false
+    }
+  ]
+}

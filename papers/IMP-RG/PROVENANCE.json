@@ -1,0 +1,230 @@
+{
+  "id": "IMP-RG",
+  "zenodo_record": "Imprint_RG_Filtering",
+  "concept_doi": "10.5281/zenodo.20151451",
+  "source_tex": "fable review/zenodo_upload_staging/Imprint_RG_Filtering.tex",
+  "source_sha256": "e29349ffb34c931ca4a8e0359e8051f1a16884392fc77be8c3052d72bb7ed758",
+  "source_bytes": 25919,
+  "lines": 308,
+  "s0_pdf": "Imprint_RG_Filtering.pdf",
+  "s0_pdf_sha256": "28ee19b6aac5e12afa7a04968aebae9ca6b1567004fe0b2b447c7171e390c4ff",
+  "s0_pdf_producer": "pdfTeX-1.40.27",
+  "s0_pdf_pages": 9,
+  "supplement": [],
+  "extra_dependencies": [],
+  "note": "working copy; edit only here. S0 original stays untouched.",
+  "rewrite": {
+    "date": "2026-10-04",
+    "round": 24,
+    "status": "Substantive rewrite of the existing IMP-RG paper; source question and series role retained. Full manuscript read by the root reviewer; formulas and selected numerical results independently checked. Not a completed novelty audit or publication approval.",
+    "writer": "one development agent inheriting the root model and reasoning effort",
+    "reviewer": "root session; same-model review, not independent-model certification",
+    "pre_edit_equals_s0_original": true,
+    "pre_edit_archive": "../../research/imprint/codex_development_v1/Imprint_RG_Filtering_before.tex",
+    "rewrite_sha256": "1cbb01f2301ee31569b414db5b7087bb007e6946a9ac363d538188b5dfbe4273",
+    "working_title": "Renormalization and Imprint Filtering: Source Identification, Memory, and Calibration",
+    "content": "Finite Gaussian lattice block spectra; source Fisher/Chernoff information and readout resources; preparation-history decay under a common bath; strict coarse-interface memory advantage, including finite records and arithmetic; source-gain identifiability from two frequencies.",
+    "build": "Root isolated pdflatex compilation: 9 pages, 0 errors, 0 undefined references, 0 overfull boxes; 3 underfull warnings in bibliography. Accurate PDF Title and Author. Full TeX prose and final changed passages read; not a full PDF visual audit.",
+    "review": "../../research/synthesis/codex/round24_v1/review.md",
+    "review_pdf": "../../research/synthesis/codex/round24_v1/IMP_RG_reviewed.pdf",
+    "prose": "Whole paper rewritten and read; repetitive defensive framing and internal review-history prose removed. Technical conditions and factual provenance retained. No claim of statistical-watermark detection or elimination.",
+    "remote": "No staging, GitHub or Zenodo modification. Other three Imprint papers unchanged in this round."
+  },
+  "integrations": [
+    {
+      "date": "2026-10-04",
+      "round": 32,
+      "writer": "Codex root session; assigned by the author as manuscript integrator",
+      "reviewer": "Same-model development agent checked the new proofs and surrounding claims; Claude review of this integrated version remains pending",
+      "pre_edit_archive": "../../research/synthesis/codex/round32_v1/IMP_RG_before.tex",
+      "pre_edit_provenance_archive": "../../research/synthesis/codex/round32_v1/IMP_RG_PROVENANCE_before.json",
+      "pre_edit_sha256": "1cbb01f2301ee31569b414db5b7087bb007e6946a9ac363d538188b5dfbe4273",
+      "integrated_sha256": "d70d4c1b99365a7cc53395ef14399b6c567ac8897a175d92fbcc434acc26c67d",
+      "snapshot": "../../research/synthesis/codex/round32_v1/IMP_RG_revised.tex",
+      "content": "Sections 7.1 and 7.2: gain-invariant block-variance F law, exact finite-sample decisions and equal-split reading thresholds; noise placement; same-scale two-setting calibration; finite-budget low-gain KL and testing bounds for adaptive policies. Abstract, introduction, conclusion and numerical appendix synchronized. Earlier source-gain, memory and filtering results retained.",
+      "inputs": "Claude round31 two-scale candidate and round32 readout model reviewed, corrected and developed; root independently recomputed spectra from the fine lattice and exact F CDFs. No Claude simulation script imported or rerun.",
+      "build": "Isolated pdflatex: 12 pages, zero errors, warnings, undefined references and overfull/underfull boxes. PDF pages 8-10 visually inspected.",
+      "review": "../../research/synthesis/codex/round32_v1/review.md",
+      "review_pdf": "../../research/synthesis/codex/round32_v1/IMP_RG_reviewed.pdf",
+      "prose": "Root read the complete pre-edit TeX and all additions, and read back changed surrounding text. Claims lead; technical conditions remain beside their use. No internal audit history copied into the paper. Not a statistical-watermark clearance or complete novelty audit.",
+      "remote": "No staging, GitHub, Zenodo or other paper changes in this integration."
+    }
+  ],
+  "later_revisions": [
+    {
+      "date": "2026-10-04",
+      "round": "autonomous batch 1 (Claude main session, temporary integrator while Codex is paused)",
+      "integrator": "Claude",
+      "basis": "Claude round-33b second review suggestions as accepted in Codex round-33 review section 4 (research/synthesis/codex/round33_handoff_review/review.md)",
+      "changes": "Prop. noise: ratio law stated for two settings at one scale (exact gain-free F law, monotone in sigma^2) with the derivative in the proof; after Prop. budget: per-read cap E_i<=E_max gives B*E_max in place of B^2, pathwise sum sharper; input-referred contrast: b^4 cancels, invariant designs/policies gain-independent, amplitude-reactive policies not covered. The r1=0 cost comparison was NOT added (infinite readout energy in this model).",
+      "previous_sha256": "d70d4c1b99365a7cc53395ef14399b6c567ac8897a175d92fbcc434acc26c67d",
+      "sha256": "a4f57d3c51295e961fe081775f75813ccadcd566a78705ae4a390abed240c857",
+      "before_snapshot": "research/autonomous_claude_20261004/main/IMP_RG_before_batch1.tex",
+      "snapshot": "research/autonomous_claude_20261004/main/IMP_RG_batch1.tex",
+      "build": "pdflatex x3 in a scratch folder: 12 pages, 0 errors, 0 warnings, 0 overfull/underfull; PDF research/autonomous_claude_20261004/main/IMP_RG_batch1.pdf",
+      "review_status": "additions checked by Claude (derivations in research/synthesis/claude/round33b); Codex accepted the structure in its round-33 review; the added wording not yet cross-model reviewed"
+    },
+    {
+      "date": "2026-10-09",
+      "round": "Foundation return and persistent access",
+      "integrator": "Codex root",
+      "sha256": "677059bb3d902787752960e4c54a310b36ebb2cf8b0874b8f9962752d10c5087",
+      "changes": "Foundation III working title and bank section reference synchronized; no scientific argument altered.",
+      "before_snapshot": "research/foundation_return_writeback_codex_20261009/before/IMP-RG/Imprint_RG_Filtering.tex",
+      "snapshot": "research/foundation_return_writeback_codex_20261009/frozen/IMP-RG/Imprint_RG_Filtering.tex",
+      "review": "research/foundation_return_writeback_codex_20261009/REVIEW_AND_HANDOFF.md",
+      "checks": "Targeted bibliography read-back and diff check only; isolated rebuild. Prior scientific review not upgraded.",
+      "cross_model": "Current text awaits the planned post-14 independent audit; reference-only edits do not upgrade evidence.",
+      "publication": "Local working draft only. Author final review and separate upload authorization required."
+    },
+    {
+      "date": "2026-10-09",
+      "round": "History changes reading and preserves its future availability",
+      "integrator": "Codex root",
+      "sha256": "05ea5b2c79fea106a088f41924e3d6d076c2850f662e3ce4cbe8c5efee7d2879",
+      "changes": "Passive scale-resolved information, history-controlled allocation and an analytic bound for all fixed splits.",
+      "before_snapshot": "research/imprint_access_writeback_codex_20261009/before/IMP-RG/Imprint_RG_Filtering.tex",
+      "snapshot": "research/imprint_access_writeback_codex_20261009/frozen/IMP-RG/Imprint_RG_Filtering.tex",
+      "review": "research/imprint_access_writeback_codex_20261009/REVIEW_AND_HANDOFF.md",
+      "checks": "Root source reading, own spectral/Markov/rational checks and isolated builds; informed same-model review, not a new independent audit.",
+      "cross_model": "New proofs and integrated text await independent post-14 review.",
+      "publication": "Local working draft only; author final review and explicit upload authorization required."
+    },
+    {
+      "date": "2026-10-09",
+      "round": "History, paid scale and actual control on one continuing field",
+      "integrator": "Codex root",
+      "sha256": "6b38c89e6f26aa00c7bc823f7a87b37a757b22be68c237403894835fa7315bcf",
+      "changes": "Same-field history-selected noisy block reading, bounded positive-potential force, exact risk and work, finite-record certificate and controlled Gaussian continuation.",
+      "before_snapshot": "research/history_field_control_codex_20261009/before/IMP-RG/Imprint_RG_Filtering.tex",
+      "snapshot": "research/history_field_control_codex_20261009/frozen/IMP-RG/Imprint_RG_Filtering.tex",
+      "review": "research/history_field_control_codex_20261009/REVIEW_AND_HANDOFF.md",
+      "checks": "Root complete source reading, Gaussian proof, explicit finite-precision risk bound, full-lattice and continuing-field checks; isolated builds.",
+      "cross_model": "New results await independent post-14 review; no independent certification.",
+      "publication": "Local draft only; author final review and explicit upload permission required."
+    },
+    {
+      "date": "2026-10-12",
+      "round": "Parallel IMP-RG v2 root finite-record extension",
+      "integrator": "Codex root",
+      "drafted_by": "parallel_sharing v1 and sharing_interfaces_oct12 v2 native GPT-6.1-sol/high; finite-record corollary by root",
+      "sha256": "244a545f795d8be3bbcb69ccb9657197f7fc6ab141569f9eca67490773dcbca3",
+      "worker_source_sha256": "d244f1d6f18c2b7c61152b5286290d14a3c863a8e179dbd752d382c5941178b6",
+      "before_snapshot": "revision_execution_20261011/root_checks/IMP_RG_parallel_before.tex",
+      "before_provenance_snapshot": "revision_execution_20261011/root_checks/IMP_RG_parallel_PROVENANCE_before.json",
+      "snapshot": "revision_execution_20261011/root_checks/IMP_RG_parallel_after.tex",
+      "provenance_snapshot": "revision_execution_20261011/root_checks/IMP_RG_parallel_PROVENANCE_after.json",
+      "pdf": "revision_execution_20261011/root_checks/IMP_RG_parallel.pdf",
+      "changes": "Continuing carrier paid active reference separates source rate and gain; unknown centered independent read-noise cap; root finite range/bit response certificate and integer accumulation close exact-real acquisition dependency without replacing state posterior by Gaussian plug-in.",
+      "verification": "Root read complete1630-line v2, complete current1371-line differences plus all retained text/proofs; rederived response/martingale compact bounds/next action/finite quantization. All13 old formal proof blocks preserved. Independent sharing-support exact event calculations retained, own16 nonGaussian response and3609 quantizer cases passed; old lattice/MC/interval numerical archives not all replayed.",
+      "prose_scope": "Complete old retained/new prose, appendix and public comments under my-writing; actual23-page clean3pass XeLaTeX and pages17/18/19 viewed. Not author voice approval, cross-model audit or watermark verification.",
+      "publication": "Local source only; author final review and exact-version upload authorization required."
+    },
+    {
+      "date": "2026-10-12",
+      "round": "Final corpus dependency and bibliography synchronization",
+      "integrator": "Codex root",
+      "sha256": "d6a67639534ef838ffa6673ddb32c00e901c1d8426e66d2744fdd1feba972d73",
+      "changes": "bib:HAFFA, L4",
+      "before_snapshot": "revision_execution_20261011/root_checks/dependency_sync/IMP-RG/before.tex",
+      "snapshot": "revision_execution_20261011/root_checks/dependency_sync/IMP-RG/after.tex",
+      "review": "revision_execution_20261011/root_checks/DEPENDENCY_SYNC_REVIEW.md",
+      "cross_model": "Root exact-match integration after full-manuscript approvals; independent audit pending.",
+      "publication": "Author final review and explicit version upload authorization required."
+    },
+    {
+      "date": "2026-10-15",
+      "revision": "postaudit_20261014",
+      "integrator": "Codex root",
+      "baseline": "review_build_summaryfix_20261013_v3",
+      "before_sha256": "d6a67639534ef838ffa6673ddb32c00e901c1d8426e66d2744fdd1feba972d73",
+      "sha256": "3fe1ad497127ccfaf0929fe43e00b84cfa7fd25b01796d69cd855b12bab190ca",
+      "audit": "research/synthesis/claude/final_adversarial_review_20261013",
+      "dispositions": "revision_postaudit_20261014/DISPOSITION.csv",
+      "review": "revision_postaudit_20261014/REVIEW.md",
+      "status": "Post-adversarial-review working revision; author approval and independent re-review not claimed.",
+      "supplementary_files": [
+        {
+          "path": "OctoberReview/papers/IMP-RG/supplemental/history_price/HISTORY_PRICE.json",
+          "local": "supplemental/history_price/HISTORY_PRICE.json",
+          "sha256": "13c88aa1018ce6b2715503914d5435eec94828dbad44be00c219798056f09921"
+        },
+        {
+          "path": "OctoberReview/papers/IMP-RG/supplemental/history_price/README.md",
+          "local": "supplemental/history_price/README.md",
+          "sha256": "5b52b67abe1f419391521a6855bd476e9d0fd2df90398a5fa42b0fd8e4d45d2c"
+        },
+        {
+          "path": "OctoberReview/papers/IMP-RG/supplemental/history_price/check_history_price.py",
+          "local": "supplemental/history_price/check_history_price.py",
+          "sha256": "af825013cb3db2e6dbf1e2514fbf565daf3b3a573bbe90b2a64d3a37eede344b"
+        }
+      ]
+    },
+    {
+      "date": "2026-10-15",
+      "revision": "minor_v5_20261015",
+      "integrator": "Codex root",
+      "baseline": "review_build_postaudit_20261015_v4",
+      "before_sha256": "3fe1ad497127ccfaf0929fe43e00b84cfa7fd25b01796d69cd855b12bab190ca",
+      "sha256": "e878598aabfc1cea01626724a8cf2a9972cd64fe1caeb4cc7d75e8f349fe165c",
+      "audit": "research/synthesis/claude/postaudit_v4_review_20261015",
+      "dispositions": "revision_minor_v5_20261015/DISPOSITION.csv",
+      "review": "revision_minor_v5_20261015/REVIEW.md",
+      "status": "Bounded minor revision; new edits root-reviewed, not a fresh cross-model acceptance or publication approval.",
+      "changed_source_assets": [
+        {
+          "path": "OctoberReview/papers/IMP-RG/Imprint_RG_Filtering.tex",
+          "before": "3fe1ad497127ccfaf0929fe43e00b84cfa7fd25b01796d69cd855b12bab190ca",
+          "after": "e878598aabfc1cea01626724a8cf2a9972cd64fe1caeb4cc7d75e8f349fe165c"
+        }
+      ]
+    },
+    {
+      "date": "2026-10-15",
+      "revision": "references_v7r2_20261015",
+      "integrator": "Codex root",
+      "baseline": "v7r1",
+      "before_sha256": "e878598aabfc1cea01626724a8cf2a9972cd64fe1caeb4cc7d75e8f349fe165c",
+      "sha256": "7696b2461d7ad3755b68e375747c87de42f38d33b4f28868413d10b620d272d8",
+      "changes": "Removed working-revision status from 5 self-citations; retained author, title, year, DOI and citation keys. No text outside bibliography changed.",
+      "review": "revision_references_v7r2_20261015/REVIEW.md",
+      "publication": "No upload; exact-version author approval required."
+    },
+    {
+      "date": "2026-10-16",
+      "round": "Direction restoration P5",
+      "integrator": "Codex root",
+      "before_sha256": "7696b2461d7ad3755b68e375747c87de42f38d33b4f28868413d10b620d272d8",
+      "sha256": "e24924d90691d5e5e164cf0a2c9a259bce458a695b347f77e73c3a84cf257554",
+      "changes": "Restored scale filtering as the main explanatory question; separated given lattice from HAFF-A spatial generation; linked learned access and joint relational reading without merging distinct protocols.",
+      "snapshot": "research/direction_revision_execution_20261016/root/rg_candidate/Imprint_RG_Filtering.tex",
+      "review": "research/direction_revision_execution_20261016/root/IMPRINT_REVIEW.md",
+      "scope": "Root full baseline source read and complete changed passages reviewed; inherited proof blocks unchanged. Compilation and structure checks passed; no new old-simulation or external-literature certification.",
+      "publication": "Local working revision only; no public synchronization."
+    },
+    {
+      "date": "2026-10-16",
+      "round": "direction-postopus-20261016",
+      "integrator": "Codex root",
+      "basis": "Opus direction review at private book c8beff7; root targeted response, not external acceptance.",
+      "changes": "Scope/title/cross-reference corrections; D and QR-C technical appendices separated without loss. See direction_postopus_fix_20261016/DISPOSITION.md and per-paper diff.",
+      "before_sha256": "e24924d90691d5e5e164cf0a2c9a259bce458a695b347f77e73c3a84cf257554",
+      "sha256": "92ef1690e7a8a7fa77655aadb54790cc0f04a48fc9f89b67e09795fd69ccf8a8",
+      "source_assets": {
+        "Imprint_RG_Filtering.tex": "92ef1690e7a8a7fa77655aadb54790cc0f04a48fc9f89b67e09795fd69ccf8a8"
+      },
+      "checks": "Original proof blocks and label sets retained; separate build/numbering evidence in fix package.",
+      "publication": false
+    },
+    {
+      "date": "2026-10-16",
+      "round": "direction-sonnet-minor-20261016",
+      "integrator": "Codex root",
+      "changes": "Remove five residual matched-budget implications identified in Sonnet review 7b6adcf; clarify free exact-coefficient exception. No mathematical change.",
+      "before_sha256": "92ef1690e7a8a7fa77655aadb54790cc0f04a48fc9f89b67e09795fd69ccf8a8",
+      "sha256": "677c8d7882400e53395088fb2ec00802959e6aa2b0259291d2a604300d0e227b",
+      "publication": false
+    }
+  ]
+}

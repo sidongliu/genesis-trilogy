@@ -1,0 +1,217 @@
+{
+  "id": "C-I",
+  "zenodo_record": "CI",
+  "concept_doi": "10.5281/zenodo.19607387",
+  "source_tex": "fable review/zenodo_upload_staging/CI_Inseparability.tex",
+  "source_sha256": "33337cb4a1182c66d8d6bb9bb410c0dcc288a3b01798ec358ce5d27d3f2a7907",
+  "source_bytes": 101172,
+  "lines": 2262,
+  "s0_pdf": "CI_Inseparability.pdf",
+  "s0_pdf_sha256": "068e4033fbc72604acb42bd8a2bd25a799872435041e9455288f0a93e0c47fa1",
+  "s0_pdf_producer": "xdvipdfmx (20250205)",
+  "s0_pdf_pages": 35,
+  "supplement": [],
+  "extra_dependencies": [],
+  "note": "working copy; edit only here. S0 original (staging) stays untouched; the July working copy is archived under archive/.",
+  "rewrite": {
+    "date": "2026-10-04",
+    "integrator": "Claude (single integrator, per OctoberReview/共同研究原则.md §9)",
+    "status": "working copy rewritten (v1): new title, new technical trunk (Cuts, noise-selected algebras, access, response); July 2026 working copy archived",
+    "july_working_copy_archive": "archive/CI_Inseparability_july2026_workingcopy.tex",
+    "july_sha256": "33337cb4a1182c66d8d6bb9bb410c0dcc288a3b01798ec358ce5d27d3f2a7907",
+    "rewrite_sha256": "2cea7cf970ee5890a2d219dc07ff492aee71f3029c202dd3cf9e2d13da424c75",
+    "build": "xelatex x3 in a scratch directory: 17 pages, 0 undefined references, 0 overfull boxes",
+    "revision": "v1g (2026-10-04, round 21): stacked limitation statements consolidated (abstract, introduction, section 7, section 8, section 5 remarks); version history moved out of the abstract into one erratum-style paragraph and Appendix D; review-process wording removed from Appendix D; no change to statements or proofs"
+  },
+  "later_revisions": [
+    {
+      "date": "2026-10-06",
+      "round": "autonomous batch 1",
+      "integrator": "Claude main session",
+      "cross_model": "same-model only",
+      "changes": "two sentences: F-I supplies the invariant of the triple (hull character determines the seed stabilizer) and shows the modular flow alone suffices for a current seed (stress seed still open); Foundation I bibliography entry added",
+      "sha256": "c27dd5abcbf5df8f6efc0665da3b6a463f1297859f4d99641b01195b373ea485",
+      "before_snapshot": "research/autonomous_claude_20261004/main/C_I_before_batch1h.tex",
+      "snapshot": "research/autonomous_claude_20261004/main/C_I_batch1h.tex",
+      "pdf": "research/autonomous_claude_20261004/main/C_I_batch1h.pdf"
+    },
+    {
+      "date": "2026-10-07",
+      "round": "autonomous batch 1",
+      "integrator": "Claude main session",
+      "cross_model": "same-model only",
+      "changes": "open problem on transverse families: C-II treats ball families in higher dimensions; null-plane couplings remain open; C-II bibliography entry added",
+      "sha256": "182e575d9f8c3041e35a7ecb1b83a653464558402b245d31cadff43697536659",
+      "before_snapshot": "research/autonomous_claude_20261004/main/C_I_before_batch1k.tex",
+      "snapshot": "research/autonomous_claude_20261004/main/C_I_batch1k.tex",
+      "pdf": "research/autonomous_claude_20261004/main/C_I_batch1k.pdf"
+    },
+    {
+      "date": "2026-10-08",
+      "round": "Claude round34 response: reviewed corrections and extensions",
+      "integrator": "Codex root, sole writer of papers for this batch",
+      "changes_and_review_scope": "Targeted stabilizer-conjugacy correction; not full-source scientific or prose acceptance.",
+      "model_note": "Physics and geometry: gpt-6-astra / ultra; subject: gpt-6.1-sol / ultra. Root reviewed candidates and independently checked listed new results. Known-background, non-blind review; not full-theory certification.",
+      "sha256": "39c881f1576921b8ff5e94c3cf5170e7a33bf8649b1e6c5be5e697e567320c98",
+      "before_sha256": "182e575d9f8c3041e35a7ecb1b83a653464558402b245d31cadff43697536659",
+      "before_snapshot": "research/round34_response_codex_20261008/integration_before/C-I/CI_Inseparability.tex",
+      "before_provenance_snapshot": "research/round34_response_codex_20261008/integration_before/C-I/PROVENANCE.json",
+      "snapshot": "research/round34_response_codex_20261008/frozen/C-I/CI_Inseparability.tex",
+      "provenance_snapshot": "research/round34_response_codex_20261008/frozen/C-I/PROVENANCE.json",
+      "pdf": "research/round34_response_codex_20261008/frozen/C-I/CI_Inseparability.pdf",
+      "review": "research/round34_response_codex_20261008/REVIEW_AND_HANDOFF.md",
+      "build": "Isolated xelatex via latexmk; final log has no warning, undefined reference, overfull or underfull box. Title/Author present. Not an all-page visual or publication acceptance.",
+      "publication": "Working source only; July staging and public GitHub/Zenodo unchanged."
+    },
+    {
+      "date": "2026-10-12",
+      "round": "Approved whole-manuscript revision, group 1 / C-I",
+      "integrator": "Codex root, sole canonical writer",
+      "drafted_by": "manuscript_revision_executor (gpt-6.1-sol / high), fixed worker/C-I/v1; root originated seed construction and reviewed the shorter closure proof",
+      "before_sha256": "39c881f1576921b8ff5e94c3cf5170e7a33bf8649b1e6c5be5e697e567320c98",
+      "sha256": "5b04323fc9ec84a2a7170808f8c2bba3ba0fb705a0306dc873e951e1d60a6a59",
+      "changes": "Positive endpoint-monotone log-bump past modular orbit constructs a proper standard Cut; full modular orbit generates the Virasoro half-line without separate translation-generation permission for this class. Conditional constructed stress-flow finite words and retained-reference task consequence; full philosophy/limits/abstract rewrite and working-title dependencies. General seeds and inequivalent Cut invariant remain open; carrier/state/modular dynamics remain inputs.",
+      "checks": "Root read old 1084 and new 1348 lines including final delta, appendices and bibliography; separate flow-commutator and allowed-positive-shift kernel checks. Primary CW section 2.2 and Theorem 4.4/Proposition 4.5 with adjacent proof read. Worker separately checked pushforward, kernel derivatives, finite spin noise and entropy quadrature; not a full reproof of all cited net theory or full novelty audit.",
+      "before_snapshot": "revision_execution_20261011/root_checks/CI_before.tex",
+      "before_provenance_snapshot": "revision_execution_20261011/root_checks/CI_PROVENANCE_before.json",
+      "snapshot": "revision_execution_20261011/root_checks/CI_v1_after.tex",
+      "provenance_snapshot": "revision_execution_20261011/root_checks/CI_v1_PROVENANCE_after.json",
+      "pdf": "revision_execution_20261011/root_checks/CI_v1_root_build.pdf",
+      "review": "revision_execution_20261011/root_checks/CI_v1_review.md",
+      "build": "Isolated latexmk/XeLaTeX: 21 pages; final log no Warning, undefined, Overfull or Underfull. Title/Author present. Root visually inspected worker final page 11 only, not all pages.",
+      "model_note": "Informed same-platform mathematical review with separate calculations; neither blind nor Claude/cross-model audit. Exact geometry and finite pointer-instrument bridge are distinct implementations.",
+      "publication": "Local working manuscript only; staging, GitHub and Zenodo unchanged. Author final review and exact-version upload authorization required."
+    },
+    {
+      "date": "2026-10-12",
+      "round": "Final corpus dependency and bibliography synchronization",
+      "integrator": "Codex root",
+      "sha256": "a20d27fce4750f645eaa3a223d5e0fefb6987bbd68b7ec7ca44f28ecd927d7cf",
+      "changes": "bib:PaperCII, S3",
+      "before_snapshot": "revision_execution_20261011/root_checks/dependency_sync/C-I/before.tex",
+      "snapshot": "revision_execution_20261011/root_checks/dependency_sync/C-I/after.tex",
+      "review": "revision_execution_20261011/root_checks/DEPENDENCY_SYNC_REVIEW.md",
+      "cross_model": "Root exact-match integration after full-manuscript approvals; independent audit pending.",
+      "publication": "Author final review and explicit version upload authorization required."
+    },
+    {
+      "date": "2026-10-12",
+      "round": "Bearing P2/P3 finite gate and Ward interfaces",
+      "integrator": "Codex root",
+      "changes": "Discharge elementary stress-gate hardware permission in the neutral circle model on energy-bounded inputs, with explicit coherent-control and resource conditions.",
+      "before_sha256": "a20d27fce4750f645eaa3a223d5e0fefb6987bbd68b7ec7ca44f28ecd927d7cf",
+      "sha256": "8dad893e604f365360c00441887a1b2aebe753af4c71c00974a88844edeeea51",
+      "snapshot": "linear_review_20261012/bearing_execution/interfaces_after/C-I/CI_Inseparability.tex",
+      "review": "linear_review_20261012/bearing_execution/INTERFACES_REVIEW.md",
+      "checks": "Root informed proof review of delegated candidates and separately written dense spectral, Fourier, normal-ordering and Ramsey checks; not blind or cross-model review.",
+      "writing": "my-writing applied to changed passages and adjacent claims; not a repeat of the prior 29-manuscript linear reading.",
+      "limits": "Neutral circle coherent gates; Ward result is a conditional finite semiclassical worldline model. Extended quantum source and sustained fixed-rate thermal realization remain research obligations.",
+      "publication": "Author exact-version review and explicit permission required; no upload."
+    },
+    {
+      "date": "2026-10-12",
+      "round": "Bearing interfaces C-I display layout",
+      "integrator": "Codex root",
+      "before_sha256": "8dad893e604f365360c00441887a1b2aebe753af4c71c00974a88844edeeea51",
+      "sha256": "7c2dfa8ab04acfc4f370437f2bf0824c951a330efc5b448b7c956568f5918331",
+      "changes": "Display the declared Fourier convention to remove one 36pt overfull line; mathematical convention unchanged.",
+      "snapshot": "linear_review_20261012/bearing_execution/interfaces_layout_v2/C-I/CI_Inseparability.tex"
+    },
+    {
+      "date": "2026-10-13",
+      "round": "Global audit repair and manuscript consolidation",
+      "integrator": "Codex root; sole formal writer",
+      "before_sha256": "7c2dfa8ab04acfc4f370437f2bf0824c951a330efc5b448b7c956568f5918331",
+      "sha256": "54ff047e69574072e30f09f1b90206f0666f4b234dff83e09d05492e5220482a",
+      "changes": [
+        "A5: closing research status acknowledges supplied primitive-current finite physical flow and energy-bounded uniform implementation; remaining formation, cost/rate and sustained-use questions stated accurately. Original statements and proofs unchanged.",
+        "Synchronize QR-C working title in bibliography only."
+      ],
+      "before_snapshot": "revision_repair_20261013/before/C-I/CI_Inseparability.tex",
+      "snapshot": "revision_repair_20261013/after/C-I/CI_Inseparability.tex",
+      "review": "revision_repair_20261013/REVIEW.md",
+      "evidence_scope": "Known-background root review and fixed audit deltas; native GPT-6.1/high long-paper candidate work. Not Claude independent audit or author acceptance.",
+      "publication": "Local working revision; exact-version author review and explicit upload authorization required."
+    },
+    {
+      "date": "2026-10-15",
+      "revision": "postaudit_20261014",
+      "integrator": "Codex root",
+      "baseline": "review_build_summaryfix_20261013_v3",
+      "before_sha256": "54ff047e69574072e30f09f1b90206f0666f4b234dff83e09d05492e5220482a",
+      "sha256": "5b37b94d3fb953275c36db3b8fd4e54b13c6d6667576d1ec616b15bef23adb8c",
+      "audit": "research/synthesis/claude/final_adversarial_review_20261013",
+      "dispositions": "revision_postaudit_20261014/DISPOSITION.csv",
+      "review": "revision_postaudit_20261014/REVIEW.md",
+      "status": "Post-adversarial-review working revision; author approval and independent re-review not claimed.",
+      "supplementary_files": [
+        {
+          "path": "OctoberReview/papers/C-I/supplemental/source_notes/CI_shell_route_record.tex",
+          "local": "supplemental/source_notes/CI_shell_route_record.tex",
+          "sha256": "fb38dc6196ef8406c3e04879b7a1d7aad9c407d837f5dc57a56a1e4b3646ad20"
+        },
+        {
+          "path": "OctoberReview/papers/C-I/supplemental/source_notes/README.md",
+          "local": "supplemental/source_notes/README.md",
+          "sha256": "07693f6ca9433336bc2bae7fd3093956645c58269e5faa06ea692731aa6f4145"
+        }
+      ]
+    },
+    {
+      "date": "2026-10-15",
+      "revision": "minor_v5_20261015",
+      "integrator": "Codex root",
+      "baseline": "review_build_postaudit_20261015_v4",
+      "before_sha256": "5b37b94d3fb953275c36db3b8fd4e54b13c6d6667576d1ec616b15bef23adb8c",
+      "sha256": "ed55f1c0a3d1279c497ccb163fe043a27977e310ed496752a4b7abf39442ca7b",
+      "audit": "research/synthesis/claude/postaudit_v4_review_20261015",
+      "dispositions": "revision_minor_v5_20261015/DISPOSITION.csv",
+      "review": "revision_minor_v5_20261015/REVIEW.md",
+      "status": "Bounded minor revision; new edits root-reviewed, not a fresh cross-model acceptance or publication approval.",
+      "changed_source_assets": [
+        {
+          "path": "OctoberReview/papers/C-I/CI_Inseparability.tex",
+          "before": "5b37b94d3fb953275c36db3b8fd4e54b13c6d6667576d1ec616b15bef23adb8c",
+          "after": "ed55f1c0a3d1279c497ccb163fe043a27977e310ed496752a4b7abf39442ca7b"
+        }
+      ]
+    },
+    {
+      "date": "2026-10-15",
+      "revision": "references_v7r2_20261015",
+      "integrator": "Codex root",
+      "baseline": "v7r1",
+      "before_sha256": "ed55f1c0a3d1279c497ccb163fe043a27977e310ed496752a4b7abf39442ca7b",
+      "sha256": "10ec35df027d00d3b58f3072eee02626a00ce38d6fc2264b23402aace84f69c0",
+      "changes": "Removed working-revision status from 5 self-citations; retained author, title, year, DOI and citation keys. No text outside bibliography changed.",
+      "review": "revision_references_v7r2_20261015/REVIEW.md",
+      "publication": "No upload; exact-version author approval required."
+    },
+    {
+      "date": "2026-10-16",
+      "revision": "direction_revision_C-I",
+      "integrator": "Codex root",
+      "before_sha256": "10ec35df027d00d3b58f3072eee02626a00ce38d6fc2264b23402aace84f69c0",
+      "sha256": "eeaf1b7327de974217a3a982022fea28f4f1673b7e91b73910cbb1a1158e752b",
+      "changes": "Positive perspective argument with exact non-recovery under Cut displacement and attributed decision/complete-intervention-law interfaces. Two generation proofs moved to appendix; original title retained.",
+      "review": "research/direction_revision_execution_20261016/root/ci_integrated/REVIEW.md",
+      "evidence": "research/direction_revision_execution_20261016/root/ci_integrated/DELTA.json",
+      "verification": "Informed root source/proof/interface review and compilation; old long simulations not rerun, no fresh external certification.",
+      "publication": "Local working copy only; public staging and remotes unchanged."
+    },
+    {
+      "date": "2026-10-16",
+      "round": "direction-postopus-20261016",
+      "integrator": "Codex root",
+      "basis": "Opus direction review at private book c8beff7; root targeted response, not external acceptance.",
+      "changes": "Scope/title/cross-reference corrections; D and QR-C technical appendices separated without loss. See direction_postopus_fix_20261016/DISPOSITION.md and per-paper diff.",
+      "before_sha256": "ef32287fa953844d08970bb4ed1a0f0ca277d8d341283d2a66f930448de41819",
+      "sha256": "191b80f73a3bc8cf792e8c23b22a974134a0e0a10f50f9bf23fa57e391f7b6a5",
+      "source_assets": {
+        "CI_Inseparability.tex": "191b80f73a3bc8cf792e8c23b22a974134a0e0a10f50f9bf23fa57e391f7b6a5"
+      },
+      "checks": "Original proof blocks and label sets retained; separate build/numbering evidence in fix package.",
+      "publication": false
+    }
+  ]
+}

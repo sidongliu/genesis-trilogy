@@ -74,7 +74,8 @@ shared algebra contains a finite positive-energy pulse. With preparation and
 readout permission, a known vacuum baseline turns it into an energy-orientation
 reference with an explicit finite-record error bound. Under the additional
 source regularity and modular-consistency conditions of Consciousness~II, the
-pulse also supplies a spectral witness for a common sourced geometric response.
+pulse also supplies, through a weak preparation mixture, a spectral witness
+for a common first-order sourced geometric response.
 It does not fix a metric without boundary or initial data. For a finite
 family of common frame errors, legal reference blocks identify a public target
 exactly when indistinguishable reference laws have the same target value.
@@ -592,12 +593,20 @@ hull. Readers of separate decoupled fields can have disjoint stress sectors.
 \begin{proposition}[A shared test of the sourced geometric response]
 \label{prop:geometrytest}
 In Consciousness~II's conformal Minkowski setting, suppose a shared
-positive-energy pulse is implemented, either the bounded pulse of
+positive-energy pulse $W_\theta$ is permitted, either the bounded pulse of
 Proposition~\ref{prop:sharedreference} or an explicit scalar preparation
-of that paper. Its translation generator
-is the physical positive Hamiltonian, and its vacuum-subtracted source has an
-integrable energy density with integral $E_\theta>0$. Suppose the source and
-response belong to the smooth tempered Radon Fourier class, and the full
+of that paper. Fix its nonzero amplitude and implement the weak family
+\[
+ \psi_\epsilon=(1-\epsilon)\omega+\epsilon\omega_\theta,\qquad
+ \omega_\theta(A)=\langle W_\theta\Omega,AW_\theta\Omega\rangle,
+ \quad 0\leq\epsilon\leq1 .
+\]
+Its translation generator is the physical positive Hamiltonian. Assume
+the vacuum-subtracted pulse source has integrable energy density with
+integral $E_\theta>0$. Use this tensor as the one-sided source tangent
+at $\epsilon=0$, with a constraint-compatible linear metric response.
+Suppose this source and response belong to the smooth tempered Radon
+Fourier class, and the full
 centre, open-frame and modular-consistency hypotheses of that paper hold.
 If every reader has the required stress and boundary observables, uses the same
 actual state and normalization, and applies the same geometric readout law,
@@ -607,7 +616,10 @@ matter-sourced linearized Einstein tensor. A unique metric requires additional
 common initial or boundary data and gauge choices.
 \end{proposition}
 \begin{proof}
-If a Radon Fourier measure were supported only at zero, the source would be
+Expectations in $\psi_\epsilon$ are affine in $\epsilon$, so their
+one-sided tangent is the pulse's vacuum-subtracted source, not the
+derivative with respect to its unitary amplitude. If a Radon Fourier
+measure were supported only at zero, the source would be
 constant. Integrability of its energy density on the infinite spatial slice
 would force that density to vanish, contrary to $E_\theta>0$.
 The spectral identification theorem and common sourced response of
@@ -616,9 +628,13 @@ dimension at least four can have zero linearized Einstein tensor and nonzero
 linearized curvature, so the source alone cannot fix the metric.
 \end{proof}
 
-Finite energy does not itself imply the Radon regularity used here, and the
-finite-amplitude pulse need not have a nonzero first-order stress tangent at
-zero amplitude. Nor does the chiral SU(2) model establish all the
+Finite energy does not itself imply the Radon regularity used here. The
+mixture avoids requiring a nonzero stress derivative at zero unitary
+amplitude, which the finite pulse need not have. Its recorded random choice,
+preparation and readout remain physical resources: the prepared matter's
+expected energy per trial is $\epsilon E_\theta$, not a whole-apparatus heat
+cost. Apparatus stress in the tested region must also enter the common-source
+account. Nor does the chiral SU(2) model establish all the
 higher-dimensional hypotheses. The bridge states exactly which source and
 readout data must be common. A unitary used for calibration physically changes
 the state; merely choosing a different label or algebra does not. The
@@ -667,8 +683,8 @@ source \cite[Proposition on a neutral preparation]{PaperII}.
 Their selected algebras at every diamond contain the bounded stress
 and collar readings. Haar expectations preserve the common vacuum;
 permitted preparations, calibrated collar limits and common
-$\mathrm{MC}_\eta$ normalization remain inputs. The constraint-compatible
-linear response of that paper then instantiates
+$\mathrm{MC}_\eta$ normalization remain inputs. The weak preparation mixture and its constraint-compatible
+linear response in that paper then instantiate
 Proposition~\ref{prop:geometrytest}.
 The reference hull construction uses the cone algebra; the geometric
 test uses the same gauge-fixed nets on all $D(B)$. This supplies the
@@ -746,6 +762,14 @@ Correct public reports additionally require a reference that separates
 the public target's indistinguishability classes. This can leave
 private frames and old histories different. The algebraic intersection
 and the public-reference criterion answer complementary questions.
+
+There are accordingly three ways in which shared structure can form.
+Repeated physical noise selects a common algebra, reference records
+remove target-relevant ambiguities, and implemented preparations test
+a common response. The first can leave a shared error group; the second
+need not erase private histories; the third changes the source rather
+than merely its description. None of these steps alone constructs the
+ambient spacetime or makes two readers one subject.
 
 The common-pulse construction joins selected access to an actual
 source test. Its physical translation, preparation, source regularity,
@@ -1035,7 +1059,7 @@ Commun.\ Math.\ Phys.\ \textbf{156} (1993) 201--219;
 \url{https://arxiv.org/abs/funct-an/9302008}.
 
 \bibitem{HAFFA}
-S.~Liu, \emph{Physical Access and Correlation Geometry: The Holographic Alaya--Field Framework}, Zenodo (2026), DOI: 10.5281/zenodo.18361706.
+S.~Liu, \emph{Physical Coarse-Graining and the Problem of Emergent Geometry: The Holographic Alaya--Field Framework}, Zenodo (2026), DOI: 10.5281/zenodo.18361706.
 
 \bibitem{HAFFD}
 S.~Liu, \emph{Selection, Maintenance and Gravitational Response: Modular Constraints and a Physical Return}, 2026; series record DOI: 10.5281/zenodo.18388881.

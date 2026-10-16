@@ -88,9 +88,11 @@ current algebra under modular flow alone; its character distinguishes the
 stabilizer up to conjugacy. Axis dephasing leaves three hulls for the stated
 stress/current seeds, and weak symmetry breaking determines their passive
 lifetimes. Stress excitations have the same relative entropy across these hulls,
-whereas current excitations distinguish them. These results derive the source--access--Cut chain in its net-theoretic geometry. The ambient net, available couplings and preparation permissions remain
-explicit inputs; forward translations are unnecessary for the stated
-log-bump stress seeds.
+whereas current excitations distinguish them. The finite permission bridge and the net-theoretic Cut construction answer
+different parts of the source problem: the first determines which ideal
+distinctions can be used, the second which geometric structure an admitted
+seed supports. The ambient net, couplings and preparation permissions remain
+inputs; forward translations are unnecessary for the stated log-bump seeds.
 \end{abstract}
 
 \clearpage
@@ -170,9 +172,10 @@ The argument proceeds from physical access to persistent structure:
   seed-independent stress response from seed-dependent current response.
 \end{enumerate}
 
-The ambient algebra, its translations, the coupling to the environment and the task
-that fixes the foreground remain inputs; Section~\ref{sec:open} lists them with the
-conjectures that would remove some of them. The finite-dimensional statements are
+The ambient algebra, the coupling and the task that fixes the foreground remain
+inputs. Positive translations are supplied for the inheritance theorem, but not
+as a separate closure operation for the stated modular-only seed constructions.
+Section~\ref{sec:open} identifies which further inputs the conjectures would remove. The finite-dimensional statements are
 checked by scripts described in Appendix~\ref{app:checks}.
 
 \section{Source, access, seed and hull}\label{sec:objects}
@@ -239,6 +242,45 @@ hull of that frame. The \((\sigma,U)\)-hull of Consciousness~I is \(\Hull_{\Gamm
 maps~\cite{PaperI}. HAFF-D calls the \(\Gamma_2\)-admissible algebras modular-stable
 geometric candidates and notes that the class contains the ambient algebra, so that a
 selection needs a seed~\cite{HAFFD}.
+
+\subsection{Two realizations of the source--access interface}\label{sec:typed-interface}
+
+The finite and chiral examples share the preceding definitions, but supply
+different outputs. In HAFF-B's commuting-coupling model, the semigroup selects
+the fixed algebra \(\bigoplus_a\mathcal B(H_a)\) and its central projections
+\(P_a\). A faithful stationary density matrix is block diagonal. Thus its
+modular flow fixes every \(P_a\), and
+\[
+  \Hull_{\Gamma_2}(\{P_a\})=W^*(\{P_a\})
+       =Z(\Fix(\mathcal E)).
+\]
+This is an instance of Proposition~\ref{prop:records}: the process selects
+sector distinctions, while the actual probe menu determines their reading
+accuracy. When controlled nondemolition probes of these projections are
+permitted, Section~\ref{sec:permission} gives a finite-cost approximation
+to their sharp instrument. Neither the central labels nor their repetition
+construct tensor-product sites or a nontrivial half-sided modular inclusion.
+This is the finite structural input available to HAFF-A, not an identification
+of its correlation-graph vertices with these labels.
+
+The chiral realization starts with a net and a vacuum. A noncentral
+stress or current seed then generates an ideal algebra under its modular
+flow; symmetry classifies the resulting hulls. A one-sided orbit or an
+inherited translation inclusion produces a Cut \emph{inside} the appropriate
+vacuum representation. Proper half-sided inclusion and standardness have
+separate hypotheses (Section~\ref{sec:cut}); cyclicity on the ambient Hilbert
+space cannot be assumed. This construction supplies C-I with selected
+algebras and geometric subnets, without deriving the ambient net from the
+finite blocks.
+
+The distinction makes the missing connection precise. A passage from
+finite process-selected structures to a chiral net would have to specify
+a compatible family of local algebras, states and dynamics, and prove that
+its limit has the required modular inclusion. A sequence of larger
+fixed algebras alone supplies none of those relations. The present
+theorems instead make each end testable: finite protocols must reproduce
+the claimed instruments, and a proposed net realization must satisfy the
+hull and Cut conditions.
 
 \section{From a physical effect to a finite task}\label{sec:permission}
 
@@ -1342,10 +1384,12 @@ nonscalar translation-stable hull from an ambient positive translation structure
 and, under the hypotheses of Theorem~\ref{thm:galois}, the hull from the seed's
 stabilizer. The following remain inputs.
 \begin{enumerate}[label=(\arabic*),leftmargin=2em]
-\item The ambient algebra, its state and, for Cuts, its translations. Hulls inherit
-  Cuts; they do not create the ambient one. An inclusion of two hulls is never a Cut,
-  since both are invariant under the modular group in both directions; one-sided
-  objects such as the past modular orbit of Consciousness~I are needed for that.
+\item The ambient algebra and its state. The Cut-inheritance theorem additionally
+  supplies positive translations; the log-bump construction instead uses a
+  one-sided modular orbit inside a given chiral net. Neither derives that
+  ambient net. Two nested hulls invariant under the same ambient modular
+  group have a two-sided invariant inclusion, not a proper Cut of the kind
+  used here. A one-sided construction is needed within the selected algebra.
 \item The coupling to the environment. HAFF-B derives the selected algebra from the
   couplings, and Consciousness~I from the noise group; neither derives the couplings.
 \item Stationarity, or a stationary partner supplied by an invariant
@@ -1455,15 +1499,6 @@ can change these inputs during an actual run; the hull theorem then
 identifies the structure supported by the resulting seed. It does not
 by itself explain the origin of the first available coupling.
 
-\paragraph{Centred and uncentred task losses.}
-A rank optimizer for centred omission loss need not optimize an
-uncentred squared loss: the latter also contains
-$(\sum_{i\notin I}\mathbb E\lambda_i)^2$.
-For three independent channels with means and variances
-$(0,1),(1,.1),(1,.1)$ and one retained channel, the uncentred minimizer
-keeps a channel with smaller centred weight. The coding result in
-Appendix~\ref{app:budget} therefore retains its stated task assumptions.
-
 \appendix
 
 \section{Rotation angles and conjugacy classes}\label{app:angles}
@@ -1528,6 +1563,15 @@ Here $V$ is an abstract finite-dimensional task coordinate space.
 The propositions do not construct a net observable from a coordinate
 projection and are not premises of Corollary~\ref{cor:onechannel}.
 T-DOME~II supplies the Gaussian task optimizer used in this model.
+
+\paragraph{Centred and uncentred task losses.}
+A rank optimizer for centred omission loss need not optimize an
+uncentred squared loss: the latter also contains
+$(\sum_{i\notin I}\mathbb E\lambda_i)^2$.
+For three independent channels with means and variances
+$(0,1),(1,.1),(1,.1)$ and one retained channel, the uncentred minimizer
+keeps a channel with smaller centred weight. The coding result in
+Appendix~\ref{app:budget} therefore retains its stated task assumptions.
 
 \begin{proposition}[Rank under a processing budget]\label{prop:budget}
 Let a reader hold a real coordinate space \(V\) of dimension \(D\), let admissible
@@ -1602,8 +1646,7 @@ Inseparability}, 2026, July series record DOI:
 10.5281/zenodo.19607387.
 
 \bibitem{HAFFA}
-S.~Liu, \emph{Physical Access and Correlation Geometry: The Holographic
-Alaya--Field Framework}, (2026), series record DOI:
+S.~Liu, \emph{Physical Coarse-Graining and the Problem of Emergent Geometry: The Holographic Alaya-Field Framework}, (2026), series record DOI:
 10.5281/zenodo.18361706.
 
 \bibitem{HAFFB}
@@ -1620,8 +1663,7 @@ S.~Liu, \emph{Measurement as Accessibility: Measurement Permissions, Stable Reco
 Public Readout}, (2026), series record DOI: 10.5281/zenodo.18400065.
 
 \bibitem{HAFFF}
-S.~Liu, \emph{Records, Dissipation and Intervention: Conditions for a Temporal
-Direction}, (2026), series record DOI: 10.5281/zenodo.18400425.
+S.~Liu, \emph{Records, Order and Intervention: Conditions for a Temporal Direction}, (2026), series record DOI: 10.5281/zenodo.18400425.
 
 \bibitem{TDOMEII}
 S.~Liu, \emph{Reference Frames Selected by History: The Capability and Cost of a Bounded

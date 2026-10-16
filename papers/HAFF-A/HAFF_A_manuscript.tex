@@ -1,5 +1,5 @@
 % HAFF: Holographic Alaya-Field Framework
-% Paper A: Physical Access and Correlation Geometry
+% Paper A: Physical Coarse-Graining and the Problem of Emergent Geometry
 
 \documentclass[12pt,a4paper]{article}
 \usepackage{arxiv}
@@ -12,8 +12,8 @@
 \usepackage{bbm}
 \usepackage{array}
 \usepackage{booktabs}
-\hypersetup{pdftitle={Physical Access and Correlation Geometry: The Holographic Alaya-Field Framework},pdfauthor={Sidong Liu}}
-\renewcommand{\shorttitle}{Physical Access and Correlation Geometry}
+\hypersetup{pdftitle={Physical Coarse-Graining and the Problem of Emergent Geometry: The Holographic Alaya-Field Framework},pdfauthor={Sidong Liu}}
+\renewcommand{\shorttitle}{Physical Coarse-Graining and Emergent Geometry}
 \AtBeginDocument{\setlength{\headheight}{14.5pt}}
 
 \newtheorem{theorem}{Theorem}[section]
@@ -24,7 +24,7 @@
 \newtheorem{example}[theorem]{Example}
 \newtheorem{conjecture}[theorem]{Conjecture}
 
-\title{Physical Access and Correlation Geometry:\\
+\title{Physical Coarse-Graining and the Problem of Emergent Geometry:\\
 The Holographic Alaya--Field Framework}
 
 \author{
@@ -44,19 +44,57 @@ The Holographic Alaya--Field Framework}
 \maketitle
 
 \begin{abstract}
-Physical access has a resolution that an observable algebra does not specify. We describe a reduction by its channel and distinguish its implementable effects from their linear span, their generated algebra and the observables stable under the dynamics. For qubit reductions we characterize equality of output entropy on every pure input. The nonzero branch is separated by every mixed input; the zero branch includes operationally incomparable channels with equal entropy on every input. A nine-probe finite-copy test bounds violations. We then connect physical implementation to geometric certification in one protocol: local unitary couplings reduce a fixed three-qubit GHZ state, further local collisions produce environmental records, and measurements on those records estimate the pair correlations. Calibrated readout errors and sampling errors propagate to confidence intervals for a fixed shortest-path metric. Two noise allocations with the same expected flip count produce non-isometric metrics, and a finite experiment separates their diameters without direct access to the source qubits. The reconstruction rule, source preparation and coupling architecture remain explicit inputs. The results show how finite measurement permissions, rather than an algebra label or exact entropy access, determine which correlation geometry can be established.
+How can a physical process select the structures from which geometry is reconstructed? We study this question through implemented coarse-graining. For finite systems with commuting Hermitian noise, the dynamics determines a direct-sum decomposition through the centre of its fixed algebra. Cross-sector coherence decay determines a Euclidean rate geometry, and a finite-window certificate identifies persistent blocks from separated rates. Coherent probes can estimate these relations; sector-label measurements alone cannot. Identical system channels can also leave different readable environmental records when a purification is inaccessible. These results distinguish process-selected structure, physical permissions and geometric interpretation. Two quantitative tests then constrain reconstruction: an exact qubit criterion exposes reductions that entropy cannot distinguish, while a local interaction and recording protocol certifies non-isometric correlation metrics from a fixed GHZ source. The latter uses a declared site representation and distance rule. Neither its tensor sites nor spatial transport follow from the noise sectors. We formulate the missing bridge as a same-process locality conjecture: interaction histories must select persistent organization and produce intervention responses admitting a common spatial interpretation.
 \end{abstract}
 
 \section{Introduction}
 \label{sec:intro}
 
-Decoherence explains why interference between some degrees of freedom stops being visible \cite{Zurek2003}. Entanglement-based approaches to quantum gravity read geometric data from correlations between regions, most sharply through the Ryu--Takayanagi formula \cite{Maldacena1999,RyuTakayanagi2006,VanRaamsdonk2010}. Both start after the system has been divided: into system, apparatus and environment in the first case, into boundary regions or tensor factors in the second. A generic Hilbert space carries no canonical division \cite{Zanardi2001,Zanardi2004,Viola2004}, and the observables that define a division can be chosen so that a given pure state has any Schmidt decomposition one likes \cite{HarshmanRanade2011}. Any geometry read from correlations therefore depends on how the state is reduced.
+A reconstruction of space already has parts to relate. Decoherence
+distinguishes a system, apparatus and environment; entanglement-based
+reconstructions assign observables to regions or tensor factors
+\cite{Zurek2003,RyuTakayanagi2006,VanRaamsdonk2010}. A Hilbert space
+alone selects none of these divisions. Accessible observables can induce
+subsystem structure \cite{Zanardi2001,Zanardi2004,Viola2004}; conversely, tailoring
+the observables can give a fixed pure state any prescribed Schmidt
+decomposition \cite{HarshmanRanade2011}. The emergence problem therefore
+includes the physical selection of the parts, as well as the geometric
+reading of their relations.
 
-A reduction can preserve the algebra generated by accessible observables while changing the accuracy of every readout. This is the issue studied here. We first distinguish channel, effect set and stable structure (Section~\ref{sec:coarse}), then determine when qubit reductions are indistinguishable by entropy and how finite data detect a violation (Section~\ref{sec:entropy}). Section~\ref{sec:geometry} connects a local interaction to an actual environmental record, a measured correlation and a certified finite geometry. Appendix~\ref{sec:nopref} gives the factorization background and the precise typicality statement.
+We approach selection through the implemented process. A coupling
+determines a reduced channel and can protect a direct-sum organization
+of its carrier. In a commuting-noise class, this organization is the
+centre decomposition of the channel's fixed algebra; a supplied
+spatial factorization is unnecessary for that calculation. The rates
+at which its sectors lose coherence also determine an operational
+relation. Sections~\ref{sec:interfaces} and~\ref{sec:rate-geometry}
+make both statements precise and identify the measurements needed to
+test them. They use standard dephasing structure
+\cite{Fagnola2019,Liu2026PaperB}, while separating it from the
+availability of instruments and from spatial transport.
 
-The geometry in the worked protocol is a metric on three sites under a declared rule. Its non-isometry is proved from the source dynamics and certified through the record dynamics. A Lorentzian metric requires further physical and reconstruction input. Keeping that distinction allows the finite experiment to answer a real part of the world-structure problem: which geometric differences survive the operations a reader can actually perform?
+The distinction changes what a geometric claim requires. The same
+observable algebra can arise from reductions with different resolution.
+Different channels can also have identical entropy functions.
+Section~\ref{sec:entropy} characterizes this obstruction for qubits.
+Section~\ref{sec:geometry} carries a fixed correlation reconstruction
+through noise interactions, environmental records and finite
+measurements. Its non-isometric metrics are physical consequences of
+that protocol, with the site representation and distance rule stated
+explicitly. Section~\ref{sec:discussion} returns to the remaining
+question: when can process-selected relations acquire a spatial
+interpretation through actual propagation or intervention?
 
-We call the source structure the Alaya-Field, a term taken from Yog\=ac\=ara philosophy, where it names the storehouse consciousness. Here it is used only as a technical name for the triple $(\mathcal H_U,\mathcal A_U,|\Omega\rangle)$, with $\mathcal A_U$ a von Neumann algebra on $\mathcal H_U$ and $|\Omega\rangle$ cyclic and separating, so that the pair is in standard form. The point of the name is the absence of a canonical factorization, not a particular choice of state. In an algebraic quantum field theory $\mathcal A_U$ may be a Type~III$_1$ factor \cite{Haag1996}. Such a factor has no normal trace, so its states have no intrinsic density operators and no von Neumann trace entropy. The factorization, Haar-measure, partial-trace and entropy results below therefore use their own finite-dimensional representations. There a pure state of the full matrix algebra is cyclic but not separating, so these finite models do not realize every assumption placed on the infinite source structure, and none of their entropy statements is asserted in the Type~III setting. The passage from entropy or connectivity data to a spacetime metric is a separate, model-dependent input throughout.
+We use \emph{Alaya-Field}, borrowed from Yog\=ac\=ara's storehouse
+consciousness, as a technical name for an unfactorized source
+$(\mathcal H_U,\mathcal A_U,\Omega)$, with $\Omega$ cyclic and separating.
+The name specifies no additional ontology. A Type~III algebra has no
+intrinsic density operator or trace entropy \cite{Haag1996}.
+All entropy results here instead concern finite-dimensional carriers;
+a faithful finite state has a cyclic and separating vector in its
+standard representation, whereas a pure carrier vector does not
+separate the full matrix algebra. No Type~III entropy formula or
+Lorentzian metric is inferred from the finite calculations.
 
 \section{Coarse-graining structures, algebras and channels}
 \label{sec:coarse}
@@ -100,99 +138,296 @@ $\mathcal S_\Phi$ is a unital self-adjoint subspace, not necessarily closed unde
 
 Two reductions with the same algebra can thus have different operational resolution. An algebra label is not a substitute for the channel and its allowed post-processing. If a conditional expectation is chosen as the implementation, that is an additional structure, not a synonym for every CPTP reduction.
 
-\subsection{Matching the dynamical and measurement interfaces}
+\section{Structures selected by a physical process}
 \label{sec:interfaces}
 
-Paper~B's commuting-coupling dynamics gives
-$\Phi_t(\rho)_{xy}=e^{-tD(x,y)}\rho_{xy}$ in the joint eigenbasis
-\cite{Liu2026PaperB}. At finite $t$ all multipliers are nonzero:
-$\mathcal A_{\Phi_t}=\mathcal B(\mathcal H)$. Its block algebra
-$\mathcal B_\pi$ selected by a stability window is therefore an auxiliary
-description of persistent capability. Unless it is the full algebra,
-$(\mathcal B_\pi,\Phi_t)$ is not even weakly compatible in
-Definition~\ref{def:coarse}. The minimally compatible finite-time pair is
-$(\mathcal B(\mathcal H),\Phi_t)$, supplemented by the window, tolerance
-and $\mathcal B_\pi$. In the long-time limit the channel is instead the
-pinching $\mathcal E_{\pi_\infty}$ and
-$(\mathcal B_{\pi_\infty},\mathcal E_{\pi_\infty})$ is minimally
-compatible. The finite description and its limiting algebra answer
-different questions.
+Consider a finite carrier $\mathcal H$ with commuting Hermitian
+couplings $A_k$ at rates $\gamma_k>0$. In a specified interaction
+picture the Heisenberg generator is
+\begin{equation}
+ \mathcal L(X)=-\frac12\sum_k\gamma_k[A_k,[A_k,X]],
+ \qquad \Phi_t=e^{t\mathcal L}.
+ \label{eq:process-generator}
+\end{equation}
+This generator is self-adjoint for the Hilbert--Schmidt inner product,
+so the same formula acts on states. A Hamiltonian contribution must
+either be included in a different analysis or removed by a justified
+interaction picture. The carrier, system--environment division,
+couplings and time scale are physical inputs.
 
-A measurement channel has a different output. In Paper~E's
-pointer-controlled collision, the source remains a system while an
-environmental fragment receives a conditional state
-$|e_z\rangle$, $z=0,1$ \cite{Liu2026PaperE}. Its record channel is
+\begin{proposition}[Intrinsic sectors of a dephasing process]
+\label{prop:intrinsic-sectors}
+Let $\mathcal B=\operatorname{Fix}(\Phi)=\ker\mathcal L$, and let
+$P_a$, $a\in V$, be the minimal nonzero projections of $Z(\mathcal B)$.
+Then
 \[
-\Gamma(\rho)=\sum_{z=0}^1\operatorname{Tr}(P_z\rho)
-             |e_z\rangle\langle e_z|,\qquad
-\Gamma^*(F)=\sum_z\langle e_z|F|e_z\rangle P_z .
+ \mathcal H=\bigoplus_{a\in V}P_a\mathcal H,\qquad
+ \mathcal B=\bigoplus_{a\in V}\mathcal B(P_a\mathcal H).
 \]
-For overlap $0<r=|\langle e_0|e_1\rangle|<1$, the dual range spans the
-pointer algebra, but the implementable effects omit its sharp
-projections. The source dephasing channel and $\Gamma$ arise from the
-same unitary, although their ranges, outputs and uses differ. The
-geometric protocol below uses the reduction to set the correlations
-and $\Gamma$ to read them. It never replaces $\Gamma^*([0,I])$ by all
-positive contractions of its span. Persistence is relative to the
-specified dynamics: a record effect fixed by the recording interaction
-need not be fixed by the preceding noise interaction.
-
-\subsection{Refinement}
-
-\begin{definition}[Refinement]
-\label{def:refine}
-For coarse-graining structures $\mathbf c_1,\mathbf c_2$ write $\mathbf c_1\succeq\mathbf c_2$ if there is a CPTP map $\Lambda$ from states on the output space of $\Phi_{\mathbf c_1}$ to states on the output space of $\Phi_{\mathbf c_2}$ with $\Phi_{\mathbf c_2}=\Lambda\circ\Phi_{\mathbf c_1}$. Then $\mathbf c_2$ is a further coarse-graining of $\mathbf c_1$.
-\end{definition}
-
-\begin{proposition}[Order on classes]
-\label{prop:order}
-The relation $\succeq$ is reflexive and transitive but not antisymmetric. Writing $\Phi\sim\Psi$ when each is a post-processing of the other, $\succeq$ induces a partial order on equivalence classes.
+The projections are determined by the semigroup, up to relabelling.
+For every $X\in P_a\mathcal B(\mathcal H)P_b$,
+\begin{equation}
+ \mathcal L(X)=-D_{ab}X,\qquad
+ D_{ab}=\frac12\sum_k\gamma_k(a_k(a)-a_k(b))^2,
+ \quad A_kP_a=a_k(a)P_a.
+ \label{eq:intrinsic-rates}
+\end{equation}
+These rates are intrinsic to the semigroup: $D_{aa}=0$ and
+$D_{ab}>0$ for distinct sectors. A common unitary conjugation rotates
+the $P_a$ and preserves $D$.
 \end{proposition}
 
 \begin{proof}
-Reflexivity uses $\Lambda=\mathrm{id}$, transitivity uses composition of channels. Two different replacer channels, which output fixed states $\omega_1\ne\omega_2$, simulate each other by a further replacement, so antisymmetry fails. On classes the relation is well defined because composing with a simulating channel does not change membership, and antisymmetry holds by construction.
+The identity
+\[
+ -\langle X,\mathcal L(X)\rangle_{\rm HS}
+ =\frac12\sum_k\gamma_k\|[A_k,X]\|_{\rm HS}^2
+\]
+gives $\mathcal B=\{A_k\}'$. Simultaneous diagonalization yields full
+joint eigenspaces $P_a\mathcal H$, on which every coupling is scalar.
+Their full matrix algebras form the commutant, and their projections
+are precisely its central atoms. No basis inside a degenerate
+eigenspace enters this description. Applying the double commutator
+to a cross-corner gives \eqref{eq:intrinsic-rates}. Its scalar is fixed
+by $\mathcal L$, independently of the coupling representation;
+different atoms have different joint eigenvalue tuples.
+Conjugating the entire generator conjugates its corners and leaves
+their scalar eigenvalues unchanged.
 \end{proof}
 
-If the allowed post-processings are restricted, for example to local, energy-bounded or specified control operations, the restricted class must be closed under composition before the same quotient can be formed. The comparison of channels by approximate post-processing has an operational characterization through success probabilities of discrimination tasks \cite{Jencova2015}; we use only exact post-processing.
+The fixed-algebra construction and its dephasing rates are known
+\cite{Fagnola2019,Liu2026PaperB}. Their role here is to remove a
+separate choice of effective sectors after the physical process has
+been supplied. A direct sum is not a tensor product. In particular,
+the $P_a$ are not the sites of the correlation reconstruction below.
 
-\subsection{Mutual information under refinement}
+For finite $t$, the channel multiplies each corner by $e^{-tD_{ab}}>0$,
+so it has full linear operator range and
+$\mathcal A_{\Phi_t}=\mathcal B(\mathcal H)$. Its long-time limit is
+the pinching $\mathcal E_\infty(X)=\sum_aP_aXP_a$, whose range is
+$\mathcal B$. Thus $(\mathcal B,\mathcal E_\infty)$ is minimally
+compatible in Definition~\ref{def:coarse}; replacing $\Phi_t$ by this
+projection at finite time requires an error estimate.
 
-\begin{proposition}[Local and global post-processing]
-\label{prop:mi}
-For channels $\Lambda_A,\Lambda_B$ acting on $A$ and $B$ separately,
+\subsection{Selection on a finite window}
+
+Exact fixed algebras can jump under arbitrarily weak symmetry
+breaking. A finite capability instead asks how well an entire block
+survives over a stated time. Following Paper~B, call a unital algebra
+$\varepsilon$-stable on $[0,T]$ if
 \[
-I(A':B')_{(\Lambda_A\otimes\Lambda_B)(\rho)}\le I(A:B)_\rho .
+ \sup_{0\le t\le T}\sup_{\substack{X\in\mathcal B\\\|X\|\le1}}
+       \|\Phi_t(X)-X\|\le\varepsilon .
 \]
-A global CPTP post-processing can increase mutual information: the channel that replaces every two-qubit input by a Bell state takes $|00\rangle$, with $I=0$, to a state with $I=2\ln2$.
+Put $u_a=(\sqrt{\gamma_k/2}\,a_k(a))_k$. For a partition $\pi$ of
+the intrinsic sectors into clusters $C$, define
+\[
+ Q_C=\sum_{a\in C}P_a,\qquad
+ \mathcal B_\pi=\bigoplus_C\mathcal B(Q_C\mathcal H),\qquad
+ r_C=\inf_c\max_{a\in C}\|u_a-c\|,
+\]
+and $\kappa_{\rm in}=4\max_Cr_C^2$,
+$\Delta_{\rm out}=\min_{a,b\text{ in different }C}D_{ab}$.
+An empty minimum is $+\infty$.
+
+\begin{proposition}[A representation-independent window certificate]
+\label{prop:intrinsic-window}
+If $0<\varepsilon<1$, $T>0$ and
+\begin{equation}
+ T\kappa_{\rm in}\le\varepsilon<1-e^{-T\Delta_{\rm out}},
+ \label{eq:intrinsic-window}
+\end{equation}
+then $\mathcal B_\pi$ is $\varepsilon$-stable. No strictly containing
+unital algebra is $\varepsilon$-stable. At most one cluster partition
+satisfies this certificate; its algebra contains every stable block
+algebra in a common joint eigenbasis of the couplings.
+\end{proposition}
+
+The quantities in this certificate depend only on the rate matrix,
+since $D_{ab}=\|u_a-u_b\|^2$ determines its Euclidean configuration.
+The radius bound replaces Paper~B's coordinate-box bound. Centring
+the noise coordinates on each cluster gives a generator norm at
+most $4r_C^2$; the separated cross-cluster matrix units exclude
+stable extensions. Appendix~\ref{app:window-proof} gives the proof. The maximality
+statement does not compare all rotated, incomparable subalgebras.
+
+Stability of individual coherences is insufficient. Three equally
+spaced points can have $TD_{01}=TD_{12}=.06$ but $TD_{02}=.24$:
+the first two matrix units lose less than $.1$ of their amplitude,
+while their product loses more than $.1$. Generating an algebra from
+all slow matrix units can therefore introduce unstable observables.
+The whole-block condition in \eqref{eq:intrinsic-window} supplies a
+sufficient selection rule; absence of a gap does not determine a
+unique partition.
+
+\subsection{What a stable algebra makes available}
+
+A fixed observable need not have an available reader or gate.
+For example, a pointer-controlled collision can implement
+\[
+ \Gamma(\rho)=\sum_{z=0}^1\operatorname{Tr}(P_z\rho)
+                         |e_z\rangle\langle e_z|,
+ \qquad
+ \Gamma^*(F)=\sum_z\langle e_z|F|e_z\rangle P_z .
+\]
+When $0<|\langle e_0|e_1\rangle|<1$, the dual range spans the pointer
+algebra, but its implementable effects exclude the sharp projections
+\cite{Liu2026PaperE}. Source dephasing and the record channel arise
+from the same collision and have different outputs. Foundation~I
+makes the same distinction between an ideal seed algebra and a
+finite instrument realizing a task \cite{LiuFoundationI}.
+
+For a faithful stationary state of \eqref{eq:process-generator},
+the density matrix is block diagonal and commutes with all $P_a$.
+Their modular orbit is therefore constant. Foundation~I's stable
+hull of central seeds $S$ is exactly $W^*(S)$; it is abelian and
+has no proper half-sided modular inclusion. The selected labels
+thus do not acquire a spacetime Cut by taking their hull.
+Noncentral seeds or an independently supplied infinite source
+require their own interface.
+
+\section{Which relations can the process identify?}
+\label{sec:rate-geometry}
+
+\subsection{A rate geometry and its measurements}
+
+Equation~\eqref{eq:intrinsic-rates} gives a metric
+\begin{equation}
+ d_D(a,b)=\sqrt{D_{ab}}=\|u_a-u_b\|.
+ \label{eq:rate-metric}
+\end{equation}
+If joint eigenvectors were labelled separately, this would be a
+pseudometric; equal-rate-zero labels must first be merged into the
+central sectors. If all couplings are scalar there is one sector.
+For $r=|V|$ and $J=I-\mathbf1\mathbf1^T/r$, the centred Gram matrix is
+$G=-JDJ/2$. Its positive eigenspaces reconstruct the minimal Euclidean
+configuration, up to isometry. Its dimension is a rank of the noise
+responses, not a spatial dimension. Moreover, $d_D$ has units
+$\mathrm{time}^{-1/2}$; $\sqrt{t_0D}$ is dimensionless for a supplied
+reference time $t_0$. Neither quantity is a physical length.
+
+\begin{proposition}[Visibility identifies the rate relation]
+\label{prop:rate-identification}
+Suppose a reader can choose unit vectors $x\in P_a\mathcal H$,
+$y\in P_b\mathcal H$, prepare $(x+y)/\sqrt2$, and measure
+$X_{ab}=|x\rangle\langle y|+|y\rangle\langle x|$ after known time
+$t>0$. The mean is $v_{ab}(t)=e^{-tD_{ab}}$, hence
+$D_{ab}=-t^{-1}\log v_{ab}(t)$.
+If the true and estimated visibilities both belong to
+$[v_{\min},1]$ with $v_{\min}>0$ and differ by at most $\zeta$, then
+\[
+ |\widehat D_{ab}-D_{ab}|\le\frac{\zeta}{tv_{\min}},\qquad
+ |\sqrt{\widehat D_{ab}}-\sqrt{D_{ab}}|
+ \le\sqrt{\frac{\zeta}{tv_{\min}}}.
+\]
+For $M$ tested pairs with $n$ independent preparations each, the
+visibility error bound holds simultaneously with failure probability
+at most $2M e^{-n\zeta^2/2}$. The sample mean may be clipped to
+$[v_{\min},1]$ when the true visibility is known to lie there.
 \end{proposition}
 
 \begin{proof}
-$I(A:B)_\rho=D(\rho_{AB}\Vert\rho_A\otimes\rho_B)$, and $\Lambda_A\otimes\Lambda_B$ maps $\rho_A\otimes\rho_B$ to the product of the new marginals, so data processing for relative entropy gives the inequality. The Bell example is a direct computation.
+The two off-diagonal entries of the prepared state are multiplied
+by $e^{-tD_{ab}}$, while its populations are constant. Their sum is
+the stated expectation. The logarithm has derivative bounded by
+$1/v_{\min}$ on the relevant interval, and
+$|\sqrt{x}-\sqrt{y}|\le\sqrt{|x-y|}$ for $x,y\ge0$.
+Each measurement has outcomes $\pm1$ on the prepared subspace;
+Hoeffding's inequality and a union bound give the final statement.
+Clipping to an interval containing the true mean cannot increase
+the error.
 \end{proof}
 
-A requirement that mutual information decrease under refinement is therefore a theorem for local refinements and false for global ones. A geometric reading of mutual information must say which refinements it allows.
+The proposition assumes the stated coherent preparations and
+readers, rather than obtaining them from the fixed algebra.
+It identifies a relation of the physical dynamics. It cannot
+certify exact zero rates with finite data, and says nothing about
+the stability of the number of exact sectors.
 
-\section{When do two reductions give the same entropies?}
+\begin{proposition}[Sector-only access cannot identify the rates]
+\label{prop:sector-blindness}
+Fix projections $P_a$. If all allowed preparations, instruments and
+outputs act within the block-diagonal algebra
+$\bigoplus_a\mathcal B(P_a\mathcal H)$, every adaptive record law is
+independent of the cross-sector rates of a dephasing semigroup
+with these projections.
+\end{proposition}
+\begin{proof}
+Every such semigroup restricts to the identity on this algebra.
+Each permitted step, conditional on the previous record, therefore
+has the same output in every model. Induction over the steps gives
+the same complete record law.
+\end{proof}
+
+Thus mathematical knowledge of a channel and its identification by a
+reader with finite permissions are different resources.
+
+\subsection{A conditional record interpretation}
+
+With a pure initial environment and access to its complete output,
+a dilation of this dephasing channel has
+\[
+ V_t\psi_a=\psi_a\otimes e_a(t),\qquad
+ \langle e_b(t)|e_a(t)\rangle=e^{-tD_{ab}} .
+\]
+Indeed, preserving every pure state in a sector forces its
+environment vector to be independent of the state within that
+sector; the cross-corner multiplier fixes the overlaps.
+Their Gram matrix is positive because it is the Schur kernel of
+the channel. The isometry has a unitary extension at each fixed
+time. Complete-environment binary discrimination then has trace
+distance
+\begin{equation}
+ q_{ab}(t)=\sqrt{1-e^{-2tD_{ab}}}.
+ \label{eq:rate-record}
+\end{equation}
+This is another metric, supplied by an explicit discrimination
+task, and its inversion requires the appropriate environmental
+measurements. A restricted fragment can carry less information.
+
+\begin{example}[Same system channel, different readable records]
+\label{ex:purifier-access}
+Use the collision
+$U=P_0\otimes I+P_1\otimes e^{-i\theta Z_E}$ with
+$0<\theta<\pi/2$. A memory initially in $|+\rangle$ has conditional
+states $|+\rangle$ and $e^{-i\theta Z}|+\rangle$, overlap
+$\cos\theta$ and trace distance $\sin\theta$.
+A memory initially in $I/2$ gives the identical system
+off-diagonal multiplier
+$\operatorname{Tr}[(I/2)e^{i\theta Z}]=\cos\theta$, but both its
+conditional states are $I/2$. No measurement on that memory
+distinguishes the labels. If its purifier is also accessible,
+the joint conditional pure states again have overlap $\cos\theta$
+and trace distance $\sin\theta$.
+\end{example}
+
+Taking $\cos\theta=e^{-tD}$ matches any positive two-sector rate
+at a fixed time. This example concerns a reduced channel, rather
+than claiming equivalence of complete multitime processes. It
+locates the missing information precisely: the specified
+environment port excludes a purification. Decoherence alone
+therefore does not fix readable records, in agreement with
+Paper~B's leakage relation \cite{Liu2026PaperB}.
+
+The metrics \eqref{eq:rate-metric} and \eqref{eq:rate-record}
+describe response to noise and environmental discrimination.
+The dynamics has no sector population transport:
+$\operatorname{Tr}P_a\Phi_t(\rho)=\operatorname{Tr}P_a\rho$.
+Neither metric is consequently a propagation distance in this
+model. Establishing a spatial interpretation needs another
+observable relation, addressed in Section~\ref{sec:spatial-bridge}.
+
+\section{Entropy as a reconstruction test}
 \label{sec:entropy}
 
-\subsection{Generic separation}
-
-\begin{theorem}[Generic separation for a fixed pair of channels]
-\label{thm:inequiv}
-Let $\mathcal H$ and $\mathcal K=\mathcal K_A\otimes\mathcal K_{A^c}$ be finite dimensional, and let $\Phi_1\ne\Phi_2$ be CPTP maps from states on $\mathcal H$ to states on $\mathcal K$. The pure inputs on which $\Phi_1$ and $\Phi_2$ agree form a proper real-algebraic subset of Haar measure zero. If, in addition, the real-analytic function
-\[
-f_A(\Psi):=
-S\!\left(\operatorname{Tr}_{A^c}\Phi_1(|\Psi\rangle\!\langle\Psi|)\right)
--S\!\left(\operatorname{Tr}_{A^c}\Phi_2(|\Psi\rangle\!\langle\Psi|)\right)
-\]
-is not identically zero on each connected component under consideration of the open set where both reduced outputs have full rank, then $f_A(\Psi)\ne0$ for generic inputs in those components.
-\end{theorem}
-
-\begin{proof}
-Pure-state projectors span the Hermitian operators, so $\Phi_1-\Phi_2$ cannot vanish on all of them. The equality condition is polynomial in the real and imaginary parts of $|\Psi\rangle$, so its solution set is a proper real-algebraic subset and has Haar measure zero. On the full-rank domain the von Neumann entropy, and hence $f_A$, is real analytic, and a nonzero real-analytic function has a zero set of measure zero.
-\end{proof}
-
-The nondegeneracy hypothesis cannot be dropped: channels that differ by a unitary acting on $A$ alone give different outputs with identical entropies on every input. Channel inequivalence alone therefore does not yield an entropic or geometric difference. The rest of this section decides, for qubit reductions, exactly when the hypothesis fails.
+A reconstruction may use entropies rather than coherent response
+data. Those entropies can distinguish channels only to a limited
+extent. The exact outputs of distinct channels agree on a measure-zero
+set of pure inputs, but entropy separation needs an additional nondegeneracy
+condition (Theorem~\ref{thm:inequiv} in
+Appendix~\ref{app:entropy-tests}). For qubits the condition can be
+decided exactly. The following results constrain any entropy-based
+dictionary, including those that retain the same generated algebra.
 
 \subsection{Qubit reductions: the criterion}
 
@@ -276,83 +511,19 @@ Write the entropy as a function of the squared Bloch length, $f(x)=h\bigl((1+\sq
 
 When all pure inputs agree, a single strictly mixed input with equal entropies therefore forces $\alpha=0$ and the orthogonal relation of Proposition~\ref{prop:zero}. The argument uses only the one-to-one relation between qubit entropy and Bloch length, not a polynomial form of the entropy.
 
-\subsection{Probes and random inputs}
+Finite data can test a violation of this criterion through purity.
+Corollary~\ref{cor:probes} and Proposition~\ref{prop:finite} give a
+nine-probe finite-copy test with explicit confidence bounds;
+Appendix~\ref{app:entropy-tests} supplies their proofs and sample
+assumptions. The test does not establish exact equality from
+finitely many outcomes.
 
-\begin{corollary}[Nine pure probes and one mixed probe]
-\label{cor:probes}
-Let the probe set consist of the nine Bloch vectors
-\[
-\pm e_1,\ \pm e_2,\ \pm e_3,\ (e_1+e_2)/\sqrt2,\ (e_1+e_3)/\sqrt2,\ (e_2+e_3)/\sqrt2 .
-\]
-If the two channels give equal output entropies on these nine inputs, they give equal output entropies on every pure input. If they also agree at $r=0$, they agree on every input.
-\end{corollary}
-
-\begin{proof}
-The six axial probes give $b_i=0$ and $A_{ii}+c=0$; the three diagonal probes then give $A_{ij}=0$ for $i\ne j$. This is \eqref{eq:criterion}. At $r=0$, $q=c=-\alpha$, so agreement there gives $\alpha=0$. Then $q$ vanishes on the entire Bloch ball, hence the output lengths and entropies agree everywhere.
-\end{proof}
-
-The corollary concerns exact entropy values on nine inputs, not nine measurements. On the unit sphere $q(r)=r^TA_0r+2b^Tr+d$ with $\alpha=\tfrac13\operatorname{tr}A$, $A_0=A-\alpha I$ and $d=c+\alpha$, which is linear in nine real parameters.
-
-\begin{proposition}[Random pure inputs]
-\label{prop:haar}
-For Haar-random pure inputs,
-\begin{equation}
-Q:=\mathbb E\,q(r)^2=\frac{2}{15}\|A_0\|_F^2+\frac43\|b\|^2+d^2 .
-\label{eq:Q}
-\end{equation}
-$Q=0$ exactly when \eqref{eq:criterion} holds. If $Q>0$, then $\mathbb E(S_1-S_2)^2\ge Q/4$, and for $0<\tau<1$
-\begin{equation}
-\Pr\Bigl\{|S_1-S_2|>\tfrac12\sqrt{\tau Q}\Bigr\}
-\ge\Pr\{q^2>\tau Q\}
-\ge\frac{(1-\tau)Q}{1-\tau Q}.
-\label{eq:detect}
-\end{equation}
-\end{proposition}
-
-\begin{proof}
-Use $\mathbb E r_ir_j=\delta_{ij}/3$ and $\mathbb E r_ir_jr_kr_l=(\delta_{ij}\delta_{kl}+\delta_{ik}\delta_{jl}+\delta_{il}\delta_{jk})/15$; odd moments and the cross terms with the traceless $A_0$ vanish. The second claim follows from \eqref{eq:gap-general}. Both outputs are states, so $0\le q^2\le1$; splitting $\mathbb E q^2=Q$ at $q^2=\tau Q$ gives $Q\le\tau Q(1-P)+P$ with $P=\Pr\{q^2>\tau Q\}$, which is \eqref{eq:detect}.
-\end{proof}
-
-With $n$ independent Haar inputs, the probability of missing the difference at the level $\tfrac12\sqrt{\tau Q}$ is at most $(1-p_\tau)^n$, where $p_\tau$ is the right side of \eqref{eq:detect}. This assumes exact entropies; the next proposition removes that assumption. The average change of purity over pure inputs is also the basis of the unitarity measure of noise \cite{Wallman2015}; Eq.~\eqref{eq:Q} concerns the difference between two channels rather than the coherence of one.
-
-\subsection{Finitely many copies}
-
-For a qubit, purity and entropy are both monotone functions of the Bloch length, so equal entropy is equivalent to equal purity, and purity can be measured directly. A SWAP test on two copies of a state $\sigma$ returns the outcome $0$ with probability $\tfrac12\bigl(1+\operatorname{Tr}\sigma^2\bigr)$ \cite{Buhrman2001}. For a qubit with Bloch vector $s$ this is $\tfrac34+\tfrac14\|s\|^2$. We assume that every channel use acts on a freshly prepared, known probe state, that the channels do not drift between uses, and that two output copies can be measured jointly.
-
-Finite data cannot establish that the two entropy functions are exactly equal. They can separate equality from a violation of prescribed size, and they can bound how large a violation can be. Put
-\[
-\kappa_9=\frac{75-3\sqrt{465}}{8}=1.28855\ldots .
-\]
-
-\begin{proposition}[Finite-copy test and confidence bound]
-\label{prop:finite}
-For each of the nine probes $r_k$ of Corollary~\ref{cor:probes}, send $2m$ copies of the input through $\Phi_1$, apply a SWAP test to each of the $m$ output pairs, and do the same for $\Phi_2$. Let $D_k$ be the difference of the two observed frequencies of the outcome $0$.
-\begin{enumerate}
-\item Given $\gamma>0$, declare the channels different on pure inputs if $\max_k|D_k|>\gamma/8$. If \eqref{eq:criterion} holds, a difference is declared with probability at most $18\,e^{-m\gamma^2/64}$. If $\max_k|q(r_k)|\ge\gamma$, the difference is missed with probability at most $2\,e^{-m\gamma^2/64}$.
-\item $\sum_kq(r_k)^2\ge\kappa_9\,Q$, and $\kappa_9$ is the largest constant with this property. Hence $Q\ge Q_0>0$ forces $\max_k|q(r_k)|\ge(\kappa_9Q_0/9)^{1/2}$, and
-\[
-m\ge\frac{576\,\ln(18/\delta)}{\kappa_9\,Q_0}
-\]
-output pairs per probe and channel keep both error probabilities below $\delta$ for the hypotheses $Q=0$ and $Q\ge Q_0$.
-\item For every $t>0$, with probability at least $1-18\,e^{-mt^2}$,
-\[
-Q\le\frac{16}{\kappa_9}\sum_{k=1}^9\bigl(|D_k|+t\bigr)^2 .
-\]
-\end{enumerate}
-\end{proposition}
-
-\begin{proof}
-The expected value of $D_k$ is $q(r_k)/4$. $D_k$ is a sum of $2m$ independent Bernoulli variables with coefficients $\pm1/m$, so Hoeffding's inequality \cite{Hoeffding1963} gives $\Pr\{|D_k-\mathbb ED_k|\ge t\}\le2e^{-mt^2}$. Under \eqref{eq:criterion} every $\mathbb ED_k$ vanishes, and $t=\gamma/8$ with a union bound over the nine probes gives the first error bound. If $|q(r_k)|\ge\gamma$ for some $k$, then $|\mathbb ED_k|\ge\gamma/4$, and missing it requires $|D_k-\mathbb ED_k|\ge\gamma/8$, which gives the second.
-
-The smallest generalized eigenvalue of the two quadratic forms
-$\sum_kq(r_k)^2$ and $Q$ is $\kappa_9$, as computed in
-Appendix~\ref{sec:probe-constant}. The largest of nine terms is at least their mean; setting $\gamma^2=\kappa_9Q_0/9$ and requiring $18e^{-m\gamma^2/64}\le\delta$ gives item~2. For item~3, on the event that all nine deviations are at most $t$, which fails with probability at most $18e^{-mt^2}$, we have $|q(r_k)|=4|\mathbb ED_k|\le4(|D_k|+t)$, and $Q\le\kappa_9^{-1}\sum_kq(r_k)^2$.
-\end{proof}
-
-If the pure-input criterion is known to hold, the same argument at the mixed probe $r=0$ tests the size of $\alpha$: the expected difference there is $-\alpha/4$, and $m\ge64\ln(2/\delta)/\alpha_0^2$ pairs per channel separate $\alpha=0$ from $|\alpha|\ge\alpha_0$ with error at most $\delta$ in each direction. The pure test uses $18m$ channel uses per channel, $36m$ in all. The constants are conservative. Beyond qubits, purity and entropy are different functionals and this reduction no longer applies.
-
-\section{Connectivity and geometry}
+\section{A physical correlation geometry}
 \label{sec:geometry}
+
+Here the vertices are supplied tensor sites, not the central sectors
+of Section~\ref{sec:interfaces}. The construction tests a
+correlation-to-distance rule within that representation.
 
 \subsection{Mutual information as connectivity}
 
@@ -407,23 +578,6 @@ On the complete graph with $v$ vertices, give the edge $e$ the length $1/I_e$ an
 For each edge, $|1/I'_e-1/I_e|=|I_e-I'_e|/(I_eI'_e)\le\varepsilon/(m(m-\varepsilon))$. A shortest path with positive weights uses at most $v-1$ edges. Comparing the new shortest path with the old lengths, and the old shortest path with the new lengths, bounds the difference in both directions.
 \end{proof}
 
-\subsection{From entropy data to a spacetime metric}
-
-In holography, the entropy of a boundary region equals the area of an extremal surface in Planck units \cite{RyuTakayanagi2006}, and the connectivity of spacetime has been argued to track the pattern of entanglement \cite{VanRaamsdonk2010}. In tensor-network models, graph distance in an entanglement graph can approximate continuum distance \cite{Swingle2012}. These are reconstruction dictionaries for particular classes of states.
-
-For a comparison of spacetime geometries, a dictionary $\mathfrak G$
-must also state which entropy profiles it identifies. A sufficient
-condition is
-\[
-\mathfrak G[S_1]\simeq_{\rm diff}\mathfrak G[S_2]
-       \ \Longrightarrow\ S_1\simeq_{\mathfrak G}S_2 .
-\]
-Its contrapositive says that separated profiles produce separated
-geometries. This is a requirement on the dictionary, not a derivation
-of geometry from a channel. The next result replaces that requirement
-by a fixed finite rule for which the distances and their measurement
-uncertainties can be computed.
-
 \subsection{One state, one operation family, one rule}
 
 \begin{proposition}[Non-isometric finite geometries]
@@ -455,7 +609,15 @@ The first and third rows have the same expected number of applied flips, $\sum_i
 Every two-qubit marginal of the GHZ state is an equal mixture of $|00\rangle$ and $|11\rangle$. Local flips leave both bits uniform and make them agree with probability $(1+c_{ij})/2$, so $I_{ij}=2\ln2-\bigl(\ln2+h((1+c_{ij})/2)\bigr)$. All edge lengths are finite and positive, so the rule defines a metric. The diameters differ, so no relabelling makes the spaces isometric. The numbers were also computed from the full eight-dimensional density matrix with the channels applied and partial traces taken; the analytic formula agrees to better than $3\times10^{-16}$.
 \end{proof}
 
-Every entry is fixed in advance: the state, the class of allowed operations, the interpretation of the vertices and the reconstruction rule. Nothing about the target geometry is written into the channels. The local flip channels are invertible on the operator space, so all of them generate the full matrix algebra; the algebra label is the same in every row while the geometry is not, which is Proposition~\ref{prop:algebra}(3) in geometric form. The equal flip budget in rows one and three shows that the difference comes from how a fixed resource is distributed among the qubits, not from its total. This is a one-step budget in a stated implementation; it does not claim equal cost on all hardware or under continuous-time noise. By Proposition~\ref{prop:stability}, perturbing the three mutual informations by $\varepsilon$ changes each distance by at most $2\varepsilon/(m(m-\varepsilon))$ with $m$ the smallest mutual information. The model is a finite existence result for a fixed rule, not a derivation of the rule from mutual information and not a spacetime.
+All three rows use the same source, operation family, sites and
+reconstruction rule. The finite-time flip channels have full
+operator range, so their algebra label is identical even when their
+metrics differ. Rows one and three locate the difference in the
+allocation of the same expected flip count. That count is a resource
+in this implementation, rather than a hardware-independent energy
+price. Proposition~\ref{prop:stability} bounds the distance error by
+$2\varepsilon/(m(m-\varepsilon))$ when the mutual informations vary
+by at most $\varepsilon<m$ and $m$ is their smallest true value.
 
 \subsection{The reduction is a local interaction}
 \label{sec:physical}
@@ -581,6 +743,439 @@ $[\operatorname{diam}\widehat d-R,\operatorname{diam}\widehat d+R]$
 are disjoint on that event.
 \end{theorem}
 
+The proof and full calibration budgets are in
+Appendix~\ref{app:record-proof}. For example, the equal-flip-count
+configurations $(.1,.1,.1)$ and $(.05,.1,.15)$ with fragment overlap
+$.2$ can be separated at confidence $.95$ using $1\,217\,920$
+runs per configuration when their readout visibilities are specified.
+Unknown visibilities require additional reference preparations,
+included in the appendix. Equal expected flip count does not imply
+equal total energy or a free reset.
+
+\subsection{Limits of record inversion}
+
+At $r_i=1$ the record states coincide and $v_i=0$: algebraic inversion
+of their span supplies no source information. Even for $v_i>0$ the
+error grows as the inverse product visibility. A narrow effect set
+can span the pointer algebra while requiring too many trials for
+the available budget.
+
+Calibration of individual error rates is also insufficient when
+the readers share an unmodelled error. Let a common random sign
+$B$ multiply all otherwise ideal outcomes, with $\mathbb E B=v$.
+Each local reference test then reports visibility $v$, while the
+pair products are unchanged, since $B^2=1$. Dividing by $v^2$
+overestimates the true correlations. A common inversion has $v=-1$
+and is invisible to agreement. Joint reference tests, conditional
+error modelling or a verified local apparatus are needed to exclude
+such contamination. The confidence certificate is conditional on
+the joint record law, rather than an inference of that law from
+single-site calibration.
+
+A spacetime reconstruction must solve a further problem: finite
+measurements determine a profile within an error region, not an
+exact profile. The relevant dictionary must be stable on that
+region and must quotient its coordinate freedom. Entropy equality
+from Section~\ref{sec:entropy} supplies a genuine obstruction,
+including operationally different channels with identical entropy
+profiles. More accurate readout cannot repair a dictionary's
+failure to distinguish such profiles.
+
+A coordinate change preserves the reconstructed geometry up to its coordinate equivalence. Changing a physical reduction can instead change its measured correlations. Algebraic difference alone does not prove this distinction: it needs a separating dictionary or an explicit invariant such as the diameter in Proposition~\ref{prop:ghz}.
+
+\begin{figure}[ht]
+\centering
+\begin{tikzpicture}[>=stealth, auto, node distance=3cm]
+    \tikzstyle{state} = [circle, draw, thick, fill=gray!10, minimum size=2.5cm, align=center]
+    \tikzstyle{filter} = [rectangle, draw, thick, fill=white, minimum width=2.5cm, minimum height=1cm, align=center]
+    \tikzstyle{geo} = [ellipse, draw, thick, dashed, minimum width=2.5cm, minimum height=1.5cm, align=center]
+    \node[state] (Alaya) {Same source\\preparation};
+    \node[filter] (Filter1) [below left of=Alaya, xshift=-1cm, yshift=-1cm] {Channel $\Phi_1$};
+    \node[filter] (Filter2) [below right of=Alaya, xshift=1cm, yshift=-1cm] {Channel $\Phi_2$};
+    \node[geo] (Geo1) [below of=Filter1, yshift=-1cm] {Rule $\mathfrak G$\\metric $d_1$};
+    \node[geo] (Geo2) [below of=Filter2, yshift=-1cm] {Rule $\mathfrak G$\\metric $d_2$};
+    \draw[->, thick] (Alaya) -- (Filter1);
+    \draw[->, thick] (Alaya) -- (Filter2);
+    \draw[->, double, thick] (Filter1) -- node[left, font=\footnotesize] {entropies} (Geo1);
+    \draw[->, double, thick] (Filter2) -- node[right, font=\footnotesize] {entropies} (Geo2);
+    \draw[<->, dotted, very thick] (Geo1) -- node[below, font=\footnotesize] {not isometric} (Geo2);
+\end{tikzpicture}
+\caption{One global state is reduced by two channels from the same allowed family. The same reconstruction rule turns their entropy data into metrics. The tensor sites and the rule are fixed inputs. Proposition~\ref{prop:ghz} exhibits different diameters; the process-selected sector geometry is a separate construction.}
+\label{fig:haff_scheme}
+\end{figure}
+
+\section{From relations to spatial structure}
+\label{sec:discussion}
+\label{sec:spatial-bridge}
+
+\subsection{What the different geometries compare}
+
+The process-selected sectors and the GHZ sites answer different
+questions. The first are central atoms of a persistent algebra;
+the second are tensor factors supplied to a correlation protocol.
+There is no canonical identification between these two sets.
+In the rate geometry the channel determines a relation independently
+of the input state. In the correlation geometry the state, its
+reduction, the site representation and the reconstruction rule all
+matter.
+
+A spatial interpretation needs evidence linking these relations to
+propagation or intervention. Pure dephasing supplies none of the
+required sector transport. A weak Hamiltonian connecting different
+sectors is a possible extension, but degenerate blocks generally
+retain quantum states that prevent a closed scalar equation for their
+populations. Paper~B's protected Bell-pair interaction acts inside a
+joint noise sector and does not supply transitions between central
+labels \cite{Liu2026PaperB}. Deriving a transfer law would require
+its own approximation, error bound and actual intervention ports.
+
+If a reversible transfer process were identified through those
+ports, its stationary currents and responses could fix a conductance
+form and operational resistance distances. This would give a
+distance rule through a stated physical task, as
+\eqref{eq:rate-record} does for discrimination. An arbitrary support
+of the added Hamiltonian can still encode an arbitrary interaction
+graph. Inferring spatial locality, rather than inserting it into
+that support, remains the stronger problem.
+
+For a precisely specified response candidate, suppose calibrated
+experiments identify a connected reversible jump generator with
+rates $q_{ab}$ from $a$ to $b$ and stationary weights $\pi_a>0$.
+The response fixes
+\[
+ \mathcal E(f,f)=\frac12\sum_{a,b}\pi_aq_{ab}(f_b-f_a)^2,\qquad
+ \Gamma(f)(a)=\frac12\sum_bq_{ab}(f_b-f_a)^2 .
+\]
+A possible task convention fixes a reference rate $r_0>0$, with
+units $\mathrm{time}^{-1}$, and bounds local quadratic variation:
+\begin{equation}
+ d_{\Gamma,r_0}(a,b)=\sup\{f_a-f_b:\ \Gamma(f)(c)\le r_0
+                           \text{ for all }c\},\qquad f\in\mathbb R^V.
+ \label{eq:response-distance}
+\end{equation}
+On a finite connected graph this is a finite separating metric:
+edgewise gradient bounds make every difference bounded, small
+multiples of separating functions are feasible, and the supremum
+gives the triangle inequality. For dimensionless $f$, this distance
+is dimensionless; its conversion to length requires a separate
+calibration. The reference rate is part of the task convention.
+It is defined here by this task convention; it is not identified
+with the effective resistance or asserted to be the sole intrinsic
+metric of a jump process. For diffusion forms the energy-measure
+analogue defines a standard intrinsic pseudometric, whose
+nondegeneracy and agreement with the topology need extra conditions
+\cite{Sturm1995}.
+
+\subsection{A same-process locality conjecture}
+
+The world-structure proposal is that the process selecting persistent
+organization can also constrain the relations that become spatial.
+Selection, record access and propagation should be tested within
+one history, rather than supplied by incompatible models.
+
+\begin{conjecture}[Locality from process-selected relations]
+\label{conj:process-locality}
+There are families of finite carriers, specified by noise and
+Hamiltonian operators without assigning their matrix entries to
+spatially local gates, for which interaction histories produce
+refining persistent block descriptions and calibrated transfer
+responses on those blocks. Under refinement these responses admit
+a common continuum limit described by a nondegenerate strongly
+local Dirichlet form. After calibration, the distances
+\eqref{eq:response-distance} converge with these descriptions to
+the nondegenerate intrinsic distance of that limit. This distance
+is unchanged by alternative descriptions preserving the response,
+stationary weights and reference rate.
+\end{conjecture}
+
+The conjecture asks for an existence mechanism in one microscopic
+family, not a conclusion for every dephasing channel. Its substantial
+requirement is the joint formation of stable organization and a
+local response limit without a spatial dictionary supplied to the
+reconstruction. The finite selection result supplies a persistent-block ingredient; Paper~B's interactions forming protected relations show
+that preservation and formation can be distinguished experimentally.
+Neither establishes the proposed limit.
+
+A proposed realization must supply the refining blocks, allowed
+preparations and readers, measured transfer kernels, limiting form
+and its intrinsic distance. It would fail if block dynamics did
+not close at the claimed resolution, if persistent long-range
+shortcuts prevented a local limit, or if response-preserving
+descriptions produced inequivalent limiting distances after common
+calibration. Its strongest competing explanation is that any
+observed locality was already encoded in the supplied coupling
+architecture. A useful realization must show which locality
+constraints follow from the history and which remain in that
+architecture.
+
+\subsection{Reconstruction and the series}
+
+In holography, extremal-surface areas provide a specific entropy
+dictionary \cite{Maldacena1999,RyuTakayanagi2006}; tensor-network
+distances use another \cite{Swingle2012}. To infer distinct
+spacetimes from separated entropy profiles, a dictionary
+$\mathfrak G$ must identify its equivalence relation and satisfy,
+for example,
+\[
+ \mathfrak G[S_1]\simeq_{\rm diff}\mathfrak G[S_2]
+       \ \Longrightarrow\ S_1\simeq_{\mathfrak G}S_2 .
+\]
+This separation property is an input about that dictionary.
+Finite readings also require its stability over a confidence
+region. The finite model in Section~\ref{sec:geometry} proves
+separation under its declared rule rather than assuming a
+spacetime dictionary. Imprint's cross-scale analysis asks the related
+question of which readable relations survive a change of resolution
+and at what cost \cite{LiuImprintRG}.
+
+\begin{conjecture}[Finite permissions approaching geometric access]
+\label{conj:finite-geometry}
+In a source family with an independently justified local
+reconstruction dictionary, histories that enlarge the available
+record fragments and calibrate their readout can make the inferred
+geometry converge while the generated observable algebra remains
+constant. The required growth of visibility, preparation count and
+dictionary stability bounds must jointly dominate sampling and
+model error.
+\end{conjecture}
+
+The finite certificate supplies the mechanism and the costs of this
+candidate. For $E$ edges with visibility at least $\nu$, error in
+the correlations scales as
+$\nu^{-2}\sqrt{\ln(2E/\delta)/n}$ before calibration error.
+If reconstructed edge mutual informations have lower bound $\mu$,
+distance error carries another factor of order $\mu^{-2}$ times
+the number of edges in a shortest path. Consequently, a growing
+graph or an approaching zero-information edge can defeat
+convergence even while all fixed-algebra labels are unchanged.
+The conjecture would fail in a proposed model if its dictionary is
+unstable, if common error survives calibration, or if its available
+budget cannot overcome these factors. This is a route from finite
+permissions to geometric access, not an assumption that a continuum
+or its dynamics is already generated.
+
+The spatial/eigenmode example in Appendix~\ref{sec:optional-connectivity}
+illustrates dependence of connectivity on factorization. Unlike
+Proposition~\ref{prop:ghz}, its empty eigenmode graph has no finite
+reconstructed paths.
+
+\section{Conclusion}
+\label{sec:conclusion}
+
+A physical process can select an effective organization before
+spatial sites have been assigned. In the commuting-noise class,
+the organization is a direct sum fixed by the dynamics; its
+central sectors and cross-sector coherence rates are intrinsic to
+the channel. A finite stability window can select persistent blocks,
+and allowed coherent probes identify their rate relation.
+
+What is selected must still be distinguished from what can be
+read. Equal system channels can leave different readable records
+at a restricted environmental port. Equal entropy functions can
+hide operationally incomparable reductions. The qubit criterion
+and finite-copy tests make those obstructions quantitative.
+
+The GHZ protocol carries a separate correlation reconstruction
+through actual interactions and finite records. Changing the
+allocation of a fixed expected flip count changes its certified
+metric. Its tensor sites and distance rule remain specified
+inputs. Turning process-selected organization into spatial
+geometry requires a common account of persistence and actual
+transport. Conjecture~\ref{conj:process-locality} states that
+remaining mechanism as a testable target within the framework.
+
+\appendix
+
+\section{Proof of the intrinsic window certificate}
+\label{app:window-proof}
+
+On a cluster $C$, choose a centre $c$ of its smallest enclosing
+ball and put
+$B_k=\sum_{a\in C}(u_{a,k}-c_k)P_a$. Scalar shifts do not alter
+double commutators. The restricted generator is
+\[
+ \mathcal L_C(X)=2\Psi(X)-\{R,X\},\qquad
+ \Psi(X)=\sum_kB_kXB_k,\qquad R=\sum_kB_k^2 .
+\]
+Here $\Psi$ is completely positive and
+$\|\Psi\|=\|\Psi(I)\|=\|R\|\le r_C^2$.
+Thus $\|\mathcal L_C\|\le4r_C^2$. The semigroup is a contraction
+on each invariant block, so Duhamel's formula gives
+$\|\Phi_t(X)-X\|\le t\kappa_{\rm in}\|X\|$
+on $\mathcal B_\pi$.
+
+A strictly containing unital algebra has a nonzero entry between
+two different $Q_C$ blocks. Multiplication on both sides by
+matrix units already in $\mathcal B_\pi$ isolates a cross-cluster
+matrix unit $E_{xy}$. Its loss at time $T$ is
+$1-e^{-TD_{ab}}\ge1-e^{-T\Delta_{\rm out}}>\varepsilon$.
+Such a containing algebra cannot be stable.
+
+Conversely, any stable block algebra in a common joint eigenbasis
+can put $x$ and $y$ together only if
+$1-e^{-TD_{ab}}\le\varepsilon$. The separation in
+\eqref{eq:intrinsic-window} forbids this across two clusters, so
+every stable block of that form lies in one $Q_C$ block.
+Two certified partitions therefore refine each other and coincide.
+
+The radii are determined by the Euclidean configuration of $D$.
+A computable sufficient upper bound uses the equal-weight centroid:
+\[
+ \|u_a-\bar u_C\|^2
+ =\frac1{|C|}\sum_{b\in C}D_{ab}
+   -\frac1{2|C|^2}\sum_{b,c\in C}D_{bc}.
+\]
+Replacing $r_C^2$ by its largest value over $a\in C$ retains the
+certificate. It need not be optimal.
+
+\section{Channel order and entropy tests}
+\label{app:entropy-tests}
+\subsection{Refinement}
+
+\begin{definition}[Refinement]
+\label{def:refine}
+For coarse-graining structures $\mathbf c_1,\mathbf c_2$ write $\mathbf c_1\succeq\mathbf c_2$ if there is a CPTP map $\Lambda$ from states on the output space of $\Phi_{\mathbf c_1}$ to states on the output space of $\Phi_{\mathbf c_2}$ with $\Phi_{\mathbf c_2}=\Lambda\circ\Phi_{\mathbf c_1}$. Then $\mathbf c_2$ is a further coarse-graining of $\mathbf c_1$.
+\end{definition}
+
+\begin{proposition}[Order on classes]
+\label{prop:order}
+The relation $\succeq$ is reflexive and transitive but not antisymmetric. Writing $\Phi\sim\Psi$ when each is a post-processing of the other, $\succeq$ induces a partial order on equivalence classes.
+\end{proposition}
+
+\begin{proof}
+Reflexivity uses $\Lambda=\mathrm{id}$, transitivity uses composition of channels. Two different replacer channels, which output fixed states $\omega_1\ne\omega_2$, simulate each other by a further replacement, so antisymmetry fails. On classes the relation is well defined because composing with a simulating channel does not change membership, and antisymmetry holds by construction.
+\end{proof}
+
+If the allowed post-processings are restricted, for example to local, energy-bounded or specified control operations, the restricted class must be closed under composition before the same quotient can be formed. The comparison of channels by approximate post-processing has an operational characterization through success probabilities of discrimination tasks \cite{Jencova2015}; we use only exact post-processing.
+
+\subsection{Mutual information under refinement}
+
+\begin{proposition}[Local and global post-processing]
+\label{prop:mi}
+For channels $\Lambda_A,\Lambda_B$ acting on $A$ and $B$ separately,
+\[
+I(A':B')_{(\Lambda_A\otimes\Lambda_B)(\rho)}\le I(A:B)_\rho .
+\]
+A global CPTP post-processing can increase mutual information: the channel that replaces every two-qubit input by a Bell state takes $|00\rangle$, with $I=0$, to a state with $I=2\ln2$.
+\end{proposition}
+
+\begin{proof}
+$I(A:B)_\rho=D(\rho_{AB}\Vert\rho_A\otimes\rho_B)$, and $\Lambda_A\otimes\Lambda_B$ maps $\rho_A\otimes\rho_B$ to the product of the new marginals, so data processing for relative entropy gives the inequality. The Bell example is a direct computation.
+\end{proof}
+
+A requirement that mutual information decrease under refinement is therefore a theorem for local refinements and false for global ones. A geometric reading of mutual information must say which refinements it allows.
+
+\subsection{Generic separation}
+
+\begin{theorem}[Generic separation for a fixed pair of channels]
+\label{thm:inequiv}
+Let $\mathcal H$ and $\mathcal K=\mathcal K_A\otimes\mathcal K_{A^c}$ be finite dimensional, and let $\Phi_1\ne\Phi_2$ be CPTP maps from states on $\mathcal H$ to states on $\mathcal K$. The pure inputs on which $\Phi_1$ and $\Phi_2$ agree form a proper real-algebraic subset of Haar measure zero. If, in addition, the real-analytic function
+\[
+f_A(\Psi):=
+S\!\left(\operatorname{Tr}_{A^c}\Phi_1(|\Psi\rangle\!\langle\Psi|)\right)
+-S\!\left(\operatorname{Tr}_{A^c}\Phi_2(|\Psi\rangle\!\langle\Psi|)\right)
+\]
+is not identically zero on each connected component under consideration of the open set where both reduced outputs have full rank, then $f_A(\Psi)\ne0$ for generic inputs in those components.
+\end{theorem}
+
+\begin{proof}
+Pure-state projectors span the Hermitian operators, so $\Phi_1-\Phi_2$ cannot vanish on all of them. The equality condition is polynomial in the real and imaginary parts of $|\Psi\rangle$, so its solution set is a proper real-algebraic subset and has Haar measure zero. On the full-rank domain the von Neumann entropy, and hence $f_A$, is real analytic, and a nonzero real-analytic function has a zero set of measure zero.
+\end{proof}
+
+The nondegeneracy hypothesis cannot be dropped: channels that differ
+by a unitary acting on $A$ alone can give different outputs with
+identical entropies on every input. Channel inequivalence alone
+therefore does not yield an entropic or geometric difference.
+Section~\ref{sec:entropy} gives the exact qubit criterion; the tests
+below turn its violation into a finite measurement problem.
+
+\subsection{Probes and random inputs}
+
+\begin{corollary}[Nine pure probes and one mixed probe]
+\label{cor:probes}
+Let the probe set consist of the nine Bloch vectors
+\[
+\pm e_1,\ \pm e_2,\ \pm e_3,\ (e_1+e_2)/\sqrt2,\ (e_1+e_3)/\sqrt2,\ (e_2+e_3)/\sqrt2 .
+\]
+If the two channels give equal output entropies on these nine inputs, they give equal output entropies on every pure input. If they also agree at $r=0$, they agree on every input.
+\end{corollary}
+
+\begin{proof}
+The six axial probes give $b_i=0$ and $A_{ii}+c=0$; the three diagonal probes then give $A_{ij}=0$ for $i\ne j$. This is \eqref{eq:criterion}. At $r=0$, $q=c=-\alpha$, so agreement there gives $\alpha=0$. Then $q$ vanishes on the entire Bloch ball, hence the output lengths and entropies agree everywhere.
+\end{proof}
+
+The corollary concerns exact entropy values on nine inputs, not nine measurements. On the unit sphere $q(r)=r^TA_0r+2b^Tr+d$ with $\alpha=\tfrac13\operatorname{tr}A$, $A_0=A-\alpha I$ and $d=c+\alpha$, which is linear in nine real parameters.
+
+\begin{proposition}[Random pure inputs]
+\label{prop:haar}
+For Haar-random pure inputs,
+\begin{equation}
+Q:=\mathbb E\,q(r)^2=\frac{2}{15}\|A_0\|_F^2+\frac43\|b\|^2+d^2 .
+\label{eq:Q}
+\end{equation}
+$Q=0$ exactly when \eqref{eq:criterion} holds. If $Q>0$, then $\mathbb E(S_1-S_2)^2\ge Q/4$, and for $0<\tau<1$
+\begin{equation}
+\Pr\Bigl\{|S_1-S_2|>\tfrac12\sqrt{\tau Q}\Bigr\}
+\ge\Pr\{q^2>\tau Q\}
+\ge\frac{(1-\tau)Q}{1-\tau Q}.
+\label{eq:detect}
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+Use $\mathbb E r_ir_j=\delta_{ij}/3$ and $\mathbb E r_ir_jr_kr_l=(\delta_{ij}\delta_{kl}+\delta_{ik}\delta_{jl}+\delta_{il}\delta_{jk})/15$; odd moments and the cross terms with the traceless $A_0$ vanish. The second claim follows from \eqref{eq:gap-general}. Both outputs are states, so $0\le q^2\le1$; splitting $\mathbb E q^2=Q$ at $q^2=\tau Q$ gives $Q\le\tau Q(1-P)+P$ with $P=\Pr\{q^2>\tau Q\}$, which is \eqref{eq:detect}.
+\end{proof}
+
+With $n$ independent Haar inputs, the probability of missing the difference at the level $\tfrac12\sqrt{\tau Q}$ is at most $(1-p_\tau)^n$, where $p_\tau$ is the right side of \eqref{eq:detect}. This assumes exact entropies; the next proposition removes that assumption. The average change of purity over pure inputs is also the basis of the unitarity measure of noise \cite{Wallman2015}; Eq.~\eqref{eq:Q} concerns the difference between two channels rather than the coherence of one.
+
+\subsection{Finitely many copies}
+
+For a qubit, purity and entropy are both monotone functions of the Bloch length, so equal entropy is equivalent to equal purity, and purity can be measured directly. A SWAP test on two copies of a state $\sigma$ returns the outcome $0$ with probability $\tfrac12\bigl(1+\operatorname{Tr}\sigma^2\bigr)$ \cite{Buhrman2001}. For a qubit with Bloch vector $s$ this is $\tfrac34+\tfrac14\|s\|^2$. We assume that every channel use acts on a freshly prepared, known probe state, that the channels do not drift between uses, and that two output copies can be measured jointly.
+
+Finite data cannot establish that the two entropy functions are exactly equal. They can separate equality from a violation of prescribed size, and they can bound how large a violation can be. Put
+\[
+\kappa_9=\frac{75-3\sqrt{465}}{8}=1.28855\ldots .
+\]
+
+\begin{proposition}[Finite-copy test and confidence bound]
+\label{prop:finite}
+For each of the nine probes $r_k$ of Corollary~\ref{cor:probes}, send $2m$ copies of the input through $\Phi_1$, apply a SWAP test to each of the $m$ output pairs, and do the same for $\Phi_2$. Let $D_k$ be the difference of the two observed frequencies of the outcome $0$.
+\begin{enumerate}
+\item Given $\gamma>0$, declare the channels different on pure inputs if $\max_k|D_k|>\gamma/8$. If \eqref{eq:criterion} holds, a difference is declared with probability at most $18\,e^{-m\gamma^2/64}$. If $\max_k|q(r_k)|\ge\gamma$, the difference is missed with probability at most $2\,e^{-m\gamma^2/64}$.
+\item $\sum_kq(r_k)^2\ge\kappa_9\,Q$, and $\kappa_9$ is the largest constant with this property. Hence $Q\ge Q_0>0$ forces $\max_k|q(r_k)|\ge(\kappa_9Q_0/9)^{1/2}$, and
+\[
+m\ge\frac{576\,\ln(18/\delta)}{\kappa_9\,Q_0}
+\]
+output pairs per probe and channel keep both error probabilities below $\delta$ for the hypotheses $Q=0$ and $Q\ge Q_0$.
+\item For every $t>0$, with probability at least $1-18\,e^{-mt^2}$,
+\[
+Q\le\frac{16}{\kappa_9}\sum_{k=1}^9\bigl(|D_k|+t\bigr)^2 .
+\]
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+The expected value of $D_k$ is $q(r_k)/4$. $D_k$ is a sum of $2m$ independent Bernoulli variables with coefficients $\pm1/m$, so Hoeffding's inequality \cite{Hoeffding1963} gives $\Pr\{|D_k-\mathbb ED_k|\ge t\}\le2e^{-mt^2}$. Under \eqref{eq:criterion} every $\mathbb ED_k$ vanishes, and $t=\gamma/8$ with a union bound over the nine probes gives the first error bound. If $|q(r_k)|\ge\gamma$ for some $k$, then $|\mathbb ED_k|\ge\gamma/4$, and missing it requires $|D_k-\mathbb ED_k|\ge\gamma/8$, which gives the second.
+
+The smallest generalized eigenvalue of the two quadratic forms
+$\sum_kq(r_k)^2$ and $Q$ is $\kappa_9$, as computed in
+Appendix~\ref{sec:probe-constant}. The largest of nine terms is at least their mean; setting $\gamma^2=\kappa_9Q_0/9$ and requiring $18e^{-m\gamma^2/64}\le\delta$ gives item~2. For item~3, on the event that all nine deviations are at most $t$, which fails with probability at most $18e^{-mt^2}$, we have $|q(r_k)|=4|\mathbb ED_k|\le4(|D_k|+t)$, and $Q\le\kappa_9^{-1}\sum_kq(r_k)^2$.
+\end{proof}
+
+If the pure-input criterion is known to hold, the same argument at the mixed probe $r=0$ tests the size of $\alpha$: the expected difference there is $-\alpha/4$, and $m\ge64\ln(2/\delta)/\alpha_0^2$ pairs per channel separate $\alpha=0$ from $|\alpha|\ge\alpha_0$ with error at most $\delta$ in each direction. The pure test uses $18m$ channel uses per channel, $36m$ in all. The constants are conservative. Beyond qubits, purity and entropy are different functionals and this reduction no longer applies.
+
+\subsection{The nine-probe constant}
+\label{sec:probe-constant}
+
+On the unit sphere, $\sum_kq(r_k)^2$ and $Q$ are quadratic forms in the nine parameters $(A_0,b,d)$, and both are positive definite; the first because the nine probe values determine the parameters, as in the proof of Corollary~\ref{cor:probes}. Their generalized eigenvalues do not depend on the basis chosen for the parameters, and a direct computation gives the characteristic polynomial, up to a constant factor,
+\[
+(\lambda-6)\,(4\lambda^2-75\lambda+90)\,(8\lambda^3-225\lambda^2+1620\lambda-2700)^2 .
+\]
+Its roots are $1.2886$, $2.3962$, $6$, $7.9001$, $17.4614$ and $17.8287$, the three roots of the cubic each counted twice. The smallest is the smaller root of the quadratic factor, $\kappa_9$, and it is attained. 
+
+\section{Record certificate: proof and calibration budgets}
+\label{app:record-proof}
+\subsection{Proof of Theorem~\ref{thm:record-metric}}
 \begin{proof}
 Each $Y_iY_j\in[-1,1]$ has expectation $v_iv_jc_{ij}$.
 Hoeffding's inequality gives a two-sided tail
@@ -601,6 +1196,7 @@ value by at most $R$, so the estimated gap is at least $\Delta-2R$;
 two radius-$R$ intervals are disjoint when $\Delta>4R$.
 \end{proof}
 
+\subsection{Specified and empirically calibrated readers}
 For the equal-flip-count configurations $(.1,.1,.1)$ and
 $(.05,.1,.15)$, take one recording qubit per site with overlap
 $r_i=.2$. Then $v_i=\sqrt{.96}$ and the correlations lie between
@@ -653,161 +1249,6 @@ schedule is identical. Preparation, switching work, storage,
 communication and renewal do not vanish because the counts agree.
 No heat or total-energy equality follows from the flip count, and
 this finite protocol supplies no reservoir reset.
-
-\subsection{Limits of record inversion}
-
-At $r_i=1$ the record states coincide and $v_i=0$: algebraic inversion
-of their span supplies no source information. Even for $v_i>0$ the
-error grows as the inverse product visibility. A narrow effect set
-can span the pointer algebra while requiring too many trials for
-the available budget.
-
-Calibration of individual error rates is also insufficient when
-the readers share an unmodelled error. Let a common random sign
-$B$ multiply all otherwise ideal outcomes, with $\mathbb E B=v$.
-Each local reference test then reports visibility $v$, while the
-pair products are unchanged, since $B^2=1$. Dividing by $v^2$
-overestimates the true correlations. A common inversion has $v=-1$
-and is invisible to agreement. Joint reference tests, conditional
-error modelling or a verified local apparatus are needed to exclude
-such contamination. The confidence certificate is conditional on
-the joint record law, rather than an inference of that law from
-single-site calibration.
-
-A spacetime reconstruction must solve a further problem: finite
-measurements determine a profile within an error region, not an
-exact profile. The relevant dictionary must be stable on that
-region and must quotient its coordinate freedom. Entropy equality
-from Section~\ref{sec:entropy} supplies a genuine obstruction,
-including operationally different channels with identical entropy
-profiles. More accurate readout cannot repair a dictionary's
-failure to distinguish such profiles.
-
-\begin{conjecture}[Finite permissions approaching geometric access]
-\label{conj:finite-geometry}
-In a source family with an independently justified local
-reconstruction dictionary, histories that enlarge the available
-record fragments and calibrate their readout can make the inferred
-geometry converge while the generated observable algebra remains
-constant. The required growth of visibility, preparation count and
-dictionary stability bounds must jointly dominate sampling and
-model error.
-\end{conjecture}
-
-The finite certificate supplies the mechanism and the costs of this
-candidate. For $E$ edges with visibility at least $\nu$, error in
-the correlations scales as
-$\nu^{-2}\sqrt{\ln(2E/\delta)/n}$ before calibration error.
-If reconstructed edge mutual informations have lower bound $\mu$,
-distance error carries another factor of order $\mu^{-2}$ times
-the number of edges in a shortest path. Consequently, a growing
-graph or an approaching zero-information edge can defeat
-convergence even while all fixed-algebra labels are unchanged.
-The conjecture would fail in a proposed model if its dictionary is
-unstable, if common error survives calibration, or if its available
-budget cannot overcome these factors. This is a route from finite
-permissions to geometric access, not an assumption that a continuum
-or its dynamics is already generated.
-
-The spatial/eigenmode example in Appendix~\ref{sec:optional-connectivity}
-illustrates dependence of connectivity on factorization. Unlike
-Proposition~\ref{prop:ghz}, its empty eigenmode graph has no finite
-reconstructed paths.
-
-\subsection{Not a change of coordinates}
-
-A diffeomorphism acts within a fixed algebra of observables and leaves unchanged what can be measured. A change of coarse-graining changes the accessible observables, which correlations are visible and how subsystems are defined. Algebraic difference alone does not prove that two reconstructed metrics are not diffeomorphic, because a dictionary may discard it; the conclusion needs a separating dictionary or an explicit computation such as Proposition~\ref{prop:ghz}.
-
-\begin{figure}[ht]
-\centering
-\begin{tikzpicture}[>=stealth, auto, node distance=3cm]
-    \tikzstyle{state} = [circle, draw, thick, fill=gray!10, minimum size=2.5cm, align=center]
-    \tikzstyle{filter} = [rectangle, draw, thick, fill=white, minimum width=2.5cm, minimum height=1cm, align=center]
-    \tikzstyle{geo} = [ellipse, draw, thick, dashed, minimum width=2.5cm, minimum height=1.5cm, align=center]
-    \node[state] (Alaya) {Global state\\$|\Psi_U\rangle$};
-    \node[filter] (Filter1) [below left of=Alaya, xshift=-1cm, yshift=-1cm] {Channel $\Phi_1$};
-    \node[filter] (Filter2) [below right of=Alaya, xshift=1cm, yshift=-1cm] {Channel $\Phi_2$};
-    \node[geo] (Geo1) [below of=Filter1, yshift=-1cm] {Rule $\mathfrak G$\\metric $d_1$};
-    \node[geo] (Geo2) [below of=Filter2, yshift=-1cm] {Rule $\mathfrak G$\\metric $d_2$};
-    \draw[->, thick] (Alaya) -- (Filter1);
-    \draw[->, thick] (Alaya) -- (Filter2);
-    \draw[->, double, thick] (Filter1) -- node[left, font=\footnotesize] {entropies} (Geo1);
-    \draw[->, double, thick] (Filter2) -- node[right, font=\footnotesize] {entropies} (Geo2);
-    \draw[<->, dotted, very thick] (Geo1) -- node[below, font=\footnotesize] {not isometric} (Geo2);
-\end{tikzpicture}
-\caption{One global state is reduced by two channels from the same allowed family. The same reconstruction rule turns their entropy data into metrics. Section~\ref{sec:entropy} decides when the entropy data differ; Proposition~\ref{prop:ghz} gives a case where the metrics are not isometric.}
-\label{fig:haff_scheme}
-\end{figure}
-
-\section{Discussion}
-\label{sec:discussion}
-
-\subsection{Relation to other frameworks}
-
-QBism treats the quantum state as an agent's degree of belief. Here a single objective global state is assumed throughout, and coarse-grainings are realized by physical interactions. The only point of contact is that no subsystem decomposition is privileged. Decoherence and many-worlds accounts explain classical behaviour and branching relative to a fixed split into system, apparatus and environment. The present framework leaves that analysis unchanged and asks where the split comes from. The closest relative is algebraic quantum field theory, where algebras are primary and states are functionals on them \cite{Haag1996}, and the closest technical precursor is the result that tensor-product structures are induced by the accessible observables \cite{Zanardi2004}. What the present paper adds to that line is the channel level: a reduction has a resolution that its algebra does not record (Proposition~\ref{prop:algebra}), entropy-based readings have exact blind spots (Theorem~\ref{thm:criterion}, Example~\ref{ex:reflection}), those blind spots can be tested with finite resources (Proposition~\ref{prop:finite}), and a fixed rule can turn a different distribution of the same noise budget into a different finite geometry (Proposition~\ref{prop:ghz}). The affine form of qubit channels, the complete-positivity conditions and the comparison of channels by post-processing are known tools \cite{RuskaiSzarekWerner2002,FujiwaraAlgoet1999,Jencova2015}; the criterion, the branch analysis and the tests are derived here, and a full comparison with the literature on channels with equal output spectra is still to be done.
-
-\subsection{Series interfaces and the world-structure question}
-
-The protocol connects three distinct responsibilities.
-Paper~B derives a reduction and its persistent structures from
-specified couplings. Its window theorem selects a block partition
-when within-block and between-block rates permit one; this does not
-make the finite channel's full range equal to that block algebra.
-Paper~E derives the fragment's implementable effects and its public
-readout properties from a collision. Here their composition reaches
-a certified geometric difference. The source-channel algebra can
-stay fixed while recording permission and the attainable precision
-change. Imprint's cross-scale work develops the related question of
-which reading is worth its cost \cite{LiuImprintRG}.
-
-The coupling operators, factorization into sites, source preparation
-and reconstruction rule are still inputs. The new connection
-derives what happens between those inputs and a finite reader's
-geometric conclusion; it does not derive the architecture from an
-unstructured Hilbert space. Histories that alter actual coupling or
-record access, as studied in the subject and maintenance lines of
-the trilogy, can change this capability. A claim that they also
-generate locality or a spacetime dictionary requires its own
-dynamics and bridge, including the error conditions of
-Conjecture~\ref{conj:finite-geometry}.
-
-The finite models use trace entropy, whereas the infinite source
-description introduced above does not. Neither the SLD Fisher
-metric nor a shortest-path metric is identified with Lorentzian
-spacetime. The task is to determine which operational structures
-can constrain a physical geometric reading, and which geometric
-claims fail because a finite context cannot distinguish the data.
-
-\section{Conclusion}
-\label{sec:conclusion}
-
-A physical reduction carries more information than its generated
-algebra. Two reductions may share the algebra and differ in
-resolution; they may agree on every entropy and remain
-operationally incomparable. For qubits these possibilities are
-decided by a quadratic criterion, and finite-copy tests bound its
-violation.
-
-The worked protocol carries the argument through actual operations.
-A local unitary produces the source noise, local collisions create
-environmental records without changing the pair data used by the
-rule, and the measured records certify non-isometric shortest-path
-metrics. Noise allocation changes geometry at equal expected flip
-count. The finite sample guarantee includes imperfect readout,
-calibration and a common-error failure mechanism, so the conclusion
-is attainable by the declared readers.
-
-The resulting dependence is physical and quantitative within the
-model: changing an implemented coupling changes a state, its
-recorded correlations and the reconstructed metric. Explaining the
-coupling architecture, deriving a spacetime dictionary and its
-continuum dynamics remain the larger world-structure problem.
-Conjecture~\ref{conj:finite-geometry} gives a mechanism and failure
-conditions for one part of that extension. No empirical departure
-from quantum theory is claimed; the protocol itself gives
-testable statements.
-
-\appendix
 
 \section{No canonical tensor factorization}
 \label{sec:nopref}
@@ -880,15 +1321,6 @@ The second description has to be chosen with care. Plain Fourier modes are not e
 
 The example shows that connectivity depends on the factorization: the spatial description has short-range edges and the eigenmode description has none. It does not exhibit two reconstructed geometries, since its zero-connectivity graph supplies no finite paths under the chosen rule; Proposition~\ref{prop:ghz} is the example in which both descriptions produce geometries.
 
-
-\section{The nine-probe constant}
-\label{sec:probe-constant}
-
-On the unit sphere, $\sum_kq(r_k)^2$ and $Q$ are quadratic forms in the nine parameters $(A_0,b,d)$, and both are positive definite; the first because the nine probe values determine the parameters, as in the proof of Corollary~\ref{cor:probes}. Their generalized eigenvalues do not depend on the basis chosen for the parameters, and a direct computation gives the characteristic polynomial, up to a constant factor,
-\[
-(\lambda-6)\,(4\lambda^2-75\lambda+90)\,(8\lambda^3-225\lambda^2+1620\lambda-2700)^2 .
-\]
-Its roots are $1.2886$, $2.3962$, $6$, $7.9001$, $17.4614$ and $17.8287$, the three roots of the cubic each counted twice. The smallest is the smaller root of the quadratic factor, $\kappa_9$, and it is attained. 
 
 \begin{thebibliography}{99}
 
@@ -985,7 +1417,21 @@ S.~Liu, \emph{Measurement as Accessibility: Measurement Permissions, Stable Reco
 \bibitem{LiuImprintRG}
 S.~Liu, \emph{Renormalization and Imprint Filtering: Source Identification, Memory, and Calibration}, Zenodo (2026), DOI: 10.5281/zenodo.20151451.
 
+\bibitem{Fagnola2019}
+F.~Fagnola, J.~E.~Gough, H.~I.~Nurdin and L.~Viola,
+\emph{Mathematical Models of Markovian Dephasing},
+arXiv:1811.11784 (2019).
+
+\bibitem{LiuFoundationI}
+S.~Liu, \emph{Foundation I: From Source to Manifestation.
+Accessible Algebras from a Source, Its Noise and a Readable Seed}, Zenodo (2026).
+
+\bibitem{Sturm1995}
+K.-T.~Sturm, \emph{On the geometry defined by Dirichlet forms},
+in \emph{Seminar on Stochastic Analysis, Random Fields and
+Applications}, Progress in Probability \textbf{36},
+231--242 (1995).
+
 \end{thebibliography}
 
 \end{document}
-

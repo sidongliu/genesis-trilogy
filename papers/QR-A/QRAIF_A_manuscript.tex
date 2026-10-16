@@ -38,7 +38,11 @@ Clifford Relations, Causal Cones and Spectral Mass}
 
 % ============================================================
 \begin{abstract}
-A positive control metric cannot become Lorentzian by a change of variables. We instead derive the relative sign from the propagation of an internal quantum state. For a first-order Hermitian symbol with linearly independent spatial coefficients, every band lies on one quadratic shell if and only if the coefficients obey the corresponding Euclidean Clifford relations. Operator-norm bounds on deviations give a uniform squared-band certificate without asserting repair to an exact representation. The resulting form $\omega^2-Q(q)$ has signature $(1,d)$; it describes the full characteristic cone when both frequency branches occur. The evolution parameter is supplied, while unitarity makes its conjugate frequency a hyperbolicity direction. The internal dimension bounds $d+[\mu\neq0]$ by $2\nu_2(s)+1$, so a qubit supports a massless shell in at most three spatial dimensions. On a lattice, the strict support cone, maximum group speed and low-energy read-out cone differ. For several species, off-diagonal mixing with fixed diagonal principal blocks cannot produce a single quadratic shell. Interactions can align speeds: in a one-loop mediator model, divergent accumulated coupling along every edge is sufficient, even when their active ranges of renormalization scale are disjoint. Near a supplied Lorentz-invariant conformal fixed point, additional conserved spin-2 currents mark the marginal exceptions to speed alignment. A finite record protocol for the same coined walk certifies its mass-setting angle, separating the ideal rest-and-curvature and group speeds from each other and from the supplied support speed. The geometric dictionary, actual noisy transport and physical inputs remain separate.
+A local unitary propagation law can supply the relative sign of a Lorentzian read-out without turning a positive control metric into an indefinite one. For a first-order Hermitian symbol with independent spatial coefficients, all bands share one quadratic shell exactly when those coefficients satisfy the corresponding Euclidean Clifford relations. The resulting form is $\omega^2-Q(q)$; it describes the full cone when both frequency branches occur. The evolution time is supplied. The internal dimension bounds the number of anticommuting directions, while calibrated coefficient errors give a forward certificate for approximate shells.
+
+A shared shell for one species does not imply one cone for all matter. Fixed-block one-particle mixing cannot merge distinct shells. In a mediator model, sufficiently accumulated interactions align speeds, even when different edges are active on disjoint scale intervals. At a supplied Lorentz-invariant conformal fixed point, nonconserved spin-2 perturbations are irrelevant; additional conserved currents are the marginal exceptions. Neither argument creates the assumed infrared regime.
+
+On a lattice, support, group and rest-and-curvature speeds differ. An actual record protocol certifies the angle of one coined walk and thereby its ideal dictionary parameters, not its noisy long-time transport. The interfaces to physical control and spectral mass require, respectively, calibrated generator alignment and a positive-energy representation. These conditions make the structural connection testable while leaving the formation of the carrier and accessible momentum window as dynamical questions.
 
 \medskip
 \noindent\textbf{Keywords}: Lorentzian signature, Clifford algebra, hyperbolic polynomials, quantum cellular automata, quantum walks, Weyl and Dirac equations, causal cone, spectral mass, Q-RAIF
@@ -50,7 +54,7 @@ A positive control metric cannot become Lorentzian by a change of variables. We 
 
 Programmes that reconstruct geometry from quantum data usually take the Lorentzian signature as given. Holographic entanglement formulas and thermodynamic derivations of the Einstein equation relate entropies to areas and energy fluxes in a spacetime whose causal structure is already Lorentzian~\cite{RyuTakayanagi2006,Jacobson1995}. The Holographic Alaya-Field Framework (HAFF) studies which distinctions a physical reduction can resolve and what geometric data can be reconstructed from them~\cite{Liu2026PaperA,Liu2026PaperB}; a spacetime metric needs a further dictionary there as well. This paper asks where the indefinite direction of such a read-out can come from in a model whose dynamics is given explicitly.
 
-Two facts fix the starting point. A positive definite form stays positive under every linear change of variables (Proposition~\ref{prop:sylvester}), so no control metric, information metric or work form becomes Lorentzian by reparameterization. The companion paper on persistence makes the same point physically: its descent metric and its field-derived work form are both positive, and the Lorentzian form is a third structure~\cite{Liu2026QRAIF_B}. Second, imposing Clifford relations $\{e_\mu,e_\nu\}=2q_{\mu\nu}\mathbf 1$ for a chosen Lorentzian $q$ puts the signature into the premise; the universal property of $Cl(V,q)$ then supplies an encoding, rather than a signature-selection mechanism~\cite{Hestenes1966,Doran2003}.
+Two facts fix the starting point. A positive definite form stays positive under every linear change of variables (Proposition~\ref{prop:sylvester}), so no control metric, information metric or work form becomes Lorentzian by reparameterization. The companion paper on persistence makes the same distinction physically: its descent metric and field-derived work form are positive. Under an additional all-state work condition and calibrated generator alignment it relates work to the positive spatial shell, not directly to the Lorentzian form~\cite{Liu2026QRAIF_B}. Second, imposing Clifford relations $\{e_\mu,e_\nu\}=2q_{\mu\nu}\mathbf 1$ for a chosen Lorentzian $q$ puts the signature into the premise; the universal property of $Cl(V,q)$ then supplies an encoding, rather than a signature-selection mechanism~\cite{Hestenes1966,Doran2003}.
 
 The model class is local unitary propagation: a particle with an internal Hilbert space $\mathbb C^s$ hops on a lattice by a translation-invariant, finite-range unitary step, as in quantum walks and the one-particle sector of quantum cellular automata~\cite{BialynickiBirula1994,Meyer1996,Strauch2006,BisioDArianoTosini2015,DArianoPerinotti2014}. Its low-energy generator is a first-order Hermitian matrix symbol. In this setting four objects can be defined separately: a positive norm on generators, which plays the role of a control metric; the causal cones of the dynamics; the algebra of the symbol's coefficients; and the spectral mass. For a first-order Hermitian symbol, unitarity alone makes the characteristic polynomial hyperbolic in the frequency (Theorem~\ref{thm:hyperbolic}). For linearly independent spatial coefficients, all bands lie on one quadratic shell if and only if the coefficients satisfy the shell relations of Theorem~\ref{thm:shell}; the characteristic form is then $\omega^2$ minus the Hilbert--Schmidt norm of the spatial symbol and has signature $(1,d)$, and the Lorentzian Clifford generators are $\gamma^0=\beta$, $\gamma^i=\beta\alpha_i$ (Theorem~\ref{thm:shell}, Corollary~\ref{cor:gamma}). The internal dimension bounds the spatial one, $d+[\mu\neq0]\le2\nu_2(s)+1$. For a qubit carrier three is the largest dimension with an isotropic massless cone, and the only one in which every internal rotation axis is coupled to a direction of motion (Theorem~\ref{thm:dimension}, Proposition~\ref{prop:qubit}).
 
@@ -229,6 +233,51 @@ Expanding $H^2-SI$ gives $\sum q_iq_jR_{ij}+\mu\sum q_iR_{i\beta}+\mu^2R_\beta$,
 
 This is a forward dispersion certificate. It does not say that nearly anticommuting coefficients can be repaired to an exact Clifford representation, that the two frequency multiplicities are balanced, or that a finite effect menu implements operator-norm tomography. A calibration valid on a restricted state set is not a norm bound on the entire carrier. The distinction matters: a Hilbert--Schmidt trace identity can hold exactly while different internal states retain different propagation speeds.
 
+\subsection{Outputs to physical control and mass read-out}
+\label{sec:physical-interfaces}
+
+Two physical interfaces use the shell theorem, but require different
+additional inputs. For control, the spatial map
+$J(q)=\sum_iq_i\alpha_i$ is an isometry into internal generators with
+$G_{\rm HS}$ because its square is scalar. The trace identity alone
+is weaker: the local unitary walk
+$W(k)=\operatorname{diag}(e^{-ik},e^{-2ik})$ has
+$H(q)=q\operatorname{diag}(1,2)$ and
+$G_{\rm HS}(H(q))=5q^2/2$, yet two distinct speeds.
+The operator square, not a mean over internal states, supplies one shell.
+
+Q-RAIF B~\cite{Liu2026QRAIF_B} gives that distinction an operational
+test. For its centered independent field input, a coupling
+$A(a)=J(Ca)/E_*$ has switching work
+\[
+ W_\rho(a)=\kappa_g\operatorname{tr}[\rho A(a)^2].
+\]
+If the physical calibration $C$ is invertible, independence of this
+charge from every unknown internal state is equivalent to a scalar
+spatial shell. Its value is
+$\kappa_g Q(Ca)/E_*^2$.
+The field profile, calibrated map and energy scale are supplied;
+the encounter requires vanishing or commuting free internal
+evolution. This is a bridge between two calibrated uses of the same
+generators. It neither equates the cost with $\omega^2-Q$ nor
+identifies the chiral control field with a general multi-dimensional
+propagation carrier. Q-RAIF C~\cite{Liu2026QRAIF_C} uses
+Corollary~\ref{cor:gamma}'s symbol to represent the Lorentzian
+quadratic space on the closed carrier; discarding a drive gives a
+different, reduced-channel representation problem.
+
+For mass--energy read-out, the massive continuum shell must also
+carry the positive-energy Poincare representation specified in
+Q-RAIF ME~\cite{Liu2026QRAIF_ME}. That paper constructs it on the
+positive band of the Dirac symbol, with the boost Jacobian and spin
+transport on momentum-space wavefunctions. The symmetric pair of eigenvalues in
+Theorem~\ref{thm:shell} alone is not such a representation or a
+preparation of its positive sector. A finite lattice window is not
+invariant under arbitrary boosts. The actual coin experiment in
+Section~\ref{sec:actual-cone} provides a narrower, priced parameter
+certificate, which remains useful without upgrading it to exact
+relativistic covariance.
+
 % ============================================================
 \section{Spatial dimension and the internal space}
 \label{sec:dimension}
@@ -247,7 +296,7 @@ Choose spatial coordinates in which $Q=c^2\mathbf 1$; the coefficients transform
 For $s=2$: an isotropic single-shell symbol exists for massless propagation in $d\le3$ and for massive propagation in $d\le2$. Massive single-shell propagation in $d=3$ requires $4\mid s$; the minimal case $s=4$ is the Dirac symbol $\alpha_i=\sigma_x\otimes\sigma_i$, $\beta=\sigma_z\otimes\mathbf 1$, a pair of Weyl qubits coupled by the mass term.
 \end{corollary}
 
-For $s=2$ and $d=3$ the symbol is $H(q)=c\,\sigma\cdot q$ up to a unitary and a rotation, and
+For $s=2$ and $d=3$ the symbol is $H(q)=c\,\sigma\cdot q$ up to a unitary and an orthogonal change of spatial coordinates, and
 \begin{equation}
 \det\bigl(\omega\mathbf 1-c\,\sigma\cdot q\bigr)=\omega^2-c^2|q|^2 .
 \label{eq:weyl}
@@ -568,11 +617,12 @@ In Connes' noncommutative geometry a Dirac operator with Euclidean Clifford symb
 
 \subsection{The Q-RAIF papers and HAFF}
 
-The persistence paper of the series~\cite{Liu2026QRAIF_B} distinguishes three quadratic structures: a designer's positive descent metric $G$, a positive work form $K$ derived from field stress, and the Lorentzian read-out form. The present paper adds the source of the third, $\eta=\omega^2-G_{\rm HS}$, and shows why neither $G$ nor $K$ could supply it. The actuator field of that paper is the chiral case of Remark~\ref{rem:boundary}; the stress it carries propagates along a single null ray, which is the matter source used in the HAFF paper on gravity~\cite{Liu2026HAFFD}.
-
-The representation paper~\cite{Liu2026QRAIF_C} asks for a quadratic-space morphism before signatures can be compared. Under the single-shell condition of Theorem~\ref{thm:shell}, the spatial symbol $q\mapsto\sum_iq_i\alpha_i$ supplies an isometry from $(\mathbb R^d,Q)$ into the generators with $G_{\rm HS}$. The converse fails: the trace identity $G_{\rm HS}(H(q))=Q(q)$ does not imply the operator identity $H(q)^2=Q(q)\mathbf 1$. For example, the local unitary walk $W(k)=\operatorname{diag}(e^{-ik},e^{-2ik})$ has $H(q)=q\operatorname{diag}(1,2)$. Its symbol is an isometry for $Q(q)=5q^2/2$, but its two branches have different speeds and do not share a quadratic shell. The operator identity, rather than its trace, is the condition that connects this metric to a common propagation cone.
-
-The mass--energy paper~\cite{Liu2026QRAIF_ME} constructs a covariant positive-energy representation of the continuum single-shell symbol, closing the spectral interface used for its mass theorem. Selection of that sector remains physical input, and a finite lattice window is not invariant under arbitrary boosts. Its field pulse and actual phase protocol connect occupation, lifetime and finite records; Section~\ref{sec:actual-cone} imports that certificate rather than treating an ideal band as a measurement.
+Section~\ref{sec:physical-interfaces} specifies the separate outputs to
+control and spectral mass. The actuator field of Q-RAIF B is the
+single-chirality case of Remark~\ref{rem:boundary}; its outgoing stress
+is used in HAFF-D~\cite{Liu2026HAFFD}. Identifying that matter cone with
+the gravitational cone is a further physical input, not a consequence
+of an isometry of internal generators.
 
 % ============================================================
 \section{Discussion}
@@ -606,7 +656,7 @@ The problems that follow have the most leverage. Section~\ref{sec:species} answe
 
 \section{Conclusion}
 
-Propagation supplies the relative sign in $\omega^2-G_{\rm HS}$; a positive control metric alone cannot. The single-shell criterion, dimension bound and calibrated residuals connect this form to a specified carrier. Finite angle records imply separated ideal dictionary-speed intervals, while noisy transport remains a different observable. For several species, the mediator model aligns cones under accumulated-coupling conditions; the conformal argument tests their stability, not the creation of a fixed point. These are the respective interfaces to mass--energy read-out, the common-cone geometry of Consciousness II and the still-supplied matter cone of HAFF-D. Formation of the carrier, clock and accessible momentum window remains a dynamical question.
+Propagation supplies the relative sign in $\omega^2-G_{\rm HS}$; a positive control metric alone cannot. The single-shell criterion, dimension bound and calibrated residuals connect this form to a specified carrier. Finite angle records imply separated ideal dictionary-speed intervals, while noisy transport remains a different observable. For several species, the mediator model aligns cones under accumulated-coupling conditions; the conformal argument tests their stability, not the creation of a fixed point. These are the respective interfaces to mass--energy read-out, the common-cone geometry of Consciousness II and the still-supplied matter cone of HAFF-D. The calibrated work bridge constrains how propagation generators can be reused for control, without turning positivity into an indefinite signature. Formation of the carrier, clock and accessible momentum window remains a dynamical question.
 
 % ============================================================
 \begin{thebibliography}{99}
@@ -737,7 +787,7 @@ M.~Paschke and A.~Sitarz, \emph{Equivariant Lorentzian spectral triples}, arXiv:
 K.~van den Dungen, \emph{Krein spectral triples and the fermionic action}, Math.\ Phys.\ Anal.\ Geom.\ \textbf{19}, 4 (2016).
 
 \bibitem{Liu2026PaperA}
-S.~Liu, \emph{Physical Access and Correlation Geometry: The Holographic Alaya--Field Framework}, (2026), series record DOI: 10.5281/zenodo.18361706.
+S.~Liu, \emph{Physical Coarse-Graining and the Problem of Emergent Geometry: The Holographic Alaya--Field Framework}, (2026), series record DOI: 10.5281/zenodo.18361706.
 
 \bibitem{Liu2026PaperB}
 S.~Liu, \emph{Coupling, Records, and Stable Relations: Formation, Protected Content and the Lifetime of a Geometry}, (2026), series record DOI: 10.5281/zenodo.18367060.
@@ -749,7 +799,7 @@ S.~Liu, \emph{Selection, Maintenance and Gravitational Response: Modular Constra
 S.~Liu, \emph{Thermodynamic Stability Constraints on Persistent Open Quantum Subsystems: Control Algebra, Physical Actuation and Energy Cost}, (2026), series record DOI: 10.5281/zenodo.18525890.
 
 \bibitem{Liu2026QRAIF_C}
-S.~Liu, \emph{Retained Quantum History, Physical Sources and Receiver Renewal in Q-RAIF}, (2026), series record DOI: 10.5281/zenodo.18528934.
+S.~Liu, \emph{Representing Control in the World: Retained History, Physical Sources and Renewal in Q-RAIF}, (2026), series record DOI: 10.5281/zenodo.18528934.
 
 \bibitem{Liu2026QRAIF_ME}
 S.~Liu, \emph{Recovering Mass--Energy Equivalence within Algebraic Lorentzian Read-out: Spectral Mass, Lattice Windows and Finite Records}, (2026), series record DOI: 10.5281/zenodo.20280951.
@@ -760,4 +810,3 @@ J.~J.~Bisognano and E.~H.~Wichmann, \emph{On the duality condition for quantum f
 \end{thebibliography}
 
 \end{document}
-

@@ -1,0 +1,1618 @@
+
+\emergencystretch=2em
+\raggedbottom
+\maketitle
+
+% ============================================================
+\begin{abstract}
+What does a physical coupling actually represent? For a system coupled to a discarded port, the reduced map is completely positive but need not be multiplicative. We determine its exact algebra for finite-spectrum dephasing: a non-atomic port leaves precisely the coupling operator's commutant, which can be noncommutative. Retaining an oscillator permits exact closed-loop gates; retaining translational degrees of freedom gives a faithful representation in the closed propagation carrier. A single quadratic shell supplies the spatial Clifford relations, while evolution time and the mass anticommutator enter separately in the Lorentzian symbol.
+
+A centered-input charging condition connects these structures without identifying their quadratic forms. Under an actual calibrated alignment of control and propagation generators, the work form is a positive pullback of the spatial shell. The same encounter can satisfy that all-state charge condition while its reduced exact algebra remains only a commutant. Neither persistence nor a positive cost alone selects a spacetime representation.
+
+The physical realization retains the records and resources that the algebraic statement omits. A positive Gaussian material Hamiltonian supports acquisition, record-controlled force, sensing and another action, with bounds on physical energy moments and smooth interacting sources. A paid Gibbs bank renews a specified receiver, and one finite cursor approximates a sequence while retaining the complete old history. Full-field ring renewal, neutral compression and thermal sorting, local massive-body gates and a spatial work clock provide further finite implementations in their stated layouts. A common action includes clock and support reaction. Matching these quantum layouts to one covariant supported apparatus, sustained thermal renewal and jointly sharp exhaust remains a separate construction.
+
+\medskip
+\noindent\textbf{Keywords}: Q-RAIF, physical representation, multiplicative domain,
+propagation symbol, quantum records, material response, thermal renewal
+\end{abstract}
+% ============================================================
+\section{Introduction}
+\label{sec:intro}
+
+A control algebra specifies how operations compose. A physical interface must
+also say which operations its coupling transports exactly, what happens to the
+degrees of freedom carrying its records, and what resources allow another
+operation. An assumed homomorphism answers the first algebraic question by
+definition; it does not construct the interface.
+
+Q-RAIF~A identifies a Lorentzian read-out under propagation-symbol conditions,
+Q-RAIF~B derives actuation and work from a field coupling, and the mass--energy
+paper relates spectral mass to finite read-outs
+\cite{Liu2026QRAIF_A,Liu2026QRAIF_B,Liu2026QRAIF_ME}.
+Here we put the representation question between these structures and their
+physical implementation. The distinction is whether the relevant degrees of
+freedom are discarded or retained, not whether the environment has a large
+Hilbert space.
+
+\paragraph{Exact transport.}
+Sections~\ref{sec:algebra}--\ref{sec:flip} begin with the algebra supplied by a
+coupling. Its reduced Heisenberg map has an exact algebra, the multiplicative
+domain \cite{Stinespring1955,Choi1974,Paulsen2002}.
+Theorem~\ref{thm:md} computes it for a dephasing interaction.
+With a non-atomic discarded port it is the commutant of the coupling
+observable, including its full degeneracy blocks. The field-coupled flip then
+relates its remaining defect to drive energy and escaped information.
+These are architecture-specific statements, not a universal
+conservation-law prohibition on control
+\cite{Wigner1952,ArakiYanase1960,Ozawa2002}.
+
+\paragraph{Propagation and charging.}
+When translations remain in the closed carrier, the internal algebra embeds
+faithfully. Section~\ref{sec:propagation} distinguishes that exact embedding
+from the quadratic-space structure of a first-order propagation symbol.
+The latter requires a single shell, and its Lorentzian extension uses the
+supplied time and a mass anticommutator.
+Section~\ref{sec:charge-shell} brings in Q-RAIF~B's conditional work bridge:
+one centered independent field input charges every unknown carrier state
+equally precisely when each control generator combination has a scalar square.
+An actual calibration between these generators and the propagation symbol
+then relates the positive work form to the spatial shell. It does not turn
+that form into an indefinite spacetime metric. We show why the same
+calibrated encounter still need not represent the full control algebra after
+the port is discarded.
+
+\paragraph{Retention and physical return.}
+Section~\ref{sec:return} gives the two decisive controls on the discarded-port
+argument: a genuinely fresh lost port leaves an irreversible defect, whereas
+a retained oscillator closes exact Weyl loops. The continuum loop and its
+finite adaptive error budget are developed in Appendix~\ref{sec:thermal-return}.
+The retained case requires coherent routing, quadratures and a clock; an
+abstract embedding supplies none of those permissions.
+These are two realizations, not an exhaustive classification of physical
+interfaces.
+
+The material construction in Sections~\ref{sec:material-roadmap}--\ref{sec:finite-renewal}
+then follows one complete Gaussian Hamiltonian through acquisition, force,
+sensing, receiver replacement and another action. Records remain operators
+in their old joint history. Physical energy moments and smooth-source forms
+control unbounded field readings, rather than inferring stress convergence
+from trace distance alone. Receiver replacement uses a prepared Gibbs bank
+and transfers the spent correlations into its ledger.
+
+The longer certificates are grouped by the physical interface they establish.
+Appendix~\ref{sec:charged-material} constructs the charged regulator, a finite
+mode with its remainder and the same-Hamiltonian source bounds.
+Appendix~\ref{sec:ring-renewal} treats the complete ring body, neutral gates,
+packet loading and thermal sorting. Appendix~\ref{sec:physical-window-clock}
+treats the spatial work field and the separate massive-body gate.
+The remaining appendices retain the battery, outlets, thermal preparations,
+contact recoil, actual diagnostic return and current-stress compiler.
+Their distinct carriers are not identified by a common vocabulary.
+Section~\ref{sec:common-covariant-ledger} gives a common action with
+clock/support reaction and states the matching still required.
+
+Three resource limits matter. Bounded-energy receiver renewal takes longer
+and uses more clock states; fixed-duration finite rounds use growing clock
+energy; a spatial work clock uses horizon-dependent inertia and a supplied
+material frame. The ring converter's complete-output thermal deficit can
+approach zero in a prescribed finite layout. These results do not yet form
+one indefinitely renewed, fixed-capacity, covariant apparatus.
+
+Unless stated otherwise, $\hbar=c=k_B=1$. Energies expressed as
+frequencies acquire a factor $\hbar$ when units are restored, times and
+pulse areas use the corresponding frequency units, and entropy is in
+nats. The combinations $b+b^\dagger$, $i(b^\dagger-b)$ and occupation
+numbers are dimensionless; material smearings use the normalizations
+specified with their Hamiltonians below.
+All joint-state assertions include the stated old references; a preserved
+nonselective marginal need not remain unchanged after conditioning on a
+new record.
+
+% ============================================================
+\section{The algebraic statement}
+\label{sec:algebra}
+
+Let $(V,q)$ be a finite-dimensional real vector space with a non-degenerate quadratic form and $Cl(V,q)$ the real Clifford algebra generated by $V$ with $v^2=q(v)\mathbf 1$. When generators are to act as operators, those with $q(e)>0$ are taken Hermitian and those with $q(e)<0$ anti-Hermitian; this fixes an involution with $e^*=\operatorname{sign}(q(e))\,e$ on an orthogonal basis.
+
+\begin{definition}[Representation input]
+\label{def:rep}
+A \emph{representation} of a control algebra $\mathcal O_{\rm int}\cong Cl(V,q)$ in an environmental $C^*$-algebra $\mathcal A_{\rm ext}$ is a unital $*$-homomorphism $\phi:\mathcal O_{\rm int}\to\mathcal A_{\rm ext}$.
+\end{definition}
+
+\begin{lemma}[Semisimplicity]
+\label{lem:semisimple}
+$Cl(V,q)$ is semisimple. If $\dim V$ is even it is simple, and every nonzero algebra homomorphism out of it is injective.
+\end{lemma}
+
+\begin{proof}
+By the classification of real Clifford algebras~\cite{ABS1964,LawsonMichelsohn1989}, $Cl(V,q)$ is a matrix algebra over $\mathbb R$, $\mathbb C$ or $\mathbb H$, or a direct sum of two such algebras, according to signature and dimension modulo eight. For even $\dim V$ it is a single matrix algebra. The kernel of a homomorphism is a two-sided ideal, and a simple algebra has none besides $0$ and itself.
+\end{proof}
+
+\begin{proposition}[Image closure]
+\label{prop:image}
+Let $\phi$ be as in Definition~\ref{def:rep}. Then $\operatorname{Im}\phi$ is a $*$-subalgebra of $\mathcal A_{\rm ext}$ in which the Clifford relations hold. If $Cl(V,q)$ is simple, in particular when $\dim V$ is even, $\phi$ is injective. If it is the sum of two simple algebras, its image is isomorphic to the full algebra or to one of the two summands.
+\end{proposition}
+
+\begin{proof}
+Images of $*$-homomorphisms are $*$-subalgebras and relations descend. Simplicity gives injectivity. The only proper ideals of a sum of two simple algebras are zero and either summand; a unital representation has a proper kernel.
+\end{proof}
+
+Non-degeneracy is needed: for $q(x,y)=x^2$ on $\mathbb R^2$, the map $e_1\mapsto\operatorname{diag}(1,-1)$, $e_2\mapsto0$ is a nonzero unital homomorphism into $M_2(\mathbb R)$ that is not injective. An algebra homomorphism also does not compare signatures. That requires a quadratic-space morphism $j:(V,q)\to(W,Q)$ with $Q(jv)=q(v)$, and, where relevant, preservation of the involution and grading by the induced map of Clifford algebras. Proposition~\ref{prop:image} provides neither the map $\phi$ nor such a $j$. Sections~\ref{sec:channels}--\ref{sec:propagation} ask where they can come from.
+
+% ============================================================
+\section{Couplings give channels}
+\label{sec:channels}
+
+Let a finite-dimensional system $S$ interact with an environment $\mathcal E$ through a unitary $U$ on $\mathcal H_S\otimes\mathcal H_{\mathcal E}$, with the environment in a normal state $\sigma$. The induced Heisenberg map on system observables is
+\begin{equation}
+\Phi^*(A)=\tr_{\mathcal E}\bigl[(\mathbf 1\otimes\sigma)\,U^*(A\otimes\mathbf 1)U\bigr].
+\label{eq:heis}
+\end{equation}
+It is unital and completely positive, and by Stinespring's theorem every such map arises in this way~\cite{Stinespring1955}. It is in general not multiplicative. Its \emph{multiplicative domain}
+\begin{equation}
+\mathcal M_\Phi=\{A:\ \Phi^*(A^*A)=\Phi^*(A)^*\Phi^*(A),\ \Phi^*(AA^*)=\Phi^*(A)\Phi^*(A)^*\}
+\end{equation}
+is a $C^*$-subalgebra on which $\Phi^*$ is a $*$-homomorphism, and $\Phi^*(AB)=\Phi^*(A)\Phi^*(B)$ whenever $A\in\mathcal M_\Phi$~\cite{Choi1974,Paulsen2002}. It is the largest part of the system's algebra that the coupling represents exactly. For other elements we measure the failure by the \emph{defect}
+\begin{equation}
+\delta(A)=\Phi^*(A^*A)-\Phi^*(A)^*\Phi^*(A)\ \ge0 .
+\label{eq:defect}
+\end{equation}
+
+\begin{theorem}[Exactly represented algebra of a dephasing coupling]
+\label{thm:md}
+Let $X=\sum_xxP_x$ have finite spectrum, let $E$ be self-adjoint on $\mathcal H_{\mathcal E}$, and $U=\exp(-iX\otimes E)$. Write $\chi(t)=\tr(\sigma e^{-itE})$ and $A_{xx'}=P_xAP_{x'}$. Then
+\begin{equation}
+\Phi^*(A)=\sum_{x,x'}\chi(x'-x)\,A_{xx'} ,
+\label{eq:schur}
+\end{equation}
+the relation $x\sim x'$ defined by $|\chi(x'-x)|=1$ is an equivalence relation on the spectrum of $X$, and
+\begin{equation}
+\mathcal M_\Phi=\{A:\ A_{xx'}=0\ \text{whenever}\ |\chi(x'-x)|<1\}.
+\end{equation}
+On $\mathcal M_\Phi$, $\Phi^*$ is an inner automorphism $A\mapsto W^*AW$ with $W=\sum_xu_xP_x$ for phases $u_x$. If $|\chi(t)|<1$ for every nonzero difference $t$ of eigenvalues of $X$, then $\mathcal M_\Phi=\{X\}'$ and $\Phi^*$ is the identity on it.
+\end{theorem}
+
+\begin{proof}
+$U=\sum_xP_x\otimes e^{-ixE}$, so $U^*(A\otimes\mathbf 1)U=\sum_{x,x'}A_{xx'}\otimes e^{ixE}e^{-ix'E}$, and taking the expectation in $\sigma$ gives Eq.~\eqref{eq:schur}.
+
+If $|\tr(\sigma e^{-itE})|=1$, write $\sigma=\sum_ip_i|\psi_i\rangle\langle\psi_i|$; each $|\langle\psi_i|e^{-itE}|\psi_i\rangle|\le1$, so equality forces every $\psi_i$ to be an eigenvector of $e^{-itE}$ with one common eigenvalue $\chi(t)$. Hence $e^{-itE}$ acts as the scalar $\chi(t)$ on the support of $\sigma$. If this holds for $t_1$ and $t_2$, it holds for $t_1+t_2$ with $\chi(t_1+t_2)=\chi(t_1)\chi(t_2)$. Together with $\chi(0)=1$ and $\chi(-t)=\overline{\chi(t)}$ this shows that $\sim$ is an equivalence relation, and that within a class with base point $x_0$ the phases $u_x=\chi(x-x_0)$ satisfy $\chi(x'-x)=\overline{u_x}u_{x'}$.
+
+The diagonal blocks of the defect are
+\begin{equation}
+P_y\bigl[\Phi^*(A^*A)-\Phi^*(A)^*\Phi^*(A)\bigr]P_y=\sum_x\bigl(1-|\chi(y-x)|^2\bigr)A_{xy}^*A_{xy},
+\end{equation}
+a sum of positive operators with nonnegative coefficients. It vanishes for all $y$ only if $A_{xy}=0$ whenever $|\chi(y-x)|<1$; the condition with $AA^*$ is the same with the roles of rows and columns exchanged. Conversely, if $A$ has this block pattern, Eq.~\eqref{eq:schur} gives $\Phi^*(A)=\sum\overline{u_x}u_{x'}A_{xx'}=W^*AW$, and these $A$ form a $*$-algebra on which $\Phi^*$ is multiplicative. If no nonzero difference has $|\chi|=1$, the classes are single eigenvalues, the algebra is $\bigoplus_xP_xB(\mathcal H_S)P_x=\{X\}'$, and $W$ is scalar on each block.
+\end{proof}
+
+\begin{corollary}[Continuous spectrum forbids exact coupled control]
+\label{cor:ac}
+If the spectral distribution of $E$ in $\sigma$ has no atoms, then $|\chi(t)|<1$ for every $t\neq0$, so $\mathcal M_\Phi=\{X\}'$. In particular this holds for every normal state when $E$ has purely continuous spectrum. Every exactly represented element $A$ commutes with $X$, and hence with the interaction on its natural domain. No nonzero rescaling of the coupling changes this conclusion.
+\end{corollary}
+
+\begin{proof}
+The equality $|\int e^{-ite}\,d\mu(e)|=1$ requires the phase $e^{-ite}$ to be constant $\mu$-almost everywhere. For $t\ne0$ its level sets are translates of the countable lattice $(2\pi/t)\mathbb Z$, and a non-atomic probability measure gives each such set measure zero. Absolute continuity is sufficient but unnecessary.
+\end{proof}
+
+A field quadrature, or the smeared current $Q_g$ of Paper~B, has purely absolutely continuous spectrum, so Corollary~\ref{cor:ac} applies to every normal drive state, whatever its energy. For other couplings, $|\chi(t)|=1$ requires support in an eigenspace of $e^{-itE}$, not necessarily an eigenstate of $E$. Periodic spectra can give exact revivals: with $X=\pi Z$, $E=\operatorname{diag}(0,1)$ and $\sigma=|+\rangle\langle+|$, the interaction unitary is $I\otimes\operatorname{diag}(1,-1)$ and the system channel is identity, although $\sigma$ is not an $E$ eigenstate. A Fock state in a number-type coupling gives another finite-energy possibility. The quadrature obstruction concerns the specified single coupling; extending it to composite local controls requires a separate argument.
+
+% ============================================================
+\section{The field-coupled flip}
+\label{sec:flip}
+
+Paper~B couples a degenerate bit to one mode of a free chiral field through $U=\exp(-i\lambda XQ)$, $\lambda>0$, with $Q=b+b^\dagger$, $P=i(b^\dagger-b)$ and $[Q,P]=2i$~\cite{Liu2026QRAIF_B}. Here $E=\lambda Q$ and the eigenvalues of $X$ are $\pm1$. Write $\chi=\tr(\sigma e^{-2i\lambda Q})$ and $\sigma_\pm=e^{\mp i\lambda Q}\sigma e^{\pm i\lambda Q}$ for the field states conditioned on $X=\pm1$. A flip of $Z$-diagonal states fails with probability $\epsilon=(1+\operatorname{Re}\chi)/2$.
+
+\begin{theorem}[Representation defect of the field-coupled flip]
+\label{thm:flip}
+Let the drive mode be in a normal state $\sigma$ with mean occupation $N=\tr(\sigma b^\dagger b)<\infty$.
+\begin{enumerate}
+\item In the $X$ eigenbasis, $\Phi^*$ multiplies the two off-diagonal entries by $\chi$ and $\overline\chi$, and $\mathcal M_\Phi=\{X\}'$, the algebra generated by $X$.
+\item For every $A$ with vanishing diagonal in the $X$ basis, in particular $Z$ and $Y$, $\delta(A)=(1-|\chi|^2)\operatorname{diag}(|A_{-+}|^2,|A_{+-}|^2)$; thus $\delta(Z)=\delta(Y)=(1-|\chi|^2)\mathbf 1$.
+\item $\displaystyle 1-|\chi|^2\ \ge\ \frac{\arccos^2(\operatorname{Re}\chi)\,|\chi|^2}{(2N+1)^2}$.
+\item $1-|\chi|^2\ge D(\sigma_+,\sigma_-)^2$, with equality when $\sigma$ is pure, where $D$ is the trace distance.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+Item 1 is Theorem~\ref{thm:md} with eigenvalue differences $\pm2$ and Corollary~\ref{cor:ac}. Item 2 follows from Eq.~\eqref{eq:schur} by multiplying out $2\times2$ matrices.
+
+Item 3 uses Paper~B's two quadrature bounds, valid for a normal (density-operator) drive state of finite occupation and $[Q,P]=2i$~\cite{Liu2026QRAIF_B}: with $G(c)=\arccos^2c$,
+\[
+ \langle Q^2\rangle\ge\frac{G(\operatorname{Re}\chi)}{4\lambda^2},
+ \qquad
+ (\Delta P)^2\ge\frac{4\lambda^2|\chi|^2}{1-|\chi|^2}.
+\]
+The first is spectral Jensen; the second is the unitary uncertainty bound. Since $4N+2=\langle Q^2+P^2\rangle$,
+\[
+\frac{4\lambda^2|\chi|^2}{1-|\chi|^2}\le\langle P^2\rangle=4N+2-\langle Q^2\rangle\le4N+2-\frac{G(\operatorname{Re}\chi)}{4\lambda^2}.
+\]
+With $u=4\lambda^2$, $a=G(\operatorname{Re}\chi)$ and $A=4N+2$, this reads $1-|\chi|^2\ge u^2|\chi|^2/(Au-a)$ for some $u>a/A$. The right side is minimized over $u$ at $u=2a/A$, where it equals $4a|\chi|^2/A^2$.
+
+Item 4. If $\sigma=|\psi\rangle\langle\psi|$, the conditioned states are pure with overlap $\langle e^{i\lambda Q}\psi,e^{-i\lambda Q}\psi\rangle=\chi$, and $D^2=1-|\chi|^2$. For mixed $\sigma$, applying $e^{\mp i\lambda Q}\otimes\mathbf 1$ to a purification of $\sigma$ gives purifications of $\sigma_\pm$ with overlap $\chi$, so Uhlmann's theorem gives fidelity $F(\sigma_+,\sigma_-)\ge|\chi|$, and $D\le(1-F^2)^{1/2}$~\cite{Uhlmann1976,FuchsVanDeGraaf1999}.
+\end{proof}
+
+\begin{corollary}[The energy--accuracy bound as a representation statement]
+\label{cor:energy}
+For a flip with failure probability $\epsilon\in(0,\tfrac12)$ and $\theta_\epsilon=\arccos(2\epsilon-1)$,
+\begin{equation}
+N\ \ge\ \frac{\theta_\epsilon(1-2\epsilon)}{4\sqrt{\epsilon(1-\epsilon)}}-\frac12 .
+\end{equation}
+\end{corollary}
+
+\begin{proof}
+$\operatorname{Re}\chi=2\epsilon-1$ gives $|\chi|^2\ge(1-2\epsilon)^2$, hence $1-|\chi|^2\le4\epsilon(1-\epsilon)$. Combining with item 3 of Theorem~\ref{thm:flip} gives $4\epsilon(1-\epsilon)\ge\theta_\epsilon^2(1-2\epsilon)^2/(2N+1)^2$.
+\end{proof}
+
+This is exactly the occupation bound of Paper~B. Read in the present terms, an accurate flip requires the coupling to represent $Z$ almost multiplicatively, and the defect $1-|\chi|^2$ cannot vanish at finite occupation. Item 4 identifies the defect with information: for pure drives it is the squared distinguishability of the two field states that record the value of $X$. The field is then a fragment in the sense of the HAFF paper on measurement, with conditional overlap $|\chi|$; that paper determines which pointer effects such a fragment can implement~\cite{Liu2026PaperE}, and the same overlap fixes the representation defect here. The exactly represented algebra $\{X\}'$ is the pointer algebra of the decoherence literature~\cite{Zurek2003}: the control interface transports exactly the part of the system that the environment records.
+
+For the phase-fixed half-turn squeezed family, Paper~B gives occupations
+$2.958$, $7.330$ and $24.329$ at $\epsilon=.05,.01,.001$,
+against bound values $2.28$, $6.74$ and $23.80$.
+Its separately optimized finite quadrature-grid values are variational
+minima, not certified global optima; the continuous supporting
+ground-state argument has its own assumptions.
+Mixtures of coherent states require occupation of order
+$\pi^2/(16\epsilon)$~\cite{Liu2026QRAIF_B}.
+
+\subsection{Same clock as mode matching}
+\label{sec:clock}
+
+The requirement that control and environment share a clock, so that their operational windows overlap, has a precise form in the field-coupled flip. The switch $g$ defines a normalized mode function $f$ and the mode operator $b_f=\int\overline{f(\omega)}\,a_\omega\,d\omega$ with $Q_g=\lambda(b_f+b_f^\dagger)$~\cite{Liu2026QRAIF_B}. A drive is prepared in some normalized mode $f'$, by a source with its own clock.
+
+\begin{proposition}[Mode overlap]
+\label{prop:clock}
+Let the drive occupy mode $f'$ with mean occupation $N'$, all modes orthogonal to $f'$ being in the vacuum, and let $c=\int\overline{f(\omega)}f'(\omega)\,d\omega$. Then the bit channel equals the channel of Theorem~\ref{thm:flip} for the reduced state of mode $f$, which is the output of a pure-loss channel of transmissivity $|c|^2$ and has mean occupation $|c|^2N'$. A flip with failure $\epsilon$ therefore needs
+\begin{equation}
+N'\ \ge\ \frac1{|c|^2}\left[\frac{\theta_\epsilon(1-2\epsilon)}{4\sqrt{\epsilon(1-\epsilon)}}-\frac12\right].
+\end{equation}
+If $f'(\omega)=f(\omega)e^{i\omega\Delta}$, a copy of $f$ delayed by $\Delta$, then $c=\int|f(\omega)|^2e^{i\omega\Delta}d\omega$. For a positive-frequency field this integral is over $\omega>0$. Extending a narrowband Gaussian spectral density of width $\Omega$ to the full real line gives $|c|\simeq e^{-\Omega^2\Delta^2/2}$ and an occupation penalty $e^{\Omega^2\Delta^2}$ in the range where this approximation controls the overlap. The exact positive-frequency integral, not this Gaussian approximation, determines the cost at long delays.
+\end{proposition}
+
+\begin{proof}
+Write $f=\bar cf'+r$ with $\int\overline{f'}\,r\,d\omega=0$ and $\|r\|^2=1-|c|^2$. Since $g\mapsto b_g$ is antilinear, $b_f=c\,b_{f'}+b_r$, where $[b_r,b_r^\dagger]=1-|c|^2$ and $b_r$ commutes with $b_{f'}$ and $b_{f'}^\dagger$. The mode $r/\|r\|$ is orthogonal to $f'$ and in the vacuum, independent of mode $f'$, so the state of mode $f$ is that of a beam splitter of transmissivity $|c|^2$ with vacuum in the other port, and its occupation is $|c|^2N'$. $Q_g$ involves only mode $f$, so the bit channel depends only on this reduced state, and Corollary~\ref{cor:energy} applies to it. Translation gives the exact Fourier overlap. The Gaussian specialization follows only after the stated extension of the frequency support.
+\end{proof}
+
+The prepared drive has energy $N'\bar\omega'$, while only the fraction
+$|c|^2$ of its occupation reaches the selected mode. This is a charged
+preparation resource, not automatically dissipated heat.
+The source/switch clock offset therefore enters Paper~B's feedback
+acceptance as a mode-matching loss.
+
+% ============================================================
+\section{A representation generated by propagation}
+\label{sec:propagation}
+
+The situation is different when the ``environment'' is part of the same closed dynamics. In the local propagation model of Paper~A, a particle with internal space $\mathbb C^s$ moves on a lattice $\Lambda$ by a unitary step $W=\sum_{h\in N}T_h\otimes A_h$, where $T_h$ translates by $h$~\cite{Liu2026QRAIF_A}. The internal algebra is represented by
+\begin{equation}
+\phi:M_s(\mathbb C)\to B\bigl(\ell^2(\Lambda)\otimes\mathbb C^s\bigr),\qquad \phi(A)=\mathbf 1\otimes A,
+\end{equation}
+a faithful unital $*$-homomorphism, and $[\phi(A),W]=\sum_hT_h\otimes[A,A_h]$ is nonzero unless $A$ commutes with every $A_h$. The requirement of Definition~\ref{def:rep} together with nontrivial coupling is met exactly, because nothing is traced out: the translational degrees of freedom and the internal ones evolve under one unitary. The contrast with Section~\ref{sec:flip} is the content of Corollary~\ref{cor:ac}: discarding a non-atomic port restricts exact multiplicativity to the coupling commutant.
+
+The propagation also supplies the quadratic-space morphism that Section~\ref{sec:algebra} found missing. Near a band point the step has a first-order symbol $H(q)=\sum_iq_i\alpha_i+\mu\beta$ with Hermitian coefficients~\cite{Liu2026QRAIF_A}.
+
+\begin{proposition}[The propagation symbol as a quadratic-space morphism]
+\label{prop:symbol}
+Let $j(q)=\sum_iq_i\alpha_i$ with $\alpha_1,\dots,\alpha_d$ linearly independent. Then $j(q)^2=Q(q)\mathbf 1$ for a quadratic form $Q$ if and only if, for $\mu=0$, every eigenvalue of $H(q)$ lies on one shell $\omega^2=Q(q)$. In that case $Q$ is positive definite, $j$ is an isometry from $(\mathbb R^d,Q)$ into $\Herm(s)$ with the normalized Hilbert--Schmidt form, and $j$ extends to a unital $*$-homomorphism $Cl(\mathbb R^d,Q)\to M_s(\mathbb C)$. If moreover $\mu\ne0$, $\beta^2=\mathbf 1$ and $\{\alpha_i,\beta\}=0$, then
+\begin{equation}
+J(\omega,q)=\omega\beta-\sum_iq_i\beta\alpha_i
+\end{equation}
+satisfies $J(\omega,q)^2=(\omega^2-Q(q))\mathbf 1$ and extends to a unital homomorphism $Cl(\mathbb R^{1+d},\eta)\to M_s(\mathbb C)$ with $\eta(\omega,q)=\omega^2-Q(q)$, which preserves the involution in which $\beta$ is Hermitian and the $\beta\alpha_i$ are anti-Hermitian.
+\end{proposition}
+
+\begin{proof}
+The first statement is the single-shell theorem of Paper~A~\cite{Liu2026QRAIF_A} with $\mu=0$; isometry follows from $\tfrac1s\tr\,j(q)^2=Q(q)$, and the extension from the universal property of Clifford algebras. For $J$, expand $J^2$ using $\beta^2=\mathbf 1$ and $\beta\alpha_i\beta=-\alpha_i$: the cross terms $\omega q_i\{\beta,\beta\alpha_i\}$ vanish and $\sum q_iq_j\tfrac12\{\beta\alpha_i,\beta\alpha_j\}=-Q(q)$. Hermiticity of $\beta$ and anti-Hermiticity of $\beta\alpha_i=-\alpha_i\beta$ follow from $(\beta\alpha_i)^*=\alpha_i\beta$.
+\end{proof}
+
+$J$ is the map $j:(V,q)\to(W,Q)$ of Section~\ref{sec:algebra} with $(V,q)=(\mathbb R^{1+d},\eta)$, a Lorentzian quadratic space, and $W$ the real span of $\beta$ and the $\beta\alpha_i$ in $M_s(\mathbb C)$, with the form defined by $Y^2=Q_W(Y)\mathbf 1$. The spatial scalar-square condition is equivalent to the specified single-shell property, so no internal band has a different squared dispersion. The Lorentzian extension additionally uses the time parameter and the mass anticommutator. A massless one-dimensional carrier can have only one chiral branch; a full two-sided cone requires both frequency signs, as Q-RAIF~A explains~\cite{Liu2026QRAIF_A}.
+
+The canonical inclusion $\phi$ remains exact on the lattice. It is the linear quadratic-space description of its propagation symbol that generally holds only at leading order. For $s=2$ and $W(k)\in SU(2)$, the effective generator $H_{\rm eff}(k)=(i/\tau)\operatorname{Log}W(k)$ is traceless, so $H_{\rm eff}(k)^2=\omega(k)^2\mathbf 1$ holds at every $k$; what fails is linearity and isotropy of $k\mapsto H_{\rm eff}(k)$. In the Weyl automaton of Paper~A, $H_{\rm eff}(k)=c\,\sigma\cdot k$ up to corrections of relative order $|k|\ell$, which include a parity-odd anisotropic term. In the split-step walk the quadratic identity $\omega^2=c_{\rm eff}^2q^2+\mu^2$ fails at order $(qa)^4$, with coefficient $-\theta^2/45+O(\theta^4)$ in lattice units~\cite{Liu2026QRAIF_ME}. These orders are the precise sense in which a lattice propagation gives an approximate representation.
+
+
+% ============================================================
+\section{Calibrated work and exact access}
+\label{sec:charge-shell}
+
+The propagation symbol and an actuator can use the same internal
+generators without being the same physical system. Q-RAIF~B supplies a
+specific way to test their alignment \cite{Liu2026QRAIF_B}.
+Let $A(a)=\sum_i a_iA_i$ be a fixed real linear family of
+dimensionless Hermitian operators. During an encounter the command $a$
+is held fixed, the carrier free Hamiltonian is zero or commutes with
+$A(a)$, and a nonzero real smooth compact switch $g$ couples it to
+one chiral current as $g(t)A(a)j(t)$. The field input is independent,
+centered and of finite energy. With
+$\kappa_g=\tfrac14\int g'(u)^2du>0$, the same encounter has
+\begin{equation}
+ W_\rho(a)=\kappa_g\tr[\rho A(a)^2].
+ \label{eq:calibrated-work}
+\end{equation}
+This is field energy delivered by switching, not a total-device heat
+charge. A nonzero commuting carrier Hamiltonian has no energy change
+during this encounter; cancelling a noncommuting drift is an additional
+operation.
+
+The charge is independent of every carrier state $\rho$ for every
+command precisely when $A(a)^2=Q_{\rm ctrl}(a)I$.
+Polarization gives $\{A_i,A_j\}=2(Q_{\rm ctrl})_{ij}I$.
+For an injective family $Q_{\rm ctrl}$ is positive definite.
+The implication is from an all-state charging requirement, not from
+persistence, reachability or positivity of an average cost.
+The field shift is $j(u)\mapsto j(u)+A(a)g'(u)/2$.
+The second Magnus term can be a system operation
+$e^{i\vartheta A(a)^2}$ rather than a global phase; it commutes with
+the field and does not change this work calculation
+\cite{Liu2026QRAIF_B}.
+
+To relate it to propagation, write the spatial symbol as
+$j_{\rm prop}(p)=\sum_i p_i\alpha_i$, with energy units and
+$j_{\rm prop}(p)^2=Q_{\rm prop}(p)I$.
+Let $C$ be the measured map from commands to momenta and $E_*>0$
+an energy scale. The actual coupling must satisfy
+\[
+ A(a)=j_{\rm prop}(Ca)/E_* .
+\]
+The equality specifies a physical alignment. It cannot be inferred by
+renaming two positive forms.
+
+\begin{corollary}[Aligned charging and the reduced exact algebra]
+\label{cor:aligned-exact}
+Under these encounter and alignment assumptions,
+\begin{equation}
+ W(a)=a^TK_{\rm op}a,\qquad
+ K_{\rm op}=\frac{\kappa_g}{E_*^2}C^TQ_{\rm prop}C.
+ \label{eq:cost-shell}
+\end{equation}
+For a normal field input and a discarded field port, the encounter's
+multiplicative domain is nevertheless
+\begin{equation}
+ \mathcal M_a=\{j_{\rm prop}(Ca)\}'.
+ \label{eq:aligned-domain}
+\end{equation}
+If $C$ is invertible, the common exact algebra for all commands is
+$\bigcap_a\mathcal M_a=\{\alpha_1,\ldots,\alpha_d\}'$.
+For an irreducible complex matrix representation this common algebra
+is scalar.
+\end{corollary}
+\begin{proof}
+The scalar-square identity inserted in Eq.~\eqref{eq:calibrated-work}
+gives Eq.~\eqref{eq:cost-shell}, the aligned-work result of
+Q-RAIF~B. The nonzero switched current is a field quadrature with
+non-atomic spectral distribution in every normal input.
+Corollary~\ref{cor:ac} applies with $X=A(a)$ and $E=Q_g$.
+The commuting Magnus factor is scalar for this aligned family, so
+it does not change the domain. Commuting free carrier evolution
+preserves the same block algebra. Commuting with every linear
+combination is equivalent to commuting with each generator when
+$C$ is invertible. The last assertion is the matrix commutant
+criterion for irreducibility.
+\end{proof}
+
+The corollary combines the charging result of Q-RAIF~B with the
+multiplicative-domain calculation; it is not a further selection
+principle for Clifford algebras. For one command the domain retains
+full degenerate eigenspace blocks and can be noncommutative.
+Over all commands it can become much smaller.
+Exact closed-carrier representation, state-independent work and
+exact reduced control are therefore different properties.
+
+Two failures keep the calibration operational. For
+$A(a)=a_1Z+a_2I$, the maximally mixed state costs
+$\kappa_g(a_1^2+a_2^2)$, but the two $Z$ eigenstates cost
+$\kappa_g(a_1\pm a_2)^2$; one average-state test does not establish
+the all-state condition. For $j_{\rm prop}(p)=p_1X+p_2Z$ and
+$C=\operatorname{diag}(1,2)$ in units $E_*=1$, the unchanged
+Euclidean propagation shell gives
+$K_{\rm op}/\kappa_g=\operatorname{diag}(1,4)$.
+Without $C$, work does not identify the propagation form.
+
+The time direction and mass anticommutator remain the additional
+conditions of Proposition~\ref{prop:symbol}. In
+$\omega^2-Q_{\rm prop}(p)$, $\omega$ is conjugate to the supplied
+evolution time. An independent, noncentered drive or a correlated
+input has a stress cross term $g'(u)\langle A(a)j(u)\rangle$;
+a coherent gate cannot inherit the centered calibration price for
+all states. Nor does the calibration construct a shared propagation
+medium, pause its noncommuting drift for free, or maintain its
+controls indefinitely.
+
+% ============================================================
+\section{Discarded ports and coherent return}
+\label{sec:return}
+
+A discarded record port and a retained environment permit different controls.
+Write $\chi(t)=\operatorname{Tr}(\sigma_Ee^{-itE})$ for the port's
+spectral characteristic function. Section~\ref{sec:channels} derives
+the single-coupling channel and its multiplicative domain; the following
+bound survives arbitrary later controls that cannot reach the lost port.
+
+\begin{proposition}[A fresh port leaves an irreversible defect]\label{prop:fresh}
+Suppose a finite-dimensional system first undergoes ideal unitary controls and then
+one coupling $e^{-iX\otimes E}$ to an initially independent port, with $X$ having at least two
+distinct eigenvalues and the environment's spectral distribution non-atomic. Let
+$F$ collect every auxiliary port accessible later; just before this coupling the
+joint state is $\rho_S\otimes\sigma_E\otimes\tau_F$ for every system input.
+If $E$ is thereafter inaccessible,
+no subsequent system channel can make the complete channel unitary on the full
+system algebra. More precisely, let $\Lambda$ include all the preceding and
+subsequent controls, and let $\mathcal V$ be any unitary channel. For every pair of
+distinct eigenvalues $x,x'$,
+\begin{equation}
+ \frac12\|\Lambda-\mathcal V\|_\diamond
+ \ \ge\ \frac{1-|\chi(x'-x)|}{2}.
+ \label{eq:freshdistance}
+\end{equation}
+\end{proposition}
+\begin{proof}
+Choose eigenvectors $|x\rangle,|x'\rangle$ and the orthogonal states
+$|\pm\rangle=(|x\rangle\pm|x'\rangle)/\sqrt2$. Their trace distance is one before
+the coupling and $|\chi(x'-x)|<1$ afterwards. All subsequent operations induce a
+system channel and cannot increase this distance. Pull the two inputs back through
+the preceding unitaries and call them $\rho_\pm$. If
+$e_\pm=D(\Lambda\rho_\pm,\mathcal V\rho_\pm)$, the triangle inequality gives
+$1\le e_++|\chi(x'-x)|+e_-$. Thus $\max e_\pm\ge(1-|\chi|)/2$,
+which also bounds half the diamond norm from below.
+\end{proof}
+
+The independence concerns the entire later-accessible auxiliary system jointly,
+including any purification of the discarded port. A later register correlated with that port can reveal which phase
+was applied and allow its reversal; the system's reduced channel alone then does not
+describe the available recovery operation. For a qubit and no later noise, the bound
+is attained: remove the phase of $\chi$, and the remaining dephasing is the mixture
+$(1+|\chi|)\mathcal I/2+(1-|\chi|)\mathcal Z/2$. Its half diamond distance from
+$\mathcal I$ is $(1-|\chi|)/2$.
+
+\begin{proposition}[An exact interface from a retained oscillator]\label{prop:loop}
+Let $Q=b+b^\dagger$, $P=i(b^\dagger-b)$ satisfy the Weyl relations, so $[Q,P]=2i$,
+and let $X$ be Hermitian with finite spectrum. Then
+\begin{equation}
+e^{-i\lambda XQ}e^{-i\mu XP}e^{i\lambda XQ}e^{i\mu XP}
+=e^{-2i\lambda\mu X^2}\otimes I .
+\label{eq:loop}
+\end{equation}
+Every initial oscillator state is returned exactly. The induced system map has
+multiplicative domain $M_s(\mathbb C)$, including operators that do not commute
+with the coupling observable $X$.
+\end{proposition}
+\begin{proof}
+In an $X$ eigenblock, the two pulse generators have scalar commutator
+\[
+[-i\lambda xQ,-i\mu xP]=-2i\lambda\mu x^2.
+\]
+The Weyl group commutator is therefore
+that scalar phase. Summing the spectral blocks gives~\eqref{eq:loop}.
+\end{proof}
+
+For a qubit choose $X=(I+\sigma_x)/2$. With $\lambda\mu=\pi/2$, the loop is
+$e^{-i\pi X}=-\sigma_x$: an exact corrective flip, even with a vacuum or thermal
+oscillator input. The intermediate system--oscillator correlations are returned, not
+discarded. Conditional displacement loops of this kind are established geometric
+gates~\cite{Milburn1999}; the point here is their implication for the interface.
+Continuous spectrum alone cannot prohibit exact control of a retained port.
+
+\begin{corollary}[One retained oscillator gives universal qubit control]
+\label{cor:universal}
+Suppose the four pulses of Proposition~\ref{prop:loop} can be applied through
+either $P_z=(I+\sigma_z)/2$ or $P_x=(I+\sigma_x)/2$, with arbitrary real pulse
+areas. Every qubit unitary, up to global phase, is a sequence of at most three
+closed loops, and the oscillator returns after each loop.
+\end{corollary}
+\begin{proof}
+A loop with $2\lambda\mu=\alpha$ implements
+$e^{-i\alpha P_z}=e^{-i\alpha/2}e^{-i\alpha\sigma_z/2}$, and similarly for $P_x$.
+The $z$--$x$--$z$ Euler decomposition of a qubit unitary therefore gives three
+loops. For example the three angles $\pi/2,\pi/2,\pi/2$ give a Hadamard up to
+global phase. Each identity holds on the full system--oscillator tensor product,
+so composition returns even an oscillator initially correlated with another system.
+\end{proof}
+
+For a larger system the same construction supplies the one-parameter groups
+$e^{-itP_j}$. Full unitary control follows when the real Lie algebra generated by
+$iP_j$ is $\mathfrak u(s)$; generation of the associative matrix algebra alone is
+not the required controllability condition. The pulse permissions, including the
+choice between noncommuting projectors, remain physical inputs.
+
+The loop is not costless. For a centred input and a mode of frequency $\omega$,
+the largest conditional occupation increase along the four corners is
+$(\lambda^2+\mu^2)x^2$. Minimizing it for the qubit flip gives
+$\lambda=\mu=\sqrt{\pi/2}$ and peak mean stored energy
+$\pi\omega\langle X\rangle\le\pi\omega$. The mode's final energy is unchanged;
+an ideal reversible switch can recover the intermediate work. This is a stored-energy
+statement, not a total-device dissipation estimate. It assumes access to both quadratures,
+their controlled pulse order, and coherent retention until closure. A travelling field
+that has left the apparatus need not supply these permissions. An implementation with
+smooth local spacetime couplings must establish them separately.
+
+Thus a record carried away by an inaccessible port constrains future control, while
+a coherently returned record can disappear without thermal erasure. Retaining an
+interface can replace a preparation-accuracy requirement by a closure requirement.
+The oscillator, its routing, clock and switching controls are part of that retained
+interface; they are not supplied by an abstract algebra homomorphism.
+
+% ============================================================
+\section{What must be retained by a material interface}
+\label{sec:material-roadmap}
+
+The representation results answer an algebraic question about a specified
+interaction. A material interface must additionally let an acquired record
+change a later operation on the same body. The source then belongs to that
+joint dynamics; it is not assigned from the program's name.
+
+For the next construction, fix a finite Dirichlet interval and retain all
+modes of the positive Gaussian operator $K$ built in
+Appendix~\ref{sec:finite-material-mode}. Its energy form contains the
+complete carrier square $\|\phi'+a\Theta\|^2$, the material gradient
+and a strictly positive material mass matrix. The interval gives a
+spectral gap. The field Hamiltonian is $H_F=d\Gamma(\sqrt K)$ with
+one fixed vacuum subtraction. Projecting onto the bound material mode
+does not remove the orthogonal modes: their reaction is explicitly
+bounded in Proposition~\ref{prop:finite-material-mode}.
+The charged regulator in that appendix is a separate finite-resolution
+construction, not a proof that this static Gaussian realization
+equals the nonlinear charged continuum.
+
+The following section keeps this complete $K$, the finite controller,
+its records and all old references. Completing the controlled field
+squares gives a positive Hamiltonian and a physical rms bound.
+The operator retarded equation makes acquisition affect the force,
+the actual field affects another sensor, and its new record can
+control the next force. The smooth interacting-source estimate
+retains both cross terms and connected fluctuations.
+
+Receiver renewal has a narrower but attainable target. A prepared
+matched-gap Gibbs cell can replace one force-idle receiver, moving
+its old correlations into the spent bank. The material and the bank's
+purifier remain present. Section~\ref{sec:finite-renewal} gives this
+certificate and compiles a specified finite sequence on one cursor.
+Renewing the entire interacting equilibrium while preserving arbitrary
+held quantum content is a different task, with a product-extension
+obstruction.
+
+The longer implementations establish additional permissions:
+full-ring reset and spectral sorting
+(Appendix~\ref{sec:ring-renewal}), a spatial work field and a separate
+massive-body gate (Appendix~\ref{sec:physical-window-clock}),
+a guarded battery (Appendix~\ref{sec:conserved-core}), local export
+(Appendix~\ref{sec:local-outlet}), thermal preparation
+(Appendix~\ref{sec:thermal-contact}), and contact reaction/recoil
+(Appendix~\ref{sec:inertial-contact}).
+Their lattice, ring, copropagating and bidirectional carriers have
+different supports and Hamiltonians. Their estimates must be
+matched before they describe one apparatus.
+
+% ============================================================
+\section{Acquired quantum records on the complete material}
+\label{sec:quantum-material-records}
+
+The force calculation in Appendix~\ref{sec:local-material-actuation}
+conserves a classical record during its drive. An acquired record need
+not be classical in the full old history.
+Keep the complete finite-interval $K$ and $H_F=d\Gamma(\omega)$,
+$\omega=\sqrt K$, of Section~\ref{sec:Gaussian-source-certificate}.
+Let the finite controller include probes, record cells and program cursor.
+Its nonnegative Hamiltonian $H_D$ need not commute with the force
+amplitudes. The following construction therefore includes acquisition
+and a later record-controlled response within one autonomous dynamics.
+
+\subsection{A positive common Hamiltonian and a uniform physical moment}
+
+Let $B_a$ be finitely many commuting bounded self-adjoint controller
+operators and $h_a$ real smooth compact material smearings. Define
+\begin{align}
+ F&=\sum_a B_a h_a,\qquad
+ C_{\min}=\frac12\sum_{ab}B_aB_b
+                    \langle h_a,K^{-1}h_b\rangle,\nonumber\\
+ H_{\rm tot}&=H_D+H_F-\sum_aB_aQ(h_a)+C_{\min}.
+ \label{eq:quantum-material-H}
+\end{align}
+The full canonical material fields obey
+$[Q(h),P(k)]=i\langle h,k\rangle$, with
+$Q(h)=[a(\omega^{-1/2}h)+a^*(\omega^{-1/2}h)]/\sqrt2$.
+This is the canonical normalization of the material Hamiltonian,
+distinct from the earlier dimensionless $[b+b^\dagger,
+i(b^\dagger-b)]=2i$ convention.
+The amplitudes commute at equal Schr\"odinger time, not necessarily
+at different Heisenberg times. In particular a cursor-controlled
+record force and a probe force can commute while acquisition edges in
+$H_D$ change those same records.
+
+\begin{proposition}[Positive quantum interface and physical rms bound]
+\label{prop:quantum-material-positive}
+The Hamiltonian~\eqref{eq:quantum-material-H} is self-adjoint and
+nonnegative. Its domain is equivalent to $\operatorname{Dom}H_F$.
+For a normalized initial vector $\psi$ in that domain, including all
+old references, put
+\begin{align*}
+ L_F&=\sqrt2\sum_a\|B_a\|\|\omega^{-1}h_a\|,&
+ c_F&=\frac1{\sqrt2}\sum_a\|B_a\|\|\omega^{-1/2}h_a\|,\\
+ A_F&=\|H_{\rm tot}\psi\|+\|H_D\|+\|C_{\min}\|+c_F,&
+ M_F&=\left[\frac{L_F+\sqrt{L_F^2+4A_F}}2\right]^2 .
+\end{align*}
+Then $\|H_F e^{-itH_{\rm tot}}\psi\|\le M_F$ for every $t$.
+If the initial cursor lies in a force-idle region and $\|H_D\|$,
+coupling norms and initial physical rms stay fixed, this certificate
+does not grow with the finite program length.
+\end{proposition}
+\begin{proof}
+Resolve the common spectrum of the $B_a$ into projections $P_b$ and
+write $f_b=\sum_a b_a h_a$,
+$z_b=-\omega^{-3/2}f_b/\sqrt2$.
+The finite interval has a gap; hence the finite controlled Weyl unitary
+$D=\sum_bP_b\otimes W(z_b)$ exists and
+$D^*H_FD=H_F-\sum B_aQ(h_a)+C_{\min}$.
+It follows that $H_{\rm tot}=D^*H_FD+H_D\ge0$.
+The linear field bound
+\[
+ \|Q(h)\zeta\|\le
+ \sqrt2\|\omega^{-1}h\|\|H_F^{1/2}\zeta\|
+ +\|\omega^{-1/2}h\|\|\zeta\|/\sqrt2
+\]
+also makes the force infinitesimally $H_F$-bounded, giving the graph
+domain statement by the closed operator realization.
+For $\psi_t=e^{-itH_{\rm tot}}\psi$ and $x=\|H_F\psi_t\|$,
+conservation of $\|H_{\rm tot}\psi_t\|$ gives
+$x\le A_F+L_F\sqrt x$, since
+$\langle H_F\rangle_t\le x$. Solving this quadratic inequality proves
+the bound. Spectral-core approximation extends the calculation to the
+stated domain. In a force-idle initial region,
+$\|H_{\rm tot}\psi\|\le\|H_F\psi\|+\|H_D\|$.
+Every step tensors with the actual reference identity.
+\end{proof}
+
+The displacement $D$ proves positivity; it is not a free preparation
+of a dressed vacuum. This finite-interval argument is not an
+infinite-line static-dressing theorem. A positive nearest-neighbor
+Feynman cursor with bounded edge gates can have
+$\|H_D\|\le4J+\|H_{\rm data}\|$ independently of its site count
+\cite{CahaLandauNagaj2018}. This removes a program-length factor from
+the physical moment bound, not from cursor space, execution time or
+preparation cost. For the uniform-$J$ cursor, Foundation~III's lemma
+``Wholly idle input and a finite completion window'' in the appendix
+``A Finite Arrival Bound at Fixed Hopping Energy'' bounds arrival for
+a packet supported wholly in the input idle region of the pure
+gate-dressed hopping comparison~\cite{FoundationIII}. Cell gaps and
+forces require the subsequent Duhamel control; this is neither the
+spin-clock nor the spatial work-clock estimate below.
+Linear finite-system/field Hamiltonians and their
+domain analysis are established tools~\cite{HubnerSpohn1995};
+the issue here is their common retained-record interface.
+
+The field obeys the operator retarded equation
+\begin{equation}
+ Q(t)=\cos(\omega t)Q(0)+\omega^{-1}\sin(\omega t)P(0)
+       +\int_0^t\omega^{-1}\sin[\omega(t-s)]F(s)\,ds .
+ \label{eq:quantum-material-retarded}
+\end{equation}
+It follows by solving $\dot Q=P$, $\dot P=-KQ+F(t)$ as weak
+smeared identities on the energy core. The $B_a(s)$ in $F(s)$ are
+the actual joint Heisenberg operators. Their expectations are not an
+externally supplied force history. With material-only force, the exterior
+carrier formula of Section~\ref{sec:local-material-actuation} holds
+with the complete operator $\Delta\Theta$:
+\[
+ \Delta\phi_R(u)=-\tfrac12\int a(y)\Delta\Theta(y,u+y)\,dy,\qquad
+ \Delta\phi_L(v)=\tfrac12\int a(y)\Delta\Theta(y,v-y)\,dy .
+\]
+An additional carrier-smeared probe contributes its own retarded source.
+Quadratic stress uses correlations of these operators, not only the
+square of their mean.
+
+\subsection{Actual acquisition, sensing and the next action}
+
+For a probe $P$ and a blank record $R$, the unitary
+$C_Y=P_-^Y\otimes I_R+P_+^Y\otimes X_R$ acquires the probe's
+$Y$ reading. Retain $P$, $R$ and their old references.
+During a subsequent block that conserves $R$, the force of
+Section~\ref{sec:local-material-actuation} acts as
+$V=\sum_{r=0,1}|r\rangle\langle r|\otimes
+e^{ir^2\Phi_h}W(rz_h)$. For actual initial material/reference blocks
+$\sigma_{rr'}$, the output is
+\begin{equation}
+ \sum_{rr'} |r\rangle\langle r'|\otimes
+ e^{i(r^2-r'^2)\Phi_h}
+ W(rz_h)\sigma_{rr'}W(r'z_h)^* .
+ \label{eq:quantum-record-blocks}
+\end{equation}
+This is not a sampled classical force. For a pure complete input with
+both record branches present, dephasing $R$ changes the full retained
+state by half trace distance $\sqrt{p(1-p)}$, where $p=\Pr(R=1)$.
+Indeed the deleted off-diagonal block connects two orthogonal vectors
+of norms $\sqrt p,\sqrt{1-p}$ and has two eigenvalues
+$\pm\sqrt{p(1-p)}$.
+
+Now let a fresh sensor $S$ start in $|+x\rangle$, couple by
+$e^{igZ_SQ(b)}$ to the material after its actual propagation, and
+acquire its $Y$ value into a cell $E$. The latter starts with thermal
+occupation $\nu$, independently prepared with its purifier retained.
+For a centered Gaussian material initially independent of the first
+probe, let $\mu_r$ be the actual conditional mean of $Q(b)$ and
+$V_b$ its conditional variance after the force. Then
+\begin{equation}
+ \Pr(E=1\mid R=r)=\frac12-\frac{1-2\nu}{2}
+                  e^{-2g^2V_b}\sin(2g\mu_r).
+ \label{eq:quantum-second-record}
+\end{equation}
+The sensor's $Y$ mean is
+$-\operatorname{Im}\langle e^{2igQ(b)}\rangle$; the Gaussian
+characteristic function and the mixed cell's visibility $1-2\nu$
+give the formula. The acquisition acts on the same disturbed material,
+and the actually acquired $n_E$ can control the next force.
+Its energy and source are part of that dynamics.
+For a correlated or non-Gaussian input use its actual characteristic
+function, not this Gaussian specialization.
+
+Before sensing, a conserved source record and centered product input
+give $\langle\Delta j\rangle=pj_h$ but
+$\Delta\langle:j^2:\rangle=pj_h^2$, where $j_h$ is the complete
+driven carrier current. The connected contribution is
+$p(1-p)j_h^2$, not an extra energy charge.
+Similarly the full added material/carrier energy is $pE_h$,
+of which $p^2E_h$ is the energy of the mean displacement.
+Record dephasing leaves this immediate field marginal unchanged while
+changing the old joint history. Equal mean source therefore does not
+establish equal later control.
+
+The formulas describe the sequential block. Under the autonomous
+Hamiltonian~\eqref{eq:quantum-material-H}, acquisition, force and
+sensing instead occupy cursor regions that a dispersive cursor can
+revisit. Its deadline statistics require the actual joint evolution,
+without postselection or assignment of the sequential probabilities.
+
+A one-mode check retains the old probe reference and the second cell's
+purifier: $p=.2766071$, $\Pr(E=1\mid R=1)=.4267590$, dephasing
+distance $.4473205$, and first-acquisition probe/reference change
+below $4.1\times10^{-16}$. Cutoffs $6,10,14$ reduce Gaussian-law
+error from $1.04\times10^{-7}$ to $1.11\times10^{-16}$.
+Field energy $.0418368$ splits into mean $.0115724$ and connected
+$.0302645$; sensing adds $.04805=g^2/2$ at $g=.31$.
+This checks the sequence, not the full spatial $K$ theorem.
+
+A separate 31-site positive cursor diagnostic executes actual first
+acquisition, record force, sensing, second acquisition, receiver/bank
+SWAP and a later force controlled by the spent cell's actual record.
+With both cell purifiers retained, its unpostselected deadline $t=40$
+has field energy $.0300724$, physical rms at most $.186211$ against
+the uniform bound $3.01330$, and energy residual below
+$1.9\times10^{-13}$. But only $.857524$ of its cursor probability
+is after the SWAP region; its receiver occupation is $.157712$, exceeding
+the prepared bank value $.13$ by $.027712$. Unfinished and returning cursor branches
+retain pre-SWAP data and can revisit acquisition and force regions.
+The program therefore fails an exact deadline-renewal claim.
+The force-idle window condition and its completion error must be
+certified separately, as done below; the sequential probability formula
+is not assigned to this autonomous output.
+
+\subsection{The local field source during interaction}
+\label{sec:interacting-material-source}
+
+The free-output qualification in
+Corollary~\ref{cor:Gaussian-source-error} is unnecessary for a
+specified smooth test under the same $H_{\rm tot}$.
+Let $B(x)$ be a real symmetric smooth matrix, supported strictly inside
+the Dirichlet interval, with $\|B\|_\infty=G$; let
+$w\in C_c^\infty$ be real and supported in $[0,T]$.
+Use the same free-$K$ vacuum subtraction and energy factors
+$\mathcal Y=(P,L_sQ)$, $L_s^*L_s=K$. Define
+\[
+ O_{\rm int}=\int w(t)\int
+  [\mathcal Y(t,x)^TB(x)\mathcal Y(t,x)/2-
+           \text{free vacuum}_K]\,dx\,dt .
+\]
+This is the material/carrier field source, not the controller's stress.
+By~\eqref{eq:quantum-material-retarded},
+\[
+ \mathcal Y(t)=\mathcal Y_0(t)+\Delta\mathcal Y(t),\qquad
+ \Delta\mathcal Y(t)=\sum_a\int_0^t
+       M_{t-s}h_a B_a(s)\,ds ,
+\]
+where $M_\tau h=(\cos(\omega\tau)h,L_s\omega^{-1}
+\sin(\omega\tau)h)$ and $\|M_\tau h\|=\|h\|$.
+As a vector of joint-state operators,
+$\|\Delta\mathcal Y(t)\psi\|\le W(t)\|\psi\|$,
+$W(t)=t\sum_a\|B_a\|\|h_a\|$.
+
+\begin{proposition}[An interacting-window field-source bound]
+\label{prop:interacting-material-source}
+Assume smooth coefficients of $K$ and the smooth compact $h_a$ above.
+For each $a$, define finite constants
+\begin{align*}
+ D_{P,a}&=\sup_{0\le\tau\le T}
+             \|\omega^2[B M_\tau h_a]_P\|,\\
+ D_{S,a}&=\sup_{0\le\tau\le T}
+             \|\omega^2L_s^*[B M_\tau h_a]_S\|.
+\end{align*}
+With $\omega_i\ge c_-i$ as in
+Section~\ref{sec:Gaussian-source-certificate}, set
+\begin{align*}
+ C_0(t)&=\frac{t}{\sqrt2}\sum_a\|B_a\|
+ [D_{P,a}c_-^{-3/2}\zeta(3/2)+D_{S,a}c_-^{-5/2}\zeta(5/2)],\\
+ C_1(t)&=\frac{t}{\sqrt2}\sum_a\|B_a\|
+ [D_{P,a}c_-^{-2}\zeta(2)+D_{S,a}c_-^{-3}\zeta(3)].
+\end{align*}
+For any $\Lambda>0$, $O_{\rm int}$ is a Hermitian form with
+\begin{equation}
+ \|(H_F+\Lambda)^{-1/2}O_{\rm int}
+                   (H_F+\Lambda)^{-1/2}\|\le C_{\rm int},
+ \label{eq:interacting-source-bound}
+\end{equation}
+where
+\[
+ C_{\rm int}=C_O+\int|w(t)|\left[
+    \frac{C_1(t)}{\sqrt\Lambda}
+   +\frac{C_0(t)+GW(t)^2/2}{\Lambda}\right]dt .
+\]
+Here $C_O$ is the free source constant with time test $w$.
+All references and the finite controller are retained.
+For two initial joint vectors of rms at most $M_F$ and vector
+distance $e$, their actual interacting-window source difference is
+at most
+\begin{equation}
+ 2C_{\rm int}\sqrt{\Lambda e^2+2M_Fe}\sqrt{\Lambda+M_F}.
+ \label{eq:interacting-source-error}
+\end{equation}
+\end{proposition}
+\begin{proof}
+The free part is Proposition~\ref{prop:Gaussian-source-certificate}.
+The response-square term is bounded by $GW(t)^2/2$ without assuming
+commuting response components. For the symmetrized cross term, let
+$v_i(t,x)$ be the free annihilation coefficient of mode $i$ and
+$C_i(t)=\int v_i(t,x)^TB(x)\Delta\mathcal Y(t,x)\,dx$.
+Projection of the two response components onto $e_i$ and insertion
+of $\omega^2$ give
+\[
+ \|C_i(t)\|\le\frac{t}{\sqrt2}\sum_a\|B_a\|
+   [D_{P,a}\omega_i^{-3/2}+D_{S,a}\omega_i^{-5/2}].
+\]
+Interior multiplication by smooth $B$ removes boundary compatibility
+conditions. Iterating the elliptic operator
+$K=-I\partial_x^2+$ smooth lower-order terms controls the necessary
+Sobolev orders of propagated compact $h_a$, proving finiteness of
+the displayed graph norms uniformly over the compact time interval.
+Thus $\sum_i\|C_i(t)\|\le C_0(t)$ and
+$\sum_i\|C_i(t)\|/\sqrt{\omega_i}\le C_1(t)$.
+
+For $E=\langle H_F\rangle_\psi$,
+$\|a_i\psi\|\le\sqrt{E/\omega_i}$ and
+$\|a_i^*\psi\|\le\sqrt{E/\omega_i}+1$.
+Bounding $\langle a_iC_i\rangle$ by
+$\|a_i^*\psi\|\|C_i\psi\|$, and
+$\langle a_i^*C_i^*\rangle$ by
+$\|a_i\psi\|\|C_i^*\psi\|$, bounds the cross expectation by
+$2C_1(t)\sqrt E+C_0(t)$.
+No commutation between $C_i$ and $a_i$ has been used.
+The $C_0$ term is the creation contribution; treating the record
+as a c-number would incorrectly remove it.
+Apply $2\sqrt E\le(E+\Lambda)/\sqrt\Lambda$ and add the free and
+response bounds. Absolute convergence of the cross terms, the bounded
+response vector and the established free form give spectral-core
+convergence. Polarization proves~\eqref{eq:interacting-source-bound}.
+The weighted-form difference estimate of
+Corollary~\ref{cor:Gaussian-source-error}, with
+$\|H_F(\psi-\varphi)\|\le2M_F$, proves
+\eqref{eq:interacting-source-error}.
+\end{proof}
+
+The constants do not depend on cursor site count if its coupling norms
+stay fixed. They do depend on the box, smooth test, profiles and time
+window. Rough spatial multipliers, boundary distributions and
+unsmeared stress are not covered. This result compares retained inputs
+under one common $H_{\rm tot}$; it does not compare arbitrary different
+apparatus Hamiltonians or supply the controller's missing stress.
+
+\subsection{A local contact energy and the interacting thermal reference}
+
+The inverse-$K$ counterterm in~\eqref{eq:quantum-material-H} is useful
+for proof but is not a local physical density.
+For smooth compact material profiles $w_a(x)$ choose
+$h_a=(0,M(x)w_a(x))$ and replace it by
+\[
+ C_{\rm loc}=\frac12\sum_{ab}B_aB_b\int w_a^TMw_b\,dx .
+\]
+The actual mass-potential density becomes
+\begin{equation}
+ V_{\rm loc}(x)=\tfrac12
+ [u-\sum_aB_aw_a]^TM[u-\sum_aB_aw_a] .
+ \label{eq:local-quantum-contact-potential}
+\end{equation}
+All gradient and current squares of the complete material remain.
+For each joint spectral branch $w=\sum_a b_aw_a$, the inverse-form
+variational formula gives
+\[
+ \langle(0,Mw),K^{-1}(0,Mw)\rangle
+ =\sup_X\{2\langle w,Mu\rangle-q[X]\}
+ \le\langle w,Mw\rangle ,
+\]
+because $q[X]\ge\langle u,Mu\rangle$.
+Consequently $C_{\rm loc}-C_{\min}\ge0$ is a bounded controller
+operator. The actual local-contact Hamiltonian is
+$D^*H_FD+H_D'$ with
+$H_D'=H_D+C_{\rm loc}-C_{\min}\ge0$.
+The positivity, rms and source proofs therefore apply to this physical
+contact, using its actual $C_{\rm loc}$ and the adjusted controller norm.
+No local stress is assigned to a nonlocal inverse operator.
+
+\begin{proposition}[Interacting equilibrium and retained record capacity]
+\label{prop:quantum-material-thermal}
+For either contact, put $d=\dim\mathcal H_D$,
+$d_0=\|H_D'\|$, and $Z_F(\beta)=\operatorname{Tr}e^{-\beta H_F}$.
+Then the actual interacting Gibbs state exists and
+\begin{align}
+ d e^{-\beta d_0}Z_F(\beta)
+ &\le Z_{\rm tot}(\beta)\le d Z_F(\beta),\nonumber\\
+ \langle H_{\rm tot}^2\rangle_\beta
+ &\le\frac{16e^{\beta d_0}}{e^2\beta^2}
+                 \frac{Z_F(\beta/2)}{Z_F(\beta)}.
+ \label{eq:quantum-material-partition}
+\end{align}
+If independent uniform input bits $X_1,\ldots,X_N$ are retained in
+the accessible controller and material with field mean energy at most
+$M$, and each is later readable with error
+$\epsilon_j\le1/2$, then
+\begin{equation}
+ \sum_j[\log2-h_2(\epsilon_j)]\le
+ \log d+\inf_{\beta>0}[\beta M+\log Z_F(\beta)] .
+ \label{eq:quantum-record-capacity}
+\end{equation}
+Any decoder-accessible outside reference is an additional resource.
+\end{proposition}
+\begin{proof}
+The eigenvalues of $D^*H_FD+H_D'$ lie between those of $D^*H_FD$
+and those eigenvalues plus $d_0$, by min--max. Summing scalar
+exponentials proves the partition bounds; operator monotonicity of
+the exponential is neither available nor needed.
+For $x\ge0$,
+$x^2e^{-\beta x/2}\le16/(e^2\beta^2)$.
+The partition ratio then proves the moment bound; its controller
+multiplicity cancels.
+Subadditivity and the field Gibbs variational inequality give
+$S(\rho)\le\log d+\beta M+\log Z_F(\beta)$.
+Binary Fano, conditional entropy subadditivity for the independent
+classical inputs, and data processing give
+$\sum_j[\log2-h_2(\epsilon_j)]\le I(X^N:\text{apparatus})\le S(\rho)$.
+Take the infimum. The frequency bound also yields
+$\log Z_F(\beta)\le q/(1-q)^2$, $q=e^{-\beta c_-}$, so the
+capacity is finite for fixed resources.
+\end{proof}
+
+The same-$H$ Gibbs purification is a graph-domain input, not the
+product Gaussian in~\eqref{eq:quantum-second-record}. Stationary
+equilibrium supplies neither directed cursor nor blank records;
+$\beta^{-1}D(\rho_{\rm prep}\|\rho_\beta)$ is a finite running
+state's free-energy excess, not its preparation protocol. At fixed
+energy, cursor dimension increases record capacity only logarithmically.
+Any outside history bank or entropy channel remains a resource.
+
+\section{Finite renewal and continuing return}
+\label{sec:finite-renewal}
+
+\subsection{Replacing a port is not renewing the interacting material}
+
+There are three distinct thermal operations below: replacement of a
+specified finite port; local thermal restriction on a free-carrier
+window; and preparation of the whole interacting Gibbs state.
+Only the first two have the stated finite operating protocols.
+
+\begin{proposition}[Universal held-content preservation forces a product extension]
+\label{prop:thermal-product-obstruction}
+Let a channel $\mathcal E$ append a finite-dimensional port $B$ to a
+held $d$-dimensional system $A$, whose marginal is the identity channel
+on every input, including all reference extensions. Then
+$\mathcal E(\rho)=\rho\otimes\tau$ for one fixed port state $\tau$.
+Thus such a universal nondisturbing preparation cannot reproduce a
+correlated interacting Gibbs state.
+For $H=JZ_AZ_B$, $x=\beta J$, its Gibbs state is
+$\gamma=(I-\tanh(x)Z_AZ_B)/4$. At held input $I/2$ every such
+extension has half trace distance from $\gamma$ at least
+$|\tanh x|/2$, attained by $\tau=I/2$.
+
+If instead only the classical $Z_A$ label is conserved while conditional
+port Gibbs states $\tau_\pm=(I\mp\tanh(x)Z_B)/2$ are installed, the
+largest retained coherence factor is $\operatorname{sech}x$.
+After the best held-system phase correction, an input $|+\rangle$
+therefore suffers half trace distance at least
+$(1-\operatorname{sech}x)/2$.
+\end{proposition}
+\begin{proof}
+Dilate the channel and purify its fixed ancilla. A pure held input
+must have a pure unchanged held marginal; hence the isometry sends
+$|\psi\rangle$ to $|\psi\rangle|e_\psi\rangle$.
+Applying this to basis states and their superpositions forces one
+common environment vector. Tracing the environment gives the product
+extension. Equivalently the identity channel has rank-one Choi state.
+For the Gibbs example the observable $Z_AZ_B$ has norm one,
+expectation zero in $(I/2)\otimes\tau$ and $-\tanh x$ in $\gamma$,
+giving the distance bound; direct diagonal subtraction proves attainment.
+In a $Z$-nondemolition conditional preparation the two environment/port
+vectors purify $\tau_+,\tau_-$. Their overlap is at most their root
+fidelity, $\sum_z\sqrt{p_+(z)p_-(z)}=\operatorname{sech}x$,
+with equal Schmidt bases attaining it. That overlap multiplies the
+held off-diagonal matrix element. The qubit trace-distance formula
+proves the last assertion.
+\end{proof}
+
+This is a universal identity-channel condition, not a prohibition on
+preparing one specified state or maintaining a selected classical
+content. It supplies no universal constant for arbitrary approximate
+identity channels. An entire-body SWAP can prepare a fresh correlated
+copy, but it moves the old body's quantum content and correlations to
+the spent copy; it is not that identity channel.
+
+For an attainable finite update, specify instead one receiver cell
+$E$ with $H_E=\delta n_E$ and a fresh bank cell $B$ with the same
+gap, Gibbs state $\eta_\beta$, and retained purifier.
+All held material, earlier records and old references form $\mathcal O$;
+the previous state of $E$ may be correlated with all of them.
+The true $S_{EB}$ commutes with $H_E+H_B$.
+The positive pulse $g(t)(I-S_{EB})$, $g\ge0$,
+$\int g=\pi/2$, implements the true SWAP at finite duration,
+at least $\pi/(2g_{\max})$.
+At its endpoint $E$ is $\eta_\beta$ independently of the old
+$\mathcal O E$ state. That complete old state now belongs to
+$\mathcal O B$, with its correlations retained. The new cell remains
+correlated with its own Gibbs purifier.
+The $\mathcal O$ marginal is unchanged nonselectively; old records
+stored in $E$ have moved to the spent slot rather than being erased.
+For an isolated prescribed pulse its switch work is zero because the
+bare cell energy is conserved and the pulse vanishes at the endpoints.
+This is not zero total controller or preparation cost.
+
+Such a SWAP is also a bounded edge gate in $H_D$ of the positive
+common material Hamiltonian. The cell must be force-idle while it is
+replaced. If $n_E$ is still coupled to the material,
+$[S_{EB},n_EQ(h)]\ne0$; the matched gap alone gives no exact reset
+for that interacting contact. A finite-window estimate can retain
+this imperfection explicitly.
+
+\begin{proposition}[Finite-window port renewal with a live material]
+\label{prop:quantum-port-renewal}
+Compare the actual autonomous interface with an ideal renewal evolution
+having the same $H_D$, matched cell gaps and SWAP edge gate,
+but no material force in its renewal window $[0,T_R]$.
+Suppose their difference on the reference trajectory is
+$-\sum_a\Delta B_aQ(h_a)+\Delta C$, where
+$\Delta B_a=P_{\rm leak}\Delta B_a$,
+$\Delta C=P_{\rm leak}\Delta C$ and these controller operators commute
+with $H_F$. Here $P_{\rm leak}$ is a controller orthogonal projection;
+the differences are self-adjoint, so their displayed one-sided support
+is also two-sided support. Write $b_a=\|\Delta B_a\|$,
+$c=\|\Delta C\|$, $p(s)=\|P_{\rm leak}\psi_s^{\,i}\|^2$,
+and assume $\|H_F\psi_s^{\,i}\|\le M$.
+Define
+\[
+ L_\Delta=\sqrt2\sum_a b_a\|\omega^{-1}h_a\|,\qquad
+ c_\Delta=c+\sum_a b_a\|\omega^{-1/2}h_a\|/\sqrt2 .
+\]
+Including the bank and every old reference, the vector error is at most
+\begin{equation}
+ \epsilon_R\le\int_0^{T_R}
+       [L_\Delta\sqrt M\,p(s)^{1/4}
+                    +c_\Delta\sqrt{p(s)}]\,ds .
+ \label{eq:quantum-renewal-window}
+\end{equation}
+Any specified incomplete ideal-SWAP or clock error is added separately.
+The same bound controls half trace distance of the renewed cell and
+held-reference marginal from their ideal outputs.
+\end{proposition}
+\begin{proof}
+Duhamel bounds the vector difference by the integrated norm of the
+Hamiltonian difference on $\psi_s^{\,i}$.
+Apply the linear-field estimate to $P_{\rm leak}\psi_s^{\,i}$.
+Its norm is $\sqrt p$ and
+\[
+ \|H_F^{1/2}P_{\rm leak}\psi_s^{\,i}\|^2
+ \le\|P_{\rm leak}\psi_s^{\,i}\|
+                    \|H_FP_{\rm leak}\psi_s^{\,i}\|
+ \le M\sqrt p .
+\]
+The field and counterterm contributions give
+\eqref{eq:quantum-renewal-window}. Pure-vector distance bounds half
+trace distance, which contracts under the stated restrictions.
+\end{proof}
+
+\begin{corollary}[A constructive finite receiver-renewal family]
+\label{cor:quantum-renewal-family}
+Fix $A>0$, $0<p<1/2$, a matched receiver/bank pair and a material
+smearing $h$. For even $m$, use the positive spin-history clock with
+$J=A/m$, a true receiver/bank SWAP on the first edge and identities
+thereafter. Put $\chi_m=\mathbf1_{\{j\ge m/2\}}$ and
+\[
+ H_m=H_{\rm hist}+H_E+H_B+H_F-\chi_m n_EQ(h)
+       +\tfrac12\chi_m n_E\langle h,K^{-1}h\rangle .
+\]
+Its initial cursor is $j=0$; the material/old receiver state and all old
+references may be correlated, with initial physical rms $M<\infty$.
+The independent bank is Gibbs with its own purifier retained.
+This is a positive autonomous Hamiltonian. At
+$t_R=(m/A)\arcsin\sqrt p$ its joint half trace distance from a completed
+receiver renewal, with an explicitly specified comparison clock, is at
+most
+\begin{equation}
+ 2(1-p)^{m/2}+\frac{m\arcsin\sqrt p}{A}
+ [L_\Delta\sqrt M\,e^{-mD/4}+c_\Delta e^{-mD/2}],
+ \quad D=D_{\rm Ber}(1/2\|p)>0 .
+ \label{eq:renewal-family-bound}
+\end{equation}
+It tends to zero while the clock mean energy $A$, its norm bound $2A$
+and the common-H physical rms certificate remain bounded independently
+of $m$. Clock space and duration grow; the bank is not cycled for free.
+\end{corollary}
+\begin{proof}
+The field/contact terms are the positive controlled-displacement
+Hamiltonian of Proposition~\ref{prop:quantum-material-positive};
+the history clock and matched cell energies are nonnegative.
+For the force-free reference, each prefix is either the true SWAP or
+identity and commutes with $H_E+H_B+H_F$. Prefix conjugation therefore
+gives the same binomial cursor law for every correlated input.
+For $s\le t_R$ its binomial parameter is at most $p$; Chernoff gives
+$\Pr(j\ge m/2)\le e^{-mD}$. The ideal physical rms is the unchanged
+$M$. Proposition~\ref{prop:quantum-port-renewal} proves the second term.
+The no-SWAP probability is $(1-p)^m$.
+As comparison use the same untrimmed force-free cursor with the
+completed SWAP and freely evolved material/reference state.
+Only its $j=0$ branch differs from the ideal joint state; the
+retained-purification vector error is at most $2\sqrt{(1-p)^m}$.
+Half trace distance is no larger. No clock outcome is postselected.
+Triangle inequality proves~\eqref{eq:renewal-family-bound}.
+Finally $\|H_{\rm hist}\|\le2A$ and its initial mean is $A$.
+The cell norms and force/counterterm norms are fixed, so the initial
+total rms and the physical bound of
+Proposition~\ref{prop:quantum-material-positive} are uniform.
+\end{proof}
+
+This condition has a finite nonempty realization.
+Take the positive spin-history clock with $m=64$, $J=.02$,
+the matched SWAP on its first edge, and a material force
+$-.2\,\mathbf1_{\{j\ge32\}}n_EQ(h)$ with $\omega=1$ and unit
+one-mode smearing. At $T_R=\arcsin\sqrt{.1}/J=16.08753$ the
+force-free reference cursor has $\operatorname{Bin}(64,.1)$ law;
+throughout this window its source tail is at most
+$7.04652\times10^{-16}$.
+Its uncompleted first-edge probability is $.9^{64}=.00117902$.
+For vacuum material input $M=0$,
+\eqref{eq:quantum-renewal-window} is below $6.9\times10^{-8}$.
+Completing the ideal SWAP on the same untrimmed cursor costs at most
+$2\sqrt{.9^{64}}=.068674$ in vector norm.
+The clock's mean energy is $1.28$.
+Direct sparse evolution of the full force-on Hamiltonian at Fock
+cutoffs $6,10,14$, retaining a correlated held-body/receiver input,
+its old reference and the fresh bank purifier, gives vector difference
+$6.54\times10^{-10}$ from the same force-free reference.
+The receiver's half trace distance from its bank state is $.00043624$;
+the held-body/reference marginal changes by less than
+$2.5\times10^{-13}$ and energy conservation residual is below
+$4.1\times10^{-13}$. These are finite-regulator diagnostics of the
+nonempty renewal window, not a continuum proof.
+This is a paid receiver-renewal block with given correlated input,
+not an assertion that a previous program produces its cursor for free.
+
+Actual leakage and completion require paid force-idle padding. The
+receiver certificate preserves held material and old content, but
+neither prepares its interacting Gibbs state nor implements an entropy
+outlet. A $J$-cell bank retains $J$ spent slots, outputs and purifiers;
+each isolated replacement transfers excess energy
+$\delta(\langle n_E\rangle-\nu)$ of either sign. Preparation,
+clock, storage and removal remain charged. Q-RAIF~B's oscillator-bank
+formulas~\cite{Liu2026QRAIF_B} concern its different material. Repeated
+noisy readings of one command also do not justify $J\log2$ in the
+independent-bit capacity bound~\eqref{eq:quantum-record-capacity}.
+
+\subsection{Several rounds on one running material}
+\label{sec:one-path-rounds}
+
+The next reading can be installed on the same cursor that performs
+replacement. Fix a finite sequence of permitted data gates $U_b$,
+including receiver--bank swaps, and a nonnegative data energy $H_0$
+with $[U_b,H_0]=0$. Degenerate logic and matched-cell exchanges meet
+this condition. Keep the body, all banks, their purifiers, previous
+records and reversible workspace in the input. Between gates use
+the linear material forces and completing terms of
+Eq.~\eqref{eq:quantum-material-H}.
+
+Choose rational $0<a_1<\cdots<a_q<1$ and integers $m$ for which
+$k_b=ma_b$ are integral. Put $U_b$ on edge $k_b$ of the spin clock;
+other edges are identities. Each cursor interval has its own fixed
+force amplitudes, commuting within that interval. Orthogonal cursor
+supports make the full amplitudes commute. With $J$ fixed, the
+resulting $H_m\ge0$ is time independent and has common domain
+$\operatorname{Dom}H_F$. Its comparison schedule is
+\[
+ p(t)=\sin^2(Jt),\qquad t_b=J^{-1}\arcsin\sqrt{a_b},
+ \qquad T=\pi/(2J).
+\]
+It applies the specified gates at $t_b$ while the same complete
+material evolves throughout. Only the comparison uses these switching
+times; the actual apparatus has its gates and forces fixed in space
+along its cursor.
+
+\begin{proposition}[A finite sequence with its history retained]
+\label{prop:one-path-rounds}
+Let the smooth force profiles satisfy
+$h_\ell,\omega^{1/2}h_\ell\in L^2$, and fix an input purification
+with $\|H_F\psi\|\le M_0$, including arbitrary old references.
+The actual $H_m$ approximates the scheduled sequence jointly with
+its complete, untrimmed cursor, at every fixed checkpoint away from
+the $t_b$. At $T$ all data gates have been included. The joint vector
+error tends to zero as $m\to\infty$, uniformly on this input class.
+Both actual and comparison material rms energies are bounded by a
+constant independent of $m$.
+
+More explicitly, set
+\[
+ L_P=\sqrt2\sum_\ell\|B_\ell\|\|h_\ell\|,
+ \qquad c_P=\frac1{\sqrt2}\sum_\ell\|B_\ell\|
+                                      \|\omega^{1/2}h_\ell\|.
+\]
+For any energy $E_*>0$ a common rms bound is
+\begin{equation}
+ M_T=\left[\sqrt{M_0+E_*}
+       +\frac T2\left(L_P+\frac{c_P}{\sqrt{E_*}}\right)\right]^2-E_*.
+ \label{eq:path-material-moment}
+\end{equation}
+In the prefix gauge, let $H_b$ be the material/data Hamiltonian
+in interval $b$, and choose $K_b$ so that
+$\|(H_b-H_{b-1})\zeta\|\le K_b$ for normalized vectors with
+$\|H_F\zeta\|\le M_T$. These constants are finite by the linear
+field bound. Then the gauge-state error satisfies
+\begin{equation}
+ e_m(t)\le\sum_{b=1}^q K_b\int_0^t
+                  e^{-m[p(s)-a_b]^2}\,ds.
+ \label{eq:path-duhamel}
+\end{equation}
+At a physical checkpoint add
+$2\sum_b e^{-m[p(t)-a_b]^2}$; this additional term is zero at $T$.
+For $0<\alpha_b<\min(a_b,1-a_b)$ and
+$v_b=2J\sqrt{(a_b-\alpha_b)(1-a_b-\alpha_b)}$,
+\begin{equation}
+ e_m(T)\le\sum_bK_b
+ \left[\frac{\sqrt\pi}{v_b\sqrt m}+T e^{-m\alpha_b^2}\right].
+ \label{eq:path-terminal}
+\end{equation}
+\end{proposition}
+\begin{proof}
+The prefix conjugation used for the history clock transforms its
+hopping term to $mJ+2JJ_x$ and each force to the corresponding
+prefix-conjugated data amplitude. The transformed material Hamiltonian
+is piecewise constant in $j$. Compare it with the product of the
+untrimmed spin-clock state and the data/material sequence $H_b$.
+The clock distribution is $\operatorname{Bin}(m,p(t))$.
+Writing both piecewise Hamiltonians as sums of their jumps gives
+\[
+ H_m^{\rm gauge}-H_{\rm cmp}(t)
+ =\sum_b(\mathbf1_{\{j\ge k_b\}}-
+             \mathbf1_{\{t\ge t_b\}})(H_b-H_{b-1}).
+\]
+The norm of each clock factor on the comparison state is the square
+root of its wrong-side probability. Hoeffding's bound is
+$e^{-m[p(t)-a_b]^2}$. Duhamel's formula therefore proves
+\eqref{eq:path-duhamel}. On $|p-a_b|\le\alpha_b$ one has
+$p'\ge v_b$; integrate the Gaussian there and bound its complement
+by $T e^{-m\alpha_b^2}$ to obtain~\eqref{eq:path-terminal}.
+Undoing the gauge at a checkpoint costs at most twice the square
+root of the probability of an incorrect prefix. At $T$ the reference
+cursor is exactly $|m\rangle$, giving no prefix error.
+
+For the energy estimate, all controller terms commute with $H_F$,
+even though their norms grow with $m$. On the energy core,
+$[H_F,Q(h)]=-iP(h)$ and
+\[
+ \left\|\sum_\ell B_\ell P(h_\ell)\zeta\right\|
+ \le L_P\|H_F^{1/2}\zeta\|+c_P\|\zeta\|.
+\]
+For $x(t)=\|H_F\psi_t\|$ this gives
+$D^+x\le L_P\sqrt{x}+c_P$. Hence
+$D^+\sqrt{x+E_*}\le(L_P+c_P/\sqrt{E_*})/2$,
+which proves~\eqref{eq:path-material-moment}. The data gates commute
+with $H_F$ and cause no jump in this bound. Finite-mode energy-core
+regularization gives the same estimate before removing the cutoff;
+the common-domain propagator limit and closed-operator lower
+semicontinuity extend it to $\operatorname{Dom}H_F$. The linear field
+bound then supplies the $K_b$ used above. Every estimate acts on the
+full purification and tensors with the old reference identity.
+\end{proof}
+
+For prescribed finite $N$, compile acquisition, decision, record force
+and bank swap on this path. Proposition~\ref{prop:finite-continuing-return}
+supplies one decision circuit from actual meter records and retained
+posterior weights; its repair flag can drive the force. Registers and
+thermal pairs are prepared initially, and spent correlations remain.
+At checkpoints, \eqref{eq:interacting-source-error} and
+\eqref{eq:path-material-moment} certify a later reading and source
+test under the same subsequent $H_m$.
+
+As a finite diagnostic, two probe readings of one oscillator, an
+intervening receiver--bank swap and a later force controlled by both
+records give endpoint joint vector errors $.0701594,.0355814,
+.0192136,.0107206,.00393182$ at $m=16,32,64,128,512$, with
+$J=1$. An old probe reference and the spent bank are retained.
+At $p=7/16$, after the swap and before the second probe interval,
+receiver excitation is $.0321012$ for $m=128$ and $.00089552$ for
+$m=512$; endpoint accuracy alone would miss this timing error.
+The $m=128$ final coordinate is $.0393364$ against the scheduled
+$.0393304$; removing the record-controlled forces gives
+$-2.89\times10^{-6}$ against zero. Fock cutoffs $8$ and $10$
+change the endpoint vector error by $1.1\times10^{-11}$.
+These are regulator checks of the construction.
+
+The clock uses $m+1$ states, mean energy $mJ$, variance $mJ^2$,
+norm $2mJ$ and maximal edge coefficient at most $J(m+1)/2$.
+Fixed duration thus costs growing energy; fixed-energy renewal instead
+costs growing duration. Neither is indefinite fixed-capacity operation,
+and this material-source bound excludes controller covariant stress.
+
+Appendix~\ref{app:linear-stress} gives a further use of this program:
+local linear-current pulses implement stress flows in the neutral
+$c=1$ carrier, uniformly on bounded mean-energy inputs. The construction
+supplies a physical permission used in finite modular-geometry tasks,
+with explicit control and coherence conditions.
+
+The comparison clock need not have the actual clock's energy.
+For one oscillator take $H_F=\omega a^\dagger a$,
+$Q=(a+a^\dagger)/\sqrt2$, $V=-bQ+C$ and $C=b^2/(2\omega)$.
+Use identity clock edges and turn on $V$ for cursor sites $j\ge m/2$,
+with even $m$. The positive Hamiltonian is
+$H_m=H_{\rm clock,m}+H_F+\mathbf1_{j\ge m/2}V$.
+Starting in $|0\rangle_{\rm clock}|0\rangle_F$, its conserved total
+energy is $mJ$. The scheduled endpoint is
+$|m\rangle\otimes\zeta$ up to phase, where
+$\zeta=e^{-i(T/2)(H_F+V)}|0\rangle$ and
+$\langle H_F+V\rangle_\zeta=C$. Consequently
+\begin{equation}
+ \langle H_m\rangle_{\rm scheduled}-
+ \langle H_m\rangle_{\rm actual}=C
+ \quad\text{for every even }m.
+ \label{eq:clock-work-defect}
+\end{equation}
+The joint-state error still tends to zero. The finite work is paid
+by the actual clock and missed by its unperturbed product comparison.
+
+This defect can be repaired for the total-energy observable. Rotate
+the terminal spin toward negative $S_x$ by an angle $\theta$.
+Its clock energy is $mJ-mJ\sin\theta$, and its vector distance from
+$|m\rangle$ is at most $|\theta|\sqrt m/2$.
+If $\epsilon_m(\theta)$ is its probability below $m/2$, the product
+state's total-energy excess is
+$-mJ\sin\theta+C-\epsilon_m(\theta)\langle V\rangle_\zeta$.
+It equals $C$ at zero and is negative at
+$\theta=\arcsin[2C/(mJ)]$ for sufficiently large $m$:
+the last probability is at most $e^{-3m/8}$ once $\theta\le\pi/6$.
+Continuity therefore supplies an exactly energy-matched comparison
+state with an additional $O(m^{-1/2})$ vector error.
+This is a physical comparison vector, not an extra gate supplied by
+the original dynamics. Matching one energy expectation does not
+match an extended stress distribution. HAFF-D uses the mass-work
+identity of its common action to keep this debit in a finite source
+comparison~\cite{Liu2026HAFFD}.
+
+
+\subsection{Local thermal windows and a continuing diagnostic return}
+
+Port replacement is distinct from using a later region of a correlated
+field. Appendix~\ref{sec:local-thermal-preparation} executes a local
+thermal preparation with a paid finite autonomous clock.
+Appendix~\ref{sec:record-thermal-renewal} proves its record-selected
+same-field conditional error from vacuum mutual information and controls
+the source with second moments. The complete outside purification stays
+present; a spatially separate window is not declared globally fresh.
+These free-CAR certificates require a new thermal matching proof before
+use on the nonlinear interacting material.
+
+Appendix~\ref{sec:joint-diagnostic-core} gives a separate finite-horizon
+return in which the actual meter word, not an inaccessible fault label,
+selects repair of the held body and a thermal exchange.
+Appendix~\ref{sec:terminal-meter} supplies an actual terminal record and
+replacement of its specified probe. The full input bank, posterior
+arithmetic, reversible garbage, clock energy and retained output history
+belong to that horizon. The actual mixed-port quantum-material update
+above does not inherit their different deadline or mean-support
+guarantees.
+
+% ============================================================
+\section{A common covariant ledger: controller, clock and support}
+\label{sec:common-covariant-ledger}
+
+The local potential~\eqref{eq:local-quantum-contact-potential}
+has potential stress $-g_{\mu\nu}V_{\rm loc}$ if its variables are
+Lorentz scalars. That term alone omits the mechanism which moves its
+profile and changes its amplitude. A common local action makes this
+omission explicit and offers a candidate completion at the classical
+action and regulated canonical levels.
+
+Take dynamical scalars
+$X=(\phi_1,\phi_2,Z,\theta,y,\chi,r_1,\ldots,r_d)$ on a
+$(1+1)$-dimensional background of signature $(-,+)$.
+Here $Z$ is a support texture, $\chi$ a clock coordinate, and $r_j$
+memory/control coordinates. Specify the positive target coframe
+\begin{align*}
+ e_{\phi_a}&=d\phi_a+\lambda_a\theta f(Z)dZ,& e_Z&=m_ZdZ,\\
+ e_\theta&=\sqrt I\,d\theta,&e_y&=\sqrt J\,dy,\\
+ e_\chi&=\sqrt{I_\chi}\,d\chi,&e_{r_j}&=\sqrt{I_j}\,dr_j .
+\end{align*}
+with all diagonal coefficients strictly positive, and put
+$G=\sum e\otimes e$. Let $b_a(\chi,r)$ be smooth bounded functions,
+$w_a(Z)$ smooth profiles compact in the texture value, and
+$M(Z)$ a smooth strictly positive material matrix. With
+$u=(\sqrt I\theta,\sqrt Jy)$ and
+$v=u-\sum_a b_a(\chi,r)w_a(Z)$, choose
+\begin{align}
+ S&=-\int\sqrt{-g}\,[\tfrac12G_{AB}(X)
+       g^{\mu\nu}\partial_\mu X^A\partial_\nu X^B+V(X)]\,d^2x,
+       \label{eq:common-material-action}\\
+ V&=V_Z(Z)+V_{\rm mem}(r)+V_{\rm clock}(\chi)
+                        +\tfrac12v^TM(Z)v\ge0 .
+       \label{eq:common-material-potential}
+\end{align}
+The last square replaces the material mass potential rather than
+adding a second copy of it. $Z,\chi,r$ are actual fields in this
+candidate, not prescribed positions, waveforms or cursor amplitudes.
+A prepared finite-energy texture can localize the contact; localization
+is not produced by writing $w_a(Z)$.
+
+\begin{proposition}[Common-action stress and clock reaction]
+\label{prop:common-material-action}
+For smooth finite-energy classical data of
+\eqref{eq:common-material-action}, metric variation gives
+\begin{equation}
+ T_{\mu\nu}=G_{AB}\partial_\mu X^A\partial_\nu X^B
+ -g_{\mu\nu}[\tfrac12G_{AB}\partial X^A\cdot\partial X^B+V].
+ \label{eq:common-material-stress}
+\end{equation}
+The Euler--Lagrange equations are
+\begin{equation}
+ \nabla_\mu(G_{AB}\partial^\mu X^B)
+ -\tfrac12(\partial_AG_{BC})\partial X^B\cdot\partial X^C
+ -\partial_AV=0 .
+ \label{eq:common-material-EL}
+\end{equation}
+They imply $\nabla^\mu T_{\mu\nu}=0$ for the complete matter action.
+In specified Minkowski coordinates its canonical energy is
+\[
+ H=\int[\tfrac12\Pi^TG^{-1}\Pi
+           +\tfrac12X'^TGX'+V]\,dx\ge0 .
+\]
+At finite Fourier resolution, the following specified canonical
+ordering has a nonnegative Friedrichs realization on the supplied
+charge sectors and finite real coordinate space.
+\end{proposition}
+\begin{proof}
+Vary the inverse metric with all scalar variables held fixed and use
+$T_{\mu\nu}=-2(\delta S/\delta g^{\mu\nu})/\sqrt{-g}$.
+Integration by parts in a field variation gives
+\eqref{eq:common-material-EL}; contraction with $\partial_\nu X^A$
+gives the stress divergence. In Minkowski coordinates
+$\Pi_A=G_{AB}\dot X^B$, so the Legendre transform has the displayed
+positive squares. The coframe is nonsingular and triangular.
+For a spatial Fourier regulator, let $q$ denote its finite real
+coordinates and compact scalar zero modes. The reduced Lagrangian has
+positive kinetic matrix $G_K(q)$; put $A_K=G_K^{-1}$ and let
+$W_K(q)\ge0$ be its integrated gradient and potential energy.
+Use Lebesgue measure on the real coordinates and the scalar zero-mode
+line bundles of Proposition~\ref{prop:charged-material-regulator},
+with their charge/winding direct sum. On smooth compactly supported
+sections choose the divergence-form kinetic ordering
+\[
+ \mathfrak q_K[\psi]=\tfrac12\int
+       (D_i\psi)^*(A_K)^{ij}(D_j\psi)\,dq
+                     +\int W_K|\psi|^2\,dq .
+\]
+The $D_i$ are coordinate derivatives with the stated zero-mode boundary
+conditions. Smooth locally elliptic coefficients make this densely
+defined nonnegative form closable; its Friedrichs realization is the
+specified operator. If the interaction acts only on retained low modes,
+the complete free carrier tail is added positively, as in the charged
+regulator. This choice of canonical measure and ordering is not a
+claim of regulator-independent covariant quantization.
+\end{proof}
+
+In particular,
+\[
+ I_\chi\Box\chi=\partial_\chi V
+ =V_{\rm clock}'-\sum_a(\partial_\chi b_a)w_a^TMv .
+\]
+The amplitude change reacts on the clock. The memory equations have
+the corresponding $\partial_{r_j}b_a$ force, and the support equation
+includes derivatives of $w_a$, $M$ and the target coframe.
+Dropping these terms returns an externally driven model.
+For a free massless clock initially having
+$\partial_t\chi=\Omega$ over a proper-length interval $\ell$,
+its initial kinetic energy is at least $I_\chi\Omega^2\ell/2$.
+Smooth spatial tapers and contact reaction add costs and change that
+free trajectory. A locally timelike clock gradient, texture, memory
+preparation and boundary conditions are specified initial data; they
+are not guaranteed throughout an arbitrary run.
+
+The action includes clock/support reaction; canonical positivity is
+only in the chosen coordinates and finite regulator. Curved-space
+quantum positivity, renormalized continuum stress and causal propagation
+after cutoff removal require further proofs. Matching
+\eqref{eq:quantum-material-H} requires quantum acquisition and
+transported gates, the prepared texture/charge sectors, and a common
+finite-cursor/source estimate. The Gaussian $K$ needs static supplied
+$Z$ and controlled freezing or small perturbations of $r,\chi$;
+dynamical cross terms and backreaction otherwise change $H$. That
+approximation needs an error bound, as does matching HAFF~D's dilaton
+coordinates and full supported quantum state.
+
+\section{Discussion}
+\label{sec:discussion}
+
+The exact representation problem and the material return problem now have
+different tests. A discarded-port channel is checked by its multiplicative
+domain; a closed propagation symbol by its shell and coefficient relations.
+An aligned actuator can share the latter generators and charge their spatial
+form while still losing exact reduced control.
+The common-action and finite-return constructions ask whether the
+records, permissions and sources needed for these operations can be
+implemented together.
+
+\begin{table}[!htbp]
+\centering\small
+\begin{tabular}{@{}P{.23\linewidth}P{.34\linewidth}P{.35\linewidth}@{}}
+\toprule
+Interface question & Established construction & Required input or remaining bridge\\
+\midrule
+Exact operations & Multiplicative domain; propagation symbol; retained loops
+& Spectral law, access and quadratic-space conditions\\
+Calibrated charging & State-independent work with actual generator alignment
+& Centered independent input; commuting drift; a measured command--momentum map\\
+Actual quantum return & Acquisition, full material response and second record under one positive $H$
+& Prepared ports, allowed gates, physical transport and finite cursor\\
+Local source & Same-$H$ smooth interacting field bound; local positive contact potential
+& Smooth interior tests and moments; controller/support stress is separate\\
+Finite maintenance & Receiver-bank SWAP; correlated-window and diagnostic protocols
+& Paid bank, storage and clock; not full interacting-material Gibbs renewal\\
+Repeated body renewal & Full ring contraction, mixed-target preparation, neutral code, packet loading and finite-carrier sorting
+& Four thermal outlets, paid buffer, prescribed gates and energy-constrained capacity\\
+Massive spatial body & Guarded local full-angle gate and weighted physical stress tests
+& Paid mass profile and state; actual outlet renewal and moving support remain\\
+Field--clock evolution & Retained-state finite schedule with matrix Ward and delayed boundary
+& Static walls/frame; smooth input norms and horizon-dependent inertia\\
+Geometric flow tasks & Local linear-current synthesis of neutral $c=1$ stress gates
+& Circle recurrence, coherent control and growing precision budgets\\
+Covariant apparatus & Common local action with dynamic clock and support reaction
+& Quantum gate matching, charged continuum and renormalized total stress\\
+\bottomrule
+\end{tabular}
+\caption{The main interfaces and their distinct burdens. Auxiliary
+apparatus proofs are collected in the appendices.}
+\label{tab:status}
+\end{table}
+
+Acquisition is a physical change of the old history, not a supplied source label. The actual record drives the same complete material and produces another reading. Its connected fluctuations contribute to the source; dephasing can preserve an immediate field marginal while changing later joint control. Physical moments and smooth-source forms certify that return without replacing an unbounded stress by a trace-distance estimate.
+
+Renewal depends on what is held. Universal identity-channel preservation cannot append a correlated interacting equilibrium. A specified receiver can nevertheless be replaced by a paid Gibbs bank, with spent correlations retained; the full ring can be reset and its mixed target reinstalled through four thermal outlets. Neutral compression, packet loading and spectral sorting supply a complete-output converter, not merely thermal mean energy. Isospectral axes need not retain a heat-source contrast after optimal sorting, and accurate direct reset alone leaves its purifier redundancy. Persistent sharp-exhaust gain remains a joint implementation question.
+
+The clock distinctions in the introduction fix the resource claims: bounded-energy slow receiver renewal, fixed-duration energy-growing finite rounds, and a spatial work field with horizon-dependent inertia. The full joint-state estimate for the latter retains every old reference and charges finite clock work in the source comparison. Static frame/endpoints and dynamical support are still different problems. The neutral-current stress compiler gives another finite physical control permission, with coherence and precision budgets; it is not noise-protected control over every charged sector.
+
+Foundation~III supplies a complementary finite semiclassical mean-action scalar/JT return at common initial constraints: a learned frame protects old content, its record changes the material source, and a later X-basis reading of the old probe carries the geometric response into the spent cell~\cite{FoundationIII}. Its first-order signal arises after acquisition; the cursor and old purifications remain. Matching that run to the complete quantum material here requires a physical state/source bridge. HAFF~D's rest-frame mean-stress proposition identifies one excess-radiation sector under fixed covariance and linear contact assumptions, not the entire acquired-record apparatus. Neither construction treats a spent port as a fresh bath.
+
+A world model must retain the carrier and conserved total source; an interface must specify actual records and executable access; a continuing observer must maintain the content and resources those records serve. The common-action candidate connects these responsibilities at the classical and regulated canonical levels. Its quantum acquisition, charged continuum, moving supports and total renormalized stress still need matching. Neither exact multiplicativity nor finite repair derives experience or public geometric agreement. Conservation-law and multimode bounds~\cite{Ozawa2002,Shapiro2006,GeaBanacloche2010} do not settle all these architectures at once. Split/modular inclusions and virtual subsystems~\cite{DoplicherLongo1984,Wiesbrock1993,Zanardi2001} organize retained access; formation and maintenance of its permissions remain questions for T-DOME and Imprint.
+
+% ============================================================
+\section{Conclusion}
+\label{sec:conclusion}
+
+A coupling represents an algebra exactly only under specific conditions.
+After a non-atomic dephasing port is discarded, its multiplicative
+domain is the coupling commutant. Retention can change that answer:
+closed oscillator loops return their port exactly, while closed
+propagation retains a faithful copy of the whole internal algebra.
+The single-shell condition supplies the spatial quadratic structure,
+and the supplied time and mass anticommutator supply its Lorentzian
+extension.
+
+An actual alignment of propagation and actuator generators gives a
+conditional work--shell relation. It does not identify a positive
+cost with an indefinite metric, and it does not remove the reduced
+operation's multiplicative defect. This separates a testable
+physical compatibility condition from an assumed representation map.
+
+The finite material construction makes the records, source and next
+action part of one retained quantum history. Receiver renewal and
+smooth-source accuracy have explicit clock, preparation and energy
+conditions. The further ring, massive-body and spatial-clock
+certificates extend what can be implemented, but their distinct
+layouts still need a common supported quantum realization.
+Foundation~III's finite semiclassical return and HAFF-D's sustained
+renewal and joint sharp-exhaust questions retain their separate
+burdens. Exact representation is an interface condition; it does
+not by itself generate the world, a permanent apparatus or a subject.
+
+% ============================================================

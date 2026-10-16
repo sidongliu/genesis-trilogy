@@ -12,8 +12,8 @@
 \newcommand{\tr}{\operatorname{tr}}
 \newcommand{\ran}{\operatorname{ran}}
 \newcommand{\E}{\mathbb E}
-\hypersetup{pdftitle={No View from Nowhere: Read-out Closure and the Vacuum Curvature Test in Q-RAIF A},pdfauthor={Sidong Liu}}
-\title{\textbf{No View from Nowhere}\\\large Read-out Closure and the Vacuum Curvature Test in Q-RAIF A}
+\hypersetup{pdftitle={No View from Nowhere: Source Selection, Physical Reaction and Read-out Closure in Q-RAIF},pdfauthor={Sidong Liu}}
+\title{\textbf{No View from Nowhere}\\\large Source Selection, Physical Reaction and Read-out Closure in Q-RAIF}
 \author{Sidong Liu, PhD\\\small iBioStratix Ltd\\\small\texttt{sidongliu@hotmail.com}}
 \date{October 2026 working revision\\\small Series record DOI:
 \href{https://doi.org/10.5281/zenodo.20284454}{10.5281/zenodo.20284454}}
@@ -23,30 +23,18 @@
 \maketitle
 
 \begin{abstract}
-A source can be physical and still be missed by a restricted interface.
-For a finite-dimensional readout channel $\Lambda$ and source observable
-$H$, the operator-norm distance from $H$ to the dual range equals half
-the largest energy difference between states with the same output. It is
-also the smallest worst-case error of any energy estimate based on the
-exact output state, including nonlinear estimates. An actual finite
-instrument adds a separate sampling cost. We exhibit a positive two-part
-source whose hidden interaction gives a nonzero error floor, then remove
-that floor by adding a priced mixed-memory record of the same source.
+Can the interface through which a source is read also participate in selecting that source?
+We distinguish physical selection from certification. A local scalar--trace filter that preserves conservation for every conserved stress tensor must be a constant rescaling; if it also removes every constant vacuum source, it is zero.
+A coupling field offers a different route: its equation supplies exactly the reaction stress missing from a variable material coupling.
+This common-action condition makes dynamical source selection a testable mechanism rather than a deletion rule for unobserved energy.
 
-Complete null stress data have a metric-trace blind direction. A real
-vacuum-density difference therefore cannot be dismissed as a zero-point
-convention merely because null readout misses it. A matched Gaussian
-material supplies a complementary test: changing its contact changes the
-fluctuation operator and its logarithmic vacuum coefficient, with one
-physical calibration required across configurations.
+For a finite readout channel, the operator-norm distance of a source observable from the dual range equals half the largest source difference between equal-output states and the minimax estimation error.
+A priced second record completes a two-part source certificate.
+Complete null stress data still miss a physical metric-trace contribution, while a changed Gaussian material contact requires one common vacuum calibration.
 
-These results turn readout visibility into a source-certification problem.
-They support, without proving, a broader closure conjecture: a spacetime
-description must specify or generate the interfaces that select its
-records and sources. Whether those interfaces can be fully internalized
-is an independent question. Neither interface blindness nor the closure
-conjecture computes the cosmological constant or switches off physical
-vacuum gravitation.
+The proposed extension is a covariant record--controller dynamics that selects its accessible sector and changes its total source through the same interactions.
+The coupling-field calculation establishes its conservation requirement, not sector formation or vacuum adjustment.
+Readout closure remains the broader question of whether a description can physically account for its own interfaces.
 \end{abstract}
 
 \section{What the reader leaves outside}
@@ -72,10 +60,100 @@ self-descriptions or typed fixed points.
 Vacuum energy supplies a particularly demanding test. A description may
 know how to read radiation while lacking a trace-sensitive source datum.
 Calling the missing datum invisible does not settle its gravitational
-effect. We first determine exactly what a finite interface can certify,
-including how much source can remain hidden. We then apply that distinction
-to null stress, physical vacuum differences and changes of apparatus. The
-closure question returns after these concrete results.
+effect. We first test source selection against conservation and give an
+action in which a changed coupling carries its reaction. We then
+determine what a finite interface can certify, including how much source
+can remain hidden, and apply that distinction to null stress, physical
+vacuum differences and changes of apparatus. The closure question
+returns after these results.
+
+\section{Physical selection must carry its reaction}
+\label{sec:dynamic-source}
+
+Source certification and source selection are different operations.
+Certification changes what a reader can infer about a fixed source.
+Selection changes the state, couplings or constraints that produce it.
+An eligibility rule that deletes unread components must first pass conservation.
+The following obstruction covers a local class, not nonlocal, derivative or additional-field modifications.
+
+\begin{proposition}[Conserved scalar--trace filters]
+\label{prop:local-filter}
+On a connected Minkowski domain of dimension $D\geq2$, let $a,b$ be smooth real scalar functions. Suppose
+\[
+ {\cal F}[T]_{\mu\nu}=a(x)T_{\mu\nu}+b(x)(g^{\alpha\beta}T_{\alpha\beta})g_{\mu\nu}
+\]
+is conserved for every smooth symmetric conserved tensor $T$.
+Then $a$ is constant and $b=0$. If the filter also annihilates every constant vacuum source $T_{\mu\nu}=-\rho g_{\mu\nu}$, it is zero.
+\end{proposition}
+\begin{proof}
+For constant trace-free $S$, conservation requires $(\partial^\mu a)S_{\mu\nu}=0$ for every such $S$.
+Taking symmetric off-diagonal matrix units in an orthonormal frame forces every component of $da$ to vanish; this works also for $D=2$.
+Taking $T=g$ then forces $db=0$.
+Finally choose a static tensor with $T_{00}=h(x^1)$ and all other components zero, where $h$ is smooth with nonzero derivative.
+It is conserved but its trace is not constant. The divergence of ${\cal F}[T]$ is therefore $b\,d(\tr_g T)$, so $b=0$.
+A constant multiple of $T$ is conserved, proving the converse.
+Its action on $-\rho g$ vanishes for all $\rho$ only when $a=0$.
+\end{proof}
+
+For example, the trace-free projection $T-(\tr_gT)g/D$ removes a constant vacuum term but fails the static-source test in the proof.
+The assumption concerns all conserved source tensors, not only conformal trace-free matter.
+Restricting the source class or introducing new fields changes the problem.
+In particular, the proposition does not exclude unimodular equations, sequestering or a dynamical adjustment sector.
+It excludes an algebraic visibility filter as a standalone universal conserved source.
+
+A dynamical selector can instead exchange stress with the material.
+Consider real scalar fields $\chi,\psi$ with a common classical action
+\begin{equation}
+ \begin{split}
+ S_{\chi,\psi}&=\int\sqrt{-g}\left[-\frac12(\nabla\chi)^2-V(\chi)+f(\chi){\cal L}_m\right]d^Dx,\\
+ {\cal L}_m&=-\frac12(\nabla\psi)^2-U(\psi),\qquad f>0 .
+ \end{split}
+ \label{eq:selector-action}
+\end{equation}
+Here $\chi$ is an actual coupling field, not a readout label.
+Define $T^m_{\mu\nu}=\nabla_\mu\psi\nabla_\nu\psi+g_{\mu\nu}{\cal L}_m$
+and let $T^\chi$ be the canonical stress of $\chi$.
+
+\begin{proposition}[Selection and compensating stress]
+\label{prop:selector-ward}
+On the matter equation $\nabla_\mu(f\nabla^\mu\psi)-fU'(\psi)=0$,
+\begin{equation}
+ \nabla^\mu(fT^m_{\mu\nu})={\cal L}_m\,\partial_\nu f.
+ \label{eq:selector-exchange}
+\end{equation}
+On the additional equation $\Box\chi-V'(\chi)+f'(\chi){\cal L}_m=0$, the total $T^{\rm tot}=T^\chi+fT^m$ is conserved.
+\end{proposition}
+\begin{proof}
+For a canonical scalar, $\nabla^\mu T^m_{\mu\nu}=(\Box\psi-U')\nabla_\nu\psi$.
+Multiplying by $f$ and using its equation cancels the term $(\partial^\mu f)\nabla_\mu\psi\nabla_\nu\psi$ from the product rule; the remaining term is ${\cal L}_m\partial_\nu f$.
+Similarly $\nabla^\mu T^\chi_{\mu\nu}=(\Box\chi-V')\partial_\nu\chi=-{\cal L}_m\partial_\nu f$. Their sum vanishes.
+\end{proof}
+
+This standard action-and-reaction calculation distinguishes a source-selection mechanism from deletion by visibility.
+A protocol that changes $f$ changes both material propagation and its source, and transfers stress to $\chi$.
+Treating $f(x)$ as an external switch while omitting that transfer gives an incomplete source.
+A retained record could control $\chi$ only through an additional physical interaction; the displayed action has not built that controller.
+
+Nor does it cancel vacuum energy. Replacing ${\cal L}_m$ by ${\cal L}_m-\rho$ contributes $-\rho f g_{\mu\nu}$ to the total stress and $-\rho f'$ to the $\chi$ equation.
+A proposed vacuum-adjustment mechanism must solve these changed equations with one calibration, including the selector's stress.
+Suppressing a real constant contribution while retaining the measured response to local excitations remains a distinct, stronger test.
+
+\begin{conjecture}[Dynamically selected source interface]
+\label{conj:dynamic-interface}
+There is a covariant matter--record--controller model in which retained history selects a stable accessible sector and the corresponding source response through the same physical interactions, rather than through an independently imposed eligibility rule.
+Its sector, record law and total stress are outputs of that dynamics for a nontrivial family of initial histories, with one source calibration and one response law.
+\end{conjecture}
+
+The proposed mechanism is feedback through physical coupling variables: records change them, their values change later access and the material source, and the resulting response changes later records.
+Equations~\eqref{eq:selector-action}--\eqref{eq:selector-exchange} provide the conservation part, not history-dependent sector formation.
+HAFF~D supplies finite physical return constructions and asks for this common-action extension \cite{Liu2026HAFFD}.
+A prescribed sequence of coupling values, or a new energy zero for every sector, does not establish the conjecture.
+A successful construction must derive the selected sector from retained histories, compare it with matched fixed and history-erased controls, and include the selector and controller in the same source.
+The conjecture concerns formation of a source interface; an explanation of the small cosmological constant requires the further vacuum-adjustment test above.
+
+The conformal modular formula in Consciousness~II cannot simply be applied while $f(\chi)$ varies: that interaction changes the matter theory.
+One may test prepared sources in a domain where the interaction has ended and the specified conformal dynamics applies, with selector stress absent there or separately included, or derive the new modular response.
+The same-action conservation law supplies neither that response nor the geometric consistency condition used to infer an Einstein equation.
 
 \section{A source certificate for a finite interface}
 \label{sec:source}
@@ -541,6 +619,14 @@ observer-independent account \cite{Nagel1986}.
 
 \section{Conclusion}
 
+Physical selection cannot be replaced by an eligibility label.
+Within the local scalar--trace class, a nontrivial universal conserved
+filter cannot remove all constant vacuum sources. A dynamical coupling
+escapes that obstruction by carrying its own reaction stress, not by
+making omitted energy disappear. The next explanatory step is to
+derive that coupling and the selected access from retained history,
+under one action and calibration.
+
 Readout blindness has a quantitative source meaning. In a finite sector,
 the dual-range distance is exactly the unavoidable error of any estimate
 from the ideal output state. An actual instrument adds a separate sample
@@ -573,7 +659,7 @@ overturned the conjecture's strongest form.
 \emph{S\'eminaire de Probabilit\'es XII}, Lecture Notes in Mathematics \textbf{649}, 342--363 (1978).
 \bibitem{Liu2026HAFFD} S.~Liu, \emph{Selection, Maintenance and Gravitational Response: Modular Constraints and a Physical Return}, 2026; series record DOI: 10.5281/zenodo.18388881.
 \bibitem{Liu2026PaperE} S.~Liu, \emph{Measurement as Accessibility: Measurement Permissions, Stable Records and Public Readout}, 2026; series record DOI: 10.5281/zenodo.18400065.
-\bibitem{Liu2026PaperF} S.~Liu, \emph{Records, Dissipation and Intervention: Conditions for a Temporal Direction}, 2026; series record DOI: 10.5281/zenodo.18400425.
+\bibitem{Liu2026PaperF} S.~Liu, \emph{Records, Order and Intervention: Conditions for a Temporal Direction}, 2026; series record DOI: 10.5281/zenodo.18400425.
 \bibitem{Weinberg1989} S.~Weinberg, The cosmological constant problem,
 \emph{Reviews of Modern Physics} \textbf{61}, 1--23 (1989).
 \bibitem{Nagel1986} T.~Nagel, \emph{The View from Nowhere}, Oxford University Press (1986).
@@ -605,3 +691,4 @@ Non-local modification of gravity and the cosmological constant problem, arXiv:h
 \bibitem{Liu2026NullCluster} S.~Liu, \emph{The Null Cluster as Structural Imprint: A Closed Source Task and the Null-Boundary Programme}, 2026; series record DOI: 10.5281/zenodo.20283057.
 \end{thebibliography}
 \end{document}
+

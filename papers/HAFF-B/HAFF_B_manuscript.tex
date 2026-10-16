@@ -50,7 +50,7 @@ Formation, Protected Content and the Lifetime of a Geometry}
 \maketitle
 
 \begin{abstract}
-A physical coupling determines which distinctions decay, which can be recorded and which remain available for action. For finite systems with commuting Hermitian noise operators, we derive the fixed block algebra and its long-time pinching, then prove a finite-window selection theorem: a separated set of decoherence rates selects at most one block partition, and its algebra contains every stable block algebra in the supplied joint eigenbasis. Finite-time channels still have full operator range. Block-constant recording couplings report only sector labels while protecting the quantum content within each sector; leakage through independent fragments costs coherence multiplicatively, giving a sharp $R^{-1/2}$ symmetry threshold for $R$ records. Geometry read from mutual information receives both sector and protected-content contributions, which we separate by an exact classical--quantum chain identity. Neither contribution is confined to the noise hypergraph: disconnected decoherence-free sectors can preserve an initially shared logical Bell pair. We therefore distinguish preservation from formation. A collective recording interaction creates a flagged protected Bell branch from a product input, with every branch and the nonlocal recording cost retained; a physical Hamiltonian link creates a deterministic Bell pair between two noise-disconnected protected sectors. For the GHZ state, collective and local couplings yield a triangle, one edge or no edge under one reconstruction rule, with an explicit lifetime under symmetry breaking. Beyond commuting noise, complete finite-time record laws and risks vary continuously even when the exact fixed algebra jumps. These results identify coupling-selected storage, record-conditioned formation and finite operational capability without equating them. The ambient carrier, available interactions and reconstruction dictionary remain physical inputs.
+A coupling can preserve an inherited relation without having formed it. We ask how interactions select stable structure and how records make that structure usable. Commuting Hermitian noise selects a direct-sum algebra on a given carrier; its central sectors do not require an independently chosen spatial basis. A separated range of decay rates further selects a unique block partition over a finite window within the stated block class. We distinguish this selection from the formation of correlations and from learning the operations that use them. A collective recorder creates a flagged protected Bell branch from a product input, while a physical link creates a deterministic protected Bell pair across noise-disconnected components. Both retain the resources that produce the relation. Block-constant records preserve internal quantum content, whereas independent leakage imposes a sharp $R^{-1/2}$ symmetry threshold for $R$ records. An exact entropy identity separates sector and within-sector contributions to a supplied correlation geometry. The GHZ example then exhibits a selected geometry, its finite plateau and its loss under symmetry breaking. Finite experimental capabilities remain continuous under perturbations even when the exact fixed algebra changes discontinuously. These results support a process-selected subsystem programme: an effective component must acquire reproducible operations as well as stable correlations. The carrier, available interactions and spatial interpretation remain distinct inputs to be tested rather than inferred from a noise graph alone.
 \end{abstract}
 
 \section{Introduction}
@@ -68,7 +68,48 @@ Selection alone also says too little about formation. Two disconnected collectiv
 
 The GHZ calculation in Section~\ref{sec:ghz} shows how a coupling changes a finite correlation geometry and how weak symmetry breaking ends its plateau. For noncommuting perturbations, Section~\ref{sec:noncommuting} bounds complete adaptive record laws and task risks without requiring a stable algebra. A transverse qubit exhibits a diverging record lifetime despite a scalar exact fixed algebra.
 
-The supplied Hilbert space, coupling permissions and site factorization are retained throughout. Consciousness~I \cite{PaperCI} selects a Virasoro fixed net inside a given current-net representation; Foundation's hulls concern closure under declared operations. Neither result derives the ambient carrier. Our formation results address how relations and usable protected sectors arise on that carrier. The stronger question of effective subsystem formation returns in Section~\ref{sec:conj}, with a process-sensitive conjecture rather than a noise-only hypergraph rule.
+The Hilbert space and coupling permissions are supplied. The formation and GHZ experiments additionally specify site factors; the exact sector-selection result does not need a prior spatial factorization. Consciousness~I \cite{PaperCI} selects a Virasoro fixed net inside a given current-net representation; Foundation's hulls concern closure under declared operations. Neither result derives the ambient carrier. Our formation results address how relations and usable protected sectors arise on that carrier. Section~\ref{sec:formation-question} states the effective-subsystem question before the constructions. Section~\ref{sec:conj} examines its extension beyond commuting noise.
+
+\section{What has to form}
+\label{sec:formation-question}
+
+The generation question has three physically different outputs.
+A coupling can select a direct-sum sector without supplying a tensor
+factorization. An interaction can create a relation between supplied
+components without teaching a reader how to use it. Acquiring a component
+also requires repeatable operations whose errors stay controlled over
+the intended task. These distinctions set the target of the constructions
+below.
+
+\begin{conjecture}[Process-selected effective subsystems]
+\label{conj:mereology}
+On an initially specified carrier, robust effective subsystems form
+through a history of interactions that both builds relations and
+makes a noncommuting set of internal operations reproducible across
+a finite task window. The relevant connectivity is that of the
+complete physical process, including recording ports and
+Hamiltonian controls, not the collective-noise hypergraph alone.
+Within a separated-rate regime, a learned encoding can turn the
+process's indistinguishable sectors into stable operational
+components; their boundaries change when the reproducible
+operations or their lifetime change.
+\end{conjecture}
+
+The proposal is tested by changing the preparation history, recording
+port or coupling while keeping the task fixed. A stable Bell pair
+present initially demonstrates preservation. A product preparation
+followed by the actual collective port or Hamiltonian of
+Section~\ref{sec:formation} demonstrates formation of a relation.
+A diagnostic record that selects a working encoder demonstrates learned
+use. None of these tests alone establishes a complete subsystem gate
+algebra. This is why the complete interaction history, rather than just
+the noise graph or the final state, is the candidate source of effective
+organization.
+
+The mathematical starting point needs only a carrier and its specified
+couplings. Site factors are introduced later for correlation and
+formation experiments. The general tensor-factorization question is
+therefore kept separate from the exact selection of stable sectors.
 
 \section{Reductions selected by a coupling}
 \label{sec:selected}
@@ -110,6 +151,30 @@ $\B_\pi$ is a unital $*$-algebra, $\E_\pi$ is a channel (the pinching), and $\E_
 \end{proof}
 
 Part (2) is the elementary commuting case of the known structure of fixed points of quantum dynamical semigroups \cite{Frigerio1978,BlumeKohout2010}. For this series the consequence matters more than the statement: the given coupling determines both its channel and its invariant algebra. Part (4) is Paper~A's result that an algebra label does not record resolution, now in dynamical form. Before the long-time limit the channel generates everything, and the structure that a coupling makes accessible has to be identified by how well observables survive over time.
+
+\begin{corollary}[The selected sectors are intrinsic]
+\label{cor:intrinsic-sectors}
+In the interaction picture of \eqref{eq:L}, the minimal central
+projections of $\operatorname{Fix}(\Phi)$ are precisely the complete
+joint-eigenvalue projections $P_a$. They are determined by the
+semigroup up to relabelling. A common unitary conjugation of the
+carrier and all couplings conjugates these projections and preserves
+the rates between them.
+\end{corollary}
+\begin{proof}
+Proposition~\ref{prop:selected} gives
+$\operatorname{Fix}(\Phi)=\bigoplus_a\mathcal B(P_a\Hil)$.
+The centre of this algebra is $\operatorname{span}\{P_a\}$; its
+minimal nonzero projections are unique. On
+$P_a\mathcal B(\Hil)P_b$, the generator is multiplication by
+$-\frac12\sum_k\gamma_k(a_k(a)-a_k(b))^2$.
+Conjugating the entire model preserves these scalars.
+\end{proof}
+
+The eigenbasis used in the proof is not an extra choice of spatial
+sites. What has been selected is a direct sum, including quantum
+content within its blocks. It neither supplies the instruments for
+that content nor identifies the blocks with spatial tensor factors.
 
 The objects of Paper~E \cite{Liu2026PaperE} can be located in this class. Its environmental fixed set $\operatorname{Fix}(\mathcal E)$ is $\B_{\pi_\infty}$. In Paper~E's collision model, with a qubit pointer, the pointer algebra equals the fixed algebra of the induced dephasing and contains every effect a fragment can report. The centre of $\B_{\pi_\infty}$ is generated by the block projections $P_a$; it is commutative, and Section~\ref{sec:records} shows that it is what the environment records, so it serves as Paper~E's pointer or record algebra. The inclusion of the record algebra in the fixed set is thus a conclusion of the model, as Paper~E requires of any such overlap. The fixed set is strictly larger than its centre as soon as some block has dimension greater than one; a nontrivial two-sector qubit pointer has only one-dimensional blocks. Such blocks are decoherence-free subspaces \cite{ZanardiRasetti1997,KnillLaflammeViola2000}. They retain quantum content; sector weights can retain classical correlations as well.
 
@@ -683,19 +748,9 @@ structure is readable, operable and persistent for a finite task.
 \section{Beyond the commuting class}
 \label{sec:conj}
 
-\begin{conjecture}[Process-selected effective subsystems]
-\label{conj:mereology}
-On an initially specified carrier, robust effective subsystems form
-through a history of interactions that both builds relations and
-makes a noncommuting set of internal operations reproducible across
-a finite task window. The relevant connectivity is that of the
-complete physical process, including recording ports and
-Hamiltonian controls, not the collective-noise hypergraph alone.
-Within a separated-rate regime, a learned encoding can turn the
-process's indistinguishable sectors into stable operational
-components; their boundaries change when the reproducible
-operations or their lifetime change.
-\end{conjecture}
+Conjecture~\ref{conj:mereology} separates the existence of a stable block from
+its acquisition as an operational component. We now examine the further
+conditions required outside the exactly commuting class.
 
 The conjecture concerns effective factorization, not the existence
 of elementary sites. It predicts more than correlation alone:
@@ -805,7 +860,7 @@ correlated states as subsystems.
 \begin{thebibliography}{99}
 
 \bibitem{Liu2026PaperA}
-S.~Liu, \emph{Physical Access and Correlation Geometry: The Holographic Alaya--Field Framework}, 2026; series record DOI: 10.5281/zenodo.18361706.
+S.~Liu, \emph{Physical Coarse-Graining and the Problem of Emergent Geometry: The Holographic Alaya-Field Framework}, 2026; series record DOI: 10.5281/zenodo.18361706.
 
 \bibitem{Liu2026PaperD}
 S.~Liu, \emph{Selection, Maintenance and Gravitational Response: Modular Constraints and a Physical Return}, (2026), series record DOI: 10.5281/zenodo.18388881.
@@ -899,4 +954,3 @@ S.~M.~Carroll and A.~Singh, \emph{Quantum mereology: Factorizing Hilbert space i
 \end{thebibliography}
 
 \end{document}
-

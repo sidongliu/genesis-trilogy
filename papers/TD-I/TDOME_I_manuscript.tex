@@ -470,6 +470,53 @@ The theorem gives the memory link of the route in the strongest form available f
 
 The gap between $I_{\mathrm{acc}}$ and $\chi$ has a thermodynamic reading. An agent that does not measure the fragment but keeps it and acts on $S$ and $F$ jointly can, in the asymptotic limit, use $F$ as quantum side information, for which the relevant quantity is the conditional entropy $S(X\mid F)=H(X)-\chi(X{:}E_F)$ \cite{delRio2011}; the Holevo value is then the ceiling. The accessible information is the value of the same record to an agent that first writes it into a classical memory.
 
+\subsection{What a compressed history must preserve}
+
+A record need not retain every observation that produced it.
+The exact price of deleting distinctions depends on the future task,
+not on the length of the archive.
+
+\begin{corollary}[Task loss under history compression]
+\label{cor:history-compression}
+In the diagonal-pointer feedback task, let $H$ be a finite classical
+history obtained through the permitted record channels, and let $M$
+be a compression with $X\to H\to M$ a Markov chain.
+Use the same source, thermal bath and feedback menu.
+The supremum gross work gain over the blind harvest lost by replacing
+$H$ with $M$ is
+\[
+ W_H^*-W_M^*=k_BT\,I(X:H\mid M).
+\]
+It vanishes exactly when $P(X\mid H)=P(X\mid M)$ almost surely
+under the joint history--compression law.
+\end{corollary}
+\begin{proof}
+Theorem~\ref{thm:value} gives the two suprema as
+$k_BT I(X:H)$ and $k_BT I(X:M)$ above the same blind value.
+The chain rule and $I(X:M\mid H)=0$ give their difference.
+Conditional mutual information is zero precisely when the conditional
+laws agree on positive-probability pairs. Boundary posteriors use the
+same full-support limiting protocols as that theorem.
+\end{proof}
+
+This is the information-processing identity applied to a physical
+feedback task, not a new universal law of memory. Acquisition,
+compression, retention and reset costs have not been subtracted from
+these gross work values. A compression that saves storage may lose
+work; one that preserves the current posterior need not support the
+next posterior update or a different task.
+
+Paper~II asks the further question of how retained history selects
+the channel through which the next input will be read
+\cite{Liu2026TDOME_II}. Its foreground is an output of learning about
+the reader's own coupling, rather than an archive of all past inputs.
+The information required for that prediction task is not automatically
+the pointer information priced here. One must specify the joint target,
+record law and permitted action before converting a frame's capability
+into work. This distinction lets task-specific compression explain
+a useful organization without making raw-archive overload a general
+necessity theorem for a self.
+
 \subsection{A model of one's own readout is necessary}
 
 \begin{theorem}[Every protocol assumes a posterior]
@@ -644,7 +691,14 @@ $k_BT[I(X{:}M)-S(M\mid E_G)]\ge w$, before charging any omitted record supply or
 \section{Operational temporal relations}
 \label{sec:arrow}
 
-The accounting identity does not derive a temporal order. Two notions of influence between times can be defined after a reduced model is specified, and they differ.
+The accounting identity does not derive a temporal order. HAFF-F now
+separates a genuine endpoint inverse problem from influence at supplied
+times: commuting pointer-record gates have an order-independent complete
+final state, whereas retained labels in its record--swap circuit identify
+an unknown visit permutation. Local gate orientation, initial references
+and the one-pass architecture remain inputs \cite{Liu2026HAFF_F}.
+The two influence relations below instead use an already specified
+time parameter; neither should be confused with that reconstruction.
 
 \begin{definition}[Kernel memory and intervention influence]
 \label{def:memory_order}
@@ -861,7 +915,7 @@ Neural Computation \textbf{13}, 2409 (2001).
 S.~Liu, \emph{Measurement as Accessibility: Measurement Permissions, Stable Records and Public Readout} (HAFF~E), 2026; July record DOI: 10.5281/zenodo.18400065.
 
 \bibitem{Liu2026HAFF_F}
-S.~Liu, \emph{Records, Dissipation and Intervention: Conditions for a Temporal Direction} (HAFF~F), 2026; July record DOI: 10.5281/zenodo.18400425.
+S.~Liu, \emph{Records, Order and Intervention: Conditions for a Temporal Direction} (HAFF~F), 2026; July record DOI: 10.5281/zenodo.18400425.
 
 \bibitem{Liu2026QRAIF_B}
 S.~Liu, \emph{Thermodynamic Stability Constraints on Persistent Open Quantum Subsystems: Control Algebra, Physical Actuation and Energy Cost}, Zenodo (2026), DOI: 10.5281/zenodo.18525890.
@@ -884,5 +938,6 @@ DOI: 10.1080/01621459.1963.10500830.
 \end{thebibliography}
 
 \end{document}
+
 
 

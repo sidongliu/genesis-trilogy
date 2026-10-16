@@ -41,11 +41,28 @@ The Capability and Cost of a Bounded Agent's Self-Frame}
 
 % ============================================================
 \begin{abstract}
-With limited access, a system must learn how a task appears through its own channels before it can choose useful reads. We study this retained relation and the foreground it selects as a self-frame. For a Gaussian task with an unknown, isotropically distributed coupling and $b<D$ linear reads per step, the posterior mean determines the optimal reading subspace and prediction. Beating a history-independent foreground requires a calculable amount of information about the coupling. We distinguish the sharp information price of subspace alignment from the signed information needed to use that subspace: perfect alignment alone can leave every prediction uninformative. In-frame evidence has a further blind spot. It cannot locate the omitted direction or, when signal and noise strengths are unknown, distinguish world noise from its own misalignment. Exact drift curves show when a frozen model becomes worse than no memory and when a retained frame loses its advantage. Off-frame probes revise the frame at a cost in reads and storage; for eight channels and three reads, the specified policy lowers static risk from $0.86$ to $0.26$. Weighting predictions by their calculated reliability extends the drift range in which this policy beats the fixed-foreground comparator. These task-specific results supply a formation mechanism within the memory--self--introspection route. A learned protective encoding supplies a separate physical example of history changing the relations used by a body.
-A quantum reference gives a second, finite resource realization of a
-self-frame. Its advantage in any bounded decision problem is bounded
-by its asymmetry. For a single qubit phase token we obtain the exact
-optimal discrimination probability and its loss under dephasing.
+When a task's coupling to its channels is unknown, a bounded reader can
+use retained history to choose its next evidence. We call the retained relation and
+the foreground it selects a self-frame. In a two-channel Gaussian task,
+a finite training history forms a signed-coordinate frame retained in
+two bits. With one test read, its certified
+risk is below every history-independent foreground's risk, even when
+the latter is given its exact regression coefficient. Replaying a frame
+from an independent task destroys this advantage; freezing the learned
+frame in its original static task preserves it.
+For general dimension we derive the optimal posterior reading subspace,
+the information price of alignment, and the additional signed information
+needed to predict. In-frame evidence cannot locate omitted directions
+and can confound noise with misalignment. Exact drift curves and a
+calibration policy quantify the value and cost of off-frame probes.
+For eight channels and three reads, that policy lowers static risk
+from $0.86$ to $0.26$.
+A quantum reference supplies a separate realization: its bounded-task
+advantage is controlled by asymmetry, and a qubit phase token has an
+exact discrimination value under dephasing.
+These results give the memory--self--introspection route a task-specific
+mechanism: retained history chooses future access, and that access
+limits the evidence available for revising the frame.
 \end{abstract}
 
 % ============================================================
@@ -68,14 +85,22 @@ Here we ask how the retained history organizes the reader itself.
 
 Paper~I bounds the extra work available from a record by $k_BT\,I(X{:}M)$ in a matched feedback task, explains when that bound is attained, and includes preparation, updates and old correlations in the complete account~\cite{Liu2026TDOME_I}. It leaves open how an agent comes to select what it keeps. Paper~III studies drift detection, the price of tracking a changing instrument, and history-selected repair of body-gated access~\cite{Liu2026TDOME_III}. The present paper sits between them. Its self-frame is formed from records, it decides which records are gathered next, and its blind spot is the reason a calibration loop is needed at all.
 
-The main results progress from the posterior capability
-(Theorem~\ref{thm:capability}) to the information needed to select and
+The main results start with the posterior capability
+(Theorem~\ref{thm:capability}) and the information needed to select and
 use a foreground (Theorem~\ref{thm:rate} and
-Proposition~\ref{prop:signed-model}), then to its blind spot and drift.
-Section~\ref{sec:calibration} gives an explicit revision policy with
-exact stationary risk. Section~\ref{sec:quantum-frame} treats supplied
-quantum references separately; Section~\ref{sec:series} connects the
-formation mechanism to learned protection.
+Proposition~\ref{prop:signed-model}). Proposition~\ref{prop:finite-formation}
+then constructs a frame from finite observations with bounded working
+registers and a two-bit retained code. It compares a history-selected
+reading direction with a preselected direction, granting the latter its
+exact regression coefficient. The comparison isolates the value of
+changing the next reading; it does not match retained memory or total
+implementation cost, or distinguish a self-frame from general learning.
+The subsequent blind-spot and drift results explain when that selected
+access needs revision. Section~\ref{sec:calibration} gives an explicit
+revision policy with exact stationary risk.
+Section~\ref{sec:quantum-frame} treats quantum references separately;
+Section~\ref{sec:series} connects history-selected access to learned
+protection without identifying the two implementations.
 
 \subsection{Related work}
 
@@ -111,7 +136,11 @@ A self-frame is a retained state from which the agent computes, at each step, an
 
 \subsection{Comparators}
 
-All comparisons in this paper charge the same $b$ reads per step and the same start-up probes.
+Except for Proposition~\ref{prop:finite-formation}, the comparisons in
+this paper charge the same $b$ reads per step and the same start-up
+probes. That proposition fixes one test read while granting the
+history-independent direction its exact regression coefficient for
+free; it does not match retained capacity or total cost.
 \begin{itemize}
 \item \emph{No memory}: $\hat y=0$.
 \item \emph{No self-frame}: a foreground fixed independently of the history (for definiteness the first $b$ channels), with in-frame coefficients learned from outcomes.
@@ -277,8 +306,214 @@ If the agent's update rule is equivariant, so that rotating all channel coordina
 
 \begin{remark}[Group-theoretic and quantum settings]
 \label{rem:clifford}
-Nothing above uses the full orthogonal group beyond its transitivity on directions. If the channels carry a representation of a smaller group acting transitively on the sphere, for example $SO(3)$ acting on the pure quaternions of $Cl(0,2)\cong\mathbb H$, the overlap law and Theorem~\ref{thm:rate} are unchanged. In quantum settings an agent without a frame is restricted to group-averaged operations, and alignment resources are quantified by asymmetry measures~\cite{BRS2007,SkotiniotisGour2012}. The next section gives a quantum task bound and an exact finite reference. The spherical information price is not identified with quantum asymmetry.
+Nothing above uses the full orthogonal group beyond its transitivity on directions. If the channels carry a representation of a smaller group acting transitively on the sphere, for example $SO(3)$ acting on the pure quaternions of $Cl(0,2)\cong\mathbb H$, the overlap law and Theorem~\ref{thm:rate} are unchanged. In quantum settings an agent without a frame is restricted to group-averaged operations, and alignment resources are quantified by asymmetry measures~\cite{BRS2007,SkotiniotisGour2012}. Section~\ref{sec:quantum-frame} gives a quantum task bound and an exact finite reference. The spherical information price is not identified with quantum asymmetry.
 \end{remark}
+
+\section{A finite history selects a two-bit reading frame}
+\label{sec:finite-formation}
+
+The information prices above do not by themselves construct a foreground
+from finite observations. We now do so in the same static Gaussian
+task, with $D=2$ and $U$ uniform on the unit circle.
+Training consists of $n$ independent full probes: both coordinates
+of $x_\ell$ and the revealed $y_\ell$ are read.
+The comparison below restricts the alternative's reading direction to
+be independent of this history; it does not restrict the alternative's
+regression coefficient to ignore history.
+During the separate test phase exactly one linear read is allowed
+per fresh input; $U$ remains fixed, and no further coefficient
+training is required by the constructed policy.
+
+The supplied reading menu is
+$\mathcal C=\{e_1,-e_1,e_2,-e_2\}$.
+A retained code $M=w\in\mathcal C$ specifies both which coordinate
+to read and which signed prediction to make:
+\begin{equation}
+ \widehat y=\rho\mu\,w\cdot x,\qquad
+ \mu=\E\max(|U_1|,|U_2|)=\frac{2\sqrt2}{\pi}.
+ \label{eq:two-bit-predictor}
+\end{equation}
+There are four codes, so only two learned bits enter the test phase.
+The codebook, read hardware and constants are supplied.
+One bit chooses the foreground axis and the other its prediction sign;
+an unsigned coordinate alone would not specify this response.
+
+\begin{proposition}[A finite history-selected frame beats every history-independent foreground]
+\label{prop:finite-formation}
+Let $\rho>0$, $s\ge0$, and use the training and test task above.
+For $L,q>0$, preprocess each observed sample by
+\[
+ z_\ell=y_\ell x_\ell/\rho,\qquad
+ v_\ell=\operatorname{proj}_{\{|v|\le L\}}z_\ell,\qquad
+ \widetilde z_{\ell,i}=q\,\operatorname{round}(v_{\ell,i}/q),
+\]
+with fixed nearest-integer tie rules independent of $U$.
+Set $g=n^{-1}\sum_{\ell=1}^n\widetilde z_\ell$ and choose
+$w\in\arg\max_{a\in\mathcal C}a\cdot g$, again with a fixed tie rule.
+With
+\begin{equation}
+ M_2=4+\frac{2s^2}{\rho^2},\qquad
+ e_{n,L,q}=\sqrt{\frac{M_2}{n}}+\frac{M_2}{L}
+                                     +\frac q{\sqrt2},
+ \label{eq:finite-frame-error}
+\end{equation}
+the prediction risk, averaged over $U$, training and the independent
+test input, satisfies
+\begin{equation}
+ R_{\rm formed}\le s^2+\rho^2
+           [1-\mu^2+4\mu e_{n,L,q}].
+ \label{eq:finite-frame-risk}
+\end{equation}
+Every rank-one foreground chosen independently of the training history
+and $U$, even with its exact $U$-dependent regression coefficient
+supplied, has risk at least $s^2+\rho^2/2$.
+Thus the finite formed frame is strictly better whenever
+$4\mu e_{n,L,q}<\mu^2-1/2$.
+For $n=4096$, $\rho=s=1$, $L=256$, $q=1/1024$, the upper bound is
+$1.414155<1.5$.
+\end{proposition}
+\begin{proof}
+Condition on $U$. Gaussian second and fourth moments give
+$\E[z_\ell\mid U]=U$ and
+\[
+ \E[|z_\ell|^2\mid U]
+ =\E[(U\cdot x_\ell)^2|x_\ell|^2]
+             +(s^2/\rho^2)\E|x_\ell|^2
+ =4+2s^2/\rho^2=M_2.
+\]
+The radial projection has mean bias bounded by
+\[
+ |\E[v_\ell\mid U]-U|
+ \le\E[|z_\ell|\mathbf1_{\{|z_\ell|>L\}}\mid U]\le M_2/L.
+\]
+Independence of the clipped samples and $|v_\ell|\le|z_\ell|$ give
+\[
+ \E\left[\left|
+ \frac1n\sum_\ell v_\ell-\E[v_\ell\mid U]\right|\Bigm|U\right]
+ \le\sqrt{M_2/n}.
+\]
+Coordinate rounding changes each vector by at most $q/\sqrt2$.
+Consequently $\E[|g-U|\mid U]\le e_{n,L,q}$.
+The preprocessing uses only actual $(x_\ell,y_\ell)$, not $U$.
+
+Put $h(U)=\max(|U_1|,|U_2|)$ and let $w_*(U)$ maximize $a\cdot U$
+over the same four codes. Since $w$ maximizes $a\cdot g$,
+\[
+ U\cdot w\ge g\cdot w-|g-U|
+       \ge g\cdot w_*-|g-U|
+       \ge h(U)-2|g-U|.
+\]
+The circular mean of $h$ is
+$(4/\pi)\int_0^{\pi/4}\cos\theta\,d\theta=2\sqrt2/\pi=\mu$.
+The current test input $x$ is independent of $U$ and the retained code.
+Its conditional risk is
+$s^2+\rho^2|U-\mu w|^2$.
+Averaging gives
+$R_{\rm formed}=s^2+\rho^2[1+\mu^2-2\mu\E(U\cdot w)]$,
+which proves Eq.~\eqref{eq:finite-frame-risk}.
+
+For a history-independent unit vector $v$, even an oracle coefficient
+cannot remove the Gaussian component orthogonal to $v$.
+Its risk is $s^2+\rho^2[1-\E[(U\cdot v)^2]]=s^2+\rho^2/2$,
+also for a randomized $v$ independent of $U$.
+This relaxation only helps the comparator: it need not pay memory or
+estimation error for that coefficient.
+Substituting the declared finite parameters gives the strict inequality.
+\end{proof}
+
+The ideal code $w_*(U)$ is not supplied to the learner.
+It describes the limiting comparison: by symmetry
+$\E[U\mid w_*]=\mu w_*$, and its risk is
+$s^2+\rho^2(1-\mu^2)$, or $1.189430531$ at $\rho=s=1$.
+The finite learner instead estimates from the actual probes and has
+the certified error above. No optimality among all two-bit encoders
+is claimed. The symmetric four-code hardware is also not a
+continuously rotation-equivariant policy; the example does not
+establish spontaneous breaking of $SO(2)$.
+
+\subsection{The retained code and the working registers}
+
+The selection need not store a real-valued $g$.
+Accumulate the two integers
+$A_i=\sum_\ell\operatorname{round}(v_{\ell,i}/q)$;
+the signed largest coordinate of $A$ gives the same $w$.
+For $L/q=2^{18}$, nearest rounding of a coordinate in $[-L,L]$
+has integer magnitude at most $2^{18}$, including endpoint and
+rounding ties. Every partial sum through $n=2^{12}$ therefore has
+magnitude at most $2^{30}$. Two signed 32-bit accumulators suffice,
+and a 13-bit counter stores every value from $0$ through $4096$.
+These are 77 working bits; a separately allocated two-bit output
+register brings those declared registers to 79 bits during handoff.
+Only the two-bit code is needed for the specified static test.
+
+This is not a two-bit complete apparatus.
+The analog input readings and revealed outcomes, multiplication,
+radial clipping, rounding hardware, fixed codebook and constants,
+control and temporary processing have their own implementation costs.
+The constructed policy uses $2n$ coordinate reads and $n$ revealed
+outcomes for training, followed by one read per test input. The
+comparison grants the fixed-direction reader an exact coefficient
+without charging for its estimation or retention; the theorem is
+therefore not a comparison at equal total resource cost.
+A history-independent foreground may use its training records to
+estimate coefficients; the oracle comparison already grants it a
+stronger coefficient resource. Reusing or clearing the training
+registers also needs an account and is not made free by retaining a
+small final code. A finite implementation of the fixed coefficient
+must keep its error below the strict risk margin, as in
+Section~\ref{subsec:costs}.
+
+The theorem identifies a use of memory: retained information about the
+task--channel relation changes which measurement is made next.
+Calling this code a self-frame specifies that functional role, not a
+new statistical class distinct from learned control parameters. The
+independent-donor intervention below can retain the same two-bit format
+while removing its relation to the current task. It tests the value of
+that relation, but does not compare the code with every equally small
+history-dependent representation or establish a distinctively subjective
+organization.
+
+\subsection{What a history intervention tests}
+\label{sec:formation-intervention}
+
+Replay a code from an independently trained trial with independent
+coupling, so that the installed $w$ is independent of the current $U$.
+It is now a history-independent foreground and cannot beat
+$s^2+\rho^2/2$, even if its correct current regression coefficient
+is supplied. If the original response coefficient $\rho\mu$ is kept
+instead, its risk is
+\begin{equation}
+ R_{\rm replay}=s^2+\rho^2(1+\mu^2),
+ \label{eq:frame-replay}
+\end{equation}
+since $\E(U\cdot w)=0$. At $\rho=s=1$ this is $2.810569469$,
+not $1.5$. The oracle baseline and an actual stale signed response
+are different interventions.
+
+Freezing the code learned for the original static $U$ does
+\emph{not} remove its value: the construction already freezes it
+through the test phase. What matters is the learned relation to
+this task, not updating for its own sake.
+Off-frame reads become necessary to revise omitted directional
+information when the coupling changes
+(Section~\ref{sec:blind}); the static theorem does not certify a
+continuing drift filter.
+
+The two-bit code is a decision summary for this test loss and reading
+menu, not a sufficient statistic for arbitrary future posterior
+updates. The same distinction applies to the conditional mean in
+Theorem~\ref{thm:capability}: it determines a current Bayes response,
+but Bayesian updating need not close on that mean alone.
+The formed code changes which physical reading the agent uses next
+from an already supplied menu. It neither creates that menu nor
+identifies whether $U=R^\top e$ changed through the body coupling
+$R$ or the world direction $e$.
+
+A deterministic angular sum and one small finite-training diagnostic
+are described in Appendix~\ref{app:finite-formation}.
+The finite-$n$ guarantee is the moment and truncation proof, not the
+diagnostic's sample mean.
+
 
 \section{A quantum reference changes the available reading}
 \label{sec:quantum-frame}
@@ -654,7 +889,29 @@ subject formation.
 
 \subsection{What is established}
 
-Within the budgeted reader, a self-frame is informationally necessary for any risk below $s^2+\rho^2(1-b/D)$ (Corollary~\ref{cor:limits} and Theorem~\ref{thm:rate}); it can be formed from the agent's own records, at a price of at least $\Lambda^*_{D,k}(c)/C_1$ outcome-bearing steps and $\Lambda^*_{D,k}(c)/\ln2$ bits (Corollary~\ref{cor:price}); it buys the capability computed in Theorem~\ref{thm:capability} and Proposition~\ref{prop:stationary}; and it has a blind spot that only reads outside the frame can repair (Theorem~\ref{thm:blind}). The necessity is created by the reading budget. With $b=D$ the frame-free level falls to $s^2$ and selecting a foreground gains nothing, although the agent still needs memory of its coefficients.
+Within the budgeted reader, risk below $s^2+\rho^2(1-b/D)$
+requires a history-dependent foreground (Corollary~\ref{cor:limits}
+and Theorem~\ref{thm:rate}).
+Corollary~\ref{cor:price} gives necessary information, storage and
+outcome-bearing sample costs; it is not itself a finite learning
+construction. Proposition~\ref{prop:finite-formation} supplies one:
+with 4096 full probes, 77 declared working bits and a separate
+two-bit output, the two-channel reader selects a foreground whose
+one-read risk is at most $1.414155$, below the fixed-foreground oracle
+level $1.5$. The apparatus and its processing remain supplied and
+separately chargeable. The code's value is its relation to the current
+coupling: independent replay loses that relation, whereas static
+freezing preserves it. With $b=D$, selecting a foreground gains
+nothing, although predicting still requires the task coefficients.
+
+Theorem~\ref{thm:blind} describes the omitted directions that in-frame
+records cannot locate. Off-frame probes can revise the frame;
+Proposition~\ref{prop:stationary} computes the risk and cost of one
+such policy under drift. The finite static construction and the
+drifting calibration policy solve different stages of this problem:
+the former establishes formation with finite registers, while the
+latter quantifies continued revision without claiming the same
+finite-register implementation.
 
 For the memory--self--introspection route, this gives the self link a definite content. Task-relevant memory becomes a self-frame here when it selects reads through a learned model of the system's own coupling. The blind spot then gives a reason for acquiring new relations outside that frame. A system may implement this calibration function without representing a human-like self. Each statement concerns this task class. It is not claimed that every persistent system needs a self-frame; a system that can read everything it needs, or whose coupling is known, does not.
 
@@ -757,6 +1014,37 @@ The task class is linear and Gaussian with a rank-one or fixed-rank target. Seve
 Parameters: $D=8$, $b=3$, $\rho=1$, $s=0.5$. The coupling starts uniform and moves by the rotation-invariant step $u\mapsto(u+\eta g_\perp)/|u+\eta g_\perp|$ with $g_\perp$ the projection of a standard Gaussian vector orthogonal to $u$, for $\eta\in\{0,0.002,0.005,0.01,0.02,0.04,0.06,0.08,0.12\}$; $\lambda_1=\E(1+\eta^2\chi^2_{D-1})^{-1/2}$ is computed by quadrature. Each agent receives the same $n_0=64$ start-up probes, from which $g_0$ is the mean of $y_ix_i$. The frozen agent responds $g_0\cdot x$. The frame-free agent reads channels $1$--$3$; the fixed agent reads $g_0/|g_0|$ and two fixed random orthonormal directions orthogonal to it; both learn their three coefficients by the update of Section~\ref{sec:calibration} with $p=1$. The calibratable agent chooses two coordinate probes uniformly without replacement and reads those axes plus the normalized component of $g$ orthogonal to them. It reconstructs $g\cdot x$ from these three orthonormal reads and updates only the probed coordinates. The recorded noiseless simulation used the algebraically equivalent nonorthogonal functionals; this equivalence need not hold for hardware with independent read noise. Learning rates and weights are set by minimizing the risks of Proposition~\ref{prop:stationary} over $\alpha\in[10^{-4},0.999]$ (floor $0.002$). Risks are evaluated exactly given the state, $s^2+|\rho u-c|^2$ with $c$ the agent's effective coefficient vector, and averaged over steps 8\,000--23\,999 and over 200 trajectories that share the world's random numbers across agents. The code is \texttt{td2\_loop.py}; the thresholds of Table~\ref{tab:threshold} are computed by \texttt{td2\_threshold.py}, and the analytic checks of Theorems~\ref{thm:capability}--\ref{thm:drift} by \texttt{td2\_checks.py}.
 
 % ============================================================
+\section{Checks of the finite formation construction}
+\label{app:finite-formation}
+
+The accompanying \texttt{check\_formation.py} evaluates the constants
+in Proposition~\ref{prop:finite-formation} and implements its actual
+sample preprocessing. At the declared parameters it gives
+$M_2=6$, $e_{n,L,q}=0.06240131120$ and risk upper bound
+$1.41415420535$, a margin greater than $0.08584$ below the
+fixed-foreground oracle risk.
+Integer bounds are checked exactly: each quantized coordinate is at
+most $262144$ in magnitude and each partial sum at most
+$1073741824$. An equally spaced midpoint angular sum with 65536
+points gives $\mu=0.900316316502$, within $3.5\,10^{-10}$
+of $2\sqrt2/\pi$.
+
+For a diagnostic, 128 independently sampled couplings each receive
+4096 Gaussian training samples, with seed 1729.
+The encoder is passed only the observed $x_1,x_2,y$; it clips,
+rounds and accumulates integers before selecting its code.
+Nearest rounding uses a fixed positive-infinity tie rule.
+The test input and noise are then integrated analytically:
+the conditional loss is $1+|U-\mu w|^2$.
+The diagnostic mean is $1.1831812333$ with between-history standard
+error $0.0134057633$; it is not a confidence certificate for the risk
+bound or evidence of improving on the ideal population value
+$1.1894305309$. The script separately checks the exact independent
+replay risk $2.8105694691$, the replay foreground's oracle level
+$1.5$, and invariance under freezing a code in the original static
+task. These checks do not implement a thermodynamic apparatus.
+The analytic proof, not this small sample, supplies the guarantee.
+
 \begin{thebibliography}{99}
 
 \bibitem{Liu2026HAFF_B}

@@ -1,12 +1,9 @@
 \documentclass{article}
 \usepackage{pdfpages}
-% Convenience TeX assembly entry for this collection.
-% The reference PDF uses assemble.py (PyMuPDF), preserving links and page geometry.
-% This pdfpages alternative is not the original compilation source and may alter navigation.
-% Extract the matching source ZIP beside this file before compiling.
+% PDF-page assembly; source manuscripts are kept once under ../../papers/.
 \begin{document}
 \includepdf[pages=-,fitpaper=true]{frontmatter.pdf}
-\includepdf[pages=-,fitpaper=true]{QR-A.pdf}
-\includepdf[pages=-,fitpaper=true]{QR-B.pdf}
-\includepdf[pages=-,fitpaper=true]{QR-C.pdf}
+\includepdf[pages=-,fitpaper=true]{../../papers/QR-A/QRAIF_A_manuscript.pdf}
+\includepdf[pages=-,fitpaper=true]{../../papers/QR-B/QRAIF_B_manuscript.pdf}
+\includepdf[pages=-,fitpaper=true]{../../papers/QR-C/QRAIF_C_manuscript.pdf}
 \end{document}

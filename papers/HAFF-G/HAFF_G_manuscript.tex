@@ -5,7 +5,7 @@
 \documentclass[12pt,a4paper]{article}
 \usepackage{amsmath,amssymb,amsfonts,amsthm}
 \usepackage{hyperref}
-\hypersetup{pdftitle={Internal Selection and Revisable Organization: How History Changes Permissions and Physical Sources},pdfauthor={Sidong Liu}}
+\hypersetup{pdftitle={Structural Limits of Unification: Internal Selection, Revisable Permissions and Physical Sources},pdfauthor={Sidong Liu}}
 \usepackage{geometry}
 \usepackage{booktabs}
 \geometry{margin=1in}
@@ -23,8 +23,8 @@
 \newcommand{\proj}[1]{|#1\rangle\!\langle #1|}
 \newcommand{\Tr}{\operatorname{Tr}}
 
-\title{Internal Selection and Revisable Organization:\\
-How History Changes Permissions and Physical Sources}
+\title{Structural Limits of Unification:\\
+Internal Selection, Revisable Permissions and Physical Sources}
 
 \author{
   Sidong Liu, PhD \\
@@ -43,13 +43,46 @@ How History Changes Permissions and Physical Sources}
 \maketitle
 
 \begin{abstract}
-A physical system can use its records to revise the operations through which it reads and acts. We construct this process with an internal program, a fixed executor and a record-driven update. Controlled couplings select protected algebras; overlap of their spectra permits coherent internal choices without a central program label. The same choice changes an outgoing matter source. A qubit loop has two configurations whose records select their own protection, and different initial histories produce late source weights $1/3$ and $2/3$. With rotation noise these choices persist for a calculable window and eventually lose their contrast. An arbitrary quantum record can also be converted into the two sustained source configurations: the largest achievable source-weight contrast equals the trace distance between the record states. Finite execution errors shorten the history window by their accumulated operational error. A separate price concerns sharp readouts. Selecting every sharp qubit measurement on a great circle to worst-case basis-state error $\delta$ requires program dimension of order $\delta^{-1/2}$; pure and mixed programs have the same feasible dimensions for this criterion. These results identify what history can form inside a supplied architecture. They support a broader mechanism in which learned relations become revisable permissions, while leaving primitive couplings and their origin as a distinct generation problem.
+Can a theory explain the selection rules by which its own physical systems
+read and act? The operational limit established here is relative to
+declared permissions, not a universal obstruction to a unified theory.
+We distinguish an internally executed rule, a history-formed
+permission and an explanation of the dynamics that makes either possible.
+An operational equivalence result fixes one boundary: when two dynamics
+agree on an instrument-preserved observable algebra, no finite adaptive
+experiment within those permissions can distinguish them. This boundary
+can move when permissions change; it does not establish a final,
+unrevisable Cut or prohibit physical self-reference.
+
+The constructive side is a record-driven program with a fixed executor.
+Controlled couplings select protected algebras, while shared spectra permit
+coherent choices without central program labels. A qubit loop selects its
+own protection and a physical field source. Noise limits the duration of
+history-dependent source contrast. A preceding quantum record can select
+the two sustained configurations with a maximum contrast equal to its
+trace distance. Sharp readout selection has a different cost: for the
+great-circle qubit family, program dimension scales as
+$\delta^{-1/2}$ under the stated basis-state error criterion, equally for
+pure and mixed programs. These results support formation of revisable
+permissions inside a physical architecture. They separate this attainable
+internal closure from the stronger claim that a model explains every
+one of its own physical inputs.
 \end{abstract}
 
 \section{Introduction}
 \label{sec:intro}
 
 A record can change what a system is able to do next. A damaged body may install a different protective encoding; a reader may move its probe; an internal estimate may lower the authority given to an unreliable response. These changes concern actual operations. To explain them, a theory of selected structure needs a physical account of how a history selects and revises the relations that carry its own activity.
+
+A second question concerns the scope of such an explanation. Does
+internalizing each selector also explain the laws and physical permissions
+that implement it? A finite programmer cannot settle this question for
+every possible theory. Conversely, leaving an executor in one model's
+inputs is not evidence that its organization can never be explained.
+We ask which inputs a construction actually replaces, which distinctions
+its own experiments can settle, and what a further unification would
+have to connect. Section~\ref{sec:explanation} makes these three questions
+separate before constructing the internal selector.
 
 Papers A--F separate parts of this problem. Channels determine which distinctions are read in Paper~A; couplings and observation windows determine which survive in Paper~B; instruments create records in Paper~E; their retention and renewal have resource prices in Paper~F \cite{Liu2026PaperA,Liu2026PaperB,Liu2026PaperE,Liu2026PaperF}. Paper~C connects sensing and intervention to a body's viability, while Paper~D asks how selected structure and physical sources constrain geometry \cite{Liu2026PaperC,Liu2026PaperD}. Here the question is whether the choice of operation can itself arise from records inside the system.
 
@@ -60,6 +93,97 @@ The main construction is a qubit with two record-selected protective configurati
 The cost of selecting operations is separate from the cost of retaining their records. Sharp alternatives require orthogonal program supports. For the one-parameter great-circle qubit family the required register dimension grows as $\delta^{-1/2}$, and mixing cannot improve it under the two basis-state error criterion. Section~\ref{sec:sharp} states this result; Appendix~\ref{app:sharp} contains the full proof and numerical bounds. Section~\ref{sec:cut} places the finite target-register boundary in its proper scope. Section~\ref{sec:formation} develops the broader formation mechanism and its failure conditions.
 
 Breuer's state self-measurement limit \cite{Breuer1995} and Wolpert's physical inference limits \cite{Wolpert2008} concern what an embedded system can know. Here we ask what it can choose and execute. The existence of self-reference is not in dispute: self-reproducing automata, recursive programs and fixed-point constructions provide positive examples \cite{vonNeumann1966,Kleene1952,Lawvere1969}. What requires explanation is the physical relation between a description, its execution and the history that revises it.
+
+\section{Internal closure and explanatory reach}
+\label{sec:explanation}
+
+Three claims of completeness require different evidence.
+\emph{Execution closure} means that the declared operations, records and
+updates are physical parts of the modeled process.
+\emph{Formation} means that some usable relation or permission depends
+on acquired history rather than a preinstalled answer.
+\emph{Explanatory completeness} would additionally account for the
+organization supplied to that process. The finite loops below establish
+the first and particular instances of the second. Their success alone
+cannot establish the third; nor does their use of specified primitives
+disprove it.
+
+There is an operational way to locate a model's current boundary.
+It concerns the entire allowed experiment, not only a snapshot or an
+internal verbal description.
+
+\begin{proposition}[An internal experiment can identify only its operational class]
+\label{prop:operational-class}
+Let $\mathcal B$ be a unital observable subalgebra of a finite-dimensional
+ambient algebra. Two models have initial states $\rho_0,\rho_1$ with
+the same restriction to $\mathcal B$. For every permitted command $a$,
+their Heisenberg evolution channels $\Phi_{0,a}^*,\Phi_{1,a}^*$ preserve
+$\mathcal B$ and agree there. Every outcome map of the permitted
+instruments also preserves $\mathcal B$ and has the same restriction in
+both models. Use the same adaptive command policy, depending only on
+the retained outcomes and model-independent private random choices.
+Then every finite outcome history has the same probability in the two
+models. With equal prior probabilities, no decision based on those
+histories identifies the model with success exceeding $1/2$.
+
+More generally, a property inferred exactly from these experiments must
+be constant on their operational equivalence classes.
+\end{proposition}
+\begin{proof}
+For a fixed history, pull back the terminal identity through its
+outcome maps and evolution channels, in reverse composition order.
+Each intermediate effect remains in $\mathcal B$; the two models
+therefore give the same effect there, and their initial states give it
+the same expectation. Conditioning on any private random seed and then
+averaging preserves equality. Adaptive choices do not change the
+argument because the same realized history selects the same command.
+Thus the complete finite record laws agree. Any decision function has
+the same distribution under both hypotheses, giving success $1/2$
+at equal priors. If a property differed inside one equivalence class,
+the same record law could not identify both values exactly.
+\end{proof}
+
+A qubit gives a direct example. Compare the identity channel with complete
+$Z$ dephasing. They agree on
+$\mathcal B=\operatorname{span}\{I,Z\}$, so experiments whose preparation,
+evolution and outcome maps remain closed on this algebra cannot
+distinguish them. The statement even holds with the same initial
+$|+\rangle$ in both models if only those outcome maps are allowed.
+If an $X$ measurement is admitted after one use, its $+$ probability
+is $1$ versus $1/2$; their record laws now have total variation $1/2$.
+The boundary was an experimental restriction, not a prohibition imposed
+on every possible observer. Extra initial correlations or a new
+transducer must be included in the model before applying the proposition.
+
+This is ordinary operational indistinguishability, used here to separate
+a closed internal account from a unique account of its underlying
+dynamics. It provides no theorem that all theories are incomplete:
+a sufficiently rich instrument family may separate the candidate models.
+It also provides no theorem that every selection must be written into a
+central classical record. The coherent program example below denies that
+additional premise.
+
+A useful unification must replace some independently supplied relation
+by a joint mechanism with consequences beyond either component alone.
+HAFF-A and B make stable central sectors depend on a dephasing process,
+while their spatial interpretation still needs a response dictionary.
+Paper~F treats the distinct identification of event order and its
+directional boundary. Q-RAIF~B and C constrain work and propagation
+through the same represented generators when their physical alignment
+is supplied. Paper~D's common-source test relates prepared stress,
+modular data and the geometric response, while modular consistency
+itself remains a demand on the proposed mechanism.
+These are explicit, different explanatory tasks. None is discharged by
+renaming an executor, and none requires deriving every primitive law
+before an intermediate organization can be explained.
+
+The stronger philosophical proposal is that explanation proceeds through
+such revisable relations rather than a final internally certified
+description of everything. The results support revisability and concrete
+limits on certification. They do not establish that nature has an
+ontologically necessary last Cut, that an external selector must exist,
+or that no more unified physical theory is possible. Those conclusions
+would require premises beyond the operational and programming results.
 
 \section{A typed model of internal selection}
 \label{sec:model}
@@ -412,18 +536,33 @@ The conjecture asks for a common finite construction with these inputs and outco
 \label{sec:conclusion}
 \label{sec:nonclaims}
 
-History can select the relations through which a system continues to act. In the finite construction, records choose their own protection and alter the next field source under one executor. Shared coupling spectra show that an internal choice need not become a central label. The exact noisy transition law distinguishes residence in one configuration, a finite history-dependent source window and eventual loss of source contrast. Record-to-source transfer reaches the trace-distance limit, while accumulated execution errors bound how much of that window remains usable.
+An internal selector can be physical, self-applied and revisable.
+In the finite construction, records choose their protection and alter
+the next field source under one executor. Shared coupling spectra allow
+coherent choices without a central program label. The transition law
+separates residence in one configuration, a finite history-dependent
+source window and eventual loss of contrast. Trace distance fixes how
+much an earlier record can contribute to source selection, and accumulated
+execution errors bound the useful window.
 
-Selecting accurate sharp readouts has its own dimensional cost. The one-parameter great-circle family requires order $\delta^{-1/2}$ dimension, with the same feasibility for pure and mixed programs under two target errors. This price and the finite target/executor distinction constrain a specified architecture. They allow stored descriptions, self-application and stronger models of executor formation.
+These are formation and execution results inside declared dynamics.
+The great-circle sharp-readout price limits a particular programmable
+family, not every continuum or physical self-reference. Operational
+equivalence limits which underlying dynamics the declared experiments can
+certify; enlarging their permissions can remove that limit.
+The formation conjecture asks how learned body relations can supply such
+new permissions while old content and resources survive.
+It is a stronger target than changing a program label.
 
-The resulting account joins internal description to a physical consequence without making them identical. Its broader question is how a body's learned relations become revisable permissions while content, references and resources survive. The formation conjecture sets out a mechanism and interventions for that question; primitive dynamics, general geometric generation and first-person experience require their own arguments.
-
-The selection registers and target systems are finite-dimensional; the source realization uses the specified bosonic field port of Paper~D. The counting observation concerns this target-register architecture, not every formalism for physical self-reference, and fails in infinite dimension. Internal program changes select actual couplings and can alter their output stress. They do not by themselves explain why this executor exists, reconstruct a geometric sector or establish reflective experience.
-
-Paper~D's sustained selection--response conjecture additionally prices
-thermal entropy export and its gravitational reading~\cite{Liu2026PaperD}.
-The fresh-port program loop here supplies neither that complete thermal
-account nor its joint sharp-exhaust and causal-return implementation.
+The limits therefore attach to identifiable physical relations, not to an
+untyped claim that a system can never contain its own rule.
+A common account of formed sectors, event order, control and propagation,
+and source and geometry would explain more than the present selector.
+Its missing relations remain assigned to those mechanisms.
+The source realization here uses specified fresh bosonic ports; it is not
+Paper~D's sustained thermal apparatus or a proof of its joint sharp-exhaust
+and return conjecture. Neither operational closure nor its extension
+settles the separate question of first-person experience.
 
 \appendix
 \section{Proofs and constructions for sharp selection}
@@ -510,7 +649,7 @@ For $N$ grid programs and a uniformly distributed angle the mean error is $\frac
 \begin{thebibliography}{99}
 
 \bibitem{Liu2026PaperA}
-S.~Liu, \emph{Physical Access and Correlation Geometry: The Holographic Alaya--Field Framework}, Zenodo (2026), DOI: 10.5281/zenodo.18361706.
+S.~Liu, \emph{Physical Coarse-Graining and the Problem of Emergent Geometry: The Holographic Alaya--Field Framework}, Zenodo (2026), DOI: 10.5281/zenodo.18361706.
 
 \bibitem{Liu2026PaperB}
 S.~Liu, \emph{Coupling, Records, and Stable Relations: Formation, Protected Content and the Lifetime of a Geometry}, (2026), series record DOI: 10.5281/zenodo.18367060.
@@ -522,13 +661,13 @@ S.~Liu, \emph{Selection, Maintenance and Gravitational Response: Modular Constra
 S.~Liu, \emph{Measurement as Accessibility: Measurement Permissions, Stable Records and Public Readout}, (2026), series record DOI: 10.5281/zenodo.18400065.
 
 \bibitem{Liu2026PaperF}
-S.~Liu, \emph{Records, Dissipation and Intervention: Conditions for a Temporal Direction}, (2026), series record DOI: 10.5281/zenodo.18400425.
+S.~Liu, \emph{Records, Order and Intervention: Conditions for a Temporal Direction}, (2026), series record DOI: 10.5281/zenodo.18400425.
 
 \bibitem{LiuPostscript}
-S.~Liu, \emph{Postscript: Persistence, Participation and an Unfinished Self}, Zenodo (2026), DOI: 10.5281/zenodo.18407367.
+S.~Liu, \emph{On the Closure of Structure: Origins, Persistence and Renewed Participation}, Zenodo (2026), DOI: 10.5281/zenodo.18407367.
 
 \bibitem{LiuNoView}
-S.~Liu, \emph{No View from Nowhere: Read-out Closure and the Vacuum Curvature Test in Q-RAIF A}, Zenodo (2026), DOI: 10.5281/zenodo.20284454.
+S.~Liu, \emph{No View from Nowhere: Source Selection, Physical Reaction and Read-out Closure in Q-RAIF}, Zenodo (2026), DOI: 10.5281/zenodo.20284454.
 
 \bibitem{Liu2026QRAIFB}
 S.~Liu, \emph{Thermodynamic Stability Constraints on Persistent Open Quantum Subsystems: Control Algebra, Physical Actuation and Energy Cost}, (2026), series record DOI: 10.5281/zenodo.18525890.
@@ -589,10 +728,10 @@ S.~Liu, \emph{Causation, Agency, and Existence: Historical Control and Maintaine
 S.~Liu, \emph{Reference Frames Selected by History: The Capability and Cost of a Bounded Agent's Self-Frame}, (2026), series record DOI: 10.5281/zenodo.18579703.
 
 \bibitem{Liu2026QRAIFC}
-S.~Liu, \emph{Retained Quantum History, Physical Sources and Receiver Renewal in Q-RAIF}, (2026), series record DOI: 10.5281/zenodo.18528934.
+S.~Liu, \emph{Representing Control in the World: Retained History, Physical Sources and Renewal in Q-RAIF}, (2026), series record DOI: 10.5281/zenodo.18528934.
 
 \bibitem{FoundationIII}
-S.~Liu, \emph{Foundation III: The Perfuming Loop---Held Content, Learned Frames and Physical Return}, (2026), series record DOI: 10.5281/zenodo.19642189.
+S.~Liu, \emph{Foundation III: The Perfuming Loop. Held Content, Learned Frames and Physical Return}, (2026), series record DOI: 10.5281/zenodo.19642189.
 
 \bibitem{BrainAnchor}
 S.~Liu, \emph{The Brain as a Plastic Observable-Algebra Network: Learning Shared Access from Sensorimotor History}, (2026), series record DOI: 10.5281/zenodo.20044329.
@@ -600,3 +739,4 @@ S.~Liu, \emph{The Brain as a Plastic Observable-Algebra Network: Learning Shared
 \end{thebibliography}
 
 \end{document}
+

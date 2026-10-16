@@ -1,24 +1,30 @@
 {
   "title": "Thermodynamic Dynamics of Observer-Memory Entanglement",
   "official_pdf": "TDOME_Complete_Collection.pdf",
+  "intro_page": 3,
+  "metadata": {
+    "title": "Thermodynamic Dynamics of Observer-Memory Entanglement",
+    "author": "Sidong Liu",
+    "subject": "World, interface and subject: direction-restoration working edition"
+  },
   "members": [
     {
       "id": "TD-I",
-      "pdf": "TD-I.pdf",
       "title": "Memory as a Usable Resource: Correlations, Records and Complete Endpoint Accounting",
-      "sha256": "70564b78e0a58581fbbb10f3764e3aa8b471b4511cf1d88e99be2a9b497d3712"
+      "pdf": "../../papers/TD-I/TDOME_I_manuscript.pdf",
+      "sha256": "ef56d2588fde7dd9d5d6717d295e07c603997384c9885426650ef4a02be040aa"
     },
     {
       "id": "TD-II",
-      "pdf": "TD-II.pdf",
       "title": "Reference Frames Selected by History: The Capability and Cost of a Bounded Agent's Self-Frame",
-      "sha256": "685c06f055f9eea9ebaa3b73ae016effc3828e49f40687d5b3fb3d6089e66457"
+      "pdf": "../../papers/TD-II/TDOME_II_manuscript.pdf",
+      "sha256": "fb5c4a85723a24541a4b0ea55be647c65ccc74c3ff989ed35ad26123a2536d92"
     },
     {
       "id": "TD-III",
-      "pdf": "TD-III.pdf",
       "title": "Keeping a Self-Model Calibrated: Drift Detection, the Price of Keeping Up, and Reliability in a Closed Loop",
-      "sha256": "c0a6bcd400a36d5cd0327fa6012e3293053ef6c1e4135f508e306dee5754fc99"
+      "pdf": "../../papers/TD-III/TDOME_III_manuscript.pdf",
+      "sha256": "d4297a0c1878b9292d9236168179f7af1200eb202c9e91155b0fd54908fcf586"
     }
   ]
 }

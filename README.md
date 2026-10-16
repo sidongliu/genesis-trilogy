@@ -8,6 +8,8 @@ HAFF develops the world side: coupling-selected structure, measurement, agency, 
 
 Foundation, Consciousness, Imprint and Brain Anchor extend these questions to realized and shared structure, physical return, finite self-reading, useful traces and learned bodily access. Each retains its own explanatory task. A functional self-model or successful self-calibration does not by itself establish subjective experience.
 
+**Current GitHub revision: 16 October 2026.** This revision restores the formation questions to the main arguments and separates two long sets of technical certificates from their papers. The matching Zenodo update is awaiting author review; existing Zenodo versions remain available.
+
 This October 2026 edition contains 29 individual documents and seven collected volumes. These are research preprints. The papers distinguish proved results within specified models, conditional physical laws, and stronger conjectures.
 
 ## Start reading
@@ -26,7 +28,7 @@ The [general abstract](papers/HAFF-ABS/HAFF_Abstract.pdf) surveys the full progr
 
 The [Consciousness Series collection](collections/Consciousness_Series_Complete_Collection/Consciousness_Series_Complete_Collection.pdf) combines Foundation I–III and Consciousness I–III. Collections preserve the individual papers' pagination; their contents overlap with the standalone papers.
 
-For the operational starting point, read HAFF A and B, then E. Q-RAIF A–C follows propagation, actuation and actual quantum history. T-DOME I–III follows memory's task value, the formation of a usable self-frame and its upkeep. The collection introductions give more detailed routes.
+For the world-formation question, read HAFF A and B, then E and F. Process-selected blocks and coherence-decay relations are established in stated models; the transition law and spatial dictionary remain explicit research targets. Q-RAIF A–C follows propagation, actuation and actual quantum history. T-DOME I–III follows memory's task value, the formation of a usable self-frame and its upkeep. The collection introductions give more detailed routes.
 
 ## Finite return and the stronger conjectures
 
@@ -46,7 +48,7 @@ Earlier manuscripts, flat collection files, build scripts and exploratory author
 
 ## Sources and citation
 
-Each directory under `papers/` contains its manuscript source and PDF, together with any accompanying dependencies or supplements. The seven assembled PDFs are under `collections/`. Read the relevant supplement instructions before running a calculation: numerical checks illustrate or test the stated models and have their own assumptions.
+Each directory under `papers/` contains its manuscript source and PDF, together with any accompanying dependencies or supplements. The seven assembled PDFs are under `collections/`. Member sources and PDFs are stored only once under `papers/`; collection recipes point to them instead of copying `member_sources` trees. HAFF-D and Q-RAIF C each have a 32-page main paper with a separate technical supplement. Keep the paper directories alongside the collections when downloading so the cross-document links work. Read the relevant supplement instructions before running a calculation: numerical checks illustrate or test the stated models and have their own assumptions.
 
 The October supplements support the current manuscripts; retired figures and experiments remain in the July archive rather than accompanying the revised papers. Zenodo downloads use descriptive attachment names. Where a relative directory layout is needed, each record supplies a `DOWNLOAD.md` guide and a `FILES.json` map with paths and checksums. Restore that layout before compiling sources or running a scientific entry point.
 

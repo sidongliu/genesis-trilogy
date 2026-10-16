@@ -1,12 +1,9 @@
 \documentclass{article}
 \usepackage{pdfpages}
-% Convenience TeX assembly entry for this collection.
-% The reference PDF uses assemble.py (PyMuPDF), preserving links and page geometry.
-% This pdfpages alternative is not the original compilation source and may alter navigation.
-% Extract the matching source ZIP beside this file before compiling.
+% PDF-page assembly; source manuscripts are kept once under ../../papers/.
 \begin{document}
 \includepdf[pages=-,fitpaper=true]{frontmatter.pdf}
-\includepdf[pages=-,fitpaper=true]{TD-I.pdf}
-\includepdf[pages=-,fitpaper=true]{TD-II.pdf}
-\includepdf[pages=-,fitpaper=true]{TD-III.pdf}
+\includepdf[pages=-,fitpaper=true]{../../papers/TD-I/TDOME_I_manuscript.pdf}
+\includepdf[pages=-,fitpaper=true]{../../papers/TD-II/TDOME_II_manuscript.pdf}
+\includepdf[pages=-,fitpaper=true]{../../papers/TD-III/TDOME_III_manuscript.pdf}
 \end{document}

@@ -1,4 +1,4 @@
-% Paper F: Records, Dissipation and Intervention
+% Paper F: Records, Order and Intervention
 % Conditions for a temporal direction
 % October 2026 revision
 
@@ -6,7 +6,7 @@
 \usepackage{amsmath,amssymb,amsfonts,amsthm}
 \usepackage{physics}
 \usepackage{hyperref}
-\hypersetup{pdftitle={Records, Dissipation and Intervention: Conditions for a Temporal Direction},pdfauthor={Sidong Liu}}
+\hypersetup{pdftitle={Records, Order and Intervention: Conditions for a Temporal Direction},pdfauthor={Sidong Liu}}
 \usepackage{geometry}
 \usepackage{array}
 \newcolumntype{P}[1]{>{\raggedright\arraybackslash}p{#1}}
@@ -20,7 +20,7 @@
 \newtheorem{definition}[theorem]{Definition}
 \newtheorem{remark}[theorem]{Remark}
 
-\title{Records, Dissipation and Intervention:\\
+\title{Records, Order and Intervention:\\
 Conditions for a Temporal Direction}
 
 \author{
@@ -40,64 +40,363 @@ Conditions for a Temporal Direction}
 \maketitle
 
 \begin{abstract}
-Records, entropy production and intervention need not point in the same
-direction. We bound disjoint fragments' Holevo information by the
-purity supplied at a product boundary, bath work and a possible system
-contribution. Fair pointer copying into independent partly mixed ports
-saturates the pointer-controlled bound: each port's readable information
-equals its initial purity deficit. The same controlled operations yield
-an exact joint ledger, a posterior for action and, for one port, a
-transfer of its purity into the source without a bath. Retained
-correlations provide another resource: a conditional bound prices new
-ports relative to an old reference even when their marginal purity is zero.
-Fresh ports suppress coherence and accumulate records along a
-CP-divisible source dynamics. Reusing a port can instead return
-correlations and restore coherence. Reset, reversible relabelling and
-reversal of the complete recording history have different balances.
-For a bank degraded by independent flips, restoration of the complete
-retained state removes a specified joint entropy increment. Label-controlled
-thermal swaps realize the correction for nonzero target error and approach
-its entropy price; a declared thermal chiral exhaust adds a conditional
-finite-rate heat bound. Time, coupling order, gates and preparation are
-inputs. The results explain how records support later intervention and
-what must be restored for that capacity to continue.
+Relations among physical records can identify an event order without a
+timestamp, but redundancy alone cannot. Pointer-controlled gates on
+separate fresh ports commute, so every collision permutation gives the
+same complete endpoint state. We contrast this obstruction with a
+reversible recording protocol: a carrier visits labelled stations in an
+unknown order, each station records the arriving classical value and then
+exchanges it for a fresh random label. Retained copies of those labels
+and repeated noisy endpoint readings identify the predecessor of every station.
+For calibrated positive readout bias, a finite-sample correlation
+certificate recovers the complete directed chain. The local
+record-before-exchange orientation and one-pass contact architecture are
+inputs; the global permutation is not.
+
+The direction is relative to a physical preparation boundary.
+Fresh biased ports and independent label--reference pairs are resources,
+while inverse evolution starts from the correlated output of the same
+circuit. A joint purity law bounds the information stored in disjoint
+fragments, with work and retained side information explicitly counted.
+Partly mixed ports attain the pointer-controlled bound. Recontact can
+remove a record and restore source coherence; thermal reset, record
+transfer and complete history reversal have different targets and prices.
+Renewing a noisy bank requires removal of its full retained entropy
+increment, and a specified thermal chiral exhaust adds a finite-rate
+heat bound. These results separate reconstruction of event order,
+orientation of a recording process and thermodynamic maintenance.
+They supply neither a continuous time parameter nor a cosmological
+initial condition.
 \end{abstract}
 
 \section{Introduction}
 \label{sec:intro}
 
-\subsection{The problem}
+A collection of records says that events left traces. Does it also say
+which event came first? One can date a record by an external clock, or
+define influence using interventions at specified times. Neither
+procedure explains when the relations among the records themselves
+identify an order. That is the first question of this paper. The second
+is why a reconstructed chain has a direction relative to a preparation
+boundary, and what must be supplied to keep making useful records.
 
-The fundamental dynamical laws are invariant under time reversal, or nearly so, while records, memories and the reach of actions are not: we have records of the past and can influence only the future. Since Boltzmann the standard explanation has been a special initial condition, a low-entropy past, together with the statistical tendency of entropy to grow \cite{Boltzmann1896,Penrose1989,Carroll2010,Albert2000}. The explanation leaves several questions open. What exactly must be special about the initial condition for records to form? Is the growth of records the same arrow as the growth of entropy, or as the dissipation of a system's free energy? Why can an intervention affect later records and not earlier ones, and what would it take to undo a record?
+The distinction is already sharp in a simple collision model.
+A pointer controls one gate on each of several isolated memories.
+The final memories can contain many readable copies of its value, yet
+the complete final state is invariant under the order of those gates.
+No endpoint measurement can recover that order.
+An intervention can change this conclusion only through the actual
+interactions it inserts; assigning an influence diagnostic a time
+argument does not recover an unknown ordering.
 
-The paper answers these questions for record-forming processes in which records are well defined. We do not derive a time parameter. The dynamics is given with an external parameter and an order of interactions. What the paper derives is a set of quantitative relations among four directions that are often treated as one: the growth of records, the growth of entropy, the dissipation of free energy, and the reach of interventions. It shows when they coincide, when they separate, and what each costs.
+We give a contrasting protocol in which endpoint relations do identify
+the order. A finite carrier visits each labelled station once.
+At every station a CNOT first writes the arriving classical bit into a
+biased read port; a SWAP then replaces the carrier by an independent
+random label whose copy is retained. The public data are the final
+labels and read ports, indexed by station names, not by their positions
+in the visit sequence. Their correlation matrix has one nonzero
+entry per column. It identifies the predecessor chain from the known
+initial label, including which station was last, without reading the
+final carrier.
 
-\subsection{Results}
+The architecture supplies a directed local operation and a family of
+possible one-pass histories. It does not supply which of the $n!$
+permutations occurred. Conversely, recovering that permutation does
+not explain the external parameter used to implement the gates, elapsed
+duration or the origin of the architecture. Reversible gates also admit
+the inverse history. Its actual input is the forward circuit's output,
+with its changed correlations, rather than a second independent
+preparation of fresh ports.
 
-Section~\ref{sec:records} recalls the record model of Paper~E \cite{Liu2026PaperE}, in which fresh memories collide once with a pointer, and the two counts of records it supports. The results are:
-\begin{itemize}
-\item a purity law valid for every record-forming process that starts from a product of system, memories and thermal bath: the Holevo information of disjoint fragments about a pointer label is at most the initial purity of the memories, plus the work not stored in the system in units of $k_BT$, plus the difference between the label entropy and the initial system entropy (Theorem~\ref{thm:purity}). The records version of a low-entropy past is a stock of purity or free energy, and the bound is attained;
-\item in the collision model, an exponential bound on the system's coherence in terms of the number of records and the corresponding loss of free energy, which disappears when the system starts diagonal (Proposition~\ref{prop:coherence}); record growth along a CP-divisible reduced dynamics (Proposition~\ref{prop:cpdiv}); and a gap between local and global entropy that grows linearly with the number of records (Proposition~\ref{prop:local-global});
-\item thermal reset prices: at least $k_BT$ times local entropy for separate fragment erasers in the pure-reset limit, a joint-reset infimum at most $k_BT$ times label entropy, and zero net endpoint work for complete dynamical reversal (Proposition~\ref{prop:erasure});
-\item partly mixed ports that attain the pointer-controlled purity bound,
-an exact acquisition--readout--action ledger and a conditional record
-budget with a retained reference (Propositions~\ref{prop:mixed-ledger}
-and~\ref{prop:conditional-records});
-\item an exact intervention order: operations on the system cannot change memories that no longer interact, and change records formed later (Proposition~\ref{prop:intervention}); repeated interaction breaks the alignment (Proposition~\ref{prop:recollision}).
-\item a separate price for renewing a noisy record bank: a complete
-cyclic correction removes $R[h(q)-h(\varepsilon)]$ nats, while a protected
-old record can require no renewal. A thermal chiral exhaust gives a
-conditional finite-rate capacity for such a bank
-(Propositions~\ref{prop:renewal} and~\ref{prop:thermal-correction}).
-\end{itemize}
-Section~\ref{sec:arrows} collects the comparisons, including the two models of T-DOME~I in which correlations return to a system without records or no correlations return at all \cite{Liu2026TDOME_I}. Section~\ref{sec:relations} relates the results to the thermodynamic arrow, the past hypothesis and timeless formulations, and Section~\ref{sec:connection} places the paper in the HAFF programme.
+Section~\ref{sec:order-obstruction} proves the endpoint obstruction.
+Section~\ref{sec:label-order} constructs the relational record and its
+finite-sample certificate. Section~\ref{sec:direction-boundary} locates
+its direction and resource boundary. Section~\ref{sec:intervention}
+then distinguishes this reconstruction from a timed influence test and
+retains a recontact counterexample. Sections~\ref{sec:records}--\ref{sec:dissipation}
+supply the record and purity account, and
+Section~\ref{sec:renewal-interface} states what persistence adds.
+The appendices retain the acquisition/action, reset and renewal
+proofs in their original regimes.
 
-\section{Time in physical theory}
-\label{sec:background}
+\section{When the complete endpoint forgets the order}
+\label{sec:order-obstruction}
 
-In Newtonian mechanics and in the Schr\"odinger equation time is an external parameter, and the equations have no intrinsic arrow. In canonical quantum gravity the Wheeler--DeWitt equation $\hat H|\Psi\rangle=0$ contains no time parameter \cite{DeWitt1967}. The Page--Wootters construction recovers an effective time from correlations between a clock subsystem and the rest of a stationary universal state \cite{PageWootters1983}, but it explains an ordering rather than its asymmetry. The thermodynamic arrow supplies the asymmetry through a coarse-graining and a low-entropy boundary condition \cite{Albert2000,Wallace2010}.
+Fix a pointer PVM $\{P_x\}$ on a system $S$ and distinct ports $E_i$.
+A collision with port $i$ has
+$U_i=\sum_xP_x\otimes V_{x,i}$, with each $V_{x,i}$ acting only on
+$E_i$. The rotations of Section~\ref{sec:records} and the mixed-port
+CNOTs of Appendix~\ref{subsec:mixed} have this form.
+No order-dependent drift, intervening operation or retained controller
+tag is included in the compared composition.
 
-The model below uses an external parameter and an externally given order of interactions. It asks how records become asymmetric relative to a boundary condition, and it states that boundary condition as a resource. It is not an input-free derivation of time.
+\begin{proposition}[Endpoint non-identification for commuting record gates]
+\label{prop:endpoint-order}
+For one fixed initial joint state of $S$, all ports and any untouched
+reference, the complete final state after applying each $U_i$ once
+is independent of the permutation of the collisions. Thus no endpoint
+local or joint measurement on these systems, including adaptive
+measurements, can distinguish the permutations. Redundancy and entropy
+data cannot do so either.
+\end{proposition}
+\begin{proof}
+For $i\ne j$, orthogonality of the pointer projections gives
+$U_iU_j=\sum_xP_x\otimes V_{x,i}V_{x,j}=U_jU_i$.
+The factors on distinct ports commute. Every ordered product is
+therefore the same unitary, also after tensoring identity on the
+reference. Its action on the fixed initial state is identical.
+Every endpoint instrument consequently has the same outcome law.
+\end{proof}
+
+This is stronger than equality of one-port marginals. It holds even
+for an initially coherent pointer and for a reader controlling all
+modeled outputs jointly. If the driving controller retains a record
+of its programmed order, that is an additional order tag, not a
+counterexample. Intermediate observations or inserted gates are
+also different data. A high-redundancy record of a fixed pointer
+value can therefore be completely uninformative about the order in
+which its copies were made.
+
+\section{A chain recorded without timestamps}
+\label{sec:label-order}
+
+\subsection{The physical preparation and local operation}
+
+There are $n\ge1$ stations, named $1,\ldots,n$, and a qubit carrier $S$.
+An unknown permutation $\pi=(\pi_1,\ldots,\pi_n)$ determines a
+single visit to each station. The station names are identities, not
+chronological ranks. At station $i$ there is a read port $R_i$,
+a replacement label port $T_i$ and a retained label record $K_i$.
+A record $K_0$ accompanies the carrier's initial label.
+
+All bits use the orthogonal computational basis. Prepare independent
+fair choices $Z_0,\ldots,Z_n$, set $S=K_0=Z_0$ and
+$T_i=K_i=Z_i$, and independently prepare
+$R_i=N_i$ with $\Pr(N_i=1)=\varepsilon_i<1/2$.
+The $N_i$ are independent of one another and of all labels.
+The correlated pair $T_i,K_i$ is an actual preparation, not knowledge
+of a secretly chosen value. Only an orthogonal classical encoding
+is copied. No arbitrary unknown quantum state is cloned.
+
+The known local operation is
+\begin{equation}
+ V_i=\operatorname{SWAP}_{S,T_i}\,
+                    \operatorname{CNOT}_{S\to R_i},
+ \label{eq:station-gate}
+\end{equation}
+with the CNOT acting first. It writes before replacing the carrier.
+Every exited port remains isolated and retained; there is no erasure
+or discarded history in the gate sequence. The final readout permits
+the $Z$ measurements of $K_0,\ldots,K_n$ and $R_1,\ldots,R_n$.
+Write their outcomes as $K_i$ and $Y_j$.
+Neither $\pi$ nor a timestamp is supplied to the reader, and
+the final carrier and spent $T_i$ are not measured by this readout.
+Independent trials repeat the same unknown order and preparation law.
+The readout pairs all endpoint values from the same trial; unpaired
+single-port marginals would not supply these relations.
+
+Define $\operatorname{pred}_\pi(\pi_1)=0$ and
+$\operatorname{pred}_\pi(\pi_k)=\pi_{k-1}$ for $k>1$.
+This is notation for the hidden order, not a readout label.
+
+\begin{theorem}[Endpoint relations identify the unknown permutation]
+\label{thm:label-order}
+For the circuit and preparation above, put $g_j=1-2\varepsilon_j>0$.
+The measured endpoint correlation matrix obeys
+\begin{equation}
+ C_{ij}:=\mathbb E\,(-1)^{K_i+Y_j}
+       =g_j\,\mathbf1\{i=\operatorname{pred}_\pi(j)\},
+ \qquad i=0,\ldots,n,\quad j=1,\ldots,n .
+ \label{eq:predecessor-correlation}
+\end{equation}
+Consequently these endpoint relations uniquely identify the directed
+chain $0\to\pi_1\to\cdots\to\pi_n$ among the permitted permutations,
+without measuring $S$ at the endpoint.
+\end{theorem}
+\begin{proof}
+Immediately before the first visit the carrier is $Z_0$.
+At a visit to $j$, the CNOT sends
+$R_j\mapsto N_j\oplus S$ and leaves $S$ unchanged.
+The SWAP then sends $T_j\mapsto S_{\rm old}$ and
+$S\mapsto Z_j$. Induction along the actual visits gives
+\begin{equation}
+ Y_j=N_j\oplus Z_{\operatorname{pred}_\pi(j)},\qquad
+ (T_j)_{\rm out}=Z_{\operatorname{pred}_\pi(j)},\qquad
+ S_{\rm out}=Z_{\pi_n}.
+ \label{eq:full-label-output}
+\end{equation}
+The $K_i=Z_i$ never change.
+For $i=\operatorname{pred}_\pi(j)$ the measured sign is
+$(-1)^{N_j}$, with expectation $g_j$.
+For every other $i$, the two distinct independent fair labels have
+zero sign correlation and are independent of $N_j$, giving zero.
+This proves Eq.~\eqref{eq:predecessor-correlation}.
+Each column has exactly one positive entry, so it gives one
+predecessor edge. The assumed single-pass architecture makes these
+edges one chain starting at the known vertex $0$ and visiting
+every station once. Following that chain recovers the permutation.
+\end{proof}
+
+The gates do not merely copy the same pointer repeatedly.
+The carrier's value is changed at each station, so subsequent records
+refer to a newly supplied label. The retained $K_i$ reveal which
+station supplied the value that another station recorded.
+This is the information missing from the commuting-gate model.
+The local record-before-exchange direction and the known starting
+label orient the reconstruction; they do not name the global
+predecessors in advance.
+
+\subsection{A finite-sample certificate}
+
+\begin{corollary}[Calibrated finite-sample order recovery]
+\label{cor:finite-order}
+Suppose the independent repeated trials have one fixed permutation and
+a calibrated lower bias $g_{\min}=\min_jg_j>0$.
+For $N$ trials define
+$\widehat C_{ij}=N^{-1}\sum_{\ell=1}^N
+(-1)^{K_i^{(\ell)}+Y_j^{(\ell)}}$.
+Declare an edge $i\to j$ when $\widehat C_{ij}>g_{\min}/2$,
+and require the declared edges to form one chain from $0$ through
+all stations. The probability of failing to recover the correct
+chain, including rejection, is at most
+\begin{equation}
+ 2n(n+1)\exp[-Ng_{\min}^2/8].
+ \label{eq:order-sample-bound}
+\end{equation}
+For $0<\zeta<1$, a safe integer choice with bound strictly below
+$\zeta$ is
+\begin{equation}
+ N=1+\left\lfloor\frac{8}{g_{\min}^2}
+                      \log\frac{2n(n+1)}{\zeta}\right\rfloor .
+ \label{eq:order-safe-N}
+\end{equation}
+\end{corollary}
+\begin{proof}
+On the strict event
+$\max_{i,j}|\widehat C_{ij}-C_{ij}|<g_{\min}/2$,
+all false entries fall below threshold and every true entry exceeds it.
+For one sign variable $A\in[-1,1]$, the centered log moment-generating
+function has second derivative equal to a tilted variance, at most
+one. Its value and first derivative at zero vanish, hence it is at
+most $\lambda^2/2$. Independence across trials and the Chernoff bound
+give
+$\Pr(|\widehat C_{ij}-C_{ij}|\ge a)\le2e^{-Na^2/2}$.
+Take $a=g_{\min}/2$ and a union bound over $n(n+1)$ entries.
+The added integer in Eq.~\eqref{eq:order-safe-N} makes $N$ strictly
+larger than the real-valued logarithmic bound.
+\end{proof}
+
+Equality at the threshold lies outside the sufficient strict event;
+it is covered by the failure bound, not silently classified as safe.
+Entries within a trial need not be statistically independent for this
+union bound. Nor does chain validation certify all preparation and
+contact assumptions from the same data: those define the tested model.
+
+For $n=3$, $\varepsilon=(1/10,1/5,3/10)$ and the hidden order
+$(2,1,3)$, station-indexed data give
+\begin{equation}
+ C=\begin{pmatrix}
+ 0&3/5&0\\
+ 0&0&2/5\\
+ 4/5&0&0\\
+ 0&0&0
+ \end{pmatrix}.
+ \label{eq:order-example}
+\end{equation}
+Rows are $0,1,2,3$ and columns $1,2,3$, not chronological positions.
+The matrix recovers $0\to2\to1\to3$.
+Here $g_{\min}=2/5$ and $\zeta=.01$ give $N=390$ and bound
+$.00983364$. Appendix~\ref{app:order-checks} enumerates all six
+permutations by the actual reversible gates with rational weights.
+
+\subsection{What removes identification}
+
+Discarding the $K_i$ makes all $Y_j$ independent fair bits in the
+stated independent-noise model: they use distinct fair predecessor
+labels. Their complete joint law, not just their marginals, is then
+independent of $\pi$. If every $\varepsilon_j=1/2$, even the
+$(K,Y)$ joint law is independent of $\pi$.
+With two fair columns, ambiguity can already remain: at $n=3$,
+$\varepsilon_1=\varepsilon_2=1/2$ and
+$0\le\varepsilon_3<1/2$, orders $(1,3,2)$ and $(2,1,3)$ have the
+same permitted endpoint law, since both give predecessor $1$ for
+station $3$ and the other read ports are independent fair bits.
+A single missing column need not destroy identification; the remaining
+chain constraints may force its edge. Thus positive $g_{\min}$ is
+a sufficient condition for this threshold certificate, not a necessary
+condition for every reconstruction.
+
+These are readout-relative failures. Equation~\eqref{eq:full-label-output}
+shows that the retained spent $T_j$ still contain the predecessor
+labels. Granting their measurement recovers the chain even with
+completely fair $R_j$. This differs from
+Proposition~\ref{prop:endpoint-order}, whose complete modeled endpoint
+state is permutation invariant.
+
+Independence of the labels is substantive. If every $Z_i$ is one
+common fair bit, all labels and record laws are the same for every
+permutation. Reconnection, repeated visits or hidden inputs can likewise
+destroy the one-pass predecessor interpretation. Merely correlating the
+$N_j$ with each other while keeping them independent of all $Z_i$
+does \emph{not} destroy Eq.~\eqref{eq:predecessor-correlation}:
+its proof uses only the label independence and each port's bias.
+The sampling bound also survives within-trial shared noise when
+trials remain independent. Label-dependent noise or additional
+unobserved couplings require a new identification argument.
+
+\section{Which boundary gives the chain a direction?}
+\label{sec:direction-boundary}
+
+The reconstruction has an oriented local operation and a fresh
+preparation boundary. At entry, $R_j$ is independent of the incoming
+carrier and its noise is biased toward zero. The labels for different
+stations are independent; each label nevertheless has its own retained
+copy. The global order is inferred from the relations produced by
+these operations, rather than selected by increasing record entropy.
+
+The inverse of every $V_j$ exists: it swaps first and then applies the
+CNOT. In reverse global order these inverses return the entire actual
+output, including every spent port and label record, to its input.
+That reverse input is not a fresh preparation of the declared form.
+Initially $T_j=K_j$ with certainty. At the forward endpoint,
+$T_j=K_{\operatorname{pred}_\pi(j)}$ and is independent of $K_j$,
+while $R_j$ remains correlated with that spent label when $g_j>0$.
+The reverse gates use those actual correlations.
+Microreversibility therefore coexists with a directed reconstruction
+relative to the acquisition boundary. No probability suppression of
+inverse histories follows without a specified ensemble and measure.
+
+For the independent preparation above, there are $3n+2$ modeled qubits per trial: $S,K_0$ and the triples
+$T_j,K_j,R_j$. No separate register secretly stores chronological
+ranks. With $h(x)=-x\ln x-(1-x)\ln(1-x)$, their complete initial entropy is
+\[
+ S_{\rm in}=(n+1)\ln2+\sum_jh(\varepsilon_j),
+\]
+and the reversible circuit preserves it. Relative to the maximally
+mixed state of these degenerate registers, its entropy deficit is
+\begin{equation}
+ (3n+2)\ln2-S_{\rm in}
+ =(n+1)\ln2+\sum_j[\ln2-h(\varepsilon_j)] .
+ \label{eq:order-boundary-resource}
+\end{equation}
+The first term is the stock of label--copy correlations; each
+constituent label marginal is fair. The second is the initial
+read-port purity deficit. This is a state-resource account, not a
+universal attained work price.
+
+Every independent trial uses a new prepared instance of those
+registers, or an explicitly paid restoration of the complete needed
+state. Spent $T_j$ and old records are not erased from that account
+because the declared readout ignores them.
+With degenerate endpoint Hamiltonians and pulses off at the endpoints,
+the ideal gate sequence has zero net endpoint work.
+Preparing labels and biased ports, implementing controls, reading and
+retaining results, providing timing, and reusing the device remain
+physical tasks. Sections~\ref{sec:purity} and
+\ref{sec:renewal-interface} price specific aspects of them.
+The protocol identifies an unknown event permutation; it does not
+produce the time parameter or the apparatus that realizes the contacts.
 
 \section{Records and how to count them}
 \label{sec:records}
@@ -144,7 +443,81 @@ In the collision model both comparisons follow the collision order. They need no
 
 \subsection{Temporal inputs}
 
-The construction uses temporal orientation at several points: the parameter of the dynamics, the order of collisions, the comparison of records at different parameter values, and a boundary condition of fresh memories at one end of the history. The comparisons above therefore compress an already timed process. The aim of the following sections is to identify what that boundary condition consists of, what record growth costs and implies, and which other directions follow it.
+The construction uses temporal orientation at several points: the parameter of the dynamics, the order of collisions, the comparison of records at different parameter values, and a boundary condition of fresh memories at one end of the history. These comparisons describe record growth along that supplied history, not an inverse reconstruction of its unknown permutation. Proposition~\ref{prop:endpoint-order} shows that their endpoint values may leave the permutation completely unidentified. The purity account below identifies what the acquisition boundary supplies and what its use costs.
+
+\section{Intervention and the agent's time order}
+\label{sec:intervention}
+
+The unknown-order reconstruction of Theorem~\ref{thm:label-order}
+uses endpoint statistics and an explicitly restricted family of contact
+histories. The following diagnostic instead compares interventions
+at already specified parameter values. Its ordering clause is an
+input and cannot prove the origin of that order.
+
+\begin{definition}[Protocol-relative causal-influence diagnostic]
+\label{def:causal}
+Fix a record-forming protocol with external parameter $t$, labels $X_A,X_B$, and a family of interventions on $X_A$. Write $X_A\rightsquigarrow_{\mathsf P}X_B$ when (i) both labels have records in the declared fragments, (ii) the $X_A$ records form no later than the $X_B$ records according to $t$, and (iii) interventions on $X_A$, with the rest of the protocol held fixed, change the distribution of $X_B$ or its records.
+\end{definition}
+
+The diagnostic is not asserted to be transitive, antisymmetric or independent of the intervention family. Redundancy makes an influence readable across fragments; the intervention structure carries the causal content. The next two propositions compute the diagnostic in the collision model.
+
+\begin{proposition}[Interventions reach only later records]
+\label{prop:intervention}
+In the collision model let an arbitrary channel $\mathcal T$ act on $S$ between the $j$-th and $(j+1)$-th collisions.
+\begin{enumerate}
+\item The final reduced state of $E_1,\dots,E_j$ is the same as without $\mathcal T$.
+\item If $\mathcal T$ is the pointer flip $\rho\mapsto\sigma_x\rho\sigma_x$, the final state is $\sum_x\sqrt{p_x}\,|1-x\rangle|e^{\le j}_x\rangle|e^{>j}_{1-x}\rangle$: the earlier memories record the value $x$ and the later ones record $1-x$.
+\item If the Kraus operators of $\mathcal T$ are diagonal in the pointer basis, the joint distribution of the pointer value and all records is unchanged.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+(1) After the $j$-th collision, $\mathcal T$ and the later collisions act on $S\otimes E_{j+1}\otimes\cdots\otimes E_n$, and the partial trace over these systems is invariant under any operation on them. (2) $\sigma_x$ maps the branch $\sqrt{p_x}|x\rangle|e_x^{\le j}\rangle$ to $\sqrt{p_x}|1-x\rangle|e_x^{\le j}\rangle$, and the later collisions then write the value $1-x$. (3) Diagonal Kraus operators commute with the pointer-controlled collisions and with the pointer measurement, and they leave the populations unchanged.
+\end{proof}
+
+For a flip after the second of four collisions with overlaps $(0.3,0.5,0.2,0.4)$ and $p=1/2$, the reduced states of the first two memories and of the last two are each unchanged, while the joint state of the first and third memories changes by $0.437$ in its largest matrix element: the flip is visible only in the relation between earlier and later records. In this fresh-port protocol, interventions on the source can alter later records, while detached earlier marginals remain fixed. The flip example makes the change visible in joint relations even when single-fragment marginals do not change.
+
+\begin{proposition}[Repeated interaction lets a later intervention rewrite an earlier record]
+\label{prop:recollision}
+Let a memory collide with $S$ twice through the same rotation with $c=\cos(\pi/4)$, and let $p=1/2$. After the first collision the memory holds $H_{1/2}(2^{-1/2})=0.4165$ nats about the initial pointer value. If nothing happens between the collisions, the second collision makes the record perfect, $\ln2$ nats. If $S$ is flipped between the collisions, the second collision leaves the memory with no information about the initial pointer value.
+\end{proposition}
+
+\begin{proof}
+Write $R$ for the rotation by $\pi/4$, so $R^2|0\rangle=|1\rangle$. Without the flip, the memory ends in $|0\rangle$ if $x=0$ and in $R^2|0\rangle=|1\rangle$ if $x=1$. With the flip, it is in $|0\rangle$ after the first collision if $x=0$ and is then rotated once, ending in $R|0\rangle$; if $x=1$ it is in $R|0\rangle$ after the first collision and is not rotated again. Both branches end in $R|0\rangle$.
+\end{proof}
+
+For the coherent source \(|+\rangle\), the same two-qubit protocol
+also gives the entropy and population ledger:
+\[
+ |\Psi_1\rangle=(|0,0\rangle+|1\rangle R|0\rangle)/\sqrt2,\quad
+ |\Psi_{2,\rm noflip}\rangle=(|00\rangle+|11\rangle)/\sqrt2,\quad
+ |\Psi_{2,\rm flip}\rangle=|+\rangle\otimes R|0\rangle .
+\]
+Source populations stay \(1/2,1/2\), and joint entropy stays zero.
+Put \(a=h[(1+2^{-1/2})/2]=0.4164955\).
+At first contact, \(S(S)=S(E)=a\) and \(I(S:E)=2a\).
+The no-flip continuation gives \(\ln2,\ln2,2\ln2\).
+The flip continuation gives \(0,0,0\): source coherence and both
+marginal purities return while the earlier pointer information disappears.
+For a pointer-diagonal source Hamiltonian, energy stays fixed; source
+free energy first falls by \(k_BT a\) and then recovers it on the flip
+branch. In fact \(U(X_S\otimes I)U=X_S\otimes R\), so the echo
+decouples every source input. Reading or discarding the port after the
+first contact would change this coherent protocol.
+The source trace distance of the inputs \(|+\rangle,|-\rangle\)
+falls to \(2^{-1/2}\) at first contact and returns to \(1\) after the
+echo: this is distinguishability backflow, not merely an entropy change.
+
+The alignment of the intervention order with the record order thus rests on a specific feature of the dynamics: memories that have recorded do not interact with the source again. Under repeated interaction, whether an early memory ends as a perfect record or as no record can be decided by an intervention made after it first recorded.
+
+An agent can therefore date an intervention by its effect on records
+within the stated one-contact architecture. It cannot change a detached
+port by acting only on the source. Acting directly on that port can
+relabel, transfer or reset it, with the different balances in
+Appendix~\ref{sec:erasure};
+reconnecting it to the source can also restore coherence. The alignment
+comes from the actual interaction menu, fresh stock and external order,
+not from a universal prohibition on changing the past.
 
 \section{The purity of the past}
 \label{sec:purity}
@@ -201,6 +574,271 @@ ports, no bath and pointer-controlled recording, it gives zero; an old
 correlation can change that boundary, as the conditional bound below shows.
 The theorem specifies what the acquisition history must supply. It does
 not explain the primitive origin of that stock.
+
+\subsection{Acquisition, action and retained references}
+
+Partly mixed ports attain the pointer-controlled purity bound.
+For a fair pointer and a fresh port with error $\varepsilon$,
+a computational-basis reading attains
+$\ln2-h(\varepsilon)$ nats. The complete acquisition/action ledger,
+posterior and proof are in Appendix~\ref{subsec:mixed}.
+For one port, reversible feedback moves its initial purity into the
+source at zero endpoint gate work; it does not complete a thermal cycle.
+
+The label copies in Section~\ref{sec:label-order} illustrate why
+marginal purity is not the only stock. The conditional budget of
+Proposition~\ref{prop:conditional-records} includes an old readable
+reference. Two marginally fair copies of one bit allow a new XOR
+record to be read jointly even though the new port alone is
+uninformative. Preparation and preservation of that joint reference
+are part of the history. A quantum conditional mutual information,
+by itself, still grants no measurement permission.
+
+\section{Records and dissipation}
+\label{sec:dissipation}
+
+\begin{proposition}[Records bound the coherence that survives]
+\label{prop:coherence}
+In the collision model with $0<p<1$, let $0<\delta<1$, let $q_\delta$ satisfy $h(q_\delta)=(1-\delta)h(p)$ with $q_\delta\le1/2$, and put
+\[
+a_\chi=\frac{(1-2q_\delta)^2-(2p-1)^2}{4p(1-p)}\in(0,1).
+\]
+If $R$ disjoint fragments, of any sizes and any collision overlaps $c_k$, are Holevo records, then
+\[
+r_{[n]}^2\le a_\chi^R,\qquad |(\rho_S)_{01}|\le\sqrt{p(1-p)}\,a_\chi^{R/2}.
+\]
+If the pointer Hamiltonian is diagonal in the pointer basis, the system's nonequilibrium free energy falls by
+\[
+F_S(0)-F_S(n)=k_BT\,H_p(r_{[n]})\ge k_BT\,H_p\bigl(a_\chi^{R/2}\bigr).
+\]
+If instead $S$ starts in $pP_0+(1-p)P_1$, every record quantity is unchanged and $F_S(n)=F_S(0)$.
+\end{proposition}
+
+\begin{proof}
+A fragment is a Holevo record exactly when $r_F^2\le a_\chi$ (Paper~E's Holevo fragment criterion). The overlaps multiply over disjoint fragments, and the memories outside them contribute factors at most $1$, which gives the first two bounds. The collisions preserve the pointer populations, so the energy of $S$ is unchanged and $F_S(0)-F_S(n)=k_BT[S(\rho_S(n))-S(\rho_S(0))]=k_BT\,H_p(r_{[n]})$; $H_p$ decreases in $r$. For the diagonal initial state the conditional fragment states are the same, so all $\chi(X:E_F)$ are unchanged, and $\rho_S$ does not change at all.
+\end{proof}
+
+Records and dissipation in the system therefore coincide only when the system has coherence to lose. As $R$ grows, $H_p(a_\chi^{R/2})\to h(p)$ and the system loses all the free energy carried by its coherence. A system that is already diagonal acquires the same records at no cost to itself. In the pure-port model, the marginal purity of written memories is transferred into correlations. The complete unitary preserves joint entropy; the mixed-port ledger makes that transfer explicit.
+
+\begin{proposition}[Records along a CP-divisible dynamics]
+\label{prop:cpdiv}
+The reduced dynamics of $S$ after $n$ collisions is $\mathcal D_n\circ\cdots\circ\mathcal D_1$, where $\mathcal D_k$ keeps the populations and multiplies the coherence by $c_k$. Every intermediate map $\mathcal D_m\circ\cdots\circ\mathcal D_{l+1}$ is completely positive and trace preserving, and for equal overlaps $c\in(0,1)$ applied at intervals $\Delta t$ the family embeds in the dephasing semigroup generated by $\mathcal L(\rho)=\tfrac\gamma2(Z\rho Z-\rho)$ with $\gamma=-\ln c/\Delta t$. Along this dynamics $\mathcal R^\chi_\delta$ and $\mathcal R^{\mathrm{acc}}_\delta$ grow without bound in $n$.
+\end{proposition}
+
+\begin{proof}
+Each $\mathcal D_k$ is a dephasing channel, and compositions of channels are channels. The semigroup multiplies the coherence by $e^{-\gamma t}$, which equals $c^m$ at $t=m\Delta t$. The record counts are $\lfloor n/m_\chi\rfloor$ and $\lfloor n/m_{\mathrm{op}}\rfloor$ for equal overlaps.
+Unbounded record counts refer to a family with growing fresh-port supply,
+not an unbounded yield from a fixed finite bank.
+\end{proof}
+
+Record growth thus does not require memory effects in the reduced dynamics of the system. The memories, once written, have a mixture-of-product marginal correlated through $X$ and are independent conditional on a pointer reading; a Markovian system dynamics says nothing about whether the environment's outputs are correlated. The converse separation also holds. T-DOME~I gives an autonomous two-qubit model in which correlation built between a system and an environment qubit returns to the system at a recurrence time while the environment holds no information at all about the pointer, and it shows that the pure-dephasing spin--boson model with a Lorentz--Drude spectral density has no backflow at any temperature \cite{Liu2026TDOME_I}. Backflow and records are logically independent.
+
+\begin{proposition}[Local and global entropy]
+\label{prop:local-global}
+For disjoint fragments $F_1,\dots,F_R$ of the collision model,
+\[
+\sum_{j=1}^RS(\rho_{F_j})=\sum_j\chi(X:E_{F_j}),\qquad S\bigl(\rho_{\cup_jF_j}\bigr)\le h(p).
+\]
+If the $F_j$ are Holevo records, the total correlation among them, $\sum_jS(\rho_{F_j})-S(\rho_{\cup_jF_j})$, is at least $[R(1-\delta)-1]h(p)$.
+\end{proposition}
+
+\begin{proof}
+The conditional states of every fragment are pure, so $S(\rho_{F_j})=\chi(X:E_{F_j})$. The union of the fragments has conditional states that are pure as well, so $S(\rho_{\cup F_j})=H_p(r_{\cup F_j})\le H_p(0)=h(p)$. Subtracting gives the last claim.
+\end{proof}
+
+With $p=1/2$, $c=0.8$ and $n=60$ memories in twelve blocks of five, the local entropy is $7.661$ nats while the entropy of all sixty memories is $0.693147$ nats, equal to $\ln2$ to nine digits. A reader with access to single fragments sees entropy grow with every record. The global entropy of the environment saturates at the entropy of the label. Which of the two grows without bound is fixed by the access structure, not by the dynamics.
+
+\section{What must be restored to keep recording}
+\label{sec:renewal-interface}
+
+Order recovery consumes access to a sequence of prepared trials.
+It does not grant a renewable device. A protected old record can
+persist without further entropy removal under compatible noise;
+independent flips create a different maintenance task.
+
+For a bank of conditionally independent copies of one retained label,
+with initial error $\varepsilon$, an inaccessible independent flip
+of probability $p$ changes the error to
+$q=p+(1-2p)\varepsilon$. Returning the complete label--bank--controller
+state removes $R[h(q)-h(\varepsilon)]$ nats.
+Proposition~\ref{prop:renewal} prices that complete target, rather than
+the number of distinct labels. Proposition~\ref{prop:thermal-correction}
+constructs label-controlled thermal swaps that restore it for
+positive target error and approach the entropy-removal price.
+Their gates, gaps, thermal preparations and spent bath ports remain
+charged; they do not prepare or renew the label boundary for free.
+The full statements and proofs are in Appendix~\ref{sec:maintenance}.
+
+A sole thermal chiral exhaust of fixed capacity adds the long-window
+quadratic rate term in Eq.~\eqref{eq:renewal-current}.
+Those exhaust assumptions are separate from the thermal-qubit
+implementation. They connect actual maintenance to HAFF-D's
+conditional source and horizon readings, not event order to a
+gravitational law.
+
+Reset is also distinct from undoing the historical relations.
+A label flip retains information, a SWAP can move it to another
+port, and a thermal blank reset has a specified entropy decrease.
+The inverse of the entire recording circuit restores the complete
+input when all required systems and gates are accessible.
+Appendix~\ref{sec:erasure} retains the different reset permissions,
+finite-bath obstruction, reference-dependent bound and work account.
+None of these operations supplies a universal probability measure
+on reversed histories.
+
+\section{Which arrows coincide}
+\label{sec:arrows}
+
+Table~\ref{tab:arrows} collects the directions studied above in four specified settings: the collision model with a coherent or a diagonal initial system state, the collision model with one repeated collision, and the autonomous two-qubit model of T-DOME~I, in which a system qubit and an environment qubit build and return correlation without any pointer record \cite{Liu2026TDOME_I}.
+
+\begin{table}[ht]
+\centering
+\small
+\begin{tabular}{P{4.6cm}P{2.1cm}P{2.1cm}P{2.1cm}P{2.3cm}}
+\toprule
+Direction & collision, coherent $S$ & collision, diagonal $S$ & one repeated collision & two-qubit recurrence \\
+\midrule
+Record count grows & yes & yes & can fall & no records \\
+Local entropy of fragments grows & yes & yes & can fall & constant $E$ \\
+Marginal memory purity & falls & falls & falls, then returns & no fresh bank \\
+System free energy falls & yes & no & falls, then returns & falls, then returns \\
+Interventions reach only later records & yes & yes & no & no records \\
+Local thermal reset bound $\propto R$ & yes & yes & no final record & --- \\
+Correlation flows back to $S$ & no & no & yes, with flip & yes \\
+\bottomrule
+\end{tabular}
+\caption{Specified protocols, not universal arrows. The repeated-contact
+column uses the coherent, unmeasured flip continuation of
+Proposition~\ref{prop:recollision}. Reset prices refer to blank targets,
+not arbitrary changes of record content.}
+\label{tab:arrows}
+\end{table}
+
+With pure fresh ports interacting once, record accumulation, local entropy
+growth and decreasing marginal port purity align; detached marginals
+also fix which source interventions can still reach them. Local thermal
+reset prices that bank relative to a blank target. These relations do not
+make every record update an entropy-producing operation. The mixed-port
+ledger shows that acquisition and action redistribute finite stock, while
+the echo reverses the local entropy and correlation changes. Source
+free-energy loss depends on initial coherence. Reduced-system backflow,
+record acquisition and bank renewal remain separate questions.
+
+\section{Time in physical theory}
+\label{sec:background}
+
+In Newtonian mechanics and in the Schr\"odinger equation time is an external parameter, and the equations have no intrinsic arrow. In canonical quantum gravity the Wheeler--DeWitt equation $\hat H|\Psi\rangle=0$ contains no time parameter \cite{DeWitt1967}. The Page--Wootters construction recovers an effective time from correlations between a clock subsystem and the rest of a stationary universal state \cite{PageWootters1983}, but it explains an ordering rather than its asymmetry. The thermodynamic arrow supplies the asymmetry through a coarse-graining and a low-entropy boundary condition \cite{Albert2000,Wallace2010}.
+
+The present dynamical models use an external parameter. In Section~\ref{sec:label-order}, a known family of one-pass histories leaves the global permutation unknown to the reader, and endpoint relations recover it. This reconstructs a discrete event order under stated physical permissions. A continuous clock variable and the asymmetry of its acquisition boundary are additional questions.
+
+\section{Relations and interfaces}
+\label{sec:relations}
+\label{sec:connection}
+
+The purity law gives the record boundary of the past hypothesis a
+quantitative form, while separating record accumulation from a source's
+loss of free energy~\cite{Albert2000,Wallace2010}. Mixed-environment
+redundancy~\cite{ZwolakQuanZurek2009} is one instance; the theorem also
+prices stock drawn from work and a bath. Page--Wootters correlations
+can supply ordering within a stationary state~\cite{PageWootters1983}.
+A direction of recording additionally needs the acquisition boundary
+and actual contact architecture specified here.
+
+Complete-access reversal is compatible with retrocausal programmes
+\cite{Price2012}; restricted thermal reset is a different task.
+The timed causal-influence diagnostic computes supplied interventions in
+a physical recording process. It does not turn them into a derived
+causal partial order. The endpoint theorem instead solves a particular
+inverse problem: station-labelled intervention records identify an
+unknown global permutation within a known architecture. The two claims
+have different data and assumptions.
+
+Paper~E supplies the recording instruments~\cite{Liu2026PaperE}.
+The present posterior, intervention order and reference-dependent
+budgets are the record-side interfaces to T-DOME~I's thermodynamic
+agent~\cite{Liu2026TDOME_I}; Paper~C implements a separate maintained
+sensing body~\cite{Liu2026PaperC}. Paper~D's heat and horizon bounds
+apply only under their matched source conditions~\cite{Liu2026PaperD}.
+The purity law supplies a physical input for Paper~G's question of
+how selection permissions form~\cite{Liu2026PaperG}; it does not
+derive those permissions, clocks or a geometric algebra.
+
+\section{Conclusion}
+\label{sec:conclusion}
+
+Records identify an order only when their relations depend on that
+order. Repeated pointer copying into distinct ports does not meet
+this condition: its commuting gates leave the same complete endpoint
+state for every permutation. Neither redundancy, entropy nor a more
+powerful endpoint measurement repairs that obstruction.
+
+A record-before-exchange circuit does meet it. Independent classical
+labels and their retained copies expose each station's predecessor
+through a single nonzero correlation entry. Calibrated positive readout
+bias gives a finite-sample certificate for the unknown global chain,
+without a timestamp or final-carrier measurement. The known local
+gate direction and one-pass architecture are indispensable inputs.
+Fair read ports, missing reference access or correlated labels can
+remove identification; reading retained spent labels changes that
+permission boundary.
+
+The direction belongs to a prepared history. Inverse gates act on
+the correlated actual output and can restore the full input.
+No cosmological arrow or suppression of inverse histories follows
+from reversibility and a freshness condition alone. The joint purity
+law and conditional record budget locate the stock in fresh ports,
+work or usable reference correlations rather than assuming pure
+marginals everywhere.
+
+Recontact can remove a record and restore coherence. Sustaining a
+noisy bank instead requires complete-state renewal, realized here by
+label-controlled thermal swaps. A thermal exhaust adds its rate price.
+Order recovery is thereby connected to the resources that make
+records usable, without deriving its time parameter, contact
+architecture or primitive acquisition boundary.
+
+\appendix
+
+\section{Exact checks of the order protocol}
+\label{app:order-checks}
+
+For $n=3$ and
+$\varepsilon=(1/10,1/5,3/10)$, the check enumerates the $2^7$
+independent label/noise inputs with rational probabilities.
+It initializes the full eleven-register basis state, applies each
+actual CNOT and SWAP in turn, then reads only the endpoint $K,Y$
+coordinates in station order. All six permutations have distinct
+permitted endpoint laws and the correlation formula recovers each
+chain. The order supplied to the generator is used only to check the
+reconstruction, not appended to its readout data.
+The check also enumerates all $2^{11}$ basis inputs per permutation:
+the gates are bijective and their reverse sequence restores every input.
+
+For the static obstruction, choose the three controlled rotations
+\[
+ (c_1,s_1)=(3/5,4/5),\qquad
+ (c_2,s_2)=(5/13,12/13),\qquad
+ (c_3,s_3)=(8/17,15/17).
+\]
+They give exactly equal full $16\times16$ rational operators for all
+six collision orders.
+This operator check covers coherent states and references as well
+as diagonal preparations; Proposition~\ref{prop:endpoint-order}
+proves the general statement.
+
+Removing all $K$ makes the six $Y$ laws equal.
+With every read port fair, all six $(K,Y)$ laws are equal, but the
+spent-$T$ correlations recover all orders. With only one fair read
+port the six laws remain distinct in this instance.
+With two fair columns there are three distinct endpoint laws,
+including the equal-law pair $(1,3,2)$ and $(2,1,3)$ stated above.
+A common label-independent error bit across all read ports retains
+the predecessor formula. These are exact checks of the same circuit
+and its boundary changes, not noisy fits or a general chronology
+theorem.
+
+\section{Partly mixed acquisition and conditional reference budgets}
+\label{app:acquisition-details}
 
 \subsection{Partly mixed ports: acquisition, reading and action}
 \label{subsec:mixed}
@@ -323,60 +961,6 @@ mutual information is not by itself a measurement permission or accessible
 information. This distinction connects acquisition to T-DOME~I's retained
 side information without identifying unlike tasks.
 
-\section{Records and dissipation}
-\label{sec:dissipation}
-
-\begin{proposition}[Records bound the coherence that survives]
-\label{prop:coherence}
-In the collision model with $0<p<1$, let $0<\delta<1$, let $q_\delta$ satisfy $h(q_\delta)=(1-\delta)h(p)$ with $q_\delta\le1/2$, and put
-\[
-a_\chi=\frac{(1-2q_\delta)^2-(2p-1)^2}{4p(1-p)}\in(0,1).
-\]
-If $R$ disjoint fragments, of any sizes and any collision overlaps $c_k$, are Holevo records, then
-\[
-r_{[n]}^2\le a_\chi^R,\qquad |(\rho_S)_{01}|\le\sqrt{p(1-p)}\,a_\chi^{R/2}.
-\]
-If the pointer Hamiltonian is diagonal in the pointer basis, the system's nonequilibrium free energy falls by
-\[
-F_S(0)-F_S(n)=k_BT\,H_p(r_{[n]})\ge k_BT\,H_p\bigl(a_\chi^{R/2}\bigr).
-\]
-If instead $S$ starts in $pP_0+(1-p)P_1$, every record quantity is unchanged and $F_S(n)=F_S(0)$.
-\end{proposition}
-
-\begin{proof}
-A fragment is a Holevo record exactly when $r_F^2\le a_\chi$ (Paper~E's Holevo fragment criterion). The overlaps multiply over disjoint fragments, and the memories outside them contribute factors at most $1$, which gives the first two bounds. The collisions preserve the pointer populations, so the energy of $S$ is unchanged and $F_S(0)-F_S(n)=k_BT[S(\rho_S(n))-S(\rho_S(0))]=k_BT\,H_p(r_{[n]})$; $H_p$ decreases in $r$. For the diagonal initial state the conditional fragment states are the same, so all $\chi(X:E_F)$ are unchanged, and $\rho_S$ does not change at all.
-\end{proof}
-
-Records and dissipation in the system therefore coincide only when the system has coherence to lose. As $R$ grows, $H_p(a_\chi^{R/2})\to h(p)$ and the system loses all the free energy carried by its coherence. A system that is already diagonal acquires the same records at no cost to itself. In the pure-port model, the marginal purity of written memories is transferred into correlations. The complete unitary preserves joint entropy; the mixed-port ledger makes that transfer explicit.
-
-\begin{proposition}[Records along a CP-divisible dynamics]
-\label{prop:cpdiv}
-The reduced dynamics of $S$ after $n$ collisions is $\mathcal D_n\circ\cdots\circ\mathcal D_1$, where $\mathcal D_k$ keeps the populations and multiplies the coherence by $c_k$. Every intermediate map $\mathcal D_m\circ\cdots\circ\mathcal D_{l+1}$ is completely positive and trace preserving, and for equal overlaps $c\in(0,1)$ applied at intervals $\Delta t$ the family embeds in the dephasing semigroup generated by $\mathcal L(\rho)=\tfrac\gamma2(Z\rho Z-\rho)$ with $\gamma=-\ln c/\Delta t$. Along this dynamics $\mathcal R^\chi_\delta$ and $\mathcal R^{\mathrm{acc}}_\delta$ grow without bound in $n$.
-\end{proposition}
-
-\begin{proof}
-Each $\mathcal D_k$ is a dephasing channel, and compositions of channels are channels. The semigroup multiplies the coherence by $e^{-\gamma t}$, which equals $c^m$ at $t=m\Delta t$. The record counts are $\lfloor n/m_\chi\rfloor$ and $\lfloor n/m_{\mathrm{op}}\rfloor$ for equal overlaps.
-Unbounded record counts refer to a family with growing fresh-port supply,
-not an unbounded yield from a fixed finite bank.
-\end{proof}
-
-Record growth thus does not require memory effects in the reduced dynamics of the system. The memories, once written, have a mixture-of-product marginal correlated through $X$ and are independent conditional on a pointer reading; a Markovian system dynamics says nothing about whether the environment's outputs are correlated. The converse separation also holds. T-DOME~I gives an autonomous two-qubit model in which correlation built between a system and an environment qubit returns to the system at a recurrence time while the environment holds no information at all about the pointer, and it shows that the pure-dephasing spin--boson model with a Lorentz--Drude spectral density has no backflow at any temperature \cite{Liu2026TDOME_I}. Backflow and records are logically independent.
-
-\begin{proposition}[Local and global entropy]
-\label{prop:local-global}
-For disjoint fragments $F_1,\dots,F_R$ of the collision model,
-\[
-\sum_{j=1}^RS(\rho_{F_j})=\sum_j\chi(X:E_{F_j}),\qquad S\bigl(\rho_{\cup_jF_j}\bigr)\le h(p).
-\]
-If the $F_j$ are Holevo records, the total correlation among them, $\sum_jS(\rho_{F_j})-S(\rho_{\cup_jF_j})$, is at least $[R(1-\delta)-1]h(p)$.
-\end{proposition}
-
-\begin{proof}
-The conditional states of every fragment are pure, so $S(\rho_{F_j})=\chi(X:E_{F_j})$. The union of the fragments has conditional states that are pure as well, so $S(\rho_{\cup F_j})=H_p(r_{\cup F_j})\le H_p(0)=h(p)$. Subtracting gives the last claim.
-\end{proof}
-
-With $p=1/2$, $c=0.8$ and $n=60$ memories in twelve blocks of five, the local entropy is $7.661$ nats while the entropy of all sixty memories is $0.693147$ nats, equal to $\ln2$ to nine digits. A reader with access to single fragments sees entropy grow with every record. The global entropy of the environment saturates at the entropy of the label. Which of the two grows without bound is fixed by the access structure, not by the dynamics.
-
 \section{Undoing records}
 \label{sec:erasure}
 
@@ -477,73 +1061,6 @@ the complete source--bank unitary cannot be assigned one erasure bill.
 Exact history reversal is allowed when all required gates and systems
 are accessible. Neither its probability nor a suppression of reversed
 histories follows without an ensemble and measure~\cite{Price2012}.
-
-\section{Intervention and the agent's time order}
-\label{sec:intervention}
-
-\begin{definition}[Protocol-relative causal-influence diagnostic]
-\label{def:causal}
-Fix a record-forming protocol with external parameter $t$, labels $X_A,X_B$, and a family of interventions on $X_A$. Write $X_A\rightsquigarrow_{\mathsf P}X_B$ when (i) both labels have records in the declared fragments, (ii) the $X_A$ records form no later than the $X_B$ records according to $t$, and (iii) interventions on $X_A$, with the rest of the protocol held fixed, change the distribution of $X_B$ or its records.
-\end{definition}
-
-The diagnostic is not asserted to be transitive, antisymmetric or independent of the intervention family. Redundancy makes an influence readable across fragments; the intervention structure carries the causal content. The next two propositions compute the diagnostic in the collision model.
-
-\begin{proposition}[Interventions reach only later records]
-\label{prop:intervention}
-In the collision model let an arbitrary channel $\mathcal T$ act on $S$ between the $j$-th and $(j+1)$-th collisions.
-\begin{enumerate}
-\item The final reduced state of $E_1,\dots,E_j$ is the same as without $\mathcal T$.
-\item If $\mathcal T$ is the pointer flip $\rho\mapsto\sigma_x\rho\sigma_x$, the final state is $\sum_x\sqrt{p_x}\,|1-x\rangle|e^{\le j}_x\rangle|e^{>j}_{1-x}\rangle$: the earlier memories record the value $x$ and the later ones record $1-x$.
-\item If the Kraus operators of $\mathcal T$ are diagonal in the pointer basis, the joint distribution of the pointer value and all records is unchanged.
-\end{enumerate}
-\end{proposition}
-
-\begin{proof}
-(1) After the $j$-th collision, $\mathcal T$ and the later collisions act on $S\otimes E_{j+1}\otimes\cdots\otimes E_n$, and the partial trace over these systems is invariant under any operation on them. (2) $\sigma_x$ maps the branch $\sqrt{p_x}|x\rangle|e_x^{\le j}\rangle$ to $\sqrt{p_x}|1-x\rangle|e_x^{\le j}\rangle$, and the later collisions then write the value $1-x$. (3) Diagonal Kraus operators commute with the pointer-controlled collisions and with the pointer measurement, and they leave the populations unchanged.
-\end{proof}
-
-For a flip after the second of four collisions with overlaps $(0.3,0.5,0.2,0.4)$ and $p=1/2$, the reduced states of the first two memories and of the last two are each unchanged, while the joint state of the first and third memories changes by $0.437$ in its largest matrix element: the flip is visible only in the relation between earlier and later records. In this fresh-port protocol, interventions on the source can alter later records, while detached earlier marginals remain fixed. The flip example makes the change visible in joint relations even when single-fragment marginals do not change.
-
-\begin{proposition}[Repeated interaction lets a later intervention rewrite an earlier record]
-\label{prop:recollision}
-Let a memory collide with $S$ twice through the same rotation with $c=\cos(\pi/4)$, and let $p=1/2$. After the first collision the memory holds $H_{1/2}(2^{-1/2})=0.4165$ nats about the initial pointer value. If nothing happens between the collisions, the second collision makes the record perfect, $\ln2$ nats. If $S$ is flipped between the collisions, the second collision leaves the memory with no information about the initial pointer value.
-\end{proposition}
-
-\begin{proof}
-Write $R$ for the rotation by $\pi/4$, so $R^2|0\rangle=|1\rangle$. Without the flip, the memory ends in $|0\rangle$ if $x=0$ and in $R^2|0\rangle=|1\rangle$ if $x=1$. With the flip, it is in $|0\rangle$ after the first collision if $x=0$ and is then rotated once, ending in $R|0\rangle$; if $x=1$ it is in $R|0\rangle$ after the first collision and is not rotated again. Both branches end in $R|0\rangle$.
-\end{proof}
-
-For the coherent source \(|+\rangle\), the same two-qubit protocol
-also gives the entropy and population ledger:
-\[
- |\Psi_1\rangle=(|0,0\rangle+|1\rangle R|0\rangle)/\sqrt2,\quad
- |\Psi_{2,\rm noflip}\rangle=(|00\rangle+|11\rangle)/\sqrt2,\quad
- |\Psi_{2,\rm flip}\rangle=|+\rangle\otimes R|0\rangle .
-\]
-Source populations stay \(1/2,1/2\), and joint entropy stays zero.
-Put \(a=h[(1+2^{-1/2})/2]=0.4164955\).
-At first contact, \(S(S)=S(E)=a\) and \(I(S:E)=2a\).
-The no-flip continuation gives \(\ln2,\ln2,2\ln2\).
-The flip continuation gives \(0,0,0\): source coherence and both
-marginal purities return while the earlier pointer information disappears.
-For a pointer-diagonal source Hamiltonian, energy stays fixed; source
-free energy first falls by \(k_BT a\) and then recovers it on the flip
-branch. In fact \(U(X_S\otimes I)U=X_S\otimes R\), so the echo
-decouples every source input. Reading or discarding the port after the
-first contact would change this coherent protocol.
-The source trace distance of the inputs \(|+\rangle,|-\rangle\)
-falls to \(2^{-1/2}\) at first contact and returns to \(1\) after the
-echo: this is distinguishability backflow, not merely an entropy change.
-
-The alignment of the intervention order with the record order thus rests on a specific feature of the dynamics: memories that have recorded do not interact with the source again. Under repeated interaction, whether an early memory ends as a perfect record or as no record can be decided by an intervention made after it first recorded.
-
-An agent can therefore date an intervention by its effect on records
-within the stated one-contact architecture. It cannot change a detached
-port by acting only on the source. Acting directly on that port can
-relabel, transfer or reset it, with the different balances above;
-reconnecting it to the source can also restore coherence. The alignment
-comes from the actual interaction menu, fresh stock and external order,
-not from a universal prohibition on changing the past.
 
 \section{Renewing records instead of making new ones}
 \label{sec:maintenance}
@@ -692,102 +1209,6 @@ horizon-flux conditions, the bank's removal rate can enter the
 conditional horizon-entropy bound. Those conditions connect a real
 renewal process to gravity; record existence alone does not.
 
-\section{Which arrows coincide}
-\label{sec:arrows}
-
-Table~\ref{tab:arrows} collects the directions studied above in four specified settings: the collision model with a coherent or a diagonal initial system state, the collision model with one repeated collision, and the autonomous two-qubit model of T-DOME~I, in which a system qubit and an environment qubit build and return correlation without any pointer record \cite{Liu2026TDOME_I}.
-
-\begin{table}[ht]
-\centering
-\small
-\begin{tabular}{P{4.6cm}P{2.1cm}P{2.1cm}P{2.1cm}P{2.3cm}}
-\toprule
-Direction & collision, coherent $S$ & collision, diagonal $S$ & one repeated collision & two-qubit recurrence \\
-\midrule
-Record count grows & yes & yes & can fall & no records \\
-Local entropy of fragments grows & yes & yes & can fall & constant $E$ \\
-Marginal memory purity & falls & falls & falls, then returns & no fresh bank \\
-System free energy falls & yes & no & falls, then returns & falls, then returns \\
-Interventions reach only later records & yes & yes & no & no records \\
-Local thermal reset bound $\propto R$ & yes & yes & no final record & --- \\
-Correlation flows back to $S$ & no & no & yes, with flip & yes \\
-\bottomrule
-\end{tabular}
-\caption{Specified protocols, not universal arrows. The repeated-contact
-column uses the coherent, unmeasured flip continuation of
-Proposition~\ref{prop:recollision}. Reset prices refer to blank targets,
-not arbitrary changes of record content.}
-\label{tab:arrows}
-\end{table}
-
-With pure fresh ports interacting once, record accumulation, local entropy
-growth and decreasing marginal port purity align; detached marginals
-also fix which source interventions can still reach them. Local thermal
-reset prices that bank relative to a blank target. These relations do not
-make every record update an entropy-producing operation. The mixed-port
-ledger shows that acquisition and action redistribute finite stock, while
-the echo reverses the local entropy and correlation changes. Source
-free-energy loss depends on initial coherence. Reduced-system backflow,
-record acquisition and bank renewal remain separate questions.
-
-\section{Relations and interfaces}
-\label{sec:relations}
-\label{sec:connection}
-
-The purity law gives the record boundary of the past hypothesis a
-quantitative form, while separating record accumulation from a source's
-loss of free energy~\cite{Albert2000,Wallace2010}. Mixed-environment
-redundancy~\cite{ZwolakQuanZurek2009} is one instance; the theorem also
-prices stock drawn from work and a bath. Page--Wootters correlations
-can supply ordering within a stationary state~\cite{PageWootters1983}.
-A direction of recording additionally needs the acquisition boundary
-and actual contact architecture specified here.
-
-Complete-access reversal is compatible with retrocausal programmes
-\cite{Price2012}; restricted thermal reset is a different task.
-The causal-influence diagnostic computes supplied interventions in
-a physical recording process. It does not turn them into a derived
-causal partial order.
-
-Paper~E supplies the recording instruments~\cite{Liu2026PaperE}.
-The present posterior, intervention order and reference-dependent
-budgets are the record-side interfaces to T-DOME~I's thermodynamic
-agent~\cite{Liu2026TDOME_I}; Paper~C implements a separate maintained
-sensing body~\cite{Liu2026PaperC}. Paper~D's heat and horizon bounds
-apply only under their matched source conditions~\cite{Liu2026PaperD}.
-The purity law supplies a physical input for Paper~G's question of
-how selection permissions form~\cite{Liu2026PaperG}; it does not
-derive those permissions, clocks or a geometric algebra.
-
-\section{Conclusion}
-\label{sec:conclusion}
-
-The product-boundary purity law bounds simultaneously present fragment
-information. Independent partly mixed ports attain the pointer-controlled
-bound, and their actual readout supplies a posterior for action.
-The complete ledger tracks where purity and correlations go; a one-port
-feedback transfers source free energy without already extracting work.
-A retained reference can supply conditional stock even when a new port is
-marginally maximally mixed.
-
-Fresh one-contact ports align record acquisition, loss of coherence and
-restricted source intervention in a particular architecture. Recontact
-can instead erase the earlier record and recover source coherence.
-Reversible relabelling, transfer, thermal reset and exact history reversal
-are distinct operations. Their prices depend on the target, retained
-references and accessible gates, not on the word \emph{undoing}.
-
-A noisy record bank poses a further task. Independent errors increase
-its complete retained entropy; label-controlled thermal swaps restore
-that target for positive error and approach the entropy-removal bound.
-A specified chiral exhaust additionally limits the correction rate.
-This gives a nonempty maintenance mechanism without claiming a renewable
-autonomous universe or the origin of its clocks and couplings.
-A broader theory must explain how fragment and interaction structures
-form, how correlated noise changes renewal, and how actual entropy
-export participates in source and geometric response.
-
-\appendix
 \section{Joint-state checks}\label{app:checks}
 
 The mixed-port check constructs the complete diagonal density operator
@@ -822,7 +1243,7 @@ S.~Liu, \emph{Selection, Maintenance and Gravitational Response: Modular Constra
 S.~Liu, \emph{Measurement as Accessibility: Measurement Permissions, Stable Records and Public Readout}, 2026, series record DOI: 10.5281/zenodo.18400065.
 
 \bibitem{Liu2026PaperG}
-S.~Liu, \emph{Internal Selection and Revisable Organization: How History Changes Permissions and Physical Sources}, Zenodo (2026), DOI: 10.5281/zenodo.18402907.
+S.~Liu, \emph{Structural Limits of Unification: Internal Selection, Revisable Permissions and Physical Sources}, Zenodo (2026), DOI: 10.5281/zenodo.18402907.
 
 \bibitem{Liu2026TDOME_I}
 S.~Liu, \emph{Memory as a Usable Resource: Correlations, Records and Complete Endpoint Accounting}, (2026), series record DOI: 10.5281/zenodo.18574342.
@@ -867,4 +1288,5 @@ Learning Shared Access from Sensorimotor History}, 2026, series record DOI: 10.5
 \end{thebibliography}
 
 \end{document}
+
 

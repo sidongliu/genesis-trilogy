@@ -1,0 +1,381 @@
+{
+  "id": "F-III",
+  "zenodo_record": "Foundation_III",
+  "concept_doi": "10.5281/zenodo.19642189",
+  "source_tex": "fable review/zenodo_upload_staging/Foundation_III.tex",
+  "source_sha256": "b90cc4017f5dc9dc1e0d5ed2e67569a19ca679f575334424c3b9cbd07593585c",
+  "source_bytes": 51406,
+  "lines": 1358,
+  "s0_pdf": "Foundation_III.pdf",
+  "s0_pdf_sha256": "e79345e91611d1ee8a515bd1f5db6794a187caa5eb7e70ce15c238154caee09f",
+  "s0_pdf_producer": "xdvipdfmx (20250205)",
+  "s0_pdf_pages": 16,
+  "supplement": [],
+  "extra_dependencies": [],
+  "note": "working copy; edit only here. S0 original stays untouched.",
+  "rewrite": {
+    "date": "2026-10-04",
+    "round": 21,
+    "status": "Dependency edits after the C-I rewrite: the admissibility input for Paper I replaced by the Cut input; introduction sentence; bibliography. Prose pass NOT done.",
+    "pre_edit_equals_s0_original": true,
+    "source_sha256": "b90cc4017f5dc9dc1e0d5ed2e67569a19ca679f575334424c3b9cbd07593585c",
+    "rewrite_sha256": "7f5501d184f9c96c0fdec01739d1a26be7bd21c6e65844a15c62587559189a9e",
+    "build": "xelatex x3 in a scratch directory: 21 pages, 0 undefined references, 0 errors, 0 overfull boxes",
+    "round22": "round 22: Cut input marked standard if the net is wanted",
+    "round23": "new Section 6 'A Legal Finite Feedback under Persistent Noise' (legality of the bank channel, non-commutation with a source reset, contraction lemma with forcing and innovation valid in any Hilbert space, bounded risk of the closed bank, certified-benefit threshold, scope); abstract, introduction (contribution 5, scope, organisation), open problems 3/4/7 and a new item, ledger item BANK, date line updated. Prose of Sections 1-5 and the appendix (July text) NOT re-read line by line in this pass.",
+    "pre_round23_archive": "archive/Foundation_III_before_round23.tex",
+    "pre_round23_sha256": "e309d0cd3779b08a3cb4e3f5051116cd52e8716b03bab71c74b63a5e0c2f04c0",
+    "section_source": "research/f3_writeback/claude/make_f3_section.py with f3_section_template.tex (reads closed_loop_output.json, td3_numbers.json, round23_v1/checks_output.json)",
+    "round23_fixes": "after Codex round 23: 0<a<1, c>0, r>=0 for the later statements; summability not assumed; FB-C obstruction stated for every CPTP feedback via the unique invariant state of the reset; Corollary on a smaller certificate with the exact finite-M threshold eps_* < X_0 and the counterexample showing that certificates do not order losses; eps_* now 0.4518 (fixed point), world-risk bound 0.02553, coarse values kept for traceability; open-loop exact loss 8.17e-3 vs simulated 3.60e-3; title no longer says one-step; Type III scope sentences limited to the old main theorem; 'honest' removed; scope subsection shortened"
+  },
+  "later_revisions": [
+    {
+      "date": "2026-10-05",
+      "round": "autonomous batch 1",
+      "integrator": "Claude main session",
+      "changes": "dependency edits: abstract and the remark on the former Paper III import now say that C-III gives typed floors (binary-effect, Gaussian drift); neither is imported here",
+      "sha256": "dd29d9dc52d164126daa3d842a59a1a2177c60b6b033ea4c1af347a1a88ecc4e",
+      "before_snapshot": "research/autonomous_claude_20261004/main/F_III_before_batch1c.tex",
+      "snapshot": "research/autonomous_claude_20261004/main/F_III_batch1c.tex",
+      "pdf": "research/autonomous_claude_20261004/main/F_III_batch1c.pdf"
+    },
+    {
+      "date": "2026-10-05",
+      "round": "autonomous batch 1",
+      "integrator": "Claude main session",
+      "changes": "references to the TD-III calibration loop updated: reference/probe records drive the update; in-frame metric degenerates at calibration (added to the admissible-signal definition and to Prop. A2); notation correspondence sigma/vartheta and I_ego/I_self; floor of order k_BT nu^(2/3) per use cited in the open-problems item",
+      "sha256": "45ca0e7d6fb9999a184fcb17e3c9d645d6c2425454452e5f1de18170b6b4daf7",
+      "before_snapshot": "research/autonomous_claude_20261004/main/F_III_before_batch1e.tex",
+      "snapshot": "research/autonomous_claude_20261004/main/F_III_batch1e.tex",
+      "pdf": "research/autonomous_claude_20261004/main/F_III_batch1e.pdf"
+    },
+    {
+      "date": "2026-10-06",
+      "round": "autonomous batch 1",
+      "integrator": "Claude main session",
+      "cross_model": "same-model only",
+      "changes": "FI-A interface item and a new remark after Prop. A1: revised F-I derives conditions 1, 3 and 4 (persistent projection, hull, Cut given ambient translations); condition 2 (budget proposition) unchanged",
+      "sha256": "fc3e290ee215ece0b7281bd2b275ce5969248b5705c9f2902dc5aa37c432d6d2",
+      "before_snapshot": "research/autonomous_claude_20261004/main/F_III_before_batch1h.tex",
+      "snapshot": "research/autonomous_claude_20261004/main/F_III_batch1h.tex",
+      "pdf": "research/autonomous_claude_20261004/main/F_III_batch1h.pdf"
+    },
+    {
+      "date": "2026-10-06",
+      "round": "autonomous batch 1, independent check V3",
+      "integrator": "Claude main session",
+      "source_of_fixes": "research/autonomous_claude_20261004/agentV3_f1/notes.md (## REPORT; harness blocked report.md)",
+      "cross_model": "same-model only",
+      "before_snapshot": "research/autonomous_claude_20261004/main/F_III_batch1h.tex",
+      "changes": "FI-A item and remark after Prop. A1: Cut condition stated with the unique-invariant-vector condition",
+      "sha256": "20013ca5f0c6fd933e261f7b6d24d233e70720b4910981b295a727bfd13e2059",
+      "snapshot": "research/autonomous_claude_20261004/main/F_III_batch1j.tex",
+      "pdf": "research/autonomous_claude_20261004/main/F_III_batch1j.pdf"
+    },
+    {
+      "date": "2026-10-08",
+      "round": "Claude round34 response: reviewed corrections and extensions",
+      "integrator": "Codex root, sole writer of papers for this batch",
+      "changes_and_review_scope": "Targeted scope and resource factors of the two-thirds calibration law.",
+      "model_note": "Physics and geometry: gpt-6-astra / ultra; subject: gpt-6.1-sol / ultra. Root reviewed candidates and independently checked listed new results. Known-background, non-blind review; not full-theory certification.",
+      "sha256": "9cd5f16a8a789e2400abcccd2df7c03a864bcd06753cd61d94c7ac7d5aa2729a",
+      "before_sha256": "20013ca5f0c6fd933e261f7b6d24d233e70720b4910981b295a727bfd13e2059",
+      "before_snapshot": "research/round34_response_codex_20261008/integration_before/F-III/Foundation_III.tex",
+      "before_provenance_snapshot": "research/round34_response_codex_20261008/integration_before/F-III/PROVENANCE.json",
+      "snapshot": "research/round34_response_codex_20261008/frozen/F-III/Foundation_III.tex",
+      "provenance_snapshot": "research/round34_response_codex_20261008/frozen/F-III/PROVENANCE.json",
+      "pdf": "research/round34_response_codex_20261008/frozen/F-III/Foundation_III.pdf",
+      "review": "research/round34_response_codex_20261008/REVIEW_AND_HANDOFF.md",
+      "build": "Isolated xelatex via latexmk; final log has no warning, undefined reference, overfull or underfull box. Title/Author present. Not an all-page visual or publication acceptance.",
+      "publication": "Working source only; July staging and public GitHub/Zenodo unchanged."
+    },
+    {
+      "date": "2026-10-09",
+      "round": "Foundation return and persistent access",
+      "integrator": "Codex root",
+      "sha256": "43bd7acd2a6c6fc55e2e3bd5dd773512db1605be22ab1d09711775cf5139f51f",
+      "changes": "Finite compact noise families under arbitrary weighted-fair schedules; countable-family counterexample; noncommuting fixed-product and summable-perturbation extensions; direct compact-action Type III lift and FB-B boundedness; scores moved to appendices, main prose, preparation charges and theory interfaces rewritten.",
+      "before_snapshot": "research/foundation_return_writeback_codex_20261009/before/F-III/Foundation_III.tex",
+      "snapshot": "research/foundation_return_writeback_codex_20261009/frozen/F-III/Foundation_III.tex",
+      "review": "research/foundation_return_writeback_codex_20261009/REVIEW_AND_HANDOFF.md",
+      "checks": "Root full-source reading, own proof review and fresh small checks, isolated xelatex build. No fresh Claude review of integrated text.",
+      "cross_model": "Current text awaits the planned post-14 independent audit; reference-only edits do not upgrade evidence.",
+      "publication": "Local working draft only. Author final review and separate upload authorization required."
+    },
+    {
+      "date": "2026-10-09",
+      "round": "Shared structure, common errors and a reference prepared inside it",
+      "integrator": "Codex root",
+      "sha256": "8e8ca33f48cbf4e63a964f8fd8235c4f7bf32d458bdcf7f2a6d66a365b3f0fcc",
+      "changes": "Foundation II current working subtitle synchronized in bibliography only.",
+      "before_snapshot": "research/foundation_sharing_writeback_codex_20261009/before/F-III/Foundation_III.tex",
+      "snapshot": "research/foundation_sharing_writeback_codex_20261009/frozen/F-III/Foundation_III.tex",
+      "review": "research/foundation_sharing_writeback_codex_20261009/REVIEW_AND_HANDOFF.md",
+      "checks": "Bibliography diff and isolated build; scientific body byte-identical.",
+      "cross_model": "Integrated text and new strengthenings await post-14 independent audit; old evidence not upgraded.",
+      "publication": "Working draft only; author final review and explicit upload authorization required."
+    },
+    {
+      "date": "2026-10-11",
+      "round": "Learned protected frame and retained physical return",
+      "integrator": "Codex root",
+      "sha256": "558cb4d796acc9bbceb1adbc5a54e81ae9080ca9ad4d2680f5c558fd1faf1986",
+      "before_sha256": "8e8ca33f48cbf4e63a964f8fd8235c4f7bf32d458bdcf7f2a6d66a365b3f0fcc",
+      "changes": "Retained-history finite composition with nonlinear continuity moduli and linear/Holder budgets; acquired odd/even protection for held entangled content with exact risk and diagnostic threshold; second physical acquisition on spent correlated Gibbs port in the same scalar/JT action; source-return coefficients, physical ledgers, reproduction protocol, abstract/introduction/open/ledger and verified references synchronized.",
+      "before_snapshot": "research/learned_return_codex_20261011/before/F-III/Foundation_III.tex",
+      "before_provenance_snapshot": "research/learned_return_codex_20261011/before/F-III/PROVENANCE.json",
+      "snapshot": "research/learned_return_codex_20261011/frozen/F-III/Foundation_III.tex",
+      "provenance_snapshot": "research/learned_return_codex_20261011/frozen/F-III/PROVENANCE.json",
+      "pdf": "research/learned_return_codex_20261011/frozen/F-III/Foundation_III.pdf",
+      "review": "research/learned_return_codex_20261011/REVIEW_AND_HANDOFF.md",
+      "checks": "Root read all 1765 before-source lines, derived the prototype/threshold and return formulas, exact tensor/rational checks, full retained-reference numerical evolution and different tighter integrator. New and adjacent source, entry and closing sections read back with my-writing assistance. Final isolated xelatex build: 29 pages, no warnings, undefined references or box warnings; Title/Author present. Selected-page visual review recorded separately, not all-page or all-theory certification.",
+      "cross_model": "Root informed development and self-review only. Planned post-14 independent audit remains pending; neither novel joint realization nor integrated text upgraded to Claude review.",
+      "physical_scope": "Finite scalar/JT mean action with supplied primitive gates and diagnostic/storage relation. No full quantum-material or thermal-factory matching, infinite stability, universal recovery optimality or experience theorem.",
+      "publication": "Local OctoberReview working paper only. July staging and public GitHub/Zenodo untouched. Author final review and exact-version upload authorization required."
+    },
+    {
+      "date": "2026-10-12",
+      "round": "Parallel remaining-paper revision: F-III v1",
+      "integrator": "Codex root, sole writer of papers/PROVENANCE",
+      "before_sha256": "558cb4d796acc9bbceb1adbc5a54e81ae9080ca9ad4d2680f5c558fd1faf1986",
+      "sha256": "1e83ba210acc8f2f0316405dc5c24565168cb52602beede1c5f7454b39604903",
+      "candidate": "revision_execution_20261011/worker/parallel_sharing/F-III/v1/Foundation_III.tex",
+      "changes": "Reorganized complete main argument and compact supporting appendices; actual same-H retained-history continuation after finite receiver renewal, two-state form/rms source certificate and no ready-clock replacement. Finite compact-group persistence, bank risk and held-content scalar/JT example retained as distinct mechanisms.",
+      "review": "revision_execution_20261011/root_checks/F_III_parallel_review.md",
+      "before_snapshot": "revision_execution_20261011/root_checks/F_III_parallel_before.tex",
+      "before_provenance_snapshot": "revision_execution_20261011/root_checks/F_III_parallel_PROVENANCE_before.json",
+      "snapshot": "revision_execution_20261011/root_checks/F_III_parallel_after.tex",
+      "provenance_snapshot": "revision_execution_20261011/root_checks/F_III_parallel_PROVENANCE_after.json",
+      "pdf": "revision_execution_20261011/root_checks/F_III_parallel_root_build.pdf",
+      "review_scope": "Root read all 1638 candidate lines, the fixed QR-C renewal/continuation upstream and compact-persistence proof; different root exact-instrument/form and finite-clock Fock renewal/continuation implementation. Worker read July/current old complete text; root did not repeat an independent whole-July audit or unchanged large scalar/JT trajectory runs. Known-background same-platform review, not author acceptance or Claude cross-model audit.",
+      "build": "Root isolated XeLaTeX x3, 23 pages; final log no warnings/undefined/overfull/underfull; title/author present; root viewed five selected pages (1,9,16,17,19), not all-page visual acceptance.",
+      "publication": "Working source only. July staging, S0 PDF, public GitHub/Zenodo unchanged. Author final review and exact-version upload permission required."
+    },
+    {
+      "date": "2026-10-12",
+      "round": "Final corpus dependency and bibliography synchronization",
+      "integrator": "Codex root",
+      "sha256": "38c8e48bbfed4f9612858a9f540daa18faccfcef338277e36e5190cd7cbabb3e",
+      "changes": "bib:PaperI, bib:PaperII, bib:HAFFD, L1, L2",
+      "before_snapshot": "revision_execution_20261011/root_checks/dependency_sync/F-III/before.tex",
+      "snapshot": "revision_execution_20261011/root_checks/dependency_sync/F-III/after.tex",
+      "review": "revision_execution_20261011/root_checks/DEPENDENCY_SYNC_REVIEW.md",
+      "cross_model": "Root exact-match integration after full-manuscript approvals; independent audit pending.",
+      "publication": "Author final review and explicit version upload authorization required."
+    },
+    {
+      "date": "2026-10-12",
+      "round": "Whole-corpus linear read, focused interface corrections v1",
+      "integrator": "Codex root; sole formal writer",
+      "before_sha256": "38c8e48bbfed4f9612858a9f540daa18faccfcef338277e36e5190cd7cbabb3e",
+      "sha256": "df6a1d7676f2cb29871a5ad0d41beeb5120bdf7e3c3a5d060e13b162cf381f88",
+      "changes": "Replace the retired Foundation I Stage A/B tuple with source, actual permissions, seed and Gamma-hull; distinguish conditional Cut inheritance and actual records; distinguish feedback norm continuity from ambient source continuity.",
+      "before_snapshot": "linear_review_20261012/repair_v1/before/F-III/Foundation_III.tex",
+      "snapshot": "linear_review_20261012/repair_v1/after/F-III/Foundation_III.tex",
+      "provenance_snapshot": "linear_review_20261012/repair_v1/after/F-III/PROVENANCE.json",
+      "review": "linear_review_20261012/repair_v1/REVIEW_ENTRY.md",
+      "review_scope": "Root read all 29 launch manuscripts, appendices and bibliographies and all 7 collection frontmatters; reviewed this delta. New NZ, planar drift and weighted probe-time identities checked by fresh root calculations. Earlier numerical sweeps and all cited primary proofs not replayed; not blind, cross-model or author acceptance.",
+      "writing": "my-writing used to keep new text concrete and avoid repeated limitations; no statistical watermark claim.",
+      "publication": "Working source only. July staging and public platforms unchanged. Exact-version author approval required."
+    },
+    {
+      "date": "2026-10-12",
+      "round": "Approved bearing plan P1: installed finite rounds",
+      "integrator": "Codex root",
+      "before_sha256": "df6a1d7676f2cb29871a5ad0d41beeb5120bdf7e3c3a5d060e13b162cf381f88",
+      "sha256": "9c1e167de8af3bb9a49f69954a8dece874e55135982055ba9eff01346039298d",
+      "changes": "Use the installed finite-sequence construction for actual successive returns, preserving old body, references, banks and cursor; retain separate sustained-operation and total-stress conditions.",
+      "before_snapshot": "linear_review_20261012/bearing_execution/p1_before/F-III/Foundation_III.tex",
+      "snapshot": "linear_review_20261012/bearing_execution/p1_after/F-III/Foundation_III.tex",
+      "provenance_snapshot": "linear_review_20261012/bearing_execution/p1_after/F-III/PROVENANCE.json",
+      "review": "linear_review_20261012/bearing_execution/P1_REVIEW.md",
+      "checks": "Root derivation of prefix-gauge Duhamel bound and direct material-energy estimate. New full cursor/data/Fock/reference simulation, renewal checkpoint and record-force control. Fock cutoff diagnostics are not a continuum proof; not blind or cross-model review.",
+      "writing": "my-writing applied to added/replaced text and adjacent claims; earlier whole-corpus reading retained, not repeated this batch.",
+      "limits": "Fixed finite horizon; increasing clock energy. Total covariant apparatus stress, physical stress-flow gates and sustained thermal operation are separate outstanding tasks.",
+      "publication": "No upload. Author exact-version final review and explicit publication authorization required."
+    },
+    {
+      "date": "2026-10-13",
+      "round": "Same-input finite joint return A",
+      "integrator": "Codex root; sole formal writer",
+      "before_sha256": "9c1e167de8af3bb9a49f69954a8dece874e55135982055ba9eff01346039298d",
+      "sha256": "5802fbe83773df6df24943071a41ff3c7d11073d0c9218170e9dd064cc06d183",
+      "changes": "Replace the different-initial-geometry expansion as closure evidence with one finite same-input learned-frame/source/geometry/spent-cell return proposition. Retain task margin, full old references, fixed-mass support, matched mechanical-use intervention, exact mixed radiation/sensor path, actual final completion window and joint tolerance. Abstract and adjacent limitations synchronized.",
+      "before_snapshot": "revision_execution_20261013/root_a_integration/before/F-III/Foundation_III.tex",
+      "snapshot": "revision_execution_20261013/root_a_integration/after/F-III/Foundation_III.tex",
+      "provenance_snapshot": "revision_execution_20261013/root_a_integration/after/F-III/PROVENANCE.json",
+      "review": "revision_execution_20261013/root_a_integration/REVIEW.md",
+      "candidate": "revision_execution_20261013/worker_a/DERIVATION.md",
+      "review_scope": "Root informed same-model review after one native GPT-6.1/high executor. Independent exact retained-reference endpoint kernel, rational mixed-response coefficient, prototype loss and mass-junction identity; original unsimplified equations with a different integrator matched worker. Analytic existence is separate from non-interval numerical diagnostics. Existing unchanged proofs and all cited literature not re-audited.",
+      "writing": "my-writing applied to integrated and adjacent prose. No statistical watermark claim, author voice approval or whole-corpus new reading certification.",
+      "limits": "Finite scalar/JT mean action; supplied primitives, plant relation and prepared Gibbs cells. Not the full quantum spatial/thermal apparatus, perpetual fixed-capacity operation or joint sharp-exhaust attainability.",
+      "publication": "Local working draft only. July staging/public platforms untouched. Author exact-version final review and separate explicit upload authorization required."
+    },
+    {
+      "date": "2026-10-13",
+      "round": "Global audit repair and manuscript consolidation",
+      "integrator": "Codex root; sole formal writer",
+      "before_sha256": "5802fbe83773df6df24943071a41ff3c7d11073d0c9218170e9dd064cc06d183",
+      "sha256": "9e23e21c5be38c9aec0405d5c8b8ea2eaefd216772036d9c98e709536ba6b6d6",
+      "changes": [
+        "A1: add self-contained uniform-J wholly-idle packet arrival lemma, fixed energy bound, finite time/path/preparation costs and retained-reference estimate; replace misplaced QR-C citation.",
+        "Remove unused arithmetic-score appendix and duplicate one-update scaffold, consolidate tangent/example prose. All original formal statements retained; one arrival lemma added. Two proofs edited with explicit change record.",
+        "Synchronize QR-C working title in bibliography only."
+      ],
+      "before_snapshot": "revision_repair_20261013/before/F-III/Foundation_III.tex",
+      "snapshot": "revision_repair_20261013/after/F-III/Foundation_III.tex",
+      "review": "revision_repair_20261013/REVIEW.md",
+      "evidence_scope": "Known-background root review and fixed audit deltas; native GPT-6.1/high long-paper candidate work. Not Claude independent audit or author acceptance.",
+      "publication": "Local working revision; exact-version author review and explicit upload authorization required."
+    },
+    {
+      "date": "2026-10-15",
+      "revision": "postaudit_20261014",
+      "integrator": "Codex root",
+      "baseline": "review_build_summaryfix_20261013_v3",
+      "before_sha256": "9e23e21c5be38c9aec0405d5c8b8ea2eaefd216772036d9c98e709536ba6b6d6",
+      "sha256": "8c0a2639fa89c7d0fe1a684b4cace55469e5427ba565d7b77b5ab269c44b3363",
+      "audit": "research/synthesis/claude/final_adversarial_review_20261013",
+      "dispositions": "revision_postaudit_20261014/DISPOSITION.csv",
+      "review": "revision_postaudit_20261014/REVIEW.md",
+      "status": "Post-adversarial-review working revision; author approval and independent re-review not claimed.",
+      "supplementary_files": [
+        {
+          "path": "OctoberReview/papers/F-III/supplemental/finite_return/README.md",
+          "local": "supplemental/finite_return/README.md",
+          "sha256": "da2d669a2b24ef195daf8fe57e0218cc6cc9660ae9b7ca6fed7f650294d4d06d"
+        },
+        {
+          "path": "OctoberReview/papers/F-III/supplemental/finite_return/results/audit.json",
+          "local": "supplemental/finite_return/results/audit.json",
+          "sha256": "7c112649a64223fc868957c2e599f79b9b0ff781d4a082335c0a1dceef1fea56"
+        },
+        {
+          "path": "OctoberReview/papers/F-III/supplemental/finite_return/results/background.json",
+          "local": "supplemental/finite_return/results/background.json",
+          "sha256": "3783c9d4990811c372bc8e09f55f8ee91d372ff3ebb85ec112bf060d7887d605"
+        },
+        {
+          "path": "OctoberReview/papers/F-III/supplemental/finite_return/results/base.json",
+          "local": "supplemental/finite_return/results/base.json",
+          "sha256": "cafe721f5c111da628f94ddd9b84fc2815388433f6f080fe2e446997576574cb"
+        },
+        {
+          "path": "OctoberReview/papers/F-III/supplemental/finite_return/results/edge.json",
+          "local": "supplemental/finite_return/results/edge.json",
+          "sha256": "095e516c11355458e0860365e713a26e3c67ce0c7e7ff2f9406c4bbfb7c3eb70"
+        },
+        {
+          "path": "OctoberReview/papers/F-III/supplemental/finite_return/results/null.json",
+          "local": "supplemental/finite_return/results/null.json",
+          "sha256": "bd5553d07b2cef8b86509e00e6323b6d63590151379aeec339cac6102dd710cc"
+        },
+        {
+          "path": "OctoberReview/papers/F-III/supplemental/finite_return/results/prefix.json",
+          "local": "supplemental/finite_return/results/prefix.json",
+          "sha256": "b027d192b7360e1530b449dcff1657a54160e1439126c2613bf0bb3a2cef03ac"
+        },
+        {
+          "path": "OctoberReview/papers/F-III/supplemental/finite_return/results/tight.json",
+          "local": "supplemental/finite_return/results/tight.json",
+          "sha256": "6ffafdcbeccee9c00ead6d0afa93ff677b01be801140964fa9f7bbf30a50ed5b"
+        },
+        {
+          "path": "OctoberReview/papers/F-III/supplemental/finite_return/scripts/full_return.py",
+          "local": "supplemental/finite_return/scripts/full_return.py",
+          "sha256": "ac6342c39e93cb244e769fec222ef6466284c3903b8d8494301f4cb64460805a"
+        },
+        {
+          "path": "OctoberReview/papers/F-III/supplemental/finite_return/scripts/prefix_coefficient.py",
+          "local": "supplemental/finite_return/scripts/prefix_coefficient.py",
+          "sha256": "81f0c4b5c4cce999d8c27f0d47aefefd048169313a29db8bf196db6a4492a9f7"
+        },
+        {
+          "path": "OctoberReview/papers/F-III/supplemental/source_notes/FIII_quantum_imports.tex",
+          "local": "supplemental/source_notes/FIII_quantum_imports.tex",
+          "sha256": "680f390c5e8ba7e34f59bec04538e2b6d0f89cefaf703d98198f20a1c3cb9cf7"
+        },
+        {
+          "path": "OctoberReview/papers/F-III/supplemental/source_notes/README.md",
+          "local": "supplemental/source_notes/README.md",
+          "sha256": "ab2632fe522662630b962c2082f2b22a113dbc9bf41856d4fa9af11a646a0eec"
+        }
+      ]
+    },
+    {
+      "date": "2026-10-15",
+      "revision": "minor_v5_20261015",
+      "integrator": "Codex root",
+      "baseline": "review_build_postaudit_20261015_v4",
+      "before_sha256": "8c0a2639fa89c7d0fe1a684b4cace55469e5427ba565d7b77b5ab269c44b3363",
+      "sha256": "2709de049486ea2cf7afc3a54754de9424ddf3ec07d5e338ddb2da100b296957",
+      "audit": "research/synthesis/claude/postaudit_v4_review_20261015",
+      "dispositions": "revision_minor_v5_20261015/DISPOSITION.csv",
+      "review": "revision_minor_v5_20261015/REVIEW.md",
+      "status": "Bounded minor revision; new edits root-reviewed, not a fresh cross-model acceptance or publication approval.",
+      "changed_source_assets": [
+        {
+          "path": "OctoberReview/papers/F-III/Foundation_III.tex",
+          "before": "8c0a2639fa89c7d0fe1a684b4cace55469e5427ba565d7b77b5ab269c44b3363",
+          "after": "2709de049486ea2cf7afc3a54754de9424ddf3ec07d5e338ddb2da100b296957"
+        }
+      ]
+    },
+    {
+      "date": "2026-10-15",
+      "revision": "optional_v6_20261015",
+      "integrator": "Codex root",
+      "baseline": "review_build_minor_20261015_v5",
+      "before_sha256": "2709de049486ea2cf7afc3a54754de9424ddf3ec07d5e338ddb2da100b296957",
+      "sha256": "832200d71f0f64a34b7b45e63cabb22953f873fbe27d85bd636df6f1c8291073",
+      "audit": "research/synthesis/claude/v5_minor_review_20261015",
+      "dispositions": "revision_optional_v6_20261015/DISPOSITION.csv",
+      "review": "revision_optional_v6_20261015/REVIEW.md",
+      "status": "Optional clarity corrections after acceptance of v5; root-reviewed, not a new Claude review or publication approval.",
+      "changed_source_assets": [
+        {
+          "path": "OctoberReview/papers/F-III/Foundation_III.tex",
+          "before": "2709de049486ea2cf7afc3a54754de9424ddf3ec07d5e338ddb2da100b296957",
+          "after": "832200d71f0f64a34b7b45e63cabb22953f873fbe27d85bd636df6f1c8291073"
+        }
+      ]
+    },
+    {
+      "date": "2026-10-15",
+      "revision": "references_v7r2_20261015",
+      "integrator": "Codex root",
+      "baseline": "v7r1",
+      "before_sha256": "832200d71f0f64a34b7b45e63cabb22953f873fbe27d85bd636df6f1c8291073",
+      "sha256": "71f8e1239b94de03070f1d6af806f643a8f49c14625488d8db709f80361428c8",
+      "changes": "Removed working-revision status from 8 self-citations; retained author, title, year, DOI and citation keys. No text outside bibliography changed.",
+      "review": "revision_references_v7r2_20261015/REVIEW.md",
+      "publication": "No upload; exact-version author approval required."
+    },
+    {
+      "date": "2026-10-16",
+      "round": "Direction restoration P5 shared formation and return",
+      "integrator": "Codex root",
+      "before_sha256": "71f8e1239b94de03070f1d6af806f643a8f49c14625488d8db709f80361428c8",
+      "sha256": "370cc5202805e52e2761b3fbb05b754002071cc7a0715041abd4e173445b3ff0",
+      "changes": "Connect installed quantum encoding to history-selected future access; frozen learned frames can remain useful in a static plant. Preserve finite mean-action return and all 18 proof blocks; update QR-C title.",
+      "snapshot": "research/direction_revision_execution_20261016/root/f3_candidate/Foundation_III.tex",
+      "review": "research/direction_revision_execution_20261016/root/FII_FIII_REVIEW.md",
+      "scope": "Root read complete main source, reviewed changes and proofs touched; previous large simulations and external theorems not reverified, no whole-PDF visual acceptance.",
+      "publication": "Local revision only. Published inputs unchanged."
+    },
+    {
+      "date": "2026-10-16",
+      "round": "direction-postopus-20261016",
+      "integrator": "Codex root",
+      "basis": "Opus direction review at private book c8beff7; root targeted response, not external acceptance.",
+      "changes": "Scope/title/cross-reference corrections; D and QR-C technical appendices separated without loss. See direction_postopus_fix_20261016/DISPOSITION.md and per-paper diff.",
+      "before_sha256": "370cc5202805e52e2761b3fbb05b754002071cc7a0715041abd4e173445b3ff0",
+      "sha256": "726cf5be4329ed820038ffc9bf433c45228f64dab9983aac309db9467e200f4b",
+      "source_assets": {
+        "Foundation_III.tex": "726cf5be4329ed820038ffc9bf433c45228f64dab9983aac309db9467e200f4b"
+      },
+      "checks": "Original proof blocks and label sets retained; separate build/numbering evidence in fix package.",
+      "publication": false
+    }
+  ]
+}
